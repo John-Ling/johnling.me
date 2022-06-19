@@ -1,0 +1,95 @@
+body {
+    background-image: url("Images/dots.png");
+    background-color: #1a1b26;
+}
+
+/* 
+@media (min-width: 576px) { ... }
+
+
+@media (min-width: 768px) { ... }
+
+
+@media (min-width: 992px) { ... }
+
+
+@media (min-width: 1200px) { ... }
+
+@media (min-width: 1400px) { ... } */
+
+
+
+#main-window {
+    position: relative;
+    top: 200px;
+    width: 350px;
+    height: 450px;
+    color: #c0caf5;
+    background-color: #1a1b26;
+    text-align: center;
+    padding-top: 240px;
+    border: solid 5px #7aa2f7;
+    border-radius: 20px;
+}
+
+.main-window-bio {
+    position: relative;
+    top: -200px;
+}
+
+#name {
+    font-size: x-large;
+    color: #f0f0f0 !important;
+    background-color: #303447;
+    border: solid 10px #303447;
+    border-radius: 15px;
+    width: 300px;
+    position: relative;
+    left: 21px;
+}
+
+#bio-list {
+    font-size: large;
+    padding-top: 15px;
+    list-style: none;
+    align-items: center;
+    position: relative;
+    right: 15px;
+}
+
+/* list items */
+
+#student-label {
+    color: #7aa2f7;
+}
+
+#founder-label {
+    color: #f7768e;
+}
+
+#programmer-label {
+    color: #9ece6a;
+}
+
+
+#profile-picture {
+    position: relative;
+    top: -220px;
+    width: 220;
+    height: 220px;
+    border: solid 5px #303447;
+    border-radius: 50%;
+}
+
+#about-section {
+    background-color: #1a1b26;
+    position: relative;
+    top: 500px;
+}
+
+#about-header {
+    color: #f0f0f0;
+    border: solid 2px #303447;
+    background-color: #303447;
+    border-radius: 15px;
+}
