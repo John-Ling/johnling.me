@@ -3,25 +3,7 @@ body {
     background-color: #1a1b26;
 }
 
-/* 
-@media (min-width: 576px) { ... }
-
-
-@media (min-width: 768px) { ... }
-
-
-@media (min-width: 992px) { ... }
-
-
-@media (min-width: 1200px) { ... }
-
-@media (min-width: 1400px) { ... } */
-
-
-
 #main-window {
-    position: relative;
-    top: 200px;
     width: 350px;
     height: 450px;
     color: #c0caf5;
@@ -30,6 +12,7 @@ body {
     padding-top: 240px;
     border: solid 5px #7aa2f7;
     border-radius: 20px;
+    margin-top: 100px;
 }
 
 .main-window-bio {
@@ -81,15 +64,22 @@ body {
     border-radius: 50%;
 }
 
+#about-container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 #about-section {
     background-color: #1a1b26;
-    position: relative;
-    top: 500px;
+    margin-top: 180px;
+    padding-top: 20px;
 }
 
 #about-header {
     color: #f0f0f0;
-    border: solid 2px #303447;
     background-color: #303447;
+    border: solid 2px #303447;
     border-radius: 15px;
-}
+    font-size: xx-large;
+    width: 300px;
+}  
