@@ -15,12 +15,24 @@ body, html {
   color: #c0caf5;
 }
 
-.nav-link {
-  color: #c0caf5;
+.navbar-brand:hover {
+  color: #9ece6a;
 }
 
-.nav-link > .active {
-  color: #ff0000;
+.nav-link {
+  color: #c0caf5;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.nav-link:hover {
+  color: #c0caf5;
+  border-bottom: solid 2px #bb9af7;
+}
+
+.active {
+  color: #c0caf5 !important;
+  border-bottom: solid 2px #bb9af7;
 }
 
 .front-page-background {
@@ -47,7 +59,7 @@ body, html {
 #front-page-profile-pic {
   width: 250px;
   height: 250px;
-  border: solid 5px #303447;
+  border: solid 7px #303447;
   border-radius: 50%;
 }
 
@@ -103,6 +115,10 @@ body, html {
   padding-left: 40px;
 }
 
+.buffer {
+  margin-top: 70px;
+}
+
 .question-prompt {
   font-size: 48px;
 }
@@ -129,4 +145,12 @@ body, html {
 
 .question-half-2 {
   padding-left: 40px;
+}
+
+.img {
+  margin-left: 5%;
+  border: solid 7px #303447;
+  border-radius: 15px;
+  width: 450px;
+  height: 500px;
 }
