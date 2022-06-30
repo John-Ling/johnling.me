@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Ling</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link href="fonts.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+    <link href="scss/styles.css" rel="stylesheet">
 </head>
+
 <body>
     <header class="front-page-background">
         <nav class="navbar navbar-expand-lg sticky-top py-0 navbar-custom">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html">John Ling</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -33,7 +39,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Resume</a>
-                        </li>  
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">About</a>
                         </li>
@@ -43,14 +49,14 @@
         </nav>
         <div class="container d-flex align-items-center justify-content-center">
             <div class="front-page-plaque text-center">
-                <img id="front-page-profile-pic" src="Images/profile-pic-squared.jpeg" alt="Profile picture">
+                <img id="front-page-profile-pic" src="images/profile-pic-squared.jpeg" alt="Profile picture">
                 <h1 id="front-page-name">John Ling</h1>
                 <ul id="bio-list">
-                    <li id="student-label">Student</li>
-                    <li id="founder-label">Founder</li>
-                    <li id="programmer-label">Developer</li>
+                    <li id="student-label" class="blue">Student</li>
+                    <li id="founder-label" class="red">Founder</li>
+                    <li id="programmer-label" class="green">Developer</li>
                 </ul>
-            </div>     
+            </div>
         </div>
     </header>
 
@@ -60,78 +66,271 @@
             <div class="row">
                 <div class="col-sm-6 question-half-1 order-sm-12">
                     <h1 id="question-who" class="question-prompt">Who?</h1>
-                    <p1>My name is John Ling.</p1>
+                    <br>
+                    <h2>A bit about me</h2>
+                    <br>
+                    <p1>Hi! My name is John Ling.</p1>
                     <br>
                     <br>
-                    <p1>I am a [INSERT AGE CALCULATION SCRIPT HERE] year old student living in Malaysia currently taking A levels. 
-                        I take mathematics, physics and computer science as most of them lie with my own interests. 
-                        While I have a fascination with many fields of technology however I've found my interest lies mainly in programming. 
-                        Personal projects are my favourite aspect of programming as I enjoy building practical applications to help myself or others. 
+                    <p1>I am a <span id="age-text">17</span> year old student living in Malaysia currently taking A
+                        levels.
+                        I take mathematics, physics and computer science as most of them align with my own interests.
+                        While I have a fascination with many fields of technology however I've found my interest is
+                        mainly in programming.
+                        Personal projects are my favourite aspect of programming as I enjoy building practical
+                        applications to help myself or others.
                         From conceptualisation and design to the small triumphs debugging code, I enjoy all of it.</p1>
                     <br>
                     <br>
-                    <p1>Outside of programming many of my hobbies originate from skills I had learnt for projects. These include electronics, 3D printing and playing piano. 
-                        
+                    <p1>Outside of programming many of my hobbies mostly originate from skills I had learnt for
+                        projects. These include electronics, 3D printing and playing piano.</p1>
+                    <br>
+                    <br>
+                    <p1>I am also the founder of a charity named Plugged In Malaysia which refurbishes broken computers
+                        and distributes them to two charities.
+                        As of now, 166 computers and counting have been donated. I continue to manage the charity to
+                        this day.
                     </p1>
                 </div>
                 <div class="col-sm-6 question-half-2 order-sm-1">
-                    <img class="img" src="Images/trophy-pic.jpeg" alt="First picture">
+                    <img class="img img-fluid" src="images/trophy-pic.jpeg" alt="First picture">
                 </div>
             </div>
             <div class="row buffer">
-                <div class="col-sm-6 question-half-1 order-sm-12">
+                <div class="col-sm-6 question-half-2 order-sm-1">
                     <h1 id="question-what" class="question-prompt">What?</h1>
-                    <p1>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p1>
+                    <br>
+                    <h2>My tools for the job</h2>
+                    <br>
+                    <p1>I have been programming for 2 years in a variety of different languages such as Python, C# and
+                        Javascript.
+                        Over the course of my journey, I've picked up many more skills needed to build intuitive and
+                        scalable applications.
+                        All of my skills are self-taught through online resources or MOOCs such as CS50. </p1>
                     <br>
                     <br>
-                    <p1>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p1>
+                    <p1> When picking new technologies to learn, I typically don't discriminate based on their use in
+                        industry.
+                        I'm equally as likely to learn legacy Winforms over modern Angular; the same rule applies in
+                        reverse.
+                        My mindset when learning new technology is to focus on the principles they utilise rather than
+                        unique details.</p1>
+                    <br>
+                    <br>
+                    <p1>My reasoning for this approach stems from second-hand experience watching content creators
+                        online and accounts from friends working in the field.
+                        From large corporations to up and coming startups, the tools and technologies they use vary
+                        differently. A developer that can adapt to quickly use new tools
+                        will be more valuable than a developer who cannot.</p1>
+                    <br>
+                    <br>
+                    <p1>With how often tech can change, such as the current prevelance of blockchain and a decentralised
+                        "Web 3" or the trend to build desktop applications with web-based languages and Electron,
+                        a modular approach to learning allows me to quickly adapt to new progressions and changes to the
+                        standard paradigm. </p1>
                 </div>
-                <div class="col-sm-6 question-half-2 order-sm-1">
-                    <img src="Images/trophy-pic.jpeg" alt="First picture">
+                <div class="col-sm-6 question-half-1 order-sm-12">
+                    <h1 id="what-header" class="text-center">Languages</h1>
+                    <div class="what-section d-flex flex-wrap align-items-center justify-content-center">
+                        <div class="row gx-6">
+                            <div class="col-sm-3">
+                                <div class="icon">
+                                    <i class="devicon-python-plain"></i>
+                                    <span class="caption">Python</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="icon">
+                                    <i class="devicon-csharp-plain"></i>
+                                    <span class="caption">C#</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="icon">
+                                    <i class="devicon-c-plain"></i>
+                                    <span class="caption">C</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="icon">
+                                    <i class="devicon-sqlite-plain"></i>
+                                    <span class="caption">SQLite</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gx-6">
+                            <div class="col-sm-3">
+                                <div class="icon">
+                                    <i class="devicon-java-plain"></i>
+                                    <span class="caption">Java</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="icon">
+                                    <i class="devicon-html5-plain"></i>
+                                    <span class="caption">HTML</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="icon">
+                                    <i class="devicon-css3-plain"></i>
+                                    <span class="caption">CSS</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="icon">
+                                    <i class="devicon-javascript-plain"></i>
+                                    <span class="caption shortened">Javascript</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion" id="skills-accordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse" aria-expanded="false" aria-controls="collapse">
+                                    Technical Skills
+                                </button>
+                            </h2>
+                            <div id="collapse" class="accordion-collapse collapse show" aria-labelledby="accordion-header"
+                                data-bs-parent="#skills-accordion">
+                                <div class="accordion-body">
+                                    <div class="row gx-6">
+                                        <div class="col-sm-4">
+                                            <h3 class="text-center" id="technologies-header">Software</h3>
+                                            <ul>
+                                                <li>OpenCV</li>
+                                                <li>Bootstrap</li>
+                                                <li>Sass</li>
+                                                <li>Winforms</li>
+                                                <li>Flask</li>
+                                                <li>Beautiful Soup</li>
+                                                <li>Selenium</li>
+                                                <li>Wit.AI</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <h3 class="text-center" id="hardware-header">Hardware</h3>
+                                            <ul>
+                                                <li>Computer Aided Design (CAD)</li>
+                                                <li>3D Printing</li>
+                                                <li>Arduino / ATmega328p</li>
+                                                <li>Raspberry Pi</li>
+                                                <li>Circuit Design</li>
+                                                <li>Refurbishment</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <h3 class="text-center" id="server-header">Tooling</h3>
+                                            <ul>
+                                                <li>Ubuntu Server</li>
+                                                <li>Docker</li>
+                                                <li>Bash + Zsh</li>
+                                                <li>NGINX</li>
+                                                <li>SSH</li>
+                                                <li>Git</li>
+                                                <li>QEMU-KVM + VFIO</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row buffer">
-                <div class="col-sm-6 question-half-1 order-sm-12">
+                <div class="col-sm-12 order-sm-12 question-half-1">
                     <h1 id="question-when" class="question-prompt">When?</h1>
-                    <p1>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p1>
+                    <br>
+                    <h2>Where it all began</h2>
+                    <br>
+                    <p1>While I had taken some Python introductory classes the year before, my first true project was
+                        created in September of 2019.
+                        It was an automated kahoot player using the Selenium library which, while primitive, I was proud
+                        of as something I built myself. </p1>
                     <br>
                     <br>
-                    <p1>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p1>
+                    <p1>Ever since, I've continued to build a multitude of projects from desktop
+                        applications to electronic devices to websites. </p1>
                 </div>
-                <div class="col-sm-6 question-half-2 order-sm-1">
-                    <img src="Images/trophy-pic.jpeg" alt="First picture">
-                </div>
-            </div> 
-            <div class="row buffer">
-                <div class="col-sm-6 question-half-1 order-sm-12">
-                    <h1 id="question-where" class="question-prompt">Where?</h1>
-                    <p1>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p1>
-                    <br>
-                    <br>
-                    <p1>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p1>
-                </div>
-                <div class="col-sm-6 question-half-2 order-sm-1">
-                    <img src="Images/trophy-pic.jpeg" alt="First picture">
+                <div class="col-sm-12 order-sm-1 text-center buffer">
+                    <h1>Timeline</h1>
                 </div>
             </div>
+            <div class="row buffer text-center">
+                <div class="col-sm-12 order-sm-12">
+                    <h1 id="question-where" class="question-prompt">Where?</h1>
+                    <h2>(can you find me)</h2>
+                    <br>
+                </div>
+                <div class="col-sm-12 order-sm-1 findme-section">
+                    <div class="row gx-6">
+                        <div class="col">
+                            <div class="icon clickable-icon">
+                                <i class="fa-brands fa-instagram red"></i>
+                                <span class="caption">Instagram</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="icon clickable-icon">
+                                <i class="devicon-linkedin-plain blue"></i>
+                                <span class="caption">LinkedIn</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="icon clickable-icon">
+                                <i class="devicon-github-original white"></i>
+                                <span class="caption">Github</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="icon clickable-icon">
+                                <i class="fa-brands fa-stack-overflow orange"></i>
+                                <span class="caption">Stack Overflow</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="icon clickable-icon">
+                                <i class="fa-regular fa-envelope aquamarine"></i>
+                                <span class="caption">Email</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>                
+            </div>
+
             <div class="row buffer">
                 <div class="col-sm-6 question-half-1 order-sm-12">
                     <h1 id="question-why" class="question-prompt">Why?</h1>
-                    <p1>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p1>
+                    <p1>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p1>
                     <br>
                     <br>
-                    <p1>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p1>
+                    <p1>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p1>
                 </div>
                 <div class="col-sm-6 question-half-2 order-sm-1">
-                    <img src="Images/trophy-pic.jpeg" alt="First picture">
                 </div>
             </div>
         </div>
     </main>
     <footer class="footer-section">
+
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/927c1aac4a.js" crossorigin="anonymous"></script>
+    <script src="home.js" crossorigin="anonymous"></script>
 </body>
 
-</body>
 </html>

@@ -1,0 +1,324 @@
+$background: #1a1b26;
+$text: #c0caf5;
+$highlight: #303447;
+$highlighted-text: #f0f0f0;
+$red: #f7768e;
+$green: #9ece6a;
+$aquamarine: #73daca;
+$yellow: #e0af68;
+$orange: #ff9e64;
+$blue: #7aa2f7;
+$purple: #bb9af7;
+$teal: #7dcfff;
+$grey: #9aa5ce;
+$white: #f0f0f0;
+$pink: #fa98bf;
+
+@import "../bootstrap/scss/functions";
+
+$accordion-border-color: $highlight;
+$accordion-border-width: 5px;
+$accordion-bg: $background;
+$accordion-color: $text;
+$accordion-button-active-color: $highlighted-text;
+$accordion-button-active-bg: $highlight;
+$accordion-button-focus-border-color: none;
+$accordion-button-focus-box-shadow: none;
+
+@import "../bootstrap/scss/variables";
+
+@import "../bootstrap/scss/maps";
+@import "../bootstrap/scss/mixins";
+@import "../bootstrap/scss/root";
+
+@import "../bootstrap/scss/accordion";
+
+
+body,
+html {
+  margin: 0;
+  height: 100%;
+  font-family: 'meslolgs_nfregular';
+  background-color: $background;
+  color: $text;
+}
+
+.red {
+  color: $red;
+}
+
+.blue {
+  color: $blue;
+}
+
+.yellow {
+  color: $yellow;
+}
+
+.purple {
+  color: $purple;
+}
+
+.orange {
+  color: $orange;
+}
+
+.green {
+  color: $green;
+}
+
+.aquamarine {
+  color: $aquamarine;
+}
+
+.grey {
+  color: $grey;
+}
+
+.teal {
+  color: $teal;
+}
+
+.white {
+  color: $white;
+}
+
+.pink {
+  color: $pink;
+}
+
+.navbar {
+  background-color: $background;
+  color: $text;
+}
+
+.navbar-brand {
+  color: $text;
+}
+
+.navbar-brand:hover {
+  color: $green;
+}
+
+.nav-link {
+  color: $text;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.nav-link:hover {
+  color: $text;
+  border-bottom: solid 2px $purple;
+}
+
+.active {
+  color: $text  !important;
+  border-bottom: solid 2px $purple;
+}
+
+.front-page-background {
+  position: relative;
+  background-image: url("../images/dots.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100%;
+}
+
+.front-page-plaque {
+  position: absolute;
+  top: 15%;
+  background-color: $background;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border: solid 5px $blue;
+  border-radius: 15px;
+  color: $highlighted-text;
+}
+
+#front-page-profile-pic {
+  width: 250px;
+  height: 250px;
+  border: solid 7px $highlight;
+  border-radius: 50%;
+}
+
+#front-page-name {
+  margin-top: 15px;
+  padding-left: 60px;
+  padding-right: 60px;
+  margin-left: 30px;
+  margin-right: 30px;
+  padding-bottom: 5px;
+  border: solid 5px $highlight;
+  border-radius: 15px;
+  background-color: $highlight;
+  font-size: 28px;
+}
+
+#bio-list {
+  padding-top: 20px;
+  margin-right: 30px;
+  list-style: none;
+  display: inline-block;
+  font-size: 20px;
+}
+
+.about-section {
+  background-color: $background;
+  background-size: cover;
+  padding-top: 50px;
+}
+
+#about-header {
+  padding: 5px;
+  color: $highlighted-text;
+  position: relative;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 45px;
+  background: $highlight;
+  border: solid 3px $highlight;
+  border-radius: 15px;
+}
+
+.question-half-1 {
+  padding-left: 70px;
+}
+
+.buffer {
+  margin-top: 70px;
+}
+
+.question-prompt {
+  font-size: 48px;
+}
+
+#question-who {
+  color: $red;
+}
+
+#question-what {
+  color: $yellow;
+}
+
+#question-when {
+  color: $blue;
+}
+
+#question-where {
+  color: $purple;
+  margin: 30px;
+}
+
+#question-why {
+  color: $green;
+}
+
+.question-half-2 {
+  padding-left: 40px;
+}
+
+.img {
+  margin-left: 5%;
+  border: solid 7px $highlight;
+  border-radius: 15px;
+}
+
+.what-section {
+  font-size: 80px;
+  margin-bottom: 30px;
+}
+
+#what-header {
+  margin-top: 100px;
+  margin-bottom: 30px;
+  padding: 5px;
+  color: $highlighted-text;
+  background-color: $highlight;
+  border: 3px solid $highlight;
+  border-radius: 15px;
+}
+
+.icon {
+  display: inline-block;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.clickable-icon:hover {
+  padding-bottom: 10px;
+  border-bottom: solid 3px $purple;
+}
+
+.caption {
+  font-size: 22px;
+  display: block;
+}
+
+.shortened {
+  font-size: 16px;
+}
+
+.v-shortened {
+  font-size: 14px;
+}
+
+.devicon-python-plain {
+  color: $blue;
+}
+
+.devicon-csharp-plain {
+  color: $purple;
+}
+
+.devicon-javascript-plain {
+  color: $yellow;
+}
+
+.devicon-javascript-plain>span {
+  font-size: 12px;
+}
+
+.devicon-html5-plain {
+  color: $orange;
+}
+
+.devicon-css3-plain {
+  color: $teal;
+}
+
+.devicon-sqlite-plain {
+  color: $aquamarine;
+}
+
+.devicon-c-plain {
+  color: $grey;
+}
+
+.devicon-java-plain {
+  color: $red;
+}
+
+#technologies-header {
+  color: $aquamarine;
+}
+
+#hardware-header {
+  color: $blue;
+}
+
+#server-header {
+  color: $purple;
+}
+
+.accordion-body {
+  color: $text;
+}
+
+.findme-section {
+  font-size: 70px;
+
+}
