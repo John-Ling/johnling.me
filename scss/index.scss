@@ -1,18 +1,18 @@
 $background: #1a1b26;
+$background-dark: #16161d;
 $text: #c0caf5;
 $highlight: #303447;
 $highlighted-text: #f0f0f0;
 $red: #f7768e;
 $green: #9ece6a;
-$aquamarine: #73daca;
+$teal: #73daca;
 $yellow: #e0af68;
 $orange: #ff9e64;
 $blue: #7aa2f7;
 $purple: #bb9af7;
-$teal: #7dcfff;
+$cyan: #7dcfff;
 $grey: #9aa5ce;
 $white: #f0f0f0;
-$pink: #fa98bf;
 
 @import "../bootstrap/scss/functions";
 
@@ -43,6 +43,15 @@ html {
   color: $text;
 }
 
+a {
+  text-decoration: none;
+  color: $text;
+}
+
+a:hover {
+  color: $text;
+}
+
 .red {
   color: $red;
 }
@@ -67,27 +76,23 @@ html {
   color: $green;
 }
 
-.aquamarine {
-  color: $aquamarine;
+.teal {
+  color: $teal;
 }
 
 .grey {
   color: $grey;
 }
 
-.teal {
-  color: $teal;
+.cyan {
+  color: $cyan;
 }
 
 .white {
   color: $white;
 }
 
-.pink {
-  color: $pink;
-}
-
-.navbar {
+.navbar-top {
   background-color: $background;
   color: $text;
 }
@@ -97,23 +102,27 @@ html {
 }
 
 .navbar-brand:hover {
-  color: $green;
+  color: $teal;
 }
 
 .nav-link {
-  color: $text;
+  color: $text !important;
   margin-left: 5px;
   margin-right: 5px;
-}
-
-.nav-link:hover {
-  color: $text;
-  border-bottom: solid 2px $purple;
+  &:hover { border-bottom: solid 2px $purple}
 }
 
 .active {
   color: $text  !important;
   border-bottom: solid 2px $purple;
+}
+
+.header {
+  padding: 5px;
+  color: $highlighted-text;
+  background-color: $highlight;
+  border: solid 3px $highlight;
+  border-radius: 15px;
 }
 
 .front-page-background {
@@ -144,16 +153,13 @@ html {
   border-radius: 50%;
 }
 
-#front-page-name {
+.front-page-name {
   margin-top: 15px;
   padding-left: 60px;
   padding-right: 60px;
   margin-left: 30px;
   margin-right: 30px;
   padding-bottom: 5px;
-  border: solid 5px $highlight;
-  border-radius: 15px;
-  background-color: $highlight;
   font-size: 28px;
 }
 
@@ -165,26 +171,18 @@ html {
   font-size: 20px;
 }
 
-.about-section {
+#about-section {
   background-color: $background;
   background-size: cover;
-  padding-top: 50px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 #about-header {
-  padding: 5px;
-  color: $highlighted-text;
   position: relative;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 45px;
-  background: $highlight;
-  border: solid 3px $highlight;
-  border-radius: 15px;
-}
-
-.question-half-1 {
-  padding-left: 70px;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 25px;
 }
 
 .buffer {
@@ -195,35 +193,15 @@ html {
   font-size: 48px;
 }
 
-#question-who {
-  color: $red;
-}
-
-#question-what {
-  color: $yellow;
-}
-
-#question-when {
-  color: $blue;
-}
-
-#question-where {
-  color: $purple;
-  margin: 30px;
-}
-
-#question-why {
-  color: $green;
-}
-
-.question-half-2 {
-  padding-left: 40px;
-}
-
-.img {
-  margin-left: 5%;
+.img-border {
   border: solid 7px $highlight;
   border-radius: 15px;
+}
+
+#trophy-picture {
+  width: 80%;
+  display: block;
+  margin: auto;
 }
 
 .what-section {
@@ -234,11 +212,7 @@ html {
 #what-header {
   margin-top: 100px;
   margin-bottom: 30px;
-  padding: 5px;
-  color: $highlighted-text;
-  background-color: $highlight;
-  border: 3px solid $highlight;
-  border-radius: 15px;
+  padding-bottom: 7px;
 }
 
 .icon {
@@ -266,44 +240,8 @@ html {
   font-size: 14px;
 }
 
-.devicon-python-plain {
-  color: $blue;
-}
-
-.devicon-csharp-plain {
-  color: $purple;
-}
-
-.devicon-javascript-plain {
-  color: $yellow;
-}
-
-.devicon-javascript-plain>span {
-  font-size: 12px;
-}
-
-.devicon-html5-plain {
-  color: $orange;
-}
-
-.devicon-css3-plain {
-  color: $teal;
-}
-
-.devicon-sqlite-plain {
-  color: $aquamarine;
-}
-
-.devicon-c-plain {
-  color: $grey;
-}
-
-.devicon-java-plain {
-  color: $red;
-}
-
 #technologies-header {
-  color: $aquamarine;
+  color: $teal;
 }
 
 #hardware-header {
@@ -318,7 +256,136 @@ html {
   color: $text;
 }
 
+#timeline-header {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.timeline {
+  margin-top: 150px;
+  margin-bottom: 80px;
+  margin-left: 2%;
+  margin-right: 2%;
+  height: 3px;
+  list-style: none;
+  text-align: justify;
+  background: $text;
+}
+
+.timeline:after {
+	display: inline-block;
+	content:"";
+	width: 100%;
+}
+
+.timeline li {
+	display: inline-block;
+	width: 21px;
+	height: 21px;
+	background: $background;
+	text-align: center;
+	line-height: 1.2;
+	position: relative;
+	bottom: 9px;
+  border: solid 4px $text;
+	border-radius: 50%;
+}
+
+.timeline li:before {
+	display: inline-block;
+	content: attr(data-month);
+	font-size: 15px;
+	position: absolute;
+  white-space: nowrap;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.timeline li:nth-child(odd):before {
+	top: -40px;
+}
+
+.timeline li:nth-child(even):before {
+	bottom: -40px;
+}
+
+.timeline li:after {
+	display: inline-block;
+	content: attr(data-text);
+	font-size: 15px;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.timeline li:nth-child(odd):after {
+	bottom: 0;
+	margin-bottom: -10px;
+	transform: translate(-50%, 100%);
+}
+
+.timeline li:nth-child(even):after {
+	top: 0;
+	margin-top: -10px;
+	transform: translate(-50%, -100%);
+}
+
+$timeline-colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
+@for $i from 1 through length($timeline-colours) {
+  $colour: nth($timeline-colours, $i);
+  .timeline li:nth-child(#{$i}):before {
+    color: $colour;
+  }
+}
+
 .findme-section {
   font-size: 70px;
+}
 
+#mail-link {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 22px;
+  &:hover {color: $teal}
+}
+
+.footer-section {
+  background-color: $background-dark;
+  height: fit-content;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#return-link {
+  margin-right: 10px;
+  color: $text;
+  text-decoration: none;
+  &:hover {color: $teal}
+}
+
+#pim-photo {
+  width: 60%;
+  display: block;
+  margin: auto;
+}
+
+@media screen and (max-width: 900px) {
+  #trophy-picture {
+    margin-top: 40px;
+  }
+
+  #pim-photo {
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #about-header {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  #timeline-header {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
