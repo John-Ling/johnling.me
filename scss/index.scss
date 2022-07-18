@@ -24,6 +24,7 @@ $accordion-button-active-color: $highlighted-text;
 $accordion-button-active-bg: $highlight;
 $accordion-button-focus-border-color: none;
 $accordion-button-focus-box-shadow: none;
+$card-bg: $background;
 
 @import "../bootstrap/scss/variables";
 
@@ -32,7 +33,7 @@ $accordion-button-focus-box-shadow: none;
 @import "../bootstrap/scss/root";
 
 @import "../bootstrap/scss/accordion";
-
+@import "../bootstrap/scss/card";
 
 body,
 html {
@@ -40,6 +41,7 @@ html {
   height: 100%;
   font-family: 'meslolgs_nfregular';
   background-color: $background;
+  background: $background;
   color: $text;
 }
 
@@ -262,78 +264,69 @@ a:hover {
 }
 
 .timeline {
-  margin-top: 150px;
-  margin-bottom: 80px;
-  margin-left: 2%;
-  margin-right: 2%;
-  height: 3px;
-  list-style: none;
-  text-align: justify;
-  background: $text;
-}
-
-.timeline:after {
-	display: inline-block;
-	content:"";
-	width: 100%;
-}
-
-.timeline li {
-	display: inline-block;
-	width: 21px;
-	height: 21px;
+	border-left: 3px solid $text;
+	border-bottom-right-radius: 4px;
+	border-top-right-radius: 4px;
 	background: $background;
-	text-align: center;
-	line-height: 1.2;
+	margin: 0 auto;
 	position: relative;
-	bottom: 9px;
-  border: solid 4px $text;
-	border-radius: 50%;
+	padding: 50px;
+	list-style: none;
+	text-align: left;
+	max-width: 40%;
 }
 
-.timeline li:before {
-	display: inline-block;
-	content: attr(data-month);
-	font-size: 15px;
+.timeline h1 {
+  font-size: 24px;
+}
+
+.timeline h2 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 16px;
+}
+
+.timeline .project {
+	padding-bottom: 25px;
+	margin-bottom: 25px;
+	position: relative;
+}
+
+.timeline .project:last-of-type {
+	padding-bottom: 0;
+	margin-bottom: 0;
+	border: none;
+}
+
+.timeline .project:before,
+.timeline .project:after {
 	position: absolute;
-  white-space: nowrap;
-	left: 50%;
-	transform: translateX(-50%);
-}
-
-.timeline li:nth-child(odd):before {
-	top: -40px;
-}
-
-.timeline li:nth-child(even):before {
-	bottom: -40px;
-}
-
-.timeline li:after {
-	display: inline-block;
-	content: attr(data-text);
-	font-size: 15px;
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-}
-
-.timeline li:nth-child(odd):after {
-	bottom: 0;
-	margin-bottom: -10px;
-	transform: translate(-50%, 100%);
-}
-
-.timeline li:nth-child(even):after {
+	display: block;
 	top: 0;
-	margin-top: -10px;
-	transform: translate(-50%, -100%);
+}
+
+.timeline .project:before {
+	content: attr(data-date);
+	text-align: left;
+	font-weight: 100;
+	font-size: 0.9em;
+}
+
+.timeline .project:after {
+	box-shadow: 0 0 0 3px $text;
+	left: -55.8px;
+	background: $background;
+	border-radius: 50%;
+	height: 9px;
+	width: 9px;
+	content: "";
+	top: 5px;
 }
 
 $timeline-colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
 @for $i from 1 through length($timeline-colours) {
   $colour: nth($timeline-colours, $i);
-  .timeline li:nth-child(#{$i}):before {
+  .timeline .project:nth-child(#{$i}) h1 {
     color: $colour;
   }
 }
@@ -369,6 +362,8 @@ $timeline-colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
   margin: auto;
 }
 
+
+// tablet
 @media screen and (max-width: 900px) {
   #trophy-picture {
     margin-top: 40px;
@@ -379,6 +374,7 @@ $timeline-colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
   }
 }
 
+//phone
 @media screen and (max-width: 500px) {
   #about-header {
     margin-left: 5%;
@@ -388,4 +384,21 @@ $timeline-colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
     margin-left: 5%;
     margin-right: 5%;
   }
+  .timeline {
+		max-width: 100%;
+		padding: 25px;
+	}
+
+  .timeline .project {
+		padding-top: 30px;
+	}
+
+  .timeline .project:before {
+		left: 0px;
+		text-align: left;
+	}
+
+  .timeline .project:after {
+		left: -31.8px;
+	}
 }
