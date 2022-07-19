@@ -1,19 +1,4 @@
-$background: #1a1b26;
-$background-dark: #16161d;
-$text: #c0caf5;
-$highlight: #303447;
-$highlighted-text: #f0f0f0;
-$red: #f7768e;
-$green: #9ece6a;
-$teal: #73daca;
-$yellow: #e0af68;
-$orange: #ff9e64;
-$blue: #7aa2f7;
-$purple: #bb9af7;
-$cyan: #7dcfff;
-$grey: #9aa5ce;
-$white: #f0f0f0;
-
+@import "variables.scss";
 @import "../bootstrap/scss/functions";
 
 $accordion-border-color: $highlight;
@@ -24,7 +9,6 @@ $accordion-button-active-color: $highlighted-text;
 $accordion-button-active-bg: $highlight;
 $accordion-button-focus-border-color: none;
 $accordion-button-focus-box-shadow: none;
-$card-bg: $background;
 
 @import "../bootstrap/scss/variables";
 
@@ -33,7 +17,6 @@ $card-bg: $background;
 @import "../bootstrap/scss/root";
 
 @import "../bootstrap/scss/accordion";
-@import "../bootstrap/scss/card";
 
 body,
 html {
@@ -43,6 +26,7 @@ html {
   background-color: $background;
   background: $background;
   color: $text;
+  #{$prefix}navbar-toggler-border-color: $text !important;
 }
 
 a {
@@ -94,17 +78,14 @@ a:hover {
   color: $white;
 }
 
-.navbar-top {
+.navbar {
   background-color: $background;
   color: $text;
 }
 
 .navbar-brand {
   color: $text;
-}
-
-.navbar-brand:hover {
-  color: $teal;
+  &:hover { color: $teal;}
 }
 
 .nav-link {
@@ -112,6 +93,15 @@ a:hover {
   margin-left: 5px;
   margin-right: 5px;
   &:hover { border-bottom: solid 2px $purple}
+}
+
+.navbar-toggler .navbar-toggler-icon{
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(192, 202, 245, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar .navbar-toggler {
+  outline: none;
+  box-shadow: none;
 }
 
 .active {
@@ -269,6 +259,7 @@ a:hover {
 	border-top-right-radius: 4px;
 	background: $background;
 	margin: 0 auto;
+  margin-top: 50px;
 	position: relative;
 	padding: 50px;
 	list-style: none;

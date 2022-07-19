@@ -12,8 +12,4 @@ function get_age()
     return age;
 }
 
-function fade_element() 
-{
-    
-}
 document.getElementById('age-text').innerHTML = get_age();
