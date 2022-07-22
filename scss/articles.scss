@@ -1,0 +1,92 @@
+@use "variables" as *;
+
+body,
+html {
+    background: $background;
+    font-family: 'meslolgs_nfregular';
+    color: $text;
+}
+
+.image-background {
+    position: relative;
+    background-image: url("../images/dots.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar {
+    background-color: $background;
+    color: $text;
+}
+
+.navbar-brand {
+    color: $text;
+
+    &:hover {
+        color: $teal;
+    }
+}
+
+.nav-link {
+    color: $text  !important;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    &:hover {
+        border-bottom: solid 2px $purple
+    }
+}
+
+.navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(192, 202, 245, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar .navbar-toggler {
+    outline: none;
+    box-shadow: none;
+}
+
+.active {
+    color: $text  !important;
+    border-bottom: solid 2px $purple;
+}
+
+#plaque {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: $background;
+    border: solid 5px $blue;
+    border-radius: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15%;
+    padding-right: 15%;
+
+    #header {
+        color: $highlighted-text;
+        padding-top: 15px;
+        padding-bottom: 5px;
+        font-size: 40px;
+    }
+}
+
+.header-icon {
+    background-color: $highlight;
+    border: solid 5px $highlight;
+    border-radius: 15px;
+    padding: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+#header-text {
+    background-color: $highlight;
+    border: solid 1px $highlight;
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 4px;
+    font-size: 38px;
+}

@@ -209,17 +209,12 @@ html {
   height: 100%;
   font-family: "meslolgs_nfregular";
   background-color: #1a1b26;
-  background: #1a1b26;
   color: #c0caf5;
   bs-navbar-toggler-border-color: #c0caf5 !important;
 }
 
 a {
   text-decoration: none;
-  color: #c0caf5;
-}
-
-a:hover {
   color: #c0caf5;
 }
 
@@ -535,13 +530,19 @@ a:hover {
   font-size: 70px;
 }
 
-#mail-link {
+#mail-link span {
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 22px;
 }
-#mail-link:hover {
+#mail-link span:hover {
   color: #73daca;
+}
+
+#pim-photo {
+  width: 60%;
+  display: block;
+  margin: auto;
 }
 
 .footer-section {
@@ -558,12 +559,6 @@ a:hover {
 }
 #return-link:hover {
   color: #73daca;
-}
-
-#pim-photo {
-  width: 60%;
-  display: block;
-  margin: auto;
 }
 
 @media screen and (max-width: 900px) {

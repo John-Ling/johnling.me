@@ -1,4 +1,4 @@
-@import "variables.scss";
+@use "variables" as *;
 @import "../bootstrap/scss/functions";
 
 $accordion-border-color: $highlight;
@@ -15,7 +15,6 @@ $accordion-button-focus-box-shadow: none;
 @import "../bootstrap/scss/maps";
 @import "../bootstrap/scss/mixins";
 @import "../bootstrap/scss/root";
-
 @import "../bootstrap/scss/accordion";
 
 body,
@@ -24,9 +23,8 @@ html {
   height: 100%;
   font-family: 'meslolgs_nfregular';
   background-color: $background;
-  background: $background;
   color: $text;
-  #{$prefix}navbar-toggler-border-color: $text !important;
+  #{$prefix}navbar-toggler-border-color: $text  !important;
 }
 
 a {
@@ -34,9 +32,6 @@ a {
   color: $text;
 }
 
-a:hover {
-  color: $text;
-}
 
 .red {
   color: $red;
@@ -85,17 +80,23 @@ a:hover {
 
 .navbar-brand {
   color: $text;
-  &:hover { color: $teal;}
+
+  &:hover {
+    color: $teal;
+  }
 }
 
 .nav-link {
-  color: $text !important;
+  color: $text  !important;
   margin-left: 5px;
   margin-right: 5px;
-  &:hover { border-bottom: solid 2px $purple}
+
+  &:hover {
+    border-bottom: solid 2px $purple
+  }
 }
 
-.navbar-toggler .navbar-toggler-icon{
+.navbar-toggler .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(192, 202, 245, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
@@ -254,17 +255,17 @@ a:hover {
 }
 
 .timeline {
-	border-left: 3px solid $text;
-	border-bottom-right-radius: 4px;
-	border-top-right-radius: 4px;
-	background: $background;
-	margin: 0 auto;
+  border-left: 3px solid $text;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  background: $background;
+  margin: 0 auto;
   margin-top: 50px;
-	position: relative;
-	padding: 50px;
-	list-style: none;
-	text-align: left;
-	max-width: 40%;
+  position: relative;
+  padding: 50px;
+  list-style: none;
+  text-align: left;
+  max-width: 40%;
 }
 
 .timeline h1 {
@@ -278,45 +279,47 @@ a:hover {
 }
 
 .timeline .project {
-	padding-bottom: 25px;
-	margin-bottom: 25px;
-	position: relative;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  position: relative;
 }
 
 .timeline .project:last-of-type {
-	padding-bottom: 0;
-	margin-bottom: 0;
-	border: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border: none;
 }
 
 .timeline .project:before,
 .timeline .project:after {
-	position: absolute;
-	display: block;
-	top: 0;
+  position: absolute;
+  display: block;
+  top: 0;
 }
 
 .timeline .project:before {
-	content: attr(data-date);
-	text-align: left;
-	font-weight: 100;
-	font-size: 0.9em;
+  content: attr(data-date);
+  text-align: left;
+  font-weight: 100;
+  font-size: 0.9em;
 }
 
 .timeline .project:after {
-	box-shadow: 0 0 0 3px $text;
-	left: -55.8px;
-	background: $background;
-	border-radius: 50%;
-	height: 9px;
-	width: 9px;
-	content: "";
-	top: 5px;
+  box-shadow: 0 0 0 3px $text;
+  left: -55.8px;
+  background: $background;
+  border-radius: 50%;
+  height: 9px;
+  width: 9px;
+  content: "";
+  top: 5px;
 }
 
 $timeline-colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
+
 @for $i from 1 through length($timeline-colours) {
   $colour: nth($timeline-colours, $i);
+
   .timeline .project:nth-child(#{$i}) h1 {
     color: $colour;
   }
@@ -326,11 +329,20 @@ $timeline-colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
   font-size: 70px;
 }
 
-#mail-link {
+#mail-link span {
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 22px;
-  &:hover {color: $teal}
+
+  &:hover {
+    color: $teal
+  }
+}
+
+#pim-photo {
+  width: 60%;
+  display: block;
+  margin: auto;
 }
 
 .footer-section {
@@ -344,15 +356,11 @@ $timeline-colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
   margin-right: 10px;
   color: $text;
   text-decoration: none;
-  &:hover {color: $teal}
-}
 
-#pim-photo {
-  width: 60%;
-  display: block;
-  margin: auto;
+  &:hover {
+    color: $teal
+  }
 }
-
 
 // tablet
 @media screen and (max-width: 900px) {
@@ -371,25 +379,27 @@ $timeline-colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
     margin-left: 5%;
     margin-right: 5%;
   }
+
   #timeline-header {
     margin-left: 5%;
     margin-right: 5%;
   }
+
   .timeline {
-		max-width: 100%;
-		padding: 25px;
-	}
+    max-width: 100%;
+    padding: 25px;
+  }
 
   .timeline .project {
-		padding-top: 30px;
-	}
+    padding-top: 30px;
+  }
 
   .timeline .project:before {
-		left: 0px;
-		text-align: left;
-	}
+    left: 0px;
+    text-align: left;
+  }
 
   .timeline .project:after {
-		left: -31.8px;
-	}
+    left: -31.8px;
+  }
 }
