@@ -7,6 +7,10 @@ html {
     color: $text;
 }
 
+main {
+    padding-top: 30px;
+}
+
 .image-background {
     position: relative;
     background-image: url("../images/dots.png");
@@ -14,49 +18,51 @@ html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-bottom: 30px;
 }
 
 .navbar {
     background-color: $background;
     color: $text;
+}
 
-    .navbar-brand {
-        color: $text;
-    
-        &:hover {
-            color: $teal;
-        }
-    }
+.navbar-brand {
+    color: $text;
 
-    .nav-link {
-        color: $text  !important;
-        margin-left: 5px;
-        margin-right: 5px;
-    
-        &:hover {
-            border-bottom: solid 2px $purple
-        }
+    &:hover {
+        color: $teal;
     }
-    
-    .navbar-toggler .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(192, 202, 245, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-    }
-    
-    .navbar .navbar-toggler {
-        outline: none;
-        box-shadow: none;
-    }
+}
 
-    .active {
-        color: $text  !important;
-        border-bottom: solid 2px $purple;
+.nav-link {
+    color: $text  !important;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    &:hover {
+        border-bottom: solid 2px $purple
     }
-    
+}
+
+.navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(192, 202, 245, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar .navbar-toggler {
+    outline: none;
+    box-shadow: none;
+}
+
+.active {
+    color: $text  !important;
+    border-bottom: solid 2px $purple;
+}
+
+#title-card {
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 #plaque {
-    margin-top: 30px;
     background-color: $background;
     border: solid 5px $blue;
     border-radius: 15px;
@@ -64,7 +70,7 @@ html {
     padding-bottom: 5px;
     margin-left: 15%;
     margin-right: 15%;
-
+    text-align: center;
 
     #header {
         color: $highlighted-text;
@@ -93,19 +99,7 @@ html {
     font-size: 38px;
 }
 
-#work-header {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    margin-left: 25%;
-    margin-right: 25%;
-    color: $highlighted-text;
-    background-color: $highlight;
-    border: solid 3px $highlight;
-    border-radius: 15px;
-    padding: 5px;
-}
-
-.project {
+.grid-item {
     padding: 10px;
     
     .card {
