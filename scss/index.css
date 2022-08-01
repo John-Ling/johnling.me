@@ -213,6 +213,23 @@ html {
   bs-navbar-toggler-border-color: #c0caf5 !important;
 }
 
+header {
+  position: relative;
+  background-image: url("../images/dots.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100%;
+}
+
+main {
+  background-color: #1a1b26;
+  background-size: cover;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
 a {
   text-decoration: none;
   color: #c0caf5;
@@ -301,16 +318,6 @@ a {
   border-radius: 15px;
 }
 
-.front-page-background {
-  position: relative;
-  background-image: url("../images/dots.png");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 100%;
-}
-
 .front-page-plaque {
   position: absolute;
   top: 15%;
@@ -345,13 +352,6 @@ a {
   list-style: none;
   display: inline-block;
   font-size: 20px;
-}
-
-#about-section {
-  background-color: #1a1b26;
-  background-size: cover;
-  padding-top: 25px;
-  padding-bottom: 25px;
 }
 
 #about-header {
@@ -530,6 +530,9 @@ a {
   font-size: 70px;
 }
 
+#mail-link:hover {
+  color: #c0caf5;
+}
 #mail-link span {
   margin-top: 10px;
   margin-bottom: 10px;

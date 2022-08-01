@@ -27,6 +27,23 @@ html {
   #{$prefix}navbar-toggler-border-color: $text  !important;
 }
 
+header {
+  position: relative;
+  background-image: url("../images/dots.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100%;
+}
+
+main {
+  background-color: $background;
+  background-size: cover;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
 a {
   text-decoration: none;
   color: $text;
@@ -118,16 +135,6 @@ a {
   border-radius: 15px;
 }
 
-.front-page-background {
-  position: relative;
-  background-image: url("../images/dots.png");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 100%;
-}
-
 .front-page-plaque {
   position: absolute;
   top: 15%;
@@ -164,12 +171,6 @@ a {
   font-size: 20px;
 }
 
-#about-section {
-  background-color: $background;
-  background-size: cover;
-  padding-top: 25px;
-  padding-bottom: 25px;
-}
 
 #about-header {
   position: relative;
@@ -329,13 +330,19 @@ $timeline-colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
   font-size: 70px;
 }
 
-#mail-link span {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 22px;
-
+#mail-link {
   &:hover {
-    color: $teal
+    color: $text;
+  }
+
+  span {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 22px;
+
+    &:hover {
+      color: $teal
+    }
   }
 }
 

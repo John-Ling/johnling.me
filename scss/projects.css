@@ -5,17 +5,25 @@ html {
   color: #c0caf5;
 }
 
-main {
-  padding-top: 30px;
-}
-
-.image-background {
+header {
   position: relative;
   background-image: url("../images/dots.png");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+main {
+  padding-top: 30px;
+}
+
+footer {
+  background-color: #16161d;
+  height: fit-content;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 30px;
 }
 
 .navbar {
@@ -129,14 +137,6 @@ main {
 }
 .grid-item .card .github-link:hover {
   color: #73daca;
-}
-
-.footer-section {
-  background-color: #16161d;
-  height: fit-content;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-top: 30px;
 }
 
 #return-link {

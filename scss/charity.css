@@ -5,7 +5,7 @@ html {
   color: #c0caf5;
 }
 
-.image-background {
+header {
   position: relative;
   background-image: url("../images/dots.png");
   background-attachment: fixed;
@@ -84,6 +84,36 @@ html {
   padding-right: 10px;
   padding-bottom: 4px;
   font-size: 38px;
+}
+
+.header {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.header span {
+  background-color: #303447;
+  color: #f0f0f0;
+  border: solid 3px #303447;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.card {
+  background-color: #20212e;
+  border: solid 1px #20212e;
+  border-radius: 15px;
+  padding: 20px;
+}
+.card br {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#logo {
+  max-width: 70%;
+  align-self: center;
 }
 
 @media screen and (max-width: 500px) {

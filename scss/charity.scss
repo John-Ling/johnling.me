@@ -7,7 +7,7 @@ html {
     color: $text;
 }
 
-.image-background {
+header {
     position: relative;
     background-image: url("../images/dots.png");
     background-attachment: fixed;
@@ -89,6 +89,37 @@ html {
     padding-right: 10px;
     padding-bottom: 4px;
     font-size: 38px;
+}
+
+.header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    span {
+        background-color: $highlight;
+        color: $highlighted-text;
+        border: solid 3px $highlight;
+        border-radius: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.card {
+    background-color: $background-light;
+    border: solid 1px $background-light;
+    border-radius: 15px;
+    padding: 20px;
+    
+    br {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+#logo {
+    max-width: 70%;
+    align-self: center;
 }
 
 @media screen and (max-width: 500px) {
