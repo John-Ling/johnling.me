@@ -39,11 +39,15 @@ footer {
 }
 
 .nav-link {
-  color: #c0caf5 !important;
+  color: #c0caf5;
   margin-left: 5px;
   margin-right: 5px;
 }
 .nav-link:hover {
+  color: #73daca;
+}
+.nav-link.active {
+  color: #c0caf5 !important;
   border-bottom: solid 2px #bb9af7;
 }
 
@@ -54,11 +58,6 @@ footer {
 .navbar .navbar-toggler {
   outline: none;
   box-shadow: none;
-}
-
-.active {
-  color: #c0caf5 !important;
-  border-bottom: solid 2px #bb9af7;
 }
 
 #title-card {

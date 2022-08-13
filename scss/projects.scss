@@ -29,40 +29,40 @@ footer {
 }
 
 .navbar {
-    background-color: $background;
-    color: $text;
+  background-color: $background;
+  color: $text;
 }
 
 .navbar-brand {
-    color: $text;
+  color: $text;
 
-    &:hover {
-        color: $teal;
-    }
+  &:hover {
+    color: $teal;
+  }
 }
 
 .nav-link {
-    color: $text  !important;
-    margin-left: 5px;
-    margin-right: 5px;
+  color: $text;
+  margin-left: 5px;
+  margin-right: 5px;
 
-    &:hover {
-        border-bottom: solid 2px $purple
-    }
+  &:hover {
+    color: $teal;
+  }
+
+  &.active {
+    color: $text  !important;
+    border-bottom: solid 2px $purple;
+  }
 }
 
 .navbar-toggler .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(192, 202, 245, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(192, 202, 245, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .navbar .navbar-toggler {
-    outline: none;
-    box-shadow: none;
-}
-
-.active {
-    color: $text  !important;
-    border-bottom: solid 2px $purple;
+  outline: none;
+  box-shadow: none;
 }
 
 #title-card {

@@ -27,11 +27,15 @@ header {
 }
 
 .nav-link {
-  color: #c0caf5 !important;
+  color: #c0caf5;
   margin-left: 5px;
   margin-right: 5px;
 }
 .nav-link:hover {
+  color: #73daca;
+}
+.nav-link.active {
+  color: #c0caf5 !important;
   border-bottom: solid 2px #bb9af7;
 }
 
@@ -44,21 +48,20 @@ header {
   box-shadow: none;
 }
 
-.active {
-  color: #c0caf5 !important;
-  border-bottom: solid 2px #bb9af7;
+#title-card {
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 #plaque {
-  margin-top: 30px;
-  margin-bottom: 30px;
   background-color: #1a1b26;
   border: solid 5px #7aa2f7;
   border-radius: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
-  padding-left: 15%;
-  padding-right: 15%;
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: center;
 }
 #plaque #header {
   color: #f0f0f0;
@@ -73,7 +76,6 @@ header {
   border-radius: 15px;
   padding: 10px;
   margin-right: 20px;
-  margin-left: 20px;
 }
 
 #header-text {
@@ -87,6 +89,7 @@ header {
 }
 
 .header {
+  position: relative;
   margin-top: 30px;
   margin-bottom: 30px;
   text-align: center;
@@ -100,27 +103,27 @@ header {
   padding-right: 20px;
 }
 
-.card {
-  background-color: #20212e;
-  border: solid 1px #20212e;
-  border-radius: 15px;
-  padding: 20px;
-}
-.card br {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
 #logo {
   max-width: 70%;
   align-self: center;
 }
 
-@media screen and (max-width: 500px) {
-  #projects-plaque {
-    margin-left: unset;
-    margin-right: unset;
-  }
+.carousel {
+  border: solid 7px #303447;
+  border-radius: 15px;
+}
+.carousel img {
+  border-radius: 15px;
 }
 
-/*# sourceMappingURL=charity.css.map */
+@media screen and (max-width: 500px) {
+  #work-header {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  #plaque {
+    margin-left: unset;
+    margin-right: unset;
+    text-align: center;
+  }
+}/*# sourceMappingURL=charity.css.map */

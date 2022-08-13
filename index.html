@@ -4,9 +4,6 @@
 <!-- AUTHOR: John Ling
     Fonts: Meslo LGS, Devicon, Font Awesome
     Credit for respective fonts: André Berg, Julien Monty, Dave Gandy + Font Awesome Team
-    TODO
-    Make languages and technical skills section mobile responsive and friendly 
-    (icons should be in groups of 2 when mobile/tablet mode)
 -->
 
 <head>
@@ -22,7 +19,7 @@
 </head>
 
 <body>
-    <header>
+    <header id="front-page">
         <nav class="navbar navbar-expand-lg sticky-top py-0">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html">John Ling</a>
@@ -56,19 +53,19 @@
             </div>
         </nav>
         <div class="container d-flex align-items-center justify-content-center">
-            <div class="front-page-plaque text-center">
-                <img id="front-page-profile-pic" src="images/profile-pic-squared.jpeg" alt="Profile picture">
+            <div class="text-center" id="plaque">
+                <img id="profile-pic" src="images/profile-pic-squared.jpeg" alt="Profile picture">
                 <h1 class="header front-page-name">John Ling</h1>
-                <ul id="bio-list">
-                    <li id="student-label" class="blue">Student</li>
-                    <li id="founder-label" class="red">Founder</li>
-                    <li id="programmer-label" class="green">Developer</li>
+                <ul id="labels">
+                    <li>Student</li>
+                    <li>Founder</li>
+                    <li>Developer</li>
                 </ul>
             </div>
         </div>
     </header>
 
-    <main>
+    <main id="about-section">
         <h1 id="about-header" class="text-center header">About Me</h1>
         <div class="container">
             <div class="row">
@@ -79,10 +76,9 @@
                     <br>
                     <p1>Hello! My name is John Ling.</p1>
                     <br>
-                    <p1>I am a <span id="age-text">17</span> year old student living in Malaysia currently taking A
-                        levels.
-                        I take mathematics, physics and computer science as most of them align with my own interests.
-                        While I have a fascination with many fields of technology however I've found my interest is
+                    <p1>I am a <span id="age-text">16</span> year old student living in Malaysia currently taking A levels.
+                        I study mathematics, physics and computer science as most of them align with my own interests.
+                        While I have a fascination with many fields of technology, I've found my interest is
                         mainly in programming.
                         Personal projects are my favourite aspect of programming as I enjoy building practical
                         applications to help myself or others.
@@ -95,8 +91,8 @@
                     </p1>
                 </div>
                 <div class="col-lg-6 order-lg-1">
-                    <img class="img-border img-fluid" id="trophy-picture" src="images/trophy-pic.jpeg"
-                        alt="Picture of me with a trophy">
+                    <img class="img-fluid" id="trophy-picture" src="images/trophy-pic.jpeg"
+                        alt="Picture of me with the EARCOS Award for 2022">
                 </div>
             </div>
 
@@ -113,11 +109,13 @@
                         All of my skills are self-taught through online resources or MOOCs such as CS50. </p1>
                     <br>
                     <br>
-                    <p1> When picking new technologies to learn, I don't always go towards the cutting edge frameworks.
-                        I'm equally as likely to learn Winforms over Angular and the same rule applies in
-                        reverse.
-                        My mindset when learning new technology is to focus on the principles they teach rather than
-                        framework-exclusive details.</p1>
+                    <p1> When picking new technologies to learn, 
+                        I don't always go towards the cutting-edge, "trendy" frameworks.
+                        I'm equally as likely to learn Winforms over React and the same rule applies in reverse.
+                        My mindset is that as long as one learns the principles a framework teaches; 
+                        which framework one chooses 
+                        to learn first does not matter.
+                        </p1>
                     <br>
                     <br>
                     <p1>My reasoning for this approach stems from second-hand experience watching content creators
@@ -130,64 +128,60 @@
 
                 <div class="col-lg-6 order-lg-12">
                     <h1 id="what-header" class="text-center header">Languages</h1>
-                    <div class="what-section d-flex flex-wrap align-items-center justify-content-center">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="icon">
-                                    <i class="devicon-python-plain blue"></i>
+                    <div class="d-flex flex-wrap align-items-center justify-content-center" id="languages-section">
+                        <div class="row first">
+                            <div class="col python">
+                                <div class="language-icon">
+                                    <i class="devicon-python-plain python blue"></i>
                                     <span class="caption">Python</span>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="icon">
+                            <div class="col c-sharp">
+                                <div class="language-icon">
                                     <i class="devicon-csharp-plain purple"></i>
                                     <span class="caption">C#</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="icon">
+                            <div class="col c">
+                                <div class="language-icon">
                                     <i class="devicon-c-plain grey"></i>
                                     <span class="caption">C</span>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="icon">
+                            <div class="col sqlite">
+                                <div class="language-icon">
                                     <i class="devicon-sqlite-plain teal"></i>
                                     <span class="caption">SQLite</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="w-100"></div>
                         <div class="row">
-                            <div class="col-lg-6">
-                                <div class="icon">
+                            <div class="col java">
+                                <div class="language-icon">
                                     <i class="devicon-java-plain red"></i>
                                     <span class="caption">Java</span>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="icon">
+                            <div class="col html">
+                                <div class="language-icon">
                                     <i class="devicon-html5-plain orange"></i>
                                     <span class="caption">HTML</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="icon">
+                            <div class="col css">
+                                <div class="language-icon">
                                     <i class="devicon-css3-plain cyan"></i>
                                     <span class="caption">CSS</span>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="icon">
+                            <div class="col javascript">
+                                <div class="language-icon">
                                     <i class="devicon-javascript-plain yellow"></i>
                                     <span class="caption shortened">Javascript</span>
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                     <div class="accordion" id="skills-accordion">
                         <div class="accordion-item">
@@ -273,8 +267,8 @@
                             <li class="project">
                                 <h1>Covid Companion</h1>
                                 <h2>March 2020 - May 2020</h2>
-                                <p>A Python desktop application created to provide up to date information
-                                    relating to infections, deaths and recoveries using NLP and webscraping.
+                                <p>A Python desktop application using NLP and webscraping to provide per-country COVID-19 
+                                    information and answer health related questions.
                                 </p>
                             </li>
                             <li class="project">
@@ -307,12 +301,12 @@
                                 <p>An OpenCV powered motion system that locates a teacher's face from a webcam stream
                                     and uses motors
                                     to adjust a camera to the teacher's position in real time. Designed to both increase
-                                    the viewing angle for online students to ensure they don't miss content and make 
+                                    the viewing angle for online students to ensure they don't miss content and make
                                     hybrid teaching more seamless.
                                 </p>
                             </li>
                             <li class="project">
-                                <h1>INSERT WEB DOMAIN NAME HERE</h1>
+                                <h1>johnling.io</h1>
                                 <h2>June 2022 - July 2022</h2>
                                 <p>My personal portfolio website to talk about myself and showcase both web development
                                     and design skills.
@@ -329,35 +323,41 @@
                     <h2>(can you find me)</h2>
                     <br>
                 </div>
-                <div class="col-lg-12 order-lg-1 findme-section">
+                <div class="col-lg-12 order-lg-1 findme-section" id="where-section">
                     <div class="row">
                         <a href="mailto:johnlingbusiness@gmail.com?subject=Hello John"
                             id="mail-link"><span>johnlingbusiness@gmail.com</span></a>
                     </div>
-                    <div class="row gx-6">
-                        <div class="col">
-                            <div class="icon clickable-icon">
-                                <a href="https://www.linkedin.com/in/john-ling-721721243/">
-                                    <i class="devicon-linkedin-plain blue"></i>
-                                    <span class="caption">LinkedIn</span>
-                                </a>
-                            </div>
+                    <div class="row" id="website-icons">
+                        <div class="col-lg-4 web-icon">
+                            <a href="https://www.linkedin.com/in/john-ling-721721243/">
+                                <div class="card">
+                                    <div>
+                                        <i class="devicon-linkedin-plain blue"></i>
+                                        <span class="caption">LinkedIn</span>
+                                    </div>
+                                </div>
+                            </a>   
                         </div>
-                        <div class="col">
-                            <div class="icon clickable-icon">
+                        <div class="col-lg-4 web-icon">
                                 <a href="https://github.com/John-Ling">
-                                    <i class="fa-brands fa-github white"></i>
-                                    <span class="caption">Github</span>
+                                    <div class="card">
+                                        <div>
+                                            <i class="fa-brands fa-github white"></i>
+                                            <span class="caption">Github</span>
+                                        </div>
+                                    </div>
                                 </a>
-                            </div>
                         </div>
-                        <div class="col">
-                            <div class="icon clickable-icon">
-                                <a href="https://stackoverflow.com/users/19423880/john-ling">
-                                    <i class="fa-brands fa-stack-overflow orange"></i>
-                                    <span class="caption">Stack Overflow</span>
-                                </a>
-                            </div>
+                        <div class="col-lg-4 web-icon">
+                            <a href="https://stackoverflow.com/users/19423880/john-ling">
+                                <div class="card">
+                                    <div>
+                                        <i class="fa-brands fa-stack-overflow orange"></i>
+                                        <span class="caption">Stack Overflow</span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -369,13 +369,9 @@
                     <br>
                     <h2>Why code?</h2>
                     <br>
-                    <p1>I enjoy applying theory and skills I know to build things for myself and others to assist in
-                        their
-                        everyday
-                        lives.
-                        Whether it be a Raspberry Pi powered dashboard, face recognition tracking system or charity, in
-                        the end
-                        all my projects are rooted in a desire to help others even in a minor way.
+                    <p1>I enjoy applying theory and skills I know to build things for myself and others to assist in their everyday lives.
+                        Whether it be a Raspberry Pi powered dashboard, face recognition tracking system or charity, 
+                        in the endall my projects are rooted in a desire to help others even in a minor way.
                         Code and by extension Computer Science as a whole presents a new perspective and method to
                         problem solving with its own strengths and weaknesses.
                     </p1>
@@ -388,21 +384,21 @@
                     </p1>
                 </div>
                 <div class="col-lg-6 order-lg-1">
-                    <img class="img-border img-fluid" id="pim-photo" src="images/computer-pic.jpg"
+                    <img class="img-fluid" id="pim-photo" src="images/ending-photo.jpeg"
                         alt="Plugged In Malaysia photo">
                 </div>
             </div>
         </div>
     </main>
-    <footer class="footer-section">
+    <footer>
         <div class="d-flex justify-content-between" <p1>Credit to André Berg, Julien Monty and the Font Awesome team. <a
-                href="#homepage" id="return-link"><span>Return Home</span></a></p1>
+                href="#front-page" id="return-link"><span>Return Home</span></a></p1>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/927c1aac4a.js" crossorigin="anonymous"></script>
-    <script src="index.js" crossorigin="anonymous"></script>
+    <script src="scripts/index.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

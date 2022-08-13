@@ -44,9 +44,24 @@ main {
   padding-bottom: 25px;
 }
 
+footer {
+  background-color: $background-dark;
+  height: fit-content;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 a {
   text-decoration: none;
   color: $text;
+  &:hover {
+    color: $text;
+  }
+}
+
+img {
+  border: solid 7px $highlight;
+  border-radius: 15px;
 }
 
 
@@ -104,12 +119,17 @@ a {
 }
 
 .nav-link {
-  color: $text !important;
+  color: $text;
   margin-left: 5px;
   margin-right: 5px;
 
   &:hover {
-    border-bottom: solid 2px $purple
+    color: $teal;
+  }
+
+  &.active {
+    color: $text  !important;
+    border-bottom: solid 2px $purple;
   }
 }
 
@@ -122,10 +142,6 @@ a {
   box-shadow: none;
 }
 
-.active {
-  color: $text  !important;
-  border-bottom: solid 2px $purple;
-}
 
 .header {
   padding: 5px;
@@ -135,7 +151,7 @@ a {
   border-radius: 15px;
 }
 
-.front-page-plaque {
+#plaque {
   position: absolute;
   top: 15%;
   background-color: $background;
@@ -143,10 +159,9 @@ a {
   padding-bottom: 20px;
   border: solid 5px $blue;
   border-radius: 15px;
-  color: $highlighted-text;
 }
 
-#front-page-profile-pic {
+#profile-pic {
   width: 250px;
   height: 250px;
   border: solid 7px $highlight;
@@ -163,14 +178,34 @@ a {
   font-size: 28px;
 }
 
-#bio-list {
+#labels {
   padding-top: 20px;
   margin-right: 30px;
   list-style: none;
   display: inline-block;
   font-size: 20px;
-}
 
+  li {
+    $colours: $red,
+    $blue,
+    $green;
+
+    $time: 1s;
+
+    @for $i from 1 through length($colours) {
+      $colour: nth($colours, $i);
+
+      &:nth-child(#{$i}) {
+        color: $colour;
+        animation-name: fade;
+        animation-duration: $time;
+        animation-timing-function: ease;
+      }
+
+      $time: $time + 0.75;
+    }
+  }
+}
 
 #about-header {
   position: relative;
@@ -187,18 +222,13 @@ a {
   font-size: 48px;
 }
 
-.img-border {
-  border: solid 7px $highlight;
-  border-radius: 15px;
-}
-
 #trophy-picture {
   width: 80%;
   display: block;
   margin: auto;
 }
 
-.what-section {
+#languages-section {
   font-size: 80px;
   margin-bottom: 30px;
 }
@@ -209,29 +239,24 @@ a {
   padding-bottom: 7px;
 }
 
-.icon {
+
+.language-icon {
   display: inline-block;
   text-align: center;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.clickable-icon:hover {
-  padding-bottom: 10px;
-  border-bottom: solid 3px $purple;
+  padding: 20px;
+  background-color: $background-light;
+  border-radius: 15px;
+  margin-bottom: 10px;
 }
 
 .caption {
-  font-size: 22px;
+  font-size: 20px;
   display: block;
 }
 
 .shortened {
-  font-size: 16px;
-}
-
-.v-shortened {
-  font-size: 14px;
+  font-size: 13px;
+  padding-bottom: 10px;
 }
 
 #technologies-header {
@@ -267,62 +292,64 @@ a {
   list-style: none;
   text-align: left;
   max-width: 40%;
-}
 
-.timeline h1 {
-  font-size: 24px;
-}
+  h1 {
+    font-size: 24px;
+  }
 
-.timeline h2 {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 16px;
-}
+  h2 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+  }
 
-.timeline .project {
-  padding-bottom: 25px;
-  margin-bottom: 25px;
-  position: relative;
-}
+  .project {
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    position: relative;
 
-.timeline .project:last-of-type {
-  padding-bottom: 0;
-  margin-bottom: 0;
-  border: none;
-}
+    &:last-of-type {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border: none;
+    }
 
-.timeline .project:before,
-.timeline .project:after {
-  position: absolute;
-  display: block;
-  top: 0;
-}
+    &:before,
+    &:after {
+      position: absolute;
+      display: block;
+      top: 0;
+    }
 
-.timeline .project:before {
-  content: attr(data-date);
-  text-align: left;
-  font-weight: 100;
-  font-size: 0.9em;
-}
+    &:before {
+      content: attr(data-date);
+      text-align: left;
+      font-weight: 100;
+      font-size: 0.9em;
+    }
 
-.timeline .project:after {
-  box-shadow: 0 0 0 3px $text;
-  left: -55.8px;
-  background: $background;
-  border-radius: 50%;
-  height: 9px;
-  width: 9px;
-  content: "";
-  top: 5px;
-}
+    &:after {
+      box-shadow: 0 0 0 3px $text;
+      left: -55.8px;
+      background: $background;
+      border-radius: 50%;
+      height: 9px;
+      width: 9px;
+      content: "";
+      top: 5px;
+    }
 
-$timeline-colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
+    $colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
 
-@for $i from 1 through length($timeline-colours) {
-  $colour: nth($timeline-colours, $i);
+    @for $i from 1 through length($colours) {
+      $colour: nth($colours, $i);
 
-  .timeline .project:nth-child(#{$i}) h1 {
-    color: $colour;
+      &:nth-child(#{$i}) {
+        h1 {
+          color: $colour;
+        }
+      }
+    }
   }
 }
 
@@ -346,18 +373,25 @@ $timeline-colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
   }
 }
 
+
+.web-icon {
+  .card {
+    background-color: $background-light;
+    border-radius: 10px;
+    padding: 20px;
+
+    &:hover {
+      background-color: darken($background-light, 1%);
+    }
+  }
+}
+
 #pim-photo {
-  width: 60%;
+  width: 80%;
   display: block;
   margin: auto;
 }
 
-.footer-section {
-  background-color: $background-dark;
-  height: fit-content;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
 
 #return-link {
   margin-right: 10px;
@@ -366,6 +400,16 @@ $timeline-colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
 
   &:hover {
     color: $teal
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
@@ -378,9 +422,15 @@ $timeline-colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
   #pim-photo {
     margin-top: 40px;
   }
+
+  .web-icon {
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
 }
 
-//phone
+// mobile
 @media screen and (max-width: 500px) {
   #about-header {
     margin-left: 5%;
@@ -395,18 +445,18 @@ $timeline-colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
   .timeline {
     max-width: 100%;
     padding: 25px;
-  }
 
-  .timeline .project {
-    padding-top: 30px;
-  }
+    .project {
+      padding-top: 30px;
 
-  .timeline .project:before {
-    left: 0px;
-    text-align: left;
-  }
+      &:before {
+        left: 0px;
+        text-align: left;
+      }
 
-  .timeline .project:after {
-    left: -31.8px;
+      &:after {
+        left: -31.8px;
+      }
+    }
   }
 }
