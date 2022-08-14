@@ -23,6 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     })
     languageIconsFadeOrder.forEach(index => {
-
+        // add later
     })
 })

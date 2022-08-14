@@ -16,7 +16,26 @@ header {
   background-size: cover;
 }
 
+footer {
+  background-color: $background-dark;
+  height: fit-content;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 
+img {
+  border: solid 7px $highlight;
+  border-radius: 15px;
+}
+
+a {
+  color: $text;
+  text-decoration: none;
+
+  &:hover {
+    color: $text;
+  }
+}
 
 .navbar {
   background-color: $background;
@@ -113,20 +132,67 @@ header {
   }
 }
 
-#logo {
-  max-width: 70%;
-  align-self: center;
-}
+.row {
+  margin-top: 30px;
 
-.carousel {
-  border: solid 7px $highlight;
-  border-radius: 15px;
-
-  img {
-    border-radius: 15px;
+  &:last-child {
+    margin-bottom: 30px;
   }
 }
 
+#logo {
+  align-self: center;
+}
+
+
+.web-icon {
+  text-align: center;
+
+  i {
+    font-size: 70px;
+  }
+
+  .fa-facebook {
+    color: $blue;
+  }
+
+  .fa-instagram {
+    color: $red;
+  }
+
+  .card {
+    background-color: $background-light;
+    border-radius: 10px;
+    padding: 20px;
+
+    &:hover {
+      background-color: darken($background-light, 1%);
+    }
+  }
+}
+
+.caption {
+  font-size: 20px;
+  display: block;
+}
+
+#return-link {
+  margin-right: 10px;
+  color: $text;
+  text-decoration: none;
+
+  &:hover {
+    color: $teal
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .web-icon {
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+}
 
 @media screen and (max-width: 500px) {
   #work-header {

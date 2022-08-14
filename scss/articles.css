@@ -7,8 +7,6 @@ html {
 
 footer {
   background-color: #16161d;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -156,4 +154,6 @@ footer {
 }
 #return-link:hover {
   color: #73daca;
-}/*# sourceMappingURL=articles.css.map */
+}
+
+/*# sourceMappingURL=articles.css.map */
