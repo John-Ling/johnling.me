@@ -375,13 +375,13 @@ img {
 #labels li:nth-child(2) {
   color: #7aa2f7;
   animation-name: fade;
-  animation-duration: 1.75s;
+  animation-duration: 1.55s;
   animation-timing-function: ease;
 }
 #labels li:nth-child(3) {
   color: #9ece6a;
   animation-name: fade;
-  animation-duration: 2.5s;
+  animation-duration: 2.1s;
   animation-timing-function: ease;
 }
 

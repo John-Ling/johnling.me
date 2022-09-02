@@ -19,11 +19,20 @@ main {
 }
 
 footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   background-color: #16161d;
-  height: fit-content;
   padding-top: 5px;
   padding-bottom: 5px;
-  margin-top: 30px;
+}
+
+a {
+  color: #c0caf5;
+  text-decoration: none;
+}
+a:hover {
+  color: #73daca;
 }
 
 .navbar {
@@ -108,13 +117,12 @@ footer {
   padding: 20px;
   border: solid 3px #20212e;
   border-radius: 15px;
-  text-align: center;
-  align-items: center;
+  align-items: left;
 }
-.grid-item .card .title {
-  margin-bottom: 30px;
+.grid-item .card h2 {
+  margin-bottom: 20px;
 }
-.grid-item .card .title span {
+.grid-item .card h2 span {
   color: #f0f0f0;
   background-color: #303447;
   border: solid 5px #303447;
@@ -123,19 +131,22 @@ footer {
   padding-left: 5px;
   padding-right: 5px;
 }
+.grid-item .card h3 {
+  font-size: 17px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.grid-item .card h4 {
+  font-size: 16px;
+}
 .grid-item .card img {
   border: solid 5px #303447;
   border-radius: 15px;
   max-width: 75%;
 }
-.grid-item .card .github-link {
+.grid-item .card a {
   margin-top: 10px;
-  text-decoration: none;
-  color: #c0caf5;
-  font-size: 24px;
-}
-.grid-item .card .github-link:hover {
-  color: #73daca;
+  font-size: 20px;
 }
 
 #return-link {

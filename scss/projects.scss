@@ -21,11 +21,21 @@ main {
 }
 
 footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: $background-dark;
-    height: fit-content;
     padding-top: 5px;
     padding-bottom: 5px;
-    margin-top: 30px;
+}
+
+a {
+    color: $text;
+    text-decoration: none;
+
+    &:hover {
+        color: $teal
+    }
 }
 
 .navbar {
@@ -115,12 +125,10 @@ footer {
         padding: 20px;
         border: solid 3px $background-light;
         border-radius: 15px;
-        text-align: center;
-        align-items: center;
+        align-items: left;
 
-        .title {
-            margin-bottom: 30px;
-            
+        h2 {
+            margin-bottom: 20px;
             span {
                 color: $highlighted-text;
                 background-color: $highlight;
@@ -131,22 +139,25 @@ footer {
                 padding-right: 5px;
             }
         }
-    
+
+        h3 {
+            font-size: 17px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        h4 {
+            font-size: 16px;
+        }
         img {
             border: solid 5px $highlight;
             border-radius: 15px;
             max-width: 75%;
         }
 
-        .github-link {
+        a {
             margin-top: 10px;
-            text-decoration: none;
-            color: $text;
-            font-size: 24px;
-
-            &:hover {
-                color: $teal;
-            }
+            font-size: 20px;
         }
     } 
 }
