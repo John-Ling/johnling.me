@@ -7,21 +7,21 @@ html {
     color: $text;
 }
 
-footer {
-    background-color: $background-dark;
-    height: fit-content;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-top: 30px;
-}
-
-.image-background {
+header {
     position: relative;
     background-image: url("../images/dots.png");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+footer {
+    background-color: $background-dark;
+    height: fit-content;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 30px;
 }
 
 .navbar {
