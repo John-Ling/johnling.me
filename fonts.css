@@ -4,8 +4,8 @@
 
 @font-face {
     font-family: 'meslolgs_nfitalic';
-    src: url('Fonts/meslolgs_nf_italic-webfont.woff2') format('woff2'),
-         url('Fonts/meslolgs_nf_italic-webfont.woff') format('woff');
+    src: url('fonts/meslolgs_nf_italic-webfont.woff2') format('woff2'),
+         url('fonts/meslolgs_nf_italic-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -16,8 +16,8 @@
 
 @font-face {
     font-family: 'meslolgs_nfregular';
-    src: url('Fonts/meslolgs_nf_regular-webfont.woff2') format('woff2'),
-         url('Fonts/meslolgs_nf_regular-webfont.woff') format('woff');
+    src: url('fonts/meslolgs_nf_regular-webfont.woff2') format('woff2'),
+         url('fonts/meslolgs_nf_regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -28,8 +28,8 @@
 
 @font-face {
     font-family: 'meslolgs_nfbold';
-    src: url('Fonts/meslolgs_nf_bold-webfont.woff2') format('woff2'),
-         url('Fonts/meslolgs_nf_bold-webfont.woff') format('woff');
+    src: url('fonts/meslolgs_nf_bold-webfont.woff2') format('woff2'),
+         url('fonts/meslolgs_nf_bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -40,8 +40,8 @@
 
 @font-face {
     font-family: 'meslolgs_nfbold_italic';
-    src: url('Fonts/meslolgs_nf_bold_italic-webfont.woff2') format('woff2'),
-         url('Fonts/meslolgs_nf_bold_italic-webfont.woff') format('woff');
+    src: url('fonts/meslolgs_nf_bold_italic-webfont.woff2') format('woff2'),
+         url('Ffonts/meslolgs_nf_bold_italic-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
