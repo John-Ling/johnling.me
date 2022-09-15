@@ -137,14 +137,32 @@ footer {
   border-radius: 15px;
   max-width: 75%;
 }
-.grid-item .card .link {
+.grid-item .card a {
   margin-top: 10px;
   text-decoration: none;
   color: #c0caf5;
   font-size: 24px;
 }
-.grid-item .card .link:hover {
+.grid-item .card a:hover {
   color: #73daca;
+}
+.grid-item .card .multiple-links {
+  text-align: center;
+  padding-top: 18px;
+  padding-bottom: 2px;
+}
+.grid-item .card .multiple-links a {
+  font-size: 17px;
+  white-space: nowrap;
+}
+
+#smaller-title {
+  font-size: 18.7px;
+  margin-bottom: 38px;
+}
+
+#padded-card {
+  padding-bottom: 50px;
 }
 
 #return-link {

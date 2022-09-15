@@ -149,7 +149,7 @@ footer {
             max-width: 75%;
         }
 
-        .link {
+        a {
             margin-top: 10px;
             text-decoration: none;
             color: $text;
@@ -159,9 +159,28 @@ footer {
                 color: $teal;
             }
         }
+
+        .multiple-links {
+            text-align: center;
+            padding-top: 18px;
+            padding-bottom: 2px;
+            a {
+                font-size: 17px;
+                white-space: nowrap;
+            }
+        }
+        
     }
 }
 
+#smaller-title {
+    font-size: 18.7px;
+    margin-bottom: 38px;
+}
+
+#padded-card {
+    padding-bottom: 50px;
+}
 
 #return-link {
     margin-right: 10px;
