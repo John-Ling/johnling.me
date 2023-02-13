@@ -130,6 +130,9 @@ a:hover {
   padding-left: 5px;
   padding-right: 5px;
 }
+.grid-item .card h2 .shortened {
+  font-size: 22px;
+}
 .grid-item .card h3 {
   font-size: 17px;
   padding-top: 5px;
@@ -170,6 +173,12 @@ a:hover {
     margin-left: unset;
     margin-right: unset;
     text-align: center;
+  }
+  .grid-item .card h2 span {
+    font-size: 22px;
+  }
+  .grid-item .card h2 .shortened {
+    font-size: 16px;
   }
 }
 

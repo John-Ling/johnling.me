@@ -138,6 +138,9 @@ a {
                 padding-left: 5px;
                 padding-right: 5px;
             }
+            .shortened {
+                font-size: 22px;
+            }
         }
 
         h3 {
@@ -186,5 +189,18 @@ a {
         margin-left: unset;
         margin-right: unset;
         text-align: center;
+    }
+
+    .grid-item {
+        .card {
+            h2 {
+                span {
+                    font-size: 22px;   
+                }
+                .shortened {
+                    font-size: 16px;
+                }
+            }
+        }
     }
 }
