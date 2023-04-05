@@ -531,6 +531,45 @@ img {
 .timeline .project:nth-child(7) h1 {
   color: #f7768e;
 }
+.timeline .project:nth-child(8) h1 {
+  color: #7aa2f7;
+}
+.timeline .project:nth-child(9) h1 {
+  color: #bb9af7;
+}
+.timeline .project:nth-child(10) h1 {
+  color: #73daca;
+}
+.timeline .project:nth-child(11) h1 {
+  color: #9ece6a;
+}
+.timeline .project:nth-child(12) h1 {
+  color: #e0af68;
+}
+.timeline .project:nth-child(13) h1 {
+  color: #ff9e64;
+}
+.timeline .project:nth-child(14) h1 {
+  color: #f7768e;
+}
+.timeline .project:nth-child(15) h1 {
+  color: #7aa2f7;
+}
+.timeline .project:nth-child(16) h1 {
+  color: #bb9af7;
+}
+.timeline .project:nth-child(17) h1 {
+  color: #73daca;
+}
+.timeline .project:nth-child(18) h1 {
+  color: #9ece6a;
+}
+.timeline .project:nth-child(19) h1 {
+  color: #e0af68;
+}
+.timeline .project:nth-child(20) h1 {
+  color: #ff9e64;
+}
 
 .findme-section {
   font-size: 70px;
