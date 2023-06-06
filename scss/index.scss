@@ -25,24 +25,23 @@ html {
     background-color: $background;
     color: $text;
     #{$prefix}navbar-toggler-border-color: $text !important;
+    scroll-behavior: smooth;
 }
 
 header {
     position: relative;
     background-image: url("../images/dots.png");
-    background-size: 100%;
+    background-size: 100vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100%;
+    min-height: 100vh;
 }
 
 main {
     background-color: $background;
     background-size: cover;
-    padding-top: 25px;
-    padding-bottom: 25px;
 }
 
 footer {
@@ -143,30 +142,80 @@ img {
     box-shadow: none;
 }
 
-
-.header {
-    padding: 5px;
+.highlight {
     color: $highlighted-text;
     background-color: $highlight;
-    border: solid 3px $highlight;
-    border-radius: 15px;
+    border: solid 1px $highlight;
+    border-radius: 5px;
 }
 
-#plaque {
-    position: absolute;
-    top: 15%;
+.outlined-block {
     background-color: $background;
-    padding-top: 30px;
-    padding-bottom: 20px;
     border: solid 5px $blue;
-    border-radius: 15px;
 }
 
-#profile-pic {
-    width: 250px;
-    height: 250px;
-    border: solid 7px $highlight;
-    border-radius: 50%;
+.typing-effect {
+    overflow: hidden;
+    border-right: 0.4em solid $green;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing-animation 2s steps(22, end) 1s normal both,
+                blink-caret 1.2s step-end infinite;
+}
+
+@keyframes typing-animation {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: $green;
+    }
+}
+
+.front-page-greeter {
+    padding: 1.6rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;   
+}
+
+#welcome-sign {
+    padding: 2vw 5vw;
+    h1 {
+        font-size: 2vw;
+    }
+}
+
+
+#front-page-card {
+
+    .container {
+        max-width: 40vw;
+    }
+
+    img {
+        max-width: 80%;
+        border: solid 7px $highlight;
+        border-radius: 5px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        margin: 1vw;
+        padding: 0.25vw;
+    }
 }
 
 .front-page-name {
@@ -420,6 +469,18 @@ img {
 
 // tablet
 @media screen and (max-width: 900px) {
+    .front-page-greeter {
+        flex-direction: column;
+    }
+
+    #welcome-sign {
+        span {
+            h1 {
+                font-size: 3vh;
+            }
+        }
+    }
+
     #trophy-picture {
         margin-top: 40px;
     }
@@ -437,6 +498,9 @@ img {
 
 // mobile
 @media screen and (max-width: 500px) {
+    .front-page-greeter {
+        flex-direction: column;
+    }
     #about-header {
         margin-left: 5%;
         margin-right: 5%;
