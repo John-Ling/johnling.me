@@ -60,11 +60,6 @@ a {
     }
 }
 
-img {
-    border: solid 7px $highlight;
-    border-radius: 15px;
-}
-
 .red {
     color: $red;
 }
@@ -163,6 +158,10 @@ img {
                 blink-caret 1.2s step-end infinite;
 }
 
+.greeter-block {
+    margin: 1rem;
+}
+
 @keyframes typing-animation {
     from {
         width: 0;
@@ -181,81 +180,34 @@ img {
     }
 }
 
-.front-page-greeter {
+.landing-page-greeter {
     padding: 1.6rem;
     min-height: 100vh;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-evenly;   
+    justify-content: center;
 }
 
 #welcome-sign {
     padding: 2vw 5vw;
     h1 {
-        font-size: 2vw;
+        font-size: 2rem;
     }
 }
 
-
-#front-page-card {
-
-    .container {
-        max-width: 40vw;
-    }
-
-    img {
-        max-width: 80%;
-        border: solid 7px $highlight;
-        border-radius: 5px;
-    }
-
-    h1 {
-        font-size: 1.6rem;
-        margin: 1vw;
-        padding: 0.25vw;
-    }
+#landing-page-photo {
+    margin: 1rem;
+    max-width: 30vh;
+    border: solid 7px $highlight;
 }
 
-.front-page-name {
-    margin-top: 15px;
-    padding-left: 60px;
-    padding-right: 60px;
-    margin-left: 30px;
-    margin-right: 30px;
-    padding-bottom: 5px;
-    font-size: 28px;
+#summary-info {
+    max-width: 30rem;
+    word-wrap: break-word;;
+    padding: 1rem;
 }
 
-#labels {
-    padding-top: 20px;
-    margin-right: 30px;
-    list-style: none;
-    display: inline-block;
-    font-size: 20px;
-
-    li {
-        $colours: $red,
-        $blue,
-        $green;
-
-        $time: 1s;
-
-        @for $i from 1 through length($colours) {
-            $colour: nth($colours, $i);
-
-            &:nth-child(#{$i}) {
-                color: $colour;
-                animation-name: fade;
-                animation-duration: $time;
-                animation-timing-function: ease;
-            }
-
-            $time: $time + 0.55;
-        }
-    }
-}
 
 #about-header {
     position: relative;
@@ -469,7 +421,7 @@ img {
 
 // tablet
 @media screen and (max-width: 900px) {
-    .front-page-greeter {
+    .landing-page-greeter {
         flex-direction: column;
     }
 
@@ -498,9 +450,6 @@ img {
 
 // mobile
 @media screen and (max-width: 500px) {
-    .front-page-greeter {
-        flex-direction: column;
-    }
     #about-header {
         margin-left: 5%;
         margin-right: 5%;

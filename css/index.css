@@ -245,11 +245,6 @@ a:hover {
   color: #c0caf5;
 }
 
-img {
-  border: solid 7px #303447;
-  border-radius: 15px;
-}
-
 .red {
   color: #f7768e;
 }
@@ -344,6 +339,10 @@ img {
   animation: typing-animation 2s steps(22, end) 1s normal both, blink-caret 1.2s step-end infinite;
 }
 
+.greeter-block {
+  margin: 1rem;
+}
+
 @keyframes typing-animation {
   from {
     width: 0;
@@ -360,71 +359,32 @@ img {
     border-color: #9ece6a;
   }
 }
-.front-page-greeter {
+.landing-page-greeter {
   padding: 1.6rem;
   min-height: 100vh;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 #welcome-sign {
   padding: 2vw 5vw;
 }
 #welcome-sign h1 {
-  font-size: 2vw;
+  font-size: 2rem;
 }
 
-#front-page-card .container {
-  max-width: 40vw;
-}
-#front-page-card img {
-  max-width: 80%;
+#landing-page-photo {
+  margin: 1rem;
+  max-width: 30vh;
   border: solid 7px #303447;
-  border-radius: 5px;
-}
-#front-page-card h1 {
-  font-size: 1.6rem;
-  margin: 1vw;
-  padding: 0.25vw;
 }
 
-.front-page-name {
-  margin-top: 15px;
-  padding-left: 60px;
-  padding-right: 60px;
-  margin-left: 30px;
-  margin-right: 30px;
-  padding-bottom: 5px;
-  font-size: 28px;
-}
-
-#labels {
-  padding-top: 20px;
-  margin-right: 30px;
-  list-style: none;
-  display: inline-block;
-  font-size: 20px;
-}
-#labels li:nth-child(1) {
-  color: #f7768e;
-  animation-name: fade;
-  animation-duration: 1s;
-  animation-timing-function: ease;
-}
-#labels li:nth-child(2) {
-  color: #7aa2f7;
-  animation-name: fade;
-  animation-duration: 1.55s;
-  animation-timing-function: ease;
-}
-#labels li:nth-child(3) {
-  color: #9ece6a;
-  animation-name: fade;
-  animation-duration: 2.1s;
-  animation-timing-function: ease;
+#summary-info {
+  max-width: 30rem;
+  word-wrap: break-word;
+  padding: 1rem;
 }
 
 #about-header {
@@ -661,7 +621,7 @@ img {
   }
 }
 @media screen and (max-width: 900px) {
-  .front-page-greeter {
+  .landing-page-greeter {
     flex-direction: column;
   }
   #welcome-sign span h1 {
@@ -678,9 +638,6 @@ img {
   }
 }
 @media screen and (max-width: 500px) {
-  .front-page-greeter {
-    flex-direction: column;
-  }
   #about-header {
     margin-left: 5%;
     margin-right: 5%;
