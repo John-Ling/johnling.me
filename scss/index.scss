@@ -42,6 +42,7 @@ header {
 main {
     background-color: $background;
     background-size: cover;
+    padding: 1rem 0;
 }
 
 footer {
@@ -98,6 +99,10 @@ a {
 
 .white {
     color: $white;
+}
+
+.header {
+    margin: 2rem 0;
 }
 
 .navbar {
@@ -204,51 +209,74 @@ a {
 
 #summary-info {
     max-width: 30rem;
-    word-wrap: break-word;;
+    word-wrap: break-word;
     padding: 1rem;
 }
 
 
-#about-header {
-    position: relative;
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-bottom: 25px;
+// Projects Section
+
+#project-display {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    max-height: 70vh;
 }
 
-.buffer {
-    margin-top: 70px;
+.project-card {
+    background-color: $background-light;
+    border: solid 1px $background-light;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 1rem;
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+    
+    a {
+        span {
+            &:hover {
+                color: $teal;
+            }
+        }
+    }
+
+    // Dynamically colour
+    $colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
+    $colourCount: length($colours);
+    $index: 1;
+    @for $i from 1 through 20 {
+        $colour: nth($colours, $index);
+        &:nth-child(#{$i}) {
+            h1 {
+                color: $colour;
+            }
+        }
+        $index: ($index + 1) % $colourCount;
+        @if ($index == 0) {
+            $index: $colourCount;
+        }
+    }
 }
 
-.question-prompt {
-    font-size: 48px;
-}
-
-#trophy-picture {
-    width: 80%;
-    display: block;
-    margin: auto;
-}
-
-#languages-section {
+.skills-group {
     font-size: 80px;
     margin-bottom: 30px;
 }
 
-#what-header {
-    margin-top: 100px;
-    margin-bottom: 30px;
-    padding-bottom: 7px;
-}
 
-
-.language-icon {
+.skill-icon {
     display: inline-block;
     text-align: center;
     padding: 20px;
     background-color: $background-light;
-    border-radius: 15px;
-    margin-bottom: 10px;
+    border-radius: 5px;
+    margin: 0.5rem;
 }
 
 .caption {
@@ -282,82 +310,6 @@ a {
     margin-right: 25%;
 }
 
-.timeline {
-    border-left: 3px solid $text;
-    border-bottom-right-radius: 4px;
-    border-top-right-radius: 4px;
-    background: $background;
-    margin: 0 auto;
-    margin-top: 50px;
-    position: relative;
-    padding: 50px;
-    list-style: none;
-    text-align: left;
-    max-width: 40%;
-
-    h1 {
-        font-size: 24px;
-    }
-
-    h2 {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        font-size: 16px;
-    }
-
-    .project {
-        padding-bottom: 25px;
-        margin-bottom: 25px;
-        position: relative;
-
-        &:last-of-type {
-            padding-bottom: 0;
-            margin-bottom: 0;
-            border: none;
-        }
-
-        &:before,
-        &:after {
-            position: absolute;
-            display: block;
-            top: 0;
-        }
-
-        &:before {
-            content: attr(data-date);
-            text-align: left;
-            font-weight: 100;
-            font-size: 0.9em;
-        }
-
-        &:after {
-            box-shadow: 0 0 0 3px $text;
-            left: -55.8px;
-            background: $background;
-            border-radius: 50%;
-            height: 9px;
-            width: 9px;
-            content: "";
-            top: 5px;
-        }
-
-        $colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
-        $availableColours: length($colours);
-        $index: 0;
-        @for $i from 1 through 20 {
-            @if ($index == $availableColours) {
-                $index: 0;
-            }
-            $index: $index + 1 % $availableColours;
-            $colour : nth($colours, $index);
-            &:nth-child(#{$i}) {
-                h1 {
-                    color: $colour;
-                }
-            }
-        }
-    }
-}
 
 .findme-section {
     font-size: 70px;
@@ -421,6 +373,12 @@ a {
 
 // tablet
 @media screen and (max-width: 900px) {
+
+    #project-display {
+        max-height: none;
+        
+    }
+
     .landing-page-greeter {
         flex-direction: column;
     }
@@ -431,10 +389,6 @@ a {
                 font-size: 3vh;
             }
         }
-    }
-
-    #trophy-picture {
-        margin-top: 40px;
     }
 
     #pim-photo {
@@ -450,6 +404,10 @@ a {
 
 // mobile
 @media screen and (max-width: 500px) {
+    .scrollable {
+        flex-direction: row;
+    }
+
     #about-header {
         margin-left: 5%;
         margin-right: 5%;
