@@ -1,17 +1,7 @@
 @use "variables" as *;
+@use "sass:color";
 @import "../bootstrap/scss/functions";
-
-$accordion-border-color: $highlight;
-$accordion-border-width: 5px;
-$accordion-bg: $background;
-$accordion-color: $text;
-$accordion-button-active-color: $highlighted-text;
-$accordion-button-active-bg: $highlight;
-$accordion-button-focus-border-color: none;
-$accordion-button-focus-box-shadow: none;
-
 @import "../bootstrap/scss/variables";
-
 @import "../bootstrap/scss/maps";
 @import "../bootstrap/scss/mixins";
 @import "../bootstrap/scss/root";
@@ -52,14 +42,6 @@ footer {
     padding-bottom: 5px;
 }
 
-a {
-    text-decoration: none;
-    color: $text;
-
-    &:hover {
-        color: $text;
-    }
-}
 
 .red {
     color: $red;
@@ -105,53 +87,29 @@ a {
     margin: 2rem 0;
 }
 
-.navbar {
-    background-color: $background;
-    color: $text;
+.separator {
+    margin: 4rem 0;
 }
 
-.navbar-brand {
-    color: $text;
-
-    &:hover {
-        color: $teal;
-    }
+.section {
+    min-height: 100vh;
 }
 
-.nav-link {
-    color: $text;
-    margin-left: 5px;
-    margin-right: 5px;
-
-    &:hover {
-        color: $teal;
-    }
-
-    &.active {
-        color: $text !important;
-        border-bottom: solid 2px $purple;
-    }
+.hidden {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 1s;
 }
 
-.navbar-toggler .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(192, 202, 245, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-.navbar .navbar-toggler {
-    outline: none;
-    box-shadow: none;
-}
-
-.highlight {
-    color: $highlighted-text;
-    background-color: $highlight;
-    border: solid 1px $highlight;
-    border-radius: 5px;
+.show {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .outlined-block {
     background-color: $background;
     border: solid 5px $blue;
+    margin: 1rem;
 }
 
 .typing-effect {
@@ -161,10 +119,6 @@ a {
     margin: 0 auto;
     animation: typing-animation 2s steps(22, end) 1s normal both,
                 blink-caret 1.2s step-end infinite;
-}
-
-.greeter-block {
-    margin: 1rem;
 }
 
 @keyframes typing-animation {
@@ -213,6 +167,36 @@ a {
     padding: 1rem;
 }
 
+#resume-link {
+    a {
+        text-decoration: none;
+        color: $text;
+        &:hover {
+            color: $teal;
+        }
+    }
+}
+
+@mixin communication-icon($colour) {
+    font-size: 3rem;
+    i {
+        color: $grey;
+        &:hover {
+            color: $colour;
+        }
+    }
+}
+
+#communication-section {
+    a {
+        $colours: $white, $blue, $orange, $red;
+        @for $i from 1 through 4 {
+            &:nth-child(#{$i}) {
+                @include communication-icon(nth($colours, $i));
+            }
+        }
+    }
+}
 
 // Projects Section
 
@@ -239,6 +223,8 @@ a {
     }
     
     a {
+        color: $text;
+        text-decoration: none;
         span {
             &:hover {
                 color: $teal;
@@ -277,6 +263,13 @@ a {
     background-color: $background-light;
     border-radius: 5px;
     margin: 0.5rem;
+
+    @for $i from 1 through 12 {
+        $delay: 200ms * $i;
+        &:nth-child(#{$i}) {
+            transition-delay: $delay;
+        }
+    }
 }
 
 .caption {
@@ -284,72 +277,23 @@ a {
     display: block;
 }
 
-.shortened {
-    font-size: 13px;
-    padding-bottom: 10px;
-}
-
-#technologies-header {
-    color: $teal;
-}
-
-#hardware-header {
-    color: $blue;
-}
-
-#server-header {
-    color: $purple;
-}
-
-.accordion-body {
-    color: $text;
-}
-
-#timeline-header {
-    margin-left: 25%;
-    margin-right: 25%;
-}
-
-
-.findme-section {
-    font-size: 70px;
-}
-
-#mail-link {
-    &:hover {
-        color: $text;
+// Education section
+.education-location {
+    text-indent: 3rem;
+    h4 {
+        text-indent: 6rem;
     }
 
-    span {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        font-size: 22px;
-
-        &:hover {
-            color: $teal
+    .course {
+        text-indent: 9rem;
+        ul {
+            list-style-type: none;
+        }
+        p {
+            text-indent: 9rem;
         }
     }
 }
-
-
-.web-icon {
-    .card {
-        background-color: $background-light;
-        border-radius: 10px;
-        padding: 20px;
-
-        &:hover {
-            background-color: darken($background-light, 1%);
-        }
-    }
-}
-
-#pim-photo {
-    width: 80%;
-    display: block;
-    margin: auto;
-}
-
 
 #return-link {
     margin-right: 10px;
@@ -371,7 +315,16 @@ a {
     }
 }
 
-// tablet
+@media (prefers-reduced-motion) {
+    .hidden {
+        transition: none;
+    }
+}
+
+
+// Breakpoints
+
+// Tablet
 @media screen and (max-width: 900px) {
 
     #project-display {
@@ -390,49 +343,15 @@ a {
             }
         }
     }
-
-    #pim-photo {
-        margin-top: 40px;
-    }
-
-    .web-icon {
-        &:not(:first-child) {
-            margin-top: 10px;
-        }
-    }
 }
 
-// mobile
+// Mobile
 @media screen and (max-width: 500px) {
-    .scrollable {
-        flex-direction: row;
-    }
-
-    #about-header {
-        margin-left: 5%;
-        margin-right: 5%;
-    }
-
-    #timeline-header {
-        margin-left: 5%;
-        margin-right: 5%;
-    }
-
-    .timeline {
-        max-width: 100%;
-        padding: 25px;
-
-        .project {
-            padding-top: 30px;
-
-            &:before {
-                left: 0px;
-                text-align: left;
-            }
-
-            &:after {
-                left: -31.8px;
-            }
+    .education-location {
+        h3 {
+            font-size: 1rem;
         }
+        font-size: 0.75rem;
     }
+
 }
