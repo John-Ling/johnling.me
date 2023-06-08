@@ -5,3 +5,4 @@ I wanted to make a portfolio website because even after programming for nearly 3
 The colour scheme is based off one of my favourite VScode themes "Tokyo Night" by Enkia. I made some minor adjustments to the colour scheme to my liking.
 
 I used Bootstrap, Sass and vanilla Javascript for the website itself and the site is hosted on a London-based Digital Ocean server running NGINX.
+# V1 of my developer portfolio
