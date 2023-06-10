@@ -2,10 +2,6 @@
 @use "sass:color";
 @import "../bootstrap/scss/functions";
 @import "../bootstrap/scss/variables";
-@import "../bootstrap/scss/maps";
-@import "../bootstrap/scss/mixins";
-@import "../bootstrap/scss/root";
-@import "../bootstrap/scss/accordion";
 
 body,
 html {
@@ -15,33 +11,52 @@ html {
     background-color: $background;
     color: $text;
     #{$prefix}navbar-toggler-border-color: $text !important;
-    scroll-behavior: smooth;
 }
 
 header {
     position: relative;
     background-image: url("../images/dots.png");
-    background-size: 100vh;
+    background-size: 100%;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100%;
+
+    padding: 1.6rem;
     min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 main {
     background-color: $background;
     background-size: cover;
-    padding: 1rem 0;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 footer {
     background-color: $background-dark;
     height: fit-content;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 5px
 }
 
+a {
+    text-decoration: none;
+    color: $text;
+
+    &:hover {
+        color: $text;
+    }
+}
+
+img {
+    border: solid 7px $highlight;
+    border-radius: 15px;
+}
 
 .red {
     color: $red;
@@ -83,16 +98,54 @@ footer {
     color: $white;
 }
 
+.navbar {
+    background-color: $background;
+    color: $text;
+
+    .nav-link {
+        color: $text;
+        margin-left: 5px;
+        margin-right: 5px;
+        
+        &:hover {
+            color: $teal;
+        }
+    
+        &.active {
+            color: $text;
+            border-bottom: solid 2px $purple;
+    
+            &:hover {
+                color: $teal;
+            }
+        }
+    }
+}
+
+.navbar-brand {
+    color: $text;
+
+    &:hover {
+        color: $teal;
+    }
+}
+
+.navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(192, 202, 245, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar .navbar-toggler {
+    outline: none;
+    box-shadow: none;
+}
+
+
 .header {
-    margin: 2rem 0;
-}
-
-.separator {
-    margin: 4rem 0;
-}
-
-.section {
-    min-height: 100vh;
+    padding: 5px;
+    color: $highlighted-text;
+    background-color: $highlight;
+    border: solid 3px $highlight;
+    border-radius: 15px;
 }
 
 .hidden {
@@ -139,15 +192,6 @@ footer {
     }
 }
 
-.landing-page-greeter {
-    padding: 1.6rem;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
 #welcome-sign {
     padding: 2vw 5vw;
     h1 {
@@ -177,28 +221,69 @@ footer {
     }
 }
 
-@mixin communication-icon($colour) {
-    font-size: 3rem;
-    i {
-        color: $grey;
-        &:hover {
-            color: $colour;
+
+#about-header {
+    position: relative;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 25px;
+}
+
+.buffer {
+    margin-top: 70px;
+}
+
+.question-prompt {
+    font-size: 48px;
+}
+
+// What section
+
+#trophy-picture {
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+
+
+#what-header {
+    margin-top: 100px;
+    margin-bottom: 30px;
+    padding-bottom: 7px;
+}
+
+.skills-group {
+    font-size: 80px;
+    margin-bottom: 30px;
+}
+
+.skill-icon {
+    display: inline-block;
+    text-align: center;
+    padding: 20px;
+    background-color: $background-light;
+    border-radius: 5px;
+    margin: 0.5rem;
+
+    @for $i from 1 through 12 {
+        $delay: 200ms * $i;
+        &:nth-child(#{$i}) {
+            transition-delay: $delay;
         }
     }
 }
 
-#communication-section {
-    a {
-        $colours: $white, $blue, $orange, $red;
-        @for $i from 1 through 4 {
-            &:nth-child(#{$i}) {
-                @include communication-icon(nth($colours, $i));
-            }
-        }
-    }
+.caption {
+    font-size: 20px;
+    display: block;
 }
 
-// Projects Section
+.shortened {
+    font-size: 13px;
+    padding-bottom: 10px;
+}
+
+// When section
 
 #project-display {
     display: flex;
@@ -250,50 +335,37 @@ footer {
     }
 }
 
-.skills-group {
-    font-size: 80px;
-    margin-bottom: 30px;
+// Where section
+
+.findme-section {
+    font-size: 70px;
 }
 
+#mail-link {
+    font-size: 2rem;
+    &:hover {
+        color: $teal;
+    }
+}
 
-.skill-icon {
-    display: inline-block;
-    text-align: center;
-    padding: 20px;
-    background-color: $background-light;
-    border-radius: 5px;
-    margin: 0.5rem;
+.web-icon {
+    .card {
+        background-color: $background-light;
+        border-radius: 10px;
+        padding: 20px;
 
-    @for $i from 1 through 12 {
-        $delay: 200ms * $i;
-        &:nth-child(#{$i}) {
-            transition-delay: $delay;
+        &:hover {
+            background-color: darken($background-light, 1%);
         }
     }
 }
 
-.caption {
-    font-size: 20px;
+#pim-photo {
+    width: 80%;
     display: block;
+    margin: auto;
 }
 
-// Education section
-.education-location {
-    text-indent: 3rem;
-    h4 {
-        text-indent: 6rem;
-    }
-
-    .course {
-        text-indent: 9rem;
-        ul {
-            list-style-type: none;
-        }
-        p {
-            text-indent: 9rem;
-        }
-    }
-}
 
 #return-link {
     margin-right: 10px;
@@ -321,37 +393,58 @@ footer {
     }
 }
 
-
-// Breakpoints
-
-// Tablet
+// tablet
 @media screen and (max-width: 900px) {
-
-    #project-display {
-        max-height: none;
-        
-    }
-
-    .landing-page-greeter {
+    header {
         flex-direction: column;
     }
 
-    #welcome-sign {
-        span {
-            h1 {
-                font-size: 3vh;
-            }
+    #trophy-picture {
+        margin-top: 40px;
+    }
+
+    #project-display {
+        max-height: none;
+    }
+    
+    #pim-photo {
+        margin-top: 40px;
+    }
+
+    .web-icon {
+        &:not(:first-child) {
+            margin-top: 10px;
         }
     }
 }
 
-// Mobile
+// mobile
 @media screen and (max-width: 500px) {
-    .education-location {
-        h3 {
-            font-size: 1rem;
-        }
-        font-size: 0.75rem;
+    #about-header {
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
+    #timeline-header {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .timeline {
+        max-width: 100%;
+        padding: 25px;
+
+        .project {
+            padding-top: 30px;
+
+            &:before {
+                left: 0px;
+                text-align: left;
+            }
+
+            &:after {
+                left: -31.8px;
+            }
+        }
+    }
 }
