@@ -421,6 +421,11 @@ img {
     opacity: 1;
   }
 }
+@media (prefers-reduced-motion) {
+  .hidden {
+    transition: none;
+  }
+}
 @media screen and (max-width: 900px) {
   header {
     flex-direction: column;

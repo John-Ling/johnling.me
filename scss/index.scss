@@ -387,6 +387,12 @@ img {
     }
 }
 
+@media (prefers-reduced-motion) {
+    .hidden {
+        transition: none;
+    }
+}
+
 // tablet
 @media screen and (max-width: 900px) {
     header {
