@@ -2,208 +2,217 @@
 
 body,
 html {
-  background: $background;
-  font-family: 'meslolgs_nfregular';
-  color: $text;
+    background: $background;
+    font-family: 'meslolgs_nfregular';
+    color: $text;
 }
 
 header {
-  position: relative;
-  background-image: url("../images/dots.png");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    position: relative;
+    background-image: url("../images/dots.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 footer {
-  background-color: $background-dark;
-  height: fit-content;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-top: 30px;
+    background-color: $background-dark;
+    height: fit-content;
+    padding: 5px
 }
 
 img {
-  border: solid 7px $highlight;
-  border-radius: 15px;
+    border: solid 7px $highlight;
+    border-radius: 5px;
 }
 
 a {
-  color: $text;
-  text-decoration: none;
-
-  &:hover {
     color: $text;
-  }
-}
+    text-decoration: none;
 
-.navbar {
-  background-color: $background;
-  color: $text;
+    &:hover {
+        color: $text;
+    }
 }
 
 .navbar-brand {
-  color: $text;
+    color: $text;
 
-  &:hover {
-    color: $teal;
-  }
+    &:hover {
+        color: $teal;
+    }
 }
 
-.nav-link {
-  color: $text;
-  margin-left: 5px;
-  margin-right: 5px;
+.navbar {
+    background-color: $background;
+    color: $text;
 
-  &:hover {
-    color: $teal;
-  }
+    .nav-link {
+        color: $text;
+        margin-left: 5px;
+        margin-right: 5px;
 
-  &.active {
-    color: $text  !important;
-    border-bottom: solid 2px $purple;
-  }
+        &:hover {
+            color: $teal;
+        }
+
+        &.active {
+            color: $text;
+            border-bottom: solid 2px $purple;
+
+            &:hover {
+                color: $teal;
+            }
+        }
+    }
 }
 
 .navbar-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(192, 202, 245, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(192, 202, 245, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .navbar .navbar-toggler {
-  outline: none;
-  box-shadow: none;
+    outline: none;
+    box-shadow: none;
 }
 
 #title-card {
-  padding-top: 30px;
-  padding-bottom: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 #plaque {
-  background-color: $background;
-  border: solid 5px $blue;
-  border-radius: 15px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-left: 15%;
-  margin-right: 15%;
-  text-align: center;
+    background-color: $background;
+    border: solid 5px $blue;
+    padding: 1rem 0;
+    margin: 0 15%;
+    text-align: center;
 
-  #header {
-    color: $highlighted-text;
-    padding-top: 15px;
-    padding-bottom: 5px;
-    font-size: 40px;
-  }
+    #header {
+        color: $teal;
+        font-size: 40px;
+    }
 }
 
+.typing-effect {
+    overflow: hidden;
+    border-right: 0.4em solid $green;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing-animation 1.2s steps(18, end) 1s normal both,
+                blink-caret 1.2s step-end infinite;
+}
 
-#header-icon {
-  background-color: $highlight;
-  border: solid 5px $highlight;
-  border-radius: 15px;
-  padding: 10px;
-  margin-right: 20px;
+@keyframes typing-animation {
+    from {
+        width: 0;
+    }
+    to {
+        width: 200px;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: $teal;
+    }
 }
 
 #header-text {
-  background-color: $highlight;
-  border: solid 1px $highlight;
-  border-radius: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 4px;
-  font-size: 38px;
+    color: $teal;
 }
 
 .header {
-  position: relative;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  text-align: center;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
 
-  span {
-    background-color: $highlight;
-    color: $highlighted-text;
-    border: solid 3px $highlight;
-    border-radius: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+    span {
+        background-color: $highlight;
+        color: $highlighted-text;
+        border: solid 3px $highlight;
+        border-radius: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
 .row {
-  margin-top: 35px;
+    margin-top: 35px;
 
-  &:last-child {
-    margin-bottom: 35px;
-  }
+    &:last-child {
+        margin-bottom: 35px;
+    }
 }
 
 #logo {
-  align-self: center;
+    align-self: center;
 }
 
 
 .web-icon {
-  text-align: center;
+    text-align: center;
 
-  i {
-    font-size: 70px;
-  }
-
-  .fa-facebook {
-    color: $blue;
-  }
-
-  .fa-instagram {
-    color: $red;
-  }
-
-  .card {
-    background-color: $background-light;
-    border-radius: 10px;
-    padding: 20px;
-
-    &:hover {
-      background-color: darken($background-light, 1%);
+    i {
+        font-size: 70px;
     }
-  }
+
+    .fa-facebook {
+        color: $blue;
+    }
+
+    .fa-instagram {
+        color: $red;
+    }
+
+    .card {
+        background-color: $background-light;
+        border-radius: 5px;
+        padding: 20px;
+
+        &:hover {
+            background-color: darken($background-light, 1%);
+        }
+    }
 }
 
 .caption {
-  font-size: 20px;
-  display: block;
+    font-size: 20px;
+    display: block;
 }
 
 #return-link {
-  margin-right: 10px;
-  color: $text;
-  text-decoration: none;
+    margin-right: 10px;
+    color: $text;
+    text-decoration: none;
 
-  &:hover {
-    color: $teal
-  }
+    &:hover {
+        color: $teal
+    }
 }
 
 @media screen and (max-width: 900px) {
-  .web-icon {
-    &:not(:first-child) {
-      margin-top: 10px;
+    .web-icon {
+        &:not(:first-child) {
+            margin-top: 10px;
+        }
     }
-  }
 }
 
 @media screen and (max-width: 500px) {
-  #work-header {
-    margin-left: 5%;
-    margin-right: 5%;
-  }
+    #work-header {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
 
-  #plaque {
-    margin-left: unset;
-    margin-right: unset;
-    text-align: center;
-  }
+    #plaque {
+        margin-left: unset;
+        margin-right: unset;
+        text-align: center;
+    }
 }

@@ -17,14 +17,12 @@ header {
 footer {
   background-color: #16161d;
   height: fit-content;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-top: 30px;
+  padding: 5px;
 }
 
 img {
   border: solid 7px #303447;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 
 a {
@@ -35,11 +33,6 @@ a:hover {
   color: #c0caf5;
 }
 
-.navbar {
-  background-color: #1a1b26;
-  color: #c0caf5;
-}
-
 .navbar-brand {
   color: #c0caf5;
 }
@@ -47,17 +40,24 @@ a:hover {
   color: #73daca;
 }
 
-.nav-link {
+.navbar {
+  background-color: #1a1b26;
+  color: #c0caf5;
+}
+.navbar .nav-link {
   color: #c0caf5;
   margin-left: 5px;
   margin-right: 5px;
 }
-.nav-link:hover {
+.navbar .nav-link:hover {
   color: #73daca;
 }
-.nav-link.active {
-  color: #c0caf5 !important;
+.navbar .nav-link.active {
+  color: #c0caf5;
   border-bottom: solid 2px #bb9af7;
+}
+.navbar .nav-link.active:hover {
+  color: #73daca;
 }
 
 .navbar-toggler .navbar-toggler-icon {
@@ -77,36 +77,41 @@ a:hover {
 #plaque {
   background-color: #1a1b26;
   border: solid 5px #7aa2f7;
-  border-radius: 15px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-left: 15%;
-  margin-right: 15%;
+  padding: 1rem 0;
+  margin: 0 15%;
   text-align: center;
 }
 #plaque #header {
-  color: #f0f0f0;
-  padding-top: 15px;
-  padding-bottom: 5px;
+  color: #73daca;
   font-size: 40px;
 }
 
-#header-icon {
-  background-color: #303447;
-  border: solid 5px #303447;
-  border-radius: 15px;
-  padding: 10px;
-  margin-right: 20px;
+.typing-effect {
+  overflow: hidden;
+  border-right: 0.4em solid #9ece6a;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing-animation 1.2s steps(18, end) 1s normal both, blink-caret 1.2s step-end infinite;
 }
 
+@keyframes typing-animation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 200px;
+  }
+}
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #73daca;
+  }
+}
 #header-text {
-  background-color: #303447;
-  border: solid 1px #303447;
-  border-radius: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 4px;
-  font-size: 38px;
+  color: #73daca;
 }
 
 .header {
@@ -149,7 +154,7 @@ a:hover {
 }
 .web-icon .card {
   background-color: #20212e;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 20px;
 }
 .web-icon .card:hover {
