@@ -15,203 +15,394 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link href="fonts.css" rel="stylesheet">
-    <link href="css/index.css" rel="stylesheet">
+    <link href="scss/index.css" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <div class="landing-page-greeter">
-            <div class="outlined-block greeter-block" id="welcome-sign">
-                <h1 class="typing-effect green">Hello. I'm John.</h1>
-            </div>
-            <div class="outlined-block greeter-block">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 text-center">
-                            <img src="./images/profile-square.png" alt="Photo of me" id="landing-page-photo"/>
-                        </div>
-                        <div class="col-md-6" id="summary-info">
-                            <h1 class="purple">In a nutshell</h1>
-                            <p>I am a <span id="age-text">17</span> year old student living in Malaysia.
-                                With a strong interest in technology, I enjoy building things for myself and others.
-                                From websites, web and desktop applications, mobile apps and embedded systems. 
-                                Give me a task and I'll have a crack at it.</p>
-                            <div id="communication-section" class="text-center">
-                                <a href="https://github.com/John-Ling"><i class="fa-brands fa-square-github "></i></a>
-                                <a href="https://www.linkedin.com/in/john-ling-721721243/"><i class="fa-brands fa-linkedin"></i></a>
-                                <a href="https://stackoverflow.com/users/19423880/john-ling"><i class="fa-brands fa-stack-overflow"></i></a>
-                                <a href="mailto:johnlingbusiness@gmail.com?subject=Message From Website Visitor"><i class="fa-regular fa-envelope"></i></a>
-                            </div>
-                            <h5 class="text-center" id="resume-link"><a href="media/mock-cv.pdf"><span><i class="fa-regular fa-file"></i> Resume</span></a></h5>
-                        </div>
-                    </div>
+    <header id="front-page">
+        <nav class="navbar navbar-expand-lg sticky-top py-0">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">John Ling</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="page-list">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="projects.html">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="charity.html">Charity</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="articles.html">Articles and Awards</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="media/mock-cv.pdf">Resume</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about-section">About</a>
+                        </li>
+                    </ul>
                 </div>
+            </div>
+        </nav>
+        <div class="container d-flex align-items-center justify-content-center">
+            <div class="text-center" id="plaque">
+                <img id="profile-pic" src="images/profile-square.png" alt="Profile picture">
+                <h1 class="header front-page-name">John Ling</h1>
+                <ul id="labels">
+                    <li>Student</li>
+                    <li>Founder</li>
+                    <li>Developer</li>
+                </ul>
             </div>
         </div>
     </header>
 
-    <main>
+    <main id="about-section">
+        <h1 id="about-header" class="text-center header">About Me</h1>
         <div class="container">
-            <div class="row section" id="projects-section">
+            <div class="row">
                 <div class="col-lg-6 order-lg-12">
-                    <h1 class="red text-center header">Projects</h1>
-                    <div id="project-display">
-                        <div class="project-card">
-                            <h1>Pseudocode Compiler</h1>
-                            <h2>October 2022 - May 2023</h2>
-                            <p>Scratch-built compiler to make A-Level "pseudocode" an exectuable language.</p>
-                            <a href="https://github.com/John-Ling/Pseudocode-Compiler"><span>Source Code <i
-                                class="fa-brands fa-github"></i></span></a>
-                        </div>
-                        <div class="project-card">
-                            <h1>Trello Tabliss Integration</h1>
-                            <h2>January 2023 - May 2023</h2>
-                            <p>Fork of browser extension Tabliss that integrates a user's Trello board directly into the view.</p>
-                            <a href="https://github.com/John-Ling/Tabliss-Trello-Integration/tree/main/src/plugins/widgets/trello"><span>Source Code <i
-                                class="fa-brands fa-github"></i></span></a>
-                        </div>
-                        <div class="project-card">
-                            <h1>Portfolio Website</h1>
-                            <h2>June 2022 - August 2022</h2>
-                            <p>Personal developer portfolio about my work. Built using Bootstrap, Sass and Javascript.</p>
-                            <a href="https://github.com/John-Ling/Portfolio-Website"><span>Source Code <i
-                                class="fa-brands fa-github"></i></span></a>
-                        </div>
-                        <div class="project-card">
-                            <h1>Cameraman</h1>
-                            <h2>November 2021 - Feburary 2022</h2>
-                            <p>Uses microcontrollers, motor and OpenCV to track and follow a face in realtime.</p>
-                            <a href="https://github.com/John-Ling/Pseudocode-Compiler"><span>Source Code <i
-                                class="fa-brands fa-github"></i></span></a>
-                        </div>
-                        <div class="project-card">
-                            <h1>CS Fundamentals</h1>
-                            <h2>August 2021 - Present</h2>
-                            <p>Ongoing code implementations of various data structures and algorithms.</p>
-                            <a href="https://github.com/John-Ling/CS-Fundamentals"><span>Source Code <i
-                                class="fa-brands fa-github"></i></span></a>
-                        </div>
-                        <div class="project-card">
-                            <h1>Desktop Kahoot Bot</h1>
-                            <h2>November 2021 - May 2022</h2>
-                            <p>Autonomous Kahoot player that uses C# + Winforms for the frontend</p>
-                            <a href=https://github.com/John-Ling/Desktop-Kahoot-Bot""><span>Source Code <i
-                                class="fa-brands fa-github"></i></span></a>
-                        </div>
-                    </div>
+                    <h1 class="question-prompt red">Who?</h1>
+                    <br>
+                    <h2>A bit about me</h2>
+                    <br>
+                    <p1>Hello! My name is John Ling.</p1>
+                    <br>
+                    <br>
+                    <p1>I am a <span id="age-text">16</span> year old student living in Malaysia currently taking A levels.
+                        I study mathematics, physics and computer science as most of them align with my own interests.
+                        While I have a fascination with many fields of technology, I've found my interest is
+                        mainly in programming.
+                        Personal projects are my favourite aspect of programming as I enjoy building practical
+                        applications to help myself or others.
+                        From conceptualisation and design to the small triumphs debugging code, I enjoy all of it.</p1>
+                    <br>
+                    <br>
+                    <p1>I am also the founder of a charity named Plugged In Malaysia which refurbishes broken computers
+                        and distributes them to two charities.
+                        As of now, 166 computers and counting have been donated. I continue to manage the charity to
+                        this day.
+                    </p1>
                 </div>
                 <div class="col-lg-6 order-lg-1">
-                    <h1 class="orange text-center header">What I know</h1>
-                    <h2 class="text-center">Languages</h2>
-                    <div class="d-flex flex-wrap align-items-center justify-content-center skills-group">
+                    <img class="img-fluid" id="trophy-picture" src="images/trophy-pic.jpeg"
+                        alt="Picture of me with the EARCOS Award for 2022">
+                </div>
+            </div>
+
+            <div class="row buffer">
+                <div class="col-lg-6 order-lg-1">
+                    <h1 class="question-prompt yellow">What?</h1>
+                    <br>
+                    <h2>My tools for the job</h2>
+                    <br>
+                    <p1>I have been programming for 2 years in a variety of different languages such as Python, C# and
+                        Javascript.
+                        Over the course of my journey, I've picked up many more skills needed to build intuitive and
+                        scalable applications.
+                        All of my skills are self-taught through online resources or MOOCs such as CS50. </p1>
+                    <br>
+                    <br>
+                    <p1> When picking new technologies to learn, 
+                        I don't always go towards the cutting-edge, "trendy" frameworks.
+                        I'm equally as likely to learn Winforms over React and the same rule applies in reverse.
+                        My mindset is that as long as one learns the principles a framework teaches; 
+                        which framework one chooses 
+                        to learn first does not matter.
+                        </p1>
+                    <br>
+                    <br>
+                    <p1>My reasoning for this approach stems from second-hand experience watching content creators
+                        online and accounts from friends working in the field.
+                        From large corporations to up and coming startups, the tools and technologies they use vary
+                        differently. A developer that can adapt to quickly use new tools
+                        will be more valuable than one who specialises in one framework and cannot learn anything else.
+                    </p1>
+                </div>
+
+                <div class="col-lg-6 order-lg-12">
+                    <h1 id="what-header" class="text-center header">Languages</h1>
+                    <div class="d-flex flex-wrap align-items-center justify-content-center" id="languages-section">
                         <div class="row">
-                            <div class="col skill-icon hidden">
-                                <i class="devicon-python-plain blue"></i>
-                                <span class="caption">Python</span>
+                            <div class="col">
+                                <div class="language-icon">
+                                    <i class="devicon-python-plain python blue"></i>
+                                    <span class="caption">Python</span>
+                                </div>
                             </div>
-                            <div class="col skill-icon hidden">
-                                <i class="devicon-csharp-plain purple"></i>
-                                <span class="caption">C#</span>
+                            <div class="col">
+                                <div class="language-icon">
+                                    <i class="devicon-csharp-plain purple"></i>
+                                    <span class="caption">C#</span>
+                                </div>
                             </div>
-                            <div class="col skill-icon hidden">
-                                <i class="devicon-html5-plain orange"></i>
-                                <span class="caption">HTML</span>
+                            <div class="col ">
+                                <div class="language-icon">
+                                    <i class="devicon-c-plain grey"></i>
+                                    <span class="caption">C</span>
+                                </div>
                             </div>
-                            <div class="col skill-icon hidden">
-                                <i class="devicon-css3-plain cyan"></i>
-                                <span class="caption">CSS</span>
+                            <div class="col ">
+                                <div class="language-icon">
+                                    <i class="devicon-sqlite-plain teal"></i>
+                                    <span class="caption">SQLite</span>
+                                </div>
                             </div>
-                            
                         </div>
                         <div class="row">
-                            <div class="col skill-icon hidden">
-                                <i class="devicon-c-plain grey"></i>
-                                <span class="caption">C</span>
+                            <div class="col">
+                                <div class="language-icon">
+                                    <i class="devicon-java-plain red"></i>
+                                    <span class="caption">Java</span>
+                                </div>
                             </div>
-                            <div class="col skill-icon hidden">
-                                <i class="devicon-java-plain red"></i>
-                                <span class="caption">Java</span>
+                            <div class="col">
+                                <div class="language-icon">
+                                    <i class="devicon-cplusplus-plain blue"></i>
+                                    <span class="caption">C++</span>
+                                </div>
                             </div>
-                            <div class="col skill-icon hidden">
-                                <i class="devicon-cplusplus-plain blue"></i>
-                                <span class="caption">C++</span>
-                            </div>
-                            <div class="col skill-icon hidden">
-                                <i class="devicon-nodejs-plain green"></i>
-                                <span class="caption">NodeJS</span>
+                            <div class="col ">
+                                <div class="language-icon">
+                                    <i class="devicon-nodejs-plain green"></i>
+                                    <span class="caption">NodeJS</span>
+                                </div>
                             </div>
                         </div>
+                        
                     </div>
-                    <h2 class="text-center">Tools</h2>
-                    <div class="d-flex flex-wrap align-items-center justify-content-center skills-group">
-                        <div class="row">
-                            <div class="col skill-icon hidden">
-                                <i class="devicon-react-original cyan"></i>
-                                <span class="caption">React</span>
-                            </div>
-                            <div class="col skill-icon hidden">
-                                <i class="devicon-opencv-plain grey"></i>
-                                <span class="caption">OpenCV</span>
-                            </div>
-                            <div class="col skill-icon hidden">
-                                <i class="devicon-firebase-plain yellow"></i>
-                                <span class="caption">Firebase</span>
-                            </div>
-                            <div class="col skill-icon hidden">
-                                <i class="devicon-ubuntu-plain orange"></i>
-                                <span class="caption">Ubuntu</span>
+                    <div class="accordion" id="skills-accordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse" aria-expanded="false" aria-controls="collapse">
+                                    Technical Skills
+                                </button>
+                            </h2>
+                            <div id="collapse" class="accordion-collapse collapse" aria-labelledby="accordion-header"
+                                data-bs-parent="#skills-accordion">
+                                <div class="accordion-body">
+                                    <div class="row gx-6">
+                                        <div class="col-sm-4">
+                                            <h3 class="text-center" id="technologies-header">Software</h3>
+                                            <ul>
+                                                <li>React</li>
+                                                <li>Bootstrap</li>
+                                                <li>Sass</li>
+                                                <li>jQuery</li>
+                                                <li>OpenCV</li>
+                                                <li>Winforms</li>
+                                                <li>Beautiful Soup</li>
+                                                <li>Selenium</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <h3 class="text-center" id="hardware-header">Hardware</h3>
+                                            <ul>
+                                                <li>Computer Aided Design (CAD)</li>
+                                                <li>3D Printing</li>
+                                                <li>Arduino + ATmega328p</li>
+                                                <li>Raspberry Pi</li>
+                                                <li>Circuit Design</li>
+                                                <li>Refurbishment</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <h3 class="text-center" id="server-header">Tooling</h3>
+                                            <ul>
+                                                <li>Ubuntu Server</li>
+                                                <li>NPM</li>
+                                                <li>Docker</li>
+                                                <li>Bash</li>
+                                                <li>NGINX</li>
+                                                <li>SSH</li>
+                                                <li>Git</li>
+                                                <li>QEMU-KVM + VFIO</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row section" id="education-section">
-                <h1 class="header yellow text-center">Academics</h1>
-                <div>
-                    <h2 class="green">Education</h2>
-                    <div class="education-location">
-                        <h3>Garden International School</h3>
-                        <p>2018 - 2023</p>
-                        <div class="course">
-                            <h4 class="teal">A Levels</h4>
-                            <p>May 2023</p>
-                            <ul>
-                                <li>Maths: A*</li>
-                                <li>Physics: A*</li>
-                                <li>Computer Science: A*</li>
-                            </ul>
+            <div class="row buffer">
+                <div class="col-lg-12 order-lg-12">
+                    <h1 class="question-prompt blue">When?</h1>
+                    <br>
+                    <h2>Where it all began</h2>
+                    <br>
+                    <p1>While I had taken some Python introductory classes the year before, my first true project was
+                        created in September of 2019.
+                        It was an automated kahoot player using the Selenium library which while primitive, I was proud
+                        of as something I built myself. </p1>
+                    <br>
+                    <br>
+                    <p1>Ever since, I've continued to build a multitude of projects such as desktop
+                        applications, embedded devices and websites. The timeline below shows significant projects I
+                        have created.</p1>
+                </div>
+                <div class="col-lg-12 order-lg-1 text-center buffer">
+                    <h1 id="timeline-header" class="header">Timeline</h1>
+                    <div id="content">
+                        <ul class="timeline">
+                            <li class="project">
+                                <h1>Kahoot Bot</h1>
+                                <h2>September 2019</h2>
+                                <p>Where I started. A simple Kahoot bot built with Python and Selenium.</p>
+                            </li>
+                            <li class="project">
+                                <h1>Covid Companion</h1>
+                                <h2>March 2020 - May 2020</h2>
+                                <p>A Python desktop application using NLP and webscraping to provide per-country COVID-19 
+                                    information and answer health related questions.
+                                </p>
+                            </li>
+                            <li class="project">
+                                <h1>CS50</h1>
+                                <h2>January 2021 - August 2022</h2>
+                                <p>Started and completed CS50's Intro to Computer Science. I completed modules 1-5 in
+                                    2021
+                                    and modules 6-9 during 2022.
+                                </p>
+                            </li>
+                            <li class="project">
+                                <h1>Prompt Pal</h1>
+                                <h2>July 2021 - August 2021</h2>
+                                <p>Android Java app developed with colleague as part of the Young Innovators Challenge.
+                                    The app generates random prompts for activities for teenagers to do during the
+                                    lockdown.
+                                    Won Bronze against 300 schools.
+                                </p>
+                            </li>
+                            <li class="project">
+                                <h1>Kahoot Bot V2</h1>
+                                <h2>September 2021 - June 2022</h2>
+                                <p>To celebrate two years of learning to code, I rebuilt my Kahoot bot
+                                    as a multithreaded desktop application using C#, Winforms and Selenium.
+                                </p>
+                            </li>
+                            <li class="project">
+                                <h1>Cameraman</h1>
+                                <h2>November 2021 - June 2022</h2>
+                                <p>An OpenCV powered motion system that locates a teacher's face from a webcam stream
+                                    and uses motors
+                                    to adjust a camera to the teacher's position in real time. Designed to both increase
+                                    the viewing angle for online students to ensure they don't miss content and make
+                                    hybrid teaching more seamless.
+                                </p>
+                            </li>
+                            <li class="project">
+                                <h1>johnling.me</h1>
+                                <h2>June 2022 - July 2022</h2>
+                                <p>My personal portfolio website to talk about myself and showcase both web development
+                                    and design skills.
+                                    Created with Bootstrap HTML, Sass and Javascript.</p>
+                            </li>
+                            <li class="project">
+                                <h1>Trello Tabliss Integration</h1>
+                                <h2>October 2022 - Present</h2>
+                                <p>My first full stack application to integrate Trello with the Tabliss browser extension using
+                                    Firebase and NodeJS for the backend. Frontend is built using React.</p>
+                            </li>
+                            <li class="project">
+                                <h1>Pseudocode Compiler</h1>
+                                <h2>October 2022 - May 2023</h2>
+                                <p>Functional compiler built using C++ to translate pseudocode to valid Python to improve understanding of
+                                    both compiler theory and theoretical computer science.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row buffer text-center">
+                <div class="col-lg-12 order-lg-12">
+                    <h1 class="question-prompt purple">Where?</h1>
+                    <h2>(can you find me)</h2>
+                    <br>
+                </div>
+                <div class="col-lg-12 order-lg-1 findme-section" id="where-section">
+                    <div class="row">
+                        <a href="mailto:johnlingbusiness@gmail.com?subject=Hello John"
+                            id="mail-link"><span>johnlingbusiness@gmail.com</span></a>
+                    </div>
+                    <div class="row" id="website-icons">
+                        <div class="col-lg-4 web-icon">
+                            <a href="https://www.linkedin.com/in/john-ling-721721243/">
+                                <div class="card">
+                                    <div>
+                                        <i class="devicon-linkedin-plain blue"></i>
+                                        <span class="caption">LinkedIn</span>
+                                    </div>
+                                </div>
+                            </a>   
                         </div>
-                        <div class="course">
-                            <h4 class="purple">AS Levels</h4>
-                            <p>May 2022</p>
-                            <ul>
-                                <li>Maths: A</li>
-                                <li>Physics: A</li>
-                                <li>Computer Science: A</li>
-                            </ul>
+                        <div class="col-lg-4 web-icon">
+                                <a href="https://github.com/John-Ling">
+                                    <div class="card">
+                                        <div>
+                                            <i class="fa-brands fa-github white"></i>
+                                            <span class="caption">Github</span>
+                                        </div>
+                                    </div>
+                                </a>
                         </div>
-                        <div class="course">
-                            <h4 class="blue">IGCSE</h4>
-                            <p>May 2021</p>
-                            <ul>
-                                <li>Maths: A*</li>
-                                <li>Physics: A*</li>
-                                <li>Computer Science: A*</li>
-                                <li>English: A*</li>
-                                <li>Chemistry: A*</li>
-                                <li>History: A*</li>
-                                <li>Music: A*</li>
-                                <li>Biology: A*</li>
-                            </ul>
+                        <div class="col-lg-4 web-icon">
+                            <a href="https://stackoverflow.com/users/19423880/john-ling">
+                                <div class="card">
+                                    <div>
+                                        <i class="fa-brands fa-stack-overflow orange"></i>
+                                        <span class="caption">Stack Overflow</span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="row buffer">
+                <div class="col-lg-6 order-lg-12">
+                    <h1 class="question-prompt green">Why?</h1>
+                    <br>
+                    <h2>Why code?</h2>
+                    <br>
+                    <p1>I enjoy applying theory and skills I know to build things for myself and others to assist in their everyday lives.
+                        Whether it be a Raspberry Pi powered dashboard, face recognition tracking system or charity, 
+                        in the endall my projects are rooted in a desire to help others even in a minor way.
+                        Code and by extension Computer Science as a whole presents a new perspective and method to
+                        problem solving with its own strengths and weaknesses.
+                    </p1>
+                    <br>
+                    <br>
+                    <p1>
+                        Many tools are available online for free making programming accessible to all backgrounds.
+                        The availability of professional tools means one is never limited in scope when programming.
+                        It is that ease of access combined with nearly limitless potential that gives me reason to code.
+                    </p1>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <img class="img-fluid" id="pim-photo" src="images/brand-pic.jpeg"
+                        alt="Plugged In Malaysia photo">
+                </div>
+            </div>
         </div>
     </main>
-    <footer class="text-center">
-        <p1>Made by John Ling</p1>
+    <footer>
+        <div class="d-flex justify-content-between" <p1>Made by John Ling<a
+                href="#front-page" id="return-link"><span>Return Home</span></a></p1>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
