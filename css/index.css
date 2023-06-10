@@ -382,9 +382,6 @@ img {
   font-size: 70px;
 }
 
-#mail-link {
-  font-size: 2rem;
-}
 #mail-link:hover {
   color: #73daca;
 }
