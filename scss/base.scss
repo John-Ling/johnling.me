@@ -1,0 +1,154 @@
+@use "./variables.scss" as *;
+
+body,
+html {
+    font-family: 'meslolgs_nfregular';
+    background-color: $background;
+    color: $text;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+header {
+    position: relative;
+    background-image: url("../images/dots.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+footer {
+    background-color: $background-dark;
+    height: fit-content;
+    padding: 5px
+}
+
+a {
+    text-decoration: none;
+    color: $text;
+}
+
+.navbar {
+    background-color: $background;
+    color: $text;
+
+    .nav-link {
+        color: $text;
+        margin-left: 5px;
+        margin-right: 5px;
+        
+        &:hover {
+            color: $teal;
+        }
+    
+        &.active {
+            color: $text;
+            border-bottom: solid 2px $purple;
+    
+            &:hover {
+                color: $teal;
+            }
+        }
+    }
+}
+
+.navbar-brand {
+    color: $text;
+
+    &:hover {
+        color: $teal;
+    }
+}
+
+.navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(192, 202, 245, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar .navbar-toggler {
+    outline: none;
+    box-shadow: none;
+}
+
+img {
+    border: solid 7px $highlight;
+    border-radius: 5px;
+}
+
+.red {
+    color: $red;
+}
+
+.blue {
+    color: $blue;
+}
+
+.yellow {
+    color: $yellow;
+}
+
+.purple {
+    color: $purple;
+}
+
+.orange {
+    color: $orange;
+}
+
+.green {
+    color: $green;
+}
+
+.teal {
+    color: $teal;
+}
+
+.grey {
+    color: $grey;
+}
+
+.cyan {
+    color: $cyan;
+}
+
+.white {
+    color: $white;
+}
+
+.typing-effect {
+    overflow: hidden;
+    border-right: 0.4em solid $green;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing-animation 2s steps(22, end) 1s normal both,
+                blink-caret 1.2s step-end infinite;
+}
+
+@keyframes typing-animation {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: $green;
+    }
+}
+
+#return-link {
+    margin-right: 10px;
+    color: $text;
+    text-decoration: none;
+
+    &:hover {
+        color: $teal
+    }
+}

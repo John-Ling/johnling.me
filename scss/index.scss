@@ -1,163 +1,53 @@
 @use "variables" as *;
+@use "./base.scss";
 @use "sass:color";
-@import "../bootstrap/scss/functions";
-@import "../bootstrap/scss/variables";
-
-body,
-html {
-    margin: 0;
-    height: 100%;
-    font-family: 'meslolgs_nfregular';
-    background-color: $background;
-    color: $text;
-    #{$prefix}navbar-toggler-border-color: $text !important;
-}
 
 header {
-    position: relative;
-    background-image: url("../images/dots.png");
-    background-size: 100%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100%;
-
-    padding: 1.6rem;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    height: 100vh;
 }
 
 main {
     background-color: $background;
     background-size: cover;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding: 25px 0;
 }
 
-footer {
-    background-color: $background-dark;
-    height: fit-content;
-    padding: 5px
+section {
+    min-height: 100vh;
+    align-items: center;
 }
 
-a {
-    text-decoration: none;
-    color: $text;
+// Animation classes
 
-    &:hover {
-        color: $text;
-    }
-}
-
-img {
-    border: solid 7px $highlight;
-    border-radius: 5px;
-}
-
-.red {
-    color: $red;
-}
-
-.blue {
-    color: $blue;
-}
-
-.yellow {
-    color: $yellow;
-}
-
-.purple {
-    color: $purple;
-}
-
-.orange {
-    color: $orange;
-}
-
-.green {
-    color: $green;
-}
-
-.teal {
-    color: $teal;
-}
-
-.grey {
-    color: $grey;
-}
-
-.cyan {
-    color: $cyan;
-}
-
-.white {
-    color: $white;
-}
-
-.navbar {
-    background-color: $background;
-    color: $text;
-
-    .nav-link {
-        color: $text;
-        margin-left: 5px;
-        margin-right: 5px;
-        
-        &:hover {
-            color: $teal;
-        }
-    
-        &.active {
-            color: $text;
-            border-bottom: solid 2px $purple;
-    
-            &:hover {
-                color: $teal;
-            }
-        }
-    }
-}
-
-.navbar-brand {
-    color: $text;
-
-    &:hover {
-        color: $teal;
-    }
-}
-
-.navbar-toggler .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(192, 202, 245, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-.navbar .navbar-toggler {
-    outline: none;
-    box-shadow: none;
-}
-
-
-.header {
-    padding: 5px;
-    color: $highlighted-text;
-    background-color: $highlight;
-    border: solid 3px $highlight;
-    border-radius: 15px;
-}
-
-.hidden {
+@mixin basic-fade-hidden {
     opacity: 0;
-    transform: translateX(100%);
     transition: all 1s;
 }
 
-.show {
+@mixin basic-fade-show {
     opacity: 1;
+}
+
+.hidden-fade {
+    @include basic-fade-hidden();
+    transform: translateY(5vh);
+}
+
+.show-fade {
+    @include basic-fade-show();
+}
+
+.hidden-slide {
+    @include basic-fade-hidden();
+    transform: translateX(100%);
+}
+
+.show-slide {
+    @include basic-fade-show();
     transform: translateX(0);
 }
+
+// Greeting page
 
 .outlined-block {
     background-color: $background;
@@ -165,31 +55,12 @@ img {
     margin: 1rem;
 }
 
-.typing-effect {
-    overflow: hidden;
-    border-right: 0.4em solid $green;
-    white-space: nowrap;
-    margin: 0 auto;
-    animation: typing-animation 2s steps(22, end) 1s normal both,
-                blink-caret 1.2s step-end infinite;
-}
-
-@keyframes typing-animation {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
-
-@keyframes blink-caret {
-    from, to {
-        border-color: transparent;
-    }
-    50% {
-        border-color: $green;
-    }
+#greeter {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 #welcome-sign {
@@ -202,7 +73,6 @@ img {
 #landing-page-photo {
     margin: 1rem;
     max-width: 30vh;
-    border: solid 7px $highlight;
 }
 
 #summary-info {
@@ -211,33 +81,11 @@ img {
     padding: 1rem;
 }
 
-#resume-link {
-    a {
-        text-decoration: none;
-        color: $text;
-        &:hover {
-            color: $teal;
-        }
-    }
-}
-
-
-#about-header {
-    position: relative;
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-bottom: 25px;
-}
-
-.buffer {
-    margin-top: 70px;
-}
-
 .question-prompt {
     font-size: 48px;
 }
 
-// What section
+// Who section
 
 #trophy-picture {
     width: 80%;
@@ -245,12 +93,7 @@ img {
     margin: auto;
 }
 
-
-#what-header {
-    margin-top: 100px;
-    margin-bottom: 30px;
-    padding-bottom: 7px;
-}
+// What section
 
 .skills-group {
     font-size: 80px;
@@ -348,13 +191,26 @@ img {
 }
 
 .web-icon {
+    &:hover {
+        a {
+            color: $text;
+        }
+
+        .card {
+            background-color: darken($background-light, 1%);
+        }
+    }
+
     .card {
         background-color: $background-light;
         border-radius: 10px;
         padding: 20px;
-
-        &:hover {
-            background-color: darken($background-light, 1%);
+    }
+    
+    @for $i from 1 through 12 {
+        $delay: 200ms * $i;
+        &:nth-child(#{$i}) {
+            transition-delay: $delay;
         }
     }
 }
@@ -365,36 +221,15 @@ img {
     margin: auto;
 }
 
-
-#return-link {
-    margin-right: 10px;
-    color: $text;
-    text-decoration: none;
-
-    &:hover {
-        color: $teal
-    }
-}
-
-@keyframes fade {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
 @media (prefers-reduced-motion) {
-    .hidden {
+    @mixin basic-fade-hidden {
         transition: none;
     }
 }
 
 // tablet
 @media screen and (max-width: 900px) {
-    header {
+    #greeter {
         flex-direction: column;
     }
 
@@ -419,31 +254,11 @@ img {
 
 // mobile
 @media screen and (max-width: 500px) {
-    #about-header {
-        margin-left: 5%;
-        margin-right: 5%;
+    header {
+        height: fit-content;
     }
 
-    #timeline-header {
-        margin-left: 5%;
-        margin-right: 5%;
-    }
-
-    .timeline {
-        max-width: 100%;
-        padding: 25px;
-
-        .project {
-            padding-top: 30px;
-
-            &:before {
-                left: 0px;
-                text-align: left;
-            }
-
-            &:after {
-                left: -31.8px;
-            }
-        }
+    #greeter {
+        height: fit-content;
     }
 }

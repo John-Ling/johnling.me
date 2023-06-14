@@ -19,58 +19,60 @@
 </head>
 
 <body id="front-page">
-    <nav class="navbar navbar-expand-lg py-0">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">John Ling</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="page-list">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="projects.html">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="charity.html">Charity</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="articles.html">Articles and Awards</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="media/resume.pdf">Resume</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#where-section">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about-section">About</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     <header>
-        <div class="outlined-block greeter-block" id="welcome-sign">    
-            <h1 class="typing-effect green">Hello. I'm John.</h1>
-        </div>
-        <div class="outlined-block greeter-block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 text-center">
-                        <img src="./images/profile-square.png" alt="Photo of me" id="landing-page-photo"/>
-                    </div>
-                    <div class="col-md-6" id="summary-info">
-                        <h1 class="purple">In a nutshell</h1>
-                        <p>I am a <span class="age-text">17</span> year old student living in Malaysia.
-                            With a strong interest in technology, I enjoy building things for myself and others.
-                            From websites, web and desktop applications, mobile apps and embedded systems. 
-                            Give me a task and I'll have a crack at it.</p>
-                        <h5 class="text-center" id="resume-link"><a href="media/mock-cv.pdf"><span><i class="fa-regular fa-file"></i> Resume</span></a></h5>
+        <nav class="navbar navbar-expand-lg py-0">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">John Ling</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="page-list">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="projects.html">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="charity.html">Charity</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="articles.html">Articles and Awards</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="media/resume.pdf">Resume</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#where-section">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about-section">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="greeter">
+            <div class="outlined-block greeter-block" id="welcome-sign">    
+                <h1 class="typing-effect green">Hello. I'm John.</h1>
+            </div>
+            <div class="outlined-block greeter-block">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <img src="./images/profile-square.png" alt="Photo of me" id="landing-page-photo"/>
+                        </div>
+                        <div class="col-md-6" id="summary-info">
+                            <h1 class="purple">In a nutshell</h1>
+                            <p>I am a <span class="age-text">17</span> year old student living in Malaysia.
+                                With a strong interest in technology, I enjoy building things for myself and others.
+                                From websites, web and desktop applications, mobile apps and embedded systems. 
+                                Give me a task and I'll have a crack at it.</p>
+                            <h5 class="text-center" id="resume-link"><a href="media/resume.pdf"><span><i class="fa-regular fa-file"></i> Resume</span></a></h5>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -78,7 +80,7 @@
     </header>
 
     <main id="about-section" class="container">
-        <div class="row">
+        <section class="row">
             <div class="col-lg-6 order-lg-12">
                 <h1 class="question-prompt red">Who?</h1>
                 <h2>A bit about me</h2>
@@ -97,12 +99,12 @@
                 </p>
             </div>
             <div class="col-lg-6 order-lg-1">
-                <img class="img-fluid" id="trophy-picture" src="images/trophy-pic.jpeg"
+                <img class="img-fluid hidden-fade" id="trophy-picture" src="images/trophy-pic.jpeg"
                     alt="Picture of me with the EARCOS Award for 2022">
             </div>
-        </div>
+        </section>
 
-        <div class="row buffer">
+        <section class="row ">
             <div class="col-lg-6 order-lg-1">
                 <h1 class="question-prompt yellow">What?</h1>
                 <h2>My tools for the job</h2>
@@ -130,37 +132,37 @@
                 <h2 class="text-center">Languages</h2>
                 <div class="d-flex flex-wrap align-items-center justify-content-center skills-group">
                     <div class="row">
-                        <div class="col skill-icon hidden">
+                        <div class="col skill-icon hidden-slide">
                             <i class="devicon-python-plain blue"></i>
                             <span class="caption">Python</span>
                         </div>
-                        <div class="col skill-icon hidden">
+                        <div class="col skill-icon hidden-slide">
                             <i class="devicon-csharp-plain purple"></i>
                             <span class="caption">C#</span>
                         </div>
-                        <div class="col skill-icon hidden">
+                        <div class="col skill-icon hidden-slide">
                             <i class="devicon-html5-plain orange"></i>
                             <span class="caption">HTML</span>
                         </div>
-                        <div class="col skill-icon hidden">
+                        <div class="col skill-icon hidden-slide">
                             <i class="devicon-css3-plain cyan"></i>
                             <span class="caption">CSS</span>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col skill-icon hidden">
+                        <div class="col skill-icon hidden-slide">
                             <i class="devicon-c-plain grey"></i>
                             <span class="caption">C</span>
                         </div>
-                        <div class="col skill-icon hidden">
+                        <div class="col skill-icon hidden-slide">
                             <i class="devicon-java-plain red"></i>
                             <span class="caption">Java</span>
                         </div>
-                        <div class="col skill-icon hidden">
+                        <div class="col skill-icon hidden-slide">
                             <i class="devicon-cplusplus-plain blue"></i>
                             <span class="caption">C++</span>
                         </div>
-                        <div class="col skill-icon hidden">
+                        <div class="col skill-icon hidden-slide">
                             <i class="devicon-nodejs-plain green"></i>
                             <span class="caption">NodeJS</span>
                         </div>
@@ -169,28 +171,28 @@
                 <h2 class="text-center">Tools</h2>
                 <div class="d-flex flex-wrap align-items-center justify-content-center skills-group">
                     <div class="row">
-                        <div class="col skill-icon hidden">
+                        <div class="col skill-icon hidden-slide">
                             <i class="devicon-react-original cyan"></i>
                             <span class="caption">React</span>
                         </div>
-                        <div class="col skill-icon hidden">
+                        <div class="col skill-icon hidden-slide">
                             <i class="devicon-opencv-plain grey"></i>
                             <span class="caption">OpenCV</span>
                         </div>
-                        <div class="col skill-icon hidden">
+                        <div class="col skill-icon hidden-slide">
                             <i class="devicon-firebase-plain yellow"></i>
                             <span class="caption">Firebase</span>
                         </div>
-                        <div class="col skill-icon hidden">
+                        <div class="col skill-icon hidden-slide">
                             <i class="devicon-ubuntu-plain orange"></i>
                             <span class="caption">Ubuntu</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="row buffer align-items-center">
+        <section class="row align-items-center">
             <div class="col-lg-6 order-lg-12">
                 <h1 class="question-prompt blue">When?</h1>
                 <h2>Where it all began</h2>
@@ -202,8 +204,8 @@
                     applications, embedded devices and websites. The timeline below shows significant projects I
                     have created.</p>
             </div>
-            <div class="col-lg-6 order-lg-1buffer">
-                <h2 class="text-center">Projects I have done since</h2>
+            <div class="col-lg-6 order-lg-1">
+                <h2 class="text-center">Top Projects</h2>
                 <div id="project-display">
                     <div class="project-card">
                         <h1>Pseudocode Compiler</h1>
@@ -250,52 +252,52 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="row text-center">
+        <section class="row text-center">
             <div class="col-lg-12 order-lg-12">
                 <h1 class="question-prompt purple" id="where-section">Where?</h1>
                 <h2>(can you find me)</h2>
                 <p><a href="mailto:johnlingbusiness@gmail.com?subject=Hello John"
                     id="mail-link">johnlingbusiness@gmail.com</a></p>
-            </div>
-            <div class="col-lg-12 order-lg-1 findme-section">
-                <div class="row" id="website-icons">
-                    <div class="col-lg-4 web-icon">
-                        <a href="https://www.linkedin.com/in/john-ling-721721243/">
-                            <div class="card">
-                                <div>
-                                    <i class="devicon-linkedin-plain blue"></i>
-                                    <span class="caption">LinkedIn</span>
-                                </div>
-                            </div>
-                        </a>   
-                    </div>
-                    <div class="col-lg-4 web-icon">
-                            <a href="https://github.com/John-Ling">
+                <div class="findme-section">
+                    <div class="row" id="website-icons">
+                        <div class="col-lg-4 web-icon hidden-slide">
+                            <a href="https://www.linkedin.com/in/john-ling-721721243/">
                                 <div class="card">
                                     <div>
-                                        <i class="fa-brands fa-github white"></i>
-                                        <span class="caption">Github</span>
+                                        <i class="devicon-linkedin-plain blue"></i>
+                                        <span class="caption">LinkedIn</span>
+                                    </div>
+                                </div>
+                            </a>   
+                        </div>
+                        <div class="col-lg-4 web-icon hidden-slide">
+                                <a href="https://github.com/John-Ling">
+                                    <div class="card">
+                                        <div>
+                                            <i class="fa-brands fa-github white"></i>
+                                            <span class="caption">Github</span>
+                                        </div>
+                                    </div>
+                                </a>
+                        </div>
+                        <div class="col-lg-4 web-icon hidden-slide">
+                            <a href="https://stackoverflow.com/users/19423880/john-ling">
+                                <div class="card">
+                                    <div>
+                                        <i class="fa-brands fa-stack-overflow orange"></i>
+                                        <span class="caption">Stack Overflow</span>
                                     </div>
                                 </div>
                             </a>
-                    </div>
-                    <div class="col-lg-4 web-icon">
-                        <a href="https://stackoverflow.com/users/19423880/john-ling">
-                            <div class="card">
-                                <div>
-                                    <i class="fa-brands fa-stack-overflow orange"></i>
-                                    <span class="caption">Stack Overflow</span>
-                                </div>
-                            </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="row buffer">
+        <section class="row">
             <div class="col-lg-6 order-lg-12">
                 <h1 class="question-prompt green">Why?</h1>
                 <h2>Why code?</h2>
@@ -312,10 +314,10 @@
                 </p>
             </div>
             <div class="col-lg-6 order-lg-1">
-                <img class="img-fluid" id="pim-photo" src="images/brand-pic.jpeg"
+                <img class="img-fluid hidden-fade" id="pim-photo" src="images/brand-pic.jpeg"
                     alt="Plugged In Malaysia photo">
             </div>
-        </div>
+        </section>
     </main>
     <footer>
         <span class="d-flex justify-content-between">Made by John Ling <a href="#front-page" id="return-link">Return Home</a></span>

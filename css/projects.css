@@ -1,10 +1,10 @@
 body,
 html {
-  background: #1a1b26;
   font-family: "meslolgs_nfregular";
+  background-color: #1a1b26;
   color: #c0caf5;
-  margin: 0;
-  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 header {
@@ -23,11 +23,8 @@ footer {
 }
 
 a {
-  color: #c0caf5;
   text-decoration: none;
-}
-a:hover {
-  color: #73daca;
+  color: #c0caf5;
 }
 
 .navbar {
@@ -64,6 +61,84 @@ a:hover {
 .navbar .navbar-toggler {
   outline: none;
   box-shadow: none;
+}
+
+img {
+  border: solid 7px #303447;
+  border-radius: 5px;
+}
+
+.red {
+  color: #f7768e;
+}
+
+.blue {
+  color: #7aa2f7;
+}
+
+.yellow {
+  color: #e0af68;
+}
+
+.purple {
+  color: #bb9af7;
+}
+
+.orange {
+  color: #ff9e64;
+}
+
+.green {
+  color: #9ece6a;
+}
+
+.teal {
+  color: #73daca;
+}
+
+.grey {
+  color: #9aa5ce;
+}
+
+.cyan {
+  color: #7dcfff;
+}
+
+.white {
+  color: #f0f0f0;
+}
+
+.typing-effect {
+  overflow: hidden;
+  border-right: 0.4em solid #9ece6a;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing-animation 2s steps(22, end) 1s normal both, blink-caret 1.2s step-end infinite;
+}
+
+@keyframes typing-animation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #9ece6a;
+  }
+}
+#return-link {
+  margin-right: 10px;
+  color: #c0caf5;
+  text-decoration: none;
+}
+#return-link:hover {
+  color: #73daca;
 }
 
 #title-card {

@@ -22,19 +22,32 @@ const get_years_programming = () => {
     return years;
 }
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+const slideObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            entry.target.classList.add("show");
+            entry.target.classList.add("show-slide");
         }
     });
 });
 
+const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show-fade");
+        }
+    });
+})
+
 document.addEventListener("DOMContentLoaded", () => {
     const ageTexts = document.querySelectorAll(".age-text");
-    ageTexts.forEach(element => element.innerHTML = get_age());
+    ageTexts.forEach((element) => element.innerHTML = get_age());
+
     const yearsTexts = document.querySelectorAll(".years-text");
-    yearsTexts.forEach(element => element.innerHTML = get_years_programming());
-    const hiddenElements = document.querySelectorAll(".hidden");
-    hiddenElements.forEach(element => observer.observe(element)); 
+    yearsTexts.forEach((element) => element.innerHTML = get_years_programming());
+
+    const hiddenSlideElements = document.querySelectorAll(".hidden-slide");
+    hiddenSlideElements.forEach((element) => slideObserver.observe(element)); 
+
+    const hiddenFadeElements = document.querySelectorAll(".hidden-fade");
+    hiddenFadeElements.forEach((element) => slideObserver.observe(element));
 })
