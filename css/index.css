@@ -108,6 +108,36 @@ img {
   color: #f0f0f0;
 }
 
+#return-link {
+  margin-right: 10px;
+  color: #c0caf5;
+  text-decoration: none;
+}
+#return-link:hover {
+  color: #73daca;
+}
+
+.hidden-fade {
+  opacity: 0;
+  transition: all 1s;
+  transform: translateY(5vh);
+}
+
+.show-fade {
+  opacity: 1;
+}
+
+.hidden-slide {
+  opacity: 0;
+  transition: all 1s;
+  transform: translateX(100%);
+}
+
+.show-slide {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .typing-effect {
   overflow: hidden;
   border-right: 0.4em solid #9ece6a;
@@ -132,15 +162,6 @@ img {
     border-color: #9ece6a;
   }
 }
-#return-link {
-  margin-right: 10px;
-  color: #c0caf5;
-  text-decoration: none;
-}
-#return-link:hover {
-  color: #73daca;
-}
-
 header {
   height: 100vh;
 }
@@ -154,27 +175,6 @@ main {
 section {
   min-height: 100vh;
   align-items: center;
-}
-
-.hidden-fade {
-  opacity: 0;
-  transition: all 1s;
-  transform: translateY(5vh);
-}
-
-.show-fade {
-  opacity: 1;
-}
-
-.hidden-slide {
-  opacity: 0;
-  transition: all 1s;
-  transform: translateX(100%);
-}
-
-.show-slide {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 .outlined-block {
@@ -207,6 +207,10 @@ section {
   max-width: 30rem;
   word-wrap: break-word;
   padding: 1rem;
+}
+
+#resume-link:hover a {
+  color: #73daca;
 }
 
 .question-prompt {
@@ -282,7 +286,7 @@ section {
 #project-display {
   display: flex;
   flex-direction: column;
-  overflow: auto;
+  overflow-x: hidden;
   max-height: 70vh;
 }
 
@@ -293,10 +297,10 @@ section {
   padding: 1rem;
   margin: 1rem;
 }
-.project-card h1 {
+.project-card .title {
   font-size: 1.5rem;
 }
-.project-card h2 {
+.project-card h3 {
   font-size: 1.25rem;
 }
 .project-card a {
@@ -306,65 +310,101 @@ section {
 .project-card a span:hover {
   color: #73daca;
 }
-.project-card:nth-child(1) h1 {
+.project-card:nth-child(1) .title {
   color: #7aa2f7;
 }
-.project-card:nth-child(2) h1 {
+.project-card:nth-child(2) .title {
   color: #bb9af7;
 }
-.project-card:nth-child(3) h1 {
+.project-card:nth-child(3) .title {
   color: #73daca;
 }
-.project-card:nth-child(4) h1 {
+.project-card:nth-child(4) .title {
   color: #9ece6a;
 }
-.project-card:nth-child(5) h1 {
+.project-card:nth-child(5) .title {
   color: #e0af68;
 }
-.project-card:nth-child(6) h1 {
+.project-card:nth-child(6) .title {
   color: #ff9e64;
 }
-.project-card:nth-child(7) h1 {
+.project-card:nth-child(7) .title {
   color: #f7768e;
 }
-.project-card:nth-child(8) h1 {
+.project-card:nth-child(8) .title {
   color: #7aa2f7;
 }
-.project-card:nth-child(9) h1 {
+.project-card:nth-child(9) .title {
   color: #bb9af7;
 }
-.project-card:nth-child(10) h1 {
+.project-card:nth-child(10) .title {
   color: #73daca;
 }
-.project-card:nth-child(11) h1 {
+.project-card:nth-child(11) .title {
   color: #9ece6a;
 }
-.project-card:nth-child(12) h1 {
+.project-card:nth-child(12) .title {
   color: #e0af68;
 }
-.project-card:nth-child(13) h1 {
+.project-card:nth-child(13) .title {
   color: #ff9e64;
 }
-.project-card:nth-child(14) h1 {
+.project-card:nth-child(14) .title {
   color: #f7768e;
 }
-.project-card:nth-child(15) h1 {
+.project-card:nth-child(15) .title {
   color: #7aa2f7;
 }
-.project-card:nth-child(16) h1 {
+.project-card:nth-child(16) .title {
   color: #bb9af7;
 }
-.project-card:nth-child(17) h1 {
+.project-card:nth-child(17) .title {
   color: #73daca;
 }
-.project-card:nth-child(18) h1 {
+.project-card:nth-child(18) .title {
   color: #9ece6a;
 }
-.project-card:nth-child(19) h1 {
+.project-card:nth-child(19) .title {
   color: #e0af68;
 }
-.project-card:nth-child(20) h1 {
+.project-card:nth-child(20) .title {
   color: #ff9e64;
+}
+.project-card:nth-child(1) {
+  transition-delay: 100ms;
+}
+.project-card:nth-child(2) {
+  transition-delay: 200ms;
+}
+.project-card:nth-child(3) {
+  transition-delay: 300ms;
+}
+.project-card:nth-child(4) {
+  transition-delay: 400ms;
+}
+.project-card:nth-child(5) {
+  transition-delay: 500ms;
+}
+.project-card:nth-child(6) {
+  transition-delay: 600ms;
+}
+.project-card:nth-child(7) {
+  transition-delay: 700ms;
+}
+.project-card:nth-child(8) {
+  transition-delay: 800ms;
+}
+.project-card:nth-child(9) {
+  transition-delay: 900ms;
+}
+.project-card:nth-child(10) {
+  transition-delay: 1000ms;
+}
+.project-card:nth-child(11) {
+  transition-delay: 1100ms;
+}
+.project-card:nth-child(12) {
+  transition-delay: 1200ms;
 }
 
 .findme-section {

@@ -108,30 +108,6 @@ img {
   color: #f0f0f0;
 }
 
-.typing-effect {
-  overflow: hidden;
-  border-right: 0.4em solid #9ece6a;
-  white-space: nowrap;
-  margin: 0 auto;
-  animation: typing-animation 2s steps(22, end) 1s normal both, blink-caret 1.2s step-end infinite;
-}
-
-@keyframes typing-animation {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-@keyframes blink-caret {
-  from, to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: #9ece6a;
-  }
-}
 #return-link {
   margin-right: 10px;
   color: #c0caf5;

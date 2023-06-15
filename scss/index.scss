@@ -1,5 +1,6 @@
 @use "variables" as *;
 @use "./base.scss";
+@use "./animations.scss";
 @use "sass:color";
 
 header {
@@ -19,33 +20,6 @@ section {
 
 // Animation classes
 
-@mixin basic-fade-hidden {
-    opacity: 0;
-    transition: all 1s;
-}
-
-@mixin basic-fade-show {
-    opacity: 1;
-}
-
-.hidden-fade {
-    @include basic-fade-hidden();
-    transform: translateY(5vh);
-}
-
-.show-fade {
-    @include basic-fade-show();
-}
-
-.hidden-slide {
-    @include basic-fade-hidden();
-    transform: translateX(100%);
-}
-
-.show-slide {
-    @include basic-fade-show();
-    transform: translateX(0);
-}
 
 // Greeting page
 
@@ -80,6 +54,15 @@ section {
     word-wrap: break-word;
     padding: 1rem;
 }
+
+#resume-link {
+    &:hover {
+        a {
+            color: $teal;
+        }
+    }
+}
+
 
 .question-prompt {
     font-size: 48px;
@@ -131,7 +114,7 @@ section {
 #project-display {
     display: flex;
     flex-direction: column;
-    overflow: auto;
+    overflow-x: hidden;
     max-height: 70vh;
 }
 
@@ -142,11 +125,11 @@ section {
     padding: 1rem;
     margin: 1rem;
 
-    h1 {
+    .title {
         font-size: 1.5rem;
     }
 
-    h2 {
+    h3 {
         font-size: 1.25rem;
     }
     
@@ -167,13 +150,20 @@ section {
     @for $i from 1 through 20 {
         $colour: nth($colours, $index);
         &:nth-child(#{$i}) {
-            h1 {
+            .title {
                 color: $colour;
             }
         }
         $index: ($index + 1) % $colourCount;
         @if ($index == 0) {
             $index: $colourCount;
+        }
+    }
+
+    @for $i from 1 through 12 {
+        $delay: 100ms * $i;
+        &:nth-child(#{$i}) {
+            transition-delay: $delay;
         }
     }
 }
@@ -219,12 +209,6 @@ section {
     width: 80%;
     display: block;
     margin: auto;
-}
-
-@media (prefers-reduced-motion) {
-    @mixin basic-fade-hidden {
-        transition: none;
-    }
 }
 
 // tablet

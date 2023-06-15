@@ -1,29 +1,51 @@
 @use "variables" as *;
 @use "./base.scss";
+@use "./grid.scss";
+@use "./animations.scss";
 
+body {
+    overflow-y: hidden;
+}
 
-#title-card {
-    padding-top: 30px;
-    padding-bottom: 30px;
+main {
+    padding: 1rem 0;
+}
+
+footer {
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
 }
 
 #plaque {
-    background-color: $background;
-    border: solid 5px $blue;
-    padding: 1rem 0;
-    margin: 0 15%;
-
     #header {
         color: $purple;
-        font-size: 40px;
+    }
+}
+
+.grid-item {
+    @for $i from 1 through 20 {
+        &:nth-child(#{$i}) {
+            .card {
+                transition-delay: 100ms * $i;
+            }
+        }
+    }
+}
+
+.card {
+    h3 {
+        font-size: 17px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    h4 {
+        font-size: 16px;
     }
 }
 
 .typing-effect {
-    overflow: hidden;
-    border-right: 0.4em solid $green;
-    white-space: nowrap;
-    margin: 0 auto;
     animation: typing-animation 1.2s steps(18, end) 1s normal both,
                 blink-caret 1.2s step-end infinite;
 }
@@ -46,80 +68,13 @@
     }
 }
 
-.grid-item {
-    padding: 10px;
-
-    $colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
-    $colourCount: length($colours);
-    $index: 1;
-    @for $i from 1 through 20 {
-        $colour: nth($colours, $index);
-        &:nth-child(#{$i}) {
-            .card {
-                h2 {
-                    color: $colour;
-                }
-            }
-        }
-        $index: ($index + 1) % $colourCount;
-        @if ($index == 0) {
-            $index: $colourCount;
-        }
-    }
-}
-
-.card {
-    background-color: $background-light;
-    padding: 20px;
-    border: solid 3px $background-light;
-    border-radius: 5px;
-    align-items: left;
-
-    h2 {
-        margin-bottom: 20px;
-        .shortened {
-            font-size: 22px;
-        }
-    }
-
-    h3 {
-        font-size: 17px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
-
-    h4 {
-        font-size: 16px;
-    }
-
-    img {
-        border: solid 5px $highlight;
-        border-radius: 15px;
-        max-width: 75%;
-    }
-
-    a {
-        margin-top: 10px;
-        font-size: 20px;
-    }
-}
-
-#return-link {
-    margin-right: 10px;
-    color: $text;
-    text-decoration: none;
-
-    &:hover {
-        color: $teal
+@media screen and (max-width: 900px) {
+    footer {
+        position: unset;
     }
 }
 
 @media screen and (max-width: 500px) {
-    #work-header {
-        margin-left: 5%;
-        margin-right: 5%;
-    }
-
     #plaque {
         margin-left: unset;
         margin-right: unset;

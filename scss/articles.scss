@@ -1,83 +1,12 @@
 @use "variables" as *;
+@use "./base.scss";
+@use "./grid.scss";
+@use "./animations.scss";
 
-body,
-html {
-    background: $background;
-    font-family: 'meslolgs_nfregular';
-    color: $text;
-}
-
-header {
-    position: relative;
-    background-image: url("../images/dots.png");
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-footer {
-    background-color: $background-dark;
-    height: fit-content;
-    padding: 5px
-}
-
-.navbar {
-    background-color: $background;
-    color: $text;
-
-    .nav-link {
-        color: $text;
-        margin-left: 5px;
-        margin-right: 5px;
-        
-        &:hover {
-            color: $teal;
-        }
-    
-        &.active {
-            color: $text;
-            border-bottom: solid 2px $purple;
-    
-            &:hover {
-                color: $teal;
-            }
-        }
-    }
-}
-
-.navbar-toggler {
-    outline: none;
-    box-shadow: none;
-
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(192, 202, 245, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-    }
-}
-
-.navbar-brand {
-    color: $text;
-
-    &:hover {
-        color: $teal;
-    }
-}
 
 #title-card {
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-
-#plaque {
-    background-color: $background;
-    border: solid 5px $blue;
-    padding: 1rem 0;
-    margin: 0 15%;
-    text-align: center;
-
-    h1 {
+    #plaque {
         color: $orange;
-        font-size: 40px;
     }
 }
 
@@ -108,99 +37,16 @@ footer {
     }
 }
 
-.header-icon {
-    background-color: $highlight;
-    border: solid 5px $highlight;
-    border-radius: 15px;
-    padding: 10px;
-    margin-right: 20px;
-    margin-left: 20px;
-}
-
-#header-text {
-    background-color: $highlight;
-    border: solid 1px $highlight;
-    border-radius: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 4px;
-    font-size: 38px;
-}
-
-.header {
-    margin-top: 30px;
-    margin-bottom: 20px;
-    text-align: center;
-
-    span {
-        background-color: $highlight;
-        color: $highlighted-text;
-        border: solid 3px $highlight;
-        border-radius: 10px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-}
-
-.grid-item {
-    padding: 10px;
-
-    $colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
-    $colourCount: length($colours);
-    $index: 1;
-    @for $i from 1 through 20 {
-        $colour: nth($colours, $index);
-        &:nth-child(#{$i}) {
-            .card {
-                h2 {
-                    color: $colour;
-                }
-            }
-        }
-        $index: ($index + 1) % $colourCount;
-        @if ($index == 0) {
-            $index: $colourCount;
-        }
-    }
-}
-
 .card {
-    background-color: $background-light;
-    padding: 20px;
-    border-radius: 5px;
     text-align: center;
     align-items: center;
 
-    .title {
-        margin-top: 10px;
-        margin-bottom: 30px;
-        font-size: 1.25rem;
-
-        span {
-            color: $highlighted-text;
-            background-color: $highlight;
-            border: solid 5px $highlight;
-            border-radius: 10px;
-            padding-left: 5px;
-            padding-right: 5px;
-        }
-    }
+    // height: 29rem;
 
     img {
         border: solid 5px $highlight;
-        border-radius: 15px;
-        max-width: 75%;
-    }
-
-    a {
-        margin-top: 10px;
-        text-decoration: none;
-        color: $text;
-        font-size: 24px;
-
-        &:hover {
-            color: $teal;
-        }
+        border-radius: 5px;
+        width: 75%;
     }
 
     .multiple-links {
@@ -211,32 +57,34 @@ footer {
             font-size: 17px;
             white-space: nowrap;
         }
-    }
-    
+    }   
 }
 
-.smaller-title {
-    font-size: 18.7px;
-}
+// .smaller-title {
+//     font-size: 18.7px;
+// }
 
-#padded-card {
-    padding-bottom: 50px;
-}
+// #padded-card {
+//     padding-bottom: 45px;
+// }
 
-#return-link {
-    margin-right: 10px;
-    color: $text;
-    text-decoration: none;
-
-    &:hover {
-        color: $teal
-    }
-}
 
 @media screen and (max-width: 900px) {
+    footer {
+        position: fixed;
+        width: 100vw;
+        bottom: 0;
+    }
+
     #plaque {
         h1 {
             white-space: normal;
+        }
+    }
+
+    .card {
+        h2 {
+            font-size: 1.5rem;
         }
     }
 
@@ -247,5 +95,11 @@ footer {
         to {
             width: 220px;
         }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    footer {
+        position: unset;
     }
 }

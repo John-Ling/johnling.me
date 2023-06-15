@@ -1,0 +1,60 @@
+@use "./variables.scss" as *;
+
+#title-card {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#plaque {
+    background-color: $background;
+    border: solid 5px $blue;
+    padding: 1rem 0;
+    margin: 0 15%;
+
+    #header {
+        font-size: 40px;
+    }
+}
+
+
+.grid-item {
+    $colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
+    $colourCount: length($colours);
+    $index: 1;
+    @for $i from 1 through 20 {
+        $colour: nth($colours, $index);
+        &:nth-child(#{$i}) {
+            .card {
+                h2 {
+                    color: $colour;
+                }
+            }
+        }
+        $index: ($index + 1) % $colourCount;
+        @if ($index == 0) {
+            $index: $colourCount;
+        }
+    }
+    .card {
+        background-color: $background-light;
+        padding: 20px;
+        border-radius: 5px;
+    
+        h2 {
+            margin-bottom: 20px;
+            .shortened {
+                font-size: 22px;
+            }
+        }
+    
+        a {
+            margin-top: 10px;
+            font-size: 20px;
+    
+            &:hover {
+                color: $teal;
+            }
+        }
+    }
+}
+

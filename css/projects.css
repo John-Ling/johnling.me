@@ -108,30 +108,6 @@ img {
   color: #f0f0f0;
 }
 
-.typing-effect {
-  overflow: hidden;
-  border-right: 0.4em solid #9ece6a;
-  white-space: nowrap;
-  margin: 0 auto;
-  animation: typing-animation 2s steps(22, end) 1s normal both, blink-caret 1.2s step-end infinite;
-}
-
-@keyframes typing-animation {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-@keyframes blink-caret {
-  from, to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: #9ece6a;
-  }
-}
 #return-link {
   margin-right: 10px;
   color: #c0caf5;
@@ -153,37 +129,9 @@ img {
   margin: 0 15%;
 }
 #plaque #header {
-  color: #bb9af7;
   font-size: 40px;
 }
 
-.typing-effect {
-  overflow: hidden;
-  border-right: 0.4em solid #9ece6a;
-  white-space: nowrap;
-  margin: 0 auto;
-  animation: typing-animation 1.2s steps(18, end) 1s normal both, blink-caret 1.2s step-end infinite;
-}
-
-@keyframes typing-animation {
-  from {
-    width: 0;
-  }
-  to {
-    width: 220px;
-  }
-}
-@keyframes blink-caret {
-  from, to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: #bb9af7;
-  }
-}
-.grid-item {
-  padding: 10px;
-}
 .grid-item:nth-child(1) .card h2 {
   color: #7aa2f7;
 }
@@ -244,20 +192,149 @@ img {
 .grid-item:nth-child(20) .card h2 {
   color: #ff9e64;
 }
-
-.card {
+.grid-item .card {
   background-color: #20212e;
   padding: 20px;
-  border: solid 3px #20212e;
   border-radius: 5px;
-  align-items: left;
 }
-.card h2 {
+.grid-item .card h2 {
   margin-bottom: 20px;
 }
-.card h2 .shortened {
+.grid-item .card h2 .shortened {
   font-size: 22px;
 }
+.grid-item .card a {
+  margin-top: 10px;
+  font-size: 20px;
+}
+.grid-item .card a:hover {
+  color: #73daca;
+}
+
+.hidden-fade {
+  opacity: 0;
+  transition: all 1s;
+  transform: translateY(5vh);
+}
+
+.show-fade {
+  opacity: 1;
+}
+
+.hidden-slide {
+  opacity: 0;
+  transition: all 1s;
+  transform: translateX(100%);
+}
+
+.show-slide {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.typing-effect {
+  overflow: hidden;
+  border-right: 0.4em solid #9ece6a;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing-animation 2s steps(22, end) 1s normal both, blink-caret 1.2s step-end infinite;
+}
+
+@keyframes typing-animation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #9ece6a;
+  }
+}
+body {
+  overflow-y: hidden;
+}
+
+main {
+  padding: 1rem 0;
+}
+
+footer {
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+}
+
+#plaque #header {
+  color: #bb9af7;
+}
+
+.grid-item:nth-child(1) .card {
+  transition-delay: 100ms;
+}
+.grid-item:nth-child(2) .card {
+  transition-delay: 200ms;
+}
+.grid-item:nth-child(3) .card {
+  transition-delay: 300ms;
+}
+.grid-item:nth-child(4) .card {
+  transition-delay: 400ms;
+}
+.grid-item:nth-child(5) .card {
+  transition-delay: 500ms;
+}
+.grid-item:nth-child(6) .card {
+  transition-delay: 600ms;
+}
+.grid-item:nth-child(7) .card {
+  transition-delay: 700ms;
+}
+.grid-item:nth-child(8) .card {
+  transition-delay: 800ms;
+}
+.grid-item:nth-child(9) .card {
+  transition-delay: 900ms;
+}
+.grid-item:nth-child(10) .card {
+  transition-delay: 1000ms;
+}
+.grid-item:nth-child(11) .card {
+  transition-delay: 1100ms;
+}
+.grid-item:nth-child(12) .card {
+  transition-delay: 1200ms;
+}
+.grid-item:nth-child(13) .card {
+  transition-delay: 1300ms;
+}
+.grid-item:nth-child(14) .card {
+  transition-delay: 1400ms;
+}
+.grid-item:nth-child(15) .card {
+  transition-delay: 1500ms;
+}
+.grid-item:nth-child(16) .card {
+  transition-delay: 1600ms;
+}
+.grid-item:nth-child(17) .card {
+  transition-delay: 1700ms;
+}
+.grid-item:nth-child(18) .card {
+  transition-delay: 1800ms;
+}
+.grid-item:nth-child(19) .card {
+  transition-delay: 1900ms;
+}
+.grid-item:nth-child(20) .card {
+  transition-delay: 2000ms;
+}
+
 .card h3 {
   font-size: 17px;
   padding-top: 5px;
@@ -266,30 +343,33 @@ img {
 .card h4 {
   font-size: 16px;
 }
-.card img {
-  border: solid 5px #303447;
-  border-radius: 15px;
-  max-width: 75%;
-}
-.card a {
-  margin-top: 10px;
-  font-size: 20px;
+
+.typing-effect {
+  animation: typing-animation 1.2s steps(18, end) 1s normal both, blink-caret 1.2s step-end infinite;
 }
 
-#return-link {
-  margin-right: 10px;
-  color: #c0caf5;
-  text-decoration: none;
-}
-#return-link:hover {
-  color: #73daca;
-}
-
-@media screen and (max-width: 500px) {
-  #work-header {
-    margin-left: 5%;
-    margin-right: 5%;
+@keyframes typing-animation {
+  from {
+    width: 0;
   }
+  to {
+    width: 220px;
+  }
+}
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #bb9af7;
+  }
+}
+@media screen and (max-width: 900px) {
+  footer {
+    position: unset;
+  }
+}
+@media screen and (max-width: 500px) {
   #plaque {
     margin-left: unset;
     margin-right: unset;

@@ -1,0 +1,65 @@
+@use "./variables.scss" as *;
+
+@mixin basic-fade-hidden {
+    opacity: 0;
+    transition: all 1s;
+}
+
+@mixin basic-fade-show {
+    opacity: 1;
+}
+
+.hidden-fade {
+    @include basic-fade-hidden();
+    transform: translateY(5vh);
+}
+
+.show-fade {
+    @include basic-fade-show();
+}
+
+.hidden-slide {
+    @include basic-fade-hidden();
+    transform: translateX(100%);
+}
+
+.show-slide {
+    @include basic-fade-show();
+    transform: translateX(0);
+}
+
+
+.typing-effect {
+    overflow: hidden;
+    border-right: 0.4em solid $green;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing-animation 2s steps(22, end) 1s normal both,
+                blink-caret 1.2s step-end infinite;
+}
+
+@keyframes typing-animation {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: $green;
+    }
+}
+
+// Disable animations if needed 
+@media (prefers-reduced-motion) {
+    @mixin basic-fade-hidden {
+        transition: none;
+    }
+}
