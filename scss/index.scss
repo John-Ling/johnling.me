@@ -41,9 +41,14 @@ section {
     }
 }
 
+#photo-col {
+    display: flex;
+    justify-content: center;
+}
+
 #landing-page-photo {
-    margin: 1rem;
     max-width: 30vh;
+    align-self: center;
 }
 
 #summary-info {
