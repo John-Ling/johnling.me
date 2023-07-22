@@ -1,4 +1,7 @@
 @use "variables" as *;
+@use "./base.scss";
+@use "./grid.scss";
+@use "./animations.scss";
 
 body,
 html {
@@ -7,19 +10,9 @@ html {
     color: $text;
 }
 
-header {
-    position: relative;
-    background-image: url("../images/dots.png");
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 footer {
-    background-color: $background-dark;
-    height: fit-content;
-    padding: 5px
+    width: 100vw;
+    margin-top: auto;
 }
 
 // img {
@@ -36,46 +29,6 @@ a {
     }
 }
 
-.navbar-brand {
-    color: $text;
-
-    &:hover {
-        color: $teal;
-    }
-}
-
-.navbar {
-    background-color: $background;
-    color: $text;
-
-    .nav-link {
-        color: $text;
-        margin-left: 5px;
-        margin-right: 5px;
-
-        &:hover {
-            color: $teal;
-        }
-
-        &.active {
-            color: $text;
-            border-bottom: solid 2px $purple;
-
-            &:hover {
-                color: $teal;
-            }
-        }
-    }
-}
-
-.navbar-toggler .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(192, 202, 245, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-.navbar .navbar-toggler {
-    outline: none;
-    box-shadow: none;
-}
 
 #title-card {
     padding-top: 30px;
@@ -124,30 +77,6 @@ a {
 
 #header-text {
     color: $teal;
-}
-
-.header {
-    position: relative;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    text-align: center;
-
-    span {
-        background-color: $highlight;
-        color: $highlighted-text;
-        border: solid 3px $highlight;
-        border-radius: 10px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-}
-
-.row {
-    margin-top: 35px;
-
-    &:last-child {
-        margin-bottom: 35px;
-    }
 }
 
 #logo {
