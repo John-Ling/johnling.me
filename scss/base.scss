@@ -14,6 +14,7 @@ header {
     background-image: url("../images/dots.png");
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
 }
 
@@ -121,5 +122,11 @@ img {
 
     &:hover {
         color: $teal
+    }
+}
+
+@media screen and (max-width: 500px) {
+    header {
+        background-attachment: unset;
     }
 }

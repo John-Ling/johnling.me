@@ -12,6 +12,7 @@ header {
   background-image: url("../images/dots.png");
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
 }
 
@@ -114,6 +115,12 @@ img {
 }
 #return-link:hover {
   color: #73daca;
+}
+
+@media screen and (max-width: 500px) {
+  header {
+    background-attachment: unset;
+  }
 }
 
 /*# sourceMappingURL=base.css.map */
