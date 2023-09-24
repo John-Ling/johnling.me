@@ -35,7 +35,11 @@
             $index: $colourCount;
         }
     }
+
+    display: flex;
+    
     .card {
+
         background-color: $background-light;
         padding: 20px;
         border-radius: 5px;

@@ -137,6 +137,9 @@ img {
   font-size: 40px;
 }
 
+.grid-item {
+  display: flex;
+}
 .grid-item:nth-child(1) .card h2 {
   color: #7aa2f7;
 }

@@ -137,6 +137,9 @@ img {
   font-size: 40px;
 }
 
+.grid-item {
+  display: flex;
+}
 .grid-item:nth-child(1) .card h2 {
   color: #7aa2f7;
 }
@@ -266,7 +269,8 @@ body {
 }
 
 main {
-  padding: 1rem 0;
+  min-height: 80vh;
+  margin: 1rem 0;
 }
 
 footer {
