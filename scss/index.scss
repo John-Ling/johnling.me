@@ -169,53 +169,36 @@ section {
 
 .findme-section {
     font-size: 70px;
+    display: flex;
+    justify-content: center;
+    a {
+        margin: 0 1rem;
+        &:hover {
+            color: $text;
+            .fa-linkedin {
+                color: $blue;
+            }
+
+            .fa-github {
+                color: $white;
+            }
+        }
+
+        @for $i from 1 through 12 {
+            $delay: 100ms * $i;
+            &:nth-child(#{$i}) {
+                transition-delay: $delay;
+            }
+        }
+    }
 }
 
-#mail-p {
+
+#mail-link {
     margin-top: 1rem;
 }
 
-#mail-link {
-    &:hover {
-        color: $teal;
-    }
-}
-
-.web-icon {
-    &:hover {
-        a {
-            color: darken($text, 5%);
-        }
-
-        div {
-            background-color: darken($background-light, 1%);
-        }
-
-        .devicon-linkedin-plain {
-            color: darken($blue, 5%);
-        }
-
-        .fa-github {
-            color: darken($white, 20%);
-        }
-
-        .fa-stack-overflow {
-            color: darken($orange, 10%);
-        }
-    }
-
-    div {
-        @include b.card;
-        padding: 10px;
-    }
-    
-    @for $i from 1 through 12 {
-        $delay: 200ms * $i;
-        &:nth-child(#{$i}) {
-            transition-delay: $delay;
-        }
-    }
-}
+// why section
 
 #pim-photo {
     width: 80%;

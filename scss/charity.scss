@@ -20,11 +20,6 @@ footer {
     margin-top: auto;
 }
 
-// img {
-//     border: solid 7px $highlight;
-//     border-radius: 5px;
-// }
-
 a {
     color: $text;
     text-decoration: none;
@@ -55,6 +50,18 @@ a {
         font-size: 40px;
     }
 }
+
+#pim-photos {
+    img {
+        @for $i from 1 through 12 {
+            $delay: 100ms * $i;
+            &:nth-child(#{$i}) {
+                transition-delay: $delay;
+            }
+        }
+    }
+}
+
 
 .typing-effect {
     overflow: hidden;
@@ -89,51 +96,6 @@ a {
 
 #logo {
     align-self: center;
-}
-
-#group-photo {
-    display: block;
-    border: solid 1px;
-}
-
-.web-icon {
-    text-align: center;
-
-    i {
-        font-size: 70px;
-    }
-
-    .fa-facebook {
-        color: $blue;
-    }
-
-    .fa-instagram {
-        color: $red;
-    }
-
-    .card {
-        background-color: $background-light;
-        border-radius: 5px;
-        padding: 20px;
-
-        &:hover {
-            background-color: darken($background-light, 1%);
-        }
-    }
-}
-
-.caption {
-    font-size: 20px;
-    display: block;
-}
-
-#return-link {
-    color: $text;
-    text-decoration: none;
-
-    &:hover {
-        color: $teal
-    }
 }
 
 @media screen and (max-width: 900px) {

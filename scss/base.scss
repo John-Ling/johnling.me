@@ -32,7 +32,7 @@ a {
 
 @mixin card {
     background-color: $background-light;
-    border: solid 3px $highlight;   
+    border: solid 3px $background-light  
 }
 
 .link {

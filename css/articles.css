@@ -210,7 +210,7 @@ img {
 }
 .grid-item .outlined-card {
   background-color: #20212e;
-  border: solid 3px #303447;
+  border: solid 3px #20212e;
   padding: 10px;
 }
 .grid-item .outlined-card h2 {

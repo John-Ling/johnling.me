@@ -210,7 +210,7 @@ img {
 }
 .grid-item .outlined-card {
   background-color: #20212e;
-  border: solid 3px #303447;
+  border: solid 3px #20212e;
   padding: 10px;
 }
 .grid-item .outlined-card h2 {
@@ -318,6 +318,43 @@ a:hover {
   font-size: 40px;
 }
 
+#pim-photos img:nth-child(1) {
+  transition-delay: 100ms;
+}
+#pim-photos img:nth-child(2) {
+  transition-delay: 200ms;
+}
+#pim-photos img:nth-child(3) {
+  transition-delay: 300ms;
+}
+#pim-photos img:nth-child(4) {
+  transition-delay: 400ms;
+}
+#pim-photos img:nth-child(5) {
+  transition-delay: 500ms;
+}
+#pim-photos img:nth-child(6) {
+  transition-delay: 600ms;
+}
+#pim-photos img:nth-child(7) {
+  transition-delay: 700ms;
+}
+#pim-photos img:nth-child(8) {
+  transition-delay: 800ms;
+}
+#pim-photos img:nth-child(9) {
+  transition-delay: 900ms;
+}
+#pim-photos img:nth-child(10) {
+  transition-delay: 1000ms;
+}
+#pim-photos img:nth-child(11) {
+  transition-delay: 1100ms;
+}
+#pim-photos img:nth-child(12) {
+  transition-delay: 1200ms;
+}
+
 .typing-effect {
   overflow: hidden;
   border-right: 0.4em solid #9ece6a;
@@ -348,45 +385,6 @@ a:hover {
 
 #logo {
   align-self: center;
-}
-
-#group-photo {
-  display: block;
-  border: solid 1px;
-}
-
-.web-icon {
-  text-align: center;
-}
-.web-icon i {
-  font-size: 70px;
-}
-.web-icon .fa-facebook {
-  color: #7aa2f7;
-}
-.web-icon .fa-instagram {
-  color: #f7768e;
-}
-.web-icon .card {
-  background-color: #20212e;
-  border-radius: 5px;
-  padding: 20px;
-}
-.web-icon .card:hover {
-  background-color: #1e1f2b;
-}
-
-.caption {
-  font-size: 20px;
-  display: block;
-}
-
-#return-link {
-  color: #c0caf5;
-  text-decoration: none;
-}
-#return-link:hover {
-  color: #73daca;
 }
 
 @media screen and (max-width: 900px) {

@@ -247,7 +247,7 @@ section {
 
 .skill-icon {
   background-color: #20212e;
-  border: solid 3px #303447;
+  border: solid 3px #20212e;
   display: inline-block;
   text-align: center;
   padding: 20px;
@@ -309,7 +309,7 @@ section {
 
 .project-card {
   background-color: #20212e;
-  border: solid 3px #303447;
+  border: solid 3px #20212e;
   padding: 1rem;
   margin: 0.5rem;
 }
@@ -425,71 +425,60 @@ section {
 
 .findme-section {
   font-size: 70px;
+  display: flex;
+  justify-content: center;
 }
-
-#mail-p {
-  margin-top: 1rem;
+.findme-section a {
+  margin: 0 1rem;
 }
-
-#mail-link:hover {
-  color: #73daca;
+.findme-section a:hover {
+  color: #c0caf5;
 }
-
-.web-icon:hover a {
-  color: #aab7f2;
+.findme-section a:hover .fa-linkedin {
+  color: #7aa2f7;
 }
-.web-icon:hover div {
-  background-color: #1e1f2b;
+.findme-section a:hover .fa-github {
+  color: #f0f0f0;
 }
-.web-icon:hover .devicon-linkedin-plain {
-  color: #6291f6;
+.findme-section a:nth-child(1) {
+  transition-delay: 100ms;
 }
-.web-icon:hover .fa-github {
-  color: #bdbdbd;
-}
-.web-icon:hover .fa-stack-overflow {
-  color: #ff7e31;
-}
-.web-icon div {
-  background-color: #20212e;
-  border: solid 3px #303447;
-  padding: 10px;
-}
-.web-icon:nth-child(1) {
+.findme-section a:nth-child(2) {
   transition-delay: 200ms;
 }
-.web-icon:nth-child(2) {
+.findme-section a:nth-child(3) {
+  transition-delay: 300ms;
+}
+.findme-section a:nth-child(4) {
   transition-delay: 400ms;
 }
-.web-icon:nth-child(3) {
+.findme-section a:nth-child(5) {
+  transition-delay: 500ms;
+}
+.findme-section a:nth-child(6) {
   transition-delay: 600ms;
 }
-.web-icon:nth-child(4) {
+.findme-section a:nth-child(7) {
+  transition-delay: 700ms;
+}
+.findme-section a:nth-child(8) {
   transition-delay: 800ms;
 }
-.web-icon:nth-child(5) {
+.findme-section a:nth-child(9) {
+  transition-delay: 900ms;
+}
+.findme-section a:nth-child(10) {
   transition-delay: 1000ms;
 }
-.web-icon:nth-child(6) {
+.findme-section a:nth-child(11) {
+  transition-delay: 1100ms;
+}
+.findme-section a:nth-child(12) {
   transition-delay: 1200ms;
 }
-.web-icon:nth-child(7) {
-  transition-delay: 1400ms;
-}
-.web-icon:nth-child(8) {
-  transition-delay: 1600ms;
-}
-.web-icon:nth-child(9) {
-  transition-delay: 1800ms;
-}
-.web-icon:nth-child(10) {
-  transition-delay: 2000ms;
-}
-.web-icon:nth-child(11) {
-  transition-delay: 2200ms;
-}
-.web-icon:nth-child(12) {
-  transition-delay: 2400ms;
+
+#mail-link {
+  margin-top: 1rem;
 }
 
 #pim-photo {

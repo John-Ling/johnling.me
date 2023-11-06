@@ -210,7 +210,7 @@ img {
 }
 .grid-item .outlined-card {
   background-color: #20212e;
-  border: solid 3px #303447;
+  border: solid 3px #20212e;
   padding: 10px;
 }
 .grid-item .outlined-card h2 {
@@ -351,16 +351,17 @@ footer {
   transition-delay: 2000ms;
 }
 
+.outlined-card {
+  padding: 1rem;
+}
 .outlined-card h2 {
   font-size: 1.5rem;
 }
 .outlined-card h3 {
-  font-size: 17px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  font-size: 1rem;
 }
-.outlined-card h4 {
-  font-size: 16px;
+.outlined-card p {
+  font-size: 1rem;
 }
 
 .typing-effect {
