@@ -19,12 +19,20 @@ header {
 footer {
   background-color: #16161d;
   height: fit-content;
-  padding: 5px;
+  text-align: center;
+  padding: 10px;
 }
 
 a {
   text-decoration: none;
   color: #c0caf5;
+}
+
+.link {
+  text-decoration: underline;
+}
+.link:hover {
+  color: #73daca;
 }
 
 .navbar {
@@ -35,6 +43,7 @@ a {
   color: #c0caf5;
   margin-left: 5px;
   margin-right: 5px;
+  transition: none;
 }
 .navbar .nav-link:hover {
   color: #73daca;
@@ -64,8 +73,7 @@ a {
 }
 
 img {
-  border: solid 7px #303447;
-  border-radius: 5px;
+  border: solid 3px #303447;
 }
 
 .red {
@@ -109,7 +117,6 @@ img {
 }
 
 #return-link {
-  margin-right: 10px;
   color: #c0caf5;
   text-decoration: none;
 }

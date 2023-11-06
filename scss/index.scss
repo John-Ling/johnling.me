@@ -1,5 +1,5 @@
 @use "variables" as *;
-@use "./base.scss";
+@use "./base.scss" as b;
 @use "./animations.scss";
 @use "sass:color";
 
@@ -22,7 +22,7 @@ section {
 
 .outlined-block {
     background-color: $background;
-    border: solid 5px $blue;
+    border: solid 3px $blue;
     margin: 1rem;
 }
 
@@ -47,7 +47,8 @@ section {
 }
 
 #landing-page-photo {
-    max-width: 30vh;
+    margin: 30px 0;
+    max-width: 35vh;
     align-self: center;
 }
 
@@ -81,16 +82,14 @@ section {
 // What section
 
 .skills-group {
-    font-size: 80px;
-    margin-bottom: 30px;
+    font-size: 5rem;
 }
 
 .skill-icon {
+    @include b.card;
     display: inline-block;
     text-align: center;
     padding: 20px;
-    background-color: $background-light;
-    border-radius: 5px;
     margin: 0.5rem;
 
     @for $i from 1 through 12 {
@@ -121,11 +120,9 @@ section {
 }
 
 .project-card {
-    background-color: $background-light;
-    border: solid 1px $background-light;
-    border-radius: 5px;
+    @include b.card;
     padding: 1rem;
-    margin: 1rem;
+    margin: 0.5rem;
 
     .title {
         font-size: 1.5rem;
@@ -138,10 +135,8 @@ section {
     a {
         color: $text;
         text-decoration: none;
-        span {
-            &:hover {
-                color: $teal;
-            }
+        &:hover {
+            color: $teal;
         }
     }
 
@@ -176,6 +171,10 @@ section {
     font-size: 70px;
 }
 
+#mail-p {
+    margin-top: 1rem;
+}
+
 #mail-link {
     &:hover {
         color: $teal;
@@ -185,18 +184,29 @@ section {
 .web-icon {
     &:hover {
         a {
-            color: $text;
+            color: darken($text, 5%);
         }
 
-        .card {
+        div {
             background-color: darken($background-light, 1%);
+        }
+
+        .devicon-linkedin-plain {
+            color: darken($blue, 5%);
+        }
+
+        .fa-github {
+            color: darken($white, 20%);
+        }
+
+        .fa-stack-overflow {
+            color: darken($orange, 10%);
         }
     }
 
-    .card {
-        background-color: $background-light;
-        border-radius: 10px;
-        padding: 20px;
+    div {
+        @include b.card;
+        padding: 10px;
     }
     
     @for $i from 1 through 12 {

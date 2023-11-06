@@ -26,14 +26,17 @@ footer {
 .grid-item {
     @for $i from 1 through 20 {
         &:nth-child(#{$i}) {
-            .card {
+            .outlined-card {
                 transition-delay: 100ms * $i;
             }
         }
     }
 }
 
-.card {
+.outlined-card {
+    h2 {
+        font-size: 1.5rem;
+    }
     h3 {
         font-size: 17px;
         padding-top: 5px;

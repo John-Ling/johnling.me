@@ -19,12 +19,20 @@ header {
 footer {
   background-color: #16161d;
   height: fit-content;
-  padding: 5px;
+  text-align: center;
+  padding: 10px;
 }
 
 a {
   text-decoration: none;
   color: #c0caf5;
+}
+
+.link {
+  text-decoration: underline;
+}
+.link:hover {
+  color: #73daca;
 }
 
 .navbar {
@@ -35,6 +43,7 @@ a {
   color: #c0caf5;
   margin-left: 5px;
   margin-right: 5px;
+  transition: none;
 }
 .navbar .nav-link:hover {
   color: #73daca;
@@ -64,8 +73,7 @@ a {
 }
 
 img {
-  border: solid 7px #303447;
-  border-radius: 5px;
+  border: solid 3px #303447;
 }
 
 .red {
@@ -109,7 +117,6 @@ img {
 }
 
 #return-link {
-  margin-right: 10px;
   color: #c0caf5;
   text-decoration: none;
 }
@@ -184,7 +191,7 @@ section {
 
 .outlined-block {
   background-color: #1a1b26;
-  border: solid 5px #7aa2f7;
+  border: solid 3px #7aa2f7;
   margin: 1rem;
 }
 
@@ -209,7 +216,8 @@ section {
 }
 
 #landing-page-photo {
-  max-width: 30vh;
+  margin: 30px 0;
+  max-width: 35vh;
   align-self: center;
 }
 
@@ -234,16 +242,15 @@ section {
 }
 
 .skills-group {
-  font-size: 80px;
-  margin-bottom: 30px;
+  font-size: 5rem;
 }
 
 .skill-icon {
+  background-color: #20212e;
+  border: solid 3px #303447;
   display: inline-block;
   text-align: center;
   padding: 20px;
-  background-color: #20212e;
-  border-radius: 5px;
   margin: 0.5rem;
 }
 .skill-icon:nth-child(1) {
@@ -302,10 +309,9 @@ section {
 
 .project-card {
   background-color: #20212e;
-  border: solid 1px #20212e;
-  border-radius: 5px;
+  border: solid 3px #303447;
   padding: 1rem;
-  margin: 1rem;
+  margin: 0.5rem;
 }
 .project-card .title {
   font-size: 1.5rem;
@@ -317,7 +323,7 @@ section {
   color: #c0caf5;
   text-decoration: none;
 }
-.project-card a span:hover {
+.project-card a:hover {
   color: #73daca;
 }
 .project-card:nth-child(1) .title {
@@ -421,20 +427,33 @@ section {
   font-size: 70px;
 }
 
+#mail-p {
+  margin-top: 1rem;
+}
+
 #mail-link:hover {
   color: #73daca;
 }
 
 .web-icon:hover a {
-  color: #c0caf5;
+  color: #aab7f2;
 }
-.web-icon:hover .card {
+.web-icon:hover div {
   background-color: #1e1f2b;
 }
-.web-icon .card {
+.web-icon:hover .devicon-linkedin-plain {
+  color: #6291f6;
+}
+.web-icon:hover .fa-github {
+  color: #bdbdbd;
+}
+.web-icon:hover .fa-stack-overflow {
+  color: #ff7e31;
+}
+.web-icon div {
   background-color: #20212e;
-  border-radius: 10px;
-  padding: 20px;
+  border: solid 3px #303447;
+  padding: 10px;
 }
 .web-icon:nth-child(1) {
   transition-delay: 200ms;
