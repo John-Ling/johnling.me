@@ -12,6 +12,7 @@ html {
 
 main {
     min-height: 80vh;
+    padding: 1rem;
 }
 
 footer {
@@ -33,6 +34,9 @@ a {
     }
 }
 
+.img-fluid {
+    margin: 0.5rem;
+}
 
 #title-card {
     padding-top: 30px;
@@ -92,7 +96,6 @@ a {
     border: solid 1px;
 }
 
-
 .web-icon {
     text-align: center;
 
@@ -125,7 +128,6 @@ a {
 }
 
 #return-link {
-    margin-right: 10px;
     color: $text;
     text-decoration: none;
 
@@ -146,6 +148,10 @@ a {
     #work-header {
         margin-left: 5%;
         margin-right: 5%;
+    }
+
+    .mobile-hide {
+        display: none;
     }
 
     #plaque {

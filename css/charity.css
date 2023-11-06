@@ -142,6 +142,7 @@ img {
 }
 #plaque #header {
   font-size: 40px;
+  padding: 5px 0;
 }
 
 .grid-item {
@@ -280,6 +281,7 @@ html {
 
 main {
   min-height: 80vh;
+  padding: 1rem;
 }
 
 footer {
@@ -293,6 +295,10 @@ a {
 }
 a:hover {
   color: #c0caf5;
+}
+
+.img-fluid {
+  margin: 0.5rem;
 }
 
 #title-card {
@@ -376,7 +382,6 @@ a:hover {
 }
 
 #return-link {
-  margin-right: 10px;
   color: #c0caf5;
   text-decoration: none;
 }
@@ -393,6 +398,9 @@ a:hover {
   #work-header {
     margin-left: 5%;
     margin-right: 5%;
+  }
+  .mobile-hide {
+    display: none;
   }
   #plaque {
     margin-left: unset;
