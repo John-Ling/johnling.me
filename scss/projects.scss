@@ -27,7 +27,7 @@ footer {
     @for $i from 1 through 20 {
         &:nth-child(#{$i}) {
             .outlined-card {
-                transition-delay: 100ms * $i;
+                animation-delay: 100ms * $i;
             }
         }
     }

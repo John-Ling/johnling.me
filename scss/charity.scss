@@ -53,21 +53,16 @@ a {
 
 #pim-photos {
     img {
-        @for $i from 1 through 12 {
+        @for $i from 1 through 5 {
             $delay: 100ms * $i;
             &:nth-child(#{$i}) {
-                transition-delay: $delay;
+                animation-delay: $delay;
             }
         }
     }
 }
 
-
 .typing-effect {
-    overflow: hidden;
-    border-right: 0.4em solid $green;
-    white-space: nowrap;
-    margin: 0 auto;
     animation: typing-animation 1.2s steps(18, end) 1s normal both,
                 blink-caret 1.2s step-end infinite;
 }

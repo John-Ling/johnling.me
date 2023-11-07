@@ -232,6 +232,22 @@ img {
   transform: translateY(5vh);
 }
 
+@keyframes static-hidden-fade {
+  from {
+    opacity: 0;
+    transform: translateY(5vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.static-hidden-fade {
+  opacity: 0;
+  animation: static-hidden-fade 1s;
+  animation-fill-mode: forwards;
+}
+
 .show-fade {
   opacity: 1;
 }
@@ -318,47 +334,22 @@ a:hover {
 }
 
 #pim-photos img:nth-child(1) {
-  transition-delay: 100ms;
+  animation-delay: 100ms;
 }
 #pim-photos img:nth-child(2) {
-  transition-delay: 200ms;
+  animation-delay: 200ms;
 }
 #pim-photos img:nth-child(3) {
-  transition-delay: 300ms;
+  animation-delay: 300ms;
 }
 #pim-photos img:nth-child(4) {
-  transition-delay: 400ms;
+  animation-delay: 400ms;
 }
 #pim-photos img:nth-child(5) {
-  transition-delay: 500ms;
-}
-#pim-photos img:nth-child(6) {
-  transition-delay: 600ms;
-}
-#pim-photos img:nth-child(7) {
-  transition-delay: 700ms;
-}
-#pim-photos img:nth-child(8) {
-  transition-delay: 800ms;
-}
-#pim-photos img:nth-child(9) {
-  transition-delay: 900ms;
-}
-#pim-photos img:nth-child(10) {
-  transition-delay: 1000ms;
-}
-#pim-photos img:nth-child(11) {
-  transition-delay: 1100ms;
-}
-#pim-photos img:nth-child(12) {
-  transition-delay: 1200ms;
+  animation-delay: 500ms;
 }
 
 .typing-effect {
-  overflow: hidden;
-  border-right: 0.4em solid #9ece6a;
-  white-space: nowrap;
-  margin: 0 auto;
   animation: typing-animation 1.2s steps(18, end) 1s normal both, blink-caret 1.2s step-end infinite;
 }
 

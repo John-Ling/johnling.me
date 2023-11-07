@@ -14,6 +14,23 @@
     transform: translateY(5vh);
 }
 
+@keyframes static-hidden-fade {
+    from {
+        opacity: 0;
+        transform: translateY(5vh);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.static-hidden-fade {
+    opacity: 0;
+    animation: static-hidden-fade 1s;
+    animation-fill-mode: forwards;
+}
+
 .show-fade {
     @include basic-fade-show();
 }

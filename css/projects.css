@@ -232,6 +232,22 @@ img {
   transform: translateY(5vh);
 }
 
+@keyframes static-hidden-fade {
+  from {
+    opacity: 0;
+    transform: translateY(5vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.static-hidden-fade {
+  opacity: 0;
+  animation: static-hidden-fade 1s;
+  animation-fill-mode: forwards;
+}
+
 .show-fade {
   opacity: 1;
 }
@@ -290,64 +306,64 @@ footer {
 }
 
 .grid-item:nth-child(1) .outlined-card {
-  transition-delay: 100ms;
+  animation-delay: 100ms;
 }
 .grid-item:nth-child(2) .outlined-card {
-  transition-delay: 200ms;
+  animation-delay: 200ms;
 }
 .grid-item:nth-child(3) .outlined-card {
-  transition-delay: 300ms;
+  animation-delay: 300ms;
 }
 .grid-item:nth-child(4) .outlined-card {
-  transition-delay: 400ms;
+  animation-delay: 400ms;
 }
 .grid-item:nth-child(5) .outlined-card {
-  transition-delay: 500ms;
+  animation-delay: 500ms;
 }
 .grid-item:nth-child(6) .outlined-card {
-  transition-delay: 600ms;
+  animation-delay: 600ms;
 }
 .grid-item:nth-child(7) .outlined-card {
-  transition-delay: 700ms;
+  animation-delay: 700ms;
 }
 .grid-item:nth-child(8) .outlined-card {
-  transition-delay: 800ms;
+  animation-delay: 800ms;
 }
 .grid-item:nth-child(9) .outlined-card {
-  transition-delay: 900ms;
+  animation-delay: 900ms;
 }
 .grid-item:nth-child(10) .outlined-card {
-  transition-delay: 1000ms;
+  animation-delay: 1000ms;
 }
 .grid-item:nth-child(11) .outlined-card {
-  transition-delay: 1100ms;
+  animation-delay: 1100ms;
 }
 .grid-item:nth-child(12) .outlined-card {
-  transition-delay: 1200ms;
+  animation-delay: 1200ms;
 }
 .grid-item:nth-child(13) .outlined-card {
-  transition-delay: 1300ms;
+  animation-delay: 1300ms;
 }
 .grid-item:nth-child(14) .outlined-card {
-  transition-delay: 1400ms;
+  animation-delay: 1400ms;
 }
 .grid-item:nth-child(15) .outlined-card {
-  transition-delay: 1500ms;
+  animation-delay: 1500ms;
 }
 .grid-item:nth-child(16) .outlined-card {
-  transition-delay: 1600ms;
+  animation-delay: 1600ms;
 }
 .grid-item:nth-child(17) .outlined-card {
-  transition-delay: 1700ms;
+  animation-delay: 1700ms;
 }
 .grid-item:nth-child(18) .outlined-card {
-  transition-delay: 1800ms;
+  animation-delay: 1800ms;
 }
 .grid-item:nth-child(19) .outlined-card {
-  transition-delay: 1900ms;
+  animation-delay: 1900ms;
 }
 .grid-item:nth-child(20) .outlined-card {
-  transition-delay: 2000ms;
+  animation-delay: 2000ms;
 }
 
 .outlined-card {
