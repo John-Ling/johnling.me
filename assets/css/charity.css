@@ -29,10 +29,6 @@ a {
   color: #c0caf5;
 }
 
-.parallax {
-  perspective: 2px;
-}
-
 .link {
   text-decoration: underline;
 }
@@ -229,4 +225,175 @@ img {
   color: #73daca;
 }
 
-/*# sourceMappingURL=grid.css.map */
+.hidden-fade {
+  opacity: 0;
+  transition: all 1s;
+  transform: translateY(5vh);
+}
+
+@keyframes static-hidden-fade {
+  from {
+    opacity: 0;
+    transform: translateY(5vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.static-hidden-fade {
+  opacity: 0;
+  animation: static-hidden-fade 1s;
+  animation-fill-mode: forwards;
+}
+
+.show-fade {
+  opacity: 1;
+}
+
+.hidden-slide {
+  opacity: 0;
+  transition: all 1s;
+  transform: translateX(100%);
+}
+
+.show-slide {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.typing-effect {
+  overflow: hidden;
+  border-right: 0.4em solid #9ece6a;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing-animation 2s steps(22, end) 1s normal both, blink-caret 1.2s step-end infinite;
+}
+
+@keyframes typing-animation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #9ece6a;
+  }
+}
+body,
+html {
+  background: #1a1b26;
+  font-family: "meslolgs_nfregular";
+  color: #c0caf5;
+}
+
+main {
+  min-height: 80vh;
+  padding: 1rem;
+}
+
+footer {
+  width: 100vw;
+  margin-top: auto;
+}
+
+a {
+  color: #c0caf5;
+  text-decoration: none;
+}
+a:hover {
+  color: #c0caf5;
+}
+
+.img-fluid {
+  margin: 0.5rem;
+}
+
+#title-card {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#plaque {
+  background-color: #1a1b26;
+  border: solid 5px #7aa2f7;
+  padding: 1rem 0;
+  margin: 0 15%;
+  text-align: center;
+}
+#plaque #header {
+  color: #73daca;
+  font-size: 40px;
+}
+
+#pim-photos img:nth-child(1) {
+  animation-delay: 100ms;
+}
+#pim-photos img:nth-child(2) {
+  animation-delay: 200ms;
+}
+#pim-photos img:nth-child(3) {
+  animation-delay: 300ms;
+}
+#pim-photos img:nth-child(4) {
+  animation-delay: 400ms;
+}
+#pim-photos img:nth-child(5) {
+  animation-delay: 500ms;
+}
+
+.typing-effect {
+  animation: typing-animation 1.2s steps(18, end) 1s normal both, blink-caret 1.2s step-end infinite;
+}
+
+@keyframes typing-animation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 200px;
+  }
+}
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #73daca;
+  }
+}
+#header-text {
+  color: #73daca;
+}
+
+#logo {
+  align-self: center;
+}
+
+@media screen and (max-width: 900px) {
+  .web-icon:not(:first-child) {
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width: 500px) {
+  #work-header {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .mobile-hide {
+    display: none;
+  }
+  #plaque {
+    margin-left: unset;
+    margin-right: unset;
+    text-align: center;
+  }
+}
+
+/*# sourceMappingURL=charity.css.map */

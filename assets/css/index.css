@@ -29,10 +29,6 @@ a {
   color: #c0caf5;
 }
 
-.parallax {
-  perspective: 2px;
-}
-
 .link {
   text-decoration: underline;
 }
@@ -212,7 +208,6 @@ section {
   background-color: #1a1b26;
   border: solid 3px #7aa2f7;
   margin: 1rem;
-  transform-style: preserve-3d;
 }
 
 #greeter {
@@ -221,22 +216,6 @@ section {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-}
-
-.parallax:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  transform: translateZ(-1px) scale(1.5);
-  background-size: 100%;
-  z-index: -1;
-}
-
-.no-parallax {
-  z-index: 999;
 }
 
 #welcome-sign {
