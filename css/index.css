@@ -10,14 +10,15 @@ html {
 header {
   position: relative;
   background-image: url("../images/dots.png");
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-size: cover;
 }
 
 footer {
   background-color: #16161d;
+  border-top: solid 3px #7aa2f7;
   height: fit-content;
   text-align: center;
   padding: 10px;
@@ -114,14 +115,6 @@ img {
 
 .white {
   color: #f0f0f0;
-}
-
-#return-link {
-  color: #c0caf5;
-  text-decoration: none;
-}
-#return-link:hover {
-  color: #73daca;
 }
 
 @media screen and (max-width: 500px) {
@@ -226,13 +219,13 @@ section {
   font-size: 2rem;
 }
 
-#photo-col {
+#greeter-profile {
   display: flex;
-  justify-content: center;
+  align-items: center;
 }
 
 #landing-page-photo {
-  margin: 30px 0;
+  margin: 2rem;
   max-width: 35vh;
   align-self: center;
 }
@@ -505,6 +498,9 @@ section {
 
 @media screen and (max-width: 900px) {
   #greeter {
+    flex-direction: column;
+  }
+  #greeter-profile {
     flex-direction: column;
   }
   #trophy-picture {

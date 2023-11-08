@@ -41,13 +41,13 @@ section {
     }
 }
 
-#photo-col {
+#greeter-profile {
     display: flex;
-    justify-content: center;
+    align-items: center;
 }
 
 #landing-page-photo {
-    margin: 30px 0;
+    margin: 2rem;
     max-width: 35vh;
     align-self: center;
 }
@@ -209,6 +209,10 @@ section {
 // tablet
 @media screen and (max-width: 900px) {
     #greeter {
+        flex-direction: column;
+    }
+
+    #greeter-profile {
         flex-direction: column;
     }
 

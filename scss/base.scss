@@ -12,14 +12,15 @@ html {
 header {
     position: relative;
     background-image: url("../images/dots.png");
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-size: cover;
 }
 
 footer {
     background-color: $background-dark;
+    border-top: solid 3px $blue;
     height: fit-content;
     text-align: center;
     padding: 10px;
@@ -128,15 +129,6 @@ img {
 
 .white {
     color: $white;
-}
-
-#return-link {
-    color: $text;
-    text-decoration: none;
-
-    &:hover {
-        color: $teal
-    }
 }
 
 @media screen and (max-width: 500px) {
