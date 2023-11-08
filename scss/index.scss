@@ -24,6 +24,7 @@ section {
     background-color: $background;
     border: solid 3px $blue;
     margin: 1rem;
+    transform-style: preserve-3d;
 }
 
 #greeter {
@@ -32,6 +33,24 @@ section {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+
+.parallax {
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: translateZ(-1px) scale(1.5);
+        background-size: 100%;
+        z-index: -1;
+    }
+}
+
+.no-parallax {
+    z-index: 999;
 }
 
 #welcome-sign {
@@ -65,7 +84,6 @@ section {
         }
     }
 }
-
 
 .question-prompt {
     font-size: 48px;
