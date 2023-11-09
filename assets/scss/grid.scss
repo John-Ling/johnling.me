@@ -1,4 +1,4 @@
-@use "./base.scss" as b;
+@use "./base.scss" as *;
 @use "./variables.scss" as *;
 
 #title-card {
@@ -26,7 +26,7 @@
     @for $i from 1 through 20 {
         $colour: nth($colours, $index);
         &:nth-child(#{$i}) {
-            .outlined-card {
+            .card-item {
                 h2 {
                     color: $colour;
                 }
@@ -40,8 +40,8 @@
 
     display: flex;
     
-    .outlined-card {
-        @include b.card;
+    .card-item {
+        @include card;
         padding: 10px;
     
         h2 {

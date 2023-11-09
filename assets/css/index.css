@@ -242,10 +242,6 @@ section {
   padding: 1rem;
 }
 
-#resume-link:hover a {
-  color: #73daca;
-}
-
 .question-prompt {
   font-size: 48px;
 }
@@ -291,18 +287,6 @@ section {
 }
 .skill-icon:nth-child(8) {
   transition-delay: 1600ms;
-}
-.skill-icon:nth-child(9) {
-  transition-delay: 1800ms;
-}
-.skill-icon:nth-child(10) {
-  transition-delay: 2000ms;
-}
-.skill-icon:nth-child(11) {
-  transition-delay: 2200ms;
-}
-.skill-icon:nth-child(12) {
-  transition-delay: 2400ms;
 }
 
 .caption {

@@ -147,81 +147,81 @@ img {
 .grid-item {
   display: flex;
 }
-.grid-item:nth-child(1) .outlined-card h2 {
+.grid-item:nth-child(1) .card-item h2 {
   color: #7aa2f7;
 }
-.grid-item:nth-child(2) .outlined-card h2 {
+.grid-item:nth-child(2) .card-item h2 {
   color: #bb9af7;
 }
-.grid-item:nth-child(3) .outlined-card h2 {
+.grid-item:nth-child(3) .card-item h2 {
   color: #73daca;
 }
-.grid-item:nth-child(4) .outlined-card h2 {
+.grid-item:nth-child(4) .card-item h2 {
   color: #9ece6a;
 }
-.grid-item:nth-child(5) .outlined-card h2 {
+.grid-item:nth-child(5) .card-item h2 {
   color: #e0af68;
 }
-.grid-item:nth-child(6) .outlined-card h2 {
+.grid-item:nth-child(6) .card-item h2 {
   color: #ff9e64;
 }
-.grid-item:nth-child(7) .outlined-card h2 {
+.grid-item:nth-child(7) .card-item h2 {
   color: #f7768e;
 }
-.grid-item:nth-child(8) .outlined-card h2 {
+.grid-item:nth-child(8) .card-item h2 {
   color: #7aa2f7;
 }
-.grid-item:nth-child(9) .outlined-card h2 {
+.grid-item:nth-child(9) .card-item h2 {
   color: #bb9af7;
 }
-.grid-item:nth-child(10) .outlined-card h2 {
+.grid-item:nth-child(10) .card-item h2 {
   color: #73daca;
 }
-.grid-item:nth-child(11) .outlined-card h2 {
+.grid-item:nth-child(11) .card-item h2 {
   color: #9ece6a;
 }
-.grid-item:nth-child(12) .outlined-card h2 {
+.grid-item:nth-child(12) .card-item h2 {
   color: #e0af68;
 }
-.grid-item:nth-child(13) .outlined-card h2 {
+.grid-item:nth-child(13) .card-item h2 {
   color: #ff9e64;
 }
-.grid-item:nth-child(14) .outlined-card h2 {
+.grid-item:nth-child(14) .card-item h2 {
   color: #f7768e;
 }
-.grid-item:nth-child(15) .outlined-card h2 {
+.grid-item:nth-child(15) .card-item h2 {
   color: #7aa2f7;
 }
-.grid-item:nth-child(16) .outlined-card h2 {
+.grid-item:nth-child(16) .card-item h2 {
   color: #bb9af7;
 }
-.grid-item:nth-child(17) .outlined-card h2 {
+.grid-item:nth-child(17) .card-item h2 {
   color: #73daca;
 }
-.grid-item:nth-child(18) .outlined-card h2 {
+.grid-item:nth-child(18) .card-item h2 {
   color: #9ece6a;
 }
-.grid-item:nth-child(19) .outlined-card h2 {
+.grid-item:nth-child(19) .card-item h2 {
   color: #e0af68;
 }
-.grid-item:nth-child(20) .outlined-card h2 {
+.grid-item:nth-child(20) .card-item h2 {
   color: #ff9e64;
 }
-.grid-item .outlined-card {
+.grid-item .card-item {
   background-color: #20212e;
   border: solid 3px #20212e;
   padding: 10px;
 }
-.grid-item .outlined-card h2 {
+.grid-item .card-item h2 {
   margin-bottom: 20px;
 }
-.grid-item .outlined-card h2 .shortened {
+.grid-item .card-item h2 .shortened {
   font-size: 22px;
 }
-.grid-item .outlined-card a {
+.grid-item .card-item a {
   margin-top: 10px;
 }
-.grid-item .outlined-card a:hover {
+.grid-item .card-item a:hover {
   color: #73daca;
 }
 

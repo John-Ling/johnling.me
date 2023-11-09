@@ -26,14 +26,14 @@ footer {
 .grid-item {
     @for $i from 1 through 20 {
         &:nth-child(#{$i}) {
-            .outlined-card {
+            .card-item {
                 animation-delay: 100ms * $i;
             }
         }
     }
 }
 
-.outlined-card {
+.card-item {
     padding: 1rem;
     h2 {
         font-size: 1.5rem;

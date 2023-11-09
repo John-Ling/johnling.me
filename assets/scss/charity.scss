@@ -1,6 +1,5 @@
-@use "variables" as *;
+@use "./variables.scss" as *;
 @use "./base.scss";
-@use "./grid.scss";
 @use "./animations.scss";
 
 body,
