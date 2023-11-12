@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tech</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="/assets/css/fonts.css" rel="stylesheet">
+	<link rel="stylesheet" href="/assets/css/tech.css">
+	<link rel="shortcut icon" href="/assets/favicon.ico">
+</head>
+<body>
+	<header>
+        <nav class="navbar navbar-expand-lg py-0">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">John Ling</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="page-list">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/projects/">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/charity/">Charity</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/tech/">Tech</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/assets/documents/resume.pdf">Resume</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container" id="title-card">
+            <div id="plaque">
+                <h1 id="header" class="typing-effect">Tech</h1>
+            </div>
+        </div>
+    </header>
+	<main>
+		<div class="container">
+			<section class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="red">Tech that I use</h2>
+					<p id="tech-about">
+						As a person basically glued to the computer, it makes sense that I would have used lots of different softwares 
+						and setups throughout the years. Some aspects of my current system I find are quite interesting so 
+						I thought it would be cool to share my setup. 
+					</p>
+				</div>
+				<h2 class="green">Software</h2>
+			</section>
+			<section class="row">
+				<div class="col-lg-6 order-lg-12 order-sm-1">
+					<p>
+						OS: I primarily use my computer for programming so using Linux over Windows means I'm not 
+						missing out on much. I daily drive Arch<span style="font-size:5px">btw </span>Linux. Not out of a love of FOSS 
+						(I think FOSS is great don't get me wrong) but because I can customise my desktop to look cool. Yes I'm that vapid. 
+					</p>
+					<p>
+						WM: Hyprland. I used to use KDE Plasma with Krohnkite for tiling. However nowadays you'll find me using Hyprland 
+						for its incredible animations.
+					</p>
+					<p>
+						Terminal: I use Alacritty. No reason in particular. I just like the name. I also use the ZSH shell with 
+						'Oh my Zsh'
+						and syntax highlighting with the Powerlevel10K theme.
+					</p>
+					<p>
+						Code Editor: I use vscode. Again no reason in particular. It was just what I started with. 
+						For languages like C# or Java, I'll break out Visual Studio 2022 and Intellij but for Javascript, Python and C/C++,
+						vscode is enough.
+					</p>
+				</div>
+				<div class="col-lg-6 order-lg-1 order-sm-12">
+					<img src="/assets/images/linux_desktop.png" class="img-fluid">
+					<p class="muted">More details can be found at my <a class="link" href="https://github.com/John-Ling/dotfiles">Github</a></p>
+				</div>
+			</section>
+			<h2 class="blue">Hardware</h2>
+			<section class="row">
+				<div class="col-lg-6">
+					<p>I  have two computers: my laptop and my PC. I run Windows 10 on my laptop and Linux on the PC.</p>
+					<h3 class="purple">Laptop</h3>
+					<p>I use a Thinkpad T15 I bought in 2021. While it was not my first choice as I was really gunning
+						for an AMD T14, it's been great for my schoolwork and programming. It has a quad-core I5, 16GB RAM and a 512GB NVME SSD.
+						Nothing more to say really, it's a solid laptop.
+					</p>
+					<h3 class="orange">PC</h3>
+					<p>Here's where things get really interesting. Although I primarily use Linux on the PC, I use Windows 10 
+						in a virtual machine using KVM for certain Linux-incompatible games and CAD applications like Fusion 360. I use GPU passthrough
+						to achieve good graphics performance. I also run a MacOS VM just in case I decide to go into IOS development and
+						because I can.
+					</p>
+					<p>
+						PC Specs:
+						<ul id="specs-list">
+							<li>Ryzen 5 2600</li>
+							<li>GTX 1070</li>
+							<li>RX 580</li>
+							<li>16GB 3200MHz RAM</li>
+							<li>Asus ROG B450-F Gaming Mobo</li>
+							<li>NZXT Kraken X53 AIO</li>
+							<li>2 512GB NVME SSDs</li>
+							<li>256GB and 128GB SATA SSD</li>
+							<li>Noctis 450 case</li>
+							<li>4 BeQuiet 120mm fans</li>
+							<li>2 140mm white LED Aigo fans</li>
+						</ul>
+					</p>
+				</div>
+			</section>
+		</div>
+	</main>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+</html>
