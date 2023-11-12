@@ -29,11 +29,22 @@ a {
   color: #c0caf5;
 }
 
+img {
+  border: solid 3px #303447;
+}
+
 .link {
   text-decoration: underline;
 }
 .link:hover {
   color: #73daca;
+}
+
+.muted {
+  color: #9aa5ce;
+}
+.muted * {
+  color: #9aa5ce;
 }
 
 .navbar {
@@ -71,10 +82,6 @@ a {
 .navbar .navbar-toggler {
   outline: none;
   box-shadow: none;
-}
-
-img {
-  border: solid 3px #303447;
 }
 
 .red {

@@ -31,6 +31,10 @@ a {
     color: $text;
 }
 
+img {
+    border: solid 3px $highlight;
+}
+
 @mixin card {
     background-color: $background-light;
     border: solid 3px $background-light  
@@ -41,6 +45,13 @@ a {
 
     &:hover {
         color: $teal;
+    }
+}
+
+.muted {
+    color: $grey;
+    * {
+        color: $grey;
     }
 }
 
@@ -85,10 +96,6 @@ a {
 .navbar .navbar-toggler {
     outline: none;
     box-shadow: none;
-}
-
-img {
-    border: solid 3px $highlight;
 }
 
 .red {

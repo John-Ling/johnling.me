@@ -1,0 +1,76 @@
+@use "./variables.scss" as *;
+@use "./base.scss" as *;
+@use "./animations.scss";
+
+body,
+html {
+    background: $background;
+    font-family: 'meslolgs_nfregular';
+    color: $text;
+}
+
+main {
+    min-height: 80vh;
+    margin: 1rem 0;
+}
+
+footer {
+    width: 100vw;
+    margin-top: auto;
+}
+
+
+section {
+	h3 {
+		font-size: 1.25rem;
+	}
+}
+
+#plaque {
+    background-color: $background;
+    border: solid 5px $blue;
+    padding: 1rem 0;
+    margin: 0 15%;
+    text-align: center;
+
+    #header {
+        color: $orange;
+        font-size: 40px;
+    }
+}
+
+#title-card {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#specs-list {
+	list-style: square;
+}
+
+.typing-effect {
+    animation: typing-animation 0.5s steps(7, end) 1s normal both,
+                blink-caret 1.2s step-end infinite;
+}
+
+@keyframes typing-animation {
+    from {
+        width: 0;
+    }
+    to {
+        width: 150px;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: $orange;
+    }
+}
+
+#tech-about {
+	padding: 0 clamp(1rem, 10rem, 1rem);
+}
