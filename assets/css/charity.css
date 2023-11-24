@@ -172,6 +172,22 @@ img {
   transform: translateX(0);
 }
 
+@keyframes static-hidden-slide {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.static-hidden-slide {
+  opacity: 0;
+  animation: static-hidden-slide 1s;
+  animation-fill-mode: forwards;
+}
+
 .typing-effect {
   overflow: hidden;
   border-right: 0.4em solid #9ece6a;
@@ -251,7 +267,7 @@ footer {
 }
 
 .typing-effect {
-  animation: typing-animation 1.2s steps(18, end) 1s normal both, blink-caret 1.2s step-end infinite;
+  animation: typing-animation 1.2s steps(12, end) 1s normal both, blink-caret 1.2s step-end infinite;
 }
 
 @keyframes typing-animation {
@@ -259,7 +275,7 @@ footer {
     width: 0;
   }
   to {
-    width: 200px;
+    width: 190px;
   }
 }
 @keyframes blink-caret {

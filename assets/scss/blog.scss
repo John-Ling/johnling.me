@@ -1,5 +1,6 @@
 @use "./variables.scss" as *;
 @use "./base.scss" as *;
+@use "./grid.scss";
 @use "./animations.scss";
 
 body,
@@ -17,13 +18,6 @@ main {
 footer {
     width: 100vw;
     margin-top: auto;
-}
-
-
-section {
-	h3 {
-		font-size: 1.25rem;
-	}
 }
 
 #plaque {
@@ -44,13 +38,47 @@ section {
     padding-bottom: 30px;
 }
 
-#specs-list {
-	list-style: square;
-}
-
 .typing-effect {
     animation: typing-animation 0.5s steps(7, end) 1s normal both,
                 blink-caret 1.2s step-end infinite;
+}
+
+#articles {
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	gap: 1rem;
+}
+
+$colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
+$colourCount: length($colours);
+$index: 1;
+@for $i from 1 through 20 {
+	$colour: nth($colours, $index);
+	.article {
+		&:nth-child(#{$i}) {
+			animation-delay: 100ms * $i;
+			h3 {
+				color: $colour;
+			}
+		}
+	}
+	$index: ($index + 1) % $colourCount;
+	@if ($index == 0) {
+		$index: $colourCount;
+	}
+}
+
+.article {
+	@include card;
+	padding: 1rem;
+	h3 {
+		font-size: 1.25rem;
+	}
+	h4 {
+		font-size: 1rem;
+	}
+
 }
 
 @keyframes typing-animation {
@@ -69,8 +97,4 @@ section {
     50% {
         border-color: $orange;
     }
-}
-
-#tech-about {
-	padding: 0 clamp(1rem, 10rem, 1rem);
 }

@@ -172,6 +172,22 @@ img {
   transform: translateX(0);
 }
 
+@keyframes static-hidden-slide {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.static-hidden-slide {
+  opacity: 0;
+  animation: static-hidden-slide 1s;
+  animation-fill-mode: forwards;
+}
+
 .typing-effect {
   overflow: hidden;
   border-right: 0.4em solid #9ece6a;
@@ -247,7 +263,7 @@ section h3 {
     width: 0;
   }
   to {
-    width: 150px;
+    width: 140px;
   }
 }
 @keyframes blink-caret {

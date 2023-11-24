@@ -53,7 +53,7 @@ footer {
 }
 
 .typing-effect {
-    animation: typing-animation 1.2s steps(18, end) 1s normal both,
+    animation: typing-animation 1.2s steps(12, end) 1s normal both,
                 blink-caret 1.2s step-end infinite;
 }
 
@@ -62,7 +62,7 @@ footer {
         width: 0;
     }
     to {
-        width: 200px;
+        width: 190px;
     }
 }
 

@@ -22,10 +22,24 @@ const get_years_programming = () => {
     return years;
 }
 
+const enable_mobile_animations = () => {
+    const elements = document.querySelectorAll(".project-card");
+    elements.forEach(element => {
+        element.classList.add("hidden-slide");
+    });
+    return;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const ageTexts = document.querySelectorAll(".age-text");
     ageTexts.forEach((element) => element.innerHTML = get_age());
 
     const yearsTexts = document.querySelectorAll(".years-text");
     yearsTexts.forEach((element) => element.innerHTML = get_years_programming());
+
+    if (window.screen.width <= 500) {
+        enable_mobile_animations();
+    }
+
+    return;
 });
