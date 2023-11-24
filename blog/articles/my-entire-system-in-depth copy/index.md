@@ -1,33 +1,18 @@
-
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>my-entire-system-in-depth</title> 
-        <script type="module" src="https://md-block.verou.me/md-block.js"></script>
-        <link href="/assets/css/fonts.css" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/css/blog.css">
-        <link rel="stylesheet" href="/assets/css/article.css">
-        <link rel="shortcut icon" href="/assets/favicon.ico">
-    </head>
-    <body>
-        <main>
-            <md-block>
-                # My Entire System in Depth
+# My Entire System in Depth
+_13/11/2023_
 
 On the tech page of my website, I do list some of the software and hardware I use on a daily basis. However that does not even begin to cover everything I use so this article goes through nearly everything I use in stupid amounts of detail.
 
 ## The Software
 
-<img src="./assets/linux_desktop.png" alt="My Linux desktop" class="image"/>
-<span class="muted">My Linux desktop</span>
+![My Linux desktop](./assets/linux_desktop.png)
+_My Linux desktop_
 
 **OS**: Since I mainly do programming and play a total of 1 game on my computer, Linux is the best choice for me. I daily drive Arch<sub>btw</sub> Linux not because I worship the KISS philosphy (although I think simple > complicated) nor is it out of some weird sense of superiority I can hold over Ubuntu users.
  
 I use Arch Linux becaues it was my first and only distro and I literally don't know how to use anything else on the desktop. 
 
-**WM**: I use Hyprland just for the cool animations. I use a lot of virtual desktops and the previous WMs I tried such as I3 don't seem to support it at least not out of the box. I use Hyprland with a <a href="https://github.com/levnikmyskin/hyprland-virtual-desktops" class="link">virtual desktop plugin</a> that can move all workspaces on my monitors at once rather than individually. 
+**WM**: I use Hyprland just for the cool animations. I use a lot of virtual desktops and the previous WMs I tried such as I3 don't seem to support it at least not out of the box. I use Hyprland with a [virtual desktop plugin](https://github.com/levnikmyskin/hyprland-virtual-desktops) that can move all workspaces on my monitors at once rather than individually. 
 
 Since I like using 4 statically assigned desktops, I some basic edits to prevent adding any new desktops after 4.
 
@@ -73,24 +58,24 @@ void VirtualDeskManager::previousDesk() {
 
 I also use a modified version of the Tabliss extension. I added a widget that can display my Trello list right at the homepage since I like seeing my tasks immediately rather than going to the website. 
 
-<img src="https://user-images.githubusercontent.com/100111224/278787912-f418b1bd-8c48-4029-bf59-53a5d20a5eff.png" alt="My Firefox homepage. The 3 columns are part of my Trello board" class="image"/>
-<span class="muted">My Firefox homepage. The 3 columns are part of my Trello board</span>
+![My Firefox homepage. The 3 columns are part of my Trello board](https://user-images.githubusercontent.com/100111224/278787912-f418b1bd-8c48-4029-bf59-53a5d20a5eff.png)
+_My Firefox homepage. The 3 columns are part of my Trello board_
 
 I used to use Lastpass as my password manager until it got breached. Nowadays I have a setup where I store my passwords in a big text file on Mega.nz and use Google login for everything. I have 3 really big passwords which I use for my main Mega account and my personal/business Google account. If I remember those 3 then for the most part I can get into nearly every account.
 
 **Code Editor**: I primarily use VSCode since it was what I started with and for writing Python, C/C++ or Javascript it does that job just fine. Since I also use Windows, I like its cross-platform nature compared to a terminal editor like NeoVim.
 
-**Audio**: I use Pipewire for my audio. However since Hyprland doesn't really have an indicator for changing or muting the audio so I compiled this application called <a href="https://github.com/ErikReider/SwayOSD" class="link">SwayOSD</a> which will display a small UI when the volume changes. I made some small amendments to the CSS file to change the colours. 
+**Audio**: I use Pipewire for my audio. However since Hyprland doesn't really have an indicator for changing or muting the audio so I compiled this application called [SwayOSD](https://github.com/ErikReider/SwayOSD) which will display a small UI when the volume changes. I made some small amendments to the CSS file to change the colours. 
 
 **Notetaking**: I use Obsidian for my notetaking since I like making notes in something close to plaintext. I'm not kidding when I say that for nearly 4 years, I used Windows notepad for my notes and used MS Paint to draw diagrams. 
 
-<img src="./assets/notepad_linked_list.png" alt="Beautiful mspaint diagram of a linked list" class="image"/>
+![Beautiful mspaint diagram of a linked list](./assets/notepad_linked_list.png)
 
 I've tried Notion before but I didn't like the learning curve. Coming from notepad I just needed something simple and Obsidian was recommended by a classmate. 
 
 ## The Hardware
 
-<img src="./assets/pc.jpg" alt="My PC" class="image"/>
+![My PC](./assets/pc.jpg)
 
 
 ### The PC
@@ -115,17 +100,17 @@ While this would be a slightly above average gaming PC, the second GPU makes it 
 
 I use a Thinkpad T15 Gen1 I brought in 2021. While it was not my first choice since I was looking for an AMD T14 they were sold out so I got this instead. However I've had no problems using this laptop for school work and quick programming sessions. Its fast, got decent battery life and a good keyboard. 
 
-<img src="./assets/t15.jpg" alt="My Thinkpad T15" class="image"/>
+![My Thinkpad T15](./assets/t15.jpg)
 
 However I've recently brought myself an old Thinkpad T420 for a rock-bottom price and I've been adding some mods to it. If all goes well, I may have a new daily driver since I really like the feel of the classic keyboards.
 
-<img src="./assets/thinkpad_t420.jpg" alt="The Thinkpad T420 before any upgrades" class="image"/>
-<span class="muted">The Thinkpad T420 before any upgrades</span>
+![The Thinkpad T420 before any upgrades](./assets/thinkpad_t420.jpg)
+_The Thinkpad T420 before any upgrades_
 
 ### The Server 
 
-<img src="./assets/server.jpg" alt="My crucified laptop of a server" class="image"/>
-<span class="muted">My crucified laptop of a server</span>
+![My crucified laptop of a server](./assets/server.jpg)
+_My crucified laptop of a server_
 
 Before my Thinkpad, I used a refurbished Dell Latitude E7450. However I didn't want to just sell or throw away my laptop since it still had a bit of life left in it. I removed the screen connector to disable the screen, removed the wifi card for other uses and setup SSH so I could operate the laptop remotely.
 
@@ -136,14 +121,4 @@ I mainly use this server to run game instances such as Terraria for my friends t
 
 ## Conclusion
 
-This is basically all the software and hardware I use on a daily basis. Don't really know what else to say. Thanks for reading.
-            </md-block>
-        </main>
-        <footer>
-            <p>Made by John Ling</p>
-            <p>Source code at <a href="https://github.com/John-Ling/johnling.me" class="link">Github</a></p>
-            <p><a href="/" id="return-link"><span class="link">Return Home</span></a></p>
-        </footer>
-    </body>
-</html>
-        
+This is basically all the software and hardware I use on a daily basis. Don't really know what else to say. Thanks for reading. 
