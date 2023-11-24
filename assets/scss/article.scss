@@ -1,0 +1,33 @@
+@use "./base.scss";
+@use "./variables.scss" as *;
+
+body {
+    margin: 0;
+}
+
+main {
+    margin: 0 30rem;
+}
+
+.image {
+    width: clamp(300px, 30vw, 45vw);
+    height: auto;
+    display: block;
+}
+
+.image-subtitle {
+    font-style: italic;
+    color: $grey;
+}
+
+@media screen and (max-width: 900px) {
+    main {
+        margin: 0 1rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    main {
+        margin: 0 2rem;
+    }
+}
