@@ -105,6 +105,7 @@ I use a Thinkpad T15 Gen1 I brought in 2021. While it was not my first choice si
 However I've recently brought myself an old Thinkpad T420 for a rock-bottom price and I've been adding some mods to it. If all goes well, I may have a new daily driver since I really like the feel of the classic keyboards.
 
 ![The Thinkpad T420 before any upgrades](./assets/thinkpad_t420.jpg)
+
 _The Thinkpad T420 before any upgrades_
 
 ### The Server 

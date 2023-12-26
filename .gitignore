@@ -1,1 +1,5 @@
 .vscode
+blog/.env
+blog/Include
+blog/Lib
+blog/Scripts

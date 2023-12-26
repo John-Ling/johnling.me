@@ -326,6 +326,10 @@ footer {
   margin-top: auto;
 }
 
+em {
+  color: #9aa5ce;
+}
+
 #plaque {
   background-color: #1a1b26;
   border: solid 5px #7aa2f7;
