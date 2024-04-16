@@ -58,12 +58,11 @@ img {
   margin-right: 5px;
   transition: none;
 }
-.nav-link:hover {
+.nav-link.active {
   color: #73daca;
 }
-.nav-link .active {
-  color: #c0caf5 !important;
-  border-bottom: solid 2px #bb9af7;
+.nav-link:hover {
+  color: #73daca;
 }
 
 .navbar-brand {
@@ -124,10 +123,6 @@ img {
 
 @media screen and (max-width: 900px) {
   .navbar .nav-link.active {
-    color: #c0caf5;
-    border-bottom: solid 2px #9ece6a !important;
-  }
-  .navbar .nav-link.active:hover {
     color: #73daca;
   }
 }
