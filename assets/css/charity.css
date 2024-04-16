@@ -51,17 +51,16 @@ img {
   background-color: #1a1b26;
   color: #c0caf5;
 }
-
-.nav-link {
+.navbar .nav-link {
   color: #c0caf5;
   margin-left: 5px;
   margin-right: 5px;
   transition: none;
 }
-.nav-link.active {
+.navbar .nav-link.active {
   color: #73daca;
 }
-.nav-link:hover {
+.navbar .nav-link:hover {
   color: #73daca;
 }
 
@@ -123,6 +122,9 @@ img {
 
 @media screen and (max-width: 900px) {
   .navbar .nav-link.active {
+    color: #73daca;
+  }
+  .navbar .nav-link.active:hover {
     color: #73daca;
   }
 }

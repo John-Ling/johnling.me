@@ -58,22 +58,24 @@ img {
 .navbar {
     background-color: $background;
     color: $text;
-}
 
-.nav-link {
-    color: $text;
-    margin-left: 5px;
-    margin-right: 5px;
-
-    transition: none;
+    .nav-link {
+        color: $text;
+        margin-left: 5px;
+        margin-right: 5px;
     
-    &.active {
-        color: $teal;
-    }
-    &:hover {
-        color: $teal;
+        transition: none;
+
+        &.active {
+            color: $teal;
+        }
+
+        &:hover {
+            color: $teal;
+        }
     }
 }
+
 
 
 .navbar-brand {
@@ -138,6 +140,10 @@ img {
         .nav-link {
             &.active {
                 color: $teal;
+        
+                &:hover {
+                    color: $teal;
+                }
             }
         }
         
