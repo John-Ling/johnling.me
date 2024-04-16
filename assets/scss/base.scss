@@ -58,26 +58,22 @@ img {
 .navbar {
     background-color: $background;
     color: $text;
+}
 
-    .nav-link {
-        color: $text;
-        margin-left: 5px;
-        margin-right: 5px;
+.nav-link {
+    color: $text;
+    margin-left: 5px;
+    margin-right: 5px;
 
-        transition: none;
-        
-        &:hover {
-            color: $teal;
-        }
+    transition: none;
     
-        &.active {
-            color: $text;
-            border-bottom: solid 2px $purple;
-    
-            &:hover {
-                color: $teal;
-            }
-        }
+    &:hover {
+        color: $teal;
+    }
+
+    .active {
+        color: $text !important;
+        border-bottom: solid 2px $purple;
     }
 }
 
@@ -139,11 +135,18 @@ img {
 }
 
 @media screen and (max-width: 900px) {
-    .nav-link {
-        &.active {
-            color: $teal !important; 
-            border: none !important;
+    .navbar {
+        .nav-link {
+            &.active {
+                color: $text;
+                border-bottom: solid 2px $green !important;
+        
+                &:hover {
+                    color: $teal;
+                }
+            }
         }
+        
     }
 }
 
