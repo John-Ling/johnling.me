@@ -7,6 +7,23 @@ html {
   overflow-y: auto;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(93, 93, 93, 0.3490196078);
+  border: 1px;
+  border-radius: 1px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4c4c4c;
+}
+
 header {
   position: relative;
   background-image: url("../images/dots.png");
@@ -58,7 +75,8 @@ img {
   transition: none;
 }
 .navbar .nav-link.active {
-  color: #73daca;
+  color: #c0caf5;
+  border-bottom: solid 1px #bb9af7;
 }
 .navbar .nav-link:hover {
   color: #73daca;

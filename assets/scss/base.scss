@@ -7,7 +7,28 @@ html {
     color: $text;
     overflow-x: hidden;
     overflow-y: auto;
+
+    
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+  
+::-webkit-scrollbar-track {
+    background: #00000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #5d5d5d59;
+    border: 1px;
+    border-radius: 1px;
+    &:hover {
+        background: #4c4c4c;
+    }
+}
+
 
 header {
     position: relative;
@@ -67,7 +88,8 @@ img {
         transition: none;
 
         &.active {
-            color: $teal;
+            color: $text;
+            border-bottom: solid 1px $purple;
         }
 
         &:hover {
