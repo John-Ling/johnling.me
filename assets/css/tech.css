@@ -138,11 +138,13 @@ img {
   color: #f0f0f0;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .navbar .nav-link.active {
-    color: #73daca;
+    border-bottom: unset;
+    border-left: solid 1px #bb9af7;
+    padding-left: 5px;
   }
-  .navbar .nav-link.active:hover {
+  .navbar .nav-link:hover {
     color: #73daca;
   }
 }
@@ -151,6 +153,103 @@ img {
     background-attachment: unset;
   }
 }
+#title-card {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#plaque {
+  background-color: #1a1b26;
+  border: solid 3px #7aa2f7;
+  padding: 1rem 0;
+  margin: 0 15%;
+}
+#plaque #header {
+  font-size: 40px;
+  padding: 5px 0;
+}
+
+.grid-item {
+  display: flex;
+}
+.grid-item:nth-child(1) .card-item h2 {
+  color: #7aa2f7;
+}
+.grid-item:nth-child(2) .card-item h2 {
+  color: #bb9af7;
+}
+.grid-item:nth-child(3) .card-item h2 {
+  color: #73daca;
+}
+.grid-item:nth-child(4) .card-item h2 {
+  color: #9ece6a;
+}
+.grid-item:nth-child(5) .card-item h2 {
+  color: #e0af68;
+}
+.grid-item:nth-child(6) .card-item h2 {
+  color: #ff9e64;
+}
+.grid-item:nth-child(7) .card-item h2 {
+  color: #f7768e;
+}
+.grid-item:nth-child(8) .card-item h2 {
+  color: #7aa2f7;
+}
+.grid-item:nth-child(9) .card-item h2 {
+  color: #bb9af7;
+}
+.grid-item:nth-child(10) .card-item h2 {
+  color: #73daca;
+}
+.grid-item:nth-child(11) .card-item h2 {
+  color: #9ece6a;
+}
+.grid-item:nth-child(12) .card-item h2 {
+  color: #e0af68;
+}
+.grid-item:nth-child(13) .card-item h2 {
+  color: #ff9e64;
+}
+.grid-item:nth-child(14) .card-item h2 {
+  color: #f7768e;
+}
+.grid-item:nth-child(15) .card-item h2 {
+  color: #7aa2f7;
+}
+.grid-item:nth-child(16) .card-item h2 {
+  color: #bb9af7;
+}
+.grid-item:nth-child(17) .card-item h2 {
+  color: #73daca;
+}
+.grid-item:nth-child(18) .card-item h2 {
+  color: #9ece6a;
+}
+.grid-item:nth-child(19) .card-item h2 {
+  color: #e0af68;
+}
+.grid-item:nth-child(20) .card-item h2 {
+  color: #ff9e64;
+}
+.grid-item .card-item {
+  background-color: #20212e;
+  border: solid 3px #20212e;
+  padding: 10px;
+}
+.grid-item .card-item h2 {
+  margin-bottom: 20px;
+}
+.grid-item .card-item h2 .shortened {
+  font-size: 22px;
+}
+.grid-item .card-item a {
+  margin-top: 10px;
+}
+.grid-item .card-item a:hover {
+  color: #73daca;
+}
+
 .hidden-fade {
   opacity: 0;
   transition: all 1s;
@@ -249,13 +348,6 @@ section h3 {
   font-size: 1.25rem;
 }
 
-#plaque {
-  background-color: #1a1b26;
-  border: solid 5px #7aa2f7;
-  padding: 1rem 0;
-  margin: 0 15%;
-  text-align: center;
-}
 #plaque #header {
   color: #ff9e64;
   font-size: 40px;

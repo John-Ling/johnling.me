@@ -1,5 +1,6 @@
 @use "./variables.scss" as *;
 @use "./base.scss";
+@use "./grid.scss";
 @use "./animations.scss";
 
 body,
@@ -29,12 +30,6 @@ footer {
 }
 
 #plaque {
-    background-color: $background;
-    border: solid 5px $blue;
-    padding: 1rem 0;
-    margin: 0 15%;
-    text-align: center;
-
     #header {
         color: $teal;
         font-size: 40px;
@@ -83,7 +78,7 @@ footer {
     align-self: center;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
     .web-icon {
         &:not(:first-child) {
             margin-top: 10px;

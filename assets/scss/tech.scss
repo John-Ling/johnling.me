@@ -1,5 +1,6 @@
 @use "./variables.scss" as *;
 @use "./base.scss" as *;
+@use "./grid.scss";
 @use "./animations.scss";
 
 body,
@@ -27,12 +28,6 @@ section {
 }
 
 #plaque {
-    background-color: $background;
-    border: solid 5px $blue;
-    padding: 1rem 0;
-    margin: 0 15%;
-    text-align: center;
-
     #header {
         color: $orange;
         font-size: 40px;
