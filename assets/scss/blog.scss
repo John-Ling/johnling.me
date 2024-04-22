@@ -76,6 +76,7 @@ $index: 1;
 .article {
 	@include card;
 	padding: 1rem;
+    margin: 0.5rem;
 	h3 {
 		font-size: 1.25rem;
 	}

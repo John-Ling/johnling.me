@@ -518,6 +518,7 @@ em {
   background-color: #20212e;
   border: solid 3px #20212e;
   padding: 1rem;
+  margin: 0.5rem;
 }
 .article h3 {
   font-size: 1.25rem;
