@@ -9,27 +9,37 @@
         <link href="/assets/css/fonts.css" rel="stylesheet">
         <link rel="stylesheet" href="/assets/css/blog.css">
         <link rel="stylesheet" href="/assets/css/article.css">
+        <link rel="stylesheet" href="/assets/css/blog_article.css">
         <link rel="shortcut icon" href="/assets/favicon.ico">
     </head>
     <body>
         <main>
+            <p><a href="/blog"><span class="link">Back</span></a></p>
             <div class="markdown-heading"><h1 class="heading-element">Entering a Hackathon</h1><a id="user-content-entering-a-hackathon" class="anchor" aria-label="Permalink: Entering a Hackathon" href="#entering-a-hackathon"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><em>22/04/2024</em></p>
 <p>About maybe 2 weeks ago from writing this article. I participated in a hackathon at my university. It was a fun experience that I'd like to write about.</p>
 <p>Prior to the event. I had very little experience ever doing hackathons. I think the only things similar to such an event was a coding contest at my school and one online hackathon in 2020. So I wasn't really familiar with the whole hackathon. However something on the website caught my eye.</p>
 <div class="markdown-heading"><h2 class="heading-element">Money</h2><a id="user-content-money" class="anchor" aria-label="Permalink: Money" href="#money"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>This event was known as the CODEBREW 2024 hackathon. Which was CISSA's (The big computer science society at the University of Melbourne) "flagship hackathon" so for such a big hackathon there would be big prizes.</p>
-<p><a target="_blank" rel="noopener noreferrer" href="assets/homepage.png"><img src="assets/homepage.png" alt="Codebrew hackathon homepage" style="max-width: 100%;"></a></p>
-<p>Indeed there was with a top cash price of $1000 and in my greed, I reached out to my friends and we formed a group since it would have been a fun activity for us to do over the mid-semester break with the potential for at least $100.</p>
 <p><a target="_blank" rel="noopener noreferrer" href="assets/prizes.png"><img src="assets/prizes.png" alt="Codebrew prizes" style="max-width: 100%;"></a>
 <em>$3500 worth of prizes.</em></p>
+<p>And indeed there was with a top cash price of $1000. In my greed (and in hindsight delusion), I reached out to my friends and we formed a group since it would have been a fun activity for us to do over the mid-semester break with the potential for at least $100. I don't want to dox my friends so I'll be naming them F and N respectively.</p>
 <div class="markdown-heading"><h2 class="heading-element">The actual event</h2><a id="user-content-the-actual-event" class="anchor" aria-label="Permalink: The actual event" href="#the-actual-event"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Unfortunately I wasn't in the country :( I was in Malaysia at the time so unfortunately I had to attend the Hackathon virtually. So this meant most of my time was spent at my laptop.</p>
+<p>Unfortunately, I wasn't in the country :( I was in Malaysia at the time so unfortunately I had to attend the Hackathon virtually. So this meant most of my time was spent at my laptop.</p>
+<p><a target="_blank" rel="noopener noreferrer" href="assets/boleh.png"><img src="assets/boleh.png" alt="alt text" style="max-width: 100%;"></a></p>
+<p><em>Photo of me back in Malaysia during the hackathon.</em></p>
 <p>Although from what I heard from my friends there was coffee and red bull that was served for free during the event and apparently you could stay overnight at the venue if you really want that no-life™ experience.</p>
-<p>They also served food of varying quality. Apparently my friend received "One sixth of a subway sandwich for lunch".</p>
+<p>They also served food of varying quality. Apparently my friend received</p>
+<p><em>"One sixth of a subway sandwich for lunch"</em></p>
 <p>A day before the event we spent some time trying to come up with ideas. We only had 2 days for actual programming (last day was reserved for finalists) so we wanted to hit the ground running and not spend any time coming up with ideas.</p>
-<p>The event had 3 topics and we chose the topic of "Techlife Convenience" and started passing around ideas from an transcriber for lectures, an educational assistant or but eventually we settled on a software that received natural language and turned it into some sort of timetable or todo list.</p>
-<p>So we had the idea now we actually had to build it</p>
+<p>Contestants could make a project under any of these 3 categories.</p>
+<ul>
+<li>Techlife Convenience</li>
+<li>Emerging Technologies</li>
+<li>Humanitarian Solutions</li>
+</ul>
+<p>we chose the topic of "Techlife Convenience" and started passing around ideas from an transcriber for lectures, an educational assistant or but eventually we settled on a software that received natural language and turned it into some sort of timetable or todo list.</p>
+<p>So we had the idea now we actually had to build it.</p>
 <div class="markdown-heading"><h2 class="heading-element">Day 0</h2><a id="user-content-day-0" class="anchor" aria-label="Permalink: Day 0" href="#day-0"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>At the time we didn't know about the name of our app I mean we didn't even know our team name (we literally went under team "Cissa hackathon thing") but I had a name in mind from the start called "Ramble".</p>
 <p>Since the data being sent into the app would be just someone typing. The idea would be the user would just type about their tasks and things to do into the software. It wouldn't have to be formal or even coherent hence it would be considered a "ramble".</p>
@@ -37,69 +47,122 @@
 <p><a target="_blank" rel="noopener noreferrer" href="assets/ideas.png"><img src="assets/ideas.png" alt="Our ideas for our app" style="max-width: 100%;"></a></p>
 <p><em>Our google doc with our ideas we conversed using the doc I'm not talking to myself.</em></p>
 <div class="markdown-heading"><h2 class="heading-element">Day 1</h2><a id="user-content-day-1" class="anchor" aria-label="Permalink: Day 1" href="#day-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>My 2 friends started at the venue and I started from my bedroom. We had delegated the tasks between us. I don't want to dox my friends so I'll refer to them as F and N.</p>
+<p>F and N started at the venue and I started from my bedroom. We had delegated the tasks between us.</p>
 <p>Me:</p>
 <ul>
 <li>Frontend</li>
-<li>Deployment
-F:</li>
-<li>Backend
-N:</li>
+<li>Deployment</li>
+</ul>
+<p>F:</p>
+<ul>
+<li>Backend</li>
+</ul>
+<p>N:</p>
+<ul>
 <li>UI Design</li>
 <li>Video Editing</li>
 </ul>
 <p>We communicated primarily on Discord and we all knew what tasks we wanted so all got to work. I worked on the frontend using ReactJS. The UI was pretty simple.</p>
 <p>Minimalist, if you will.</p>
 <p><a target="_blank" rel="noopener noreferrer" href="assets/ramble_homepage.png"><img src="assets/ramble_homepage.png" alt="Homepage for ramble" style="max-width: 100%;"></a></p>
-<p><em>This took longer then I'd like to admit tbh</em></p>
-<p>By this point F had finished with the backend section. I pulled his changes and made some modifications to make it CORS compliant, linked it to the frontend and pretty much we had a pretty ok prototype.</p>
+<p><em>I'm embarassed to say this took longer then it should have</em></p>
+<p>By this point F had finished with the backend section so I pulled his changes and made some modifications to ensure CORS didn't throw a fit.
+I then connected it to the frontend and pretty much we had a pretty decent prototype.</p>
 <div class="markdown-heading"><h2 class="heading-element">Day 2</h2><a id="user-content-day-2" class="anchor" aria-label="Permalink: Day 2" href="#day-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>For the second day I worked a bit more on the frontend. Although F didn't have much experience using React he did a bit of work which was helpful.</p>
 <p>By that point we had pretty much the entire application done and it was time to deploy it. We even had a custom logo designed by N. I asked N to start working on a demo video and we drafted and recorded a script. Now that N was working on the video I just had to deploy the app.</p>
+<p>That shouldn't be difficult right?</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+right?
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="markdown-heading"><h3 class="heading-element">John's Trip Through Deployment Hell</h3><a id="user-content-johns-trip-through-deployment-hell" class="anchor" aria-label="Permalink: John's Trip Through Deployment Hell" href="#johns-trip-through-deployment-hell"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Initially I thought we were being too unambitious with our app since in the grand scheme of things it was pretty basic. However in hindsight I'm glad we only spent a day and a half on the app since deployment was probably the most difficult part.</p>
 <p>I had very little if any experience using docker beyond deploying pre-made images on my server.</p>
 <p>The entire process was a cycle of</p>
-<p>10 Watch the video</p>
-<p>20 Try to write the Dockerfile</p>
-<p>30 Test the image</p>
-<p>40 Fail</p>
-<p>50 Read the documentation</p>
-<p>60 Question if you even understand the fundamentals</p>
-<p>70 Read the documentation about Docker</p>
-<p>GOTO 10</p>
-<p>The main problem was caused by my confusion about how NGINX in Docker would work alongside NGINX that was already running on my server.</p>
+<div class="highlight highlight-source-basic"><pre><span class="pl-ent">10</span> Watch the video
+
+<span class="pl-ent">20</span> Try <span class="pl-k">to</span> <span class="pl-en">write</span> the Dockerfile
+
+<span class="pl-ent">30</span> Test the image
+
+<span class="pl-ent">40</span> Fail
+
+<span class="pl-ent">50</span> <span class="pl-en">Read</span> the documentation
+
+<span class="pl-ent">60</span> Question <span class="pl-k">if</span> you even understand the fundamentals
+
+<span class="pl-ent">70</span> <span class="pl-en">Read</span> the documentation about Docker
+
+<span class="pl-ent">80</span> Cry
+
+<span class="pl-k">GOTO</span> <span class="pl-ent">10</span></pre></div>
+<p><em>Repeat for like 4 hours</em></p>
+<p>The main problem was caused by my confusion about how NGINX in Docker would work alongside the instance that was already running on my server.</p>
 <p>The main solution for this would be to run a reverse proxy that points to the IP of my container but no matter how much I tried I just could not get it working.</p>
 <p>It was 4pm and we had to submit our video and I wanted to have our app deployed by then for the judges to test themselves. So running out of options, I pulled a dirty workaround and hosted the website on port 8080.</p>
 <p><a target="_blank" rel="noopener noreferrer" href="assets/workaround.png"><img src="assets/workaround.png" alt="My dirty fix" style="max-width: 100%;"></a>
 <em>The lack of HTTPS adds just tasteful amount of scuffed to the final product</em></p>
 <p>After filling in all the forms to submit we submitted our Github repository, our demo video and the URL to our app.</p>
-<p>This day was also the same day I had to go to the airport to return to Melbourne.</p>
-<p>By then it would be up to the judges to determine whether we get to the finals and we would know by tomorrow morning.</p>
+<p>By then it would be up to the judges to determine whether we get to the finals and we would know by tomorrow morning. On that same day, I had to return to Melbourne so I boarded the plane and went to sleep.</p>
 <div class="markdown-heading"><h2 class="heading-element">Day 3</h2><a id="user-content-day-3" class="anchor" aria-label="Permalink: Day 3" href="#day-3"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>It's the morning now and I'm in an uber coming out the airport. I get a message on my phone from F.</p>
 <p>WE GOT INTO THE FINALS!!!!!!!!11!</p>
 <p><a target="_blank" rel="noopener noreferrer" href="assets/finalists.png"><img src="assets/finalists.png" alt="List of finalists" style="max-width: 100%;"></a></p>
 <p>I'll be honest I was surprised we even got this far considering our competition. On the website we submitted Devpost, you could view other projects submitted by competitors. I won't lie some of the submissions were pretty cracked.</p>
 <p><a target="_blank" rel="noopener noreferrer" href="assets/lockedin.png"><img src="assets/lockedin.png" alt="These people locked in" style="max-width: 100%;"></a>
-<em>These people locked in hard and I was expecting them to win</em></p>
+<em>These people locked in hard and I was expecting them to win.</em></p>
 <p><a target="_blank" rel="noopener noreferrer" href="assets/ecolens.png"><img src="assets/ecolens.png" alt="Eco Lens" style="max-width: 100%;"></a>
-<em>My friend really liked this one and I have to agree</em></p>
+<em>My friend really liked this one and I have to agree.</em></p>
 <p><a target="_blank" rel="noopener noreferrer" href="assets/mealmate.png"><img src="assets/mealmate.png" alt="MealMate" style="max-width: 100%;"></a>
-<em>This one didn't get into the finals and tbh it really should have. If you guys ever read this somehow, you guys were scammed IMO</em></p>
-<p>Honestly I attributed our final placement to the video created by N. It was really well edited video and I think that improved our app's strength. Our app logo and in my opinion general coherence of the UI with the consistent orange and grey colour scheme made it pretty professional and almost took people's attention away from the scuffed hosting solution.</p>
-<p>Regardless on how we got into the finals, we had to prepare a presentation to pitch to the judges and we had some really strong judges. All of them were software engineers at Atlassian, Google and AirWallex (startup in Melbourne).</p>
-<p>Ironically I saw 2 of my previous school friends under another team that made it to the finalists called Lumen Live so seeing them was pretty funny.</p>
+<em>This one didn't get into the finals and tbh it really should have. If you guys ever read this somehow, you guys were scammed IMO.</em></p>
+<p>Honestly I attributed our final placement to the video created by N. It was a really well edited video and I think that improved our app's strength. Our app logo and in my opinion general coherence of the UI with the consistent orange and grey colour scheme made it pretty professional and almost took people's attention away from the scuffed hosting solution. Almost.</p>
+<p>Regardless of how we got into the finals, we had to prepare a presentation to pitch to the judges and we had some really strong judges. All of them were software engineers at Atlassian, Google and AirWallex (Melbourne based startup).</p>
+<p>Ironically I saw 2 of my previous school friends under another finalist team named Lumen Live so seeing them was pretty funny.</p>
 <p>We went through the pitch which I think went ok. We had a bit of a problem moving the windows from my laptop onto the projector due to something weird about Hyprland but otherwise it went well.</p>
 <p>Everyone went through their pitches and the judges left to determine the winner.</p>
 <p>A bit of time passed and they came back and announced the winners.
-We won the prize for "Best First Years" which was pretty cool (although not unexpected haha). Although there was another prize for "Best product" which was snagged by another first year team which was a bit odd but I digress.</p>
-<p>To their credit they did have more features then us and it was honestly a really cool product. I think if we had added some more basic features to Ramble we could've stood a better chance though.</p>
+We won the prize for "Best First Years" which was pretty cool (though not unexpected haha). Although there was another prize for "Best product" which was snagged by another first year team which was a bit odd but I digress.</p>
+<p>To their credit they did have more features then us and it was honestly a really cool product. I think if we had added some more basic features to Ramble we could've stood a better chance.</p>
 <p><a target="_blank" rel="noopener noreferrer" href="assets/group_photo.png"><img src="assets/group_photo.png" alt="Group photo of most of the participants" style="max-width: 100%;"></a></p>
 <div class="markdown-heading"><h3 class="heading-element">Huffing Some Copium</h3><a id="user-content-huffing-some-copium" class="anchor" aria-label="Permalink: Huffing Some Copium" href="#huffing-some-copium"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>There was a huge range of participants while we were a group comprised of first year students, one of the other teams contained Master's students.</p>
 <p>After a quick LinkedIn search prior to pitching all of the participants within the categories except the "Best First Year" were 2nd or 3rd year students. It would make more sense for the university to award the higher prizes to the Master's, 2nd and 3rd year students since it would benefit their resumes since they were the ones actively looking for jobs or internships which is completely fair.</p>
-<p>I realised that as first year students were probably weren't even in consideration for the big prizes and were limited to the first year prize. At that point the focus was on winning the "Best First Year" prize and maybe one of the other prizes for either "Best Product" or "Most Innovative"</p>
+<p>I realised that as first year students were probably weren't even in consideration for the big prizes and were limited to the first year prize. At that point the focus was on winning the "Best First Year" prize and maybe one of the other prizes for either "Best Product" or "Most Innovative".</p>
+<p>ok ok huffing over</p>
 <div class="markdown-heading"><h2 class="heading-element">Conclusion</h2><a id="user-content-conclusion" class="anchor" aria-label="Permalink: Conclusion" href="#conclusion"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Overall while we didn't make the $1000 that hoped for, we all had a lot of fun and I'll definitely be developing Ramble as a software. The idea for Ramble was something that I personally wanted in my life and I think it has potential.</p>
 <p>Top priority would be to fix that god-awful hosting solution to something reasonable then probably add some more features. Later I might bring F on since it could be fun. Who knows maybe this could be another startup to burn VC money haha. Unless?</p>
