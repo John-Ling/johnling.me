@@ -33,6 +33,7 @@ void VirtualDeskManager::nextDesk(bool cycle) {
 +	return;
 }
 ```
+<br>
 
 ```diff
 void VirtualDeskManager::previousDesk() {

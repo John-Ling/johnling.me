@@ -40,6 +40,7 @@
 <span class="pl-mi1"><span class="pl-mi1">+</span>	changeActiveDesk(nextId, true);</span>
 <span class="pl-mi1"><span class="pl-mi1">+</span>	return;</span>
 }</pre></div>
+<br>
 <div class="highlight highlight-source-diff"><pre>void VirtualDeskManager::previousDesk() {
 <span class="pl-mi1"><span class="pl-mi1">+</span>    if (activeVdesk()-&gt;id - 1 &lt; 1)</span>
 <span class="pl-mi1"><span class="pl-mi1">+</span>    {</span>

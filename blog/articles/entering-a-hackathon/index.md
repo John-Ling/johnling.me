@@ -18,7 +18,7 @@ And indeed there was with a top cash price of $1000. In my greed (and in hindsig
 
 Unfortunately, I wasn't in the country :( I was in Malaysia at the time so unfortunately I had to attend the Hackathon virtually. So this meant most of my time was spent at my laptop. 
 
-![alt text](assets/boleh.png)
+![Boleh](assets/boleh.png)
 
 _Photo of me back in Malaysia during the hackathon._
 
