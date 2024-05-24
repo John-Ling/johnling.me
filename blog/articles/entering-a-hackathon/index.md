@@ -47,7 +47,7 @@ Since the data being sent into the app would be just someone typing. The idea wo
 
 Although I had the name I wouldn't suggest it until much later since we were more concerned about the technical specifics. 
 
-![Our ideas for our app](assets/ideas.png)
+<img src="./assets/ideas.png" width="400px" alt="Our ideas for our app">
 
 _Our google doc with our ideas we conversed using the doc I'm not talking to myself._
 

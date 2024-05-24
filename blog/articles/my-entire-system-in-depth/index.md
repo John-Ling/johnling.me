@@ -16,7 +16,7 @@ I use Arch Linux becaues it was my first and only distro and I literally don't k
 
 Since I like using 4 statically assigned desktops, I some basic edits to prevent adding any new desktops after 4.
 
-```C
+```diff
 void VirtualDeskManager::nextDesk(bool cycle) {
     int nextId = activeVdesk()->id + 1;
 +	if (nextId > 4) 
@@ -76,7 +76,7 @@ I've tried Notion before but I didn't like the learning curve. Coming from notep
 
 ## The Hardware
 
-![My PC](./assets/pc.jpg)
+<img src="./assets/pc.jpg" alt="My PC" width="400px"/>
 
 
 ### The PC
@@ -101,16 +101,18 @@ While this would be a slightly above average gaming PC, the second GPU makes it 
 
 I use a Thinkpad T15 Gen1 I brought in 2021. While it was not my first choice since I was looking for an AMD T14 they were sold out so I got this instead. However I've had no problems using this laptop for school work and quick programming sessions. Its fast, got decent battery life and a good keyboard. 
 
-![My Thinkpad T15](./assets/t15.jpg)
+<img src="./assets/t15.jpg" width="400px" alt="My Thinkpad T15">
 
 However I've recently brought myself an old Thinkpad T420 for a rock-bottom price and I've been adding some mods to it. If all goes well, I may have a new daily driver since I really like the feel of the classic keyboards.
 
-![The Thinkpad T420 before any upgrades](./assets/thinkpad_t420.jpg)  
+<img src="./assets/thinkpad_t420.jpg" width="400px" alt="The Thinkpad T420 before any upgrades">
+
 _The Thinkpad T420 before any upgrades_
 
 ### The Server 
 
-![My crucified laptop of a server](./assets/server.jpg)
+<img src="./assets/server.jpg" width="400px" alt="My crucified laptop of a server">
+
 _My crucified laptop of a server_
 
 Before my Thinkpad, I used a refurbished Dell Latitude E7450. However I didn't want to just sell or throw away my laptop since it still had a bit of life left in it. I removed the screen connector to disable the screen, removed the wifi card for other uses and setup SSH so I could operate the laptop remotely.
