@@ -5,10 +5,10 @@ html {
     font-family: 'meslolgs_nfregular';
     background-color: $background;
     color: $text;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
     overflow-x: hidden;
     overflow-y: auto;
-
-    
 }
 
 ::-webkit-scrollbar {

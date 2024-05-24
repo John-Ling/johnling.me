@@ -3,6 +3,8 @@ html {
   font-family: "meslolgs_nfregular";
   background-color: #1a1b26;
   color: #c0caf5;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -157,10 +159,6 @@ body {
   margin: 0;
 }
 
-main {
-  margin: 0 25%;
-}
-
 .image {
   width: clamp(300px, 30vw, 45vw);
   height: auto;
@@ -170,6 +168,14 @@ main {
 .image-subtitle {
   font-style: italic;
   color: #9aa5ce;
+}
+
+.markdown-body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 @media screen and (max-width: 1000px) {

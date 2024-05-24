@@ -3,6 +3,8 @@ html {
   font-family: "meslolgs_nfregular";
   background-color: #1a1b26;
   color: #c0caf5;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
   overflow-y: auto;
 }

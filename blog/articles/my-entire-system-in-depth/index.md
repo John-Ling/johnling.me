@@ -16,7 +16,7 @@ I use Arch Linux becaues it was my first and only distro and I literally don't k
 
 Since I like using 4 statically assigned desktops, I some basic edits to prevent adding any new desktops after 4.
 
-```diff
+```C
 void VirtualDeskManager::nextDesk(bool cycle) {
     int nextId = activeVdesk()->id + 1;
 +	if (nextId > 4) 
