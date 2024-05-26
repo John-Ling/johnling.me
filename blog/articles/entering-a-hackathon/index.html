@@ -44,7 +44,7 @@
 <p>At the time we didn't know about the name of our app I mean we didn't even know our team name (we literally went under team "Cissa hackathon thing") but I had a name in mind from the start called "Ramble".</p>
 <p>Since the data being sent into the app would be just someone typing. The idea would be the user would just type about their tasks and things to do into the software. It wouldn't have to be formal or even coherent hence it would be considered a "ramble".</p>
 <p>Although I had the name I wouldn't suggest it until much later since we were more concerned about the technical specifics.</p>
-<p><a target="_blank" rel="noopener noreferrer" href="assets/ideas.png"><img src="assets/ideas.png" alt="Our ideas for our app" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="./assets/ideas.png"><img src="./assets/ideas.png" width="400px" alt="Our ideas for our app" style="max-width: 100%;"></a></p>
 <p><em>Our google doc with our ideas we conversed using the doc I'm not talking to myself.</em></p>
 <div class="markdown-heading"><h2 class="heading-element">Day 1</h2><a id="user-content-day-1" class="anchor" aria-label="Permalink: Day 1" href="#day-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>F and N started at the venue and I started from my bedroom. We had delegated the tasks between us.</p>
@@ -113,23 +113,24 @@ right?
 <p>Initially I thought we were being too unambitious with our app since in the grand scheme of things it was pretty basic. However in hindsight I'm glad we only spent a day and a half on the app since deployment was probably the most difficult part.</p>
 <p>I had very little if any experience using docker beyond deploying pre-made images on my server.</p>
 <p>The entire process was a cycle of</p>
-<div class="highlight highlight-source-basic"><pre><span class="pl-ent">10</span> Watch the video
+<pre><code>10 Watch the video
 
-<span class="pl-ent">20</span> Try <span class="pl-k">to</span> <span class="pl-en">write</span> the Dockerfile
+20 Try to write the Dockerfile
 
-<span class="pl-ent">30</span> Test the image
+30 Test the image
 
-<span class="pl-ent">40</span> Fail
+40 Fail
 
-<span class="pl-ent">50</span> <span class="pl-en">Read</span> the documentation
+50 Read the documentation
 
-<span class="pl-ent">60</span> Question <span class="pl-k">if</span> you even understand the fundamentals
+60 Question if you even understand the fundamentals
 
-<span class="pl-ent">70</span> <span class="pl-en">Read</span> the documentation about Docker
+70 Read the documentation about Docker
 
-<span class="pl-ent">80</span> Cry
+80 Cry
 
-<span class="pl-k">GOTO</span> <span class="pl-ent">10</span></pre></div>
+GOTO 10
+</code></pre>
 <p><em>Repeat for like 4 hours</em></p>
 <p>The main problem was caused by my confusion about how NGINX in Docker would work alongside the instance that was already running on my server.</p>
 <p>The main solution for this would be to run a reverse proxy that points to the IP of my container but no matter how much I tried I just could not get it working.</p>

@@ -133,7 +133,7 @@ I had very little if any experience using docker beyond deploying pre-made image
 
 The entire process was a cycle of 
 
-``` basic
+```
 10 Watch the video
 
 20 Try to write the Dockerfile
