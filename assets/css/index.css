@@ -289,12 +289,6 @@ section {
   font-size: 48px;
 }
 
-#trophy-picture {
-  width: 80%;
-  display: block;
-  margin: auto;
-}
-
 .skills-group {
   font-size: 5rem;
 }
@@ -541,9 +535,6 @@ section {
   }
   #greeter-profile {
     flex-direction: column;
-  }
-  #trophy-picture {
-    margin-top: 40px;
   }
   #project-display {
     max-height: none;
