@@ -16,12 +16,6 @@ footer {
     margin-top: auto;
 }
 
-#plaque {
-    #header {
-        color: $purple;
-    }
-}
-
 .grid-item {
     @for $i from 1 through 20 {
         &:nth-child(#{$i}) {
@@ -46,28 +40,6 @@ footer {
     }
 }
 
-.typing-effect {
-    animation: typing-animation 1.2s steps(11, end) 1s normal both,
-                blink-caret 1.2s step-end infinite;
-}
-
-@keyframes typing-animation {
-    from {
-        width: 0;
-    }
-    to {
-        width: 220px;
-    }
-}
-
-@keyframes blink-caret {
-    from, to {
-        border-color: transparent;
-    }
-    50% {
-        border-color: $purple;
-    }
-}
 
 @media screen and (max-width: 1000px) {
     footer {

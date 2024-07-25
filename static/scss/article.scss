@@ -1,10 +1,6 @@
 @use "./base.scss";
 @use "./variables.scss" as *;
 
-body {
-    margin: 0;
-}
-
 
 .image {
     width: clamp(300px, 30vw, 45vw);

@@ -19,13 +19,13 @@ section {
 
 // Greeting page
 
-.outlined-block {
+.hero-card {
     background-color: $background;
     border: solid 3px $blue;
     margin: 1rem;
 }
 
-#greeter {
+#hero {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -58,16 +58,8 @@ section {
 }
 
 .question-prompt {
-    font-size: 48px;
+    font-size: 3rem;
 }
-
-// Who section
-
-// #trophy-picture {
-//     width: 80%;
-//     display: block;
-//     margin: auto;
-// }
 
 // What section
 
@@ -204,7 +196,7 @@ section {
 
 // tablet
 @media screen and (max-width: 1000px) {
-    #greeter {
+    #hero {
         flex-direction: column;
     }
 
@@ -233,7 +225,7 @@ section {
         height: fit-content;
     }
 
-    #greeter {
+    #hero {
         height: fit-content;
     }
 }

@@ -1,24 +1,6 @@
 @use "./base.scss" as *;
 @use "./variables.scss" as *;
 
-#title-card {
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-
-#plaque {
-    background-color: $background;
-    border: solid 3px $blue;
-    padding: 1rem 0;
-    margin: 0 15%;
-
-    #header {
-        font-size: 40px;
-        padding: 5px 0;
-    }
-}
-
-
 .grid-item {
     $colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
     $colourCount: length($colours);
@@ -48,14 +30,6 @@
             margin-bottom: 20px;
             .shortened {
                 font-size: 22px;
-            }
-        }
-    
-        a {
-            margin-top: 10px;
-    
-            &:hover {
-                color: $teal;
             }
         }
     }

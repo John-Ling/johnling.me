@@ -43,29 +43,6 @@ section {
 	list-style: square;
 }
 
-.typing-effect {
-    animation: typing-animation 0.5s steps(7, end) 1s normal both,
-                blink-caret 1.2s step-end infinite;
-}
-
-@keyframes typing-animation {
-    from {
-        width: 0;
-    }
-    to {
-        width: 140px;
-    }
-}
-
-@keyframes blink-caret {
-    from, to {
-        border-color: transparent;
-    }
-    50% {
-        border-color: $orange;
-    }
-}
-
 #tech-about {
 	padding: 0 clamp(1rem, 10rem, 1rem);
 }

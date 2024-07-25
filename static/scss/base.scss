@@ -1,5 +1,41 @@
 @use "./variables.scss" as *;
 
+@font-face {
+    font-family: 'meslolgs_nfitalic';
+    src: url('../fonts/meslolgs_nf_italic-webfont.woff2') format('woff2'),
+         url('../fonts/meslolgs_nf_italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'meslolgs_nfregular';
+    src: url('../fonts/meslolgs_nf_regular-webfont.woff2') format('woff2'),
+         url('../fonts/meslolgs_nf_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'meslolgs_nfbold';
+    src: url('../fonts/meslolgs_nf_bold-webfont.woff2') format('woff2'),
+         url('../fonts/meslolgs_nf_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'meslolgs_nfbold_italic';
+    src: url('../fonts/meslolgs_nf_bold_italic-webfont.woff2') format('woff2'),
+         url('../fonts/meslolgs_nf_bold_italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body,
 html {
     font-family: 'meslolgs_nfregular';
@@ -43,7 +79,7 @@ header {
 }
 
 footer {
-    background-color: $background-dark;
+    background-color: $background-footer;
     border-top: solid 3px $blue;
     height: fit-content;
     text-align: center;
@@ -60,15 +96,15 @@ img {
 }
 
 @mixin card {
-    background-color: $background-light;
-    border: solid 3px $background-light  
+    background-color: $background-dark;
+    border: solid 3px $background-dark;  
 }
 
 .link {
     text-decoration: underline;
 
     &:hover {
-        color: $teal;
+        color: $bright-orange;
     }
 }
 
@@ -92,22 +128,20 @@ img {
 
         &.active {
             color: $text;
-            border-bottom: solid 1px $orange;
+            border-bottom: solid 1px $bright-orange;
         }
 
         &:hover {
-            color: $teal;
+            color: $bright-orange;
         }
     }
 }
-
-
 
 .navbar-brand {
     color: $text;
 
     &:hover {
-        color: $teal;
+        color: $bright-orange;
     }
 }
 
@@ -140,6 +174,10 @@ img {
     color: $orange;
 }
 
+.bright-orange {
+    color: $bright-orange;
+}
+
 .green {
     color: $green;
 }
@@ -165,12 +203,12 @@ img {
         .nav-link {
             &.active {
                 border-bottom: unset;
-                border-left: solid 1px $purple;
+                border-left: solid 1px $bright-orange;
                 padding-left: 5px;
             }
     
             &:hover {
-                color: $teal;
+                color: $bright-orange;
             }
         }
     }
