@@ -17,11 +17,11 @@
     <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link href="/assets/css/fonts.css" rel="stylesheet">
-    <link href="/assets/css/index.css" rel="stylesheet">
+    <link href="/static/css/fonts.css" rel="stylesheet">
+    <link href="/static/css/index.css" rel="stylesheet">
     <script src="/scripts/index.js" crossorigin="anonymous" defer></script>
     <script src="/scripts/animation_observers.js" crossorigin="anonymous" defer></script>
-    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <link rel="shortcut icon" href="/static/favicon.ico">
 </head>
 
 <body id="front-page">
@@ -60,7 +60,7 @@
         </nav>
         <div id="greeter">
             <div class="outlined-block" id="welcome-sign">
-                <h1 id="greeting-message" class="typing-effect green">Hello. I'm John.</h1>
+                <h1>Hello I'm <span class="orange">John</span></h1>
             </div>
             <div class="outlined-block" id="greeter-profile">
                 <img src="/assets/images/profile_square.png" alt="Photo of me" id="landing-page-photo" />
@@ -99,17 +99,14 @@
             <div class="col-lg-6 order-lg-1">
                 <h2 class="question-prompt yellow">What?</h2>
                 <h3>The tools I use</h3>
-                <p>I have been programming for <span class="years-text">3</span> years in a variety of different
-                    languages such as Python, C# and
-                    Javascript.
-                    All of my skills are self-taught through online resources or MOOCs such as CS50. </p>
-                <p> When picking new technologies to learn,
-                    I don't always go towards the cutting-edge, "trendy" frameworks. I'm not really obsessed with a particular "Tech Stack".
+                <p>I have been programming for a while now and I tend to pick up languages that suit one project. 
+                    However, I consider my best languages Python, Javascript and maybe some C.</p>
+                <p> I'm not really obsessed with a particular "Tech Stack" or at least I don't subscribe to one and follow it religiously.
                     A website built using, PHP, vanilla Javascript and Bootstrap is just as good as one built using React, Typescript and Tailwind CSS as long as the 
                     end result accomplishes what the programmer wanted.
                 </p>
                 <p>
-                    I think the KISS (Keep It Simple Stupid) philosophy is a very valid approach to development so I like to use the right tool for the job rather then the hottest one.
+                    I think the KISS (Keep It Simple Stupid) philosophy is a very valid approach to development so I like to use the right tool rather then the hottest one.
                 </p>
             </div>
 
@@ -117,19 +114,19 @@
                 <h2 class="text-center">Languages</h2>
                 <div class="d-flex flex-wrap align-items-center justify-content-center skills-group">
                     <div class="row">
-                        <div class="col skill-icon hidden-slide">
+                        <div class="col skill-icon  ">
                             <i class="devicon-javascript-plain yellow"></i>
                             <span class="small-caption">Javascript</span>
                         </div>
-                        <div class="col skill-icon hidden-slide">
+                        <div class="col skill-icon  ">
                             <i class="devicon-c-plain grey"></i>
                             <span class="caption">C</span>
                         </div>
-                        <div class="col skill-icon hidden-slide">
+                        <div class="col skill-icon  ">
                             <i class="devicon-python-plain blue"></i>
                             <span class="caption">Python</span>
                         </div>
-                        <div class="col skill-icon hidden-slide">
+                        <div class="col skill-icon  ">
                             <i class="devicon-nodejs-plain green"></i>
                             <span class="caption">NodeJS</span>
                         </div>
@@ -138,36 +135,36 @@
                 <h2 class="text-center">Tools</h2>
                 <div class="d-flex flex-wrap align-items-center justify-content-center skills-group">
                     <div class="row">
-                        <div class="col skill-icon hidden-slide">
+                        <div class="col skill-icon  ">
                             
                             <i class="devicon-nginx-original green"></i>
                             <span class="caption">NGINX</span>
                         </div>
-                        <div class="col skill-icon hidden-slide">
+                        <div class="col skill-icon  ">
                             <i class="devicon-flask-plain grey"></i>
                             <span class="caption">Flask</span>
                         </div>
-                        <div class="col skill-icon hidden-slide">
+                        <div class="col skill-icon  ">
                             <i class="devicon-mysql-plain blue"></i>
                             <span class="caption">MySQL</span>
                         </div>
-                        <div class="col skill-icon hidden-slide">
+                        <div class="col skill-icon  ">
                             <i class="devicon-ubuntu-plain orange"></i>
                             <span class="caption">Ubuntu</span>
                         </div>
-                        <div class="col skill-icon hidden-slide">
+                        <div class="col skill-icon  ">
                             <i class="devicon-react-original cyan"></i>
                             <span class="caption">React</span>
                         </div>
-                        <div class="col skill-icon hidden-slide">
+                        <div class="col skill-icon  ">
                             <i class="devicon-firebase-plain yellow"></i>
                             <span class="caption">Firebase</span>
                         </div>
-                        <div class="col skill-icon hidden-slide">
+                        <div class="col skill-icon  ">
                             <i class="devicon-bootstrap-plain purple"></i>
                             <span class="caption">Bootstrap</span>
                         </div>
-                        <div class="col skill-icon hidden-slide">
+                        <div class="col skill-icon  ">
                             <i class="devicon-docker-plain blue"></i>
                             <span class="caption">Docker</span>
                         </div>
@@ -180,10 +177,10 @@
             <div class="col-lg-6 order-lg-12">
                 <h2 class="question-prompt blue">When?</h2>
                 <h3>Where it all began</h3>
-                <p>While I had taken some Python introductory classes the year before, my first true project was
-                    created in September of 2019.
-                    It was an automated kahoot player using the Selenium library which while primitive, I was proud
-                    of as something I built myself.</p>
+                <p>While I had taken some Python introductory classes the year before, my first real project was
+                    created in September 2019.
+                    It was an automated kahoot player using the Selenium library which while primitive, was something I was proud
+                    of since I built myself. I even tested it in my class much to the confusion of my teacher.</p>
                 <p>Ever since, I've continued because it was something I found legitimately fun. Also job security and all that.</p>
             </div>
             <div class="col-lg-6 order-lg-1">
@@ -264,9 +261,8 @@
                 <h3>Why code?</h3>
                 <p>As corporate as it sounds, I enjoy applying theory and skills I know to build things for myself and others to assist in their
                     everyday lives.
-                    Whether it be a Raspberry Pi powered dashboard, facial detection tracking systems, productivity apps or
-                    a compiler so future A level students can learn pseudocode easier,
-                    in the end all my projects are made with a desire to assist others even in a minor way.
+                    Whether it be a Raspberry Pi powered dashboard, facial detection tracking camera systems for hybrid learning, producivity web apps or a compiler for A level students
+                    at the end of the day all my projects are made with a desire to help others even in a minor way.
                     Just like how electronics and mechanical systems can be used to solve a problem, software is another method
                     with its own benefits and drawbacks.
                 </p>
@@ -278,7 +274,7 @@
                 <p>
                     The accessibility of free professional tools and easy access to knowledge makes software engineering one of the easiest fields
                     to get into in my opinion.
-                    Itt's that ease of access combined with nearly limitless potential that makes it fun.
+                    It's that ease of access combined with nearly limitless potential that makes it fun.
                 </p>
                 <p>
                     Hope you enjoyed the website :)

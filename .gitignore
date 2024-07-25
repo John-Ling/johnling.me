@@ -4,3 +4,4 @@ blog/Include
 blog/Lib
 blog/Scripts
 blog/*.py
+static/css

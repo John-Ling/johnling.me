@@ -32,7 +32,7 @@ html {
 
 header {
     position: relative;
-    background-image: url("../images/dots.png");
+    background-image: url("/assets/images/dots.png");
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -92,7 +92,7 @@ img {
 
         &.active {
             color: $text;
-            border-bottom: solid 1px $purple;
+            border-bottom: solid 1px $orange;
         }
 
         &:hover {

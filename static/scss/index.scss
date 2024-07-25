@@ -34,7 +34,7 @@ section {
 }
 
 #welcome-sign {
-    padding: 2vw 5vw;
+    padding: 1vw 5vw;
     h1 {
         font-size: 2rem;
     }
@@ -83,7 +83,7 @@ section {
     margin: 0.5rem;
 
     @for $i from 1 through 8 {
-        $delay: 200ms * $i;
+        $delay: 100ms * $i;
         &:nth-child(#{$i}) {
             transition-delay: $delay;
         }
