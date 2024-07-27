@@ -1,10 +1,5 @@
 @use "./variables.scss" as *;
-html, body {
-	background: #1a1b26;
-	color: #c0caf5;
-	font-family: 'meslolgs_nfregular';
-	margin: 0;
-}
+@use "./base.scss";
 
 #error-page {
 	height: 100vh;

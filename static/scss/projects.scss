@@ -1,6 +1,5 @@
 @use "variables" as *;
-@use "./base.scss";
-@use "./grid.scss";
+@use "./base.scss" as *;
 @use "./animations.scss";
 
 body {
@@ -17,10 +16,35 @@ footer {
 }
 
 .grid-item {
+    $colours: $blue, $purple, $teal, $green, $yellow, $orange, $red;
+    $colourCount: length($colours);
+    $index: 1;
     @for $i from 1 through 20 {
+        $colour: nth($colours, $index);
         &:nth-child(#{$i}) {
             .card-item {
-                animation-delay: 100ms * $i;
+                animation-delay: 150ms * $i;
+                h2 {
+                    color: $colour;
+                }
+            }
+        }
+        $index: ($index + 1) % $colourCount;
+        @if ($index == 0) {
+            $index: $colourCount;
+        }
+    }
+
+    display: flex;
+    
+    .card-item {
+        @include card;
+        padding: 10px;
+    
+        h2 {
+            margin-bottom: 20px;
+            .shortened {
+                font-size: 22px;
             }
         }
     }

@@ -5,6 +5,19 @@
 
 header {
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-image: url("/assets/images/dots.png");
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    justify-content: center;
+    align-items: center;
 }
 
 main {
@@ -25,13 +38,6 @@ section {
     margin: 1rem;
 }
 
-#hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 
 #welcome-sign {
     padding: 1vw 5vw;
@@ -47,8 +53,7 @@ section {
 
 #landing-page-photo {
     margin: 2rem;
-    max-width: 35vh;
-    align-self: center;
+    width: clamp(200px, 300px, 400px);
 }
 
 #summary-info {
@@ -72,12 +77,11 @@ section {
     display: inline-block;
     text-align: center;
     padding: 20px;
-    margin: 0.5rem;
+    margin: 0.3rem;
 
-    @for $i from 1 through 8 {
-        $delay: 100ms * $i;
+    @for $i from 1 through 12 {
         &:nth-child(#{$i}) {
-            transition-delay: $delay;
+            transition-delay: 75ms * $i;
         }
     }
 }
@@ -110,22 +114,14 @@ section {
 .project-card {
     @include card;
     padding: 1rem;
-    margin: 0.5rem;
+    margin: 0.3em;
 
     .title {
         font-size: 1.5rem;
     }
 
     h3 {
-        font-size: 1.25rem;
-    }
-    
-    a {
-        color: $text;
-        text-decoration: none;
-        &:hover {
-            color: $teal;
-        }
+        font-size: 1rem;
     }
 
     // Dynamically colour
@@ -168,7 +164,7 @@ section {
             }
 
             .fa-github {
-                color: $white;
+                color: #a1a1a1;
             }
         }
 
@@ -186,14 +182,6 @@ section {
     margin-top: 1rem;
 }
 
-// why section
-
-#pim-photo {
-    width: 80%;
-    display: block;
-    margin: auto;
-}
-
 // tablet
 @media screen and (max-width: 1000px) {
     #hero {
@@ -207,10 +195,6 @@ section {
     #project-display {
         max-height: none;
     }
-    
-    #pim-photo {
-        margin-top: 40px;
-    }
 
     .web-icon {
         &:not(:first-child) {
@@ -222,6 +206,7 @@ section {
 // mobile
 @media screen and (max-width: 500px) {
     header {
+        background-attachment: scroll;
         height: fit-content;
     }
 

@@ -1,14 +1,7 @@
 @use "./variables.scss" as *;
 @use "./base.scss" as *;
-@use "./grid.scss";
 @use "./animations.scss";
 
-body,
-html {
-    background: $background;
-    font-family: 'meslolgs_nfregular';
-    color: $text;
-}
 
 main {
     min-height: 80vh;
@@ -27,22 +20,7 @@ section {
 	}
 }
 
-#plaque {
-    #header {
-        color: $orange;
-        font-size: 40px;
-    }
-}
-
-#title-card {
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-
 #specs-list {
 	list-style: square;
 }
 
-#tech-about {
-	padding: 0 clamp(1rem, 10rem, 1rem);
-}
