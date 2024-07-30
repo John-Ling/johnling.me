@@ -66,19 +66,24 @@ html {
 }
 
 
-
-
 footer {
     background-color: $background-footer;
     border-top: solid 3px $blue;
+    width: 100vw;
     height: fit-content;
+    margin-top: auto;
+    padding: 0.5rem;
     text-align: center;
-    padding: 10px;
 }
 
+
 a {
-    text-decoration: none;
+    text-decoration: underline;
     color: $text;
+
+    &:hover {
+        color: $bright-orange;
+    }
 }
 
 img {
@@ -88,14 +93,6 @@ img {
 @mixin card {
     background-color: $background-dark;
     border: solid 3px $background-dark;  
-}
-
-.link {
-    text-decoration: underline;
-
-    &:hover {
-        color: $bright-orange;
-    }
 }
 
 .muted {
@@ -201,11 +198,5 @@ img {
                 color: $bright-orange;
             }
         }
-    }
-}
-
-@media screen and (max-width: 500px) {
-    header {
-        background-attachment: unset;
     }
 }
