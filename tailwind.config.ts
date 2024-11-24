@@ -12,8 +12,9 @@ const config: Config = {
       "white": "#F8F9F2",
       "orange": "#FF5500",
       "grey": {
-        50: "#2e2e2e",
-        100: "#242424",
+        light: "#2e2e2e",
+        normal: "#242424",
+        dark: "#1b1b1b",
       },
       "blue": "#82AAFF",
       "green": "#50FA7B",
