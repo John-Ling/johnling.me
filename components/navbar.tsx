@@ -24,11 +24,10 @@ const Navbar = () => {
   
   const path: string = usePathname();
   return (
-    <nav className="w-full bg-grey-light gap-x-4 gap-y-2 flex flex-col md:flex-row">
-      <span className="p-2 flex justify-between">
-        <a className="text-xl no-underline md:self-center" href="/">John Ling</a>
-        
-        <button className="md:hiddenopp" onClick={() => setOpen(!open)}><MenuIcon/></button>
+    <nav className="relative w-full bg-grey-light gap-x-4 gap-y-2 flex flex-col md:flex-row">
+      <span className="flex justify-between p-2 md:p-0">
+        <a className="text-xl no-underline md:self-center md:pl-3" href="/">John Ling</a>
+        <button className="md:hidden" onClick={() => setOpen(!open)}><MenuIcon/></button>
       </span>
       {/* desktop menu */}
       <div className="hidden md:flex">
@@ -36,8 +35,10 @@ const Navbar = () => {
       </div>
 
       {/* mobile menu */}
-      <div className="absolute bg-grey-normal top-10 shadow-md">
-        {open && <NavbarMenu links={links} activeLink={path}/>}
+      <div className={`absolute top-11 bg-[#262626] transition-all duration-500 ease-in-out ${open ? 'max-h-96' : 'max-h-0'}`}>
+        <div className={`transition-all duration-480 ease-in-out ${open ? 'opacity-100' : "opacity-0"}`}>
+          <NavbarMenu links={links} activeLink={path}/>
+        </div>
       </div>
     </nav>
   )
@@ -47,7 +48,7 @@ const NavbarMenu: React.FC<{links: NavLink[], activeLink: string}> = ({links, ac
   return (
     <ul className="flex flex-col md:flex-row gap-x-2 gap-y-2 md:gap-x-2">
     {links.map((link: NavLink) => {
-      let className: string = "w-max no-underline p-2 inline-block w-screen md:w-auto";
+      let className: string = "no-underline p-2 inline-block w-screen md:w-auto";
       let ariaCurrent: any = undefined;
 
       // apply special styles for active page
