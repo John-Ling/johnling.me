@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    background-color: theme("colors.grey.normal");
+    background-color: theme("colors.indigo.normal");
     color: theme("colors.white");
 }
 

@@ -11,6 +11,10 @@ const config: Config = {
     colors: {
       "white": "#F8F9F2",
       "orange": "#FF5500",
+      "indigo": {
+        light: "#1d1e29",
+        normal: "#222331"
+      },
       "grey": {
         light: "#2e2e2e",
         normal: "#242424",
