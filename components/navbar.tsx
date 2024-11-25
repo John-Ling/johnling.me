@@ -23,7 +23,7 @@ const Navbar = () => {
   
   const path: string = usePathname();
   return (
-    <nav className="w-full bg-indigo-light gap-x-4 gap-y-2 flex flex-col md:flex-row">
+    <nav className="w-full bg-grey-light gap-x-4 gap-y-2 flex flex-col md:flex-row">
       <span className="p-2 flex justify-between">
         <a className="text-xl no-underline md:self-center" href="/">John Ling</a>
         <button className="md:hidden bg-orange hover:bg-blue active:bg-red" onClick={() => setOpen(!open)}>Dropdown</button>
@@ -34,7 +34,7 @@ const Navbar = () => {
       </div>
 
       {/* mobile menu */}
-      <div className="absolute bg-indigo-normal top-10 shadow-md">
+      <div className="absolute bg-grey-normal top-10 shadow-md">
         {open && <NavbarMenu links={links} activeLink={path}/>}
       </div>
     </nav>
