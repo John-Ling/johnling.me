@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import MenuIcon from '@mui/icons-material/Menu';
 import Link from "next/link";
 import "/styles/globals.css";
 
@@ -26,7 +27,8 @@ const Navbar = () => {
     <nav className="w-full bg-grey-light gap-x-4 gap-y-2 flex flex-col md:flex-row">
       <span className="p-2 flex justify-between">
         <a className="text-xl no-underline md:self-center" href="/">John Ling</a>
-        <button className="md:hidden bg-orange hover:bg-blue active:bg-red" onClick={() => setOpen(!open)}>Dropdown</button>
+        
+        <button className="md:hiddenopp" onClick={() => setOpen(!open)}><MenuIcon/></button>
       </span>
       {/* desktop menu */}
       <div className="hidden md:flex">
