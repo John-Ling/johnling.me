@@ -1,3 +1,5 @@
+import "/styles/globals.css";
+
 const Footer = () => {
   return (
     <footer className="flex flex-col p-5 items-center bg-grey-dark mt-auto">

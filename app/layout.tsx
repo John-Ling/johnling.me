@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   initialScale: 1,
   width: "device-width",
-}
+};
 
 export default function RootLayout({
   children,
@@ -21,9 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar/>
-        <main className="min-h-screen">
+        <main>
           {children}
-        </main>      
+        </main>
         <Footer/>
       </body>
     </html>

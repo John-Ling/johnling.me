@@ -8,7 +8,6 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
       colors: {
         "white": "#F8F9F2",
         "orange": "#FF5500",
@@ -45,7 +44,6 @@ const config: Config = {
         "move-up" : "move_up 0.1s ease-in-out",
         "move-down" : "move_down 0.1s ease-in-out",
       }
-    }
   },
   plugins: [],
 }
