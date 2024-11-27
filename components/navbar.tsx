@@ -35,8 +35,8 @@ const Navbar = () => {
       </div>
 
       {/* mobile menu */}
-      <div className={`absolute top-11 bg-[#262626] transition-all duration-500 ease-in-out ${open ? 'max-h-96' : 'max-h-0'}`}>
-        <div className={`transition-all duration-480 ease-in-out ${open ? 'opacity-100' : "opacity-0"}`}>
+      <div className={`shadow-md absolute top-11 bg-[#262626] transition-all duration-500 ease-in-out ${open ? 'max-h-96' : 'max-h-0'}`}>
+        <div className={`transition-all  ease-in-out ${open ? 'duration-700 opacity-100' : " duration-300 opacity-0"}`}>
           <NavbarMenu links={links} activeLink={path}/>
         </div>
       </div>

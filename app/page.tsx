@@ -36,10 +36,12 @@ export default function Home() {
   const [isClient, setIsClient] = useState<boolean>(false);
   const animationRequestID = useRef<number>(0);
 
+  // this supresses hydration error related to ascii display
   useEffect(() => {
     setIsClient(true);
   }, []);
 
+  // animations for ascii display
   useEffect(() => {
     let previousGrid: string[][] = [...grid];
     const fpsInterval: number = 1000 / 10;
@@ -72,22 +74,22 @@ export default function Home() {
   return (
     <>
       <div className="flex min-h-screen items-center">
-        <div className="flex flex-col pl-5 pt-20 basis-4/12 mb-auto">
+        <div className="hidden lg:flex flex-col pl-5 pt-20 basis-4/12 mb-auto">
           <div className="text-7xl tracking-widest m">
-              <h1 className="text-orange p-2">JOHN</h1>
-              <h1 className="p-2">LING</h1>
+              <h1 className="text-orange ">JOHN</h1>
+              <h1 className="">LING</h1>
           </div>
           <div className="mt-5">
             <p className="mb-5">Hello. I'm John and I make things.</p>
+            <p className="mb-5">I've done web apps, terminal programs, mobile apps and some embedded/hardware stuff.</p>
             <p className="mb-5">Computers are super interesting (in my opinion) so I study Computer Science at the University of Melbourne.</p>
             <p className="mb-5">Right now I'm an undergrad but I might do a masters who knows.</p>
-            <p>While I'd primarily say I'm in web-dev, I have a wide range of interests meaning my projects span many areas in tech.</p>
-            <p className="mb-5">I've done web apps, terminal programs, mobile apps and some embedded/hardware stuff.</p>
-            <p className="mb-5">That being said, I do have an interest in security that I would like to explore.</p>
+            <p className="mb-5">While I'd primarily say I'm in web-dev, I have a wide range of interests meaning my projects span many areas in tech.</p>
+            <p>That being said, I do have an interest in security that I would like to explore.</p>
           </div>
         </div>
-        <div className="text-center m-auto">
-          <div className="bg-grey-dark">
+        <div className="hidden lg:block text-center m-auto">
+          <div className="bg-grey-dark ">
               { isClient ? <AsciiDisplay grid={grid}/> : <></>}
           </div>
         </div>
