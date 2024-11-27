@@ -14,3 +14,7 @@ a {
 a:hover {
     color: theme("colors.orange");
 }
+
+img {
+    border: solid 3px theme("colors.grey.light");
+}

@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from "react";
-import { evolve, conway_populate } from "./ascii_display/animations";
+import { evolve, conway_populate } from "./ascii-display/animations";
+import AsciiDisplay from "./ascii-display/ascii_display";
 
-import AsciiDisplay from "./ascii_display/ascii_display";
+import "/styles/globals.css";
 
 const Hero = () => {
   const [grid, setGrid] = useState<string[][]>([[]]);
@@ -16,7 +17,9 @@ const Hero = () => {
 
   // animations for ascii display
   useEffect(() => {
-    let previousGrid: string[][] = conway_populate(110, 34);
+    const WIDTH: number = 110;
+    const HEIGHT: number = 34;
+    let previousGrid: string[][] = conway_populate(WIDTH, HEIGHT);
 
     // throttle the animation speed so things actually look good
     const fpsInterval: number = 1000 / 10;
@@ -52,10 +55,11 @@ const Hero = () => {
         </div>
         <div className="mt-5">
           <p className="mb-5">I make things.</p>
-          <p className="mb-5">I've built web apps, terminal programs, mobile apps and some embedded/hardware stuff.</p>
+          <p className="mb-5">I'm a computer programmer who enjoys staring at screens for most of their day in order to make fun things for themselves and others.</p>
+          <p className="hidden mb-5 md:block">I've built websites, terminal programs, mobile apps and even some embedded/hardware/robotics stuff.</p>
           <p className="hidden mb-5 md:block">Computers are super interesting (in my opinion) so I study Computer Science at the University of Melbourne.</p>
           <p className="hidden mb-5 md:block">Right now I'm an undergrad might do a masters who knows.</p>
-          <p className="mb-5">While I'd primarily say I'm in web-dev, I have a wide range of interests meaning my projects span many areas in tech.</p>
+          <p className="mb-5">While I'd primarily say I'm in web-dev right now, I have a wide range of interests so my projects span many areas in tech.</p>
           <p>That being said, there's an interest in security that I would like to explore.</p>
         </div>
       </div>
