@@ -5,7 +5,8 @@ interface AsciiDisplayProps {
 const AsciiDisplay: React.FC<AsciiDisplayProps> = ({ grid }) => {
   return (
     <>
-      <div className="text-center">
+      <div className="text-center p-5">
+        {/* render characters */}
         {grid.map((arr: string[]) => {
           return (
             <div>
