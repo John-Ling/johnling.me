@@ -74,7 +74,7 @@ export default function Home() {
   return (
     <>
       <div className="flex min-h-screen items-center">
-        <div className="hidden lg:flex flex-col pl-5 pt-20 basis-4/12 mb-auto">
+        <div className="flex-col p-5 lg:pt-20 m-5 lg:m-0 bg-grey-dark lg:bg-grey-normal lg:basis-4/12 lg:mb-auto">
           <div className="text-7xl tracking-widest m">
               <h1 className="text-orange ">JOHN</h1>
               <h1 className="">LING</h1>
