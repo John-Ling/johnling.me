@@ -41,8 +41,8 @@ const config: Config = {
         }
       },
       animation: {
-        "move-up" : "move_up 0.1s ease-in-out",
-        "move-down" : "move_down 0.1s ease-in-out",
+        "move-up" : "move_up 5s ease-in-out",
+        "move-down" : "move_down 1s ease-in-out",
       }
   },
   plugins: [],

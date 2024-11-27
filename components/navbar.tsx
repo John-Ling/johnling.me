@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <nav className="relative w-full bg-grey-light gap-x-4 gap-y-2 flex flex-col md:flex-row">
       <span className="flex justify-between p-2 md:p-0">
-        <a className="text-xl no-underline md:self-center md:pl-3" href="/">John Ling</a>
+        <Link className="text-xl no-underline md:self-center md:pl-3" href="/">John Ling</Link>
         <button className="md:hidden" onClick={() => setOpen(!open)}><MenuIcon/></button>
       </span>
       {/* desktop menu */}
@@ -36,7 +36,7 @@ const Navbar = () => {
 
       {/* mobile menu */}
       <div className={`shadow-md absolute top-11 bg-[#262626] transition-all duration-500 ease-in-out ${open ? 'max-h-96' : 'max-h-0'}`}>
-        <div className={`transition-all  ease-in-out ${open ? 'duration-700 opacity-100' : " duration-300 opacity-0"}`}>
+        <div className={`transition-all  ease-in-out ${open ? 'duration-500 opacity-100' : " duration-300 opacity-0"}`}>
           <NavbarMenu links={links} activeLink={path}/>
         </div>
       </div>
