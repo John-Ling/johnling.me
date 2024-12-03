@@ -4,16 +4,12 @@ import AsciiDisplay from "./ascii-display/ascii_display";
 
 import "/styles/globals.css";
 
-const Hero = () => {
+
+
+const Hero: React.FC<{asciiWidth: number, asciiHeight: number}> = ({asciiWidth, asciiHeight}) => {
   const [grid, setGrid] = useState<string[][]>([[]]);
   const [name, setName] = useState<string>("John");
-  const [isClient, setIsClient] = useState<boolean>(false);
   const animationRequestID = useRef<number>(0);
-
-  // this supresses hydration error related to ascii display
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   // animations for ascii display
   useEffect(() => {
@@ -44,11 +40,11 @@ const Hero = () => {
     return () => {
       cancelAnimationFrame(animationRequestID.current);
     };
-  }, []);
+  }, []); 
 
   return (
     <div className="flex items-center h-[calc(100vh-40px)]">
-      <div className="p-5 border-2 border-grey-light lg:border-0 bg-grey-dark lg:bg-grey-normal lg:basis-4/12">
+      <div className="flex flex-col justify-center p-10 border-2 border-grey-light lg:border-0 bg-grey-dark lg:bg-grey-normal lg:w-1/3">
         <div className="text-6xl">
           <h1 className="">Hello,</h1>
           <h1>I'm <span className="text-orange">{name}</span></h1>
@@ -57,13 +53,13 @@ const Hero = () => {
           <p className="mb-5">I make things.</p>
           <p className="mb-5">I'm a computer programmer who enjoys staring at screens for most of their day in order to make cool things for themselves and others.</p>
           <p className="hidden mb-5 md:block">Computers are super interesting (in my opinion) so I study Computer Science at the University of Melbourne.</p>
-          <p className="mb-5">I just enjoy exploring different areas of computing and building things with the knowledge I gain.</p>
+          <p className="mb-5">I enjoy finding things to learn so I enjoy exploring many different areas of computing.</p>
           <p>That being said, there's an interest in security that I would like to explore.</p>
         </div>
       </div>
-      <div className="hidden lg:block text-center m-auto">
+      <div className="hidden lg:block m-auto ">
         <div className="bg-grey-dark border-2 border-grey-light mt-2 mb-2">
-          {isClient ? <AsciiDisplay grid={grid} /> : <></>}
+          <AsciiDisplay grid={grid} />
         </div>
       </div>
     </div>
