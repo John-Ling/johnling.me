@@ -43,6 +43,9 @@ const config: Config = {
       animation: {
         "move-up" : "move_up 5s ease-in-out",
         "move-down" : "move_down 1s ease-in-out",
+      },
+      fontFamily: {
+        meslo: ["var(--meslo)"],
       }
   },
   plugins: [],

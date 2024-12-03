@@ -17,8 +17,8 @@ const Hero = () => {
 
   // animations for ascii display
   useEffect(() => {
-    const WIDTH: number = 110;
-    const HEIGHT: number = 34;
+    const WIDTH: number = 95;
+    const HEIGHT: number = 26;
     let previousGrid: string[][] = conway_populate(WIDTH, HEIGHT);
 
     // throttle the animation speed so things actually look good
@@ -47,24 +47,22 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="flex min-h-screen md:items-center">
-      <div className="flex-col p-5 lg:pt-32 m-5 lg:m-0 border-2 border-grey-light lg:border-0 bg-grey-dark lg:bg-grey-normal lg:basis-4/12 lg:mb-auto lg:min-h-screen">
-        <div className="text-6xl lg:text-7xl">
-          <h1>Hello,</h1>
+    <div className="flex items-center h-[calc(100vh-40px)]">
+      <div className="p-5 border-2 border-grey-light lg:border-0 bg-grey-dark lg:bg-grey-normal lg:basis-4/12">
+        <div className="text-6xl">
+          <h1 className="">Hello,</h1>
           <h1>I'm <span className="text-orange">{name}</span></h1>
         </div>
-        <div className="mt-5">
+        <div className="mt-12">
           <p className="mb-5">I make things.</p>
-          <p className="mb-5">I'm a computer programmer who enjoys staring at screens for most of their day in order to make fun things for themselves and others.</p>
-          <p className="hidden mb-5 md:block">I've built websites, terminal programs, mobile apps and even some embedded/hardware/robotics stuff.</p>
+          <p className="mb-5">I'm a computer programmer who enjoys staring at screens for most of their day in order to make cool things for themselves and others.</p>
           <p className="hidden mb-5 md:block">Computers are super interesting (in my opinion) so I study Computer Science at the University of Melbourne.</p>
-          <p className="hidden mb-5 md:block">Right now I'm an undergrad might do a masters who knows.</p>
-          <p className="mb-5">While I'd primarily say I'm in web-dev right now, I have a wide range of interests so my projects span many areas in tech.</p>
+          <p className="mb-5">I just enjoy exploring different areas of computing and building things with the knowledge I gain.</p>
           <p>That being said, there's an interest in security that I would like to explore.</p>
         </div>
       </div>
       <div className="hidden lg:block text-center m-auto">
-        <div className="bg-grey-dark border-2 border-grey-light">
+        <div className="bg-grey-dark border-2 border-grey-light mt-2 mb-2">
           {isClient ? <AsciiDisplay grid={grid} /> : <></>}
         </div>
       </div>

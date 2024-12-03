@@ -5,6 +5,7 @@
 body {
     background-color: theme("colors.grey.normal");
     color: theme("colors.white");
+    font-family: theme("fontFamily.meslo");
 }
 
 a {

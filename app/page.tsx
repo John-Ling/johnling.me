@@ -2,6 +2,7 @@
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import myself from "../public/images/myself.jpg";
 import Hero from "@/components/hero";
 
 import "/styles/globals.css";
@@ -11,25 +12,25 @@ export default function Home() {
     <>
       <Hero/>
       <section className="min-h-screen flex flex-col md:flex-row justify-center items-center p-10">
-        <div className="flex-1">
+        <div className="">
           <h2 className="text-5xl text-red">Who?</h2>
           <h3 className="text-3xl mb-1 mt-1">A bit more about me</h3>
           <p className="mb-5">Hello there. In case the bright orange lettering wasn't apparent, I'm John.</p>
-          <p className="mb-5">I'm a developer who enjoys making things by sinking excessive amounts of time into programming.</p>
+          <p>I'm a developer who enjoys making things by sinking excessive amounts of time into programming.</p>
           <p>The first version of this website was created way back in 2022 to act as a portfolio to employers.</p>
-          <p className="mb-5">It also acts as a personal website something I feel is dying out as the web becomes more centralised.</p>
-          <p>When not writing code, I enjoy piano, repairing electronics and building circuits.</p>
-          <p>Also Youtube, podcasts but everyone has those hobbies.</p>
+          <p className="mb-5">It also acts as a personal website, something I feel is dying out as the web becomes more centralised.</p>
+          <p>When not writing code, I enjoy the piano, repairing electronics and building circuits.</p>
+          <p>Also Youtube, podcasts etc but everyone has those hobbies.</p>
         </div>
-        <div className="flex-1 p-5">
-          <Image src="/images/myself.jpg" alt="Picture of the creator of the website" width={600} height={400}/>
+        <div className="flex-1">
+          <Image src={myself} alt="Picture of the creator of the website" className="w-3/4"/>
         </div>
       </section>
       <section className="min-h-screen flex justify-center items-center">
-        <div className="flex-1">
+        <div className="">
           <h2>Hello There</h2>
         </div>
-        <div className="flex-1">
+        <div className="">
           <h2 className="text-5xl text-yellow">What?</h2>
           <h3 className="text-3xl">The tools I use</h3>
           <p>I've been programming for a while now so I'm used to picking up languages for one-off projects such as C++ or Java.</p>

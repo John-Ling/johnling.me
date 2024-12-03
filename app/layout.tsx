@@ -1,6 +1,7 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
 
 export const metadata: Metadata = {
   title: "John Ling",
@@ -12,6 +13,17 @@ export const viewport: Viewport = {
   width: "device-width",
 };
 
+const meslo = localFont({ 
+  src: [
+    { 
+      path: "../public/fonts/meslolgs_nf_regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    ],
+    variable: "--meslo",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -19,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={meslo.className}>
         <Navbar/>
         <main>
           {children}
