@@ -5,8 +5,6 @@ import Image from "next/image";
 import myself from "../public/images/myself.jpg";
 import Hero from "@/components/hero";
 
-import "/styles/globals.css";
-
 export default function Home() {
   return (
     <>
@@ -28,7 +26,7 @@ export default function Home() {
         </section>
         <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-x-10 gap-y-10">
           <div className="bg-grey-dark border-2 border-grey-light order-2 md:order-1">
-            <h1>Hello</h1>
+            <i className="devicon-threedsmax-plain"></i>
           </div>
           <div className="order-1 ">
             <h2 className="text-5xl text-yellow">What?</h2>

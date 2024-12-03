@@ -1,7 +1,10 @@
+import Head from "next/head";
+import Script from "next/script";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import "/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "John Ling",
