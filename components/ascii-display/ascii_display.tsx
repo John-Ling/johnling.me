@@ -11,7 +11,7 @@ const AsciiDisplay: React.FC<AsciiDisplayProps> = ({ grid }) => {
           return (
             <div key={i}>
               {arr.map((char: string, i: number) =>
-                <span key={i}  className='font-bold text-white' style={{ whiteSpace: "pre-wrap" }}>{char}</span>)
+                <span key={i}  className="text-white" style={{ whiteSpace: "pre-wrap" }}>{char}</span>)
               }
             </div>
           )
