@@ -7,11 +7,11 @@ const AsciiDisplay: React.FC<AsciiDisplayProps> = ({ grid }) => {
     <>
       <div className="text-center p-5">
         {/* render characters */}
-        {grid.map((arr: string[]) => {
+        {grid.map((arr: string[], i: number) => {
           return (
-            <div>
-              {arr.map((char: string) =>
-                <span className='font-bold text-white' style={{ whiteSpace: "pre-wrap" }}>{char}</span>)
+            <div key={i}>
+              {arr.map((char: string, i: number) =>
+                <span key={i}  className='font-bold text-white' style={{ whiteSpace: "pre-wrap" }}>{char}</span>)
               }
             </div>
           )

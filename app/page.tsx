@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import myself from "../public/images/myself.jpg";
 import Hero from "@/components/hero";
+import "/styles/devicon.min.css";
 
 export default function Home() {
   return (
@@ -26,7 +27,9 @@ export default function Home() {
         </section>
         <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-x-10 gap-y-10">
           <div className="bg-grey-dark border-2 border-grey-light order-2 md:order-1">
-            <i className="devicon-threedsmax-plain"></i>
+            <div className="text-orange">
+              <i className="devicon-threedsmax-plain text-7xl text-blue" />
+            </div>
           </div>
           <div className="order-1 ">
             <h2 className="text-5xl text-yellow">What?</h2>
@@ -35,7 +38,7 @@ export default function Home() {
             <p>However I would definitely say I'm most comfortable with Python, Javascript and maybe some C.</p>
             <p>I don't exactly subscribe to a particular "Tech Stack".</p>
             <p>In my eyes, a website built using PHP, Bootstrap with some Javascript is just as good as the one using the latest version of React and Tailwind.</p>
-            <p className="mb-5">So long as the result is functional, decent looking and relatively secure, I see no problems.</p>
+            <p className="mb-5">So long as the result is functional, decent looking and secure, I see no problems.</p>
             <p>In my opinion, the KISS (Keep It Simple Stupid) philosophy is a very valid approach to development 
               so I like to use the right tools rather than the hottest ones.</p>
           </div>
