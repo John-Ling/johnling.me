@@ -47,8 +47,14 @@ export default function Home() {
         </section>
         <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-x-10 gap-y-10">
           <div className="lg:w-1/2 flex flex-wrap basis-[21/100] justify-center bg-grey-dark border-2 border-grey-light order-2 md:order-1 gap-y-5 gap-x-5 p-3">
+            {/* render skills display */}
             {skillIcons.map((icon: SkillIcon) => {
-              return <SkillIcon classInfo={icon.classInfo} label={icon.label} />
+              return (
+                <div>
+                  <i className={`${icon.classInfo} text-8xl flex-1 p-5 `} />
+                  <p className="text-center">{icon.label}</p>
+                </div>  
+              )
             })}
           </div>
           <div className="order-1 lg:w-1/2">
@@ -94,13 +100,4 @@ export default function Home() {
 
     </>
   );
-}
-
-const SkillIcon: React.FC<{classInfo: string, label: string}> = ({classInfo, label}) => {
-  return (
-    <div>
-      <i className={`${classInfo} text-8xl flex-1 p-5 `} />
-      <p className="text-center">{label}</p>
-    </div>
-  )
 }
