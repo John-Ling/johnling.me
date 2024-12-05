@@ -8,7 +8,12 @@ import "/styles/globals.css";
 
 const Hero: React.FC<{asciiWidth: number, asciiHeight: number}> = ({asciiWidth, asciiHeight}) => {
   const [grid, setGrid] = useState<string[][]>([[]]);
+  const [loaded, setLoaded] = useState<boolean>(false);
   const animationRequestID = useRef<number>(0);
+
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
 
   // animations for ascii display
   useEffect(() => {
@@ -44,9 +49,9 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number}> = ({asciiWidth, 
       <div className="flex flex-col justify-center p-10 border-2 border-grey-light lg:border-0 bg-grey-dark lg:bg-grey-normal lg:w-1/3">
         <div className="text-6xl">
           <h1 className="animate-fade-up">Hello,</h1>
-          <h1 className="animate-fade-up" style={{transitionDelay: "100ms"}}>I&apos;m <span className="text-orange">John</span></h1>
+          <h1 className={`${loaded ? "opacity-1" : "opacity-0"} animate-fade-up`} style={{animationDelay: "200ms"}}>I&apos;m <span className="text-orange">John</span></h1>
         </div>
-        <div className="mt-12 animate-fade-up ">
+        <div className={`mt-12 ${loaded ? "opacity-1" : "opacity-0"} animate-fade-up`} style={{animationDelay: "400ms", animationDuration: "1s"}}>
           <p className="mb-5">I make things.</p>
           <p className="mb-5">I&apos;m a computer programmer who enjoys staring at screens for most of their day in order to make cool things for themselves and others.</p>
           <p className="hidden mb-5 md:block">Computers are super interesting (in my opinion) so I study Computer Science at the University of Melbourne.</p>

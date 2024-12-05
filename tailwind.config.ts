@@ -8,6 +8,7 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+      extend: {},
       colors: {
         "white": "#F8F9F2",
         "orange": "#FF5500",
@@ -32,17 +33,17 @@ const config: Config = {
       },
       keyframes: {
         "fade_down" : {
-          "0%": { transform: "translateY(-10%)", opacity: "0"},
+          "0%": { transform: "translateY(-1rem)", opacity: "0"},
           "100%": { transform: "translateY(0)", opacity: "1"},
         },
         "fade_up" : {
-          "0%": { transform: "translateY(10%)", opacity: "0"},
+          "0%": { transform: "translateY(1rem)", opacity: "0"},
           "100%": { transform: "translateY(0)", opacity: "1"},
         }
       },
       animation: {
-        "fade-up" : "fade_up 1s ease-in-out",
-        "fade-down" : "fade_down 1s ease-in-out",
+        "fade-up" : "fade_up 1s ease-out",
+        "fade-down" : "fade_down 1s ease-out",
       },
       fontFamily: {
         meslo: ["var(--meslo)"],
