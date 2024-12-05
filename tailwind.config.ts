@@ -31,18 +31,18 @@ const config: Config = {
         'height': 'height',
       },
       keyframes: {
-        "move_up" : {
-          "0%": { transform: "translateY(10%)", opacity: "1"},
-          "100%": { transform: "translateY(0)", opacity: "0"},
-        },
-        "move_down" : {
+        "fade_down" : {
           "0%": { transform: "translateY(-10%)", opacity: "0"},
+          "100%": { transform: "translateY(0)", opacity: "1"},
+        },
+        "fade_up" : {
+          "0%": { transform: "translateY(10%)", opacity: "0"},
           "100%": { transform: "translateY(0)", opacity: "1"},
         }
       },
       animation: {
-        "move-up" : "move_up 5s ease-in-out",
-        "move-down" : "move_down 1s ease-in-out",
+        "fade-up" : "fade_up 1s ease-in-out",
+        "fade-down" : "fade_down 1s ease-in-out",
       },
       fontFamily: {
         meslo: ["var(--meslo)"],

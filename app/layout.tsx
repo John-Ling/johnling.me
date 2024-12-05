@@ -1,5 +1,3 @@
-import Head from "next/head";
-import Script from "next/script";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import type { Metadata, Viewport } from "next";
@@ -34,9 +32,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="stylesheet" type='text/css' href="/styles//devicon.min.css" />
-      </Head>
       <body className={meslo.className}>
         <Navbar/>
         <main>

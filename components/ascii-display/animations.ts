@@ -5,13 +5,13 @@
 // functions for conway's game of life
 // creates a grid with randomly assigned cells for use in conway's game of life
 export const conway_populate = (width: number, height: number) => {
-    let grid: string[][] = [];
+    const grid: string[][] = [];
     const minCeiled: number = Math.ceil(0);
     const maxFloored: number = Math.floor(3);
     for (let i = 0; i < height; i++) {
-      let buffer: string[] = [];
+      const buffer: string[] = [];
       for (let j = 0; j < width; j++) {
-        let chance: number = Math.floor(
+        const chance: number = Math.floor(
           Math.random() * (maxFloored - minCeiled) + minCeiled
         );
 
@@ -73,7 +73,7 @@ const next_state = (grid: string[][], indexI: number, indexJ: number) => {
 export const evolve = (grid:string[][]) => {
     const height: number = grid.length;
     const width: number = grid[0].length;
-    let changedCells: string[] = [];
+    const changedCells: string[] = [];
     let changeCount: number = 0;
 
     for (let i = 0; i < height; i++) {

@@ -49,7 +49,7 @@ const NavbarMenu: React.FC<{links: NavLink[], activeLink: string}> = ({links, ac
     <ul className="flex flex-col md:flex-row gap-x-2 gap-y-2 md:gap-x-2">
     {links.map((link: NavLink) => {
       let className: string = "no-underline p-2 inline-block w-screen md:w-auto";
-      let ariaCurrent: any = undefined;
+      let ariaCurrent: "page" | undefined = undefined;
 
       // apply special styles for active page
       if (link.target === activeLink) {

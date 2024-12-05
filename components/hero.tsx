@@ -8,14 +8,11 @@ import "/styles/globals.css";
 
 const Hero: React.FC<{asciiWidth: number, asciiHeight: number}> = ({asciiWidth, asciiHeight}) => {
   const [grid, setGrid] = useState<string[][]>([[]]);
-  const [name, setName] = useState<string>("John");
   const animationRequestID = useRef<number>(0);
 
   // animations for ascii display
   useEffect(() => {
-    const WIDTH: number = 95;
-    const HEIGHT: number = 26;
-    let previousGrid: string[][] = conway_populate(WIDTH, HEIGHT);
+    let previousGrid: string[][] = conway_populate(asciiWidth, asciiHeight);
 
     // throttle the animation speed so things actually look good
     const fpsInterval: number = 1000 / 10;
@@ -23,14 +20,14 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number}> = ({asciiWidth, 
 
     const animate = () => {
       requestAnimationFrame(animate);
-      let now: number = Date.now();
-      let elapsed: number = now - then;
+      const now: number = Date.now();
+      const elapsed: number = now - then;
 
       if (elapsed > fpsInterval) {
-        // we've passed the time needed in between frames
+        // we&apos;ve passed the time needed in between frames
         // so we can now update the state of the board
         then = now - (elapsed % fpsInterval);
-        let newGrid: string[][] = evolve(previousGrid);
+        const newGrid: string[][] = evolve(previousGrid);
         setGrid(newGrid);
         previousGrid = [...newGrid];
       }
@@ -40,21 +37,21 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number}> = ({asciiWidth, 
     return () => {
       cancelAnimationFrame(animationRequestID.current);
     };
-  }, []); 
+  }, [asciiWidth, asciiHeight]); 
 
   return (
     <div className="flex items-center h-[calc(100vh-40px)]">
       <div className="flex flex-col justify-center p-10 border-2 border-grey-light lg:border-0 bg-grey-dark lg:bg-grey-normal lg:w-1/3">
         <div className="text-6xl">
-          <h1 className="">Hello,</h1>
-          <h1>I'm <span className="text-orange">{name}</span></h1>
+          <h1 className="animate-fade-up">Hello,</h1>
+          <h1 className="animate-fade-up" style={{transitionDelay: "100ms"}}>I&apos;m <span className="text-orange">John</span></h1>
         </div>
-        <div className="mt-12">
+        <div className="mt-12 animate-fade-up ">
           <p className="mb-5">I make things.</p>
-          <p className="mb-5">I'm a computer programmer who enjoys staring at screens for most of their day in order to make cool things for themselves and others.</p>
+          <p className="mb-5">I&apos;m a computer programmer who enjoys staring at screens for most of their day in order to make cool things for themselves and others.</p>
           <p className="hidden mb-5 md:block">Computers are super interesting (in my opinion) so I study Computer Science at the University of Melbourne.</p>
           <p className="mb-5">I enjoy finding things to learn so I enjoy exploring many different areas of computing.</p>
-          <p>That being said, there's an interest in security that I would like to explore.</p>
+          <p>That being said, there&apos;s an interest in security that I would like to explore.</p>
         </div>
       </div>
       <div className="hidden lg:block m-auto ">
