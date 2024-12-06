@@ -24,7 +24,7 @@ const Navbar = () => {
   
   const path: string = usePathname();
   return (
-    <nav className="relative w-full bg-grey-light gap-x-4 gap-y-2 flex flex-col md:flex-row">
+    <nav className="relative w-full bg-grey-light gap-x-4 gap-y-2 flex flex-col md:flex-row z-10">
       <span className="flex justify-between p-2 md:p-0">
         <Link className="text-xl no-underline md:self-center md:pl-3" href="/">John Ling</Link>
         <button className="md:hidden" onClick={() => setOpen(!open)}><MenuIcon/></button>

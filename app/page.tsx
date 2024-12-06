@@ -43,6 +43,7 @@ export default function Home() {
             <Image src={myself} alt="Picture of the creator of the website" width={3088} height={2320} />
           </div>
         </section>
+        
         <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-x-10 gap-y-10">
           <div className="lg:w-1/2 flex flex-wrap basis-[21/100] justify-center bg-grey-dark border-2 border-grey-light order-2 md:order-1 gap-y-5 gap-x-5 pt-10 pb-10">
             {/* render skills display */}
@@ -67,6 +68,7 @@ export default function Home() {
               so I like to use the right tools rather than the hottest ones.</p>
           </div>
         </section>
+
         <section className="min-h-screen flex">
           <div className="flex-1">
             <h2>Hello There</h2>
@@ -83,6 +85,7 @@ export default function Home() {
             <h2>Hello There</h2>
           </div>
         </section>
+
         <section className="min-h-screen flex justify-center items-center">
           <div className="p-5 md:w-1/2">
             <h2 className="text-5xl text-green">Why?</h2>

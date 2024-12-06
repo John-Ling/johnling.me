@@ -42,8 +42,8 @@ const config: Config = {
         }
       },
       animation: {
-        "fade-up" : "fade_up 1s ease-out",
-        "fade-down" : "fade_down 1s ease-out",
+        "fade-up" : "fade_up 0.75s ease-out var(--delay, 0) forwards",
+        "fade-down" : "fade_down 0.75s ease-out var(--delay, 0) forwards",
       },
       fontFamily: {
         meslo: ["var(--meslo)"],
