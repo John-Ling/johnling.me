@@ -52,7 +52,7 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number}> = ({asciiWidth, 
     <div className="flex items-center h-[calc(100vh-40px)]">
       <div className="flex flex-col justify-center p-10 border-2 border-grey-light lg:border-0 bg-grey-dark lg:bg-grey-normal lg:w-1/3">
         <div className="text-6xl z-0">
-          <h1 className="opacity-0 animate-fade-up [--delay:0ms]" >Hello,</h1>
+          <h1 className="opacity-0 animate-fade-up [--delay:50ms]" >Hello,</h1>
           <h1 className="opacity-0 animate-fade-up [--delay:100ms]" ><span className="opacity-0 animate-fade-up [--delay:100ms]">I&apos;m </span><span className="text-orange opacity-0 animate-fade-up [--delay:200ms]">John</span></h1>
         </div>
         <div className="mt-12" >
@@ -64,8 +64,8 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number}> = ({asciiWidth, 
         </div>
       </div>
       <div className="hidden lg:block m-auto ">
-        <div className="bg-grey-dark border-2 border-grey-light mt-2 mb-2">
-          <AsciiDisplay  grid={grid} />
+        <div className="bg-grey-dark border-2 border-grey-light mt-2 mb-2 opacity-0 animate-fade-up [--delay:900ms]">
+          <AsciiDisplay grid={grid} />
         </div>
       </div>
     </div>
