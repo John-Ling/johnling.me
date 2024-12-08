@@ -22,7 +22,6 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number}> = ({asciiWidth, 
   // animations for ascii display
   useEffect(() => {
     let previousGrid: string[][] = conway_populate(asciiWidth, asciiHeight);
-
     // throttle the animation speed so things actually look good
     const fpsInterval: number = 1000 / 10;
     let then: number = Date.now();
@@ -33,7 +32,7 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number}> = ({asciiWidth, 
       const elapsed: number = now - then;
 
       if (elapsed > fpsInterval) {
-        // we&apos;ve passed the time needed in between frames
+        // we've passed the time needed in between frames
         // so we can now update the state of the board
         then = now - (elapsed % fpsInterval);
         const newGrid: string[][] = evolve(previousGrid);

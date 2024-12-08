@@ -7,12 +7,10 @@ interface Project {
 };
 
 const Page = () => {
-  
-
   const projects: Project[] = [
     {
       title: "Website Rebuild", dateRange: "November 2024 - December 2024",
-      description: "Rebuilt my website using React, NextJS and Tailwind mainly to learn some newer web technologies, partly to one-up my friend who was making his own website. Added some cool gimmicks such as an ASCII display on the front page.",
+      description: "Rebuilding my website using React, NextJS and Tailwind mainly to learn some newer web technologies, partly to one-up my friend who was making his own website. Added some cool gimmicks such as an ASCII display on the front page.",
       sourceURL: "https://github.com/John-Ling/johnling.me",
     },
     {
@@ -22,12 +20,12 @@ const Page = () => {
     },
     {
       title: "Nixie Tube Watch", dateRange: "January 2024 - February 2024",
-      description: "Ultimately scrapped project (watch was an actual brick). Designed my own circuitry to drive nixie tubes, wrote AVR C for the first time and built my own library to interface with a DS1302 timekeeping chip.",
+      description: "Ultimately scrapped project (watch was too thick). Designed my own circuitry to drive nixie tubes, wrote AVR C for the first time and built my own library to interface with a DS1302 timekeeping chip.",
       sourceURL: "https://github.com/John-Ling/Nixie-Watch",
     },
     {
       title: "Internship Project", dateRange: "November 2023 - November 2023",
-      description: "Fullstack web app that allowed users ask questions and received tailored financial advice for over 1000 Malaysian companies. I used Flask and React with MySQL to store \"metadata\" about companies. Used Docker but I never ended up deploying on my VPS.",
+      description: "Fullstack web app that allowed users ask questions and received tailored financial advice for over 1000 Malaysian companies. I used Flask and React with MySQL to store \"metadata\" about companies. Used Docker but never ended up deploying.",
       sourceURL: "https://github.com/John-Ling/Internship-Project",
     },
     {
@@ -72,7 +70,7 @@ const Page = () => {
     },
     {
       title: "Python Kahoot Bot", dateRange: "September 2021 - November 2021",
-      description: "Remake of my first Kahoot Bot from 2019, two years after starting programming. This was also the first time I used Git which was cool.",
+      description: "Remake of my first Kahoot Bot from 2019, two years after starting programming. This was also the first time I used Git.",
       sourceURL: "https://github.com/John-Ling/Kahoot-Bot-Python",
     },
     {
@@ -95,13 +93,14 @@ const Page = () => {
       description: "The Original Kahoot Bot and my first project ever. Filled with top quality code such as unintentional recursion and a codebase that boldly rejects OOP (I didn't know about classes).",
       sourceURL: "No source code here"
     }
-  ]
+  ];
+
   return (
     <>
       <div className="min-h-screen lg:w-3/4 m-auto">
         <div className="grid grid-cols-3 bg-grey-dark border-2 border-grey-light gap-x-2 gap-y-2 p-5 m-5">  
           {projects.map((project: Project, i: number) => {
-            return  <ProjectItem key={i} project={project} position={i} />
+            return <ProjectItem key={i} project={project} position={i} />
           })}
         </div>
       </div>
@@ -113,7 +112,7 @@ const ProjectItem: React.FC<{project: Project, position: number}> = ({ project, 
   const colours: string[] = ["text-blue", "text-magenta", "text-teal", "text-green", "text-yellow", "text-orange", "text-red"];
   const colourClass: string = colours[position % colours.length];
   return (
-    <div className="bg-grey-normal border-2 border-grey-light p-5">
+    <div className="bg-grey-normal border-2 border-grey-light p-3 opacity-0 animate-fade-up" style={{'--delay': `${100 * (position + 1)}ms` }}>
       <h2 className={`text-2xl mb-2 mt-2 ${colourClass}`}>{project.title}</h2>
       <h3 className="text-sm mb-2">{project.dateRange}</h3>
       <p className="mb-2">{project.description}</p>
