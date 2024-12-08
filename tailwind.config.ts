@@ -27,23 +27,25 @@ const config: Config = {
         "yellow": "#FFCB6B",
         "magenta": "#C792EA",
         "cyan": "#8BE9FD",
+        "teal": "#73DACA",
       },
       transitionProperty: {
         'height': 'height',
       },
       keyframes: {
         "fade_down" : {
-          "0%": { transform: "translateY(-1rem)", opacity: "0"},
+          "0%": { transform: "translateY(-0.5rem)", opacity: "0"},
           "100%": { transform: "translateY(0)", opacity: "1"},
         },
         "fade_up" : {
-          "0%": { transform: "translateY(1rem)", opacity: "0"},
+          "0%": { transform: "translateY(0.5rem)", opacity: "0"},
           "100%": { transform: "translateY(0)", opacity: "1"},
         }
       },
+      // maybe create own bezier curve for nicer animation doesn't feel right rn
       animation: {
-        "fade-up" : "fade_up 0.75s ease-out var(--delay, 0) forwards",
-        "fade-down" : "fade_down 0.75s ease-out var(--delay, 0) forwards",
+        "fade-up" : "fade_up 0.5s ease-out var(--delay, 0) forwards",
+        "fade-down" : "fade_down 0.5s ease-out var(--delay, 0) forwards",
       },
       fontFamily: {
         meslo: ["var(--meslo)"],
