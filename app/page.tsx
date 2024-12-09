@@ -1,7 +1,19 @@
 "use client";
 import Image from "next/image";
-import myself from "../public/images/myself.jpg";
+import Link from "next/link";
+
 import Hero from "@/components/hero";
+
+import myself from "../public/images/myself.jpg";
+import pc from "../public/images/pc.jpg";
+import laptop_1 from "../public/images/laptop_1.jpg";
+import laptop_2 from "../public/images/laptop_2.jpg";
+import electronics_1 from "../public/images/electronics_1.jpg";
+import electronics_2 from "../public/images/electronics_2.jpg";
+import printer from "../public/images/printer.jpg"
+import server from "../public/images/server.jpg";
+import web_design from "../public/images/web_design_is_my_passion.jpg";
+
 import "/styles/devicon.min.css";
 
 export default function Home() {
@@ -28,8 +40,8 @@ export default function Home() {
   return (
     <>
       <Hero asciiWidth={95} asciiHeight={26} />
-      <div className="flex flex-col m-auto lg:w-3/4 ">
-        <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-x-10 gap-y-10">
+      <div className="flex flex-col items-center">
+        <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-x-10 gap-y-10 lg:w-3/4">
           <div className="lg:w-1/2">
             <h2 className="text-5xl text-red">Who?</h2>
             <h3 className="text-3xl mb-3 mt-3">A bit more about me</h3>
@@ -44,7 +56,7 @@ export default function Home() {
           </div>
         </section>
         
-        <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-x-10 gap-y-10">
+        <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-x-10 gap-y-10 lg:w-3/4">
           <div className="lg:w-1/2 flex flex-wrap basis-[21/100] justify-center bg-grey-dark border-2 border-grey-light order-2 md:order-1 gap-y-5 gap-x-5 pt-10 pb-10">
             {/* render skills display */}
             {skillIcons.map((icon: SkillIcon, i: number) => {
@@ -70,24 +82,31 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-x-10 gap-y-10">
+        <section className="min-h-screen w-full flex flex-col items-center justify-center lg:flex-row p-5 gap-x-10 gap-y-10">
+          <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
+            <Image className="translate-y-32" src={server} alt="The creator's first server setup" width={3024} height={4032} />
+            <Image className="translate-y-10 -translate-x-10 col-start-3" src={web_design} alt="Fantastic web design" width={3024} height={4032} />
+            <Image className="col-start-2 col-span-2 translate-y-16 translate-x-5" src={laptop_1} alt="Creator's laptop with some nice code" width={1134} height={750} />
+          </div>
           <div className="lg:w-1/2">
             <h2 className="text-5xl text-blue">When?</h2>
             <h3 className="text-3xl mb-3 mt-3">Where it call began</h3>
             <p className="mb-5">While I had taken some Python introductory classes the year before, 
               my first real project was created in September 2019. It was an automated kahoot player
-               using the Selenium library which while primitive, was something I was proud of since 
-               I built myself. I even tested it in my class much to the confusion of my teacher.
+              using the Selenium library which while primitive, was something I was proud of since 
+              I built myself. I even tested it in my class much to the confusion of my teacher.
               </p>
-              <p>I had a lot of fun making it so I've continued programming ever since. 
+              <p className="mb-5">I had a lot of fun making it so I've continued programming ever since. 
                 Also we had a global pandemic the next year which gave me lots of time to learn how to build things
-                 instead of studying.
+                instead of studying.
               </p>
+              <Link href="/projects">See my Projects</Link>
           </div>
-          <div className="lg:w-1/2 flex flex-col items-center bg-grey-dark border-2 border-grey-light">
-            <h2>Hello There</h2>
-            <h2>Hello There</h2>
-            <h2>Hello There</h2>
+          <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
+            <Image className="-translate-y-10 -translate-x-5" src={printer} alt="3D printer the creator owns" width={750} height={1134} />
+            <Image className="col-start-2" src={electronics_2} alt="Some basic electronics the creator built to learn circuits" width={3024} height={4032} />
+            <Image className="translate-y-12" src={pc} alt="Photo of the creator's first computer" width={2160} height={3840} />
+            <Image className="row-start-2 col-span-2" src={electronics_1} alt="More electronics" width={4032} height={3024} />
           </div>
         </section>
         <section className="min-h-screen flex">
