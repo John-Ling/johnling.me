@@ -100,7 +100,7 @@ export default function Home() {
                 Also we had a global pandemic the next year which gave me lots of time to learn how to build things
                 instead of studying.
               </p>
-              <Link href="/projects">See my Projects</Link>
+              <Link href="/projects">See My Projects</Link>
           </div>
           <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
             <Image className="-translate-y-10 -translate-x-5" src={printer} alt="3D printer the creator owns" width={750} height={1134} />
@@ -109,13 +109,14 @@ export default function Home() {
             <Image className="row-start-2 col-span-2" src={electronics_1} alt="More electronics" width={4032} height={3024} />
           </div>
         </section>
-        <section className="min-h-screen flex">
-          <div className="flex-1">
-            <h2>Hello There</h2>
+        <section className="min-h-screen flex flex-col justify-center items-center">
+          <h2 className="text-5xl text-magenta">Where?</h2>
+          <h3 className="text-3xl mb-3 mt-3">(can you find me)</h3>
+          <div className="p-5">
+            <a href="https://github.com/John-Ling" className="p-2 no-underline hover:text-[#cdcdcd]"><i className="text-6xl md:text-7xl devicon-linkedin-plain"></i></a>
+            <a href="https://www.linkedin.com/in/john-ling-721721243/" className="p-2 no-underline hover:text-[#cdcdcd]"><i className="text-6xl md:text-7xl devicon-github-original"></i></a>
           </div>
-          <div className="flex-1">
-            <h2>Hello There</h2>
-          </div>
+
         </section>
 
         <section className="min-h-screen flex justify-center items-center">
