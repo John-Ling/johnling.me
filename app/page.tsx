@@ -1,4 +1,7 @@
 "use client";
+
+import { useRef } from "react";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -17,26 +20,6 @@ import web_design from "../public/images/web_design_is_my_passion.jpg";
 import "/styles/devicon.min.css";
 
 export default function Home() {
-  interface SkillIcon {
-    classInfo: string,
-    label: string,
-  };
-
-  const skillIcons: SkillIcon[] = [
-    {classInfo: "devicon-python-plain text-blue", label: "Python"},
-    {classInfo: "devicon-react-original text-cyan", label: "React"},
-    {classInfo: "devicon-firebase-plain text-yellow", label: "Firebase"},
-    {classInfo: "devicon-tailwindcss-plain text-cyan", label: "Tailwind"},
-    {classInfo: "devicon-nextjs-original-wordmark text-white", label: "NextJS"},
-    {classInfo: "devicon-c-plain text-[#9aa5ce]", label: "C"},
-    {classInfo: "devicon-docker-plain text-blue", label: "Docker"},
-    {classInfo: "devicon-nginx-original text-green", label: "NGINX"},
-    {classInfo: "devicon-bootstrap-plain text-magenta", label: "Bootstrap"},
-    {classInfo: "devicon-mysql-plain text-blue", label: "MySQL"},
-    {classInfo: "devicon-nodejs-plain-wordmark text-green", label: "NodeJS"},
-    {classInfo: "devicon-ubuntu-plain text-orange", label: "Ubuntu"}
-  ];
-
   return (
     <>
       <Hero asciiWidth={95} asciiHeight={26} />
@@ -58,15 +41,7 @@ export default function Home() {
         
         <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-x-10 gap-y-10 lg:w-3/4">
           <div className="lg:w-1/2 flex flex-wrap basis-[21/100] justify-center bg-grey-dark border-2 border-grey-light order-2 md:order-1 gap-y-5 gap-x-5 pt-10 pb-10">
-            {/* render skills display */}
-            {skillIcons.map((icon: SkillIcon, i: number) => {
-              return (
-                <div key={i}>
-                  <i className={`${icon.classInfo}  text-6xl md:text-8xl flex-1 p-5 `} />
-                  <p className="text-xs md:text-base text-center">{icon.label}</p>
-                </div>  
-              )
-            })}
+            <SkillsDisplay />
           </div>
           <div className="order-1 lg:w-1/2">
             <h2 className="text-5xl text-yellow">What?</h2>
@@ -133,4 +108,40 @@ export default function Home() {
       </div>
     </>
   );
+}
+
+const SkillsDisplay = () => {
+  interface SkillIcon {
+    classInfo: string,
+    label: string,
+  };
+
+  const skillIcons: SkillIcon[] = [
+    {classInfo: "devicon-python-plain text-blue", label: "Python"},
+    {classInfo: "devicon-react-original text-cyan", label: "React"},
+    {classInfo: "devicon-firebase-plain text-yellow", label: "Firebase"},
+    {classInfo: "devicon-tailwindcss-plain text-cyan", label: "Tailwind"},
+    {classInfo: "devicon-nextjs-original-wordmark text-white", label: "NextJS"},
+    {classInfo: "devicon-c-plain text-[#9aa5ce]", label: "C"},
+    {classInfo: "devicon-docker-plain text-blue", label: "Docker"},
+    {classInfo: "devicon-nginx-original text-green", label: "NGINX"},
+    {classInfo: "devicon-bootstrap-plain text-magenta", label: "Bootstrap"},
+    {classInfo: "devicon-mysql-plain text-blue", label: "MySQL"},
+    {classInfo: "devicon-nodejs-plain-wordmark text-green", label: "NodeJS"},
+    {classInfo: "devicon-ubuntu-plain text-orange", label: "Ubuntu"}
+  ];
+
+  return (
+    <>
+    {/* render skills display */}
+    {skillIcons.map((icon: SkillIcon, i: number) => {
+      return (
+        <div key={i}>
+          <i className={`${icon.classInfo}  text-6xl md:text-8xl flex-1 p-5 `} />
+          <p className="text-xs md:text-base text-center m-2">{icon.label}</p>
+        </div>  
+      )
+    })}
+    </>
+  )
 }
