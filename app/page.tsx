@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, createRef, useEffect, useState } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -20,6 +20,57 @@ import web_design from "../public/images/web_design_is_my_passion.jpg";
 import "/styles/devicon.min.css";
 
 export default function Home() {
+  const [visible, setVisible] = useState(false);
+
+  const update_entries = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+    // const [ entry ] = entries;
+    // setVisible(entry.isIntersecting);
+    // observer.unobserve(entry.target);
+    console.log(entries);
+    let length = entries.length;
+    for (let i = 0; i < length; i++) {
+      let entry = entries[i];
+      if (entry.isIntersecting) {
+        setVisible(true);
+        observer.unobserve(entry.target);
+        setVisible(false);
+        break;
+      }
+    }
+    // entries.forEach((entry: IntersectionObserverEntry) => {
+    //   if (entry.isIntersecting) {
+    //     setVisible(true);
+    //     observer.unobserve(entry.target);
+    //     return;
+    //   }
+    // })
+    return;
+  };
+
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold:  0.5,
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(update_entries, options)
+    const elements = document.querySelectorAll(".hidden-fade");
+    console.log(elements);
+
+    elements.forEach((element: Element) => {
+      observer.observe(element);
+    })
+
+    // if (fadeRef.current) {
+    //   observer.observe(fadeRef.current);
+    // }
+
+    return (() => {
+      return;
+    })
+  }, []);
+
   return (
     <>
       <Hero asciiWidth={95} asciiHeight={26} />
@@ -35,7 +86,7 @@ export default function Home() {
             <p className="mt-5">When not writing code, I enjoy the piano, building simple circuits and repairing electronics.</p>
           </div>
           <div className="lg:w-1/2">
-            <Image src={myself} alt="Picture of the creator of the website" width={3088} height={2320} />
+            <Image  className={`hidden-fade opacity-0 ${visible ? "animate-fade-up [--delay:100ms]" : ""}`} src={myself} alt="Picture of the creator of the website" width={3088} height={2320} />
           </div>
         </section>
         
@@ -43,7 +94,7 @@ export default function Home() {
           <div className="lg:w-1/2 flex flex-wrap basis-[21/100] justify-center bg-grey-dark border-2 border-grey-light order-2 md:order-1 gap-y-5 gap-x-5 pt-10 pb-10">
             <SkillsDisplay />
           </div>
-          <div className="order-1 lg:w-1/2">
+            <div className={`hidden-fade order-1 lg:w-1/2 opacity-0 ${visible ? "animate-fade-up [--delay:100ms]" : ""}`}>
             <h2 className="text-5xl text-yellow">What?</h2>
             <h3 className="text-3xl mb-3 mt-3">The tools I use</h3>
             <p className="mb-5">I&apos;ve been programming for a while now so I&apos;m used to picking up languages for one-off projects such as C++ or Java.
@@ -59,8 +110,8 @@ export default function Home() {
 
         <section className="min-h-screen w-full flex flex-col items-center justify-center lg:flex-row p-5 gap-x-10 gap-y-10">
           <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
-            <Image className="translate-y-32" src={server} alt="The creator's first server setup" width={3024} height={4032} />
-            <Image className="translate-y-10 -translate-x-10 col-start-3" src={web_design} alt="Fantastic web design" width={3024} height={4032} />
+            <Image className="translate-y-16" src={server} alt="The creator's first server setup" width={3024} height={4032} />
+            <Image className="-translate-y-5 -translate-x-10 col-start-3" src={web_design} alt="Fantastic web design" width={3024} height={4032} />
             <Image className="col-start-2 col-span-2 translate-y-16 translate-x-5" src={laptop_1} alt="Creator's laptop with some nice code" width={1134} height={750} />
           </div>
           <div className="lg:w-1/2">
@@ -91,7 +142,6 @@ export default function Home() {
             <a href="https://github.com/John-Ling" className="p-2 no-underline hover:text-[#cdcdcd]"><i className="text-6xl md:text-7xl devicon-linkedin-plain"></i></a>
             <a href="https://www.linkedin.com/in/john-ling-721721243/" className="p-2 no-underline hover:text-[#cdcdcd]"><i className="text-6xl md:text-7xl devicon-github-original"></i></a>
           </div>
-
         </section>
 
         <section className="min-h-screen flex justify-center items-center">
