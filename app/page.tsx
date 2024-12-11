@@ -1,16 +1,16 @@
 "use client";
 
-import { useRef, createRef, useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
 
 import Hero from "@/components/hero";
 
+// images
 import myself from "../public/images/myself.jpg";
 import pc from "../public/images/pc.jpg";
 import laptop_1 from "../public/images/laptop_1.jpg";
-import laptop_2 from "../public/images/laptop_2.jpg";
 import electronics_1 from "../public/images/electronics_1.jpg";
 import electronics_2 from "../public/images/electronics_2.jpg";
 import printer from "../public/images/printer.jpg"
@@ -20,8 +20,6 @@ import web_design from "../public/images/web_design_is_my_passion.jpg";
 import "/styles/devicon.min.css";
 
 export default function Home() {
-  const [visible, setVisible] = useState(false);
-
   const update_entries = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
     entries.forEach((entry: IntersectionObserverEntry) => {
       if (entry.isIntersecting) {
@@ -75,7 +73,7 @@ export default function Home() {
         </section>
         
         <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-x-10 gap-y-10 lg:w-3/4">
-          <div className="lg:w-1/2 flex flex-wrap basis-[21/100] justify-center bg-grey-dark border-2 border-grey-light order-2 md:order-1 gap-5 pt-10 pb-10 opacity-0 hidden-fade [--delay:100ms]"> 
+          <div className="lg:w-1/2 flex flex-wrap basis-[21/100] justify-center bg-grey-dark border-2 border-grey-light order-2 md:order-1 gap-5 pt-10 pb-10"> 
             <SkillsDisplay />
           </div>
             <div className="order-1 lg:w-1/2">
@@ -94,9 +92,9 @@ export default function Home() {
 
         <section className="min-h-screen w-full flex flex-col items-center justify-center lg:flex-row p-5 gap-x-10 gap-y-10">
           <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
-            <Image className="translate-y-16" src={server} alt="The creator's first server setup"  />
-            <Image className="-translate-y-5 -translate-x-10 col-start-3" src={web_design} alt="Fantastic web design"  />
-            <Image className="col-start-2 col-span-2 translate-y-16 translate-x-5" src={laptop_1} alt="Creator's laptop with some nice code" />
+            <Image priority className="translate-y-16" src={server} alt="The creator's first server setup"  />
+            <Image priority className="-translate-y-5 -translate-x-10 col-start-3" src={web_design} alt="Fantastic web design"  />
+            <Image  priority className="col-start-2 col-span-2 translate-y-16 translate-x-5" src={laptop_1} alt="Creator's laptop with some nice code" />
           </div>
           <div className="lg:w-1/2">
             <h2 className="text-5xl text-blue">When?</h2>
@@ -106,17 +104,17 @@ export default function Home() {
               using the Selenium library which while primitive, was something I was proud of since 
               I built myself. I even tested it in my class much to the confusion of my teacher.
             </p>
-            <p className="mb-5">I had a lot of fun making it so I've continued programming ever since. 
+            <p className="mb-10">I had a lot of fun making it so I've continued programming ever since. 
               Also we had a global pandemic the next year which gave me lots of time to learn how to build things
               instead of studying.
             </p>
-            <Link href="/projects">See My Projects</Link>
+            <Link href="/projects" className="no-underline bg-grey-dark border-2 border-grey-light p-3 hover:bg-[#101010] hover:text-[#E0E0E0] " style={{}}>See My Projects</Link>
           </div>
           <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
-            <Image className="-translate-y-10 -translate-x-5" src={printer} alt="3D printer the creator owns" />
-            <Image className="col-start-2" src={electronics_2} alt="Some basic electronics the creator built to learn circuits" />
-            <Image className="translate-y-12" src={pc} alt="Photo of the creator's first computer"  />
-            <Image className="row-start-2 col-span-2" src={electronics_1} alt="More electronics"  />
+            <Image priority className="-translate-y-10 -translate-x-5" src={printer} alt="3D printer the creator owns" />
+            <Image priority className="col-start-2" src={electronics_2} alt="Some basic electronics the creator built to learn circuits" />
+            <Image priority className="translate-y-12" src={pc} alt="Photo of the creator's first computer"  />
+            <Image priority className="row-start-2 col-span-2" src={electronics_1} alt="More electronics"  />
           </div>
         </section>
 
