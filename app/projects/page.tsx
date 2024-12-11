@@ -98,7 +98,7 @@ const Page = () => {
   return (
     <>
       <div className="min-h-screen lg:w-3/4 m-auto">
-        <div className="grid grid-cols-3 bg-grey-dark border-2 border-grey-light gap-x-2 gap-y-2 p-5 m-5">  
+        <div className="grid grid-cols-3 bg-grey-dark border-2 border-grey-light gap-5 p-5 m-5">  
           {projects.map((project: Project, i: number) => {
             return <ProjectItem key={i} project={project} position={i} />
           })}

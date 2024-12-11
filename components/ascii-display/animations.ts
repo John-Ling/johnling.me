@@ -1,6 +1,5 @@
 // collection of animations for use with AsciiDisplay
 
-
 // functions for conway's game of life
 // creates a grid with randomly assigned cells for use in conway's game of life
 export const conway_populate = (width: number, height: number) => {

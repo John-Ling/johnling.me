@@ -39,7 +39,6 @@ export default function Home() {
   useEffect(() => {
     const observer = new IntersectionObserver(update_entries, options)
     const elements = document.querySelectorAll(".hidden-fade");
-    console.log(elements);
 
     elements.forEach((element: Element) => {
       observer.observe(element);
@@ -92,9 +91,9 @@ export default function Home() {
 
         <section className="min-h-screen w-full flex flex-col items-center justify-center lg:flex-row p-5 gap-x-10 gap-y-10">
           <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
-            <Image priority className="translate-y-16" src={server} alt="The creator's first server setup"  />
-            <Image priority className="-translate-y-5 -translate-x-10 col-start-3" src={web_design} alt="Fantastic web design"  />
-            <Image  priority className="col-start-2 col-span-2 translate-y-16 translate-x-5" src={laptop_1} alt="Creator's laptop with some nice code" />
+            <Image loading="eager" className="translate-y-16" src={server} alt="The creator's first server setup"  />
+            <Image className="-translate-y-5 -translate-x-10 col-start-3" src={web_design} alt="Fantastic web design"  />
+            <Image className="col-start-2 col-span-2 translate-y-16 translate-x-5" src={laptop_1} alt="Creator's laptop with some nice code" />
           </div>
           <div className="lg:w-1/2">
             <h2 className="text-5xl text-blue">When?</h2>
@@ -111,10 +110,10 @@ export default function Home() {
             <Link href="/projects" className="no-underline bg-grey-dark border-2 border-grey-light p-3 hover:bg-[#101010] hover:text-[#E0E0E0] " style={{}}>See My Projects</Link>
           </div>
           <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
-            <Image priority className="-translate-y-10 -translate-x-5" src={printer} alt="3D printer the creator owns" />
-            <Image priority className="col-start-2" src={electronics_2} alt="Some basic electronics the creator built to learn circuits" />
-            <Image priority className="translate-y-12" src={pc} alt="Photo of the creator's first computer"  />
-            <Image priority className="row-start-2 col-span-2" src={electronics_1} alt="More electronics"  />
+            <Image loading="eager" className="-translate-y-10 -translate-x-5" src={printer} alt="3D printer the creator owns" />
+            <Image className="col-start-2" src={electronics_2} alt="Some basic electronics the creator built to learn circuits" />
+            <Image loading="eager" className="translate-y-12" src={pc} alt="Photo of the creator's first computer"  />
+            <Image className="row-start-2 col-span-2" src={electronics_1} alt="More electronics"  />
           </div>
         </section>
 
