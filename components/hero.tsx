@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useLayoutEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { evolve, conway_populate } from "./ascii-display/animations";
 import AsciiDisplay from "./ascii-display/ascii_display";
 import "/styles/globals.css";
@@ -17,13 +17,10 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number}> = ({asciiWidth, 
   }
 
   const [grid, setGrid] = useState<string[][]>(create);
-  const [rendered, setRendered] = useState<boolean>(false);
   const animationRequestID = useRef<number>(0);
 
   // animations for ascii display
   useEffect(() => {
-    setRendered(true); // supprress hydration error for ascii display
-
     let current: string[][] = conway_populate(asciiWidth, asciiHeight);
     // throttle the animation speed so things actually look good
     const fpsInterval: number = 1000 / 10;
@@ -71,7 +68,7 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number}> = ({asciiWidth, 
       </div>
       <div className="hidden lg:block m-auto ">
         <div className="bg-grey-dark border-2 border-grey-light mt-2 mb-2 opacity-0 animate-fade-up [--delay:900ms]">
-          { rendered ? <AsciiDisplay grid={grid} /> : <></>}
+          <AsciiDisplay grid={grid} />
         </div>
       </div>
     </div>

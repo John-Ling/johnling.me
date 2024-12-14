@@ -50,7 +50,7 @@ export default function Home() {
         observer.unobserve(element);
       })
     })
-  }, []);
+  });
 
   return (
     <>
@@ -103,7 +103,7 @@ export default function Home() {
               using the Selenium library which while primitive, was something I was proud of since 
               I built myself. I even tested it in my class much to the confusion of my teacher.
             </p>
-            <p className="mb-10">I had a lot of fun making it so I've continued programming ever since. 
+            <p className="mb-10">I had a lot of fun making it so I&apos;ve continued programming ever since. 
               Also we had a global pandemic the next year which gave me lots of time to learn how to build things
               instead of studying.
             </p>

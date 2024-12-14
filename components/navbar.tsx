@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import MenuIcon from '@mui/icons-material/Menu';
@@ -29,7 +29,7 @@ const Navbar = () => {
         <Link className="text-xl no-underline md:self-center md:pl-3" href="/">John Ling</Link>
         <button className="md:hidden" onClick={() => setOpen(!open)}><MenuIcon/></button>
       </span>
-      {/* desktop menu */}
+      {/* desktop menu */} 
       <div className="hidden md:flex">
         <NavbarMenu links={links} activeLink={path}/>
       </div>

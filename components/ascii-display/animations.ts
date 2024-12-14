@@ -2,6 +2,10 @@
 
 // functions for conway's game of life
 // creates a grid with randomly assigned cells for use in conway's game of life
+
+const conwayChar: string = '*';
+const conwayBg: string = ' ';
+
 export const conway_populate = (width: number, height: number) => {
     const grid: string[][] = [];
     const minCeiled: number = Math.ceil(0);
@@ -14,10 +18,10 @@ export const conway_populate = (width: number, height: number) => {
         );
 
         if (chance < 2) {
-          buffer.push(' ');
+          buffer.push(conwayBg);
           continue;
         }
-        buffer.push('*');
+        buffer.push(conwayChar);
       }
       grid.push(buffer)
     }
@@ -30,7 +34,7 @@ const next_state = (grid: string[][], indexI: number, indexJ: number) => {
     const height: number = grid.length;
     const width: number = grid[0].length;
 
-    let finalState = ' ';  // assume dead
+    let finalState = conwayBg;  // assume dead
     let aliveCount: number = 0;
 
     for (let i = -1; i <= 1; i++) {
@@ -48,20 +52,20 @@ const next_state = (grid: string[][], indexI: number, indexJ: number) => {
                 continue;
             }
 
-            if (grid[indexI + i][indexJ + j] == '*') {
+            if (grid[indexI + i][indexJ + j] == conwayChar) {
                 aliveCount++;
             }
         }
     }
 
     // if dead
-    if (initialState == ' ') {
+    if (initialState == conwayBg) {
         if (aliveCount == 3) {
-            finalState = '*';
+            finalState = conwayChar;
         }
     } else {
         if (aliveCount == 2 || aliveCount == 3) {
-            finalState = '*';
+            finalState = conwayChar;
         }
         // other conditions 1. and 3. result in death so we don't need to set
     }
