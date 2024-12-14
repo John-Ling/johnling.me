@@ -7,6 +7,8 @@ import Link from "next/link";
 
 import Hero from "@/components/hero";
 
+import { AsciiAnimation } from "./common";
+
 // images
 import myself from "../public/images/myself.jpg";
 import pc from "../public/images/pc.jpg";
@@ -54,7 +56,7 @@ export default function Home() {
 
   return (
     <>
-      <Hero asciiWidth={95} asciiHeight={26} />
+      <Hero asciiWidth={95} asciiHeight={26}  animation={AsciiAnimation.CONWAY}/>
       <div className="flex flex-col items-center">
         <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-x-10 gap-y-10 lg:w-3/4">
           <div className="lg:w-1/2">

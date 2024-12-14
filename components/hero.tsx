@@ -1,9 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import { evolve, conway_populate } from "./ascii-display/animations";
 import AsciiDisplay from "./ascii-display/ascii_display";
+import { AsciiAnimation } from "@/app/common";
 import "/styles/globals.css";
 
-const Hero: React.FC<{asciiWidth: number, asciiHeight: number}> = ({asciiWidth, asciiHeight}) => {
+const Hero: React.FC<{asciiWidth: number, asciiHeight: number, animation: AsciiAnimation}> = ({asciiWidth, asciiHeight, animation}) => {
   const create = () => {
     const grid: string[][] = [];
     for (let i = 0; i < asciiHeight; i++) {
@@ -21,7 +22,16 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number}> = ({asciiWidth, 
 
   // animations for ascii display
   useEffect(() => {
-    let current: string[][] = conway_populate(asciiWidth, asciiHeight);
+    let current: string[][];
+    let nextFrame: (grid: string[][]) => string[][];
+
+    switch (animation) {
+      case AsciiAnimation.CONWAY:
+        nextFrame = evolve;
+        current = conway_populate(asciiWidth, asciiHeight);
+        break;
+    }
+
     // throttle the animation speed so things actually look good
     const fpsInterval: number = 1000 / 10;
     let then: number = Date.now();
@@ -39,7 +49,7 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number}> = ({asciiWidth, 
         // we've passed the time needed in between frames
         // so we can now update the state of the board
         then = now - (elapsed % fpsInterval);
-        evolved = evolve(current);
+        evolved = nextFrame(current);
         setGrid(evolved);
         current = [...evolved];
       }
