@@ -6,24 +6,22 @@ import "/styles/globals.css";
 
 const Hero: React.FC<{asciiWidth: number, asciiHeight: number, animation: AsciiAnimation}> = ({asciiWidth, asciiHeight, animation}) => {
   const create = () => {
-    const grid: string[][] = [];
-    for (let i = 0; i < asciiHeight; i++) {
-      const buffer: string[] = [];
-      for (let j = 0; j < asciiWidth; j++) {
-        buffer.push(' ');
-      }
-      grid.push(buffer);
+    const grid: string[] = [];
+    for (let i = 0; i < asciiHeight * asciiWidth; i++) {
+      grid.push(' ');
     }
     return grid;
   }
 
-  const [grid, setGrid] = useState<string[][]>(create);
+  // frame buffer for ascii display
+  const [frameBuffer, setFrameBuffer] = useState<string[]>(create);
   const animationRequestID = useRef<number>(0);
 
   // animations for ascii display
   useEffect(() => {
-    let current: string[][];
-    let nextFrame: (grid: string[][]) => string[][];
+    const size: number = asciiWidth * asciiHeight;
+    let current: string[];
+    let nextFrame: (buffer: string[], size: number) => string[];
 
     switch (animation) {
       case AsciiAnimation.CONWAY:
@@ -35,7 +33,7 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number, animation: AsciiA
     // throttle the animation speed so things actually look good
     const fpsInterval: number = 1000 / 10;
     let then: number = Date.now();
-    let evolved: string[][];
+    let evolved: string[];
     let now: number;
     let elapsed: number;
 
@@ -49,8 +47,8 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number, animation: AsciiA
         // we've passed the time needed in between frames
         // so we can now update the state of the board
         then = now - (elapsed % fpsInterval);
-        evolved = nextFrame(current);
-        setGrid(evolved);
+        evolved = nextFrame(current, size);
+        setFrameBuffer(evolved);
         current = [...evolved];
       }
     }
@@ -78,7 +76,7 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number, animation: AsciiA
       </div>
       <div className="hidden lg:block m-auto ">
         <div className="bg-grey-dark border-2 border-grey-light mt-2 mb-2 opacity-0 animate-fade-up [--delay:900ms]">
-          <AsciiDisplay grid={grid} />
+          <AsciiDisplay frameBuffer={frameBuffer} rowWidth={asciiWidth} />
         </div>
       </div>
     </div>
