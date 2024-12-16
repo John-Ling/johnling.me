@@ -38,10 +38,12 @@ const cube_calc_z = (i: number, j: number, k: number,
 const cube_calc_for_surface = (frameBuffer: string[], zBuffer: number[], 
                         cubeX: number, cubeY: number, cubeZ: number, 
                         ch: string, width: number, height: number) => {
-    const horizontalOffset: number = 15;
-    const distanceFromCamera: number = 100; 
+
+    const distanceFromCamera: number = 100;  // adjust to change size
     const K1: number = 40; // screen distance for scaling
     
+    // precompute trig functions i believe it should reduce cpu usage
+    // and stop turning my laptop into a jet engine
     const sinA: number = Math.sin(thetaA);
     const sinB: number = Math.sin(thetaB);
     const sinC: number = Math.sin(thetaC);
@@ -51,11 +53,11 @@ const cube_calc_for_surface = (frameBuffer: string[], zBuffer: number[],
 
     const x: number = cube_calc_x(cubeX, cubeY, cubeZ, sinA, sinB, sinC, cosA, cosB, cosC);
     const y: number = cube_calc_y(cubeX, cubeY, cubeZ, sinA, sinB, sinC, cosA, cosB, cosC);
-    const z: number = cube_calc_z(cubeX, cubeY, cubeZ, sinA, sinB, sinC, cosA) + distanceFromCamera;
+    const z: number = cube_calc_z(cubeX, cubeY, cubeZ, sinA, sinB, cosA, cosB) + distanceFromCamera;
 
     let ooz: number = 1 / z;
 
-    const xp: number = Math.floor(width / 2 + horizontalOffset +  K1 * ooz * x * 2);
+    const xp: number = Math.floor(width / 2 +  K1 * ooz * x * 2);
     const yp: number = Math.floor(height / 2 + K1 * ooz * y);
 
     const index: number = xp + yp * width;
@@ -84,16 +86,16 @@ export const cube_next_frame = (frameBuffer: string[], width: number, height: nu
         zBuffer[i] = 0;
     }
 
-    const incrementSpeed: number = 1;
+    const incrementSpeed: number = 0.6;
     const cubeWidth: number = 15;
 
     for (let cubeX = -cubeWidth; cubeX < cubeWidth; cubeX += incrementSpeed) {
         for (let cubeY = -cubeWidth; cubeY < cubeWidth; cubeY += incrementSpeed) {
             cube_calc_for_surface(frameBuffer, zBuffer, cubeX, cubeY, -cubeWidth, '*', width, height);
             cube_calc_for_surface(frameBuffer, zBuffer, cubeWidth, cubeY, cubeX, '$', width, height);
-            cube_calc_for_surface(frameBuffer, zBuffer, -cubeWidth, cubeY, -cubeX, '.', width, height);
+            cube_calc_for_surface(frameBuffer, zBuffer, -cubeWidth, cubeY, -cubeX, '0', width, height);
             cube_calc_for_surface(frameBuffer, zBuffer, -cubeX, cubeY, cubeWidth, '#', width, height);
-            cube_calc_for_surface(frameBuffer, zBuffer, cubeX, -cubeWidth, -cubeY, ';', width, height);
+            cube_calc_for_surface(frameBuffer, zBuffer, cubeX, -cubeWidth, -cubeY, ':', width, height);
             cube_calc_for_surface(frameBuffer, zBuffer, cubeX, cubeWidth, cubeY, '+', width, height);
         }
     }
