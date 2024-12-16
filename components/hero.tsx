@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { evolve, conway_populate } from "./ascii-display/animations";
+import { evolve, conway_populate, cube_init, cube_next_frame } from "./ascii-display/animations";
 import AsciiDisplay from "./ascii-display/ascii_display";
 import { AsciiAnimation } from "@/app/common";
 import "/styles/globals.css";
@@ -19,14 +19,17 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number, animation: AsciiA
 
   // animations for ascii display
   useEffect(() => {
-    const size: number = asciiWidth * asciiHeight;
     let current: string[];
-    let nextFrame: (buffer: string[], size: number) => string[];
+    let nextFrame: (buffer: string[], width: number, height: number) => string[];
 
     switch (animation) {
       case AsciiAnimation.CONWAY:
         nextFrame = evolve;
         current = conway_populate(asciiWidth, asciiHeight);
+        break;
+      case AsciiAnimation.CUBE:
+        nextFrame = cube_next_frame
+        current = cube_init(asciiWidth, asciiHeight);
         break;
     }
 
@@ -47,7 +50,7 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number, animation: AsciiA
         // we've passed the time needed in between frames
         // so we can now update the state of the board
         then = now - (elapsed % fpsInterval);
-        evolved = nextFrame(current, size);
+        evolved = nextFrame(current, asciiWidth, asciiHeight);
         setFrameBuffer(evolved);
         current = [...evolved];
       }

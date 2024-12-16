@@ -1,6 +1,113 @@
+let zBuffer: number[] = []; // zBuffer is used by cube and donut
+let thetaA: number = 0;
+let thetaB: number = 0;
+let thetaC: number = 0;
+
 // collection of animations for use with AsciiDisplay
 
-// functions for conway's game of life
+// BEGIN CUBE
+const cube_calc_x = (i: number, j: number, k: number, 
+                    sinA: number, sinB: number, sinC: number, 
+                    cosA: number, cosB: number, cosC: number) => {
+    return (
+        j * sinA * sinB * cosC - k * cosA * 
+        sinB * cosC + j * cosA * sinC + k * 
+        sinA * sinC + i * cosB * cosC
+    );
+  }
+  
+const cube_calc_y = (i: number, j: number, k: number, 
+                    sinA: number, sinB: number, sinC: number, 
+                    cosA: number, cosB: number, cosC: number) => {
+    return (
+        j * cosA * cosC + k * sinA * cosC -
+        j * sinA * sinB * sinC + k * cosA * 
+        sinB * sinC - i * cosB * sinC
+    );
+}
+  
+const cube_calc_z = (i: number, j: number, k: number, 
+                sinA: number, sinB: number,
+                cosA: number, cosB: number ) => {
+    return (
+        k * cosA * cosB - j * 
+        sinA * cosB + i * sinB
+    );
+}
+
+const cube_calc_for_surface = (frameBuffer: string[], zBuffer: number[], 
+                        cubeX: number, cubeY: number, cubeZ: number, 
+                        ch: string, width: number, height: number) => {
+    const horizontalOffset: number = 15;
+    const distanceFromCamera: number = 100; 
+    const K1: number = 40; // screen distance for scaling
+    
+    const sinA: number = Math.sin(thetaA);
+    const sinB: number = Math.sin(thetaB);
+    const sinC: number = Math.sin(thetaC);
+    const cosA: number = Math.cos(thetaA);
+    const cosB: number = Math.cos(thetaB);
+    const cosC: number = Math.cos(thetaC);
+
+    const x: number = cube_calc_x(cubeX, cubeY, cubeZ, sinA, sinB, sinC, cosA, cosB, cosC);
+    const y: number = cube_calc_y(cubeX, cubeY, cubeZ, sinA, sinB, sinC, cosA, cosB, cosC);
+    const z: number = cube_calc_z(cubeX, cubeY, cubeZ, sinA, sinB, sinC, cosA) + distanceFromCamera;
+
+    let ooz: number = 1 / z;
+
+    const xp: number = Math.floor(width / 2 + horizontalOffset +  K1 * ooz * x * 2);
+    const yp: number = Math.floor(height / 2 + K1 * ooz * y);
+
+    const index: number = xp + yp * width;
+    
+    if (index >= 0 && index < width * height) {
+        if (ooz > zBuffer[index]) {
+    	    zBuffer[index] = ooz;
+    	    frameBuffer[index] = ch;
+        }
+    }
+    return;
+}
+
+export const cube_init = (width: number, height: number) => {
+    const buffer: string[] = []
+    for (let i = 0; i < width * height; i++) {
+        zBuffer.push(0);
+        buffer.push(' ');
+    }
+    return buffer;
+}
+
+export const cube_next_frame = (frameBuffer: string[], width: number, height: number) => {
+    for (let i = 0; i < width * height; i++) {
+        frameBuffer[i] = ' ';
+        zBuffer[i] = 0;
+    }
+
+    const incrementSpeed: number = 1;
+    const cubeWidth: number = 15;
+
+    for (let cubeX = -cubeWidth; cubeX < cubeWidth; cubeX += incrementSpeed) {
+        for (let cubeY = -cubeWidth; cubeY < cubeWidth; cubeY += incrementSpeed) {
+            cube_calc_for_surface(frameBuffer, zBuffer, cubeX, cubeY, -cubeWidth, '*', width, height);
+            cube_calc_for_surface(frameBuffer, zBuffer, cubeWidth, cubeY, cubeX, '$', width, height);
+            cube_calc_for_surface(frameBuffer, zBuffer, -cubeWidth, cubeY, -cubeX, '.', width, height);
+            cube_calc_for_surface(frameBuffer, zBuffer, -cubeX, cubeY, cubeWidth, '#', width, height);
+            cube_calc_for_surface(frameBuffer, zBuffer, cubeX, -cubeWidth, -cubeY, ';', width, height);
+            cube_calc_for_surface(frameBuffer, zBuffer, cubeX, cubeWidth, cubeY, '+', width, height);
+        }
+    }
+
+    thetaA += 0.05;
+    thetaB += 0.05;
+    thetaC += 0.01;
+    return frameBuffer;
+}
+
+// END CUBE
+
+
+// BEGIN CONWAY
 // creates a grid with randomly assigned cells for use in conway's game of life
 
 const conwayAlive: string = '*';
@@ -67,11 +174,13 @@ const next_state = (frameBuffer: string[], width: number, height: number, positi
     return finalState;
 }
 
-export const evolve = (frameBuffer: string[], size: number) => {
+export const evolve = (frameBuffer: string[], width: number, height: number) => {
     const changed: string[] = [];
-    for (let i = 0; i < size; i++) {
-        changed.push(next_state(frameBuffer, 95, 26, i)); // change later
+    for (let i = 0; i < width * height; i++) {
+        changed.push(next_state(frameBuffer, width, height, i)); // change later
     }
 
     return changed;
 }
+
+// END CONWAY
