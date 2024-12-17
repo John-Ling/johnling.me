@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import { evolve, conway_populate, cube_init, cube_next_frame, donut_next_frame, donut_init } from "./ascii-display/animations";
 import AsciiDisplay from "./ascii-display/ascii_display";
-import { AsciiAnimation } from "@/app/common";
+import { ANIMATIONS } from "@/app/common";
 import "/styles/globals.css";
 
-const Hero: React.FC<{asciiWidth: number, asciiHeight: number, animation: AsciiAnimation}> = ({asciiWidth, asciiHeight, animation}) => {
+const Hero: React.FC<{asciiWidth: number, asciiHeight: number, animation: string}> = ({asciiWidth, asciiHeight, animation}) => {
   const create = () => {
     const grid: string[] = [];
     for (let i = 0; i < asciiHeight * asciiWidth; i++) {
@@ -20,27 +20,33 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number, animation: AsciiA
   // animations for ascii display
   useEffect(() => {
     let current: string[];
+    let animationSpeed: number = 10;
     let nextFrame: (buffer: string[], width: number, height: number) => string[];
 
+
     switch (animation) {
-      case AsciiAnimation.CONWAY:
+      case "CONWAY":
         nextFrame = evolve;
         current = conway_populate(asciiWidth, asciiHeight);
         break;
-      case AsciiAnimation.CUBE:
+      case "CUBE":
         nextFrame = cube_next_frame
         current = cube_init(asciiWidth, asciiHeight);
+        animationSpeed = 12;
         break;
-      case AsciiAnimation.DONUT:
+      case "DONUT":
         nextFrame = donut_next_frame;
         current = donut_init(asciiWidth, asciiHeight);
+        animationSpeed = 20;
         break;
+      default:
+        return
     }
 
     // throttle the animation speed so things actually look good
-    const fpsInterval: number = 1000 / 20;
-    let then: number = Date.now();
+    const fpsInterval: number = 1000 / animationSpeed;
     let evolved: string[];
+    let then: number = Date.now();
     let now: number;
     let elapsed: number;
 

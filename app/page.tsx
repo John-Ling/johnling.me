@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
 
 import Hero from "@/components/hero";
 
-import { AsciiAnimation } from "./common";
+import { ANIMATIONS } from "./common";
 
 // images
 import myself from "../public/images/myself.jpg";
@@ -31,6 +31,12 @@ export default function Home() {
     })
     return;
   };
+
+  const select_animation = () => {
+    // pick random animation for ascii display
+    const rand: number = Math.floor(Math.random() * ANIMATIONS.length);
+    return ANIMATIONS[rand];
+  }
 
   const options = {
     root: null,
@@ -56,7 +62,7 @@ export default function Home() {
 
   return (
     <>
-      <Hero asciiWidth={95} asciiHeight={26}  animation={AsciiAnimation.DONUT}/>
+      <Hero asciiWidth={95} asciiHeight={26}  animation={select_animation()}/>
       <div className="flex flex-col items-center">
         <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-x-10 gap-y-10 lg:w-3/4">
           <div className="lg:w-1/2">
@@ -109,7 +115,7 @@ export default function Home() {
               Also we had a global pandemic the next year which gave me lots of time to learn how to build things
               instead of studying.
             </p>
-            <Link href="/projects" className="no-underline bg-grey-dark border-2 border-grey-light p-3 hover:bg-[#101010] hover:text-[#E0E0E0] " style={{}}>See My Projects</Link>
+            <Link href="/projects" className="no-underline bg-grey-dark  p-3 hover:bg-[#101010] hover:text-[#E0E0E0] " style={{}}>See My Projects</Link>
           </div>
           <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
             <Image loading="eager" className="-translate-y-10 -translate-x-5" src={printer} alt="3D printer the creator owns" />

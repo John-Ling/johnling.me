@@ -1,7 +1,7 @@
-export enum AsciiAnimation {
-    CONWAY,
-    CUBE,
-    DONUT,
-    MATRIX,
-    BAPPLE
-}
+export const ANIMATIONS: string[] = ["CONWAY", "CUBE", "DONUT"]
+
+// animations to implement
+//MATRIX,
+//BAPPLE
+//TETRIS
+//ABSTRACT (zoomed in donut)
