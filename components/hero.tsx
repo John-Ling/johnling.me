@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { evolve, conway_populate, cube_init, cube_next_frame } from "./ascii-display/animations";
+import { evolve, conway_populate, cube_init, cube_next_frame, donut_next_frame, donut_init } from "./ascii-display/animations";
 import AsciiDisplay from "./ascii-display/ascii_display";
 import { AsciiAnimation } from "@/app/common";
 import "/styles/globals.css";
@@ -31,10 +31,14 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number, animation: AsciiA
         nextFrame = cube_next_frame
         current = cube_init(asciiWidth, asciiHeight);
         break;
+      case AsciiAnimation.DONUT:
+        nextFrame = donut_next_frame;
+        current = donut_init(asciiWidth, asciiHeight);
+        break;
     }
 
     // throttle the animation speed so things actually look good
-    const fpsInterval: number = 1000 / 10;
+    const fpsInterval: number = 1000 / 20;
     let then: number = Date.now();
     let evolved: string[];
     let now: number;

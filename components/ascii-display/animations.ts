@@ -37,20 +37,12 @@ const cube_calc_z = (i: number, j: number, k: number,
 
 const cube_calc_for_surface = (frameBuffer: string[], zBuffer: number[], 
                         cubeX: number, cubeY: number, cubeZ: number, 
-                        ch: string, width: number, height: number) => {
+                        ch: string, width: number, height: number,
+                        sinA: number, sinB: number, sinC: number,
+                        cosA: number, cosB: number, cosC: number) => {
 
     const distanceFromCamera: number = 100;  // adjust to change size
     const K1: number = 40; // screen distance for scaling
-    
-    // precompute trig functions i believe it should reduce cpu usage
-    // and stop turning my laptop into a jet engine
-    const sinA: number = Math.sin(thetaA);
-    const sinB: number = Math.sin(thetaB);
-    const sinC: number = Math.sin(thetaC);
-    const cosA: number = Math.cos(thetaA);
-    const cosB: number = Math.cos(thetaB);
-    const cosC: number = Math.cos(thetaC);
-
     const x: number = cube_calc_x(cubeX, cubeY, cubeZ, sinA, sinB, sinC, cosA, cosB, cosC);
     const y: number = cube_calc_y(cubeX, cubeY, cubeZ, sinA, sinB, sinC, cosA, cosB, cosC);
     const z: number = cube_calc_z(cubeX, cubeY, cubeZ, sinA, sinB, cosA, cosB) + distanceFromCamera;
@@ -61,12 +53,14 @@ const cube_calc_for_surface = (frameBuffer: string[], zBuffer: number[],
     const yp: number = Math.floor(height / 2 + K1 * ooz * y);
 
     const index: number = xp + yp * width;
-    
-    if (index >= 0 && index < width * height) {
-        if (ooz > zBuffer[index]) {
-    	    zBuffer[index] = ooz;
-    	    frameBuffer[index] = ch;
-        }
+                            
+    if (index < 0 || index >= width * height) {
+        return;
+    }
+
+    if (ooz > zBuffer[index]) {
+        zBuffer[index] = ooz;
+        frameBuffer[index] = ch;
     }
     return;
 }
@@ -86,17 +80,37 @@ export const cube_next_frame = (frameBuffer: string[], width: number, height: nu
         zBuffer[i] = 0;
     }
 
-    const incrementSpeed: number = 0.6;
+    const incrementSpeed: number = 1;
     const cubeWidth: number = 15;
+
+    // precompute trig functions i believe it should reduce cpu usage
+    // and stop turning my laptop into a jet engine
+    const sinA: number = Math.sin(thetaA);
+    const sinB: number = Math.sin(thetaB);
+    const sinC: number = Math.sin(thetaC);
+    const cosA: number = Math.cos(thetaA);
+    const cosB: number = Math.cos(thetaB);
+    const cosC: number = Math.cos(thetaC);
 
     for (let cubeX = -cubeWidth; cubeX < cubeWidth; cubeX += incrementSpeed) {
         for (let cubeY = -cubeWidth; cubeY < cubeWidth; cubeY += incrementSpeed) {
-            cube_calc_for_surface(frameBuffer, zBuffer, cubeX, cubeY, -cubeWidth, '*', width, height);
-            cube_calc_for_surface(frameBuffer, zBuffer, cubeWidth, cubeY, cubeX, '$', width, height);
-            cube_calc_for_surface(frameBuffer, zBuffer, -cubeWidth, cubeY, -cubeX, '0', width, height);
-            cube_calc_for_surface(frameBuffer, zBuffer, -cubeX, cubeY, cubeWidth, '#', width, height);
-            cube_calc_for_surface(frameBuffer, zBuffer, cubeX, -cubeWidth, -cubeY, ':', width, height);
-            cube_calc_for_surface(frameBuffer, zBuffer, cubeX, cubeWidth, cubeY, '+', width, height);
+            cube_calc_for_surface(frameBuffer, zBuffer, cubeX, cubeY, -cubeWidth, '*', 
+                                    width, height, sinA, sinB, sinC, cosA, cosB, cosC);
+
+            cube_calc_for_surface(frameBuffer, zBuffer, cubeWidth, cubeY, cubeX, '$', 
+                                    width, height, sinA, sinB, sinC, cosA, cosB, cosC);
+
+            cube_calc_for_surface(frameBuffer, zBuffer, -cubeWidth, cubeY, -cubeX, '0', 
+                                    width, height, sinA, sinB, sinC, cosA, cosB, cosC);
+
+            cube_calc_for_surface(frameBuffer, zBuffer, -cubeX, cubeY, cubeWidth, '#', 
+                                    width, height, sinA, sinB, sinC, cosA, cosB, cosC);
+                                    
+            cube_calc_for_surface(frameBuffer, zBuffer, cubeX, -cubeWidth, -cubeY, ':', 
+                                    width, height, sinA, sinB, sinC, cosA, cosB, cosC);
+
+            cube_calc_for_surface(frameBuffer, zBuffer, cubeX, cubeWidth, cubeY, '+', 
+                                    width, height, sinA, sinB, sinC, cosA, cosB, cosC);
         }
     }
 
@@ -108,6 +122,115 @@ export const cube_next_frame = (frameBuffer: string[], width: number, height: nu
 
 // END CUBE
 
+// BEGIN DONUT
+
+// r1 = radius
+// r2 = donut is centered at point (r2, 0, 0)
+
+const donut_calc_x = (r1: number, r2: number, sinTheta: number, sinPhi: number, cosTheta: number, 
+                    cosPhi: number, sinA: number, sinB: number, cosA: number, cosB: number) => {
+    return (r2 + r1 * cosTheta) * (cosB * cosPhi + sinA * sinB * sinPhi) - r1 * cosA * sinB * sinTheta;
+}
+
+const donut_calc_y = (r1: number, r2: number, sinTheta: number, sinPhi: number, cosTheta: number, 
+                    cosPhi: number, sinA: number, sinB: number, cosA: number, cosB: number) => {
+    return (r2 + r1 * cosTheta) * (cosPhi * sinB - cosB * sinA * sinPhi) + r1 * cosA * cosB * sinTheta;
+}
+
+const donut_calc_z = (r1: number, r2: number, sinTheta: number, sinPhi: number, cosTheta: number, 
+                    sinA: number, cosA: number) => {
+    return cosA * (r2 + r1 * cosTheta) * sinPhi + r1 * sinA * sinTheta;
+}
+
+const donut_calc_for_surface = (frameBuffer: string[], zBuffer: number[], width: number, height: number, 
+                                r1: number, r2: number, sinA: number, sinB: number, cosA: number,
+                                cosB: number, sinTheta: number, sinPhi: number, cosTheta: number,
+                                cosPhi: number) => {
+
+    const distanceFromCamera: number = 110;  // adjust to change size
+    const K1: number = 40; // screen distance for scaling
+
+    const x: number = donut_calc_x(r1, r2, sinTheta, sinPhi, cosTheta, cosPhi, sinA, sinB, cosA, cosB);
+    const y: number = donut_calc_y(r1, r2, sinTheta, sinPhi, cosTheta, cosPhi, sinA, sinB, cosA, cosB);
+    const z: number = donut_calc_z(r1, r2, sinTheta, sinPhi, cosTheta, sinA, cosA) + distanceFromCamera;
+
+    let ooz: number = 1 / z;
+
+    const xp: number = Math.floor(width / 2 +  K1 * ooz * x);
+    const yp: number = Math.floor(height / 2 - K1 * ooz * y);
+
+    const index: number = xp + yp * width;
+
+    // calculate brightness / luminance of pixel
+    const luminance: number = cosPhi * cosTheta * sinB - 
+                            cosA * cosTheta * sinPhi - sinA * 
+                            sinTheta + cosB * 
+                            (cosA * sinTheta - cosTheta * sinA * sinPhi);
+
+    if (luminance <= 0) {
+        return;
+    }
+
+    if (index < 0 || index >= width * height) {
+        return;
+    }
+                                  
+    if (ooz > zBuffer[index]) {
+        zBuffer[index] = ooz;
+        // set correct character for frame buffer
+        const luminanceIndex = Math.floor(luminance * 8);
+        frameBuffer[index] = ".,-~:;=!*#$@"[luminanceIndex];
+    }
+
+    return;
+}
+
+export const donut_init = (width: number, height: number) => {
+    const buffer: string[] = []
+    for (let i = 0; i < width * height; i++) {
+        zBuffer.push(0);
+        buffer.push(' ');
+    }
+    return buffer;
+}
+
+export const donut_next_frame = (frameBuffer: string[], width: number, height: number) => {
+    for (let i = 0; i < width * height; i++) {
+        frameBuffer[i] = ' ';
+        zBuffer[i] = 0;
+    }
+
+    const R1: number = 15;
+    const R2: number = 25;
+
+    const PI: number = Math.PI;
+    const thetaSpacing: number = 0.07;
+    const phiSpacing: number = 0.02;
+
+    const sinA: number = Math.sin(thetaA);
+    const sinB: number = Math.sin(thetaB);
+    const cosA: number = Math.cos(thetaA);
+    const cosB: number = Math.cos(thetaB);
+
+    for (let theta = 0; theta < 2 * PI; theta += thetaSpacing) {
+        const sinTheta: number = Math.sin(theta);
+        const cosTheta: number = Math.cos(theta);
+        for (let phi = 0; phi < 2 * PI; phi += phiSpacing) {
+            const sinPhi: number = Math.sin(phi);
+            const cosPhi: number = Math.cos(phi);
+
+            donut_calc_for_surface(frameBuffer, zBuffer, width, height, R1, R2, sinA, 
+                                sinB, cosA, cosB, sinTheta, sinPhi, cosTheta, cosPhi);
+        }
+    }
+
+    thetaA += 0.04;
+    thetaB += 0.02;
+    return frameBuffer;
+}
+
+
+// END DONUT
 
 // BEGIN CONWAY
 // creates a grid with randomly assigned cells for use in conway's game of life
