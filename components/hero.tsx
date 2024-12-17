@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { evolve, conway_populate, cube_init, cube_next_frame, donut_next_frame, donut_init } from "./ascii-display/animations";
+import { evolve, conway_populate, cube_init, cube_next_frame, donut_next_frame, donut_init, abstract_next_frame } from "./ascii-display/animations";
 import AsciiDisplay from "./ascii-display/ascii_display";
 import { ANIMATIONS } from "@/app/common";
 import "/styles/globals.css";
@@ -38,6 +38,11 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number, animation: string
         nextFrame = donut_next_frame;
         current = donut_init(asciiWidth, asciiHeight);
         animationSpeed = 20;
+        break;
+      case "ABSTRACT":
+        nextFrame = abstract_next_frame;
+        current = donut_init(asciiWidth, asciiHeight);
+        animationSpeed = 10;
         break;
       default:
         return

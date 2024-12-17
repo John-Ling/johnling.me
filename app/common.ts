@@ -1,4 +1,4 @@
-export const ANIMATIONS: string[] = ["CONWAY", "CUBE", "DONUT"]
+export const ANIMATIONS: string[] = ["CONWAY", "CUBE", "DONUT", "ABSTRACT"]
 
 // animations to implement
 //MATRIX,

@@ -232,6 +232,45 @@ export const donut_next_frame = (frameBuffer: string[], width: number, height: n
 
 // END DONUT
 
+// BEGIN ABSTRACT
+
+export const abstract_next_frame = (frameBuffer: string[], width: number, height: number) => {
+    for (let i = 0; i < width * height; i++) {
+        frameBuffer[i] = ' ';
+        zBuffer[i] = 0;
+    }
+
+    const R1: number = 30;
+    const R2: number = 20;
+
+    const PI: number = Math.PI;
+    const thetaSpacing: number = 0.07;
+    const phiSpacing: number = 0.02;
+
+    const sinA: number = Math.sin(thetaA);
+    const sinB: number = Math.sin(thetaB);
+    const cosA: number = Math.cos(thetaA);
+    const cosB: number = Math.cos(thetaB);
+
+    for (let theta = 0; theta < 2 * PI; theta += thetaSpacing) {
+        const sinTheta: number = Math.sin(theta);
+        const cosTheta: number = Math.cos(theta);
+        for (let phi = 0; phi < 2 * PI; phi += phiSpacing) {
+            const sinPhi: number = Math.sin(phi);
+            const cosPhi: number = Math.cos(phi);
+
+            donut_calc_for_surface(frameBuffer, zBuffer, width, height, R1, R2, sinA, 
+                                sinB, cosA, cosB, sinTheta, sinPhi, cosTheta, cosPhi);
+        }
+    }
+
+    thetaA += 0.04;
+    thetaB += 0.02;
+    return frameBuffer;
+}
+
+// END ABSTRACT
+
 // BEGIN CONWAY
 // creates a grid with randomly assigned cells for use in conway's game of life
 
