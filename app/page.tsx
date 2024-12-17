@@ -35,7 +35,6 @@ export default function Home() {
   const select_animation = () => {
     // pick random animation for ascii display
     const rand: number = Math.floor(Math.random() * ANIMATIONS.length);
-    return "ABSTRACT";
     return ANIMATIONS[rand];
   }
 
@@ -53,7 +52,6 @@ export default function Home() {
       observer.observe(element);
     })
 
-
     return (() => {
       elements.forEach((element: Element) => {
         observer.unobserve(element);
@@ -69,11 +67,10 @@ export default function Home() {
           <div className="lg:w-1/2">
             <h2 className="text-5xl text-red">Who?</h2>
             <h3 className="text-3xl mb-3 mt-3">A bit more about me</h3>
-            <p className="mb-5">Hello there. In case the bright orange lettering wasn&apos;t apparent, I&apos;m John.</p>
-            <p>I&apos;m a developer who enjoys making things by sinking excessive amounts of time into programming.
-            The first version of this website was created way back in 2022 to act as a portfolio to employers.</p>
-            <p className="hidden md:block ">It also acts as a personal website, something I feel is dying out as the web becomes more centralised.</p>
-            <p className="mt-5">When not writing code, I enjoy the piano, building simple circuits and repairing electronics.</p>
+            <p className="mb-5">Currently based in Australia, I'm studying Computer Science at university.</p>
+            <p className="mb-5">When not studying and trying my best to do my best. I've always enjoyed building things and picked up programming as a way of doing so.</p>
+            <p className="mb-5">The first version of this website was built way back in 2022 originally as a part of a course. Since then, however, I&apos;ve kept it around as my own personal website.</p>
+            <p>Beyond programming, I enjoy the piano, building simple circuits and repairing electronics.</p>
           </div>
           <div className="lg:w-1/2">
             <Image  className="opacity-0 hidden-fade [--delay:100ms]" src={myself} alt="Picture of the creator of the website"/>
@@ -89,10 +86,9 @@ export default function Home() {
             <h3 className="text-3xl mb-3 mt-3">The tools I use</h3>
             <p className="mb-5">I&apos;ve been programming for a while now so I&apos;m used to picking up languages for one-off projects such as C++ or Java.
             However I would definitely say I&apos;m most comfortable with Python, Javascript and maybe some C.</p>
-            <p className="mb-5">I don&apos;t exactly subscribe to a particular &quot;Tech Stack&quot;. I believe limiting yourself to only the latest and greatest 
-              only promotes tribalism.</p>
-            <p>My same feelings apply to looking down on other tools as &quot;outdated&quot; or old. Both new and old have strengths and weaknesses.</p>
-            <p className="mb-5">So long as the result accomplishes it&apos;s goal and is decent looking and secure, I see no problems.</p>
+            <p className="mb-5">I don&apos;t subscribe to a particular &quot;Tech Stack&quot; since I don&apos;t like limiting myself.</p>
+            <p className="mb-5">This sentiment is reflected in my opinion on &quot;outdated&quot; tools. Both new and old frameworks have strengths and weaknesses.</p>
+            <p className="mb-5">It can be easy to become fixated on technical details so it's important to view the big picture sometimes. So long as the result accomplishes it&apos;s goal and is decent looking and secure, I don&apos;t have a problem.</p>
             <p>In my opinion, the KISS (Keep It Simple Stupid) philosophy is a very valid approach to development 
               so I like to use the right tools rather than the hottest ones.</p>
           </div>
@@ -129,7 +125,7 @@ export default function Home() {
         <section className="min-h-screen flex flex-col justify-center items-center">
           <h2 className="text-5xl text-magenta">Where?</h2>
           <h3 className="text-3xl mb-3 mt-3">(can you find me)</h3>
-          <div className="p-5">
+          <div className="p-5 opacity-0 hidden-fade [--delay:100ms]">
             <a href="https://www.linkedin.com/in/john-ling-721721243/" className="opacity-0 hidden-fade [--delay:100ms] p-2 no-underline hover:text-[#cdcdcd]"><i className="text-6xl md:text-7xl devicon-linkedin-plain"></i></a>
             <a href="https://github.com/John-Ling" className="opacity-0 hidden-fade [--delay:200ms] p-2 no-underline hover:text-[#cdcdcd]"><i className="text-6xl md:text-7xl devicon-github-original"></i></a>
           </div>
@@ -139,11 +135,10 @@ export default function Home() {
           <div className="p-5 md:w-1/2">
             <h2 className="text-5xl text-green">Why?</h2>
             <h3 className="text-3xl mb-3 mt-3">Why code?</h3>
-            <p className="mb-5">As corporate as it sounds, I enjoy applying theory and skills I know to build things for myself and others to assist in their everyday lives. Even if it&apos;s in a relatively trivial way.</p>
-            <p>Whether it be a Raspberry Pi powered dashboard, facial detection tracking camera systems for hybrid learning, productivity web apps or a compiler for A level students, </p>
-            <p className="mb-5">at the end of the day all my projects are made with a desire to help others even in a minor way.</p>
-            <p className="mb-5">Just like how electronics and mechanical systems can be used to solve a problem, software is yet another solution with its own unique benefits and drawbacks.</p>
-            <p>Hope you enjoyed the website :)</p>
+            <p className="mb-5">As insincere as it sounds, I enjoy applying theory and skills I know to build things for myself and help others.</p>
+            <p className="mb-5">While I enjoy programming as a hobby for myself first and foremost, my dream is to be able to make something with a positive impact on someone even in a minor way.</p>
+            <p className="mb-5">I'm not quite sure what that thing will be but until that happens, I'm more than happy building things for my own amusement.</p>
+            <p>Thanks for visiting. Hope you enjoyed the website :)</p>
           </div>
         </section>
       </div>
