@@ -1,10 +1,9 @@
 import { useEffect, useState, useRef } from "react";
 import { evolve, conway_populate, cube_init, cube_next_frame, donut_next_frame, donut_init, abstract_next_frame } from "./ascii-display/animations";
 import AsciiDisplay from "./ascii-display/ascii_display";
-import { ANIMATIONS } from "@/app/common";
 import "/styles/globals.css";
 
-const Hero: React.FC<{asciiWidth: number, asciiHeight: number, animation: string}> = ({asciiWidth, asciiHeight, animation}) => {
+const Hero: React.FC<{ asciiWidth: number, asciiHeight: number, animation: string }> = ({ asciiWidth, asciiHeight, animation }) => {
   const create = () => {
     const grid: string[] = [];
     for (let i = 0; i < asciiHeight * asciiWidth; i++) {
@@ -19,10 +18,10 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number, animation: string
 
   // animations for ascii display
   useEffect(() => {
+    console.log("Animation useeffect");
     let current: string[];
     let animationSpeed: number = 10;
     let nextFrame: (buffer: string[], width: number, height: number) => string[];
-
 
     switch (animation) {
       case "CONWAY":
@@ -45,7 +44,7 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number, animation: string
         animationSpeed = 15;
         break;
       default:
-        return
+        return;
     }
 
     // throttle the animation speed so things actually look good
@@ -75,14 +74,17 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number, animation: string
     return () => {
       cancelAnimationFrame(animationRequestID.current);
     };
-  }, [asciiWidth, asciiHeight]); 
+  }, [asciiWidth, asciiHeight]);
 
   return (
-    <div className="flex items-center h-[calc(100vh-40px)]">
+    <div className="flex items-center flex-col lg:flex-row h-[calc(100vh-40px)]">
       <div className="flex flex-col justify-center p-10 border-2 border-grey-light lg:border-0 bg-grey-dark lg:bg-grey-normal lg:w-1/3">
         <div className="text-6xl z-0">
           <h1 className="opacity-0 animate-fade-up [--delay:100ms]" >Hello,</h1>
           <h1 className="opacity-0 animate-fade-up [--delay:200ms]" ><span className="opacity">I&apos;m </span><span className="text-orange">John</span></h1>
+        </div>
+        <div className="lg:hidden">
+          <AsciiDisplay frameBuffer={frameBuffer} rowWidth={asciiWidth} />
         </div>
         <div className="mt-12" >
           <p className="mb-5 opacity-0 animate-fade-up [--delay:300ms]">I make things.</p>
@@ -91,8 +93,8 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number, animation: string
           <p className="mb-5 opacity-0 animate-fade-up [--delay:600ms]">My projects tend to be web-based, but learning new things is fun so they can vary.</p>
         </div>
       </div>
-      <div className="hidden lg:block m-auto ">
-        <div className="bg-grey-dark border-2 border-grey-light mt-2 mb-2 opacity-0 animate-fade-up [--delay:700ms] ascii-display">
+      <div className="m-auto ">
+        <div className="bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up [--delay:700ms]">
           <AsciiDisplay frameBuffer={frameBuffer} rowWidth={asciiWidth} />
         </div>
       </div>

@@ -21,7 +21,12 @@ import web_design from "../public/images/web_design_is_my_passion.jpg";
 
 import "/styles/devicon.min.css";
 
+
 export default function Home() {
+  const [width, setWidth] = useState<number>(95);
+  const [height, setHeight] = useState<number>(26);
+  const [animation, setAnimation] = useState<string>("");
+
   const update_entries = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
     entries.forEach((entry: IntersectionObserverEntry) => {
       if (entry.isIntersecting) {
@@ -45,6 +50,7 @@ export default function Home() {
     threshold:  0.5,
   };
 
+  // attach intersection observers for on-scroll animations
   useEffect(() => {
     const observer = new IntersectionObserver(update_entries, options)
     const elements = document.querySelectorAll(".hidden-fade");
@@ -60,17 +66,58 @@ export default function Home() {
     })
   });
 
+
+  // dynamically set width and height of ascii display
+  useEffect(() => {
+    console.log("Resizing use effect");
+    const windowWidth: number = window.innerWidth;
+    
+    let newWidth: number = 95;
+    let newHeight: number = 26;
+    let newAnimation: string = select_animation();
+    // values taken from tailwindcss breakpoint values
+    // https://tailwindcss.com/docs/screens
+    if (windowWidth >= 1536) { // 2xl
+      newWidth = 120;
+      newHeight = 30;
+    } else if (windowWidth >= 1280) { // xl
+      newWidth = 95;
+      newHeight = 26;
+    } else if (windowWidth >= 1024) { // lg
+      newWidth = 95;
+      newHeight = 20;
+    } else if (windowWidth >= 768) { // md
+      newWidth = 80;
+      newHeight = 18;
+      newAnimation = "CUBE";
+    } else if (windowWidth >= 640) { // sm
+      newWidth = 50;
+      newHeight = 15;
+    } else { 
+      newWidth = 25;
+      newHeight = 15;
+    }
+    setWidth(newWidth);
+    setHeight(newHeight);
+    setAnimation(newAnimation);
+    return;
+  }, [])
+
   return (
     <>
-      <Hero asciiWidth={95} asciiHeight={26}  animation={select_animation()}/>
+      <Hero asciiWidth={width} asciiHeight={height} animation={animation}/> 
       <div className="flex flex-col items-center">
         <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-x-10 gap-y-10 lg:w-3/4">
           <div className="lg:w-1/2">
-            <h2 className="text-5xl text-red">Who?</h2>
+            <h2 className="text-5xl sm:text-orange md:text-green 2xl:text-magenta xl:text-red lg:text-blue">Who?</h2>
             <h3 className="text-3xl mb-3 mt-3">A bit more about me</h3>
             <p className="mb-5">Currently based in Australia, I'm studying Computer Science at university.</p>
-            <p className="mb-5">When not studying and trying my best to do my best. I've always enjoyed building things and picked up programming as a way of doing so.</p>
-            <p className="mb-5">The first version of this website was built way back in 2022 originally as a part of a course. Since then, however, I&apos;ve kept it around as my own personal website.</p>
+            <p className="mb-5">When not studying and trying my best to do my best. I've always enjoyed 
+              building things and picked up programming as a way of doing so.
+            </p>
+            <p className="mb-5">The first version of this website was built way back in 2022 originally as a 
+              part of a course. Since then, however, I&apos;ve kept it around as my own personal website.
+            </p>
             <p>Beyond programming, I enjoy the piano, building simple circuits and repairing electronics.</p>
           </div>
           <div className="lg:w-1/2">
@@ -85,10 +132,13 @@ export default function Home() {
             <div className="order-1 lg:w-1/2">
             <h2 className="text-5xl text-yellow">What?</h2>
             <h3 className="text-3xl mb-3 mt-3">The tools I use</h3>
-            <p className="mb-5">I&apos;ve been programming for a while now so I&apos;m used to picking up languages for one-off projects such as C++ or Java.
-            However I would definitely say I&apos;m most comfortable with Python, Javascript and maybe some C.</p>
+            <p className="mb-5">I&apos;ve been programming for a while now so I&apos;m used to picking up 
+              languages for one-off projects such as C++ or Java.However I would definitely say I&apos;m 
+              most comfortable with Python, Javascript and maybe some C.</p>
             <p className="mb-5">I don&apos;t subscribe to a particular &quot;Tech Stack&quot; since I don&apos;t like limiting myself.</p>
-            <p className="mb-5">This sentiment is reflected in my opinion on &quot;outdated&quot; tools. Both new and old frameworks have strengths and weaknesses.</p>
+            <p className="mb-5">This sentiment is reflected in my opinion on &quot;outdated&quot; tools. Both new and old frameworks have
+               strengths and weaknesses.
+              </p>
             <p className="mb-5">It can be easy to become fixated on technical details so it's important to view the big picture sometimes. 
               So long as the result accomplishes it&apos;s goal and is decent looking and secure, I don&apos;t have a problem.
             </p>
@@ -115,7 +165,7 @@ export default function Home() {
               Also we had a global pandemic the next year which gave me lots of time to learn how to build things
               instead of studying.
             </p>
-            <Link href="/projects" className="no-underline bg-grey-dark  p-3 hover:bg-[#101010] hover:text-[#E0E0E0] " style={{}}>See My Projects</Link>
+            <Link href="/projects" className="no-underline bg-grey-dark p-3 hover:bg-[#101010] hover:text-[#E0E0E0]">See My Projects</Link>
           </div>
           <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
             <Image loading="eager" className="-translate-y-10 -translate-x-5" src={printer} alt="3D printer the creator owns" />
@@ -129,8 +179,12 @@ export default function Home() {
           <h2 className="text-5xl text-magenta">Where?</h2>
           <h3 className="text-3xl mb-3 mt-3">(can you find me)</h3>
           <div className="p-5 opacity-0 hidden-fade [--delay:100ms]">
-            <a href="https://www.linkedin.com/in/john-ling-721721243/" className="opacity-0 hidden-fade [--delay:100ms] p-2 no-underline hover:text-[#cdcdcd]"><i className="text-6xl md:text-7xl devicon-linkedin-plain"></i></a>
-            <a href="https://github.com/John-Ling" className="opacity-0 hidden-fade [--delay:200ms] p-2 no-underline hover:text-[#cdcdcd]"><i className="text-6xl md:text-7xl devicon-github-original"></i></a>
+            <a href="https://www.linkedin.com/in/john-ling-721721243/" className="opacity-0 hidden-fade [--delay:100ms] p-2 no-underline hover:text-[#cdcdcd]">
+              <i className="text-6xl md:text-7xl devicon-linkedin-plain"></i>
+            </a>
+            <a href="https://github.com/John-Ling" className="opacity-0 hidden-fade [--delay:200ms] p-2 no-underline hover:text-[#cdcdcd]">
+              <i className="text-6xl md:text-7xl devicon-github-original"></i>
+            </a>
           </div>
         </section>
 
@@ -138,9 +192,12 @@ export default function Home() {
           <div className="p-5 md:w-1/2">
             <h2 className="text-5xl text-green">Why?</h2>
             <h3 className="text-3xl mb-3 mt-3">Why code?</h3>
-            <p className="mb-5">As insincere as it sounds, it&apos;s the truth. I enjoy applying theory and skills I know to build things for myself and help others.</p>
-            <p className="mb-5">While I enjoy programming as a hobby for myself first and foremost, my dream is to be able to make something with a positive impact on someone even in a minor way.</p>
-            <p className="mb-5">I'm not quite sure what that thing will be but until that happens, I'm more than happy creating things for myself.</p>
+            <p className="mb-5">As insincere as it sounds, it&apos;s the truth. I enjoy applying theory and 
+              skills I know to build things for myself and help others.</p>
+            <p className="mb-5">While I enjoy programming as a hobby for myself first and foremost, 
+              my dream is to be able to make something with a positive impact on someone even in a minor way.</p>
+            <p className="mb-5">I'm not quite sure what that thing will be but until that happens, 
+              I'm more than happy creating things for myself.</p>
             <p>Thanks for visiting. Hope you enjoyed the website :)</p>
           </div>
         </section>
