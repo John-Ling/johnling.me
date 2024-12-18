@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -20,9 +20,10 @@ import "/styles/devicon.min.css";
 
 
 export default function Home() {
-
   const init_width = () => {
-    console.log("Setting width");
+    if (typeof window === "undefined") {
+      return 25;
+    }
     const windowWidth: number = window.innerWidth;
     if (windowWidth >= 1536) { return 120; } 
     else if (windowWidth >= 1280) { return 95; } 
@@ -33,7 +34,11 @@ export default function Home() {
   }
 
   const init_height = () => {
+    if (typeof window === "undefined") {
+      return 15;
+    }
     const windowWidth: number = window.innerWidth;
+
     if (windowWidth >= 1536) { return 30; } 
     else if (windowWidth >= 1280) { return 26; }
     else if (windowWidth >= 1024) { return 20; }
@@ -97,9 +102,9 @@ export default function Home() {
           <div className="lg:w-1/2">
             <h2 className="text-5xl text-red">Who?</h2>
             <h3 className="text-3xl mb-3 mt-3">A bit more about me</h3>
-            <p className="mb-5">Currently based in Australia, I'm studying Computer Science at university.</p>
-            <p className="mb-5">When not studying and trying my best to do my best. I've always enjoyed 
-              building things and picked up programming as a way of doing so.
+            <p className="mb-5">Currently based in Australia, I&apos;m studying Computer Science at university.</p>
+            <p className="mb-5">When not studying. I&apos;ve always enjoyed building things and 
+              picked up programming as a way of doing so. 
             </p>
             <p className="mb-5">The first version of this website was built way back in 2022 originally as a 
               part of a course. Since then, however, I&apos;ve kept it around as my own personal website.
@@ -125,7 +130,7 @@ export default function Home() {
             <p className="mb-5">This sentiment is reflected in my opinion on &quot;outdated&quot; tools. Both new and old frameworks have
                strengths and weaknesses.
               </p>
-            <p className="mb-5">It can be easy to become fixated on technical details so it's important to view the big picture sometimes. 
+            <p className="mb-5">It can be easy to become fixated on technical details so it&apos;s important to view the big picture sometimes. 
               So long as the result accomplishes it&apos;s goal and is decent looking and secure, I don&apos;t have a problem.
             </p>
             <p>In my opinion, the KISS (Keep It Simple Stupid) philosophy is a very valid approach to development 
@@ -181,8 +186,8 @@ export default function Home() {
               skills I know to build things for myself and help others.</p>
             <p className="mb-5">While I enjoy programming as a hobby for myself first and foremost, 
               my dream is to be able to make something with a positive impact on someone even in a minor way.</p>
-            <p className="mb-5">I'm not quite sure what that thing will be but until that happens, 
-              I'm more than happy creating things for myself.</p>
+            <p className="mb-5">&apos;m not quite sure what that thing will be but until that happens, 
+              I&apos;m more than happy creating things for myself.</p>
             <p>Thanks for visiting. Hope you enjoyed the website :)</p>
           </div>
         </section>

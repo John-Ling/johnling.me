@@ -1,4 +1,4 @@
-let zBuffer: number[] = []; // zBuffer is used by cube and donut
+const zBuffer: number[] = []; // zBuffer is used by cube and donut
 let thetaA: number = 0;
 let thetaB: number = 0;
 let thetaC: number = 0;
@@ -47,7 +47,7 @@ const cube_calc_for_surface = (frameBuffer: string[], zBuffer: number[],
     const y: number = cube_calc_y(cubeX, cubeY, cubeZ, sinA, sinB, sinC, cosA, cosB, cosC);
     const z: number = cube_calc_z(cubeX, cubeY, cubeZ, sinA, sinB, cosA, cosB) + distanceFromCamera;
 
-    let ooz: number = 1 / z;
+    const ooz: number = 1 / z;
 
     const xp: number = Math.floor(width / 2 +  K1 * ooz * x * 2);
     const yp: number = Math.floor(height / 2 + K1 * ooz * y);
@@ -155,7 +155,8 @@ const donut_calc_for_surface = (frameBuffer: string[], zBuffer: number[], width:
     const x: number = donut_calc_x(r1, r2, sinTheta, sinPhi, cosTheta, cosPhi, sinA, sinB, cosA, cosB);
     const y: number = donut_calc_y(r1, r2, sinTheta, sinPhi, cosTheta, cosPhi, sinA, sinB, cosA, cosB);
     const z: number = donut_calc_z(r1, r2, sinTheta, sinPhi, cosTheta, sinA, cosA) + distanceFromCamera;
-    let ooz: number = 1 / z;
+
+    const ooz: number = 1 / z;
 
     const xp: number = Math.floor(width / 2 +  K1 * ooz * x);
     const yp: number = Math.floor(height / 2 - K1 * ooz * y);

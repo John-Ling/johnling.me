@@ -112,7 +112,8 @@ const ProjectItem: React.FC<{project: Project, position: number}> = ({ project, 
   const colours: string[] = ["text-blue", "text-magenta", "text-teal", "text-green", "text-yellow", "text-orange", "text-red"];
   const colourClass: string = colours[position % colours.length];
   return (
-    <div className="bg-grey-normal border-2 border-grey-light p-3 opacity-0 animate-fade-up" style={{'--delay': `${100*(position+1)}ms`}}>
+    // eslint-disable-next-line no-use-before-define
+    <div className={`bg-grey-normal border-2 border-grey-light p-3 opacity-0 animate-fade-up`} style={{'--delay': `${100*(position+1)}ms`}}> 
       <h2 className={`text-2xl mb-2 mt-2 ${colourClass}`}>{project.title}</h2>
       <h3 className="text-sm mb-2">{project.dateRange}</h3>
       <p className="mb-2">{project.description}</p>

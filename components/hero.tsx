@@ -15,6 +15,7 @@ const Hero: React.FC<{ asciiWidth: number, asciiHeight: number, animation: strin
   // frame buffer for ascii display
   const [frameBuffer, setFrameBuffer] = useState<string[]>(create);
   const animationRequestID = useRef<number>(0);
+  const [rendered, setRendered] = useState<boolean>(false);
 
   // animations for ascii display
   useEffect(() => {
@@ -36,7 +37,7 @@ const Hero: React.FC<{ asciiWidth: number, asciiHeight: number, animation: strin
       case "DONUT":
         nextFrame = donut_next_frame;
         current = donut_init(asciiWidth, asciiHeight);
-        animationSpeed = 12;
+        animationSpeed = 25;
         break;
       case "ABSTRACT":
         nextFrame = abstract_next_frame;
@@ -74,7 +75,12 @@ const Hero: React.FC<{ asciiWidth: number, asciiHeight: number, animation: strin
     return () => {
       cancelAnimationFrame(animationRequestID.current);
     };
-  }, [asciiWidth, asciiHeight]);
+  }, [asciiWidth, asciiHeight, animation]);
+
+  useEffect(() => {
+    setRendered(true);
+    return;
+  }, [])
 
   return (
     <div className="flex items-center flex-col lg:flex-row h-[calc(100vh-40px)]">
@@ -84,7 +90,7 @@ const Hero: React.FC<{ asciiWidth: number, asciiHeight: number, animation: strin
           <h1 className="opacity-0 animate-fade-up [--delay:200ms]" ><span className="opacity">I&apos;m </span><span className="text-orange">John</span></h1>
         </div>
         <div className="lg:hidden">
-          <AsciiDisplay frameBuffer={frameBuffer} rowWidth={asciiWidth} />
+          { rendered ? <AsciiDisplay frameBuffer={frameBuffer} rowWidth={asciiWidth} /> : <></>}
         </div>
         <div className="mt-12" >
           <p className="mb-5 opacity-0 animate-fade-up [--delay:300ms]">I make things.</p>
@@ -95,7 +101,7 @@ const Hero: React.FC<{ asciiWidth: number, asciiHeight: number, animation: strin
       </div>
       <div className="m-auto ">
         <div className="bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up [--delay:700ms]">
-          <AsciiDisplay frameBuffer={frameBuffer} rowWidth={asciiWidth} />
+          { rendered ? <AsciiDisplay frameBuffer={frameBuffer} rowWidth={asciiWidth} /> : <></>}
         </div>
       </div>
     </div>
