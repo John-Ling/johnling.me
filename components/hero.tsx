@@ -42,7 +42,7 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number, animation: string
       case "ABSTRACT":
         nextFrame = abstract_next_frame;
         current = donut_init(asciiWidth, asciiHeight);
-        animationSpeed = 10;
+        animationSpeed = 15;
         break;
       default:
         return
@@ -92,7 +92,7 @@ const Hero: React.FC<{asciiWidth: number, asciiHeight: number, animation: string
         </div>
       </div>
       <div className="hidden lg:block m-auto ">
-        <div className="bg-grey-dark border-2 border-grey-light mt-2 mb-2 opacity-0 animate-fade-up [--delay:700ms]">
+        <div className="bg-grey-dark border-2 border-grey-light mt-2 mb-2 opacity-0 animate-fade-up [--delay:700ms] ascii-display">
           <AsciiDisplay frameBuffer={frameBuffer} rowWidth={asciiWidth} />
         </div>
       </div>

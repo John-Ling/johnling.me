@@ -142,18 +142,19 @@ const donut_calc_z = (r1: number, r2: number, sinTheta: number, sinPhi: number, 
     return cosA * (r2 + r1 * cosTheta) * sinPhi + r1 * sinA * sinTheta;
 }
 
+
+// donut is a bit squished try fix taht 
 const donut_calc_for_surface = (frameBuffer: string[], zBuffer: number[], width: number, height: number, 
                                 r1: number, r2: number, sinA: number, sinB: number, cosA: number,
                                 cosB: number, sinTheta: number, sinPhi: number, cosTheta: number,
                                 cosPhi: number) => {
 
-    const distanceFromCamera: number = 110;  // adjust to change size
-    const K1: number = 40; // screen distance for scaling
+    const distanceFromCamera: number = 60;  // adjust to change size
+    const K1: number = 30; // screen distance for scaling
 
     const x: number = donut_calc_x(r1, r2, sinTheta, sinPhi, cosTheta, cosPhi, sinA, sinB, cosA, cosB);
     const y: number = donut_calc_y(r1, r2, sinTheta, sinPhi, cosTheta, cosPhi, sinA, sinB, cosA, cosB);
     const z: number = donut_calc_z(r1, r2, sinTheta, sinPhi, cosTheta, sinA, cosA) + distanceFromCamera;
-
     let ooz: number = 1 / z;
 
     const xp: number = Math.floor(width / 2 +  K1 * ooz * x);
@@ -166,7 +167,6 @@ const donut_calc_for_surface = (frameBuffer: string[], zBuffer: number[], width:
                             cosA * cosTheta * sinPhi - sinA * 
                             sinTheta + cosB * 
                             (cosA * sinTheta - cosTheta * sinA * sinPhi);
-
     if (luminance <= 0) {
         return;
     }
@@ -200,10 +200,9 @@ export const donut_next_frame = (frameBuffer: string[], width: number, height: n
         zBuffer[i] = 0;
     }
 
-    const R1: number = 15;
-    const R2: number = 25;
+    const R1: number = 10;
+    const R2: number = 20;
 
-    const PI: number = Math.PI;
     const thetaSpacing: number = 0.07;
     const phiSpacing: number = 0.02;
 
@@ -212,10 +211,10 @@ export const donut_next_frame = (frameBuffer: string[], width: number, height: n
     const cosA: number = Math.cos(thetaA);
     const cosB: number = Math.cos(thetaB);
 
-    for (let theta = 0; theta < 2 * PI; theta += thetaSpacing) {
+    for (let theta = 0; theta < 2 * 6.28; theta += thetaSpacing) {
         const sinTheta: number = Math.sin(theta);
         const cosTheta: number = Math.cos(theta);
-        for (let phi = 0; phi < 2 * PI; phi += phiSpacing) {
+        for (let phi = 0; phi < 2 * 6.28; phi += phiSpacing) {
             const sinPhi: number = Math.sin(phi);
             const cosPhi: number = Math.cos(phi);
 
@@ -241,9 +240,8 @@ export const abstract_next_frame = (frameBuffer: string[], width: number, height
     }
 
     const R1: number = 30;
-    const R2: number = 20;
+    const R2: number = 10;
 
-    const PI: number = Math.PI;
     const thetaSpacing: number = 0.07;
     const phiSpacing: number = 0.02;
 
@@ -252,10 +250,10 @@ export const abstract_next_frame = (frameBuffer: string[], width: number, height
     const cosA: number = Math.cos(thetaA);
     const cosB: number = Math.cos(thetaB);
 
-    for (let theta = 0; theta < 2 * PI; theta += thetaSpacing) {
+    for (let theta = 0; theta < 6.28; theta += thetaSpacing) {
         const sinTheta: number = Math.sin(theta);
         const cosTheta: number = Math.cos(theta);
-        for (let phi = 0; phi < 2 * PI; phi += phiSpacing) {
+        for (let phi = 0; phi < 6.28; phi += phiSpacing) {
             const sinPhi: number = Math.sin(phi);
             const cosPhi: number = Math.cos(phi);
 

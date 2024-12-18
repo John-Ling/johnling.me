@@ -36,6 +36,7 @@ export default function Home() {
     // pick random animation for ascii display
     const rand: number = Math.floor(Math.random() * ANIMATIONS.length);
     return ANIMATIONS[rand];
+    return "";
   }
 
   const options = {
@@ -88,7 +89,9 @@ export default function Home() {
             However I would definitely say I&apos;m most comfortable with Python, Javascript and maybe some C.</p>
             <p className="mb-5">I don&apos;t subscribe to a particular &quot;Tech Stack&quot; since I don&apos;t like limiting myself.</p>
             <p className="mb-5">This sentiment is reflected in my opinion on &quot;outdated&quot; tools. Both new and old frameworks have strengths and weaknesses.</p>
-            <p className="mb-5">It can be easy to become fixated on technical details so it's important to view the big picture sometimes. So long as the result accomplishes it&apos;s goal and is decent looking and secure, I don&apos;t have a problem.</p>
+            <p className="mb-5">It can be easy to become fixated on technical details so it's important to view the big picture sometimes. 
+              So long as the result accomplishes it&apos;s goal and is decent looking and secure, I don&apos;t have a problem.
+            </p>
             <p>In my opinion, the KISS (Keep It Simple Stupid) philosophy is a very valid approach to development 
               so I like to use the right tools rather than the hottest ones.</p>
           </div>
@@ -96,9 +99,9 @@ export default function Home() {
 
         <section className="min-h-screen w-full flex flex-col items-center justify-center lg:flex-row p-5 gap-x-10 gap-y-10">
           <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
-            <Image loading="eager" className="translate-y-16" src={server} alt="The creator's first server setup"  />
-            <Image className="-translate-y-5 -translate-x-10 col-start-3" src={web_design} alt="Fantastic web design"  />
-            <Image className="col-start-2 col-span-2 translate-y-16 translate-x-5" src={laptop_1} alt="Creator's laptop with some nice code" />
+            <Image loading="eager" className="col-start-2 -translate-x-12 -translate-y-8" src={server} alt="The creator's first server setup"  />
+            <Image className="col-start-3 translate-x-4" src={web_design} alt="Fantastic web design"  />
+            <Image className="col-start-2 col-span-2 translate-y-7 " src={laptop_1} alt="Creator's laptop with some nice code" />
           </div>
           <div className="lg:w-1/2">
             <h2 className="text-5xl text-blue">When?</h2>
@@ -135,9 +138,9 @@ export default function Home() {
           <div className="p-5 md:w-1/2">
             <h2 className="text-5xl text-green">Why?</h2>
             <h3 className="text-3xl mb-3 mt-3">Why code?</h3>
-            <p className="mb-5">As insincere as it sounds, I enjoy applying theory and skills I know to build things for myself and help others.</p>
+            <p className="mb-5">As insincere as it sounds, it&apos;s the truth. I enjoy applying theory and skills I know to build things for myself and help others.</p>
             <p className="mb-5">While I enjoy programming as a hobby for myself first and foremost, my dream is to be able to make something with a positive impact on someone even in a minor way.</p>
-            <p className="mb-5">I'm not quite sure what that thing will be but until that happens, I'm more than happy building things for my own amusement.</p>
+            <p className="mb-5">I'm not quite sure what that thing will be but until that happens, I'm more than happy creating things for myself.</p>
             <p>Thanks for visiting. Hope you enjoyed the website :)</p>
           </div>
         </section>
