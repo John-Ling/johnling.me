@@ -15,7 +15,6 @@ import electronics_1 from "../public/images/electronics_1.jpg";
 import electronics_2 from "../public/images/electronics_2.jpg";
 import printer from "../public/images/printer.jpg"
 import server from "../public/images/server.jpg";
-import web_design from "../public/images/web_design_is_my_passion.jpg";
 
 import "/styles/devicon.min.css";
 
@@ -136,9 +135,9 @@ export default function Home() {
 
         <section className="min-h-screen w-full flex flex-col items-center justify-center lg:flex-row p-5 gap-x-10 gap-y-10">
           <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
-            <Image loading="eager" className="col-start-2 -translate-x-12 -translate-y-8" src={server} alt="The creator's first server setup"  />
-            <Image className="col-start-3 translate-x-4" src={web_design} alt="Fantastic web design"  />
-            <Image className="col-start-2 col-span-2 translate-y-7 " src={laptop_1} alt="Creator's laptop with some nice code" />
+            <Image loading="eager" className="col-start-2 -translate-x-12 -translate-y-12" src={server} alt="The creator's first server setup"  />
+            <Image className="col-start-3 -translate-x-4 translate-y-8" src={pc} alt="The creator's first computer" />
+            <Image className="col-start-2 col-span-2 -translate-x-8 translate-y-20 " src={laptop_1} alt="Creator's laptop with some nice code" />
           </div>
           <div className="lg:w-1/2">
             <h2 className="text-5xl text-blue">When?</h2>
@@ -155,10 +154,9 @@ export default function Home() {
             <Link href="/projects" className="no-underline bg-grey-dark p-3 hover:bg-[#101010] hover:text-[#E0E0E0]">See My Projects</Link>
           </div>
           <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
-            <Image loading="eager" className="-translate-y-10 -translate-x-5" src={printer} alt="3D printer the creator owns" />
-            <Image className="col-start-2" src={electronics_2} alt="Some basic electronics the creator built to learn circuits" />
-            <Image loading="eager" className="translate-y-12" src={pc} alt="Photo of the creator's first computer"  />
-            <Image className="row-start-2 col-span-2" src={electronics_1} alt="More electronics"  />
+          <Image className="col-start-1 col-span-2 -translate-x-16" src={electronics_1} alt="More electronics"  />
+          <Image className="col-start-2 row-start-2 translate-x-4 translate-y-8" src={electronics_2} alt="Some basic electronics the creator built to learn circuits" />
+          <Image loading="eager" className="row-start-3 -translate-y-16" src={printer} alt="3D printer the creator owns" />
           </div>
         </section>
 
