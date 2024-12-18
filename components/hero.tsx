@@ -36,7 +36,7 @@ const Hero: React.FC<{ asciiWidth: number, asciiHeight: number, animation: strin
       case "DONUT":
         nextFrame = donut_next_frame;
         current = donut_init(asciiWidth, asciiHeight);
-        animationSpeed = 20;
+        animationSpeed = 12;
         break;
       case "ABSTRACT":
         nextFrame = abstract_next_frame;

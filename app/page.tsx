@@ -7,8 +7,6 @@ import Link from "next/link";
 
 import Hero from "@/components/hero";
 
-import { ANIMATIONS } from "./common";
-
 // images
 import myself from "../public/images/myself.jpg";
 import pc from "../public/images/pc.jpg";
@@ -23,9 +21,27 @@ import "/styles/devicon.min.css";
 
 
 export default function Home() {
-  const [width, setWidth] = useState<number>(95);
-  const [height, setHeight] = useState<number>(26);
-  const [animation, setAnimation] = useState<string>("");
+
+  const init_width = () => {
+    console.log("Setting width");
+    const windowWidth: number = window.innerWidth;
+    if (windowWidth >= 1536) { return 120; } 
+    else if (windowWidth >= 1280) { return 95; } 
+    else if (windowWidth >= 1024) { return 95; }
+    else if (windowWidth >= 768) { return 80; } 
+    else if (windowWidth >= 640) { return 50; } 
+    else { return 25; }
+  }
+
+  const init_height = () => {
+    const windowWidth: number = window.innerWidth;
+    if (windowWidth >= 1536) { return 30; } 
+    else if (windowWidth >= 1280) { return 26; }
+    else if (windowWidth >= 1024) { return 20; }
+    else if (windowWidth >= 768) { return 18; }
+    else if (windowWidth >= 640) { return 15; }
+    else { return 15; }
+  }
 
   const update_entries = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
     entries.forEach((entry: IntersectionObserverEntry) => {
@@ -38,6 +54,14 @@ export default function Home() {
   };
 
   const select_animation = () => {
+    const ANIMATIONS: string[] = ["CONWAY", "CUBE", "DONUT", "ABSTRACT"]
+    // animations to implement
+    //MATRIX,
+    //BAPPLE
+    //TETRIS
+    // DVD screensaver
+    // windows pipes?
+
     // pick random animation for ascii display
     const rand: number = Math.floor(Math.random() * ANIMATIONS.length);
     return ANIMATIONS[rand];
@@ -66,50 +90,13 @@ export default function Home() {
     })
   });
 
-
-  // dynamically set width and height of ascii display
-  useEffect(() => {
-    console.log("Resizing use effect");
-    const windowWidth: number = window.innerWidth;
-    
-    let newWidth: number = 95;
-    let newHeight: number = 26;
-    let newAnimation: string = select_animation();
-    // values taken from tailwindcss breakpoint values
-    // https://tailwindcss.com/docs/screens
-    if (windowWidth >= 1536) { // 2xl
-      newWidth = 120;
-      newHeight = 30;
-    } else if (windowWidth >= 1280) { // xl
-      newWidth = 95;
-      newHeight = 26;
-    } else if (windowWidth >= 1024) { // lg
-      newWidth = 95;
-      newHeight = 20;
-    } else if (windowWidth >= 768) { // md
-      newWidth = 80;
-      newHeight = 18;
-      newAnimation = "CUBE";
-    } else if (windowWidth >= 640) { // sm
-      newWidth = 50;
-      newHeight = 15;
-    } else { 
-      newWidth = 25;
-      newHeight = 15;
-    }
-    setWidth(newWidth);
-    setHeight(newHeight);
-    setAnimation(newAnimation);
-    return;
-  }, [])
-
   return (
     <>
-      <Hero asciiWidth={width} asciiHeight={height} animation={animation}/> 
+      <Hero asciiWidth={init_width()} asciiHeight={init_height()} animation={select_animation()}/> 
       <div className="flex flex-col items-center">
         <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-x-10 gap-y-10 lg:w-3/4">
           <div className="lg:w-1/2">
-            <h2 className="text-5xl sm:text-orange md:text-green 2xl:text-magenta xl:text-red lg:text-blue">Who?</h2>
+            <h2 className="text-5xl text-red">Who?</h2>
             <h3 className="text-3xl mb-3 mt-3">A bit more about me</h3>
             <p className="mb-5">Currently based in Australia, I'm studying Computer Science at university.</p>
             <p className="mb-5">When not studying and trying my best to do my best. I've always enjoyed 
