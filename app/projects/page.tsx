@@ -100,7 +100,7 @@ const Page = () => {
       <div className="min-h-screen lg:w-3/4 m-auto">
         <div className="grid grid-cols-3 bg-grey-dark border-2 border-grey-light gap-5 p-5 m-5">  
           {projects.map((project: Project, i: number) => {
-            return <ProjectItem key={i} project={project} position={i} />
+            return <ProjectItem key={i} project={project} position={i} delay={(i + 1) * 100} />
           })}
         </div>
       </div>
@@ -108,12 +108,12 @@ const Page = () => {
   )
 }
 
-const ProjectItem: React.FC<{project: Project, position: number}> = ({ project, position }) => {
+const ProjectItem: React.FC<{project: Project, position: number, delay: number}> = ({ project, position, delay }) => {
   const colours: string[] = ["text-blue", "text-magenta", "text-teal", "text-green", "text-yellow", "text-orange", "text-red"];
   const colourClass: string = colours[position % colours.length];
   return (
     // eslint-disable-next-line no-use-before-define
-    <div className={`bg-grey-normal border-2 border-grey-light p-3 opacity-0 animate-fade-up`} style={{'--delay': `${100*(position+1)}ms`}}> 
+    <div className={`bg-grey-normal border-2 border-grey-light p-3 opacity-0 animate-fade-up`} style={{'--delay': `${100*(position+1)}ms`}} > 
       <h2 className={`text-2xl mb-2 mt-2 ${colourClass}`}>{project.title}</h2>
       <h3 className="text-sm mb-2">{project.dateRange}</h3>
       <p className="mb-2">{project.description}</p>

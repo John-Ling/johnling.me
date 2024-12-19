@@ -103,11 +103,9 @@ export default function Home() {
             <h2 className="text-5xl text-red">Who?</h2>
             <h3 className="text-3xl mb-3 mt-3">A bit more about me</h3>
             <p className="mb-5">Currently based in Australia, I&apos;m studying Computer Science at university.</p>
-            <p className="mb-5">When not studying. I&apos;ve always enjoyed building things and 
-              picked up programming as a way of doing so. 
-            </p>
+            <p className="mb-5">When not studying, I&apos;ve always enjoyed building things and picked up programming as a way of doing so.</p>
             <p className="mb-5">The first version of this website was built way back in 2022 originally as a 
-              part of a course. Since then, however, I&apos;ve kept it around as my own personal website.
+              part of an online course. Since then, however, I&apos;ve kept it around as my own personal website.
             </p>
             <p>Beyond programming, I enjoy the piano, building simple circuits and repairing electronics.</p>
           </div>
@@ -124,15 +122,9 @@ export default function Home() {
             <h2 className="text-5xl text-yellow">What?</h2>
             <h3 className="text-3xl mb-3 mt-3">The tools I use</h3>
             <p className="mb-5">I&apos;ve been programming for a while now so I&apos;m used to picking up 
-              languages for one-off projects such as C++ or Java.However I would definitely say I&apos;m 
+              languages for one-off projects such as C++ or Java. However I would definitely say I&apos;m 
               most comfortable with Python, Javascript and maybe some C.</p>
             <p className="mb-5">I don&apos;t subscribe to a particular &quot;Tech Stack&quot; since I don&apos;t like limiting myself.</p>
-            <p className="mb-5">This sentiment is reflected in my opinion on &quot;outdated&quot; tools. Both new and old frameworks have
-               strengths and weaknesses.
-              </p>
-            <p className="mb-5">It can be easy to become fixated on technical details so it&apos;s important to view the big picture sometimes. 
-              So long as the result accomplishes it&apos;s goal and is decent looking and secure, I don&apos;t have a problem.
-            </p>
             <p>In my opinion, the KISS (Keep It Simple Stupid) philosophy is a very valid approach to development 
               so I like to use the right tools rather than the hottest ones.</p>
           </div>
@@ -147,15 +139,12 @@ export default function Home() {
           <div className="lg:w-1/2">
             <h2 className="text-5xl text-blue">When?</h2>
             <h3 className="text-3xl mb-3 mt-3">Where it all began</h3>
-            <p className="mb-5">While I had taken some Python introductory classes the year before, 
+            <p className="mb-5">While I had taken some introductory Python classes the year before, 
               my first real project was created in September 2019. It was an automated kahoot player
-              using the Selenium library which while primitive, was something I was proud of since 
+              using the Selenium library which while primitive, was something I was proud of as something 
               I built myself. I even tested it in my class much to the confusion of my teacher.
             </p>
-            <p className="mb-10">I had a lot of fun making it so I&apos;ve continued programming ever since. 
-              Also we had a global pandemic the next year which gave me lots of time to learn how to build things
-              instead of studying.
-            </p>
+            <p className="mb-10">I had a lot of fun making it so I&apos;ve continued programming and have created quite a few projects.</p>
             <Link href="/projects" className="no-underline bg-grey-dark p-3 hover:bg-[#101010] hover:text-[#E0E0E0]">See My Projects</Link>
           </div>
           <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
@@ -169,26 +158,26 @@ export default function Home() {
           <h2 className="text-5xl text-magenta">Where?</h2>
           <h3 className="text-3xl mb-3 mt-3">(can you find me)</h3>
           <div className="p-5 opacity-0 hidden-fade [--delay:100ms]">
-            <a href="https://www.linkedin.com/in/john-ling-721721243/" className="opacity-0 hidden-fade [--delay:100ms] p-2 no-underline hover:text-[#cdcdcd]">
+            <a href="https://www.linkedin.com/in/john-ling-721721243/" className="opacity-0 hidden-fade [--delay:100ms] p-2 no-underline hover:text-orange">
               <i className="text-6xl md:text-7xl devicon-linkedin-plain"></i>
             </a>
-            <a href="https://github.com/John-Ling" className="opacity-0 hidden-fade [--delay:200ms] p-2 no-underline hover:text-[#cdcdcd]">
+            <a href="https://github.com/John-Ling" className="opacity-0 hidden-fade [--delay:200ms] p-2 no-underline hover:text-orange">
               <i className="text-6xl md:text-7xl devicon-github-original"></i>
             </a>
           </div>
-          <a href="mailto:johnlingbusiness@gmail.com">johnlingbusiness@gmail.com</a>
+          <a className="opacity-0 hidden-fade [--delay:300ms] no-underline" href="mailto:johnlingbusiness@gmail.com">johnlingbusiness@gmail.com</a>
         </section>
 
         <section className="min-h-screen flex justify-center items-center">
           <div className="p-5 md:w-1/2">
             <h2 className="text-5xl text-green">Why?</h2>
             <h3 className="text-3xl mb-3 mt-3">Why code?</h3>
-            <p className="mb-5">As insincere as it sounds, it&apos;s the truth. I enjoy applying theory and 
+            <p className="mb-5">As insincere as it sounds, it&apos;s the truth. I enjoy applying the theory and 
               skills I know to build things for myself and help others.</p>
             <p className="mb-5">While I enjoy programming as a hobby for myself first and foremost, 
-              my dream is to be able to make something with a positive impact on someone even in a minor way.</p>
-            <p className="mb-5">&apos;m not quite sure what that thing will be but until that happens, 
-              I&apos;m more than happy creating things for myself.</p>
+              my dream is to be able to create something with a positive impact on someone even in a minor way.</p>
+            <p className="mb-5">I&apos;m not quite sure what that thing will be but until that happens, 
+              I&apos;m more than happy making things for myself.</p>
             <p>Thanks for visiting. Hope you enjoyed the website :)</p>
           </div>
         </section>
