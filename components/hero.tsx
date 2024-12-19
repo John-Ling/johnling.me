@@ -83,15 +83,18 @@ const Hero: React.FC<{ asciiWidth: number, asciiHeight: number, animation: strin
   }, [])
 
   return (
-    <div className="flex items-center flex-col lg:flex-row h-[calc(100vh-40px)]">
+    <>
+      { rendered ? <span className="absolute"><AsciiDisplay frameBuffer={frameBuffer} rowWidth={asciiWidth} /></span> : <></>}
+      <div className="flex items-center justify-center flex-col lg:flex-row h-[calc(100vh-40px)]">
       <div className="flex flex-col justify-center p-10 border-2 border-grey-light lg:border-0 bg-grey-dark lg:bg-grey-normal lg:w-1/3">
-        <div className="text-6xl z-0">
-          <h1 className="opacity-0 animate-fade-up [--delay:100ms]" >Hello,</h1>
+        <div className="text-6xl z-0 font-extrabold">
+          <h1 className="opacity-0 animate-fade-up [--delay:100ms] " >Hello,</h1>
           <h1 className="opacity-0 animate-fade-up [--delay:200ms]" ><span className="opacity">I&apos;m </span><span className="text-orange">John</span></h1>
         </div>
-        <div className="lg:hidden">
+        
+        {/* <div className="lg:hidden">
           { rendered ? <AsciiDisplay frameBuffer={frameBuffer} rowWidth={asciiWidth} /> : <></>}
-        </div>
+        </div> */}
         <div className="mt-12" >
           <p className="mb-5 opacity-0 animate-fade-up [--delay:300ms]">I make things.</p>
           <p className="mb-5 opacity-0 animate-fade-up [--delay:400ms]">I&apos;m a full-stack developer who enjoys staring at screens for hours to build cool things for themselves and others.</p>
@@ -99,12 +102,14 @@ const Hero: React.FC<{ asciiWidth: number, asciiHeight: number, animation: strin
           <p className="mb-5 opacity-0 animate-fade-up [--delay:600ms]">My projects tend to be web-based, but learning new things is fun so they can vary.</p>
         </div>
       </div>
-      <div className="m-auto ">
+      {/* <div className="m-auto ">
         <div className="bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up [--delay:700ms]">
           { rendered ? <AsciiDisplay frameBuffer={frameBuffer} rowWidth={asciiWidth} /> : <></>}
         </div>
-      </div>
+      </div> */}
     </div>
+    </>
+    
   )
 }
 

@@ -21,6 +21,8 @@ import "/styles/devicon.min.css";
 
 export default function Home() {
   const init_width = () => {
+
+    return 200;
     if (typeof window === "undefined") {
       return 25;
     }
@@ -34,6 +36,8 @@ export default function Home() {
   }
 
   const init_height = () => {
+
+    return 35;
     if (typeof window === "undefined") {
       return 15;
     }
@@ -58,7 +62,7 @@ export default function Home() {
   };
 
   const select_animation = () => {
-    const ANIMATIONS: string[] = ["CONWAY", "CUBE", "DONUT", "ABSTRACT"]
+    const ANIMATIONS: string[] = ["CONWAY", "CUBE", "DONUT"]
     // animations to implement
     //MATRIX,
     //BAPPLE
@@ -68,8 +72,9 @@ export default function Home() {
 
     // pick random animation for ascii display
     const rand: number = Math.floor(Math.random() * ANIMATIONS.length);
-    return ANIMATIONS[rand];
     return "";
+    return ANIMATIONS[rand];
+    
   }
 
   const options = {
