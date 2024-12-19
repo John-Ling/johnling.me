@@ -21,8 +21,6 @@ import "/styles/devicon.min.css";
 
 export default function Home() {
   const init_width = () => {
-
-    return 200;
     if (typeof window === "undefined") {
       return 25;
     }
@@ -36,8 +34,6 @@ export default function Home() {
   }
 
   const init_height = () => {
-
-    return 35;
     if (typeof window === "undefined") {
       return 15;
     }
@@ -72,7 +68,6 @@ export default function Home() {
 
     // pick random animation for ascii display
     const rand: number = Math.floor(Math.random() * ANIMATIONS.length);
-    return "";
     return ANIMATIONS[rand];
     
   }

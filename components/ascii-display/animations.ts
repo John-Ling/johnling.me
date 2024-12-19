@@ -1,7 +1,15 @@
-const zBuffer: number[] = []; // zBuffer is used by cube and donut
+let zBuffer: number[] = []; // zBuffer is used by cube and donut
 let thetaA: number = 0;
 let thetaB: number = 0;
 let thetaC: number = 0;
+
+export const reset_animations = () => {
+    zBuffer = [];
+    thetaA = 0;
+    thetaB = 0;
+    thetaC = 0;
+    return;
+}
 
 // collection of animations for use with AsciiDisplay
 
