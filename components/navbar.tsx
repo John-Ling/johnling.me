@@ -15,8 +15,8 @@ const Navbar = () => {
     { name: "Home", target: "/" },
     { name: "Projects", target: "/projects" },
     { name: "Blog", target: "/blog" },
-    { name: "Contact", target: "/contact"},
-    { name: "Resume", target: "/resume"},
+    { name: "Contact", target: "/#contact"},
+    { name: "Resume", target: "https://drive.google.com/file/d/1y_VlkkFUaFXCCYF-WO-EDnCOfMHy_F90/view?usp=sharing"},
   ];
  
   // status of mobile menu

@@ -93,21 +93,31 @@ const Hero: React.FC<{ asciiWidth: number, asciiHeight: number, animation: strin
         </div>
         <div className="opacity-0 animate-fade-up [--delay:300ms]">
           <a href="https://www.linkedin.com/in/john-ling-721721243/" className="opacity-0 animate-fade-up [--delay:300ms]" target="_blank" rel="noopener">
-            <LinkedInIcon sx={{ fontSize: 40}}></LinkedInIcon>
+            <LinkedInIcon sx={{ fontSize: 40}}/>
           </a>
           <a href="https://github.com/John-Ling/" className="opacity-0 animate-fade-up [--delay:400ms]" target="_blank" rel="noopener">
-            <GitHubIcon sx={{ fontSize: 35}}></GitHubIcon>
+            <GitHubIcon sx={{ fontSize: 35}}/>
           </a>
-          <a href="/" className="opacity-0 animate-fade-up [--delay:500ms]" target="_blank" rel="noopener"><EmailIcon sx={{ fontSize: 35}}></EmailIcon></a>
-          <a href="/" className="opacity-0 animate-fade-up [--delay:600ms]" target="_blank" rel="noopener"><DescriptionIcon sx={{ fontSize: 35}}></DescriptionIcon></a>
+          <a href="mailto:johnlingbusiness@gmail.com" className="opacity-0 animate-fade-up [--delay:500ms]">
+            <EmailIcon sx={{ fontSize: 35}}/>
+          </a>
+          <a href="https://drive.google.com/file/d/1y_VlkkFUaFXCCYF-WO-EDnCOfMHy_F90/view?usp=sharing" 
+            className="opacity-0 animate-fade-up [--delay:600ms]" target="_blank" rel="noopener">
+              <DescriptionIcon sx={{ fontSize: 35}}/>
+          </a>
         </div>
         <div className="lg:hidden">
           { rendered ? <AsciiDisplay frameBuffer={frameBuffer} rowWidth={asciiWidth} /> : <></>}
         </div>
         <div className="mt-6" >
           <p className="mb-5 opacity-0 animate-fade-up [--delay:300ms]">I make things.</p>
-          <p className="mb-5 opacity-0 animate-fade-up [--delay:400ms]">I&apos;m a full-stack developer who enjoys staring at screens for hours to build cool things for themselves and others.</p>
-          <p className="hidden mb-5 md:block opacity-0 animate-fade-up [--delay:500ms]">Computers are super interesting (in my opinion) so I study Computer Science at the University of Melbourne.</p>
+          <p className="mb-5 opacity-0 animate-fade-up [--delay:400ms]">
+            I&apos;m a full-stack developer who enjoys staring at screens for hours 
+            to build cool things for themselves and others.
+          </p>
+          <p className="hidden mb-5 md:block opacity-0 animate-fade-up [--delay:500ms]">
+            Computers are super interesting (in my opinion) so I study Computer Science at the University of Melbourne.
+          </p>
           <p className="mb-5 opacity-0 animate-fade-up [--delay:600ms]">My projects tend to be web-based, but learning new things is fun so they can vary.</p>
         </div>
       </div>

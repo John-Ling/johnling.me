@@ -165,7 +165,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="min-h-screen flex flex-col justify-center items-center">
+        <section className="min-h-screen flex flex-col justify-center items-center" id="contact">
           <h2 className="text-5xl text-magenta">Where?</h2>
           <h3 className="text-3xl mb-3 mt-3">(can you find me)</h3>
           <div className="p-5 opacity-0 hidden-fade [--delay:100ms]">
@@ -176,6 +176,7 @@ export default function Home() {
               <i className="text-6xl md:text-7xl devicon-github-original"></i>
             </a>
           </div>
+          <a href="mailto:johnlingbusiness@gmail.com">johnlingbusiness@gmail.com</a>
         </section>
 
         <section className="min-h-screen flex justify-center items-center">
