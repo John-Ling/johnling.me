@@ -44,7 +44,7 @@ const config: Config = {
       },
       // maybe create own bezier curve for nicer animation doesn't feel right rn
       animation: {
-        "fade-up" : "fade_up 0.5s ease-out var(--delay, 0) forwards",
+        "fade-up" : "fade_up 0.5s ease-out forwards",
         "fade-down" : "fade_down 0.5s ease-out var(--delay, 0) forwards",
       },
       fontFamily: {
