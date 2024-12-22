@@ -59,7 +59,6 @@ export default function Home() {
     // pick random animation for ascii display
     const rand: number = Math.floor(Math.random() * ANIMATIONS.length);
     return ANIMATIONS[rand];
-    
   }
 
   // idea when skills icon container is detected as intersecting get all items below it (they will have a special class)
@@ -69,14 +68,24 @@ export default function Home() {
   const update_entries = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
     entries.forEach((entry: IntersectionObserverEntry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("animate-fade-up");
-
         // trigger skill animations when skill display is visible
-        if (entry.target.id === "skills-display") {
-          const elements = document.querySelectorAll(".skill-icon");
-          elements.forEach((element: Element) => {
-            element.classList.add("animate-fade-up");
-          });
+
+        switch(entry.target.id)
+        {
+          case "skills-display":
+            entry.target.classList.add("animate-fade-up");
+            document.querySelectorAll(".skill-icon").forEach((element: Element) => {
+              element.classList.add("animate-fade-up");
+            });  
+            break;
+          case "where-section":
+            console.log("where section");
+            document.querySelectorAll(".where-section-picture").forEach((element: Element) => {
+              element.classList.add("animate-fade-up");
+            });
+            break;
+          default:
+            entry.target.classList.add("animate-fade-up");
         }
         observer.unobserve(entry.target);
         
@@ -95,7 +104,7 @@ export default function Home() {
   // attach intersection observers for on-scroll animations
   useEffect(() => {
     const observer = new IntersectionObserver(update_entries, options)
-    const elements = document.querySelectorAll(".hidden-fade");
+    const elements = document.querySelectorAll(".trigger-on-scroll");
 
     elements.forEach((element: Element) => {
       observer.observe(element);
@@ -124,13 +133,13 @@ export default function Home() {
             <p>Beyond programming, I enjoy the piano, building simple circuits and repairing electronics.</p>
           </div>
           <div className="lg:w-1/2">
-            <Image  className="opacity-0 hidden-fade" src={myself} alt="Picture of the creator of the website"/>
+            <Image  className="opacity-0 trigger-on-scroll" src={myself} alt="Picture of the creator of the website"/>
           </div>
         </section>
         
         <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-x-10 gap-y-10 lg:w-3/4">
           <div 
-            className="lg:w-1/2 flex flex-wrap basis-[21/100] justify-center bg-grey-dark border-2 border-grey-light order-2 md:order-1 gap-5 pt-10 pb-10 opacity-0 hidden-fade"
+            className="lg:w-1/2 flex flex-wrap basis-[21/100] justify-center bg-grey-dark border-2 border-grey-light order-2 md:order-1 gap-5 pt-10 pb-10 opacity-0 trigger-on-scroll"
             id="skills-display"
           > 
             <SkillsDisplay />
@@ -149,11 +158,18 @@ export default function Home() {
 
         <section className="min-h-screen w-full flex flex-col items-center justify-center lg:flex-row p-5 gap-x-10 gap-y-10">
           <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
-            <Image loading="eager" className="col-start-2 -translate-x-12 -translate-y-12" src={server} alt="The creator's first server setup"  />
-            <Image className="col-start-3 -translate-x-4 translate-y-8" src={pc} alt="The creator's first computer" />
-            <Image className="col-start-2 col-span-2 -translate-x-8 translate-y-20 " src={laptop_1} alt="Creator's laptop with some nice code" />
+            <div className="where-section-picture opacity-0 col-start-2">
+              <Image loading="eager" className=" -translate-x-12 -translate-y-12" src={server} alt="The creator's first server setup" />
+            </div>
+            <div className="where-section-picture opacity-0 col-start-3 ">
+              <Image className="-translate-x-4 translate-y-8" 
+                src={pc} alt="The creator's first computer" />
+            </div>
+            <div className="where-section-picture opacity-0 col-start-2 col-span-2 " style={{animationDelay: "300ms"}}>
+              <Image className="-translate-x-8 translate-y-20" src={laptop_1} alt="Creator's laptop with some nice code"/>
+            </div>
           </div>
-          <div className="lg:w-1/2">
+          <div className="lg:w-1/2 trigger-on-scroll" id="where-section">
             <h2 className="text-5xl text-blue">When?</h2>
             <h3 className="text-3xl mb-3 mt-3">Where it all began</h3>
             <p className="mb-5">While I had taken some introductory Python classes the year before, 
@@ -165,24 +181,30 @@ export default function Home() {
             <Link href="/projects" className="no-underline bg-grey-dark p-3 hover:bg-[#101010] hover:text-[#E0E0E0]">See My Projects</Link>
           </div>
           <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
-          <Image className="col-start-1 col-span-2 -translate-x-16" src={electronics_1} alt="More electronics"  />
-          <Image className="col-start-2 row-start-2 translate-x-4 translate-y-8" src={electronics_2} alt="Some basic electronics the creator built to learn circuits" />
-          <Image loading="eager" className="row-start-3 -translate-y-16" src={printer} alt="3D printer the creator owns" />
+            <div className="where-section-picture opacity-0 col-start-1 col-span-2 " style={{animationDelay: "100ms"}}>
+              <Image className="-translate-x-16" src={electronics_1} alt="More electronics" />
+            </div>
+            <div className="where-section-picture opacity-0 col-start-2 row-start-2" style={{animationDelay: "300ms"}}>
+              <Image className="translate-x-4 translate-y-8 " src={electronics_2} alt="Some basic electronics the creator built to learn circuits" />
+            </div>
+            <div className="where-section-picture opacity-0 row-start-3" style={{animationDelay: "200ms"}}>
+              <Image loading="eager" className="-translate-y-16" src={printer} alt="3D printer the creator owns" />
+            </div>
           </div>
         </section>
 
         <section className="min-h-screen flex flex-col justify-center items-center" id="contact">
           <h2 className="text-5xl text-magenta">Where?</h2>
           <h3 className="text-3xl mb-3 mt-3">(can you find me)</h3>
-          <div className="p-5 opacity-0 hidden-fade" style={{animationDelay: "100ms"}}>
-            <a href="https://www.linkedin.com/in/john-ling-721721243/" className="opacity-0 hidden-fade p-2 no-underline hover:text-orange" style={{animationDelay: "100ms"}}>
+          <div className="p-5 opacity-0 trigger-on-scroll" style={{animationDelay: "100ms"}}>
+            <a href="https://www.linkedin.com/in/john-ling-721721243/" className="opacity-0 trigger-on-scroll p-2 no-underline hover:text-orange" style={{animationDelay: "100ms"}}>
               <i className="text-6xl md:text-7xl devicon-linkedin-plain"></i>
             </a>
-            <a href="https://github.com/John-Ling" className="opacity-0 hidden-fade p-2 no-underline hover:text-orange" style={{animationDelay: "200ms"}}> 
+            <a href="https://github.com/John-Ling" className="opacity-0 trigger-on-scroll p-2 no-underline hover:text-orange" style={{animationDelay: "200ms"}}> 
               <i className="text-6xl md:text-7xl devicon-github-original"></i>
             </a>
           </div>
-          <a className="opacity-0 hidden-fade no-underline" style={{animationDelay: "300ms"}} href="mailto:johnlingbusiness@gmail.com">johnlingbusiness@gmail.com</a>
+          <a className="opacity-0 trigger-on-scroll no-underline" style={{animationDelay: "300ms"}} href="mailto:johnlingbusiness@gmail.com">johnlingbusiness@gmail.com</a>
         </section>
 
         <section className="min-h-screen flex justify-center items-center">
