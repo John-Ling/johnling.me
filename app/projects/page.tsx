@@ -1,8 +1,8 @@
-import { FadeIn } from "@/components/fade_in"
+import FadeIn from "@/components/fade_in"
 
 interface Project {
   title: string,
-  dateRange: string,
+dateRange: string,
   description: string,
   sourceURL: string,
 };
