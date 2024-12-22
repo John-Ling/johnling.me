@@ -18,33 +18,22 @@ import server from "../public/images/server.jpg";
 
 import "/styles/devicon.min.css";
 
-
 export default function Home() {
-  const init_width = () => {
-    if (typeof window === "undefined") {
-      return 25;
+  const init_size = () => {
+    let size = {width: 25, height: 15};
+    if (typeof window === undefined) {
+      return size;
     }
-    const windowWidth: number = window.innerWidth;
-    if (windowWidth >= 1536) { return 120; } 
-    else if (windowWidth >= 1280) { return 95; } 
-    else if (windowWidth >= 1024) { return 95; }
-    else if (windowWidth >= 768) { return 80; } 
-    else if (windowWidth >= 640) { return 50; } 
-    else { return 25; }
-  }
 
-  const init_height = () => {
-    if (typeof window === "undefined") {
-      return 15;
-    }
     const windowWidth: number = window.innerWidth;
-
-    if (windowWidth >= 1536) { return 30; } 
-    else if (windowWidth >= 1280) { return 26; }
-    else if (windowWidth >= 1024) { return 20; }
-    else if (windowWidth >= 768) { return 18; }
-    else if (windowWidth >= 640) { return 15; }
-    else { return 15; }
+    if (windowWidth >= 1536) { size = { width: 120, height: 30 }; } 
+    else if (windowWidth >= 1280) { size = { width: 95, height: 26}; } 
+    else if (windowWidth >= 1024) { size = { width: 95, height: 20}; }
+    else if (windowWidth >= 768) { size = { width: 80, height: 18}; } 
+    else if (windowWidth >= 640) { size = { width: 50, height: 15}; } 
+    else { return size; }
+    
+    return size;
   }
 
   const select_animation = () => {
@@ -98,7 +87,7 @@ export default function Home() {
   const options = {
     root: null,
     rootMargin: "0px",
-    threshold:  0.5,
+    threshold:  0.7, // what portion of the hidden element must be visible before trigger (0.7 = 70%) 
   };
 
   // attach intersection observers for on-scroll animations
@@ -119,9 +108,11 @@ export default function Home() {
 
   return (
     <>
-      <Hero asciiWidth={init_width()} asciiHeight={init_height()} animation={select_animation()}/> 
+      <Hero size={init_size()} animation={select_animation()}/> 
       <div className="flex flex-col items-center">
-        <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-x-10 gap-y-10 lg:w-3/4">
+
+        {/* who section */}
+        <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-10 lg:w-3/4">
           <div className="lg:w-1/2">
             <h2 className="text-5xl text-red">Who?</h2>
             <h3 className="text-3xl mb-3 mt-3">A bit more about me</h3>
@@ -133,11 +124,12 @@ export default function Home() {
             <p>Beyond programming, I enjoy the piano, building simple circuits and repairing electronics.</p>
           </div>
           <div className="lg:w-1/2">
-            <Image  className="opacity-0 trigger-on-scroll" src={myself} alt="Picture of the creator of the website"/>
+            <Image className="opacity-0 trigger-on-scroll" style={{animationDelay: "0ms"}}  src={myself} alt="Picture of the creator of the website"/>
           </div>
         </section>
         
-        <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-x-10 gap-y-10 lg:w-3/4">
+        {/* what section */}
+        <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-10 lg:w-3/4">
           <div 
             className="lg:w-1/2 flex flex-wrap basis-[21/100] justify-center bg-grey-dark border-2 border-grey-light order-2 md:order-1 gap-5 pt-10 pb-10 opacity-0 trigger-on-scroll"
             id="skills-display"
@@ -156,12 +148,15 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="min-h-screen w-full flex flex-col items-center justify-center lg:flex-row p-5 gap-x-10 gap-y-10">
+        {/* when section */}
+        <section className="min-h-screen w-full flex flex-col items-center justify-center lg:flex-row p-5 gap-10">
+
+          {/* left image grid */}
           <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
-            <div className="where-section-picture opacity-0 col-start-2">
+            <div className="where-section-picture opacity-0 col-start-2" style={{animationDelay: "200ms"}}>
               <Image loading="eager" className=" -translate-x-12 -translate-y-12" src={server} alt="The creator's first server setup" />
             </div>
-            <div className="where-section-picture opacity-0 col-start-3 ">
+            <div className="where-section-picture opacity-0 col-start-3 " style={{animationDelay: "100ms"}}>
               <Image className="-translate-x-4 translate-y-8" 
                 src={pc} alt="The creator's first computer" />
             </div>
@@ -169,6 +164,8 @@ export default function Home() {
               <Image className="-translate-x-8 translate-y-20" src={laptop_1} alt="Creator's laptop with some nice code"/>
             </div>
           </div>
+
+          {/* content */}
           <div className="lg:w-1/2 trigger-on-scroll" id="where-section">
             <h2 className="text-5xl text-blue">When?</h2>
             <h3 className="text-3xl mb-3 mt-3">Where it all began</h3>
@@ -180,6 +177,8 @@ export default function Home() {
             <p className="mb-10">I had a lot of fun making it so I&apos;ve continued programming and have created quite a few projects.</p>
             <Link href="/projects" className="no-underline bg-grey-dark p-3 hover:bg-[#101010] hover:text-[#E0E0E0]">See My Projects</Link>
           </div>
+
+          {/* right image grid */}
           <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
             <div className="where-section-picture opacity-0 col-start-1 col-span-2 " style={{animationDelay: "100ms"}}>
               <Image className="-translate-x-16" src={electronics_1} alt="More electronics" />
@@ -193,21 +192,23 @@ export default function Home() {
           </div>
         </section>
 
+        {/* where section */}
         <section className="min-h-screen flex flex-col justify-center items-center" id="contact">
           <h2 className="text-5xl text-magenta">Where?</h2>
           <h3 className="text-3xl mb-3 mt-3">(can you find me)</h3>
-          <div className="p-5 opacity-0 trigger-on-scroll" style={{animationDelay: "100ms"}}>
-            <a href="https://www.linkedin.com/in/john-ling-721721243/" className="opacity-0 trigger-on-scroll p-2 no-underline hover:text-orange" style={{animationDelay: "100ms"}}>
+          <div className="p-5 opacity-0 trigger-on-scroll" style={{animationDelay: "200ms"}}>
+            <a href="https://www.linkedin.com/in/john-ling-721721243/" className="opacity-0 trigger-on-scroll p-2 no-underline hover:text-orange" style={{animationDelay: "200ms"}}>
               <i className="text-6xl md:text-7xl devicon-linkedin-plain"></i>
             </a>
-            <a href="https://github.com/John-Ling" className="opacity-0 trigger-on-scroll p-2 no-underline hover:text-orange" style={{animationDelay: "200ms"}}> 
+            <a href="https://github.com/John-Ling" className="opacity-0 trigger-on-scroll p-2 no-underline hover:text-orange" style={{animationDelay: "300ms"}}> 
               <i className="text-6xl md:text-7xl devicon-github-original"></i>
             </a>
           </div>
-          <a className="opacity-0 trigger-on-scroll no-underline" style={{animationDelay: "300ms"}} href="mailto:johnlingbusiness@gmail.com">johnlingbusiness@gmail.com</a>
+          <a className="opacity-0 trigger-on-scroll no-underline" style={{animationDelay: "400ms"}} href="mailto:johnlingbusiness@gmail.com">johnlingbusiness@gmail.com</a>
         </section>
 
-        <section className="min-h-screen flex justify-center items-center">
+        {/* why section */}
+        <section className="min-h-screen flex flex-col justify-center items-center">
           <div className="p-5 md:w-1/2">
             <h2 className="text-5xl text-green">Why?</h2>
             <h3 className="text-3xl mb-3 mt-3">Why code?</h3>

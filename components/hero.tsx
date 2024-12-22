@@ -9,10 +9,19 @@ import { evolve, conway_populate, cube_init, cube_next_frame, donut_next_frame, 
 import AsciiDisplay from "./ascii-display/ascii_display";
 import "/styles/globals.css";
 
-const Hero: React.FC<{ asciiWidth: number, asciiHeight: number, animation: string }> = ({ asciiWidth, asciiHeight, animation }) => {
+interface HeroProps {
+  // width and height of ascii display component
+  size: {
+    width: number;
+    height: number;
+  };
+  animation: string;
+}
+
+const Hero: React.FC<HeroProps> = ({ size, animation }) => {
   const create = () => {
     const grid: string[] = [];
-    for (let i = 0; i < asciiHeight * asciiWidth; i++) {
+    for (let i = 0; i < size.width * size.height; i++) {
       grid.push(' ');
     }
     return grid;
@@ -32,16 +41,16 @@ const Hero: React.FC<{ asciiWidth: number, asciiHeight: number, animation: strin
     switch (animation) {
       case "CONWAY":
         nextFrame = evolve;
-        current = conway_populate(asciiWidth, asciiHeight);
+        current = conway_populate(size.width, size.height);
         break;
       case "CUBE":
         nextFrame = cube_next_frame
-        current = cube_init(asciiWidth, asciiHeight);
+        current = cube_init(size.width, size.height);
         animationSpeed = 12;
         break;
       case "DONUT":
         nextFrame = donut_next_frame;
-        current = donut_init(asciiWidth, asciiHeight);
+        current = donut_init(size.width, size.height);
         animationSpeed = 12;
         break;
       default:
@@ -64,7 +73,7 @@ const Hero: React.FC<{ asciiWidth: number, asciiHeight: number, animation: strin
         // we've passed the time needed in between frames
         // so we can now update the state of the board
         then = now - (elapsed % fpsInterval);
-        next = nextFrame(current, asciiWidth, asciiHeight);
+        next = nextFrame(current, size.width, size.height);
         setFrameBuffer(next);
         current = [...next];
       }
@@ -76,7 +85,7 @@ const Hero: React.FC<{ asciiWidth: number, asciiHeight: number, animation: strin
       reset_animations();
       cancelAnimationFrame(animationRequestID.current);
     };
-  }, [asciiWidth, asciiHeight, animation]);
+  }, [size, animation]);
 
   useEffect(() => {
     setRendered(true);
@@ -110,7 +119,7 @@ const Hero: React.FC<{ asciiWidth: number, asciiHeight: number, animation: strin
               </a>
           </div>
           <div className="lg:hidden">
-            { rendered ? <AsciiDisplay frameBuffer={frameBuffer} rowWidth={asciiWidth} /> : <></>}
+            { rendered ? <AsciiDisplay frameBuffer={frameBuffer} size={size}/> : <></>}
           </div>
           <div className="mt-6">
             <p className="mb-5 opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>I make things.</p>
@@ -128,7 +137,7 @@ const Hero: React.FC<{ asciiWidth: number, asciiHeight: number, animation: strin
         </div>
         <div className="m-auto ">
           <div className="bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" style={{animationDelay: "800ms"}}>
-            { rendered ? <div className="opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}><AsciiDisplay frameBuffer={frameBuffer} rowWidth={asciiWidth} /></div>: <></>}
+            { rendered ? <div className="opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}><AsciiDisplay frameBuffer={frameBuffer} size={size} /></div>: <></>}
           </div>
         </div>
       </div>
