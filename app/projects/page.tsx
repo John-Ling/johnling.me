@@ -1,5 +1,3 @@
-import FadeIn from "@/components/fade_in"
-
 interface Project {
   title: string,
 dateRange: string,
@@ -114,12 +112,12 @@ const ProjectItem: React.FC<{project: Project, position: number}> = ({ project, 
   const colourClass: string = colours[position % colours.length];
   return (
     <>
-      <FadeIn delay={(position + 1) * 100} className="bg-grey-normal border-2 border-grey-light p-3">
+      <div className="bg-grey-normal border-2 border-grey-light p-3 opacity-0 animate-fade-up" style={{animationDelay: `${(position + 1) * 100}ms`}}>
         <h2 className={`text-2xl mb-2 mt-2 ${colourClass}`}>{project.title}</h2>
         <h3 className="text-sm mb-2">{project.dateRange}</h3>
         <p className="mb-2">{project.description}</p>
         <a href={project.sourceURL}>Source Code</a>
-      </FadeIn>
+      </div>
     </>
   );
 }
