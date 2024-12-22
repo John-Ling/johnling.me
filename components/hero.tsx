@@ -128,7 +128,7 @@ const Hero: React.FC<{ asciiWidth: number, asciiHeight: number, animation: strin
         </div>
         <div className="m-auto ">
           <div className="bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" style={{animationDelay: "800ms"}}>
-            { rendered ? <div className="opacity-0 animate-fade-up" style={{animationDelay: "200ms"}}><AsciiDisplay frameBuffer={frameBuffer} rowWidth={asciiWidth} /></div>: <></>}
+            { rendered ? <div className="opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}><AsciiDisplay frameBuffer={frameBuffer} rowWidth={asciiWidth} /></div>: <></>}
           </div>
         </div>
       </div>

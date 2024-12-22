@@ -47,16 +47,6 @@ export default function Home() {
     else { return 15; }
   }
 
-  const update_entries = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
-    entries.forEach((entry: IntersectionObserverEntry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("animate-fade-up");
-        observer.unobserve(entry.target);
-      }
-    })
-    return;
-  };
-
   const select_animation = () => {
     const ANIMATIONS: string[] = ["CONWAY", "CUBE", "DONUT"]
     // animations to implement
@@ -72,6 +62,30 @@ export default function Home() {
     
   }
 
+  // idea when skills icon container is detected as intersecting get all items below it (they will have a special class)
+  // then add animate-fade-up to them as well
+  // therefore only one thing causes multiple animations to triggern
+
+  const update_entries = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+    entries.forEach((entry: IntersectionObserverEntry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-fade-up");
+
+        // trigger skill animations when skill display is visible
+        if (entry.target.id === "skills-display") {
+          const elements = document.querySelectorAll(".skill-icon");
+          elements.forEach((element: Element) => {
+            element.classList.add("animate-fade-up");
+          });
+        }
+        observer.unobserve(entry.target);
+        
+      }
+    })
+    return;
+  };
+
+ 
   const options = {
     root: null,
     rootMargin: "0px",
@@ -110,12 +124,15 @@ export default function Home() {
             <p>Beyond programming, I enjoy the piano, building simple circuits and repairing electronics.</p>
           </div>
           <div className="lg:w-1/2">
-            <Image  className="opacity-0 hidden-fade [--delay:100ms]" src={myself} alt="Picture of the creator of the website"/>
+            <Image  className="opacity-0 hidden-fade" src={myself} alt="Picture of the creator of the website"/>
           </div>
         </section>
         
         <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-x-10 gap-y-10 lg:w-3/4">
-          <div className="lg:w-1/2 flex flex-wrap basis-[21/100] justify-center bg-grey-dark border-2 border-grey-light order-2 md:order-1 gap-5 pt-10 pb-10"> 
+          <div 
+            className="lg:w-1/2 flex flex-wrap basis-[21/100] justify-center bg-grey-dark border-2 border-grey-light order-2 md:order-1 gap-5 pt-10 pb-10 opacity-0 hidden-fade"
+            id="skills-display"
+          > 
             <SkillsDisplay />
           </div>
             <div className="order-1 lg:w-1/2">
@@ -157,15 +174,15 @@ export default function Home() {
         <section className="min-h-screen flex flex-col justify-center items-center" id="contact">
           <h2 className="text-5xl text-magenta">Where?</h2>
           <h3 className="text-3xl mb-3 mt-3">(can you find me)</h3>
-          <div className="p-5 opacity-0 hidden-fade [--delay:100ms]">
-            <a href="https://www.linkedin.com/in/john-ling-721721243/" className="opacity-0 hidden-fade [--delay:100ms] p-2 no-underline hover:text-orange">
+          <div className="p-5 opacity-0 hidden-fade" style={{animationDelay: "100ms"}}>
+            <a href="https://www.linkedin.com/in/john-ling-721721243/" className="opacity-0 hidden-fade p-2 no-underline hover:text-orange" style={{animationDelay: "100ms"}}>
               <i className="text-6xl md:text-7xl devicon-linkedin-plain"></i>
             </a>
-            <a href="https://github.com/John-Ling" className="opacity-0 hidden-fade [--delay:200ms] p-2 no-underline hover:text-orange">
+            <a href="https://github.com/John-Ling" className="opacity-0 hidden-fade p-2 no-underline hover:text-orange" style={{animationDelay: "200ms"}}> 
               <i className="text-6xl md:text-7xl devicon-github-original"></i>
             </a>
           </div>
-          <a className="opacity-0 hidden-fade [--delay:300ms] no-underline" href="mailto:johnlingbusiness@gmail.com">johnlingbusiness@gmail.com</a>
+          <a className="opacity-0 hidden-fade no-underline" style={{animationDelay: "300ms"}} href="mailto:johnlingbusiness@gmail.com">johnlingbusiness@gmail.com</a>
         </section>
 
         <section className="min-h-screen flex justify-center items-center">
@@ -212,7 +229,7 @@ const SkillsDisplay = () => {
     {/* render skills display */}
     {skillIcons.map((icon: SkillIcon, i: number) => {
       return (
-        <div key={i}>
+        <div key={i} className="opacity-0 skill-icon" style={{animationDelay: `${(i + 1) * 100}ms`}}>
           <i className={`${icon.classInfo}  text-5xl md:text-8xl flex-1 p-5 `} />
           <p className="text-xs md:text-base text-center m-2">{icon.label}</p>
         </div>  
