@@ -53,7 +53,7 @@ const Page = () => {
       sourceURL: "https://github.com/John-Ling/johnling.me",
     },
     {
-      title: "Cameraman", dateRange: "November 2021 - Feburary 2022",
+      title: "Cameraman", dateRange: "November 2021 - February 2022",
       description: "Uses microcontrollers, motor and OpenCV to track and follow a face in real-time. Filmed by Apple to promote their distinguished schools program.",
       sourceURL: "https://github.com/John-Ling/Cameraman",
     },

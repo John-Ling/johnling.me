@@ -19,9 +19,12 @@ import server from "../public/images/server.jpg";
 import "/styles/devicon.min.css";
 
 export default function Home() {
+
+  // set size of ascii display based on screen size
+  // numbers are derived from tailwind breakpoints
   const init_size = () => {
     let size = {width: 25, height: 15};
-    if (typeof window === undefined) {
+    if (typeof window === "undefined") {
       return size;
     }
 
@@ -57,7 +60,8 @@ export default function Home() {
   const update_entries = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
     entries.forEach((entry: IntersectionObserverEntry) => {
       if (entry.isIntersecting) {
-        // trigger skill animations when skill display is visible
+        // either attach standard fade in animation or
+        // trigger other special animations
 
         switch(entry.target.id)
         {
@@ -124,7 +128,9 @@ export default function Home() {
             <p>Beyond programming, I enjoy the piano, building simple circuits and repairing electronics.</p>
           </div>
           <div className="lg:w-1/2">
-            <Image className="opacity-0 trigger-on-scroll" style={{animationDelay: "0ms"}}  src={myself} alt="Picture of the creator of the website"/>
+            <Image className="opacity-0 trigger-on-scroll" style={{animationDelay: "0ms"}}  
+              src={myself} alt="Picture of the creator of the website"
+            />
           </div>
         </section>
         
@@ -212,7 +218,7 @@ export default function Home() {
           <div className="p-5 md:w-1/2">
             <h2 className="text-5xl text-green">Why?</h2>
             <h3 className="text-3xl mb-3 mt-3">Why code?</h3>
-            <p className="mb-5">As insincere as it sounds, it&apos;s the truth. I enjoy applying the theory and 
+            <p className="mb-5">As insincere as it sounds, it&apos;s the truth. I enjoy applying  the theory and 
               skills I know to build things for myself and help others.</p>
             <p className="mb-5">While I enjoy programming as a hobby for myself first and foremost, 
               my dream is to be able to create something with a positive impact on someone even in a minor way.</p>
