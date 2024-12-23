@@ -103,18 +103,18 @@ const Hero: React.FC<HeroProps> = ({ size, animation }) => {
               <span className="text-orange opacity-0 animate-fade-up" style={{animationDelay: "350ms"}}> John</span>
             </h1>
           </div>
-          <div className="opacity-0 animate-fade-up" style={{animationDelay: "450ms"}}>
-              <a href="https://www.linkedin.com/in/john-ling-721721243/" target="_blank" rel="noopener" className="opacity-0 animate-fade-up" style={{animationDelay: "450ms"}}>
+          <div className="opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>
+              <a href="https://www.linkedin.com/in/john-ling-721721243/" target="_blank" rel="noopener" className="opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>
                 <LinkedInIcon sx={{ fontSize: 40}}/>
               </a>
-              <a href="https://github.com/John-Ling/" target="_blank" rel="noopener" className="opacity-0 animate-fade-up" style={{animationDelay: "550ms"}}>
+              <a href="https://github.com/John-Ling/" target="_blank" rel="noopener" className="opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}>
                 <GitHubIcon sx={{ fontSize: 35}}/>
               </a>
-              <a href="mailto:johnlingbusiness@gmail.com" className="opacity-0 animate-fade-up" style={{animationDelay: "650ms"}}>
+              <a href="mailto:johnlingbusiness@gmail.com" className="opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
                 <EmailIcon sx={{ fontSize: 35}}/>
               </a>
               <a href="https://drive.google.com/file/d/1y_VlkkFUaFXCCYF-WO-EDnCOfMHy_F90/view?usp=sharing" 
-                target="_blank" rel="noopener" className="opacity-0 animate-fade-up" style={{animationDelay: "750ms"}}>
+                target="_blank" rel="noopener" className="opacity-0 animate-fade-up" style={{animationDelay: "700ms"}}>
                   <DescriptionIcon sx={{ fontSize: 35}}/>
               </a>
           </div>
