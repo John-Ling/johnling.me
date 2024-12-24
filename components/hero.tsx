@@ -103,48 +103,23 @@ const Hero: React.FC<HeroProps> = ({ size, animation }) => {
               I&apos;m
               <span className="text-orange "> John</span>
             </h1>
-          </div>
-          <div className="opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>
-              <a href="https://www.linkedin.com/in/john-ling-721721243/" target="_blank" rel="noopener" 
-                className="opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}
-              >
-                <LinkedInIcon sx={{ fontSize: 40}}/>
-              </a>
-              <a href="https://github.com/John-Ling/" target="_blank" rel="noopener" className="opacity-0 animate-fade-up" 
-                style={{animationDelay: "500ms"}}
-              >
-                <GitHubIcon sx={{ fontSize: 35}}/>
-              </a>
-              <a href="mailto:johnlingbusiness@gmail.com" className="opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
-                <EmailIcon sx={{ fontSize: 35}}/>
-              </a>
-              <a href="https://drive.google.com/file/d/1y_VlkkFUaFXCCYF-WO-EDnCOfMHy_F90/view?usp=sharing" 
-                target="_blank" rel="noopener" className="opacity-0 animate-fade-up" style={{animationDelay: "700ms"}}>
-                  <DescriptionIcon sx={{ fontSize: 35}}/>
-              </a>
-          </div>
+           </div>
+          <HeroIcons/>
           <div className="lg:hidden">
             { rendered ? <AsciiDisplay frameBuffer={frameBuffer} size={size}/> : <></>}
           </div>
-          <div className="mt-6">
-            <p className="mb-5 opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>I make things.</p>
-            <p className="mb-5 opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}>
-              I&apos;m a full-stack developer who enjoys staring at screens for hours 
-              to build cool things for themselves and others.
-            </p>
-            <p className="hidden mb-5 md:block opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
-              Computers are super interesting (in my opinion) so I study Computer Science at the University of Melbourne.
-            </p>
-            <p className="mb-5 opacity-0 animate-fade-up" style={{animationDelay: "700ms"}}>
-              My projects tend to be web-based, but learning new things is fun so they can vary.
-            </p>
-          </div>
+          <HeroInformation />  
         </div>
         <div className="m-auto ">
           <div className="bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" 
             style={{animationDelay: "800ms"}}
           >
-            { rendered ? <div className="opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}><AsciiDisplay frameBuffer={frameBuffer} size={size} /></div>: <></>}
+            { rendered ? 
+              <div className="opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}>
+                <AsciiDisplay frameBuffer={frameBuffer} size={size} />
+              </div>
+              : <></>
+            }
           </div>
         </div>
       </div>
@@ -153,3 +128,45 @@ const Hero: React.FC<HeroProps> = ({ size, animation }) => {
 }
 
 export default Hero;
+
+const HeroIcons = () => {
+  return (
+    <div className="opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>
+      <a href="https://www.linkedin.com/in/john-ling-721721243/" target="_blank" rel="noopener" 
+        className="opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}
+      >
+        <LinkedInIcon sx={{ fontSize: 40}}/>
+      </a>
+      <a href="https://github.com/John-Ling/" target="_blank" rel="noopener" className="opacity-0 animate-fade-up" 
+        style={{animationDelay: "500ms"}}
+      >
+        <GitHubIcon sx={{ fontSize: 35}}/>
+      </a>
+      <a href="mailto:johnlingbusiness@gmail.com" className="opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
+        <EmailIcon sx={{ fontSize: 35}}/>
+      </a>
+      <a href="https://drive.google.com/file/d/1y_VlkkFUaFXCCYF-WO-EDnCOfMHy_F90/view?usp=sharing" 
+        target="_blank" rel="noopener" className="opacity-0 animate-fade-up" style={{animationDelay: "700ms"}}>
+          <DescriptionIcon sx={{ fontSize: 35}}/>
+      </a>
+  </div>
+  )
+}
+
+const HeroInformation = () => {
+ return (
+  <div className="mt-6">
+    <p className="mb-5 opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>I make things.</p>
+    <p className="mb-5 opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}>
+      I&apos;m a full-stack developer who enjoys staring at screens for hours 
+      to build cool things for themselves and others.
+    </p>
+    <p className="hidden mb-5 md:block opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
+      Computers are super interesting (in my opinion) so I study Computer Science at the University of Melbourne.
+    </p>
+    <p className="mb-5 opacity-0 animate-fade-up" style={{animationDelay: "700ms"}}>
+      My projects tend to be web-based, but learning new things is fun so they can vary.
+    </p>
+</div>
+ ) 
+}

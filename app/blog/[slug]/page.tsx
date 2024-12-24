@@ -1,16 +1,15 @@
-import Markdown from "react-markdown";
-import rehypeRaw from "rehype-raw";
 import Link from "next/link";
 
-import style from "./markdown.module.css";
+import ReactMarkdown  from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+import rehypeHighlight from "rehype-highlight";
 
 import { get_post, get_sorted_posts } from "@/lib/posts";
 import { Post } from "@/app/interfaces/post";
-import rehypeHighlight from "rehype-highlight";
 
+import style from "./markdown.module.css";
 import "/styles/syntax_highlighting.css";
-import ReactMarkdown  from "react-markdown";
-import remarkGfm from "remark-gfm";
 
 const Page = async (props: Params) => {
   const params = await props.params;

@@ -13,6 +13,7 @@ const config: Config = {
         "white": "#F8F9F2",
         "muted-white": "#B0B0B0",
         "orange": "#FF5500",
+        "orange-light": "#ff8300",
         "indigo": {
           light: "#1d1e29",
           normal: "#222331"
