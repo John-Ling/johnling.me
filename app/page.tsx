@@ -131,9 +131,10 @@ export default function Home() {
         </section>
         
         {/* what section */}
-        <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-10 lg:w-3/4">
+        <section className="min-h-screen flex flex-col items-center justify-center lg:flex-row p-5 gap-10 lg:w-3/4">
           <div 
-            className="lg:w-1/2 flex flex-wrap basis-[21/100] justify-center bg-grey-dark border-2 border-grey-light order-2 md:order-1 gap-5 pt-10 pb-10 opacity-0 trigger-on-scroll"
+            className="lg:w-1/2 grid grid-cols-3 md:grid-cols-4 basis-[21/100] justify-center bg-grey-dark border-2
+                       border-grey-light order-2 lg:order-1 gap-5 pt-10 pb-10 pr-5 pl-5 opacity-0 trigger-on-scroll text-center"
             id="skills-display"
           > 
             <SkillsDisplay />
@@ -265,7 +266,7 @@ const SkillsDisplay = () => {
     {skillIcons.map((icon: SkillIcon, i: number) => {
       return (
         <div key={i} className="opacity-0 skill-icon" style={{animationDelay: `${(i + 1) * 100}ms`}}>
-          <i className={`${icon.classInfo}  text-5xl md:text-8xl flex-1 p-5 `} />
+          <i className={`${icon.classInfo}  text-5xl md:text-6xl lg:text-7xl flex-1 p-5 `} />
           <p className="text-xs md:text-base text-center m-2">{icon.label}</p>
         </div>  
       )
