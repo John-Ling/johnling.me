@@ -6,6 +6,11 @@ body {
     background-color: theme("colors.grey.normal");
     color: theme("colors.white");
     font-family: theme("fontFamily.meslo");
+
+    background-size: 80px 80px;
+    background-image: 
+        linear-gradient(to right, #282828 1px, transparent 1px),
+        linear-gradient(to bottom, #282828 1px, transparent 1px);
 }
 
 a {
