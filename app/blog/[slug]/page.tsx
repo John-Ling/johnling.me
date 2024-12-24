@@ -1,11 +1,17 @@
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import rehypeStarryNight from "rehype-starry-night";
 import Link from "next/link";
 
 import style from "./markdown.module.css";
 
 import { get_post, get_sorted_posts } from "@/lib/posts";
 import { Post } from "@/app/interfaces/post";
+import rehypeHighlight from "rehype-highlight";
+
+import "highlight.js/styles/base16/darcula.css"; // code style
+import ReactMarkdown  from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const Page = async (props: Params) => {
   const params = await props.params;
@@ -14,15 +20,15 @@ const Page = async (props: Params) => {
 
   return (
     <>
-      <div className="w-1/2 m-auto pt-5 pb-5">
+      <div className="w-full lg:w-1/2 m-auto pt-5 pb-5 pl-2 pr-2">
         <Link href="/blog">Back</Link>
         <article className={`pt-5 pb-5 ${style.markdown}`}>
         <h1 className="text-xl mb-5">{post.title}</h1>
         <p className="italic mb-5 text-muted-white">{post.date}</p>
 
-        <Markdown rehypePlugins={[rehypeRaw]}>
+        <ReactMarkdown remarkPlugins={[remarkGfm]}  rehypePlugins={[rehypeRaw, rehypeHighlight]}>
           {content}
-        </Markdown> 
+        </ReactMarkdown> 
       </article>
       </div>
     </>

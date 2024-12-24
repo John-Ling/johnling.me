@@ -9,10 +9,13 @@ export default function Blog() {
       <div className="bg-grey-dark border-2 border-grey-light p-2 m-5 w-full md:w-3/5 lg:w-2/5 opacity-0 animate-fade-up">
         <ul>
         {posts.map((post: Post, i: number) => {
-            return <li key={post.slug} className="bg-grey-normal p-3 md:p-5 m-3 border-2 border-grey-light opacity-0 animate-fade-up" style={{animationDelay: `${(i + 1) * 200}ms`}}>
+            return (
+              <li key={post.slug}  className="bg-grey-normal p-3 md:p-5 m-3 border-2 border-grey-light opacity-0 animate-fade-up"
+                style={{animationDelay: `${(i + 1) * 100}ms`}}
+              >
                 <PostComponent position={i} post={post} />
               </li> 
-          })}
+          )})}
         </ul> 
       </div>
     </div>

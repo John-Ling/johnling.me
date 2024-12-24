@@ -93,7 +93,9 @@ const Page = () => {
     },
     {
       title: "Desktop Kahoot Bot", dateRange: "November 2021 - May 2022",
-      description: "Homage to the first Kahoot Bot from 2019. Written in C# and used Winforms for the UI. Created a \"control panel\" where you could see the scores for each bot.",
+      description: `
+        Homage to the first Kahoot Bot from 2019. Written in C# and used Winforms for the UI. 
+        Created a \"control panel\" where you could see the scores for each bot.`,
       sourceURL: "https://github.com/John-Ling/Desktop-Kahoot-Bot",
       tags: ["C#", "Selenium", "Winforms"],
     },
@@ -158,14 +160,16 @@ const ProjectItem: React.FC<{project: Project, position: number}> = ({ project, 
   const colourClass: string = colours[position % colours.length];
   return (
     <>
-      <div className="bg-grey-normal border-2 border-grey-light p-3 opacity-0 animate-fade-up" style={{animationDelay: `${(position + 1) * 175}ms`}}>
+      <div className="bg-grey-normal border-2 border-grey-light p-3 opacity-0 animate-fade-up" 
+        style={{animationDelay: `${(position + 1) * 175}ms`}}
+      >
         <h2 className={`text-xl md:text-2xl  mb-2 mt-2 ${colourClass}`}>{project.title}</h2>
         <h3 className="text-sm mb-2 italic text-muted-white">{project.dateRange}</h3>
         
         <p className="mb-2">{project.description}</p>
         <ul className="flex flex-wrap">
           {project.tags.map((tag: string) => {
-            return <li className="pr-1 pt-1 pb-1 text-sm"><span className="bg-grey-light  border-1 pl-1 pr-1">{tag}</span></li>
+            return <li key={tag} className="pr-1 pt-1 pb-1 text-sm"><span className="bg-grey-light  border-1 pl-1 pr-1">{tag}</span></li>
           })}
         </ul>
         <a href={project.sourceURL}>Source Code</a>
