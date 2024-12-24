@@ -96,19 +96,23 @@ const Hero: React.FC<HeroProps> = ({ size, animation }) => {
     <>
       <div className="flex items-center justify-center flex-col lg:flex-row h-[calc(100vh-40px)]">
       {/* border-2 border-grey-light lg:border-0 bg-grey-dark lg:bg-grey-normal */}
-        <div className="flex flex-col justify-center p-10  lg:w-1/3">
-          <div className="text-6xl z-0 font-extrabold mb-5 opacity-0 animate-fade-up " style={{animationDelay: "100ms"}}>
+        <div className="flex flex-col justify-center p-10 lg:w-1/3">
+          <div className="text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up " style={{animationDelay: "100ms"}}>
             <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
             <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "200ms"}}>
-              <span className="opacity-0 animate-fade-up" style={{animationDelay: "200ms"}}>I&apos;m </span>
-              <span className="text-orange opacity-0 animate-fade-up" style={{animationDelay: "350ms"}}> John</span>
+              I&apos;m
+              <span className="text-orange "> John</span>
             </h1>
           </div>
           <div className="opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>
-              <a href="https://www.linkedin.com/in/john-ling-721721243/" target="_blank" rel="noopener" className="opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>
+              <a href="https://www.linkedin.com/in/john-ling-721721243/" target="_blank" rel="noopener" 
+                className="opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}
+              >
                 <LinkedInIcon sx={{ fontSize: 40}}/>
               </a>
-              <a href="https://github.com/John-Ling/" target="_blank" rel="noopener" className="opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}>
+              <a href="https://github.com/John-Ling/" target="_blank" rel="noopener" className="opacity-0 animate-fade-up" 
+                style={{animationDelay: "500ms"}}
+              >
                 <GitHubIcon sx={{ fontSize: 35}}/>
               </a>
               <a href="mailto:johnlingbusiness@gmail.com" className="opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
@@ -137,7 +141,9 @@ const Hero: React.FC<HeroProps> = ({ size, animation }) => {
           </div>
         </div>
         <div className="m-auto ">
-          <div className="bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" style={{animationDelay: "800ms"}}>
+          <div className="bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" 
+            style={{animationDelay: "800ms"}}
+          >
             { rendered ? <div className="opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}><AsciiDisplay frameBuffer={frameBuffer} size={size} /></div>: <></>}
           </div>
         </div>
