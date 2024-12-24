@@ -1,6 +1,5 @@
 import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import remarkRehype from "remark-rehype";
+import rehypeRaw from "rehype-raw";
 
 import style from "./markdown.module.css";
 
@@ -15,9 +14,9 @@ const Page = async (props: Params) => {
   return (
     <article className={`w-1/2 m-auto pt-5 pb-5 ${style.markdown}`}>
       <h1 className="text-xl mb-5">{post.title}</h1>
-      <p className="italic mb-5">{post.date}</p>
+      <p className="italic mb-5 text-muted-white">{post.date}</p>
 
-      <Markdown remarkPlugins={[remarkGfm]}>
+      <Markdown rehypePlugins={[rehypeRaw]}>
         {content}
       </Markdown> 
     </article>
