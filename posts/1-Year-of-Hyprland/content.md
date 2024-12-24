@@ -18,25 +18,25 @@ On r/unixporn this one window manager, Hyprland, was making the rounds on the fr
 I'm not kidding when I say that I went to reddit and the first thing I see when sorting by hot is 5 Hyprland setups directly next to each other.
 
 ## You
-<img src="./image-8.png" width="400">
+<img src="/images/blog/1-Year-of-Hyprland/image-8.png" width="400">
 
 ## can't
-<img src="./image-9.png" width="400">
+<img src="/images/blog/1-Year-of-Hyprland/image-9.png" width="400">
 
 ## make
-<img src="./image-10.png" width="400">
+<img src="/images/blog/1-Year-of-Hyprland/image-10.png" width="400">
 
 ## this
-<img src="./image-11.png" width="400">
+<img src="/images/blog/1-Year-of-Hyprland/image-11.png" width="400">
 
-### up
+## up
 
 
 While the lack of rice variety deeply upset me as an Asian I knew that Hyprland must have been doing something right to attract so many users.
 
 Being a WM vagrant searching for a new workflow, I decided to give Hyprland a shot. Back in October 2023.
 
-![My desktop](./desktop.png)
+![My desktop](/images/blog/1-Year-of-Hyprland/desktop.png)
 _My first Hyprland desktop_
 
 Since then I've continued to use Hyprland throughout my first year of University. As we approach the end of this year, I want to write about my experience so far.
@@ -47,11 +47,11 @@ Since then I've continued to use Hyprland throughout my first year of University
 
 Hyprland calls itself the "tiling compositor with the looks" and it definitely takes that statement seriously. Just take on look at r/unixporn or the Hyprland [Hall of Fame](https://hyprland.org/hall_of_fame/).
 
-![alt text](image-3.png)
+![alt text](/images/blog/1-Year-of-Hyprland/image-3.png)
 
 _Really nice setup I found on Reddit after literally 20 seconds of browsing_
 
-![alt text](image-5.png)
+![alt text](/images/blog/1-Year-of-Hyprland/image-5.png)
 
 _My own setup. Definitely not as nice but decent looking_
 
@@ -71,7 +71,7 @@ As someone used to the sliding animations offered by KDE, the lack of them out o
 
 While it was possible through things like Picom to get some animations working, I never figured out how to get animations for workspace switching up. In fact, looking online for answers I just found Hyprland recommendations instead.
 
-![alt text](image-1.png)
+![alt text](/images/blog/1-Year-of-Hyprland/image-1.png)
 
 _"Problem with Picom? Just use Hyprland!"_
 
@@ -155,7 +155,7 @@ Although compatibility with Windows games through software like proton definitel
 It should also be noted that NVIDIA is not **officially** supported by Hyprland as stated by the wiki.
 
 
-![alt text](image-2.png)
+![alt text](/images/blog/1-Year-of-Hyprland/image-2.png)
 
 
 While I personally haven't had many problems beyond gaming performance, others have. If you have an NVIDIA GPU keep that in mind before making the switch.
@@ -214,9 +214,14 @@ issue and more a "me bad at bash scripting" issue.
 - When using my screenshot tool Grimblast, there is the weird issue of my cursor appearing in the screenshot when I don't want it to. I've found that ths fix mainly involves setting the "NO_HARDWARE_CURSORS" variable to 1 or 0 in the config file.
 - Early on when using Hyprland, there was an issue where after switching virtual desktops, I wasn't able to switch focus between my monitors via keybind. I modified the config file to focus both monitors everytime I switched, fixing the issue.
 
-![alt text](image-6.png)
+```
+bind = Alt, O, exec, hyprctl dispatch focusmonitor eDP-1 && hyprctl dispatch focusmonitor HDMI-A-2
+bind = Alt, I, exec, hyprctl dispatch focusmonitor HDMI-A-2 && hyprctl dispatch focusmonitor eDP-1
+```
 
-## The ~~Ugly~~
+_Part of my Hyprland config file_
+
+## The <del>Ugly</del>
 
 Hyprland is very pretty :)
 

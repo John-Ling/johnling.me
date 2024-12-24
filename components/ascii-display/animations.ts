@@ -144,7 +144,6 @@ const donut_calc_x = (r1: number, r2: number, sinTheta: number, sinPhi: number, 
 const donut_calc_y = (r1: number, r2: number, sinTheta: number, sinPhi: number, cosTheta: number, 
                     cosPhi: number, sinA: number, sinB: number, cosA: number, cosB: number, 
                     circleX: number, circleY: number) => {
-    // return (r2 + r1 * cosTheta) * (cosPhi * sinB - cosB * sinA * sinPhi) + r1 * cosA * cosB * sinTheta;
     return circleX * (sinB * cosPhi - sinA * cosB * sinPhi) + circleY * cosA * cosB;
 }
 
@@ -154,7 +153,7 @@ const donut_calc_z = (r1: number, r2: number, sinTheta: number, sinPhi: number, 
 }
 
 
-// donut is a bit squished try fix taht 
+// donut is a bit squished try fix that later 
 const donut_calc_for_surface = (frameBuffer: string[], zBuffer: number[], width: number, height: number, 
                                 r1: number, r2: number, sinA: number, sinB: number, cosA: number,
                                 cosB: number, sinTheta: number, sinPhi: number, cosTheta: number,
@@ -162,8 +161,8 @@ const donut_calc_for_surface = (frameBuffer: string[], zBuffer: number[], width:
 
     const distanceFromCamera: number = 70;  // adjust to change size
     // const K1: number = width * distanceFromCamera * 3 / (8* (r1+r2));
-    const K1 = 80;
-    // const K1: number = 25; // screen distance for scaling
+    const K1 = 80;// screen distance for scaling
+    // const K1: number = 25; 
 
     const x: number = donut_calc_x(r1, r2, sinTheta, sinPhi, cosTheta, cosPhi, sinA, sinB, cosA, cosB, circleX, circleY);
     const y: number = donut_calc_y(r1, r2, sinTheta, sinPhi, cosTheta, cosPhi, sinA, sinB, cosA, cosB, circleX, circleY);

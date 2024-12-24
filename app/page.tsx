@@ -8,13 +8,13 @@ import Link from "next/link";
 import Hero from "@/components/hero";
 
 // images
-import myself from "../public/images/myself.jpg";
-import pc from "../public/images/pc.jpg";
-import laptop_1 from "../public/images/laptop_1.jpg";
-import electronics_1 from "../public/images/electronics_1.jpg";
-import electronics_2 from "../public/images/electronics_2.jpg";
-import printer from "../public/images/printer.jpg"
-import server from "../public/images/server.jpg";
+import myself from "../public/images/homepage/myself.jpg";
+import pc from "../public/images/homepage/pc.jpg";
+import laptop_1 from "../public/images/homepage/laptop_1.jpg";
+import electronics_1 from "../public/images/homepage/electronics_1.jpg";
+import electronics_2 from "../public/images/homepage/electronics_2.jpg";
+import printer from "../public/images/homepage/printer.jpg"
+import server from "../public/images/homepage/server.jpg";
 
 import "/styles/devicon.min.css";
 

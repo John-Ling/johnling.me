@@ -23,7 +23,6 @@ export const get_sorted_posts = () => {
 
 export const get_post = (slug: string) => {
     const fullPath: string = path.join(postsDirectory, slug, "content.md");
-    console.log(fullPath);
     const fileContent = fs.readFileSync(fullPath, "utf-8");
     const parsed = matter(fileContent);
     const metadata = parsed.data;

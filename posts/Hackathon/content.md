@@ -11,7 +11,7 @@ Prior to the event. I had very little experience ever doing hackathons. I think 
 
 This event was known as the CODEBREW 2024 hackathon. Which was CISSA's (The big computer science society at the University of Melbourne) "flagship hackathon" so for such a big hackathon there would be big prizes.
 
-![Codebrew prizes](assets/prizes.png)
+![Codebrew prizes](/images/blog/Hackathon/prizes.png)
 _$3500 worth of prizes._
 
 And indeed there was with a top cash price of $1000. In my greed (and in hindsight delusion), I reached out to my friends and we formed a group since it would have been a fun activity for us to do over the mid-semester break with the potential for at least $100. I don't want to dox my friends so I'll be naming them F and N respectively. 
@@ -23,7 +23,7 @@ Unfortunately, I wasn't in the country :(
     
 I was in Malaysia at the time so unfortunately I had to attend the Hackathon virtually. This meant most of my time was spent at my laptop. 
 
-![Boleh](assets/boleh.png)
+![Boleh](/images/blog/Hackathon/boleh.png)
 
 _Photo of me back in Malaysia during the hackathon._
 
@@ -52,7 +52,7 @@ Since the data being sent into the app would be just someone typing. The idea wo
 
 Although I had the name I wouldn't suggest it until much later since we were more concerned about the technical specifics. 
 
-<img src="./assets/ideas.png" width="350px" alt="Our ideas for our app">
+<img src=".//images/blog/Hackathon/ideas.png" width="350px" alt="Our ideas for our app">
 
 _Our Google doc with our ideas we conversed using the doc I'm not talking to myself._
 
@@ -73,7 +73,7 @@ N:
 We communicated primarily on Discord and we all knew what tasks we wanted so all got to work. I worked on the frontend using ReactJS. The UI was pretty simple. Minimalist, if you will.
 
 
-![Homepage for ramble](assets/ramble_homepage.png)
+![Homepage for ramble](/images/blog/Hackathon/ramble_homepage.png)
 
 _This took way longer than I'd like to admit_
 
@@ -163,7 +163,7 @@ The main solution for this would be to run a reverse proxy that points to the IP
 
 It was 4pm and we had to submit our video and I wanted to have our app deployed by then for the judges to test themselves. So running out of options, I pulled a dirty workaround and hosted the website on port 8080.
 
-![My dirty fix](assets/workaround.png)
+![My dirty fix](/images/blog/Hackathon/workaround.png)
 
 _The lack of HTTPS adds just tasteful amount of scuffed to the final product_
 
@@ -177,19 +177,19 @@ It's the morning now and I'm in an uber coming out the airport. I get a message 
 
 WE GOT INTO THE FINALS!!!!!!!!11!
 
-![List of finalists](assets/finalists.png)
+![List of finalists](/images/blog/Hackathon/finalists.png)
 
 I'll be honest I was surprised we even got this far considering our competition. On the website we submitted Devpost, you could view other projects submitted by competitors. I won't lie some of the submissions were pretty cracked.
 
-<img src="assets/lockedin.png" width="600">
+<img src="/images/blog/Hackathon/lockedin.png" width="600">
 
 _These people locked in hard and I was expecting them to win._
 
-<img src="assets/ecolens.png" width="600">
+<img src="/images/blog/Hackathon/ecolens.png" width="600">
 
 _My friend really liked this one and I have to agree._
 
-<img src="./assets/mealmate.png" width="600">
+<img src="/images/blog/Hackathon/mealmate.png" width="600">
 
 _This one didn't get into the finals and tbh it really should have. If you guys ever read this somehow, you guys were scammed IMO._
 
@@ -208,7 +208,7 @@ We won the prize for "Best First Years" which was pretty cool (though not unexpe
 
 To their credit they did have more features then us and it was honestly a really cool product. I think if we had added some more basic features to Ramble we could've stood a better chance. 
 
-![Group photo of most of the participants](assets/group_photo.png)
+![Group photo of most of the participants](/images/blog/Hackathon/group_photo.png)
 
 ## Conclusion
 
@@ -216,4 +216,4 @@ Overall even though in hindsight, that $1000 was way out of our reach, we all ha
 
 Top priority would be to fix that god-awful hosting solution to something reasonable then probably add some more features. Later I might bring F on since it could be fun. Who knows maybe this could be another startup to burn VC money haha. Unless?
 
-![Photo of my friends](assets/ramble_photo.png)
+![Photo of my friends](/images/blog/Hackathon/ramble_photo.png)

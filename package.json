@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "python blog.py && next build",
     "start": "next start",
     "lint": "next lint",
+    "blog": "python blog.py",
     "analyse": "cross-env ANALYZE=true next build"
   },
   "dependencies": {

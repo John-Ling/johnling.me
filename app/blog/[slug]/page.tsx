@@ -1,5 +1,6 @@
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import Link from "next/link";
 
 import style from "./markdown.module.css";
 
@@ -12,14 +13,20 @@ const Page = async (props: Params) => {
   const content: string = post.content;
 
   return (
-    <article className={`w-1/2 m-auto pt-5 pb-5 ${style.markdown}`}>
-      <h1 className="text-xl mb-5">{post.title}</h1>
-      <p className="italic mb-5 text-muted-white">{post.date}</p>
+    <>
+      <div className="w-1/2 m-auto pt-5 pb-5">
+        <Link href="/blog">Back</Link>
+        <article className={`pt-5 pb-5 ${style.markdown}`}>
+        <h1 className="text-xl mb-5">{post.title}</h1>
+        <p className="italic mb-5 text-muted-white">{post.date}</p>
 
-      <Markdown rehypePlugins={[rehypeRaw]}>
-        {content}
-      </Markdown> 
-    </article>
+        <Markdown rehypePlugins={[rehypeRaw]}>
+          {content}
+        </Markdown> 
+      </article>
+      </div>
+    </>
+    
   )
 }
 export default Page;

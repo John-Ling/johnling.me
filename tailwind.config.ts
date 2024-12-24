@@ -11,7 +11,7 @@ const config: Config = {
       extend: {},
       colors: {
         "white": "#F8F9F2",
-        "muted-white": "#D0D0D0",
+        "muted-white": "#B0B0B0",
         "orange": "#FF5500",
         "indigo": {
           light: "#1d1e29",

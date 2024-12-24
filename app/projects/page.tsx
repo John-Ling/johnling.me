@@ -112,7 +112,7 @@ const ProjectItem: React.FC<{project: Project, position: number}> = ({ project, 
   const colourClass: string = colours[position % colours.length];
   return (
     <>
-      <div className="bg-grey-normal border-2 border-grey-light p-3 opacity-0 animate-fade-up" style={{animationDelay: `${(position + 1) * 150}ms`}}>
+      <div className="bg-grey-normal border-2 border-grey-light p-3 opacity-0 animate-fade-up" style={{animationDelay: `${(position + 1) * 100}ms`}}>
         <h2 className={`text-2xl mb-2 mt-2 ${colourClass}`}>{project.title}</h2>
         <h3 className="text-sm mb-2 italic text-muted-white">{project.dateRange}</h3>
         <p className="mb-2">{project.description}</p>

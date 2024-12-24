@@ -14,7 +14,7 @@ Rambling about Linux instead of revising for finals lets go.
 I'm a Linux user. In fact I use Arch<sub>btw<sub>.
 
 
-![Average arch user](assets/arch_user.png)
+![Average arch user](/images/blog/Trying-Gentoo/arch_user.png)
 
 
 _Photo of me from 2021_
@@ -53,8 +53,7 @@ That first point is a big one. For the most part I don't really mind using the m
 
 This is ok I just downgrade the package but the problem is that Arch still wants to constantly update.
 
-
-![bad arch meme](assets/meme.png)
+![bad arch meme](/images/blog/Trying-Gentoo/meme.png)
 
 
 _ngl these cookie-cutter meme formats kind of suck but I'm too lazy to make my own in GIMP_
@@ -74,7 +73,7 @@ Furthermore Gentoo offered a potential solution to my problem of retaining old p
 
 Also the idea of compiling software specifically for your CPU alongside running a stripped down kernel optimised for your hardware sounded appealing. I understand any "snappiness" is  placebo but something about it scratched my brain in a certain way.
 
-<img src="./image-2.png" width="400">
+<img src="/images/blog/Trying-Gentoo/image-2.png" width="400">
 
 
 _This kind of explains it hopefully_
@@ -90,23 +89,23 @@ ok ok justifications over let's talk about using Gentoo.
 I'll keep this section brief since honestly installing Gentoo wasn't that hard. Coming from Arch, the installation was only marginally more difficult since it was a new distro. Granted my first system did fail to boot because I tried compiling and using a minimal kernel that was a little too minimal, but after installing a distkernel I had a working system.
 
 
-![alt text](image-1.png)
+![alt text](/images/blog/Trying-Gentoo/image-1.png)
 
 _Installing Gentoo instead of studying_
 
-<img src="assets/gentoo.jpg" alt="Base Gentoo install" width="400">
+<img src="/images/blog/Trying-Gentoo/gentoo.jpg" alt="Base Gentoo install" width="400">
 
 Learning portage was also not too difficult. I quickly learned how to install, remove packages and install the binary version of packages. I even learned about unmasking certain unstable packages I needed.
 Que installing Hyprland and I had pretty much my entire setup in about ~2 hours.
 
 
-<img src="assets/gentoo_hyprland.jpg" alt="Hyprland Gentoo install" width="400">
+<img src="/images/blog/Trying-Gentoo/gentoo_hyprland.jpg" alt="Hyprland Gentoo install" width="400">
 
 
 _Got Hyprland Working_
 
 
-![alt text](image.png)
+![alt text](/images/blog/Trying-Gentoo/image.png)
 
 
 _Pretty much my setup on Arch ported to Gentoo_

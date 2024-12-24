@@ -26,8 +26,8 @@ const PostComponent: React.FC<{post: Post, position: number}> = ({post, position
   const colourClass: string = colours[position % colours.length];
   return (
     <>
-      <h3 className={`${colourClass}`}>{post.title}</h3>
-      <p className="italic text-muted-white">{post.date}</p>
+      <h2 className={` text-xl ${colourClass}`}>{post.title}</h2>
+      <p className="text-sm italic text-muted-white mb-2 ">{post.date}</p>
       <a href={`/blog/${post.slug}`}>Article</a>
     </>
   )

@@ -7,7 +7,7 @@ On the tech page of my website, I do list some of the software and hardware I us
 
 ## The Software
 
-![My Linux desktop](./assets/linux_desktop.png)
+![My Linux desktop](/images/blog/My-System-in-Depth/linux_desktop.png)
 _My Linux desktop_
 
 **OS**: Since I mainly do programming and play a total of 1 game on my computer, Linux is the best choice for me. I daily drive Arch<sub>btw</sub> Linux not because I worship the KISS philosophy (although I think simple > complicated) nor is it out of some weird sense of superiority I can hold over Ubuntu users.
@@ -72,13 +72,13 @@ I used to use Lastpass as my password manager until it got breached. Nowadays I 
 
 **Notetaking**: I use Obsidian for my notetaking since I like making notes in something close to plaintext. I'm not kidding when I say that for nearly 4 years, I used Windows notepad for my notes and used MS Paint to draw diagrams. 
 
-![Beautiful mspaint diagram of a linked list](./assets/notepad_linked_list.png)
+![Beautiful mspaint diagram of a linked list](/images/blog/My-System-in-Depth/notepad_linked_list.png)
 
 I've tried Notion before but I didn't like the learning curve. Coming from notepad I just needed something simple and Obsidian was recommended by a classmate. 
 
 ## The Hardware
 
-<img src="./assets/pc.jpg" alt="My PC" width="400px"/>
+<img src="/images/blog/My-System-in-Depth/pc.jpg" alt="My PC" width="400px"/>
 
 
 ### The PC
@@ -103,17 +103,17 @@ While this would be a slightly above average gaming PC, the second GPU makes it 
 
 I use a Thinkpad T15 Gen1 I brought in 2021. While it was not my first choice since I was looking for an AMD T14 they were sold out so I got this instead. However I've had no problems using this laptop for school work and quick programming sessions. Its fast, got decent battery life and a good keyboard. 
 
-<img src="./assets/t15.jpg" width="400px" alt="My Thinkpad T15">
+<img src="/images/blog/My-System-in-Depth/t15.jpg" width="400px" alt="My Thinkpad T15">
 
 However I've recently brought myself an old Thinkpad T420 for a rock-bottom price and I've been adding some mods to it. If all goes well, I may have a new daily driver since I really like the feel of the classic keyboards.
 
-<img src="./assets/thinkpad_t420.jpg" width="400px" alt="The Thinkpad T420 before any upgrades">
+<img src="/images/blog/My-System-in-Depth/thinkpad_t420.jpg" width="400px" alt="The Thinkpad T420 before any upgrades">
 
 _The Thinkpad T420 before any upgrades_
 
 ### The Server 
 
-<img src="./assets/server.jpg" width="400px" alt="My crucified laptop of a server">
+<img src="/images/blog/My-System-in-Depth/server.jpg" width="400px" alt="My crucified laptop of a server">
 
 _My crucified laptop of a server_
 
