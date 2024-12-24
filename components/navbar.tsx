@@ -22,7 +22,7 @@ const Navbar = () => {
   // status of mobile menu
   const [open, setOpen] = useState<boolean>(false);
   
-  const path: string = usePathname();
+  const path: string = '/' + usePathname().split("/")[1];
   return (
     <nav className="relative w-full bg-grey-light gap-x-4 gap-y-2 flex flex-col md:flex-row z-10">
       <span className="flex justify-between p-2 md:p-0">

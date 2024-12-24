@@ -5,12 +5,12 @@ export default function Blog() {
   const posts: Post[] = get_sorted_posts();
   return (
     <div className="flex flex-col items-center min-h-screen p-5">
-      <h1 className="font-bold">Do People Still Blog?</h1>
-      <h2>I don&apos;t know</h2>
+      <h1 className="text-lg">Do People Still Blog?</h1>
+      <h2 className="font-normal">I don&apos;t know</h2>
       <p>Anyways here&apos;s a list of my ramblings</p>
       <div className="bg-grey-dark border-2 border-grey-light p-5 m-5 md:w-3/5 lg:w-2/5 ">
         <ul>
-          {posts.map((post: Post, i: number) => {
+        {posts.map((post: Post, i: number) => {
             return <li key={post.slug} className="bg-grey-normal p-5 m-3 border-2 border-grey-light">
                 <PostComponent position={i} post={post} />
               </li> 
@@ -26,7 +26,7 @@ const PostComponent: React.FC<{post: Post, position: number}> = ({post, position
   const colourClass: string = colours[position % colours.length];
   return (
     <>
-      <h2 className={` text-xl ${colourClass}`}>{post.title}</h2>
+      <h2 className={`text-xl ${colourClass}`}>{post.title}</h2>
       <p className="text-sm italic text-muted-white mb-2 ">{post.date}</p>
       <a href={`/blog/${post.slug}`}>Article</a>
     </>

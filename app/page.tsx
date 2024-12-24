@@ -53,10 +53,7 @@ export default function Home() {
     return ANIMATIONS[rand];
   }
 
-  // idea when skills icon container is detected as intersecting get all items below it (they will have a special class)
-  // then add animate-fade-up to them as well
-  // therefore only one thing causes multiple animations to triggern
-
+  // trigger animations when intersecting
   const update_entries = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
     entries.forEach((entry: IntersectionObserverEntry) => {
       if (entry.isIntersecting) {
@@ -114,7 +111,6 @@ export default function Home() {
     <>
       <Hero size={init_size()} animation={select_animation()}/> 
       <div className="flex flex-col items-center">
-
         {/* who section */}
         <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-10 lg:w-3/4">
           <div className="lg:w-1/2">
@@ -190,7 +186,9 @@ export default function Home() {
               <Image className="-translate-x-16" src={electronics_1} alt="More electronics" />
             </div>
             <div className="where-section-picture opacity-0 col-start-2 row-start-2" style={{animationDelay: "300ms"}}>
-              <Image className="translate-x-4 translate-y-8 " src={electronics_2} alt="Some basic electronics the creator built to learn circuits" />
+              <Image className="translate-x-4 translate-y-8 " src={electronics_2} 
+                alt="Some basic electronics the creator built to learn circuits" 
+              />
             </div>
             <div className="where-section-picture opacity-0 row-start-3" style={{animationDelay: "200ms"}}>
               <Image loading="eager" className="-translate-y-16" src={printer} alt="3D printer the creator owns" />
@@ -203,14 +201,22 @@ export default function Home() {
           <h2 className="text-5xl text-magenta">Where?</h2>
           <h3 className="text-3xl mb-3 mt-3">(can you find me)</h3>
           <div className="p-5 opacity-0 trigger-on-scroll" style={{animationDelay: "200ms"}}>
-            <a href="https://www.linkedin.com/in/john-ling-721721243/" className="opacity-0 trigger-on-scroll p-2 no-underline hover:text-orange" style={{animationDelay: "200ms"}}>
+            <a href="https://www.linkedin.com/in/john-ling-721721243/" className="opacity-0 trigger-on-scroll p-2 no-underline hover:text-orange" 
+              style={{animationDelay: "200ms"}}
+            >
               <i className="text-6xl md:text-7xl devicon-linkedin-plain"></i>
             </a>
-            <a href="https://github.com/John-Ling" className="opacity-0 trigger-on-scroll p-2 no-underline hover:text-orange" style={{animationDelay: "300ms"}}> 
+            <a href="https://github.com/John-Ling" className="opacity-0 trigger-on-scroll p-2 no-underline hover:text-orange" 
+              style={{animationDelay: "300ms"}}
+            > 
               <i className="text-6xl md:text-7xl devicon-github-original"></i>
             </a>
           </div>
-          <a className="opacity-0 trigger-on-scroll no-underline" style={{animationDelay: "400ms"}} href="mailto:johnlingbusiness@gmail.com">johnlingbusiness@gmail.com</a>
+          <a className="opacity-0 trigger-on-scroll no-underline" style={{animationDelay: "400ms"}} 
+            href="mailto:johnlingbusiness@gmail.com"
+          >
+            johnlingbusiness@gmail.com
+          </a>
         </section>
 
         {/* why section */}
