@@ -1,4 +1,8 @@
+// globals used by more than one animation
+
 let zBuffer: number[][] = []; // zBuffer is used by cube and donut
+
+// rotation angles for cube and donut
 let thetaA: number = 0;
 let thetaB: number = 0;
 let thetaC: number = 0;
@@ -241,6 +245,87 @@ export const donut_next_frame = (frameBuffer: string[][], width: number, height:
 
 
 // END DONUT
+
+// BEGIN MATRIX
+
+const streams: MatrixStream[] = [];
+
+interface MatrixStream {
+    position: number; // position of front (bottom character) on screen
+    speed: number;
+    length: number;
+    chars: string[];
+}
+
+export const matrix_init = (width: number, height: number) => {
+    // generate initial matrix streams
+    for (let i = 0; i < Math.floor(width / 2); i++) {
+        let stream: MatrixStream = generate_stream(height);
+        streams.push(stream);
+    }
+
+    return Array(height).fill(null).map(() => Array(width).fill(' '))
+}
+
+export const matrix_next_frame = (frameBuffer: string[][], width: number, height: number) => {
+    for (let i = 0; i < height; i++) {
+        for (let j = 0; j < width; j++) {
+            frameBuffer[i][j] = ' ';
+        }   
+    }
+
+    streams.forEach((stream: MatrixStream, x: number) => {
+        if (x % 2 == 1) {
+            return;
+        }
+        stream.position += stream.speed;
+
+        // reset stream if fully below screen
+        if (stream.position - stream.length > height) {
+            streams[x] = generate_stream(height);
+            return;
+        }
+
+        // otherwise render stream on the framebuffer
+        for (let i = 0; i < stream.length; i++) {
+            const y: number = stream.position - i;
+            if (y >= 0 && y < height) {
+                frameBuffer[y][x] = stream.chars[i];
+            }
+        }
+
+        // change front character to random character
+        // emulating the effect in cmatrix
+        // stream.chars[0] = random_char();
+    });
+
+    return frameBuffer;
+}
+
+// random ascii char from the readable range 33 to 126
+// no ESC or NEWLINE or CARRIAGE RETURN nonsense
+const random_char = () => {
+    return String.fromCharCode(Math.floor(Math.random() * (126 - 33) + 33));
+}
+
+const generate_stream = (height: number) => {
+    let stream: MatrixStream = {position: 0, speed: 0, length: 0, chars: []};
+    
+    stream.position = 0 - Math.floor(Math.random() * 20);
+    stream.speed = 1 + Math.floor(Math.random() * 2);
+    // stream.speed = 1;
+    stream.length = Math.floor(Math.random() * 15) + 5;
+    
+    // generate random characters for stream
+    for (let i = 0; i < stream.length; i++) {
+        // stream.chars.push(random_char());
+        stream.chars.push('*');
+    }
+
+    return stream;
+}
+
+// END MATRIX
 
 // BEGIN CONWAY
 // creates a grid with randomly assigned cells for use in conway's game of life

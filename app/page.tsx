@@ -40,7 +40,7 @@ export default function Home() {
   }
 
   const select_animation = () => {
-    const ANIMATIONS: string[] = ["CONWAY", "CUBE", "DONUT"]
+    const ANIMATIONS: string[] = ["CONWAY", "CUBE", "DONUT", "MATRIX"]
     // animations to implement
     //MATRIX,
     //BAPPLE
@@ -50,6 +50,7 @@ export default function Home() {
 
     // pick random animation for ascii display
     const rand: number = Math.floor(Math.random() * ANIMATIONS.length);
+    return "MATRIX";
     return ANIMATIONS[rand];
   }
 

@@ -5,7 +5,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import DescriptionIcon from '@mui/icons-material/Description';
 import EmailIcon from '@mui/icons-material/Email';
 
-import { evolve, conway_populate, cube_init, cube_next_frame, donut_next_frame, donut_init, reset_animations } from "./ascii-display/animations";
+import { evolve, conway_populate, cube_init, cube_next_frame, donut_next_frame, donut_init, reset_animations, matrix_next_frame, matrix_init } from "./ascii-display/animations";
 import AsciiDisplay from "./ascii-display/ascii_display";
 import "/styles/globals.css";
 
@@ -44,6 +44,11 @@ const Hero: React.FC<HeroProps> = ({ size, animation }) => {
         nextFrame = donut_next_frame;
         current = donut_init(size.width, size.height);
         animationSpeed = 12;
+        break;
+      case "MATRIX": 
+        nextFrame = matrix_next_frame;
+        current = matrix_init(size.width, size.height);
+        animationSpeed = 15;
         break;
       default:
         return;
