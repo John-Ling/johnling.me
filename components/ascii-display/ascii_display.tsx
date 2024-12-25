@@ -1,5 +1,5 @@
 interface AsciiDisplayProps {
-  frameBuffer: string[],
+  frameBuffer: string[][],
   size: {
     width: number,
     height: number
@@ -9,10 +9,14 @@ interface AsciiDisplayProps {
 const AsciiDisplay: React.FC<AsciiDisplayProps> = ({ frameBuffer, size }) => {
   return (
     <>
-      <div className="text-center p-5 grid" style={{"gridTemplateColumns":`repeat(${size.width},minmax(0,1fr))`}}>
+      <div className="text-center p-5">
         {/* render characters */}
-        {frameBuffer.map((char: string, i: number) => {
-          return <span key={i}  className="text-white" style={{ whiteSpace: "pre-wrap" }}>{char}</span>
+        {frameBuffer.map((row: string[], i: number) => {
+          return <div>
+            {row.map((char: string, j: number) => {
+            return <span className="text-white" style={{ whiteSpace: "pre-wrap" }}>{char}</span>
+          })}
+          </div>
         })}
       </div>
     </>

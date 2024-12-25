@@ -9,7 +9,7 @@ import { get_post, get_sorted_posts } from "@/lib/posts";
 import { Post } from "@/app/interfaces/post";
 
 import style from "./markdown.module.css";
-import "/styles/syntax_highlighting.css";
+import "/styles/syntax_highlighting.css"; // include slightly modified highlight.js theme
 
 const Page = async (props: Params) => {
   const params = await props.params;

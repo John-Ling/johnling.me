@@ -20,23 +20,27 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ size, animation }) => {
   const create = () => {
-    const grid: string[] = [];
-    for (let i = 0; i < size.width * size.height; i++) {
-      grid.push(' ');
+    const grid: string[][] = [];
+    const row: string[] = [];
+    for (let i = 0; i < size.width; i++) {
+      row.push(' ');
+    }
+    for (let i = 0; i < size.height; i++) {
+      grid.push(row);
     }
     return grid;
   }
 
   // frame buffer for ascii display
-  const [frameBuffer, setFrameBuffer] = useState<string[]>(create);
+  const [frameBuffer, setFrameBuffer] = useState<string[][]>(create);
   const animationRequestID = useRef<number>(0);
   const [rendered, setRendered] = useState<boolean>(false);
 
   // animations for ascii display
   useEffect(() => {
-    let current: string[];
+    let current: string[][];
     let animationSpeed: number = 10;
-    let nextFrame: (buffer: string[], width: number, height: number) => string[];
+    let nextFrame: (buffer: string[][], width: number, height: number) => string[][];
 
     switch (animation) {
       case "CONWAY":
@@ -59,7 +63,7 @@ const Hero: React.FC<HeroProps> = ({ size, animation }) => {
 
     // throttle the animation speed so things actually look good
     const fpsInterval: number = 1000 / animationSpeed;
-    let next: string[];
+    let next: string[][];
     let then: number = Date.now();
     let now: number;
     let elapsed: number;
@@ -115,7 +119,7 @@ const Hero: React.FC<HeroProps> = ({ size, animation }) => {
             style={{animationDelay: "800ms"}}
           >
             { rendered ? 
-              <div className="opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}>
+              <div className="opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
                 <AsciiDisplay frameBuffer={frameBuffer} size={size} />
               </div>
               : <></>
@@ -132,15 +136,15 @@ export default Hero;
 const HeroIcons = () => {
   return (
     <div className="opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>
-      <a href="https://www.linkedin.com/in/john-ling-721721243/" target="_blank" rel="noopener" 
-        className="opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}
-      >
-        <LinkedInIcon sx={{ fontSize: 40}}/>
-      </a>
       <a href="https://github.com/John-Ling/" target="_blank" rel="noopener" className="opacity-0 animate-fade-up" 
-        style={{animationDelay: "500ms"}}
+        style={{animationDelay: "400ms"}}
       >
         <GitHubIcon sx={{ fontSize: 35}}/>
+      </a>
+      <a href="https://www.linkedin.com/in/john-ling-721721243/" target="_blank" rel="noopener" 
+        className="opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}
+      >
+        <LinkedInIcon sx={{ fontSize: 40}}/>
       </a>
       <a href="mailto:johnlingbusiness@gmail.com" className="opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
         <EmailIcon sx={{ fontSize: 35}}/>

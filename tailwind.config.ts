@@ -13,7 +13,7 @@ const config: Config = {
         "white": "#F8F9F2",
         "muted-white": "#B0B0B0",
         "orange": "#FF5500",
-        "orange-light": "#ff8300",
+        "orange-light": "#fd7202",
         "indigo": {
           light: "#1d1e29",
           normal: "#222331"
@@ -42,7 +42,7 @@ const config: Config = {
         "fade_up" : {
           "0%": { transform: "translateY(0.5rem)", opacity: "0"},
           "100%": { transform: "translateY(0)", opacity: "1"},
-        }
+        },
       },
       // maybe create own bezier curve for nicer animation doesn't feel right rn
       animation: {

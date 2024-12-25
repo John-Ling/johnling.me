@@ -90,7 +90,9 @@ export const cube_next_frame = (frameBuffer: string[], width: number, height: nu
 
     const incrementSpeed: number = 1;
     const cubeWidth: number = 15;
-
+    thetaA += 0.05;
+    thetaB += 0.05;
+    thetaC += 0.01;
     // precompute trig functions i believe it should reduce cpu usage
     // and stop turning my laptop into a jet engine
     const sinA: number = Math.sin(thetaA);
@@ -122,9 +124,7 @@ export const cube_next_frame = (frameBuffer: string[], width: number, height: nu
         }
     }
 
-    thetaA += 0.05;
-    thetaB += 0.05;
-    thetaC += 0.01;
+    
     return frameBuffer;
 }
 
@@ -254,34 +254,38 @@ const conwayAlive: string = '*';
 const conwayDead: string = ' ';
 
 export const conway_populate = (width: number, height: number) => {
-    const grid: string[] = [];
+    const grid: string[][] = [];
     const minCeiled: number = Math.ceil(0);
     const maxFloored: number = Math.floor(3);
-    for (let i = 0; i < width * height; i++) {
-        const chance: number = Math.floor(
-            Math.random() * (maxFloored - minCeiled) + minCeiled
-        );
-        if (chance < 2) {
-          grid.push(conwayDead)
-          continue;
+    for (let i = 0; i < height; i++) {
+        const row: string[] = [];
+        for (let j = 0; j < width; j++) {
+            const chance: number = Math.floor(
+                Math.random() * (maxFloored - minCeiled) + minCeiled
+            );
+            if (chance < 2) {
+              row.push(conwayDead);
+              continue;
+            }
+            row.push(conwayAlive);
         }
-        grid.push(conwayAlive);
+        grid.push(row);
       }
     return grid;
   }
 
 // returns the next state of a cell based on it's neighbourhood
-const next_state = (frameBuffer: string[], width: number, height: number, position: number) => {
+const next_state = (frameBuffer: string[][], width: number, height: number, positionI: number, positionJ: number) => {
     // get position in frameBuffer as 2 indexes
-    const row = Math.floor(position / width);
-    const column = position % width;
+    // const row = Math.floor(position / width);
+    // const column = position % width;
 
-    const initialState: string = frameBuffer[position];
+    const initialState: string = frameBuffer[positionI][positionJ];
     let finalState: string = conwayDead;  // assume dead
     let aliveCount: number = 0;
 
     for (let i = -1; i <= 1; i++) {
-        if (row + i < 0 || row + i >= height) {
+        if (positionI + i < 0 || positionI + i >= height) {
             continue
         }
 
@@ -291,11 +295,11 @@ const next_state = (frameBuffer: string[], width: number, height: number, positi
                 continue;
             }
 
-            if (column + j < 0 || column + j >= width) {
+            if (positionJ + j < 0 || positionJ + j >= width) {
                 continue;
             }
 
-            if (frameBuffer[(row + i) * width + (column + j)] == conwayAlive) {
+            if (frameBuffer[(positionI + i)][(positionJ + j)] == conwayAlive) {
                 aliveCount++;
             }
         }   
@@ -314,12 +318,15 @@ const next_state = (frameBuffer: string[], width: number, height: number, positi
     return finalState;
 }
 
-export const evolve = (frameBuffer: string[], width: number, height: number) => {
-    const changed: string[] = [];
-    for (let i = 0; i < width * height; i++) {
-        changed.push(next_state(frameBuffer, width, height, i)); // change later
+export const evolve = (frameBuffer: string[][], width: number, height: number) => {
+    const changed: string[][] = [];
+    for (let i = 0; i < height; i++) {
+        const row: string[] = [];
+        for (let j = 0; j < width; j++) {
+            row.push(next_state(frameBuffer, width, height, i, j));
+        }
+        changed.push(row);
     }
-
     return changed;
 }
 

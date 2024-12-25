@@ -50,6 +50,7 @@ export default function Home() {
 
     // pick random animation for ascii display
     const rand: number = Math.floor(Math.random() * ANIMATIONS.length);
+    return "CONWAY";
     return ANIMATIONS[rand];
   }
 
