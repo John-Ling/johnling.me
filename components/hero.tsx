@@ -19,20 +19,8 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ size, animation }) => {
-  const create = () => {
-    const grid: string[][] = [];
-    const row: string[] = [];
-    for (let i = 0; i < size.width; i++) {
-      row.push(' ');
-    }
-    for (let i = 0; i < size.height; i++) {
-      grid.push(row);
-    }
-    return grid;
-  }
-
   // frame buffer for ascii display
-  const [frameBuffer, setFrameBuffer] = useState<string[][]>(create);
+  const [frameBuffer, setFrameBuffer] = useState<string[][]>(Array(size.height).fill(null).map(() => Array(size.width).fill(' ')));
   const animationRequestID = useRef<number>(0);
   const [rendered, setRendered] = useState<boolean>(false);
 

@@ -12,9 +12,9 @@ const AsciiDisplay: React.FC<AsciiDisplayProps> = ({ frameBuffer, size }) => {
       <div className="text-center p-5">
         {/* render characters */}
         {frameBuffer.map((row: string[], i: number) => {
-          return <div>
+          return <div key={i}>
             {row.map((char: string, j: number) => {
-            return <span className="text-white" style={{ whiteSpace: "pre-wrap" }}>{char}</span>
+            return <span key={j} className="text-white" style={{ whiteSpace: "pre-wrap" }}>{char}</span>
           })}
           </div>
         })}

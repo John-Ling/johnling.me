@@ -1,4 +1,4 @@
-let zBuffer: number[] = []; // zBuffer is used by cube and donut
+let zBuffer: number[][] = []; // zBuffer is used by cube and donut
 let thetaA: number = 0;
 let thetaB: number = 0;
 let thetaC: number = 0;
@@ -43,7 +43,7 @@ const cube_calc_z = (i: number, j: number, k: number,
     );
 }
 
-const cube_calc_for_surface = (frameBuffer: string[], zBuffer: number[], 
+const cube_calc_for_surface = (frameBuffer: string[][], zBuffer: number[][], 
                         cubeX: number, cubeY: number, cubeZ: number, 
                         ch: string, width: number, height: number,
                         sinA: number, sinB: number, sinC: number,
@@ -60,32 +60,29 @@ const cube_calc_for_surface = (frameBuffer: string[], zBuffer: number[],
     const xp: number = Math.floor(width / 2 +  K1 * ooz * x * 2);
     const yp: number = Math.floor(height / 2 + K1 * ooz * y);
 
-    const index: number = xp + yp * width;
                             
-    if (index < 0 || index >= width * height) {
+    if (xp < 0 || xp >= width || yp < 0 || yp >= height) {
         return;
     }
 
-    if (ooz > zBuffer[index]) {
-        zBuffer[index] = ooz;
-        frameBuffer[index] = ch;
+    if (ooz > zBuffer[yp][xp]) {
+        zBuffer[yp][xp] = ooz;
+        frameBuffer[yp][xp] = ch;
     }
     return;
 }
 
 export const cube_init = (width: number, height: number) => {
-    const buffer: string[] = []
-    for (let i = 0; i < width * height; i++) {
-        zBuffer.push(0);
-        buffer.push(' ');
-    }
-    return buffer;
+    zBuffer = Array(height).fill(null).map(() => Array(width).fill(0));
+    return Array(height).fill(null).map(() => Array(width).fill(' '));
 }
 
-export const cube_next_frame = (frameBuffer: string[], width: number, height: number) => {
-    for (let i = 0; i < width * height; i++) {
-        frameBuffer[i] = ' ';
-        zBuffer[i] = 0;
+export const cube_next_frame = (frameBuffer: string[][], width: number, height: number) => {
+    for (let i = 0; i < height; i++) {
+        for (let j = 0; j < width; j++) {
+            frameBuffer[i][j] = ' ';
+            zBuffer[i][j] = 0;
+        }   
     }
 
     const incrementSpeed: number = 1;
@@ -93,6 +90,7 @@ export const cube_next_frame = (frameBuffer: string[], width: number, height: nu
     thetaA += 0.05;
     thetaB += 0.05;
     thetaC += 0.01;
+
     // precompute trig functions i believe it should reduce cpu usage
     // and stop turning my laptop into a jet engine
     const sinA: number = Math.sin(thetaA);
@@ -154,7 +152,7 @@ const donut_calc_z = (r1: number, r2: number, sinTheta: number, sinPhi: number, 
 
 
 // donut is a bit squished try fix that later 
-const donut_calc_for_surface = (frameBuffer: string[], zBuffer: number[], width: number, height: number, 
+const donut_calc_for_surface = (frameBuffer: string[][], zBuffer: number[][], width: number, height: number, 
                                 r1: number, r2: number, sinA: number, sinB: number, cosA: number,
                                 cosB: number, sinTheta: number, sinPhi: number, cosTheta: number,
                                 cosPhi: number, circleX: number, circleY: number) => {
@@ -173,7 +171,10 @@ const donut_calc_for_surface = (frameBuffer: string[], zBuffer: number[], width:
     const xp: number = Math.floor(width / 2 +  K1 * ooz * x);
     const yp: number = Math.floor(height / 2 - K1 * ooz * y);
 
-    const index: number = xp + yp * width;
+
+    if (xp < 0 || xp >= width || yp < 0 || yp >= height) {
+        return;
+    }
 
     // calculate brightness / luminance of pixel
     const luminance: number = cosPhi * cosTheta * sinB - 
@@ -183,34 +184,28 @@ const donut_calc_for_surface = (frameBuffer: string[], zBuffer: number[], width:
     if (luminance <= 0) {
         return;
     }
-
-    if (index < 0 || index >= width * height) {
-        return;
-    }
                                   
-    if (ooz > zBuffer[index]) {
-        zBuffer[index] = ooz;
+    if (ooz > zBuffer[yp][xp]) {
+        zBuffer[yp][xp] = ooz;
         // set correct character for frame buffer
         const luminanceIndex = Math.floor(luminance * 8);
-        frameBuffer[index] = ".,-~:;=!*#$@"[luminanceIndex];
+        frameBuffer[yp][xp] = ".,-~:;=!*#$@"[luminanceIndex];
     }
 
     return;
 }
 
 export const donut_init = (width: number, height: number) => {
-    const buffer: string[] = []
-    for (let i = 0; i < width * height; i++) {
-        zBuffer.push(0);
-        buffer.push(' ');
-    }
-    return buffer;
+    zBuffer = Array(height).fill(null).map(() => Array(width).fill(0));
+    return Array(height).fill(null).map(() => Array(width).fill(' '));
 }
 
-export const donut_next_frame = (frameBuffer: string[], width: number, height: number) => {
-    for (let i = 0; i < width * height; i++) {
-        frameBuffer[i] = ' ';
-        zBuffer[i] = 0;
+export const donut_next_frame = (frameBuffer: string[][], width: number, height: number) => {
+    for (let i = 0; i < height; i++) {
+        for (let j = 0; j < width; j++) {
+            frameBuffer[i][j] = ' ';
+            zBuffer[i][j] = 0;
+        }   
     }
 
     const R1: number = 10;
