@@ -7,7 +7,7 @@ let thetaA: number = 0;
 let thetaB: number = 0;
 let thetaC: number = 0;
 
-export const reset_animations = () => {
+const reset_animations = () => {
     zBuffer = [];
     thetaA = 0;
     thetaB = 0;

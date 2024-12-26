@@ -23,20 +23,14 @@ export default function Home() {
   // set size of ascii display based on screen size
   // numbers are derived from tailwind breakpoints
   const init_size = () => {
-    let size = {width: 25, height: 15};
+    let size = {width: 65, height: 20}; 
+    // return size;
     if (typeof window === "undefined") {
       return size;
     }
 
-    const windowWidth: number = window.innerWidth;
-    if (windowWidth >= 1536) { size = { width: 120, height: 30 }; } 
-    else if (windowWidth >= 1280) { size = { width: 95, height: 26}; } 
-    else if (windowWidth >= 1024) { size = { width: 95, height: 20}; }
-    else if (windowWidth >= 768) { size = { width: 80, height: 18}; } 
-    else if (windowWidth >= 640) { size = { width: 50, height: 15}; } 
-    else { return size; }
-    
-    return size;
+    // dynamically set width and height
+    return {width: Math.floor(window.innerWidth / 16), height: Math.floor(window.innerHeight / 32)};
   }
 
   const select_animation = () => {
@@ -49,7 +43,6 @@ export default function Home() {
 
     // pick random animation for ascii display
     const rand: number = Math.floor(Math.random() * ANIMATIONS.length);
-    return "MATRIX";
     return ANIMATIONS[rand];
   }
 

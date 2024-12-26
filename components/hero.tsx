@@ -5,7 +5,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import DescriptionIcon from '@mui/icons-material/Description';
 import EmailIcon from '@mui/icons-material/Email';
 
-import { evolve, conway_populate, cube_init, cube_next_frame, donut_next_frame, donut_init, reset_animations, matrix_next_frame, matrix_init, cube_cleanup, conway_cleanup, donut_cleanup, matrix_cleanup } from "./ascii-display/animations";
+import { evolve, conway_populate, cube_init, cube_next_frame, donut_next_frame, donut_init, matrix_next_frame, matrix_init, cube_cleanup, conway_cleanup, donut_cleanup, matrix_cleanup } from "./ascii-display/animations";
 import AsciiDisplay from "./ascii-display/ascii_display";
 import "/styles/globals.css";
 
@@ -103,7 +103,7 @@ const Hero: React.FC<HeroProps> = ({ size, animation }) => {
             <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
             <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "200ms"}}>
               I&apos;m
-              <span className="text-orange "> John</span>
+              <span className="text-orange"> John</span>
             </h1>
            </div>
           <HeroIcons/>
