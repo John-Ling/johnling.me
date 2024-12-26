@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -20,14 +19,19 @@ import server from "../public/images/homepage/server.jpg";
 import "/styles/devicon.min.css";
 
 export default function Home() {
-  let specialEnabled: boolean = useSearchParams().has("apple");
+  let specialEnabled: boolean = false;
+
+  if (typeof window !== "undefined") {
+    const searchParams = new URLSearchParams(window.location.search);
+    specialEnabled = searchParams.has("apple");
+  }
 
   const init_size = () => {
     
     if (typeof window === "undefined") {
       return {width: 65, height: 20};
     }
-    
+
     if (specialEnabled) {
       return { width: 150, height: 40 };
     }
