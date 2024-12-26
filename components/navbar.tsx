@@ -30,21 +30,21 @@ const Navbar = () => {
         <button className="md:hidden" onClick={() => setOpen(!open)}><MenuIcon/></button>
       </span>
       {/* desktop menu */} 
-      <div className="hidden md:flex">
-        <NavbarMenu links={links} activeLink={path}/>
+      <div className="hidden invisible md:flex md:visible">
+        <NavbarMenu links={links} activeLink={path} handle_click={() => setOpen(false)}/>
       </div>
 
       {/* mobile menu */}
-      <div className={`shadow-md absolute top-11 bg-[#262626] transition-all  ease-in-out ${open ? 'duration-500 max-h-96' : ' duration-300 max-h-0'}`}>
-        <div className={`transition-al  l  ease-in-out ${open ? 'duration-500 opacity-100' : " duration-300 opacity-0"}`}>
-          <NavbarMenu links={links} activeLink={path}/>
+      <div className={`shadow-md absolute visible md:invisible top-11 bg-[#262626] transition-all  ease-in-out ${open ? 'duration-500 max-h-96' : ' duration-300 max-h-0'}`}>
+        <div className={`transition-all  ease-in-out ${open ? 'duration-500 opacity-100' : " duration-300 opacity-0"}`}>
+          <NavbarMenu links={links} activeLink={path} handle_click={() => setOpen(false)}/>
         </div>
       </div>
     </nav>
   )
 }
 
-const NavbarMenu: React.FC<{links: NavLink[], activeLink: string}> = ({links, activeLink}) => {
+const NavbarMenu: React.FC<{links: NavLink[], activeLink: string, handle_click: () => void}> = ({links, activeLink, handle_click}) => {
   return (
     <ul className="flex flex-col md:flex-row gap-x-2 gap-y-2 md:gap-x-2">
     {links.map((link: NavLink) => {
@@ -58,7 +58,7 @@ const NavbarMenu: React.FC<{links: NavLink[], activeLink: string}> = ({links, ac
       }
 
       return <li key ={link.name}>
-        <Link className={className} aria-current={ariaCurrent} href={link.target}>{link.name}</Link>
+        <Link onClick={handle_click} className={className} aria-current={ariaCurrent} href={link.target}>{link.name}</Link>
       </li>
     })}
     </ul>

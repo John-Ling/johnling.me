@@ -5,7 +5,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import DescriptionIcon from '@mui/icons-material/Description';
 import EmailIcon from '@mui/icons-material/Email';
 
-import { evolve, conway_populate, cube_init, cube_next_frame, donut_next_frame, donut_init, reset_animations, matrix_next_frame, matrix_init } from "./ascii-display/animations";
+import { evolve, conway_populate, cube_init, cube_next_frame, donut_next_frame, donut_init, reset_animations, matrix_next_frame, matrix_init, cube_cleanup, conway_cleanup, donut_cleanup, matrix_cleanup } from "./ascii-display/animations";
 import AsciiDisplay from "./ascii-display/ascii_display";
 import "/styles/globals.css";
 
@@ -29,26 +29,31 @@ const Hero: React.FC<HeroProps> = ({ size, animation }) => {
     let current: string[][];
     let animationSpeed: number = 10;
     let nextFrame: (buffer: string[][], width: number, height: number) => string[][];
+    let cleanup: () => void;
 
     switch (animation) {
       case "CONWAY":
         nextFrame = evolve;
         current = conway_populate(size.width, size.height);
+        cleanup = conway_cleanup;
         break;
       case "CUBE":
         nextFrame = cube_next_frame
         current = cube_init(size.width, size.height);
         animationSpeed = 12;
+        cleanup = cube_cleanup;
         break;
       case "DONUT":
         nextFrame = donut_next_frame;
         current = donut_init(size.width, size.height);
         animationSpeed = 12;
+        cleanup = donut_cleanup;
         break;
       case "MATRIX": 
         nextFrame = matrix_next_frame;
         current = matrix_init(size.width, size.height);
-        animationSpeed = 15;
+        animationSpeed = 12;
+        cleanup = matrix_cleanup;
         break;
       default:
         return;
@@ -79,7 +84,7 @@ const Hero: React.FC<HeroProps> = ({ size, animation }) => {
 
     animationRequestID.current = requestAnimationFrame(animate);
     return () => {
-      reset_animations();
+      cleanup();
       cancelAnimationFrame(animationRequestID.current);
     };
   }, [size, animation]);
@@ -102,9 +107,9 @@ const Hero: React.FC<HeroProps> = ({ size, animation }) => {
             </h1>
            </div>
           <HeroIcons/>
-          <div className="lg:hidden">
-            { rendered ? <AsciiDisplay frameBuffer={frameBuffer} size={size}/> : <></>}
-          </div>
+          {/* <div className="sm:hidden lg:hidden">
+            { rendered ? <AsciiDisplay frameBuffer={frameBuffer} /> : <></>}
+          </div> */}
           <HeroInformation />  
         </div>
         <div className="m-auto ">
@@ -113,7 +118,7 @@ const Hero: React.FC<HeroProps> = ({ size, animation }) => {
           >
             { rendered ? 
               <div className="opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
-                <AsciiDisplay frameBuffer={frameBuffer} size={size} />
+                <AsciiDisplay frameBuffer={frameBuffer} />
               </div>
               : <></>
             }

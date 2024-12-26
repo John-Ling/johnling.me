@@ -42,7 +42,6 @@ export default function Home() {
   const select_animation = () => {
     const ANIMATIONS: string[] = ["CONWAY", "CUBE", "DONUT", "MATRIX"]
     // animations to implement
-    //MATRIX,
     //BAPPLE
     //TETRIS
     // DVD screensaver

@@ -1,12 +1,8 @@
 interface AsciiDisplayProps {
   frameBuffer: string[][],
-  size: {
-    width: number,
-    height: number
-  };
 };
 
-const AsciiDisplay: React.FC<AsciiDisplayProps> = ({ frameBuffer, size }) => {
+const AsciiDisplay: React.FC<AsciiDisplayProps> = ({ frameBuffer }) => {
   return (
     <>
       <div className="text-center p-5">

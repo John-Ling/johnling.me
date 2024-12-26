@@ -18,63 +18,7 @@ export const reset_animations = () => {
 // collection of animations for use with AsciiDisplay
 
 // BEGIN CUBE
-const cube_calc_x = (i: number, j: number, k: number, 
-                    sinA: number, sinB: number, sinC: number, 
-                    cosA: number, cosB: number, cosC: number) => {
-    return (
-        j * sinA * sinB * cosC - k * cosA * 
-        sinB * cosC + j * cosA * sinC + k * 
-        sinA * sinC + i * cosB * cosC
-    );
-  }
-  
-const cube_calc_y = (i: number, j: number, k: number, 
-                    sinA: number, sinB: number, sinC: number, 
-                    cosA: number, cosB: number, cosC: number) => {
-    return (
-        j * cosA * cosC + k * sinA * cosC -
-        j * sinA * sinB * sinC + k * cosA * 
-        sinB * sinC - i * cosB * sinC
-    );
-}
-  
-const cube_calc_z = (i: number, j: number, k: number, 
-                sinA: number, sinB: number,
-                cosA: number, cosB: number ) => {
-    return (
-        k * cosA * cosB - j * 
-        sinA * cosB + i * sinB
-    );
-}
 
-const cube_calc_for_surface = (frameBuffer: string[][], zBuffer: number[][], 
-                        cubeX: number, cubeY: number, cubeZ: number, 
-                        ch: string, width: number, height: number,
-                        sinA: number, sinB: number, sinC: number,
-                        cosA: number, cosB: number, cosC: number) => {
-
-    const distanceFromCamera: number = 100;  // adjust to change size
-    const K1: number = 40; // screen distance for scaling
-    const x: number = cube_calc_x(cubeX, cubeY, cubeZ, sinA, sinB, sinC, cosA, cosB, cosC);
-    const y: number = cube_calc_y(cubeX, cubeY, cubeZ, sinA, sinB, sinC, cosA, cosB, cosC);
-    const z: number = cube_calc_z(cubeX, cubeY, cubeZ, sinA, sinB, cosA, cosB) + distanceFromCamera;
-
-    const ooz: number = 1 / z;
-
-    const xp: number = Math.floor(width / 2 +  K1 * ooz * x * 2);
-    const yp: number = Math.floor(height / 2 + K1 * ooz * y);
-
-                            
-    if (xp < 0 || xp >= width || yp < 0 || yp >= height) {
-        return;
-    }
-
-    if (ooz > zBuffer[yp][xp]) {
-        zBuffer[yp][xp] = ooz;
-        frameBuffer[yp][xp] = ch;
-    }
-    return;
-}
 
 export const cube_init = (width: number, height: number) => {
     zBuffer = Array(height).fill(null).map(() => Array(width).fill(0));
@@ -129,6 +73,70 @@ export const cube_next_frame = (frameBuffer: string[][], width: number, height: 
     
     return frameBuffer;
 }
+
+export const cube_cleanup = () => {
+    reset_animations();
+    return;
+}
+
+const cube_calc_x = (i: number, j: number, k: number, 
+                    sinA: number, sinB: number, sinC: number, 
+                    cosA: number, cosB: number, cosC: number) => {
+    return (
+        j * sinA * sinB * cosC - k * cosA * 
+        sinB * cosC + j * cosA * sinC + k * 
+        sinA * sinC + i * cosB * cosC
+    );
+}
+
+const cube_calc_y = (i: number, j: number, k: number, 
+                    sinA: number, sinB: number, sinC: number, 
+                    cosA: number, cosB: number, cosC: number) => {
+    return (
+        j * cosA * cosC + k * sinA * cosC -
+        j * sinA * sinB * sinC + k * cosA * 
+        sinB * sinC - i * cosB * sinC
+    );
+}
+
+const cube_calc_z = (i: number, j: number, k: number, 
+                    sinA: number, sinB: number,
+                    cosA: number, cosB: number ) => {
+    return (
+        k * cosA * cosB - j * 
+        sinA * cosB + i * sinB
+    );
+}
+
+const cube_calc_for_surface = (frameBuffer: string[][], zBuffer: number[][], 
+        cubeX: number, cubeY: number, cubeZ: number, 
+        ch: string, width: number, height: number,
+        sinA: number, sinB: number, sinC: number,
+        cosA: number, cosB: number, cosC: number) => {
+
+const distanceFromCamera: number = 100;  // adjust to change size
+const K1: number = 40; // screen distance for scaling
+const x: number = cube_calc_x(cubeX, cubeY, cubeZ, sinA, sinB, sinC, cosA, cosB, cosC);
+const y: number = cube_calc_y(cubeX, cubeY, cubeZ, sinA, sinB, sinC, cosA, cosB, cosC);
+const z: number = cube_calc_z(cubeX, cubeY, cubeZ, sinA, sinB, cosA, cosB) + distanceFromCamera;
+
+const ooz: number = 1 / z;
+
+const xp: number = Math.floor(width / 2 +  K1 * ooz * x * 2);
+const yp: number = Math.floor(height / 2 + K1 * ooz * y);
+
+            
+if (xp < 0 || xp >= width || yp < 0 || yp >= height) {
+return;
+}
+
+if (ooz > zBuffer[yp][xp]) {
+zBuffer[yp][xp] = ooz;
+frameBuffer[yp][xp] = ch;
+}
+return;
+}
+
 
 // END CUBE
 
@@ -243,12 +251,16 @@ export const donut_next_frame = (frameBuffer: string[][], width: number, height:
     return frameBuffer;
 }
 
+export const donut_cleanup = () => {
+    reset_animations();
+    return;
+}
 
 // END DONUT
 
 // BEGIN MATRIX
 
-const streams: MatrixStream[] = [];
+let streams: MatrixStream[] = [];
 
 interface MatrixStream {
     position: number; // position of front (bottom character) on screen
@@ -259,8 +271,8 @@ interface MatrixStream {
 
 export const matrix_init = (width: number, height: number) => {
     // generate initial matrix streams
-    for (let i = 0; i < Math.floor(width / 2); i++) {
-        let stream: MatrixStream = generate_stream(height);
+    for (let i = 0; i < width; i++) {
+        const stream: MatrixStream = generate_stream();
         streams.push(stream);
     }
 
@@ -275,14 +287,11 @@ export const matrix_next_frame = (frameBuffer: string[][], width: number, height
     }
 
     streams.forEach((stream: MatrixStream, x: number) => {
-        if (x % 2 == 1) {
-            return;
-        }
         stream.position += stream.speed;
 
         // reset stream if fully below screen
         if (stream.position - stream.length > height) {
-            streams[x] = generate_stream(height);
+            streams[x] = generate_stream();
             return;
         }
 
@@ -302,14 +311,19 @@ export const matrix_next_frame = (frameBuffer: string[][], width: number, height
     return frameBuffer;
 }
 
-// random ascii char from the readable range 33 to 126
-// no ESC or NEWLINE or CARRIAGE RETURN nonsense
-const random_char = () => {
-    return String.fromCharCode(Math.floor(Math.random() * (126 - 33) + 33));
+export const matrix_cleanup = () => {
+    streams = [];
+    return;
 }
 
-const generate_stream = (height: number) => {
-    let stream: MatrixStream = {position: 0, speed: 0, length: 0, chars: []};
+// random ascii char from the readable range 33 to 126
+// no ESC or NEWLINE or CARRIAGE RETURN nonsense
+// const random_char = () => {
+//     return String.fromCharCode(Math.floor(Math.random() * (126 - 33) + 33));
+// }
+
+const generate_stream = () => {
+    const stream: MatrixStream = {position: 0, speed: 0, length: 0, chars: []};
     
     stream.position = 0 - Math.floor(Math.random() * 20);
     stream.speed = 1 + Math.floor(Math.random() * 2);
@@ -408,6 +422,11 @@ export const evolve = (frameBuffer: string[][], width: number, height: number) =
         changed.push(row);
     }
     return changed;
+}
+
+export const conway_cleanup = () => {
+    // nothing to clean up
+    return;
 }
 
 // END CONWAY
