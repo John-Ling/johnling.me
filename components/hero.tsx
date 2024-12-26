@@ -9,7 +9,7 @@ import { evolve, conway_populate, cube_init, cube_next_frame,
         donut_next_frame, donut_init, matrix_next_frame, 
         matrix_init, cube_cleanup, conway_cleanup, 
         donut_cleanup, matrix_cleanup } from "./ascii-display/animations";
-        
+
 import AsciiDisplay from "./ascii-display/ascii_display";
 import "/styles/globals.css";
 
@@ -101,8 +101,8 @@ const Hero: React.FC<HeroProps> = ({ size, animation, specialEnabled }) => {
 
   return (
     <>
-      {specialEnabled ? 
-        rendered ? <AsciiDisplay frameBuffer={frameBuffer} /> : <div className="min-h-screen"></div>
+      {specialEnabled && rendered ? 
+        <AsciiDisplay frameBuffer={frameBuffer} />
         :
           <div className="flex items-center justify-center flex-col lg:flex-row h-[calc(100vh-40px)]">
             <div className="flex flex-col justify-center p-10 lg:w-1/3">

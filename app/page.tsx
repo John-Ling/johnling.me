@@ -33,7 +33,7 @@ export default function Home() {
     }
 
     if (specialEnabled) {
-      return { width: 150, height: 40 };
+      return { width: 150, height: 30 };
     }
 
     // dynamically set width and height
@@ -109,7 +109,7 @@ export default function Home() {
 
   return (
     <>
-      <Hero size={init_size()} animation={select_animation()} specialEnabled={specialEnabled}/> 
+      <Hero size={init_size()} animation={select_animation()} specialEnabled={specialEnabled} /> 
       <div className="flex flex-col items-center">
         <WhoSection />
         <WhatSection />
