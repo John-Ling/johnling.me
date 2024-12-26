@@ -318,9 +318,9 @@ export const matrix_cleanup = () => {
 
 // random ascii char from the readable range 33 to 126
 // no ESC or NEWLINE or CARRIAGE RETURN nonsense
-// const random_char = () => {
-//     return String.fromCharCode(Math.floor(Math.random() * (126 - 33) + 33));
-// }
+const random_char = () => {
+    return String.fromCharCode(Math.floor(Math.random() * (126 - 33) + 33));
+}
 
 const generate_stream = () => {
     const stream: MatrixStream = {position: 0, speed: 0, length: 0, chars: []};
@@ -332,8 +332,8 @@ const generate_stream = () => {
     
     // generate random characters for stream
     for (let i = 0; i < stream.length; i++) {
-        // stream.chars.push(random_char());
-        stream.chars.push('*');
+        stream.chars.push(random_char());
+        // stream.chars.push('*');
     }
 
     return stream;

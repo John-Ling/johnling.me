@@ -16,9 +16,10 @@ interface HeroProps {
     height: number;
   };
   animation: string;
+  specialEnabled: boolean;
 }
 
-const Hero: React.FC<HeroProps> = ({ size, animation }) => {
+const Hero: React.FC<HeroProps> = ({ size, animation, specialEnabled }) => {
   // frame buffer for ascii display
   const [frameBuffer, setFrameBuffer] = useState<string[][]>(Array(size.height).fill(null).map(() => Array(size.width).fill(' ')));
   const animationRequestID = useRef<number>(0);
@@ -96,35 +97,35 @@ const Hero: React.FC<HeroProps> = ({ size, animation }) => {
 
   return (
     <>
-      <div className="flex items-center justify-center flex-col lg:flex-row h-[calc(100vh-40px)]">
-      {/* border-2 border-grey-light lg:border-0 bg-grey-dark lg:bg-grey-normal */}
-        <div className="flex flex-col justify-center p-10 lg:w-1/3">
-          <div className="text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up " style={{animationDelay: "100ms"}}>
-            <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
-            <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "200ms"}}>
-              I&apos;m
-              <span className="text-orange"> John</span>
-            </h1>
-           </div>
-          <HeroIcons/>
-          {/* <div className="sm:hidden lg:hidden">
-            { rendered ? <AsciiDisplay frameBuffer={frameBuffer} /> : <></>}
-          </div> */}
-          <HeroInformation />  
-        </div>
-        <div className="m-auto ">
-          <div className="bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" 
-            style={{animationDelay: "800ms"}}
-          >
-            { rendered ? 
-              <div className="opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
-                <AsciiDisplay frameBuffer={frameBuffer} />
+      {specialEnabled ? 
+        rendered ? <AsciiDisplay frameBuffer={frameBuffer} /> : <div className="min-h-screen"></div>
+        :
+          <div className="flex items-center justify-center flex-col lg:flex-row h-[calc(100vh-40px)]">
+            <div className="flex flex-col justify-center p-10 lg:w-1/3">
+              <div className="text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up " style={{animationDelay: "100ms"}}>
+                <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
+                <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "200ms"}}>
+                  I&apos;m
+                  <span className="text-orange"> John</span>
+                </h1>
               </div>
-              : <></>
-            }
-          </div>
+              <HeroIcons/>
+              <HeroInformation />  
+            </div>
+            <div className="m-auto ">
+              <div className="bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" 
+                style={{animationDelay: "800ms"}}
+              >
+                { rendered && !specialEnabled ? 
+                  <div className="opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
+                    <AsciiDisplay frameBuffer={frameBuffer} />
+                  </div>
+                  : <></>
+                }
+              </div>
+            </div>  
         </div>
-      </div>
+      }
     </>
   )
 }

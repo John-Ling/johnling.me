@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -19,18 +20,20 @@ import server from "../public/images/homepage/server.jpg";
 import "/styles/devicon.min.css";
 
 export default function Home() {
+  let specialEnabled: boolean = useSearchParams().has("apple");
 
-  // set size of ascii display based on screen size
-  // numbers are derived from tailwind breakpoints
   const init_size = () => {
-    let size = {width: 65, height: 20}; 
-    // return size;
+    
     if (typeof window === "undefined") {
-      return size;
+      return {width: 65, height: 20};
+    }
+    
+    if (specialEnabled) {
+      return { width: 150, height: 40 };
     }
 
     // dynamically set width and height
-    return {width: Math.floor(window.innerWidth / 16), height: Math.floor(window.innerHeight / 32)};
+    return { width: Math.floor(window.innerWidth / 16), height: Math.floor(window.innerHeight / 32) };
   }
 
   const select_animation = () => {
@@ -102,7 +105,7 @@ export default function Home() {
 
   return (
     <>
-      <Hero size={init_size()} animation={select_animation()}/> 
+      <Hero size={init_size()} animation={select_animation()} specialEnabled={specialEnabled}/> 
       <div className="flex flex-col items-center">
         <WhoSection />
         <WhatSection />
