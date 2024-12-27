@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from "react";
-import BappleFrame from "./bapple_frame";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import DescriptionIcon from '@mui/icons-material/Description';
@@ -23,6 +22,7 @@ interface HeroProps {
   specialEnabled: boolean;
 }
 
+// specialEnabled doesn't do anything for now ;)
 const Hero: React.FC<HeroProps> = ({ size, animation, specialEnabled }) => {
   // frame buffer for ascii display
   const [frameBuffer, setFrameBuffer] = useState<string[][]>(Array(size.height).fill(null).map(() => Array(size.width).fill(' ')));
@@ -101,36 +101,31 @@ const Hero: React.FC<HeroProps> = ({ size, animation, specialEnabled }) => {
 
   return (
     <>
-      {specialEnabled && rendered ? 
-        // <AsciiDisplay frameBuffer={frameBuffer} />
-        <BappleFrame/>
-        :
-          <div className="flex items-center justify-center flex-col lg:flex-row h-[calc(100vh-40px)]">
-            <div className="flex flex-col justify-center p-10 lg:w-1/3">
-              <div className="text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up " style={{animationDelay: "100ms"}}>
-                <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
-                <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "200ms"}}>
-                  I&apos;m
-                  <span className="text-orange"> John</span>
-                </h1>
-              </div>
-              <HeroIcons/>
-              <HeroInformation />  
-            </div>
-            <div className="m-auto ">
-              <div className="bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" 
-                style={{animationDelay: "800ms"}}
-              >
-                { rendered && !specialEnabled ? 
-                  <div className="opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
-                    <AsciiDisplay frameBuffer={frameBuffer} />
-                  </div>
-                  : <></>
-                }
-              </div>
-            </div>  
+      <div className="flex items-center justify-center flex-col lg:flex-row h-[calc(100vh-40px)]">
+        <div className="flex flex-col justify-center p-10 lg:w-1/3">
+          <div className="text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up " style={{animationDelay: "100ms"}}>
+            <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
+            <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "200ms"}}>
+              I&apos;m
+              <span className="text-orange"> John</span>
+            </h1>
+          </div>
+          <HeroIcons/>
+          <HeroInformation />  
         </div>
-      }
+        <div className="m-auto ">
+          <div className="bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" 
+            style={{animationDelay: "800ms"}}
+          >
+            { rendered && !specialEnabled ? 
+              <div className="opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
+                <AsciiDisplay frameBuffer={frameBuffer} />
+              </div>
+              : <></>
+            }
+          </div>
+        </div>  
+    </div>
     </>
   )
 }

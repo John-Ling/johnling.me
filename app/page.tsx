@@ -21,6 +21,7 @@ import "/styles/devicon.min.css";
 export default function Home() {
   let specialEnabled: boolean = false;
 
+  // doesn't do anything for now ;)
   if (typeof window !== "undefined") {
     const searchParams = new URLSearchParams(window.location.search);
     specialEnabled = searchParams.has("apple");
