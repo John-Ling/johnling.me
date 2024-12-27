@@ -1,35 +1,11 @@
-import { get_sorted_posts } from "@/lib/posts";
-import { Post } from "../interfaces/post";
+import BlogPage from "@/components/screens/blog";
 
-export default function Blog() {
-  const posts: Post[] = get_sorted_posts();
-  return (
-    <div className="flex flex-col items-center min-h-screen p-5">
-      <h1 className="text-3xl">Do People Still Blog?</h1>
-      <div className="bg-grey-dark border-2 border-grey-light p-2 m-5 w-full md:w-3/5 lg:w-2/5 opacity-0 animate-fade-up">
-        <ul>
-        {posts.map((post: Post, i: number) => {
-            return (
-              <li key={post.slug}  className="bg-grey-normal p-3 md:p-5 m-3 border-2 border-grey-light opacity-0 animate-fade-up"
-                style={{animationDelay: `${(i + 1) * 100}ms`}}
-              >
-                <PostComponent position={i} post={post} />
-              </li> 
-          )})}
-        </ul> 
-      </div>
-    </div>
-  );
-}
-
-const PostComponent: React.FC<{post: Post, position: number}> = ({post, position}) => {
-  const colours: string[] = ["text-blue", "text-magenta", "text-teal", "text-green", "text-yellow", "text-orange", "text-red"];
-  const colourClass: string = colours[position % colours.length];
+const Page = () => {
   return (
     <>
-      <h2 className={`text-l md:text-xl ${colourClass}`}>{post.title}</h2>
-      <p className="text-sm italic text-muted-white mb-2 ">{post.date}</p>
-      <a href={`/blog/${post.slug}`}>Article</a>
+      <BlogPage />
     </>
   )
 }
+
+export default Page;
