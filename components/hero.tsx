@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-
+import BappleFrame from "./bapple_frame";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import DescriptionIcon from '@mui/icons-material/Description';
@@ -102,7 +102,8 @@ const Hero: React.FC<HeroProps> = ({ size, animation, specialEnabled }) => {
   return (
     <>
       {specialEnabled && rendered ? 
-        <AsciiDisplay frameBuffer={frameBuffer} />
+        // <AsciiDisplay frameBuffer={frameBuffer} />
+        <BappleFrame/>
         :
           <div className="flex items-center justify-center flex-col lg:flex-row h-[calc(100vh-40px)]">
             <div className="flex flex-col justify-center p-10 lg:w-1/3">

@@ -57,7 +57,7 @@ const NavbarMenu: React.FC<{links: NavLink[], activeLink: string, handle_click: 
         ariaCurrent = "page";
       }
 
-      return <li key ={link.name}>
+      return <li key={link.name}>
         <Link onClick={handle_click} className={className} aria-current={ariaCurrent} href={link.target}>{link.name}</Link>
       </li>
     })}

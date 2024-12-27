@@ -31,7 +31,7 @@ const ProjectItem: React.FC<{project: Project, position: number}> = ({ project, 
         <p className="mb-2">{project.description}</p>
         <ul className="flex flex-wrap mt-1 mb-2">
           {project.tags.map((tag: string) => {
-            return <li key={tag} className="p-1 text-sm"><span className="bg-grey-light  border-1 pl-1 pr-1">{tag}</span></li>
+            return <li key={tag} className="p-1 text-sm"><span className="bg-grey-light border-1 pl-1 pr-1">{tag}</span></li>
           })}
         </ul>
         <a href={project.sourceURL}>Source Code</a>

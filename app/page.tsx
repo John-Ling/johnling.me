@@ -29,11 +29,11 @@ export default function Home() {
   const init_size = () => {
     
     if (typeof window === "undefined") {
-      return {width: 65, height: 20};
+      return {width: 20, height: 65};
     }
 
     if (specialEnabled) {
-      return { width: 150, height: 30 };
+      return { width: 40, height: 30 };
     }
 
     // dynamically set width and height

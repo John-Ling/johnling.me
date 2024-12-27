@@ -8,7 +8,7 @@ const AsciiDisplay: React.FC<AsciiDisplayProps> = ({ frameBuffer }) => {
       <div className="text-center p-5 overflow-clip whitespace-nowrap">
         {/* render characters */}
         {frameBuffer.map((row: string[], i: number) => {
-          return <div key={i} className="">
+          return <div key={i}>
             {row.map((char: string, j: number) => {
             return <span key={j} className="text-white inline-block whitespace-pre-wrap">{char}</span>
           })}
