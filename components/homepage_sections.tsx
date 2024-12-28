@@ -1,6 +1,5 @@
 import SkillsDisplay from "./skills_display"
 
-
 import Image from "next/image";
 import Link from "next/link";
 

@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState, useRef } from "react";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -97,8 +98,8 @@ const Hero: React.FC<HeroProps> = ({ size, animation, specialEnabled }) => {
   useEffect(() => {
     setRendered(true);
     return;
-  }, [])
-
+  }, []);
+  
   return (
     <>
       <div className="flex items-center justify-center flex-col lg:flex-row h-[calc(100vh-40px)]">
@@ -170,6 +171,6 @@ const HeroInformation = () => {
     <p className="mb-5 opacity-0 animate-fade-up" style={{animationDelay: "700ms"}}>
       My projects tend to be web-based, but learning new things is fun so they can vary.
     </p>
-</div>
+  </div>
  ) 
 }

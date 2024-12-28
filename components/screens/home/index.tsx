@@ -1,45 +1,9 @@
 "use client";
 
 import { useEffect } from "react";
-
 import { WhoSection, WhatSection, WhenSection, WhereSection, WhySection } from "@/components/homepage_sections";
-import Hero from "@/components/hero";
 
-const HomePage = () => {
-  let specialEnabled: boolean = false;
-
-  // doesn't do anything for now ;)
-  if (typeof window !== "undefined") {
-    const searchParams = new URLSearchParams(window.location.search);
-    specialEnabled = searchParams.has("apple");
-  }
-
-  const init_size = () => {
-    
-    if (typeof window === "undefined") {
-      return {width: 20, height: 65};
-    }
-
-    if (specialEnabled) {
-      return { width: 40, height: 30 };
-    }
-
-    // dynamically set width and height
-    return { width: Math.floor(window.innerWidth / 16), height: Math.floor(window.innerHeight / 32) };
-  }
-
-  const select_animation = () => {
-    const ANIMATIONS: string[] = ["CONWAY", "CUBE", "DONUT", "MATRIX"]
-    // animations to implement
-    //BAPPLE
-    //TETRIS
-    // DVD screensaver
-    // windows pipes?
-
-    // pick random animation for ascii display
-    const rand: number = Math.floor(Math.random() * ANIMATIONS.length);
-    return ANIMATIONS[rand];
-  }
+const AboutSection = () => {
 
   // trigger animations when intersecting
   const update_entries = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
@@ -96,7 +60,6 @@ const HomePage = () => {
 
   return (
     <>
-      <Hero size={init_size()} animation={select_animation()} specialEnabled={specialEnabled} />
       <div className="flex flex-col items-center">
         <WhoSection />
         <WhatSection />
@@ -108,4 +71,4 @@ const HomePage = () => {
   );
 }
 
-export default HomePage;
+export default AboutSection;
