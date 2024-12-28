@@ -1,3 +1,4 @@
+import JSZip from 'jszip';
 interface HeroSize {
     width: number;
     height: number;
@@ -37,4 +38,25 @@ export const select_animation = () => {
     // pick random animation for ascii display
     const rand: number = Math.floor(Math.random() * ANIMATIONS.length);
     return ANIMATIONS[rand];
+}
+
+
+
+export const setup_special_frames = (specialEnabled: boolean) => {
+    if (!specialEnabled) {
+        return [];
+    }
+
+    const load = async () => {
+        const zip: Response = await fetch("http://localhost:3000/frame.zip");
+        const binaryContent: Blob = await zip.blob();
+        const content: ArrayBuffer = await binaryContent.arrayBuffer();
+
+        const jsZip = new JSZip();
+        const file = await jsZip.loadAsync(content);
+        const frameString: string = await file.file("frames.txt")!.async("string");
+        return frameString.split("\n");
+    }
+    
+    return load();
 }

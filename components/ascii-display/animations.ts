@@ -19,7 +19,6 @@ const reset_animations = () => {
 
 // BEGIN CUBE
 
-
 export const cube_init = (width: number, height: number) => {
     zBuffer = Array(height).fill(null).map(() => Array(width).fill(0));
     return Array(height).fill(null).map(() => Array(width).fill(' '));
@@ -139,6 +138,51 @@ return;
 
 
 // END CUBE
+
+// BEGIN BAPPLE
+
+import JSZip from 'jszip';
+
+let currentFrame: number = 0; // index into frames array
+let frames: string[] = [];
+
+// downloads and unzips file containing 
+// frames
+export const bapple_init = async (width: number, height: number) => {
+
+    const zip: Response = await fetch("http://localhost:3000/frames.zip");
+    const binaryContent: Blob = await zip.blob();
+    const content: ArrayBuffer = await binaryContent.arrayBuffer();
+
+    const jsZip = new JSZip();
+    const file = await jsZip.loadAsync(content);
+    const frameString: string = await file.file("frames.txt")!.async("string");
+    frames = await frameString.split("\n");
+    console.log(frames);
+    return;
+}
+
+export const bapple_next_frame = (frameBuffer: string[][], width: number, height: number) => {
+
+    // if animation has not unzipped yet or already finished
+    if (frames[currentFrame] === undefined) {
+        return frameBuffer;
+    }
+
+    const frame: string = frames[currentFrame];
+    console.log(frame);
+    for (let i = 0; i < height; i++) {
+        for (let j = 0; j < width; j++) {
+            frameBuffer[i][j] = frame[(i * width) + j]
+            // frameBuffer[i][j] = '8'
+        }
+    }
+
+    currentFrame += 1;
+    return frameBuffer;
+}
+
+// END BAPPLE
 
 // BEGIN DONUT
 

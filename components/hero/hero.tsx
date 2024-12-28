@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
-// import JSZip from 'jszip';
+import JSZip from 'jszip';
 
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -10,10 +10,12 @@ import EmailIcon from '@mui/icons-material/Email';
 import { evolve, conway_populate, cube_init, cube_next_frame, 
         donut_next_frame, donut_init, matrix_next_frame, 
         matrix_init, cube_cleanup, conway_cleanup, 
-        donut_cleanup, matrix_cleanup } from "../ascii-display/animations";
+        donut_cleanup, matrix_cleanup, 
+        bapple_next_frame,
+        bapple_init} from "../ascii-display/animations";
 
   
-import { select_animation, check_special, init_size } from "./init_functions";
+import { select_animation, check_special, init_size, setup_special_frames } from "./init_functions";
 
 import AsciiDisplay from "../ascii-display/ascii_display";
 import "/styles/globals.css";
@@ -28,45 +30,53 @@ const Hero = () => {
   // frame buffer for ascii display
   const animationRequestID = useRef<number>(0);
   const [rendered, setRendered] = useState<boolean>(false);
-  const [animation, ] = useState<string>(select_animation());
-  const [specialEnabled, ] = useState<boolean>(check_special());
-  const [size, ] = useState<HeroSize>(init_size(specialEnabled))
+  const [animation, setAnimation] = useState<string>(select_animation());
+  const [specialEnabled, setSpecialEnabled] = useState<boolean>(check_special());
+  const [size, setSize] = useState<HeroSize>(init_size(specialEnabled))
   const [frameBuffer, setFrameBuffer] = useState<string[][]>(Array(size.height).fill(null).map(() => Array(size.width).fill(' ')));
 
 
   // animations for ascii display
   useEffect(() => {
-    let current: string[][];
+    let current: string[][] = Array(size.height).fill(null).map(() => Array(size.width).fill(' '));
     let animationSpeed: number = 10;
     let nextFrame: (buffer: string[][], width: number, height: number) => string[][];
     let cleanup: () => void;
 
-    switch (animation) {
-      case "CONWAY":
-        nextFrame = evolve;
-        current = conway_populate(size.width, size.height);
-        cleanup = conway_cleanup;
-        break;
-      case "CUBE":
-        nextFrame = cube_next_frame
-        current = cube_init(size.width, size.height);
-        animationSpeed = 12;
-        cleanup = cube_cleanup;
-        break;
-      case "DONUT":
-        nextFrame = donut_next_frame;
-        current = donut_init(size.width, size.height);
-        animationSpeed = 12;
-        cleanup = donut_cleanup;
-        break;
-      case "MATRIX": 
-        nextFrame = matrix_next_frame;
-        current = matrix_init(size.width, size.height);
-        animationSpeed = 12;
-        cleanup = matrix_cleanup;
-        break;
-      default:
-        return;
+    if (specialEnabled) {
+      nextFrame = bapple_next_frame;
+      bapple_init(size.width, size.height);
+      cleanup = cube_cleanup;
+      animationSpeed = 30;
+
+    } else {
+      switch (animation) {
+        case "CONWAY":
+          nextFrame = evolve;
+          current = conway_populate(size.width, size.height);
+          cleanup = conway_cleanup;
+          break;
+        case "CUBE":
+          nextFrame = cube_next_frame
+          current = cube_init(size.width, size.height);
+          animationSpeed = 12;
+          cleanup = cube_cleanup;
+          break;
+        case "DONUT":
+          nextFrame = donut_next_frame;
+          current = donut_init(size.width, size.height);
+          animationSpeed = 12;
+          cleanup = donut_cleanup;
+          break;
+        case "MATRIX": 
+          nextFrame = matrix_next_frame;
+          current = matrix_init(size.width, size.height);
+          animationSpeed = 12;
+          cleanup = matrix_cleanup;
+          break;
+        default:
+          return;
+      }
     }
 
     // throttle the animation speed so things actually look good
@@ -103,54 +113,44 @@ const Hero = () => {
     setRendered(true);
     return;
   }, []);
-  
+
   useEffect(() => {
-    // const load = async () => {
-    //   const zip: Response = await fetch("http://localhost:3000/frame.zip");
-    //   const binaryContent: Blob = await zip.blob();
-    //   const content: ArrayBuffer = await binaryContent.arrayBuffer();
 
-    //   const jsZip = new JSZip();
-    //   const file = await jsZip.loadAsync(content);
-    //   const data = await file.file("frames.txt")!.async("string");
-    //   console.log(data);
-    //   return;
-    // }
+  }, [])
 
-    if (specialEnabled) {
-      console.log("Unzipping frames");
-      // load();
-    }
-    return;
-  }, [specialEnabled])
-  
   return (
     <>
-      <div className="flex items-center justify-center flex-col lg:flex-row h-[calc(100vh-40px)]">
-        <div className="flex flex-col justify-center p-10 lg:w-1/3">
-          <div className="text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up " style={{animationDelay: "100ms"}}>
-            <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
-            <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "200ms"}}>
-              I&apos;m
-              <span className="text-orange"> John</span>
-            </h1>
+      {
+        specialEnabled && rendered ? 
+          <AsciiDisplay frameBuffer={frameBuffer} />
+        :
+        <div className="flex items-center justify-center flex-col lg:flex-row h-[calc(100vh-40px)]">
+          <div className="flex flex-col justify-center p-10 lg:w-1/3">
+            <div className="text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up " style={{animationDelay: "100ms"}}>
+              <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
+              <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "200ms"}}>
+                I&apos;m
+                <span className="text-orange"> John</span>
+              </h1>
+            </div>
+            <HeroIcons/>
+            <HeroInformation />  
           </div>
-          <HeroIcons/>
-          <HeroInformation />  
+          <div className="m-auto ">
+            <div className="bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" 
+              style={{animationDelay: "800ms"}}
+            >
+              { rendered && !specialEnabled ? 
+                <div className="opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
+                  <AsciiDisplay frameBuffer={frameBuffer} />
+                </div>
+                : <></>
+              }
+            </div>
+          </div>  
         </div>
-        <div className="m-auto ">
-          <div className="bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" 
-            style={{animationDelay: "800ms"}}
-          >
-            { rendered && !specialEnabled ? 
-              <div className="opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
-                <AsciiDisplay frameBuffer={frameBuffer} />
-              </div>
-              : <></>
-            }
-          </div>
-        </div>  
-    </div>
+      }
+      
     </>
   )
 }
