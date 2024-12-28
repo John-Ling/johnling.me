@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
+// import JSZip from 'jszip';
+
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import DescriptionIcon from '@mui/icons-material/Description';
@@ -8,27 +10,29 @@ import EmailIcon from '@mui/icons-material/Email';
 import { evolve, conway_populate, cube_init, cube_next_frame, 
         donut_next_frame, donut_init, matrix_next_frame, 
         matrix_init, cube_cleanup, conway_cleanup, 
-        donut_cleanup, matrix_cleanup } from "./ascii-display/animations";
+        donut_cleanup, matrix_cleanup } from "../ascii-display/animations";
 
-import AsciiDisplay from "./ascii-display/ascii_display";
+  
+import { select_animation, check_special, init_size } from "./init_functions";
+
+import AsciiDisplay from "../ascii-display/ascii_display";
 import "/styles/globals.css";
 
-interface HeroProps {
-  // width and height of ascii display component
-  size: {
-    width: number;
-    height: number;
-  };
-  animation: string;
-  specialEnabled: boolean;
+// width and height of ascii display component
+interface HeroSize {
+  width: number;
+  height: number;
 }
-
 // specialEnabled doesn't do anything for now ;)
-const Hero: React.FC<HeroProps> = ({ size, animation, specialEnabled }) => {
+const Hero = () => {
   // frame buffer for ascii display
-  const [frameBuffer, setFrameBuffer] = useState<string[][]>(Array(size.height).fill(null).map(() => Array(size.width).fill(' ')));
   const animationRequestID = useRef<number>(0);
   const [rendered, setRendered] = useState<boolean>(false);
+  const [animation, ] = useState<string>(select_animation());
+  const [specialEnabled, ] = useState<boolean>(check_special());
+  const [size, ] = useState<HeroSize>(init_size(specialEnabled))
+  const [frameBuffer, setFrameBuffer] = useState<string[][]>(Array(size.height).fill(null).map(() => Array(size.width).fill(' ')));
+
 
   // animations for ascii display
   useEffect(() => {
@@ -99,6 +103,26 @@ const Hero: React.FC<HeroProps> = ({ size, animation, specialEnabled }) => {
     setRendered(true);
     return;
   }, []);
+  
+  useEffect(() => {
+    // const load = async () => {
+    //   const zip: Response = await fetch("http://localhost:3000/frame.zip");
+    //   const binaryContent: Blob = await zip.blob();
+    //   const content: ArrayBuffer = await binaryContent.arrayBuffer();
+
+    //   const jsZip = new JSZip();
+    //   const file = await jsZip.loadAsync(content);
+    //   const data = await file.file("frames.txt")!.async("string");
+    //   console.log(data);
+    //   return;
+    // }
+
+    if (specialEnabled) {
+      console.log("Unzipping frames");
+      // load();
+    }
+    return;
+  }, [specialEnabled])
   
   return (
     <>
