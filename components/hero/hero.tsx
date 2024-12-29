@@ -1,6 +1,5 @@
 "use client";
-import { useEffect, useState, useRef, Ref } from "react";
-
+import { useEffect, useState, useRef } from "react";
 
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -15,10 +14,10 @@ import { evolve, conway_populate, cube_init, cube_next_frame,
         bapple_init,
         bapple_cleanup} from "../ascii-display/animations";
 
-  
 import { select_animation, check_special, init_size } from "./init_functions";
 
 import AsciiDisplay from "../ascii-display/ascii_display";
+import Secret from "./secret";
 import "/styles/globals.css";
 
 // width and height of ascii display component
@@ -49,7 +48,7 @@ const Hero = () => {
     let animationSpeed: number = 10;
     let nextFrame: (buffer: string[][], width: number, height: number) => string[][];
     let cleanup: () => void;
-    
+
     switch (animation) {
       case "CONWAY":
         nextFrame = evolve;
@@ -112,6 +111,7 @@ const Hero = () => {
     }
 
     animationRequestID.current = requestAnimationFrame(animate);
+
     return () => {
       cleanup();
       cancelAnimationFrame(animationRequestID.current);
@@ -146,12 +146,12 @@ const Hero = () => {
 export default Hero;
 
 interface HeroComponentProps {
-  specialEnabled: boolean,
-  rendered: boolean,
-  playMusic: boolean,
-  frameBuffer: string[][],
-  audioRef: Ref<HTMLAudioElement>,
-  handle_click: () => void,
+  specialEnabled: boolean;
+  rendered: boolean;
+  playMusic: boolean;
+  frameBuffer: string[][];
+  audioRef: React.Ref<HTMLAudioElement>;
+  handle_click: () => void;
 };
 
 const HeroComponent: React.FC<HeroComponentProps> = ({ specialEnabled, rendered, playMusic, frameBuffer, audioRef, handle_click }) => {
@@ -160,32 +160,11 @@ const HeroComponent: React.FC<HeroComponentProps> = ({ specialEnabled, rendered,
       {
         specialEnabled && rendered ? 
           <>
-            {
-              !playMusic 
-              ? 
-                <div className="flex flex-col justify-center items-center min-h-screen">
-                  <button className="bg-grey-dark p-3 hover:bg-[#101010] hover:text-[#E0E0E0]" onClick={handle_click}>
-                    Play
-                  </button>
-                  <p>You might want to turn down your volume</p>
-                </div>
-              :
-                <>
-                  <AsciiDisplay frameBuffer={frameBuffer} />
-                  <p className="opacity-0 animate-fade-up p-5" style={{animationDelay: "5000ms"}}>
-                    All rights go to ZUN Soft / Team Shanghai Alice. 
-                    I do not profit from using this music nor do I claim this music as my own. 
-                    pls no sue
-                  </p>
-                </>
-            }
-            <audio ref={audioRef}>
-              <source src="/bapple.mp3" type="audio/mpeg"/>
-            </audio>
+            <Secret playMusic={playMusic} frameBuffer={frameBuffer} audioRef={audioRef} handle_click={handle_click} />
           </>
         :
-        <div className="flex items-center justify-center flex-col lg:flex-row h-[calc(100vh-40px)]">
-          <div className="flex flex-col justify-center p-10 lg:w-1/3">
+        <div className="min-h-screen flex items-center justify-center flex-col lg:flex-row ">
+          <div className="flex flex-col justify-center p-10 lg:w-1/2 xl:w-1/3">
             <div className="text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up " style={{animationDelay: "100ms"}}>
               <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
               <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "200ms"}}>
@@ -193,10 +172,21 @@ const HeroComponent: React.FC<HeroComponentProps> = ({ specialEnabled, rendered,
                 <span className="text-orange"> John</span>
               </h1>
             </div>
-            <HeroIcons/>
+            <HeroIcons />
+            <p className="mt-4 opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>I make things.</p>
+            <div className="hidden md:block lg:hidden opacity-0 animate-fade-up" style={{animationDelay: "800ms"}}>
+              { rendered && !specialEnabled ? 
+                <div className="opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
+                  <AsciiDisplay frameBuffer={frameBuffer} />
+                </div>
+                :
+                <>
+                </>
+              }
+            </div>
             <HeroInformation />  
           </div>
-          <div className="m-auto ">
+          <div className="m-auto">
             <div className="bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" 
               style={{animationDelay: "800ms"}}
             >
@@ -216,32 +206,47 @@ const HeroComponent: React.FC<HeroComponentProps> = ({ specialEnabled, rendered,
 
 const HeroIcons = () => {
   return (
-    <div className="opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>
-      <a href="https://github.com/John-Ling/" target="_blank" rel="noopener" className="opacity-0 animate-fade-up" 
-        style={{animationDelay: "400ms"}}
-      >
-        <GitHubIcon sx={{ fontSize: 35}}/>
-      </a>
-      <a href="https://www.linkedin.com/in/john-ling-721721243/" target="_blank" rel="noopener" 
-        className="opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}
-      >
-        <LinkedInIcon sx={{ fontSize: 40}}/>
-      </a>
-      <a href="mailto:johnlingbusiness@gmail.com" className="opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
-        <EmailIcon sx={{ fontSize: 35}}/>
-      </a>
-      <a href="https://drive.google.com/file/d/1y_VlkkFUaFXCCYF-WO-EDnCOfMHy_F90/view?usp=sharing" 
-        target="_blank" rel="noopener" className="opacity-0 animate-fade-up" style={{animationDelay: "700ms"}}>
-          <DescriptionIcon sx={{ fontSize: 35}}/>
-      </a>
-  </div>
+    <div className="opacity-0 animate-fade-up flex flex-row" style={{ animationDelay: "400ms" }}>
+      <div className="opacity-0 animate-fade-up">
+        <div className="transition-all hover:-translate-y-1">
+          <a href="https://github.com/John-Ling/" target="_blank" rel="noopener" className="opacity-0 animate-fade-up"
+            style={{ animationDelay: "400ms" }}
+          >
+            <GitHubIcon sx={{ fontSize: 35 }} />
+          </a>
+        </div>
+      </div>
+      <div className="opacity-0 animate-fade-up">
+        <div className="transition-all hover:-translate-y-1">
+          <a href="https://www.linkedin.com/in/john-ling-721721243/" target="_blank" rel="noopener"
+            className="opacity-0 animate-fade-up hover:-translate-y-2" style={{ animationDelay: "500ms" }}
+          >
+            <LinkedInIcon sx={{ fontSize: 40 }} />
+          </a>
+        </div>
+      </div>
+      <div className="opacity-0 animate-fade-up">
+        <div className="transition-all hover:-translate-y-1">
+          <a href="mailto:johnlingbusiness@gmail.com" className="opacity-0 animate-fade-up hover:-translate-y-2" style={{ animationDelay: "600ms" }}>
+            <EmailIcon sx={{ fontSize: 35 }} />
+          </a>
+        </div>
+      </div>
+      <div className="opacity-0 animate-fade-up">
+        <div className="transition-all hover:-translate-y-1">
+          <a href="https://drive.google.com/file/d/1y_VlkkFUaFXCCYF-WO-EDnCOfMHy_F90/view?usp=sharing"
+            target="_blank" rel="noopener" className="opacity-0 animate-fade-up hover:-translate-y-2" style={{ animationDelay: "700ms" }}>
+            <DescriptionIcon sx={{ fontSize: 35 }} />
+          </a>
+        </div>
+      </div>
+    </div>
   )
 }
 
 const HeroInformation = () => {
  return (
   <div className="mt-6">
-    <p className="mb-5 opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>I make things.</p>
     <p className="mb-5 opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}>
       I&apos;m a full-stack developer who enjoys staring at screens for hours 
       to build cool things for themselves and others.

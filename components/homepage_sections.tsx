@@ -3,6 +3,9 @@ import SkillsDisplay from "./skills_display"
 import Image from "next/image";
 import Link from "next/link";
 
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+
 // images
 import myself from "../public/images/homepage/myself.jpg";
 import pc from "../public/images/homepage/pc.jpg";
@@ -32,7 +35,7 @@ export const WhoSection = () => {
           Beyond programming, I enjoy the piano, building simple circuits and repairing electronics.
         </p>
       </div>
-      <div className="lg:w-1/2">
+      <div className="w-3/4 lg:w-1/2">
         <Image className="opacity-0 trigger-on-scroll" style={{animationDelay: "0ms"}}  
           src={myself} alt="Picture of the creator of the website"
         />
@@ -75,16 +78,19 @@ export const WhenSection = () => {
   return (
     <section className="min-h-screen w-full flex flex-col items-center justify-center lg:flex-row p-5 gap-10">
       {/* left image grid */}
-      <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
-        <div className="where-section-picture opacity-0 col-start-2" style={{animationDelay: "200ms"}}>
-          <Image loading="eager" className=" -translate-x-12 -translate-y-12" src={server} alt="The creator's first server setup" />
+      <div className="hidden lg:w-1/4 md:grid grid-cols-3 gap-2">
+        <div className="where-section-picture opacity-0 lg:col-start-2" style={{animationDelay: "200ms"}}>
+          <Image loading="eager" className=" w-3/5 lg:w-auto lg:-translate-x-12 lg:-translate-y-12" 
+            src={server} 
+            alt="The creator's first server setup" 
+          />
         </div>
-        <div className="where-section-picture opacity-0 col-start-3 " style={{animationDelay: "100ms"}}>
-          <Image className="-translate-x-4 translate-y-8" 
+        <div className="where-section-picture opacity-0 row-start-1 col-start-2 lg:row-start-1 lg:col-start-3 w-3/5 lg:w-auto" style={{animationDelay: "100ms"}}>
+          <Image className="lg:-translate-x-4 lg:translate-y-8" 
             src={pc} alt="The creator's first computer" />
         </div>
-        <div className="where-section-picture opacity-0 col-start-2 col-span-2 " style={{animationDelay: "300ms"}}>
-          <Image className="-translate-x-8 translate-y-20" src={laptop_1} alt="Creator's laptop with some nice code"/>
+        <div className="where-section-picture opacity-0 lg:col-start-2 lg:col-span-2 w-auto" style={{animationDelay: "300ms"}}>
+          <Image className="lg:-translate-x-8 lg:translate-y-20" src={laptop_1} alt="Creator's laptop with some nice code"/>
         </div>
       </div>
 
@@ -105,17 +111,20 @@ export const WhenSection = () => {
       </div>
 
       {/* right image grid */}
-      <div className="hidden lg:w-1/4 lg:grid grid-cols-3 gap-2">
-        <div className="where-section-picture opacity-0 col-start-1 col-span-2 " style={{animationDelay: "100ms"}}>
-          <Image className="-translate-x-16" src={electronics_1} alt="More electronics" />
+      <div className="hidden lg:w-1/4 md:grid grid-cols-3 gap-2">
+        <div className="where-section-picture opacity-0 lg:col-start-1 lg:col-span-2  lg:w-auto " style={{animationDelay: "100ms"}}>
+          {/*  */}
+          <Image className="lg:-translate-x-16" src={electronics_1} alt="More electronics" />
         </div>
-        <div className="where-section-picture opacity-0 col-start-2 row-start-2" style={{animationDelay: "300ms"}}>
-          <Image className="translate-x-4 translate-y-8 " src={electronics_2} 
+        <div className="where-section-picture opacity-0 lg:col-start-2 lg:row-start-2 w-1/2 lg:w-auto" style={{animationDelay: "300ms"}}>
+          {/*  */}
+          <Image className="lg:translate-x-4 lg:translate-y-8" src={electronics_2} 
             alt="Some basic electronics the creator built to learn circuits" 
           />
         </div>
-        <div className="where-section-picture opacity-0 row-start-3" style={{animationDelay: "200ms"}}>
-          <Image loading="eager" className="-translate-y-16" src={printer} alt="3D printer the creator owns" />
+        <div className="where-section-picture opacity-0 lg:row-start-3 w-3/5 lg:w-auto" style={{animationDelay: "200ms"}}>
+          {/*  */}
+          <Image loading="eager" className="lg:-translate-y-16" src={printer} alt="3D printer the creator owns" />
         </div>
       </div>
     </section>
@@ -127,17 +136,21 @@ export const WhereSection = () => {
     <section className="min-h-screen flex flex-col justify-center items-center" id="contact">
       <h2 className="text-5xl text-magenta">Where?</h2>
       <h3 className="text-3xl mb-3 mt-3">(can you find me)</h3>
-      <div className="p-5 opacity-0 trigger-on-scroll" style={{animationDelay: "200ms"}}>
-        <a href="https://www.linkedin.com/in/john-ling-721721243/" className="opacity-0 trigger-on-scroll p-2 no-underline hover:text-orange" 
-          style={{animationDelay: "200ms"}}
-        >
-          <i className="text-6xl md:text-7xl devicon-linkedin-plain"></i>
-        </a>
-        <a href="https://github.com/John-Ling" className="opacity-0 trigger-on-scroll p-2 no-underline hover:text-orange" 
-          style={{animationDelay: "300ms"}}
-        > 
-          <i className="text-6xl md:text-7xl devicon-github-original"></i>
-        </a>
+      <div className="p-5 opacity-0 trigger-on-scroll flex items-center" style={{animationDelay: "200ms"}}>
+        <div className="transition-all hover:-translate-y-1">
+          <a href="https://github.com/John-Ling" className="opacity-0 trigger-on-scroll p-2 no-underline hover:text-orange" 
+            style={{animationDelay: "300ms"}}
+          > 
+            <GitHubIcon sx={{ fontSize: 70}}/>
+          </a>
+        </div>
+        <div className="transition-all hover:-translate-y-1">
+          <a href="https://www.linkedin.com/in/john-ling-721721243/" className="opacity-0 trigger-on-scroll p-2 no-underline hover:text-orange" 
+            style={{animationDelay: "200ms"}}
+          >
+            <LinkedInIcon sx={{ fontSize: 80}}/>
+          </a>
+        </div>
       </div>
       <a className="opacity-0 trigger-on-scroll no-underline" style={{animationDelay: "400ms"}} 
         href="mailto:johnlingbusiness@gmail.com"
@@ -151,7 +164,7 @@ export const WhereSection = () => {
 export const WhySection = () => {
   return (
     <section className="min-h-screen flex flex-col justify-center items-center">
-      <div className="p-5 md:w-1/2">
+      <div className="p-5 lg:w-1/2">
         <h2 className="text-5xl text-green">Why?</h2>
         <h3 className="text-3xl mb-3 mt-3">Why code?</h3>
         <p className="mb-5">

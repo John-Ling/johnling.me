@@ -5,8 +5,8 @@ interface HeroSize {
 
 export const check_special = () => {
     if (typeof window !== "undefined") {
-        const searchParams = new URLSearchParams(window.location.search);
-        return searchParams.has("apple");
+      const searchParams = new URLSearchParams(window.location.search);
+      return searchParams.has("apple");
     }
 
     return false;
@@ -22,18 +22,17 @@ export const init_size = (specialEnabled: boolean) => {
     }
 
     // dynamically set width and height
-    return { width: Math.floor(window.innerWidth / 16), height: Math.floor(window.innerHeight / 32) } as HeroSize;
+    return { width: Math.floor(window.innerWidth / 20), height: Math.floor(window.innerHeight / 32) } as HeroSize;
 }
 
 
 export const select_animation = (specialEnabled: boolean) => {
     if (specialEnabled) {
-        return "BAPPLE";
+      return "BAPPLE";
     }
     
     const ANIMATIONS: string[] = ["CONWAY", "CUBE", "DONUT", "MATRIX"]
     // animations to implement
-    //BAPPLE
     //TETRIS
     // DVD screensaver
     // windows pipes?

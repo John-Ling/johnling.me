@@ -31,9 +31,6 @@ const config: Config = {
         "cyan": "#8BE9FD",
         "teal": "#73DACA",
       },
-      transitionProperty: {
-        'height': 'height',
-      },
       keyframes: {
         "fade_down" : {
           "0%": { transform: "translateY(-0.5rem)", opacity: "0"},

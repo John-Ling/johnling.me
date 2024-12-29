@@ -154,7 +154,7 @@ export const bapple_init = async () => {
         return;
     }
     // change this to actual domain later
-    const zip: Response = await fetch("http://localhost:3000/frames.zip");
+    const zip: Response = await fetch("http://192.168.0.8:3000/frames.zip");
     const content: Blob = await zip.blob();
     const jsZip = new JSZip();
     const file = await jsZip.loadAsync(content);
@@ -165,10 +165,9 @@ export const bapple_init = async () => {
 }
 
 export const bapple_next_frame = (frameBuffer: string[][], width: number, height: number) => {
-
     // if animation has not unzipped yet or already finished
     if (frames[currentFrame] === undefined) {
-        return frameBuffer;
+        return Array(height).fill(null).map(() => Array(width).fill('*'))
     }
 
     const frame: string = frames[currentFrame];

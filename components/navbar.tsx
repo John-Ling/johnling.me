@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <nav className="relative w-full bg-grey-light gap-x-4 gap-y-2 flex flex-col md:flex-row z-10">
       <span className="flex justify-between p-2 md:p-0">
-        <Link className="text-xl no-underline md:self-center md:pl-3" href="/">John Ling</Link>
+        <h1 className="text-xl md:self-center md:pl-3">John Ling</h1>
         <button className="md:hidden" onClick={() => setOpen(!open)}><MenuIcon/></button>
       </span>
       {/* desktop menu */} 
@@ -53,7 +53,7 @@ const NavbarMenu: React.FC<{links: NavLink[], activeLink: string, handle_click: 
 
       // apply special styles for active page
       if (link.target === activeLink) {
-        className += " border-orange md:border-b-2 border-l-2 md:border-l-0";
+        className += " border-orange md:border-b-2 border-l-2 md:border-l-0 font-bold";
         ariaCurrent = "page";
       }
 
