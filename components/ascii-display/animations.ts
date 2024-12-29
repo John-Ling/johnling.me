@@ -148,17 +148,18 @@ let frames: string[] = [];
 
 // downloads and unzips file containing 
 // frames
-export const bapple_init = async (width: number, height: number) => {
-
+export const bapple_init = async () => {
+    // if frames have already been unzipped
+    if (frames[0] !== undefined) {
+        return;
+    }
     const zip: Response = await fetch("http://localhost:3000/frames.zip");
-    const binaryContent: Blob = await zip.blob();
-    const content: ArrayBuffer = await binaryContent.arrayBuffer();
-
+    const content: Blob = await zip.blob();
     const jsZip = new JSZip();
     const file = await jsZip.loadAsync(content);
     const frameString: string = await file.file("frames.txt")!.async("string");
     frames = await frameString.split("\n");
-    console.log(frames);
+    currentFrame = 0;
     return;
 }
 
@@ -170,16 +171,19 @@ export const bapple_next_frame = (frameBuffer: string[][], width: number, height
     }
 
     const frame: string = frames[currentFrame];
-    console.log(frame);
     for (let i = 0; i < height; i++) {
         for (let j = 0; j < width; j++) {
             frameBuffer[i][j] = frame[(i * width) + j]
-            // frameBuffer[i][j] = '8'
         }
     }
 
     currentFrame += 1;
     return frameBuffer;
+}
+
+export const bapple_cleanup = () => {
+    currentFrame = 0;
+    return;
 }
 
 // END BAPPLE
