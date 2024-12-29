@@ -1,6 +1,6 @@
 ---
 title: "Free Hosting That's Not A Scam"
-date: "2024/12/04"
+date: "2024-12-04"
 ---
 
 ## TLDR
@@ -11,7 +11,7 @@ To solve this make an account on Oracle Cloud and upgrade to the "Pay as you go 
 While upgrading is free a **$100 charge will be placed on your card** however **no money will be taken out**. After that build an instance with these exact specifications.
 
 - Any image labelled free although Oracle Linux is preferred
-- VM.Standard.A1.Flex w/ 4 cores and 24 GB RAM or AMD EPYC w/1 Core and w/ 1GB RAM
+- VM.Standard.A1.Flex w/ 4 cores and 24 GB RAM or VM.Standard.E2.1.Micro (under specialty and previous generation) w/1 coore and w/ 1GB RAM
 - Keep everything else as default and either generate new SSH keys on the website or upload your own.
 
 The cost estimate will say something like $3.00/month. **Ignore it**. The estimation is wrong. 
@@ -76,7 +76,7 @@ With all the setup out of the way, things should be smooth sailing. Head over to
 
 OR
 
-- AMD EPYC w/ 1 core and 1G RAM
+- VM.Standard.E2.1.Micro w/ 1 core and 1GB RAM
 
 
 ![alt text](/images/blog/Free-Hosting-Thats-Not-Actually-a-Scam/image-7.png)

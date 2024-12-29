@@ -27,7 +27,7 @@ const Navbar = () => {
     <nav className="relative w-full bg-grey-light gap-x-4 gap-y-2 flex flex-col md:flex-row z-10">
       <span className="flex justify-between p-2 md:p-0">
         <h1 className="text-xl md:self-center md:pl-3">John Ling</h1>
-        <button className="md:hidden" onClick={() => setOpen(!open)}><MenuIcon/></button>
+        <button className="md:hidden" onClick={() => setOpen(!open)}><MenuIcon className="active:text-muted-white"/></button>
       </span>
       {/* desktop menu */} 
       <div className="hidden invisible md:flex md:visible">

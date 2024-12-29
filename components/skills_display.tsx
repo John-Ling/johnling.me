@@ -28,7 +28,7 @@ const SkillsDisplay = () => {
       return (
         <div key={i} className="opacity-0 skill-icon" style={{animationDelay: `${(i + 1) * 100}ms`}}>
           <i className={`${icon.classInfo}  text-5xl md:text-6xl lg:text-7xl flex-1 p-5 `} />
-          <p className="text-xs md:text-sm text-center m-2">{icon.label}</p>
+          <p className="text-xs md:text-sm text-center m-2 font-bold">{icon.label}</p>
         </div>  
       )
     })}
