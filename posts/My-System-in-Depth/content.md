@@ -18,40 +18,40 @@ I use Arch Linux because it was my first and only distro and I literally don't k
 
 Since I like using 4 statically assigned desktops, I some basic edits to prevent adding any new desktops after 4.
 
-```diff
+```C++
 void VirtualDeskManager::nextDesk(bool cycle) {
     int nextId = activeVdesk()->id + 1;
-+	if (nextId > 4) 
-+   {
-+	    return;
-+	}
--   if (!cycle) {
--       changeActiveDesk(nextId, true);
--   }  else  {
--       nextId = vdesksMap.contains(nextId) ? nextId : 1;
--       changeActiveDesk(nextId, true);
--   }
-+	changeActiveDesk(nextId, true);
-+	return;
+	if (nextId > 4) 
+    {
+	    return;
+	}
+    //if (!cycle) {
+    //    changeActiveDesk(nextId, true);
+    //}  else  {
+    //    nextId = vdesksMap.contains(nextId) ? nextId : 1;
+    //    changeActiveDesk(nextId, true);
+    //}
+	changeActiveDesk(nextId, true);
+	return;
 }
 ```
 <br>
 
-```diff
+```C++
 void VirtualDeskManager::previousDesk() {
-+    if (activeVdesk()->id - 1 < 1)
-+    {
-+        return;
-+    }
-+    changeActiveDesk(activeVdesk()->id - 1, true);
-+    return;
--    int nextId = activeVdesk()->id + 1;
--    if (!cycle) {
--        changeActiveDesk(nextId, true);
--    } else {
--        nextId = vdesksMap.contains(nextId) ? nextId : 1;
--        changeActiveDesk(nextId, true);
--    }
+    if (activeVdesk()->id - 1 < 1)
+    {
+        return;
+    }
+    changeActiveDesk(activeVdesk()->id - 1, true);
+    return;
+    // int nextId = activeVdesk()->id + 1;
+    // if (!cycle) {
+    //     changeActiveDesk(nextId, true);
+    // } else {
+    //     nextId = vdesksMap.contains(nextId) ? nextId : 1;
+    //     changeActiveDesk(nextId, true);
+    // }
 }
 ```
 
@@ -68,7 +68,7 @@ I used to use Lastpass as my password manager until it got breached. Nowadays I 
 
 **Code Editor**: I primarily use VSCode since it was what I started with and for writing Python, C/C++ or Javascript it does that job just fine. Since I also use Windows, I like its cross-platform nature compared to a terminal editor like NeoVim.
 
-**Audio**: I use Pipewire for my audio. However since Hyprland doesn't really have an indicator for changing or muting the audio so I compiled this application called [SwayOSD](https://github.com/ErikReider/SwayOSD) which will display a small UI when the volume changes. I made some small amendments to the CSS file to change the colours. 
+**Audio**: Like many Hyprland users, I use Pipewire for my audio. However since Hyprland doesn't really have an indicator for changing or muting the audio so I compiled this application called [SwayOSD](https://github.com/ErikReider/SwayOSD) which will display a small UI when the volume changes. I made some small amendments to the CSS file to change the colours. 
 
 **Notetaking**: I use Obsidian for my notetaking since I like making notes in something close to plaintext. I'm not kidding when I say that for nearly 4 years, I used Windows notepad for my notes and used MS Paint to draw diagrams. 
 
