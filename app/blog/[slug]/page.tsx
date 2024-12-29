@@ -27,7 +27,8 @@ const Page = async (props: Params) => {
           <ReactMarkdown remarkPlugins={[remarkGfm]}  rehypePlugins={[rehypeRaw, rehypeHighlight]}>
             {content}
           </ReactMarkdown> 
-      </article>
+        </article>
+        <Link href="/blog">Back</Link>
       </div>
     </>
     

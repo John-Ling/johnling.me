@@ -1,5 +1,5 @@
 ---
-title: "My new System in Depth"
+title: "My New System in Depth"
 date: "2024-11-13"
 ---
 
@@ -18,10 +18,10 @@ Jokes aside, I've spent a year on Hyprland and I've made a few change to my syst
 Firstly the desktop.
 
 Before:
-![alt text](./assets/linux_desktop.png)
+![My previous Hyprland Desktop](/images/blog/My-New-System-in-Depth/linux_desktop.png)
 
 Now: 
-![alt text](./assets/image.png)
+![My new Hyprland desktop](/images/blog/My-New-System-in-Depth/image.png)
 
 
 Only a few minor changes to be honest. The menubar is a bit thinner and I added a battery indicator for my laptop. Also the icons are left aligned rather than right. 
@@ -92,27 +92,27 @@ The reason I switched over to this script was because I'd occasionally have prob
 
 Although I use Oh My Zsh, I keep my terminal minimal and I only use the syntax highlighting.
 
-![alt text](./assets/image-2.png)
+![Terminal with neofetch](/images/blog/My-New-System-in-Depth/image-2.png)
 
 _Obligitory neofetch_
 
 
 **Browser**: Firefox has done nothing wrong and as such I'll keep using it. I did decrease the font size of my custom Tabliss extension however that's really about it.
 
-![alt text](./assets/image-3.png)
+![Firefox browser](/images/blog/My-New-System-in-Depth/image-3.png)
 
 For my passwords, I use Google or Github wherever possible since I have pretty long passwords for both of them. However for the few accounts where I can't use those sites to authenticate, I keep my passwords in a text file hosted on Mega.nz. I considered switching over to Bitwarden however honestly this system works for me and I don't want to add unnecessary overhead to my browser with a password manager.
 
 **Editor**: I still use VSCode because honestly it does everything I need it to do and it's extension system means I can really shape it into an everything editor. For writing these posts, I use it's built-in markdown preview and a spellcheck extension.
 
-![alt text](./assets/image-4.png)
+![My visual studio code setup](/images/blog/My-New-System-in-Depth/image-4.png)
 
 _I will say though. Try moving your sidebar to the right._
 
 Although for quick edits whether in a config file or quickly fixing a program, I've recently picked up Vim. Honestly I'm not quite sure why but I've had some good fun learning to use it. I can't say that editing my Hyprland config file is any faster compared to using Nano but I can say it's a bit less mind numbing with Vim. 
 
 
-![alt text](./assets/image-6.png)
+![Screenshot of me editing a file using Vim](/images/blog/My-New-System-in-Depth/image-6.png)
 
 
 **Audio**: While we're still using Pipewire, I made a few more changes to the [SwayOSD](https://github.com/ErikReider/SwayOSD) program I use for showing audio and brightness changes better. The first change was setting the OSD to only appear on one of my monitors rather than both. This was a really easy tweak in the `application.rs` file under `src/server`.
@@ -157,7 +157,7 @@ fn initialize(&self) {
 ### The PC
 My main computer has changed maybe little bit appearance wise but the specs have remained pretty much the same.
 
-<img src="./assets/IMG_9735.JPG" alt="My desktop computer"/>
+<img src="/images/blog/My-New-System-in-Depth/IMG_9735.JPG" alt="My desktop computer"/>
 
 _Chicken essence bottle to prevent GPU sag + sock to dampen hard drive vibrations. HIGH QUALITY PC_
 
@@ -183,7 +183,7 @@ This computer has been great. I built it way back in 2020 and it's been going st
 
 Still using my first gen Thinkpad T15. While this laptop definitely doesn't have the processing power I would want especially compared the Thinkpads running AMD chips, I've been pretty satisfied with this laptop 
 
-<img src="./assets/IMG_9734.JPG" alt="Photo of my laptop in a GYG">
+<img src="/images/blog/My-New-System-in-Depth/IMG_9734.JPG" alt="Photo of my laptop in a GYG">
 
 _Instagram worthy photo in the GYG_
 
@@ -193,7 +193,7 @@ It's relatively fast (especially with Linux), has a great keyboard, ethernet (ve
 
 While I did own an Ubuntu VPS on Digital Ocean for game servers such as Minecraft and Terraria, I used to self host using my old Dell Latitude E7450 since I needed more than the 1GB of RAM offered by the Droplet.
 
-<img src="./assets/server.jpg" width="400" alt="My laptop being used a server and nailed to the wall"/>
+<img src="/images/blog/My-New-System-in-Depth/server.jpg" width="400" alt="My laptop being used a server and nailed to the wall"/>
 
 Since then however I've moved everything over to an Oracle Cloud VPS. This server has 24GB RAM and 4 (arm based) CPU cores making it perfect for hosting both my website and my game servers. The best part is that it's FREE. This is relatively common knowledge within the self-hosted space but Oracle Cloud will provide free VPSs to users. I'm writing a quick guide on how to set up this free hosting however many videos and tutorials exist online already. 
 
@@ -201,7 +201,7 @@ After 2 years of service, my absolutely cooked laptop can finally rest.
 
 ### The Keyboard
 
-<img src="./assets/IMG_9807.JPG" width="400" alt="My mechanical keyboard">
+<img src="/images/blog/My-New-System-in-Depth/IMG_9807.JPG" width="400" alt="My mechanical keyboard">
 
 Since I type so much I thought it worth while to get a nice mechanical keyboard back in 2021. I had used a Razer keyboard the past so I was eyeing one up. However I quickly realised tha building my own keyboard would actually cost a bit less. 
 
@@ -211,7 +211,7 @@ The keyboard uses Dolch PBTFans keycaps I got as a birthday present.
 
 In addition to the switches and keycaps I applied a the "tape mode" (literally adding ~ 4 layers of masking tape to the back of the PCB) and holee mod to fix the cheap stabilisers my board came with. I've since then upgraded the stablisers to a pair of better holy panda stabs. I added a bit of lube and they sound better than my regulars even without the mod. 
 
-![alt text](./assets/image-7.png)
+![Keyboard stabilisers](/images/blog/My-New-System-in-Depth/image-7.png)
 
 
 ## Conclusion
