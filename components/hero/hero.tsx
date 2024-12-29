@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef, Ref } from "react";
 
 
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -31,15 +31,13 @@ const Hero = () => {
   
   const animationRequestID = useRef<number>(0);
 
-  // setup splash page to get user to click play 
-
   // used to play music for the special
   const audioRef = useRef<HTMLAudioElement>(null);
   const [playMusic, setPlayMusic] = useState<boolean>(false);
   const [rendered, setRendered] = useState<boolean>(false);
-  const [specialEnabled, setSpecialEnabled] = useState<boolean>(check_special());
-  const [animation, setAnimation] = useState<string>(select_animation(specialEnabled));
-  const [size, setSize] = useState<HeroSize>(init_size(specialEnabled))
+  const [specialEnabled] = useState<boolean>(check_special());
+  const [animation] = useState<string>(select_animation(specialEnabled));
+  const [size] = useState<HeroSize>(init_size(specialEnabled))
 
   // frame buffer for ascii display
   const [frameBuffer, setFrameBuffer] = useState<string[][]>(Array(size.height).fill(null).map(() => Array(size.width).fill(' ')));
@@ -133,6 +131,32 @@ const Hero = () => {
 
   return (
     <>
+      <HeroComponent 
+        specialEnabled={specialEnabled} 
+        rendered={rendered} 
+        playMusic={playMusic} 
+        frameBuffer={frameBuffer} 
+        audioRef={audioRef} 
+        handle_click={handle_click} 
+      />
+    </>
+  )  
+}
+
+export default Hero;
+
+interface HeroComponentProps {
+  specialEnabled: boolean,
+  rendered: boolean,
+  playMusic: boolean,
+  frameBuffer: string[][],
+  audioRef: Ref<HTMLAudioElement>,
+  handle_click: () => void,
+};
+
+const HeroComponent: React.FC<HeroComponentProps> = ({ specialEnabled, rendered, playMusic, frameBuffer, audioRef, handle_click }) => {
+  return (
+    <>
       {
         specialEnabled && rendered ? 
           <>
@@ -189,8 +213,6 @@ const Hero = () => {
     </>
   );
 }
-
-export default Hero;
 
 const HeroIcons = () => {
   return (
