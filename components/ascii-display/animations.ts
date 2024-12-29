@@ -154,7 +154,7 @@ export const bapple_init = async () => {
         return;
     }
     // change this to actual domain later
-    const zip: Response = await fetch("http://192.168.0.8:3000/frames.zip");
+    const zip: Response = await fetch("https://johnling.me/frames.zip");
     const content: Blob = await zip.blob();
     const jsZip = new JSZip();
     const file = await jsZip.loadAsync(content);
