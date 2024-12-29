@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: theme("colors.grey.normal");
+    color: theme("colors.white");
+
+    background-size: 80px 80px;
+    background-image: 
+        linear-gradient(to right, #282828 1px, transparent 1px),
+        linear-gradient(to bottom, #282828 1px, transparent 1px);
+}
+
+a {
+    text-decoration: underline;
+}
+
+a:hover {
+    color: theme("colors.orange");
+}
+
+img {
+    border: solid 3px theme("colors.grey.light");
+}
+
+h1 {
+    font-weight: 900;
+}
+
+h2 {
+    font-weight: 700;
+}
