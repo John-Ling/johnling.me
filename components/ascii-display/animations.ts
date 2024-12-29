@@ -153,6 +153,7 @@ export const bapple_init = async () => {
     if (frames[0] !== undefined) {
         return;
     }
+    // change this to actual domain later
     const zip: Response = await fetch("http://localhost:3000/frames.zip");
     const content: Blob = await zip.blob();
     const jsZip = new JSZip();

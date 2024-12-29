@@ -1,4 +1,3 @@
-import JSZip from 'jszip';
 interface HeroSize {
     width: number;
     height: number;

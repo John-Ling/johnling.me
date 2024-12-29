@@ -49,7 +49,7 @@ const Hero = () => {
     let animationSpeed: number = 10;
     let nextFrame: (buffer: string[][], width: number, height: number) => string[][];
     let cleanup: () => void;
-    console.log("Setting animation");
+    
     switch (animation) {
       case "CONWAY":
         nextFrame = evolve;
