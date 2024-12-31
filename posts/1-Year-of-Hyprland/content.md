@@ -160,25 +160,22 @@ It should also be noted that NVIDIA is not **officially** supported by Hyprland 
 
 While I personally haven't had many problems beyond gaming performance, others have. If you have an NVIDIA GPU keep that in mind before making the switch.
 
-### (In)Stability
+### Distro Compatability
 
-As stated by the [wiki itself](https://wiki.hyprland.org/Getting-Started/Installation/), Hyprland is an incredibly bleeding-edge WM. This pretty much knocks Debian based distros like Ubuntu and Mint out of the conversation.
+Many Linux users use Debian based distros such as Ubuntu, Mint, Debian (of course) or PopOS. While I don't have much a problem with any of these distros, it's mentioned in the [wiki](https://wiki.hyprland.org/Getting-Started/Installation/) that **Debian based distros may not be able to run Hyprland**. 
 
+"since Hyprland is extremely bleeding-edge, distros like Pop!_ OS, Ubuntu, etc. might have major issues running Hyprland."
 
-Alongside the few installs using NixOS or openSUSE, many Hyprland installs will use Arch. In fact many resources for Hyprland will assume Arch such as the Hyprdots repo.
+While it is it technically possible to run Hyprland on Debian based systems and you'll find no shortage of success stories online, getting it to work and maintaining such a setup will likely be more difficult compared to using a more supported distro.
 
-Arch is not stable.
-
-I say this as even someone who's daily driven it for nearly 3 years. While Arch is definitely usable and it's been a while since I've encountered a problem that can't be solved, it's not a Linux distro that you can just install and forget about and there is definitely a level of involvement you need to make sure you keep the system up to date. Keeping Arch stable is not too difficult but there will be times where you need to boot up the live ISO and try fix your system.
-
-
-The benefit of this though will be a generally better knowledge of how Linux systems work along with some extra general computer knowledge that could come in handy later on.
+As far as supported distros go, Hyprland is often paired with Arch Linux. However if the learning curve is too steep, you can also run it with Arch's various derivatives such as Endeavor OS or Manjaro.
 
 
-Since Hyprland works well with Arch based distros, EndeavorOS is a possible alternative however I have not read too much about it so you'll have to do your own reading.
+Fedora has also added Hyprland to its package repositories so Fedora is also a viable alternative.
 
+Beyond Fedora and Arch's derivatives you can run Hyprland on Gentoo and NixOS although those distros will have an even steeper learning curve (I know that for sure with Gentoo).
 
-**TLDR**: If you ever use Hyprland, you'll likely be using Arch. If you ever use Arch, you'll likely have problems. While the install nowadays is pretty easy, be prepared to troubleshoot your system occasionally, hopefully not during finals.
+**TLDR**: If you use Ubuntu, Debian, Mint, PopOS or the like, you'll likely have to switch to using another distro for Hyprland such as Arch (or EndeavorOS), Fedora, Nix or OpenSUSE. If you don't want to learn another distro consider another WM.
 
 ### Configuration Time
 
@@ -241,7 +238,7 @@ Pros:
 Cons:
 - NVIDIA may have problems and is its own issue. Your mileage may vary.
 - Be prepared to put a bit of time into setting up your system how you want
-- If you use Arch be prepared to deal with Arch
+- Debian based distros no supported (at least officially)
 - Hyprland will have weird quirks you'll either have to live with or try figure out a way to fix.
 
 
