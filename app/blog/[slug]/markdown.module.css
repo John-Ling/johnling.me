@@ -6,12 +6,12 @@
 
 .markdown h2 {
     font-size: 1.75rem;
-    line-height: 4rem;
+    line-height: 2rem;
 }
 
 .markdown h3 {
     font-size: 1.5rem;
-    line-height: 3rem;
+    line-height: 2rem;
     font-weight: 700;
 }
 
@@ -53,5 +53,4 @@
 .markdown pre {
     background-color: theme("colors.grey.dark");
     border: solid 2px theme("colors.grey.light");
-    padding: 1.25rem;
 }

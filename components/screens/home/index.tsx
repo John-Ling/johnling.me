@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
-import { WhoSection, WhatSection, WhenSection, WhereSection, WhySection } from "@/components/homepage_sections";
+import WhoSection from "@/components/homepage-sections/who_section";
+import WhatSection from "@/components/homepage-sections/what_section";
+import WhenSection from "@/components/homepage-sections/when_section";
+import WhereSection from "@/components/homepage-sections/where_section";
+import WhySection from "@/components/homepage-sections/why_section";
 
 const AboutSection = () => {
 
@@ -28,6 +32,7 @@ const AboutSection = () => {
             break;
           default:
             entry.target.classList.add("animate-fade-up");
+            break;
         }
         observer.unobserve(entry.target);
       }

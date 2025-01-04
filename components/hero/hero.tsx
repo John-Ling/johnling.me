@@ -251,11 +251,11 @@ const HeroInformation = () => {
       I&apos;m a full-stack developer who enjoys staring at screens for hours 
       to build cool things for themselves and others.
     </p>
-    <p className="hidden mb-5 md:block opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
+    <p className="mb-5  opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
       Computers are super interesting (in my opinion) so I study Computer Science at the University of Melbourne.
     </p>
     <p className="mb-5 opacity-0 animate-fade-up" style={{animationDelay: "700ms"}}>
-      My projects tend to be web-based, but learning new things is fun so they can vary.
+      I primarily build applications for the web, however I can learn quickly and have experience building for other platforms like mobile and desktop.
     </p>
   </div>
  ) 
