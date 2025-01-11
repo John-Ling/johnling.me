@@ -6,6 +6,7 @@ const BlogPage = () => {
   return (
     <div className="flex flex-col items-center min-h-screen p-5">
       <h1 className="text-3xl">Do People Still Blog?</h1>
+      <p>Inconsistently posted ramblings of consistently low quality.</p>
       <div className="bg-grey-dark border-2 border-grey-light p-2 m-5 w-full md:w-3/5 lg:w-2/5 opacity-0 animate-fade-up">
         <ul>
         {posts.map((post: Post, i: number) => {

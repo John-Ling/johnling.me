@@ -255,7 +255,7 @@ const HeroInformation = () => {
       Computers are super interesting (in my opinion) so I study Computer Science at the University of Melbourne.
     </p>
     <p className="mb-5 opacity-0 animate-fade-up" style={{animationDelay: "700ms"}}>
-      I primarily build applications for the web, however I can learn quickly and have experience building for other platforms like mobile and desktop.
+      I primarily build applications for the web, however I learn quickly and have experience with other platforms like mobile and desktop.
     </p>
   </div>
  ) 
