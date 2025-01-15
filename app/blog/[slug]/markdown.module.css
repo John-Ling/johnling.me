@@ -53,10 +53,18 @@
 
 .markdown code {
     background-color: theme("colors.grey.dark");
-    padding: 0.1rem;
+    color: theme("colors.white");
+    padding: 0.3rem 0.5rem;
 }
 
+.markdown pre {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
 .markdown pre code {
     background-color: theme("colors.grey.dark") !important;
     border: solid 2px theme("colors.grey.light") !important;
+    padding: 1rem;
+    /* margin-top: 2rem;
+    margin-bottom: 1rem; */
 }
