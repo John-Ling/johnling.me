@@ -169,7 +169,7 @@ mkfs.ext4 ROOT_BLOCK_DEVICE # this one may take a little longer depending on you
 
 Next we need to **mount** the partitions. Mounting is required to make them will make them accessible to other Linux programs which will be needed to continue the installation.
 
-```
+``` asdf
 mount ROOT_BLOCK_DEVICE /mnt
 mount --mkdir ESP_BLOCK_DEVICE /mnt/boot
 ```
@@ -264,11 +264,8 @@ _An FSTAB file is a file that provides Linux with information relating to disk p
 
 We'll use the `genfstab` command which comes with the live environment. However we'll have to exit our Arch Linux back to that environment where we can use it.
 
-```
+``` asdf
 exit
-```
-
-```
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
@@ -409,7 +406,7 @@ In our system, any member of the wheel group will be able to use root privileges
 visudo
 ```
 
-_`visudo` differs from simply editing `/etc/sudoers` using an editor like Vim or Nano since it does a sanity check of the configuration file before saving changes. This is important as a misconfigued sudoers file can result in sudo being _
+_`visudo` differs from simply editing `/etc/sudoers` using an editor like Vim or Nano since it does a sanity check of the configuration file before saving changes. This is important as a misconfigured sudoers file can result in sudo being unusable._
 
 Visudo uses vim keybindings. Just like how to you scrolled through `timedatectl list-timezones`, you will use the 'j' and 'k' keys respectively to move the cursor down and up.
 
