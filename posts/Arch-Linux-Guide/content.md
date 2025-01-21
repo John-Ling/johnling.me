@@ -282,7 +282,7 @@ We're going to install a collection of important packages that will be used exte
 
 
 ``` asdf
-pacman -S vim nano sudo iwd dhcpcd firefox alacritty pipewire wireplumber git base-devel neofetch
+pacman -S vim nano sudo iwd dhcpcd git base-devel neofetch
 
 # Packages explained:
 # vim: Text editor we will use later in the guide
@@ -290,17 +290,12 @@ pacman -S vim nano sudo iwd dhcpcd firefox alacritty pipewire wireplumber git ba
 # sudo: Allow a non-root user temporary root privileges
 # iwd: CLI tool to connect to WiFi
 # dhcpcd: DHCP client (we'll enable this later to get internet access)
-# firefox: f i r e f o x
-# alacritty: One of many terminals emulators for Linux (you'll be using this a lot)
-# pipewire: Sound server so Linux can play audio
-# wireplumber: Session manager for Pipewire
 # git: Version control software we'll use to download yay (AUR helper) later
 # base-devel: Key packages such as gcc and make needed to build from the AUR
 # neofetch: Show people that you use Arch btw
 
 ```
 
-When installing Firefox you may be prompted for either jack or pipewire-jack. Select **pipewire-jack**.
 
 You should also install microcode for either your Intel or AMD CPU.
 

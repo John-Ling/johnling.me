@@ -1,0 +1,58 @@
+---
+title: "How to Recompile OpenSSH"
+date: "2025-21-01"
+---
+
+## AKA: Resolving "No matching host key type found"
+
+On distros like Arch Linux you may have seen this error appear when trying to SSH into old servers. In my case I was trying to connect to my router (for very morally upstanding purposes). However I would receive this error.
+
+![SSH failing to connect to a server](./assets/image-1.png)
+
+You may have looked online and tried adding the  "HostKeyAlgorithms" flag to no avail.
+
+![SSH fails to connect after adding HostKeyAlgorithms](./assets/image-2.png)
+
+
+This error stems from the fact the older DSA signature algorithm used for negotiating is disabled at compile time starting from the 9.8 release. You can see this in the [release document](https://www.openssh.com/txt/release-9.8)
+
+![Screenshot of OpenSSH release document](./assets/2.png)
+
+To bring back this functionality we just need to recompile OpenSSH with DSA enabled.
+
+First we're going to clone the OpenSSH-Portable repo from Github.
+
+``` asdf
+git clone https://github.com/openssh/openssh-portable.git
+cd openssh-portable/
+autoreconf
+```
+
+Next we'll run the `configure` script with a collection of arguments. Most of these arguments are from the [PKGBUILD](https://gitlab.archlinux.org/archlinux/packaging/packages/openssh/-/blob/main/PKGBUILD?ref_type=heads) for OpenSSH however we're also going to add the "--enable-dsa-keys" option. This will bring back DSA signatures.
+
+```
+./configure --prefix=/usr \
+    --sbindir=/usr/bin \
+    --libexecdir=/usr/lib/ssh \
+    --sysconfdir=/etc/ssh \
+    --disable-strip \
+    --with-libedit \
+    --with-security-key-builtin \
+    --with-ssl-engine \
+    --with-pam \
+    --with-privsep-user=nobody \
+    --with-privsep-path=/usr/share/empty.sshd \
+    --with-kerberos5=/usr \
+    --with-xauth=/usr/bin/xauth \
+    --with-pid-dir=/run \
+    --with-default-path='/usr/local/sbin:/usr/local/bin:/usr/bin' \
+    --without-zlib-version-check \
+    --enable-dsa-keys
+
+make -j$(nproc) -l$(nproc + 1) 
+sudo make install
+```
+
+Now you can SSH into whatever ancient box you want.
+
+![Successfully connecting via SSH](image.png)
