@@ -187,16 +187,17 @@ const HeroComponent: React.FC<HeroComponentProps> = ({ specialEnabled, rendered,
             <HeroInformation />  
           </div>
           <div className="m-auto">
-            <div className="bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" 
+            <div className="bg-grey-dark border-4 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" 
               style={{animationDelay: "800ms"}}
             >
               { rendered && !specialEnabled ? 
                 <>
-                  <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_5px,#242424_5px,#242424_6px)] top-0 left-0 w-full h-full z-20"></div>
-                  <div className="opacity-0 animate-fade-up z-10 bg-grey-dark" style={{animationDelay: "600ms"}}>
-                    <AsciiDisplay frameBuffer={frameBuffer} />
-                  </div>
+                <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_2px,#000000_2px,#000000_3px)] top-0 left-0 w-full h-full opacity-40 z-20"></div>
+                <div className="opacity-0 animate-fade-up z-10 bg-grey-dark" style={{animationDelay: "600ms"}}>
+                  <AsciiDisplay frameBuffer={frameBuffer} />
+                </div>
                 </>
+                
                 : <></>
               }
             </div>
