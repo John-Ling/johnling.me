@@ -154,7 +154,14 @@ interface HeroComponentProps {
   handle_click: () => void;
 };
 
-const HeroComponent: React.FC<HeroComponentProps> = ({ specialEnabled, rendered, playMusic, frameBuffer, audioRef, handle_click }) => {
+const HeroComponent: React.FC<HeroComponentProps> = ({ 
+    specialEnabled, 
+    rendered, 
+    playMusic, 
+    frameBuffer, 
+    audioRef, 
+    handle_click }
+  ) => {
   return (
     <>
       {
@@ -187,12 +194,13 @@ const HeroComponent: React.FC<HeroComponentProps> = ({ specialEnabled, rendered,
             <HeroInformation />  
           </div>
           <div className="m-auto">
-            <div className="bg-grey-dark border-4 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" 
+            <div className="bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" 
               style={{animationDelay: "800ms"}}
             >
               { rendered && !specialEnabled ? 
                 <>
-                <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_2px,#000000_2px,#000000_3px)] top-0 left-0 w-full h-full opacity-40 z-20"></div>
+                <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
+                  top-0 left-0 w-full h-full opacity-40 z-20"></div>
                 <div className="opacity-0 animate-fade-up z-10 bg-grey-dark" style={{animationDelay: "600ms"}}>
                   <AsciiDisplay frameBuffer={frameBuffer} />
                 </div>
@@ -223,7 +231,8 @@ const HeroIcons = () => {
       <div className="opacity-0 animate-fade-up">
         <div className="transition-all hover:-translate-y-1">
           <a href="https://www.linkedin.com/in/john-ling-721721243/" target="_blank" rel="noopener"
-            className="opacity-0 animate-fade-up hover:-translate-y-2" style={{ animationDelay: "500ms" }}
+            className="opacity-0 animate-fade-up hover:-translate-y-2" 
+            style={{ animationDelay: "500ms" }}
           >
             <LinkedInIcon sx={{ fontSize: 40 }} />
           </a>
@@ -231,7 +240,10 @@ const HeroIcons = () => {
       </div>
       <div className="opacity-0 animate-fade-up">
         <div className="transition-all hover:-translate-y-1">
-          <a href="mailto:johnlingbusiness@gmail.com" className="opacity-0 animate-fade-up hover:-translate-y-2" style={{ animationDelay: "600ms" }}>
+          <a href="mailto:johnlingbusiness@gmail.com" 
+            className="opacity-0 animate-fade-up hover:-translate-y-2" 
+            style={{ animationDelay: "600ms" }}
+          >
             <EmailIcon sx={{ fontSize: 35 }} />
           </a>
         </div>
@@ -239,7 +251,9 @@ const HeroIcons = () => {
       <div className="opacity-0 animate-fade-up">
         <div className="transition-all hover:-translate-y-1">
           <a href="https://drive.google.com/file/d/1y_VlkkFUaFXCCYF-WO-EDnCOfMHy_F90/view?usp=sharing"
-            target="_blank" rel="noopener" className="opacity-0 animate-fade-up hover:-translate-y-2" style={{ animationDelay: "700ms" }}>
+            target="_blank" rel="noopener" className="opacity-0 animate-fade-up hover:-translate-y-2" 
+            style={{ animationDelay: "700ms" }}
+          >
             <DescriptionIcon sx={{ fontSize: 35 }} />
           </a>
         </div>

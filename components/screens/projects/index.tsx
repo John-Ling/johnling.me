@@ -1,4 +1,5 @@
 import { Project, projects } from "./projects";
+import Image from "next/image";
 
 const ProjectsPage = () => {
   return (
@@ -27,7 +28,7 @@ const ProjectItem: React.FC<{project: Project, position: number}> = ({ project, 
       >
         <h2 className={`text-xl md:text-2xl mb-2 mt-2 ${colourClass}`}>{project.title}</h2>
         <h3 className="text-sm mb-2 italic text-muted-white">{project.dateRange}</h3>
-        
+        <Image alt="Project image" src="/images/projects/new_website.png" width={1885} height={910}/>        
         <p className="mb-2">{project.description}</p>
         <ul className="flex flex-wrap mt-1 mb-2">
           {project.tags.map((tag: string) => {
