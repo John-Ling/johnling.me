@@ -4,7 +4,7 @@ import Image from "next/image";
 const ProjectsPage = () => {
   return (
     <>
-      <div className="min-h-screen w-11/12 m-auto mt-5 mb-5">
+      <div className="min-h-screen w-11/12 lg:w-10/12 m-auto mt-5 mb-5">
         <h1 className="text-4xl mt-5 mb-5">Projects</h1>
         <div className="grid grid-cols-1 lg:grid-cols-3  bg-grey-dark border-2 border-grey-light gap-5 p-5 opacity-0 animate-fade-up">  
           {projects.map((project: Project, i: number) => {
@@ -28,8 +28,18 @@ const ProjectItem: React.FC<{project: Project, position: number}> = ({ project, 
       >
         <h2 className={`text-xl md:text-2xl mb-2 mt-2 ${colourClass}`}>{project.title}</h2>
         <h3 className="text-sm mb-2 italic text-muted-white">{project.dateRange}</h3>
-        <Image alt="Project image" src="/images/projects/new_website.png" width={1885} height={910}/>        
-        <p className="mb-2">{project.description}</p>
+        {/* <div className="absolute inset-0 transition-transform duration-500 hover:scale-110" > */}
+        <div className="overflow-hidden border-2 border-grey-light">
+          <img 
+            className="transition-all hover:scale-110 hover:cursor-pointer border-0"
+            alt="Project image" 
+            src="/images/projects/ramble_homepage.png" 
+          />     
+        </div>
+             
+        {/* </div> */}
+        
+        {/* <p className="mb-2">{project.description}</p> */}
         <ul className="flex flex-wrap mt-1 mb-2">
           {project.tags.map((tag: string) => {
             return <li key={tag} className="p-1 text-sm"><span className="bg-grey-light border-1 pl-1 pr-1">{tag}</span></li>
