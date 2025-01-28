@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import { Project, projects } from "./projects";
 import Image from "next/image";
 
@@ -21,6 +23,8 @@ export default ProjectsPage;
 const ProjectItem: React.FC<{project: Project, position: number}> = ({ project, position }) => {
   const colours: string[] = ["text-blue", "text-magenta", "text-teal", "text-green", "text-yellow", "text-orange-light", "text-red"];
   const colourClass: string = colours[position % colours.length];
+  const [opened, setOpened] = useState<boolean>(false);
+
   return (
     <>
       <div className="bg-grey-normal border-2 border-grey-light p-3 opacity-0 animate-fade-up" 
@@ -28,24 +32,24 @@ const ProjectItem: React.FC<{project: Project, position: number}> = ({ project, 
       >
         <h2 className={`text-xl md:text-2xl mb-2 mt-2 ${colourClass}`}>{project.title}</h2>
         <h3 className="text-sm mb-2 italic text-muted-white">{project.dateRange}</h3>
-        {/* <div className="absolute inset-0 transition-transform duration-500 hover:scale-110" > */}
-        <div className="overflow-hidden border-2 border-grey-light">
-          <img 
-            className="transition-all hover:scale-110 hover:cursor-pointer border-0"
+        <div className="overflow-hidden border-2 border-grey-light relative aspect-[16/9]">
+          <Image
+            className="transition-all duration-500 hover:scale-110 hover:cursor-pointer border-0"
             alt="Project image" 
-            src="/images/projects/ramble_homepage.png" 
-          />     
+            src="/images/projects/old_website.png" 
+            fill
+            style={{objectFit: "cover"}}
+            onClick={() => setOpened(true)}
+          />
         </div>
-             
-        {/* </div> */}
-        
         {/* <p className="mb-2">{project.description}</p> */}
+        
+        <a href={project.sourceURL} target="_blank" rel="noopener">Source Code</a>
         <ul className="flex flex-wrap mt-1 mb-2">
           {project.tags.map((tag: string) => {
             return <li key={tag} className="p-1 text-sm"><span className="bg-grey-light border-1 pl-1 pr-1">{tag}</span></li>
           })}
         </ul>
-        <a href={project.sourceURL}>Source Code</a>
         
       </div>
     </>

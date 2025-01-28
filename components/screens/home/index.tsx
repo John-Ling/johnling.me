@@ -26,13 +26,13 @@ const AboutSection = () => {
             });  
             break;
           case "where-section":
-            console.log("where section");
             document.querySelectorAll(".where-section-picture").forEach((element: Element) => {
               element.classList.add("animate-fade-up");
             });
             break;
           default:
             entry.target.classList.add("animate-fade-up");
+            break;
         }
         observer.unobserve(entry.target);
       }

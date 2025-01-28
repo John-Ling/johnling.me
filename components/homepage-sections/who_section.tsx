@@ -12,7 +12,7 @@ const WhoSection = () => {
         </p>
         <p className="mb-5">
           When not studying, I&apos;ve always enjoyed building things and picked up programming as a way of doing so.
-          </p>
+        </p>
         <p className="mb-5">
           The first version of this website was built way back in 2022 originally as a 
           part of an online course. Since then, however, I&apos;ve kept it around as my own personal website.

@@ -10,7 +10,7 @@ const AsciiDisplay: React.FC<AsciiDisplayProps> = ({ frameBuffer }) => {
         {frameBuffer.map((row: string[], i: number) => {
           return <div key={i}>
             {row.map((char: string, j: number) => {
-            return <span key={j} className="text-white inline-block whitespace-pre-wrap">{char}</span>
+            return <span key={j} className="text-[#FFFFFF] inline-block whitespace-pre-wrap">{char}</span>
           })}
           </div>
         })}

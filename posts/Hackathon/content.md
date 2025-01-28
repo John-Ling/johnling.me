@@ -52,7 +52,7 @@ Since the data being sent into the app would be just someone typing. The idea wo
 
 Although I had the name I wouldn't suggest it until much later since we were more concerned about the technical specifics. 
 
-<img src=".//images/blog/Hackathon/ideas.png" width="350px" alt="Our ideas for our app">
+<img src="/images/blog/Hackathon/ideas.png" width="350px" alt="Our ideas for our app">
 
 _Our Google doc with our ideas we conversed using the doc I'm not talking to myself._
 

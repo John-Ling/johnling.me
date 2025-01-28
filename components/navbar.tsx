@@ -24,10 +24,12 @@ const Navbar = () => {
   
   const path: string = '/' + usePathname().split("/")[1];
   return (
-    <nav className="relative w-full bg-grey-light gap-x-4 gap-y-2 flex flex-col md:flex-row z-10">
+    <nav className="relative w-full bg-grey-light gap-x-4 gap-y-2 flex flex-col md:flex-row z-10">  
       <span className="flex justify-between p-2 md:p-0">
         <h1 className="text-xl md:self-center md:pl-3">John Ling</h1>
-        <button className="md:hidden" onClick={() => setOpen(!open)}><MenuIcon className="active:text-muted-white"/></button>
+        <button className="md:hidden" onClick={() => setOpen(!open)}>
+          <MenuIcon className="active:text-muted-white"/>
+        </button>
       </span>
       {/* desktop menu */} 
       <div className="hidden invisible md:flex md:visible">
@@ -35,7 +37,11 @@ const Navbar = () => {
       </div>
 
       {/* mobile menu */}
-      <div className={`shadow-md absolute visible md:invisible top-11 bg-[#262626] transition-all  ease-in-out ${open ? 'duration-500 max-h-96' : ' duration-300 max-h-0'}`}>
+      <div 
+        className={
+          `shadow-md absolute visible md:invisible top-11 bg-[#262626] transition-all
+          ease-in-out ${open ? 'duration-500 max-h-96' : ' duration-300 max-h-0'}`}
+      >
         <div className={`transition-all  ease-in-out ${open ? 'duration-500 opacity-100' : " duration-300 opacity-0"}`}>
           <NavbarMenu links={links} activeLink={path} handle_click={() => setOpen(false)}/>
         </div>
@@ -58,7 +64,11 @@ const NavbarMenu: React.FC<{links: NavLink[], activeLink: string, handle_click: 
       }
 
       return <li key={link.name}>
-        <Link onClick={handle_click} className={className} aria-current={ariaCurrent} href={link.target}>{link.name}</Link>
+        <Link onClick={handle_click} className={className} 
+          aria-current={ariaCurrent} href={link.target}
+        >
+          {link.name}
+        </Link>
       </li>
     })}
     </ul>

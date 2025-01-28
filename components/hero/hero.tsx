@@ -221,7 +221,8 @@ const HeroIcons = () => {
     <div className="opacity-0 animate-fade-up flex flex-row" style={{ animationDelay: "400ms" }}>
       <div className="opacity-0 animate-fade-up">
         <div className="transition-all hover:-translate-y-1">
-          <a href="https://github.com/John-Ling/" target="_blank" rel="noopener" className="opacity-0 animate-fade-up"
+          <a href="https://github.com/John-Ling/" target="_blank" rel="noopener" 
+            className="opacity-0 animate-fade-up"
             style={{ animationDelay: "400ms" }}
           >
             <GitHubIcon sx={{ fontSize: 35 }} />
@@ -273,7 +274,8 @@ const HeroInformation = () => {
       Computers are super interesting (in my opinion) so I study Computer Science at the University of Melbourne.
     </p>
     <p className="mb-5 opacity-0 animate-fade-up" style={{animationDelay: "700ms"}}>
-      My projects tend to be web-based, but learning new things is fun so they can vary.
+      I primarily build applications for the web, however I learn quickly and have experience with 
+      other platforms like mobile and desktop.
     </p>
   </div>
  ) 
