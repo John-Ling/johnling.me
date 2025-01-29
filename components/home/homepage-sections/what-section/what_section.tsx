@@ -1,4 +1,4 @@
-import SkillsDisplay from "../skills_display";
+import SkillsDisplay from "./skills_display";
 
 const WhatSection = () => {
   return (

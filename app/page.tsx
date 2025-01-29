@@ -1,4 +1,4 @@
-import AboutSection from "@/components/screens/home";
+import AboutSection from "@/components/home";
 import Hero from "@/components/hero/hero";
 
 const Page = () => {

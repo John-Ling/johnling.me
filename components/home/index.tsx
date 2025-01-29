@@ -2,11 +2,11 @@
 
 import { useEffect } from "react";
 
-import WhoSection from "@/components/homepage-sections/who_section";
-import WhatSection from "@/components/homepage-sections/what_section";
-import WhenSection from "@/components/homepage-sections/when_section";
-import WhereSection from "@/components/homepage-sections/where_section";
-import WhySection from "@/components/homepage-sections/why_section";
+import WhoSection from "./homepage-sections/who-section/who_section";
+import WhatSection from "./homepage-sections/what-section/what_section";
+import WhenSection from "./homepage-sections/when-section/when_section";
+import WhereSection from "./homepage-sections/where-section/where_section";
+import WhySection from "./homepage-sections/why-section/why_section";
 
 const AboutSection = () => {
 

@@ -4,26 +4,40 @@ import { Project, projects } from "./projects";
 import Image from "next/image";
 
 const ProjectsPage = () => {
+  const [selectedProject, setSelectedProject] = useState<Project | undefined>(undefined);
+
+  const handleProjectSelect = (project: Project) => {
+    setSelectedProject(project);
+    return;
+  }
+
   return (
     <>
-      <div className="min-h-screen w-11/12 lg:w-10/12 m-auto mt-5 mb-5">
+      <ProjectCard project={selectedProject}/>
+      <div className="min-h-screen w-11/12 lg:w-10/12 m-auto mt-5 mb-5 ">
         <h1 className="text-4xl mt-5 mb-5">Projects</h1>
         <div className="grid grid-cols-1 lg:grid-cols-3  bg-grey-dark border-2 border-grey-light gap-5 p-5 opacity-0 animate-fade-up">  
           {projects.map((project: Project, i: number) => {
-            return <ProjectItem key={i} project={project} position={i}/>
+            return <ProjectItem key={i} project={project} position={i} handleSelect={handleProjectSelect}/>
           })}
         </div>
       </div>
+      
     </>
   )
 }
 
 export default ProjectsPage;
 
-const ProjectItem: React.FC<{project: Project, position: number}> = ({ project, position }) => {
+interface ProjectItemProps {
+  project: Project,
+  position: number,
+  handleSelect: (project: Project) => void,
+}
+
+const ProjectItem: React.FC<ProjectItemProps> = ({ project, position, handleSelect }) => {
   const colours: string[] = ["text-blue", "text-magenta", "text-teal", "text-green", "text-yellow", "text-orange-light", "text-red"];
   const colourClass: string = colours[position % colours.length];
-  const [opened, setOpened] = useState<boolean>(false);
 
   return (
     <>
@@ -39,7 +53,7 @@ const ProjectItem: React.FC<{project: Project, position: number}> = ({ project, 
             src="/images/projects/old_website.png" 
             fill
             style={{objectFit: "cover"}}
-            onClick={() => setOpened(true)}
+            onClick={() => handleSelect(project)}
           />
         </div>
         {/* <p className="mb-2">{project.description}</p> */}
@@ -56,3 +70,19 @@ const ProjectItem: React.FC<{project: Project, position: number}> = ({ project, 
   );
 }
 
+const ProjectCard: React.FC<{project: Project | undefined}> = ({project}) => {
+  return (
+    <>
+      {
+      project === undefined ? <></>
+        :
+      <div className="bg-grey-dark bg-opacity-80 fixed top-0 w-full min-h-screen z-20 flex justify-center items-center">
+        <div className="bg-grey-dark border-2 border-grey-light p-5 animate-fade-up opacity-0 flex">
+          {/* <img src={`${project.imageFolder}/0.png`} alt="Project image" /> */}
+          <h1>{project.title}</h1>
+        </div>
+      </div>
+      }
+    </>
+  )
+}
