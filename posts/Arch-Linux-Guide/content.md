@@ -121,19 +121,25 @@ Enter the character 'd' and hit enter. Keep repeating this until you get the mes
 Now enter these keys 
 
 ``` asdf
+# any prompts you receive about the filesystem containing a "signature" just answer yes "Y"
+
 n # Make a new partition this will be our EFI system partition (ESP)
 ENTER 
 ENTER
 ENTER
 +1024M # Set the max size to 1024MiB or 1GiB
+ENTER
 t # Change the partition's type to be recognised as an ESP
-ef # If this does not work try entering 1 instead
+ENTER
+1 # If this does not work try entering ef instead
+ENTER
 n # Create another partition. This will be our root partition
 ENTER
 ENTER
 ENTER
 ENTER
 w
+ENTER
 ```
 _You'll see that we're hittng ENTER a lot. We're just accepting the default options offered by fdisk. For us that will suffice._
 
@@ -282,7 +288,7 @@ We're going to install a collection of important packages that will be used exte
 
 
 ``` asdf
-pacman -S vim nano sudo iwd dhcpcd git base-devel neofetch
+pacman -S vim nano sudo iwd dhcpcd git base-devel networkmanager neofetch 
 
 # Packages explained:
 # vim: Text editor we will use later in the guide
@@ -292,6 +298,7 @@ pacman -S vim nano sudo iwd dhcpcd git base-devel neofetch
 # dhcpcd: DHCP client (we'll enable this later to get internet access)
 # git: Version control software we'll use to download yay (AUR helper) later
 # base-devel: Key packages such as gcc and make needed to build from the AUR
+# networkmanager: dhcpcd is our DHCP client however we still need network manager to work alongside it for internet
 # neofetch: Show people that you use Arch btw
 
 ```
@@ -442,7 +449,7 @@ grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot ESP_
 
 GRUB requires a configuration file in order to work so we need to generate one.
 
-``` 
+``` asdf
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
@@ -452,11 +459,22 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 Enable the DHCP service using `systemctl`
 
-```
+``` asdf
 systemctl enable dhcpcd
 ```
 
 _Dynamic Host Configuration Protocol or DHCP is a protocol that is used for assigning IP addresses to a device on a network. It works on a client-server model where your router runs a DHCP server that listens for requests from a DHCP client. When it receives the request, the server assigns an available IP address for the client's device to use._
+
+We'll also enable the networkmanager
+
+``` asdf
+systemctl enable NetworkManager
+```
+
+If you need WiFi then enable iwd as well
+``` asdf
+systemctl enable iwd
+```
 
 Exit back to the live environment and unmount the disks.
 
