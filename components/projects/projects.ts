@@ -2,8 +2,8 @@ export interface Project {
     title: string,
     dateRange: string,
     description: string,
-    imageFolder: string, // path to folder containing images
-    sourceURL: string,
+    imageFolder: string | null, // path to folder containing images
+    sourceURL: string | null,
     tags: string[],
 };
 
@@ -24,7 +24,7 @@ export const projects: Project[] = [
         Productivity / unintentional mental health app and winning submission to 2024 CODEBREW Hackathon at my university 
         under team \"Cissa hackathon thing\". Used Docker to deploy the app and
         had a whole trip through deployment hell getting it up.`,
-        imageFolder: "/images/projects/website-rebuild",
+        imageFolder: "/images/projects/ramble",
       sourceURL: "https://github.com/John-Ling/CODEBREW-2024",
       tags: ["Flask", "Docker", "React", "Sass", "NGINX"],
     },
@@ -33,7 +33,7 @@ export const projects: Project[] = [
       description: `
         Ultimately scrapped project (watch was too thick). Designed my own circuitry to drive nixie tubes, 
         wrote AVR C for the first time and built my own library to interface with a DS1302 timekeeping chip.`,
-      imageFolder: "/images/projects/website-rebuild",
+      imageFolder: "/images/projects/nixie-watch",
       sourceURL: "https://github.com/John-Ling/Nixie-Watch",
       tags: ["ATmega328p", "AVR C"],
       
@@ -44,7 +44,7 @@ export const projects: Project[] = [
         Fullstack web app that allowed users ask questions and received tailored financial advice 
         for over 1000 Malaysian companies. I used Flask and React with MySQL to store \"metadata\" 
         about companies. Used Docker but never ended up deploying.`,
-      imageFolder: "/images/projects/website-rebuild",
+      imageFolder: "/images/projects/internship-1",
       sourceURL: "https://github.com/John-Ling/Internship-Project",
       tags: ["MySQL", "React", "Flask", "Sass", "Docker"],
     },
@@ -54,7 +54,7 @@ export const projects: Project[] = [
         React web game that finds two random wikipedia articles and challenges the user to navigate
         from one to another in 10 hops or less. Created because I wanted something fun to play on my phone.`,
       sourceURL: "https://github.com/John-Ling/wikipedia-hopper",
-      imageFolder: "/images/projects/website-rebuild",
+      imageFolder: "/images/projects/wikihopper",
       tags: ["React", "Sass"],
     },
     {
@@ -82,7 +82,7 @@ export const projects: Project[] = [
         My best project IMO. Full Compiler built with C++ that translates pseudocode into Python. 
         I rolled my own lexer, parser and code generator which was really interesting to study. 
         I even added some basic type checking. Didn't like C++ though.`,
-      imageFolder: "/images/projects/website-rebuild",
+      imageFolder: null,
       sourceURL: "https://github.com/John-Ling/Pseudocode-Compiler",
       tags: ["C++"],
     },
@@ -90,7 +90,7 @@ export const projects: Project[] = [
       title: "johnling.me", dateRange: "June 2022 - August 2022",
       description: `Personal website about me and my projects. Built using Bootstrap, Sass and a smattering of Javascript.`,
       sourceURL: "https://github.com/John-Ling/johnling.me",
-      imageFolder: "/images/projects/website-rebuild",
+      imageFolder: "/images/projects/johnling",
       tags: ["Bootstrap", "Sass", "Javascript", "NGINX"],
     },
     {
@@ -101,7 +101,7 @@ export const projects: Project[] = [
       Used simple haarcascades initially then transitioned to using a most robust Caffe model. 
       Trialed Intel OpenVINO for better performance.`,
       sourceURL: "https://github.com/John-Ling/Cameraman",
-      imageFolder: "/images/projects/website-rebuild",
+      imageFolder: null,
       tags: ["Arduino", "Python", "OpenCV", "Caffe", "OpenVINO"],
     },
     {
@@ -110,7 +110,7 @@ export const projects: Project[] = [
         Homage to the first Kahoot Bot from 2019. Written in C# and used Winforms for the UI. 
         Created a \"control panel\" where you could see the scores for each bot.`,
       sourceURL: "https://github.com/John-Ling/Desktop-Kahoot-Bot",
-      imageFolder: "/images/projects/website-rebuild",
+      imageFolder: null,
       tags: ["C#", "Selenium", "Winforms"],
     },
     {
@@ -119,7 +119,7 @@ export const projects: Project[] = [
         Remake of my first Kahoot Bot from 2019, two years after starting programming. 
         This was also the first time I used Git.`,
       sourceURL: "https://github.com/John-Ling/Kahoot-Bot-Python",
-      imageFolder: "/images/projects/website-rebuild",
+      imageFolder: null,
       tags: ["Python", "Selenium"],
     },
     {
@@ -129,7 +129,7 @@ export const projects: Project[] = [
         Recently made my own linked list library which is pretty cool. 
         Absolutely saved me during my algorithms course in University.`,
       sourceURL: "https://github.com/John-Ling/CS-Fundamentals",
-      imageFolder: "/images/projects/website-rebuild",
+      imageFolder: null,
       tags: ["C"],
     },
     {
@@ -148,8 +148,8 @@ export const projects: Project[] = [
         The Original Kahoot Bot and my first project ever. 
         Filled with top quality code such as unintentional recursion 
         and a codebase that boldly rejects OOP (I didn't know about classes).`,
-      sourceURL: "No source code here",
-      imageFolder: "/images/projects/website-rebuild",
+      sourceURL: null,
+      imageFolder: null,
       tags: ["Python", "Selenium"],
     }
   ];

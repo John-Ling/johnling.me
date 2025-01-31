@@ -1,3 +1,4 @@
+#!/bin/python3
 import os
 
 # copies assets folder in all posts under posts directory
