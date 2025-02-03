@@ -334,6 +334,12 @@ Set the hardware clock
 hwclock --systohc
 ```
 
+Set `timedatectl` to use NTP to synchronise the clock.
+
+``` asdfq
+timedatectl set-ntp true
+```
+
 ### Locales
 
 _Locales are used by libraries such as glibc for rendering regional monetary values, time and date formats along with characters specific to different languages._
@@ -474,7 +480,7 @@ systemctl enable NetworkManager
 If you need WiFi then enable iwd as well
 ``` asdf
 systemctl enable iwd
-```
+``` 
 
 Exit back to the live environment and unmount the disks.
 
