@@ -11,6 +11,8 @@
     "analyse": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.1.8",
     "@mui/material": "^6.1.8",
     "gray-matter": "^4.0.3",

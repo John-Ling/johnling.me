@@ -67,6 +67,7 @@ interface ProjectItemProps {
 const ProjectItem: React.FC<ProjectItemProps> = ({ project, position, handleSelect }) => {
   const colours: string[] = ["text-blue", "text-magenta", "text-teal", "text-green", "text-yellow", "text-orange-light", "text-red"];
   const colourClass: string = colours[position % colours.length];
+  const projectFolder = `/images/projects/${project.imageFolder}/0.png`;
 
   return (
     <>
@@ -75,15 +76,15 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project, position, handleSele
       >
         <h2 className={`text-xl md:text-2xl mb-2 mt-2 ${colourClass}`}>{project.title}</h2>
         <h3 className="text-sm mb-2 italic text-muted-white">{project.dateRange}</h3>
-        {project.imageFolder === null ? <p className="w-100 h-80">{project.description}</p> // if no image exists just render text
+        {project.imageFolder === null ? <p>{project.description}</p> // if no image exists just render text
           :
-          <div className="overflow-hidden border-2 border-grey-light relative w-100 h-80">
+          <div className="overflow-hidden border-2 border-grey-light ">
             <Image
-              className="transition-all duration-500 hover:scale-110 hover:cursor-pointer border-0"
+              className="transition-all duration-500 hover:scale-105 hover:cursor-pointer border-0"
               alt="Project image" 
-              src={`${project.imageFolder}/0.png`}
-              fill
-              style={{objectFit: "cover"}}
+              src={projectFolder}
+              width={1280}
+              height={720}
               onClick={() => handleSelect(project)}
             />
           </div>        
@@ -99,16 +100,18 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project, position, handleSele
 }
 
 const ProjectCard: React.FC<{project: Project, handleClose: () => void}> = ({project, handleClose}) => {
+  const projectFolder = `/images/projects/${project.imageFolder}/0.png`;
   return (
     <>
-      <div className="bg-grey-dark bg-opacity-80 fixed top-0 w-full min-h-screen z-20 flex justify-center items-center">
-        <div className="bg-grey-dark border-2 border-grey-light p-5 animate-fade-up opacity-0 flex w-8/12 ">
-
-          <div className="relative w-3/5 h-30 mr-5">
-            <Image src={`${project.imageFolder}/0.png`} fill style={{objectFit: "contain"}} alt="Project image" />
+      <div className="bg-grey-dark bg-opacity-80 fixed top-0 w-full min-h-screen z-20 flex justify-center items-center p-5">
+        <div className="bg-grey-dark border-2 border-grey-light p-5 animate-fade-up opacity-0 flex w-11/12 lg:w-10/12  flex-col md:flex-row w-h-5/6">
+          <div className="mr-5">
+            <Image src={projectFolder} width={1280} height={720} alt="Project image" />
           </div>
-          <div className="flex flex-col w-2/5 min-h-80">
-            <button className="ml-auto w-fit" onClick={handleClose}><CloseIcon className="active:text-muted-white"/></button>
+          <div className="flex flex-col w-full md:w-2/5 min-h-80">
+            <button className="ml-auto w-fit" onClick={handleClose}>
+              <CloseIcon className="hover:text-muted-white active:text-muted-white"/>
+            </button>
             <h1 className="text-xl md:text-2xl mb-2 mt-2">{project.title}</h1>
             <h3 className="text-sm mb-2 italic text-muted-white">{project.dateRange}</h3>
             <p className="mb-2">{project.description}</p>
