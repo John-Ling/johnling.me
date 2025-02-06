@@ -39,10 +39,10 @@ const Navbar = () => {
       {/* mobile menu */}
       <div 
         className={
-          `shadow-md absolute visible md:invisible top-11 bg-[#262626] transition-all
+          `shadow-md absolute visible block md:invisible md:hidden top-11 bg-[#262626] transition-all
           ease-in-out ${open ? 'duration-500 max-h-96' : ' duration-300 max-h-0'}`}
       >
-        <div className={`transition-all  ease-in-out ${open ? 'duration-500 opacity-100' : " duration-300 opacity-0"}`}>
+        <div className={`transition-all ease-in-out ${open ? 'duration-500 opacity-100' : " duration-300 opacity-0 invisible"}`}>
           <NavbarMenu links={links} activeLink={path} handle_click={() => setOpen(false)}/>
         </div>
       </div>

@@ -103,18 +103,23 @@ const ProjectCard: React.FC<{project: Project, handleClose: () => void}> = ({pro
   const projectFolder = `/images/projects/${project.imageFolder}/0.png`;
   return (
     <>
-      <div className="bg-grey-dark bg-opacity-80 fixed top-0 w-full min-h-screen z-20 flex justify-center items-center p-5">
-        <div className="bg-grey-dark border-2 border-grey-light p-5 animate-fade-up opacity-0 flex w-11/12 lg:w-10/12  flex-col md:flex-row w-h-5/6">
-          <div className="mr-5">
+      <div className="bg-grey-dark bg-opacity-80 fixed top-0 w-full min-h-screen z-20 flex justify-center items-center">
+        <div className="bg-grey-dark border-2 border-grey-light p-3 animate-fade-up opacity-0 flex w-11/12 lg:w-10/12 h-5/6 flex-col lg:flex-row ">
+          {/* button at top of card above picture for tablet and mobile */}
+          <button className="block lg:hidden ml-auto w-fit mb-3 " onClick={handleClose}>
+              <CloseIcon className="hover:text-muted-white active:text-muted-white"/>
+            </button>
+          <div className="mb-5 lg:mr-5">
             <Image src={projectFolder} width={1280} height={720} alt="Project image" />
           </div>
-          <div className="flex flex-col w-full md:w-2/5 min-h-80">
-            <button className="ml-auto w-fit" onClick={handleClose}>
+          <div className="flex flex-col w-full lg:w-2/5 min-h-80">
+            {/* button above description for desktop */}
+            <button className="hidden lg:block ml-auto w-fit" onClick={handleClose}>
               <CloseIcon className="hover:text-muted-white active:text-muted-white"/>
             </button>
             <h1 className="text-xl md:text-2xl mb-2 mt-2">{project.title}</h1>
             <h3 className="text-sm mb-2 italic text-muted-white">{project.dateRange}</h3>
-            <p className="mb-2">{project.description}</p>
+            <p className="mb-2 max-h-44 overflow-y-scroll">{project.description}</p>
             <a className={`text-sm no-underline mb-2 ${project.sourceURL === null ? "pointer-events-none text-muted-white" : ""}`} 
               href={project.sourceURL !== null ? project.sourceURL : "/"} 
               target="_blank" rel="noopener"
