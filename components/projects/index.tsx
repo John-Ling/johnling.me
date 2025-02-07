@@ -8,7 +8,7 @@ import Image from "next/image";
 const ProjectsPage = () => {
   const [selectedProject, setSelectedProject] = useState<Project>();
   const [opened, setOpened] = useState<boolean>(false);
-  const projectCardRef = useRef<any>(null);
+  const projectCardRef = useRef(null);
 
   // allow user to use ESC key to leave project card
   useEffect(() => {
