@@ -10,7 +10,7 @@ interface SecretInterface {
 const Secret: React.FC<SecretInterface> = ({playMusic, frameBuffer, audioRef, handle_click}) => {
   return (
     <>
-    <title>AN EASTER EGG!?</title>
+      <title>AN EASTER EGG!?</title>
       {
         !playMusic 
         ? 

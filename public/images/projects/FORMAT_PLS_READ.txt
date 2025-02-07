@@ -1,0 +1,15 @@
+all images should be ~640x360 resolution using magick or something
+
+magick input.png -resize 640x360^ output.png
+
+for vertical images add padding
+magick input.png -resize 640x360^ -gravity center -background "rgb(20,20,20)" -extent 640x360 output.png
+
+
+images should be be in PNG format and numbered numerically
+i.e
+0.png 1.png etc
+
+0.png will be the thumbnail image
+
+idk who will need to read this since I'm the only person working on the website but ¯\_(ツ)_/¯

@@ -40,11 +40,18 @@ const config: Config = {
           "0%": { transform: "translateY(0.5rem)", opacity: "0"},
           "100%": { transform: "translateY(0)", opacity: "1"},
         },
+        "flicker_on": {
+          "0%": { color: "#2f2f2f"},
+          "20%": {color: "#c64200"},
+          "40%": {color: "#2f2f2f"},
+          "80%": {color: "#FF5500"},
+          "100%": {color: "#FF5500"},
+        }
       },
-      // maybe create own bezier curve for nicer animation doesn't feel right rn
       animation: {
         "fade-up" : "fade_up 0.4s ease-out forwards",
         "fade-down" : "fade_down 0.4s ease-out var(--delay, 0) forwards",
+        "flicker-on": "flicker_on 1s linear forwards",
       },
       fontFamily: {
         meslo: ["var(--meslo)"],

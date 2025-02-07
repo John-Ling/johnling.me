@@ -1,4 +1,4 @@
-import BlogPage from "@/components/screens/blog";
+import BlogPage from "@/components/blog";
 
 const Page = () => {
   return (
