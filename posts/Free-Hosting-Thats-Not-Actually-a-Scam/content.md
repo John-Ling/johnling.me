@@ -5,13 +5,13 @@ date: "2024-12-04"
 
 ## TLDR
 
-Oracle Cloud offers 2 free VPS for any user who signs up. However 90% of the time you won't be able to get one.
+Oracle Cloud offers a free VPS for any user who signs up. However 90% of the time you won't be able to get one.
 
 To solve this make an account on Oracle Cloud and upgrade to the "Pay as you go tier".
 While upgrading is free a **$100 charge will be placed on your card** however **no money will be taken out**. After that build an instance with these exact specifications.
 
-- Any image labelled free although Oracle Linux is preferred
-- VM.Standard.A1.Flex w/ 4 cores and 24 GB RAM or VM.Standard.E2.1.Micro (under specialty and previous generation) w/1 coore and w/ 1GB RAM
+- Any image labelled free (I recommend either Oracle Linux or Ubuntu)
+- VM.Standard.A1.Flex with 4 cores and 24 GB RAM 
 - Keep everything else as default and either generate new SSH keys on the website or upload your own.
 
 The cost estimate will say something like $3.00/month. **Ignore it**. The estimation is wrong. 
@@ -20,7 +20,10 @@ These specifications are the exact same as the free VPS that Oracle would give y
 
 Free hosting that's not a scam.
 
-Now you have a free quad core VPS with 24GB RAM to do anything with or an AMD VPS for whatever you want. Enjoy!
+Now you have a free quad core VPS with 24GB RAM to do anything with. Enjoy!
+
+It's important however to only use that one instance and not create any more. Otherwise you will be billed as I have in the past. 
+While I'm sure there are ways to get multiple instances for free, I'm just keeping it safe and using 1.
 
 ## The Actual Guide
 
@@ -74,11 +77,6 @@ With all the setup out of the way, things should be smooth sailing. Head over to
 
 - VM.Standard.A1.Flex w/ 4 cores and 24 GB RAM 
 
-OR
-
-- VM.Standard.E2.1.Micro w/ 1 core and 1GB RAM
-
-
 ![alt text](/images/blog/Free-Hosting-Thats-Not-Actually-a-Scam/image-7.png)
 
 You may get non-zero estimations for cost. However these can be safely ignored. So long as your vm does not deviate from those specs, you'll be fine. 
@@ -91,9 +89,9 @@ Everything else can be left as is. Generate a new SSH key or upload your own and
 
 ## Connecting to your server
 
-Give the server a few minutes to set up. Once it does you can SSH into it via 
+Give the `server` a few minutes to set up. Once it does you can SSH into it via 
 
-`ssh opc@{your server's IP address}`
+``ssh opc@{your server's IP address}``
 
 "opc" is the default username for your vm. It has no passwd but the ability to gain root privileges so setting a strong password should be done early on. 
 

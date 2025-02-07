@@ -6,29 +6,29 @@
 
 .markdown h2 {
     font-size: 1.75rem;
-    line-height: 4rem;
+    line-height: 2.5rem;
 }
 
 .markdown h3 {
     font-size: 1.5rem;
-    line-height: 3rem;
+    line-height: 2.5rem;
     font-weight: 700;
 }
 
 .markdown h4 {
     font-size: 1.25rem;
-    line-height: 1.5rem;
+    line-height: 2.5rem;
     font-weight: 700;
 }
 
 .markdown h5 {
     font-size: 1rem;
-    line-height: 1.25rem;
+    line-height: 2.5rem;
 }
 
 .markdown h6 {
     font-size: 0.75rem;
-    line-height: 1rem;
+    line-height: 2.5rem;
 }
 
 .markdown ul {
@@ -50,8 +50,21 @@
     color: theme("colors.muted-white");
 }
 
-.markdown pre {
+
+.markdown code {
     background-color: theme("colors.grey.dark");
-    border: solid 2px theme("colors.grey.light");
-    padding: 1.25rem;
+    color: theme("colors.white");
+    padding: 0.3rem 0.5rem;
+}
+
+.markdown pre {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.markdown pre code {
+    background-color: theme("colors.grey.dark") !important;
+    border: solid 2px theme("colors.grey.light") !important;
+    padding: 1rem;
+    /* margin-top: 2rem;
+    margin-bottom: 1rem; */
 }
