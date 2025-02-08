@@ -9,7 +9,7 @@ const WhatSection = () => {
         id="skills-display"
       > 
         <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
-                    top-0 left-0 w-full h-full opacity-40 z-20"></div>
+          w-full h-full opacity-40 z-20"></div>
         <SkillsDisplay />
       </div>
         <div className="order-1 lg:w-1/2">
