@@ -74,7 +74,7 @@ export const projects: Project[] = [
         Created a low-power ATmega328p system that that used RFID to lock and unlock doors
         (my door specifically). Learned a bit about power saving in embedded systems which was cool.`,
       sourceURL: "https://github.com/John-Ling/Arduino-Smart-Lock",
-      imageFolder: "website-rebuild",
+      imageFolder: "smart-lock",
       tags: ["ATmega328p", "Arduino"],
     },
     {

@@ -2,7 +2,7 @@ const WhySection = () => {
   return (
     <section className="min-h-screen flex flex-col justify-center items-center">
       <div className="p-5 lg:w-1/2">
-        <h2 className="text-5xl text-grey-light trigger-flicker-on-scroll [--flicker-colour:#50FA7B]" style={{animationDelay: "4O00ms"}}>Why?</h2>
+        <h2 className="text-5xl text-grey-light trigger-flicker-on-scroll [--flicker-colour:#50FA7B]" style={{animationDelay: "400ms"}}>Why?</h2>
         <h3 className="text-3xl mb-3 mt-3">Why code?</h3>
         <p className="mb-5">
           As insincere as it sounds, it&apos;s the truth. I enjoy applying  the theory and 
