@@ -9,7 +9,6 @@ import WhereSection from "./homepage-sections/where-section/where_section";
 import WhySection from "./homepage-sections/why-section/why_section";
 
 const AboutSection = () => {
-
   // trigger animations when intersecting
   const update_entries = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
     entries.forEach((entry: IntersectionObserverEntry) => {
@@ -39,7 +38,6 @@ const AboutSection = () => {
     })
     return;
   };
-
  
   const options = {
     root: null,

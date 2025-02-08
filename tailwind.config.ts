@@ -41,11 +41,11 @@ const config: Config = {
           "100%": { transform: "translateY(0)", opacity: "1"},
         },
         "flicker_on": {
-          "0%": { color: "#2f2f2f"},
-          "20%": {color: "#c64200"},
-          "40%": {color: "#2f2f2f"},
-          "80%": {color: "#FF5500"},
-          "100%": {color: "#FF5500"},
+          "0%": { color: "#2e2e2e"},
+          "20%": {color: "var(--flicker-colour)"},
+          "40%": {color: "#2e2e2e"},
+          "80%": {color: "var(--flicker-colour)"},
+          "100%": {color: "var(--flicker-colour)"},
         }
       },
       animation: {
