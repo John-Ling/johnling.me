@@ -200,14 +200,12 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
             >
               { rendered && !specialEnabled ? 
                 <>              
-                
-                <div className="opacity-0 animate-fade-up z-10 bg-grey-dark" style={{animationDelay: "600ms"}}>
-                  <div className={`absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
-                    w-full h-full opacity-40 z-20`}></div>
-                  <AsciiDisplay frameBuffer={frameBuffer} />
-                </div>
-                </>
-                
+                  <div className="opacity-0 animate-fade-up z-10 bg-grey-dark" style={{animationDelay: "600ms"}}>
+                    <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
+                      w-full h-full opacity-40 z-20 m-0 p-0"></div>
+                    <AsciiDisplay frameBuffer={frameBuffer} />
+                  </div>
+                </>     
                 : <></>
               }
             </div>

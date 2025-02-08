@@ -19,7 +19,9 @@ const WhenSection = () => {
             alt="The creator's first server setup" 
           />
         </div>
-        <div className="where-section-picture opacity-0 row-start-1 col-start-2 lg:row-start-1 lg:col-start-3 w-3/5 lg:w-auto" style={{animationDelay: "100ms"}}>
+        <div className="where-section-picture opacity-0 row-start-1 col-start-2 lg:row-start-1 lg:col-start-3 w-3/5 lg:w-auto" 
+          style={{animationDelay: "100ms"}}
+        >
           <Image className="lg:-translate-x-4 lg:translate-y-8" 
             src={pc} alt="The creator's first computer" />
         </div>
@@ -30,11 +32,12 @@ const WhenSection = () => {
 
       {/* content */}
       <div className="lg:w-1/2 trigger-fade-on-scroll" id="where-section">
-        <h2 className="text-5xl text-blue">When?</h2>
+        <h2 className="text-5xl text-grey-light trigger-flicker-on-scroll [--flicker-colour:#82AAFF]" 
+          style={{animationDelay: "800ms"}}>When?</h2>
         <h3 className="text-3xl mb-3 mt-3">Where it all began</h3>
         <p className="mb-5">
           While I had taken some introductory Python classes the year before, 
-          my first real project was created in September 2019. It was an automated kahoot player
+          my first real project was created in September 2019. It was an automated Kahoot player
           using the Selenium library which while primitive, was something I was proud of as something 
           I built myself. I even tested it in my class much to the confusion of my teacher.
         </p>
