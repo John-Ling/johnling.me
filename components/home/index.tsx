@@ -10,12 +10,14 @@ import WhySection from "./homepage-sections/why-section/why_section";
 
 const AboutSection = () => {
   // trigger animations when intersecting
-  const update_entries = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+  const update_fade_entries = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
     entries.forEach((entry: IntersectionObserverEntry) => {
       if (entry.isIntersecting) {
-        // either attach standard fade in animation or
-        // trigger other special animations
 
+        // using ids we can set a single trigger to 
+        // trigger multiple fade-ins
+        // an example of this would be the skills display where when the skills display itself
+        // becomes visible we fade all the icons in
         switch(entry.target.id)
         {
           case "skills-display":
@@ -47,8 +49,8 @@ const AboutSection = () => {
 
   // attach intersection observers for on-scroll animations
   useEffect(() => {
-    const observer = new IntersectionObserver(update_entries, options);
-    const elements = document.querySelectorAll(".trigger-on-scroll");
+    const observer = new IntersectionObserver(update_fade_entries, options);
+    const elements = document.querySelectorAll(".trigger-fade-on-scroll");
 
     elements.forEach((element: Element) => {
       observer.observe(element);

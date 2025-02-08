@@ -29,7 +29,7 @@ const WhenSection = () => {
       </div>
 
       {/* content */}
-      <div className="lg:w-1/2 trigger-on-scroll" id="where-section">
+      <div className="lg:w-1/2 trigger-fade-on-scroll" id="where-section">
         <h2 className="text-5xl text-blue">When?</h2>
         <h3 className="text-3xl mb-3 mt-3">Where it all began</h3>
         <p className="mb-5">

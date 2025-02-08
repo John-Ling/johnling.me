@@ -22,7 +22,7 @@ const WhoSection = () => {
         </p>
       </div>
       <div className="w-3/4 lg:w-1/2">
-        <Image className="opacity-0 trigger-on-scroll" style={{animationDelay: "0ms"}}  
+        <Image className="opacity-0 trigger-fade-on-scroll" style={{animationDelay: "0ms"}}  
           src={myself} alt="Picture of the creator of the website"
         />
       </div>

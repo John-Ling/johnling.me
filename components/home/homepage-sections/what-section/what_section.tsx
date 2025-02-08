@@ -5,7 +5,7 @@ const WhatSection = () => {
     <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-10 lg:w-3/4">
       <div 
         className="lg:w-1/2 grid grid-cols-3 md:grid-cols-4 basis-[21/100] justify-center bg-grey-dark border-2
-                  border-grey-light order-2 lg:order-1 gap-5 pt-10 pb-10 pr-5 pl-5 opacity-0 trigger-on-scroll text-center"
+                  border-grey-light order-2 lg:order-1 gap-5 pt-10 pb-10 pr-5 pl-5 opacity-0 trigger-fade-on-scroll text-center"
         id="skills-display"
       > 
         <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
