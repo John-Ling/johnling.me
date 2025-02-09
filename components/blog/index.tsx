@@ -26,7 +26,7 @@ const BlogPage = () => {
 export default BlogPage;
 
 const PostComponent: React.FC<{post: Post, position: number}> = ({post, position}) => {
-  const colours: string[] = ["text-blue", "text-magenta", "text-teal", "text-green", "text-yellow", "text-orange", "text-red"];
+  const colours: string[] = ["text-blue", "text-magenta", "text-teal", "text-green", "text-yellow", "text-orange-light", "text-red"];
   const colourClass: string = colours[position % colours.length];
   return (
     <>

@@ -13,6 +13,21 @@ I'll divide this guide into 2 parts
 
 These stages are independent of each other. That is, if you just complete the "Installing Arch Linux" section. You can wait until tomorrow to complete the Hyprland section.
 
+## Why not use archinstall?
+
+If you didn't know already, Arch has gotten much easier to install via the built-in `archinstall` script. This script basically guides you through setting up a basic system.
+It pretty much automates everything we're going to do here and will probably be bit quicker. If you really wanted to you could just leave this guide, run archinstall and get a good system going.
+
+Despite this, I'm still an advocate being at least somewhat familiar with the manual install since
+
+- I believe you'll learna bit more about Linux's commands and concepts by manually executing them to build your system
+- More advanced setups or setups with encryption I have read can be a bit messy with the automated installer
+- One of Arch's selling points is to truly put the user in control on what happens with their system. Using a black box of an installer kind of contradicts the point of using Arch
+- Manual install is honestly not that difficult compared to maintenance. 
+- You'll probably get more satisfaction with the end result doing things manually
+
+If you want an Arch based system with an easy install, I'd recommend using EndeavorOS.
+
 ## Assumptions and Prerequisites (Important Please Read)
 
 - Make sure to **back up any important data on your current drive** as this **will be wiped when installing Arch**. 
@@ -170,6 +185,12 @@ ROOT_BLOCK_DEVICE=/dev/sda2
 mkfs.fat -F32 ESP_BLOCK_DEVICE
 mkfs.ext4 ROOT_BLOCK_DEVICE # this one may take a little longer depending on your disk size
 ```
+
+_While the ESP must be formatted to FAT32, our root partition can be a formatted to a filesystem other than ext4. While ext4 is probably the simplest and most common filesystem, there exist many other types such as BTRFS or XFS which all have their own benefits and drawbacks. Ext4 is simple but reliable and has anecdotally been more resistant to data corruption in the event of sudden power loss._
+
+_BTRFS allows for snapshots meaning you can rollback to a previous good state if an update breaks your system. XFS is common on enterprise servers but is also popular in Gentoo and is the filesystem recommended by the install guide._
+
+_Arch's benefit comes in allowing you that level of control of your operating system all the way down to the filesystem level. While using BTRFS is probably doable on distros like Ubuntu I would imagine it would be harder compared to Arch._
 
 ### Mount the File Systems
 

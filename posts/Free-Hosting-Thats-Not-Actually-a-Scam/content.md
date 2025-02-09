@@ -22,8 +22,10 @@ Free hosting that's not a scam.
 
 Now you have a free quad core VPS with 24GB RAM to do anything with. Enjoy!
 
-It's important however to only use that one instance and not create any more. Otherwise you will be billed as I have in the past. 
-While I'm sure there are ways to get multiple instances for free, I'm just keeping it safe and using 1.
+**!! UPDATE FROM THE FUTURE !!**
+
+It's important however to **only use that one instance and not create any more**. Otherwise you will be billed as I have in the past. 
+While I'm sure there are ways to get multiple instances for free by splitting your 4 cores across smaller machines (i.e 2 dual core machines or 4 1-core (mono core?) instances), I'm just keeping it safe and using 1 quad core.
 
 ## The Actual Guide
 
@@ -59,7 +61,7 @@ So now if all has gone well, you should have an Oracle Cloud account.
 
 Now in theory, right now you can head on over to "instances" and put together a vm with the specs I mentioned earlier. 
 
-However, more often than not you'll be hit with an "Out of capacity issue". Although there exists scripts [online](https://github.com/hitrov/oci-arm-host-capacity) to bypass this error by basically capturing the HTTP request for an instance and repeating it until you get your server, even the script's author agrees that **upgrading to PAYG is a better option**.
+However, more often than not you'll be hit with an "Out of capacity issue". Although there exist scripts [online](https://github.com/hitrov/oci-arm-host-capacity) to bypass this error by basically capturing the HTTP request for an instance and repeating it until you get your server, even the script's author agrees that **upgrading to PAYG is a better option**.
 
 _"The script is still functional, but many Reddit users now recommend upgrading to Pay As You Go (PAYG) for the best experience. With PAYG, you'll continue to enjoy all the free benefits without any additional cost, but you'll also receive priority for launching instances and are less likely to face "Out of host capacity" errors. ..."_
 
@@ -71,7 +73,7 @@ If you haven't upgraded yet, you will find a menu asking for you to upgrade. Che
 
 ### Making the Server
 
-With all the setup out of the way, things should be smooth sailing. Head over to "Instances" and create a new vm. 
+With all the setup out of the way, things should be smooth sailing. Head on over to "Instances" and create a new vm. 
 
 - Any image labelled free. I would recommend Ubuntu for ease of use. 
 
@@ -101,11 +103,14 @@ Yes. Kind of.
 
 This setup hinges on the fact that to Oracle's system you're using one of the free VPSs they assign to you since we've replicated the hardware setup. 
 
-I currently only use 1 VPS and I haven't been charged at all
+I currently only use 1 VPS and I haven't been charged at all*
+
 ![alt text](/images/blog/Free-Hosting-Thats-Not-Actually-a-Scam/image-8.png)
 _My invoice for December. You can find this on the Oracle Cloud website._
 
 Anyway's hopefully this guide can help you deploy your app, start learning Linux, host your game server or whatever you intend to do. You'll be able to do all of these things at once for absolutely free.
+
+*See my update at the top of this article
 
 <br>
 <br>

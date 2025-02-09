@@ -68,3 +68,8 @@
     /* margin-top: 2rem;
     margin-bottom: 1rem; */
 }
+
+
+.markdown code .hljs {
+    color: theme("colors.white") !important;
+}

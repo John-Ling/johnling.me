@@ -1,0 +1,340 @@
+---
+title: "How to Install Arch Linux and Hyprland (Part 2 of 2)"
+date: "2025-16-01"
+---
+
+This is the second half to a guide I've written on installing Arch Linux and Hyprland. You can read the first part [here](https://johnling.me/blog/Arch-Linux-Guide) which will guide you through setting up an incredibly minimal Arch Linux install. 
+
+Hyprland is considerably easier to install and get running especially if you're not writing your dotfiles from scratch. At the end of this guide you will have a fairly simple Hyprland install on top of Arch.
+
+## Assumptions and Prerequisites
+
+- As with the previous guide, although there is much less technical knowledge to be gained from installing Hyprland, I will be putting small explanations and comments in _italics_. 
+
+
+
+## Stage 1/3: Initial Setup
+
+First sync `pacman` so it has the most up to date repositories.
+
+``` asdf
+sudo pacman -Syy
+```
+
+### AUR Helper (Yay)
+
+_The Arch User Repository or AUR is a community-driven repository containing packages not officially supported by Arch Linux. Many packages such as Visual Studio Code, Spotify or VMWare will be found here._
+
+_Packages on the AUR work by user-created PKGBUILDs describe to the Arch Build System how to compile a package. This compiled package can then be installed using `pacman`. While it can be useful to know how to build packages manually, I found it quickly gets tedious and an AUR helper makes things much nicer by automating the process._
+
+Certain packages we'll need can only be found in the AUR so we'll need to set up a helper. In this case we'll use `yay` since I'm more familar with it. 
+
+Since we don't have a helper yet, we'll need to build `yay` manually however that's incredibly easy. 
+
+``` asdf
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+```
+You'll be asked to install Golang as a dependency. 
+
+You can now use `yay` to install any AUR package needed in the future.
+
+### Installing Packages
+
+Before we install Hyprland, we must first some packages (and by some I mean a lot). 
+
+``` asdf
+pacman -S firefox alacritty dolphin pipewire wireplumber pipewire-audio pipewire-pulse dunst xdg-desktop-portal-hyprland hyprpolkitagent hyprpaper hyprlock hypridle qt5-wayland qt6-wayland waybar rofi feh kvantum qt5ct qt6ct nwg-look bluez bluez-utils blueman sof-firmware  wl-clipboard sddm
+
+# Explanation of packages
+firefox: Web browser
+alacritty: Terminal 
+dolphin: GUI File Manager
+pipewire: Sound server for getting... sound
+wireplumber (needed): Session and policy manager for pipewire
+pipewire-audio: Audio support for pipewire
+pipewire-pulse: Pipewire replacement for pulseaudio (common sound server on Linux)
+dunst: Daemon used for displaying notifications such as Discord messages or Spotify song changes
+xdg-desktop-portal-hyprland: Implementation of an xdg-desktop-portal for Hyprland. Explanation of portals can be found at https://wiki.archlinux.org/title/XDG_Desktop_Portal
+hyprpolkitagent: Polkit authentication daemon. Needed for GUI apps to request elevated permissions.
+hyprpaper: Used for setting and changing wallpapers in Hyprland
+hyprlock: Screen locker for Hyprland
+hypridle: Run scripts when your device goes idle. This can be ignored if you don't want your device to sleep such as a desktop
+qt5-wayland and qt6-wayland: Libraries for QT applications to work under wayland. QT is a framework for building GUI apps in C++.
+waybar: Menubar for Wayland systems.
+rofi: Application launcher
+feh: Simple image viewer
+kvantum: Used for theming Dolphin
+qt5ct and qt6ct: Used for theming QT5 and QT6 apps
+nwg-look: Used for theming Gnome apps
+bluez and bluez-utils: Bluetooth support
+blueman: GUI for connecting to Bluetooth devices
+sof-firmware: Some **laptops** may need this for their speakers to work
+wl-clipboard: Clipboard manager for Wayland
+sddm: Login screen
+```
+
+You may be prompted on certain versions of packages to install. The default options will work just fine.
+
+Since we installed `sddm`, our login manager, we'll need to enable it using `Systemd`.
+
+```
+sudo systemctl enable sddm
+```
+
+If you installed `bluez` and `bluez-utils` you should enable bluetooth as well.
+
+```
+sudo systemctl enable bluetooth
+```
+
+Next there are a few packages we'll need to install from the AUR. We'll use our newly installed `yay` to do just that.
+
+``` asdf
+yay -S grimblast-git visual-studio-code-bin spotify downgrade
+
+# Explanation of Packages
+grimblast-git: Tool used for screenshots on Hyprland
+visual-studio-code-bin: VSCode because if you're following this guide you're probably a programmer like me.
+spotify: Decent music player.
+downgrade: Tool for easily downgrading packages on Arch Linux. We'll use it later.
+```
+
+When using `yay` you'll be prompted with 'packages to cleanbuild' and 'diffs to show'. These refer to building without cache and viewing differences between the previous PKGBUILD and the latest. You can just answer N to both of them. 
+
+
+## Stage 2/3: Installing Hyprland
+
+Next we'll actually install Hyprland. We'll also install xorg since it will provide us with both xwayland (needed so X11 apps can work under wayland) along with providing the necessary functionality for sddm.
+
+```
+sudo pacman -S hyprland xorg
+```
+
+Try out Hyprland using the `Hyprland` command.
+
+```
+Hyprland
+```
+
+You should see your Hyprland desktop for the first time.
+
+
+<img src="/images/blog/Hyprland-Guide/image-0.png" width="900" alt="Hyprland desktop">
+
+_Ignore the huge cursor._
+
+## Stage 3/3: Configuration 
+
+Right now we're using the autogenerated config for Hyprland. This means our apps won't really work.
+
+Press `SUPER M` to exit Hyprland. 
+
+For this tutorial, we'll use my own config file as a base. However 
+
+Clone my dotfiles from Github.
+
+``` asdf
+git clone https://github.com/John-Ling/dotfiles
+cd dotfiles/
+cp -r hypr alacritty waybar rofi dunst code-flags.conf ~/.config/
+cp -r .local ~/
+chmod +x ~/.local/bin/*.sh
+cp .zshrc .vimrc ~/
+```
+
+### SwayOSD
+
+I use a slightly modified version of SwayOSD for visualising changes in volume or brightness. We'll download and build it as part of this guide
+
+``` asdf
+sudo pacman -S meson llvm-libs rust
+git clone https://github.com/John-Ling/SwayOSD
+cd SwayOSD/
+meson setup build 
+ninja -C build
+meson install -C build
+```
+
+### Icons
+
+We'll be using the Tela Circle Icon theme 
+
+``` asdf
+git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git
+cd Tela-circle-icon-theme/
+./install -n standard
+```
+
+### Starting Hyprland Back Up
+
+Let's jump back into Hyprland by running the `Hyprland` command.
+
+``` asdf
+Hyprland
+```
+
+Open a terminal using the command `CTRL ALT T`
+
+### Fixing Monitor Issues
+You may notice that your screen is not at the correct resolution or that some text is blurry. This is likely because we haven't properly configured the monitors.
+
+Hyprland has a helpful program named `hyprctl` we'll use that to view our connected monitors. We'll combine this with another command, `grep` to make the output a little more readable
+
+```
+hyprctl monitors | grep Monitor
+```
+
+Here's what my setup would look like.
+
+![Viewing what monitors are on hyprland using hyprctl monitors](/images/blog/Hyprland-Guide/image-2.png)
+
+Remember the names of those monitors. In my case I'll make note of **eDP-1** and **HDMI-A-2**.
+
+We're going to adjust out settings file in the Hyprland config.
+
+``` asdf
+nano ~/.config/hypr/settings.conf
+```
+Adjust `$monitorA` and `$monitorB` to your correct monitor. If you have only 1 monitor you can set both variables to the same value.
+
+![Setting monitors in settings.conf](/images/blog/Hyprland-Guide/image-3.png)
+
+Save the file using `CTRL O` and exit with `CTRL X` and your desktop should scale correctly and display the correct resolution.
+
+### NVIDIA
+
+See https://wiki.hyprland.org/Nvidia it explains setting up NVIDIA far better than I could ever.
+
+
+### Theming
+
+Next we'll apply some themes for our applications to look right.
+We'll also configure the system to use our new Tela circle icon them rather than the standard adwaita theme
+
+### GTK 
+
+For GTK we'll use the Fluent dark theme. Clone the repository from Github
+
+``` asdf
+git clone https://github.com/vinceliuice/Fluent-gtk-theme.git
+cd Fluent-gtk-theme
+./install.sh
+```
+
+Next we'll open nwg-look or "gtk settings". Open rofi using `ALT W` and search for it.
+
+![Using Rofi](/images/blog/Hyprland-Guide/image-4.png)
+
+In the settings page, select Fluent-dark as your widget theme and hit "apply".
+
+Use the default font drop menu to set your font to Meslo LGS NF. I personally use font size 10 but you can choose whatever.
+
+![Setting theme and font in GTK settings](/images/blog/Hyprland-Guide/image-5.png)
+
+Next head to "Icon Theme" and select "standard". After that hit "apply".
+
+![Setting icon theme in GTK settings](/images/blog/Hyprland-Guide/image-6.png)
+
+#### QT
+
+We've now themed our GTK applications which include apps like Firefox. However we still need to set our QT theme for QT based applications like our file manager Dolphin. 
+
+Open Rofi again with `ALT W`.
+
+To set our application we'll open Kvantum Manager. Go to "Change/Delete Theme" and select KvGnomeDark. Click "use this theme".
+
+Next we'll head over to Qt5 and Qt6 settings. For both settings select Kvantum as your style and hit apply.
+
+![Setting theme in Qt settings](/images/blog/Hyprland-Guide/image-8.png)
+
+Head to the fonts section. Just like GTK Settings, we're going to select MesloLGS with a font size of 10 for both settings.
+
+![Setting font sizes in Qt settings](/images/blog/Hyprland-Guide/image-9.png)
+
+
+### Downgrading Dolphin
+
+While this may not be the case anymore. I've found that the recent versions of Dolphin (our file manager) don't work with my icon theme. You may find this is case as well. While I'm trying to figure out the cause of the issue, a fix that has always worked for me is to downgrade Dolphin.
+
+This is where our `downgrade` package comes in.
+
+``` asdf
+sudo downgrade dolphin
+```
+You'll be taken to a menu showing all the possible versions. You'll want to select version **24.05.1** since it's the most recent version that works with the icon theme. 
+
+![Using downgrade to rollback to older version of Dolphin](/images/blog/Hyprland-Guide/image-12.png)
+
+You'll also get asked about saving it to your IgnorePkg list. Say yes since this will prevent Dolphin from being updated. 
+
+### Tweaks for Laptops Users
+
+#### TLP
+
+In my case I've found that using the TLP package has improved my battery life dramatically. 
+
+``` asdf
+sudo pacman -S tlp
+sudo systemctl enable --now tlp
+```
+
+_All laptops tend to be different. A more recent (not really) Thinkpad T420 I've come into possession of seems to show little difference under TLP and I'm certain that there are certain laptops that will have worse battery life with TLP. 
+
+Power saving on Linux will always be a bit worse than Windows on the basis that Windows for all its overhead and "bloat" does have more sophisticated powersaving code.
+
+Figuring out what works for you will just be a process of tweaking things and timing how long your battery life lasts. It's the process I'm doing right now with my T420. _
+
+#### Laptop Suspend Monitor Fix
+
+A weird issue I've found on my laptop is that when plugged into a monitor. The systemd will not suspend if the lid is closed. In some cases this behaviour is desirable such as if you want to operate your laptop in "clamshell mode". If that's your use case you can skip this step. 
+
+I however personally don't plan on using my laptop like that so I'd prefer if the attached monitor switched off when I close my laptop.
+
+To do this we'll need to edit a file called logind.conf
+
+``` asdf
+sudo nano /etc/systmd/logind.conf
+```
+
+Scroll to HandleLidSwitch, uncomment it by removing the # and set its value to "ignore".
+
+![Setting logind.conf](/images/blog/Hyprland-Guide/image-10.png)
+
+My configuration file should trigger a file under `~/.local/bin` called `handle_lid.sh`.
+
+Edit this file and change HDMI-A-2 to the secondary monitor you set in your `settings.conf`. (i.e if you're secondary monitor is VGA-1 then change to that). Change the resolution as well if needed.
+
+![Editing handle_lid.sh](/images/blog/Hyprland-Guide/image-11.png)
+
+### Setting up ZSH
+
+If you want to use  ZSH rather than the built-in Bash, install ZSH using `pacman`
+
+We'll also change the default shell.
+
+``` asdf
+sudo pacman -S zsh
+chsh -s $(which zsh)
+```
+
+You'll have to logout and log back in for the changes to appear. Use `CTRL ALT DELETE` to bring up a powermenu.
+
+![Rofi powermenu used for logging out](/images/blog/Hyprland-Guide/image-7.png)
+
+I personally like to use extensions such as Oh-My-Zsh, Powerlevel10k and syntax highlighting. This step is optional however here are the guides to follow to get that set up.
+
+- Powerlevek10k: https://github.com/romkatv/powerlevel10k
+- Oh-My-ZSH: https://github.com/ohmyzsh/ohmyzsh
+- Syntax Highlighting: https://github.com/zsh-users/zsh-syntax-highlighting
+
+### What Next
+
+What this guide should give you is a pretty basic configuration for Hyprland. From there you can either get to work and start using your new environment or you could spend a little more time theming and ricing your system until everything's right. 
+
+This guide barely scratches the surface of things to do with Hyprland and you'll probably have to continue to tweak and edit things to flatten out quirks in your system.
+
+If you ever get stuck I recommend the Hyprland [wiki](https://wiki.hyprland.org/) or looking on places like Reddit. I'm not a Discord user so I cannot say whether Hyprland's server is a good place for help.
+
+With Linux you're really the one in control for better and for worse. Do whatever you want and have fun! You learn better that way. 
