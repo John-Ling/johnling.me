@@ -1,9 +1,7 @@
 ---
-title: "How to Recompile OpenSSH"
+title: "How to Rebuild OpenSSH (Resolving \"No matching host key type found\")"
 date: "2025-21-01"
 ---
-
-## AKA: Resolving "No matching host key type found"
 
 On distros like Arch Linux you may have seen this error appear when trying to SSH into old servers. In my case I was trying to connect to my router (for very morally upstanding purposes). However I would receive this error.
 
