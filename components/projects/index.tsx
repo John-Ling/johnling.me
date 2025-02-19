@@ -46,7 +46,7 @@ const ProjectsPage = () => {
       }
       <div ref={projectCardRef} className="min-h-screen w-11/12 lg:w-10/12 m-auto mt-5 mb-5 ">
         <h1 className="text-4xl mt-5 mb-5">Projects</h1>
-        <div className="grid grid-cols-1 lg:grid-cols-3  bg-grey-dark border-2 border-grey-light gap-5 p-5 opacity-0 animate-fade-up">  
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  bg-grey-dark border-2 border-grey-light gap-5 p-5 opacity-0 animate-fade-up">  
           {projects.map((project: Project, i: number) => {
             return <ProjectItem key={i} project={project} position={i} handleSelect={handleProjectSelect}/>
           })}
