@@ -185,6 +185,8 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
             <div className="hidden md:block lg:hidden opacity-0 animate-fade-up" style={{animationDelay: "800ms"}}>
               { rendered && !specialEnabled ? 
                 <div className="m-auto opacity-0 animate-fade-up bg-grey-dark border-2 border-grey-light" style={{animationDelay: "600ms"}}>
+                  <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
+                      w-full h-full opacity-40 z-20 m-0 p-0"></div>
                   <AsciiDisplay frameBuffer={frameBuffer} />
                 </div>
                 :
