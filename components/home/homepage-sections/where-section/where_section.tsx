@@ -4,7 +4,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 const WhereSection = () => {
   return (
     <section className="min-h-screen flex flex-col justify-center items-center" id="contact">
-      <h2 className="text-5xl text-grey-light trigger-flicker-on-scroll [--flicker-colour:#C792EA]" style={{animationDelay: "600ms"}}>Where?</h2>
+      <h2 className="text-5xl text-magenta" style={{animationDelay: "600ms"}}>Where?</h2>
       <h3 className="text-3xl mb-3 mt-3">(can you find me)</h3>
       <div className="p-5 opacity-0 trigger-fade-on-scroll flex items-center" style={{animationDelay: "200ms"}}>
         <div className="transition-all hover:-translate-y-1">

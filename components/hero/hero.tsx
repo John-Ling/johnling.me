@@ -175,16 +175,16 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
           <div className="flex flex-col justify-center p-10 lg:w-1/2 xl:w-1/3">
             <div className="text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up " style={{animationDelay: "100ms"}}>
               <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
-              <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "200ms"}}>
+              <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "150ms"}}>
                 I&apos;m
-                <span className="text-grey-light animate-flicker-on [--flicker-colour:#FF5500]" style={{animationDelay: "900ms"}}> John</span>
+                <span className="opacity-0 animate-fade-up text-orange" style={{animationDelay: "350ms"}}> John</span>
               </h1>
             </div>
             <HeroIcons />
             <p className="mt-4 opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>I make things.</p>
             <div className="hidden md:block lg:hidden opacity-0 animate-fade-up" style={{animationDelay: "800ms"}}>
               { rendered && !specialEnabled ? 
-                <div className="opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
+                <div className="m-auto opacity-0 animate-fade-up bg-grey-dark border-2 border-grey-light" style={{animationDelay: "600ms"}}>
                   <AsciiDisplay frameBuffer={frameBuffer} />
                 </div>
                 :
