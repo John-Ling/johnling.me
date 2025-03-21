@@ -20,7 +20,7 @@ It pretty much automates everything we're going to do here and will probably be 
 
 Despite this, I'm still an advocate being at least somewhat familiar with the manual install since
 
-- I believe you'll learna bit more about Linux's commands and concepts by manually executing them to build your system
+- I believe you'll learn a bit more about Linux's commands and concepts by manually executing them to build your system
 - More advanced setups or setups with encryption I have read can be a bit messy with the automated installer
 - One of Arch's selling points is to truly put the user in control on what happens with their system. Using a black box of an installer kind of contradicts the point of using Arch
 - Manual install is honestly not that difficult compared to maintenance. 
@@ -63,7 +63,7 @@ Next you'll need to put your ISO onto a USB drive. In my experience I've used 3 
 BalenaEtcher is the easiest (although they're all easy to use). Just select your ISO file, your USB drive then hit flash.
 
 
-<img src="/images/blog/Arch-Linux-Guide/3.png" alt="Balena etcher" width="600" >
+<img src="/images/blog/Arch-Linux-Guide/3.png" alt="Balena etcher" width="600" />
 
 ### Booting 
 
@@ -71,7 +71,7 @@ Put the USB drive into your computer, press the power button and SPAM whatever k
 
 Hop into the BIOS and select the USB drive. You'll soon be taken to a screen that looks something like this
 
-<img src="/images/blog/Arch-Linux-Guide/1.png" alt="Prompt for arch linux ISO" >
+<img src="/images/blog/Arch-Linux-Guide/1.png" alt="Prompt for arch linux ISO" />
 
 Hit ENTER and you'll be place into the live ISO environment. 
 
@@ -373,7 +373,7 @@ nano /etc/locale.gen
 
 Use the arrow keys to move down until you find en_US.UTF-8 or en_GB.UTF-8 delete the '#' to uncomment either en_US.UTF-8 for American English or en_GB.UTF-8 for British English. Various other english locales can also be uncommented. 
 
-<img src="/images/blog/Arch-Linux-Guide/image-5.png" alt="Nano editing /etc/locale.gen" width="800">
+<img src="/images/blog/Arch-Linux-Guide/image-5.png" alt="Nano editing /etc/locale.gen" width="800" />
 
 While you can just use English locales. You may need to enable a few more locales using the same method if your text does not render correctly. To display titles for my Chinese, Japanese and Korean songs on Spotify I needed to enable the ja_JP.UTF-8, ko_KR.UTF-8, zh_CN.UTF-8 and zh_TW.UTF-8 locales. If your applications need to display different languages you will need to enable 
 

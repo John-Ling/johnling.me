@@ -9,7 +9,7 @@ const postsDirectory: string = path.join(process.cwd(), 'posts');
 export const get_sorted_posts = () => {
     const folders: string[] = fs.readdirSync(postsDirectory);
     const posts: Post[] = folders.map((folder: string) => {
-        return get_post(folder);
+        return get_post(folder)
     });
 
     // return post in sorted order newest first
@@ -22,7 +22,7 @@ export const get_sorted_posts = () => {
 }
 
 export const get_post = (slug: string) => {
-    const fullPath: string = path.join(postsDirectory, slug, "content.md");
+    const fullPath: string = path.join(postsDirectory, slug, "content.mdx");
     const fileContent = fs.readFileSync(fullPath, "utf-8");
     const parsed = matter(fileContent);
     const metadata = parsed.data;

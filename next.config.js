@@ -1,13 +1,24 @@
+import rehypeRaw from 'rehype-raw';
+import rehypeHighlight from 'rehype-highlight';
+import remarkGfm from 'remark-gfm';
+import createMDX from '@next/mdx';
+import withBundleAnalyzer from '@next/bundle-analyzer';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   /* config options here */
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 };
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
+const bundleAnalyser = withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
-const withMDX = require("@next/mdx")({});
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypeRaw, rehypeHighlight],
+  },
+});
 
-module.exports = withMDX(withBundleAnalyzer(nextConfig));
+export default withMDX(withBundleAnalyzer(nextConfig));

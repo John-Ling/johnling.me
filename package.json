@@ -2,6 +2,7 @@
   "name": "johnling.me",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "python blog.py && next build",
@@ -23,6 +24,7 @@
     "jszip": "^3.10.1",
     "jszip-utils": "^0.1.0",
     "next": "14.2.18",
+    "next-mdx-remote": "^5.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-markdown": "^9.0.1",
