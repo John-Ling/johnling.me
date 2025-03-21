@@ -9,7 +9,7 @@ import { get_post, get_sorted_posts } from "@/lib/posts";
 import { Post } from "@/app/interfaces/post";
 
 import style from "./markdown.module.css";
-import "/styles/syntax_highlighting.css"; // include slightly modified highlight.js theme
+import "/styles/syntax_highlighting.css"; // include modified highlight.js theme
 
 const Page = async (props: Params) => {
   const params = await props.params;
@@ -23,15 +23,18 @@ const Page = async (props: Params) => {
         <article className={`pt-5 pb-5 ${style.markdown}`}>
           <h1 className="text-xl mb-5">{post.title}</h1>
           <p className="italic mb-5 text-muted-white">{post.date}</p>
-
-          <ReactMarkdown remarkPlugins={[remarkGfm]}  rehypePlugins={[rehypeRaw, rehypeHighlight]}>
+          {/* 
+          remarkGFM: Github Flavoured Markdown support
+          rehypeRaw: Allows embedding of pure HTML in markdown
+          rehypeHighlight: Syntax highlighting in code blocks
+          */}
+          <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, rehypeHighlight]}>
             {content}
           </ReactMarkdown> 
         </article>
         <Link href="/blog">Back</Link>
       </div>
-    </>
-    
+    </>   
   )
 }
 export default Page;
