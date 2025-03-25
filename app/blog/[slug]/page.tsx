@@ -4,14 +4,15 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { get_post, get_sorted_posts } from "@/lib/posts";
 import { Post } from "@/app/interfaces/post";
 
-import SkillsDisplay from "@/components/home/homepage-sections/what-section/skills_display";
+import Markdown from "react-markdown";
+import CodeBlock from "@/components/code-block/code_block";
 
 import style from "./markdown.module.css";
 import "/styles/syntax_highlighting.css"; // include modified highlight.js theme
 import { MDXComponents } from "mdx/types";
 
 const Page = async (props: Params) => {
-  const components: MDXComponents = {SkillsDisplay};
+  const components: MDXComponents = {CodeBlock, Markdown};
   const params = await props.params;
   const post: Post = get_post(params.slug);
   const content: string = post.content;
@@ -23,7 +24,7 @@ const Page = async (props: Params) => {
         <article className={`pt-5 pb-5 ${style.markdown}`}>
           <h1 className="text-xl mb-5">{post.title}</h1>
           <p className="italic mb-5 text-muted-white">{post.date}</p>
-          {<MDXRemote source={content} components={components} />}
+          <MDXRemote source={content} components={components} />
         </article>
         <Link href="/blog">Back</Link>
       </div>

@@ -27,28 +27,30 @@ autoreconf
 
 Next we'll run the `configure` script with a collection of arguments. Most of these arguments are from the [PKGBUILD](https://gitlab.archlinux.org/archlinux/packaging/packages/openssh/-/blob/main/PKGBUILD?ref_type=heads) for OpenSSH however we're also going to add the "--enable-dsa-keys" option. This will bring back DSA signatures.
 
-``` asdf
-./configure --prefix=/usr \
-    --sbindir=/usr/bin \
-    --libexecdir=/usr/lib/ssh \
-    --sysconfdir=/etc/ssh \
-    --disable-strip \
-    --with-libedit \
-    --with-security-key-builtin \
-    --with-ssl-engine \
-    --with-pam \
-    --with-privsep-user=nobody \
-    --with-privsep-path=/usr/share/empty.sshd \
-    --with-kerberos5=/usr \
-    --with-xauth=/usr/bin/xauth \
-    --with-pid-dir=/run \
-    --with-default-path='/usr/local/sbin:/usr/local/bin:/usr/bin' \
-    --without-zlib-version-check \
+<CodeBlock language="bash" canCopy={true}>
+{`
+./configure --prefix=/usr \\
+    --sbindir=/usr/bin \\
+    --libexecdir=/usr/lib/ssh \\
+    --sysconfdir=/etc/ssh \\
+    --disable-strip \\
+    --with-libedit \\
+    --with-security-key-builtin \\
+    --with-ssl-engine \\
+    --with-pam \\
+    --with-privsep-user=nobody \\
+    --with-privsep-path=/usr/share/empty.sshd \\
+    --with-kerberos5=/usr \\
+    --with-xauth=/usr/bin/xauth \\
+    --with-pid-dir=/run \\
+    --with-default-path='/usr/local/sbin:/usr/local/bin:/usr/bin' \\
+    --without-zlib-version-check \\
     --enable-dsa-keys
 
 make -j$(nproc) -l$(nproc + 1) 
 sudo make install
-```
+`}
+</CodeBlock>
 
 Now you can SSH into whatever ancient box you want.
 
