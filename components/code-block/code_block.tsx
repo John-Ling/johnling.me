@@ -16,6 +16,14 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language, filename, canCopy, chil
   const [copied, setCopied] = useState<boolean>(false);
   const [tooltipVisible, setTooltipVisible] = useState<boolean>(false);
 
+  const handle_copy = () => {
+    setCopied(true);
+    // copy code to clipboard
+    navigator.clipboard.writeText(children);
+    setTimeout(() => setCopied(false), 500);
+    return;
+  }
+
   return (
     <>
       <div className="bg-grey-dark border-2 border-grey-light flex flex-col mb-2 mt-2">
@@ -28,7 +36,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language, filename, canCopy, chil
                 <div className={`absolute bottom-10 bg-grey-dark pt-1 pb-1 pl-2 pr-2 ${!tooltipVisible ? "hidden" : "" }`}>
                   { copied ? "Copied" : "Copy"}
                   </div>
-                <ContentPasteIcon onMouseOver={() => setTooltipVisible(true)} onMouseOut={() => setTooltipVisible(false)} 
+                <ContentPasteIcon onMouseOver={() => setTooltipVisible(true)} onMouseOut={() => setTooltipVisible(false)} onClick={() => handle_copy()} 
                   className="hover:cursor-pointer text-muted-white active:text-[#A0A0A0] hover:text-[#909090] text-md"
                 />  
               </div>
