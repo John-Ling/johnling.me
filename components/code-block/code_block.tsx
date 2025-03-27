@@ -15,11 +15,7 @@ interface CodeBlockProps  {
 const CodeBlock: React.FC<CodeBlockProps> = ({ language, filename, canCopy, children }) => {
   const [copied, setCopied] = useState<boolean>(false);
   const [tooltipVisible, setTooltipVisible] = useState<boolean>(false);
-  const [numbers, setNumbers] = useState<string[]>(generate_lines(children));
-
-  function format_code(code: string) {
-
-  }
+  const lineNumbers: string[] = generate_lines(children);
 
   function handle_copy() {
     setCopied(true);
@@ -30,7 +26,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language, filename, canCopy, chil
   }
 
   function generate_lines(code: string) {
-    let lineNumbers: string[] = [];
+    const lineNumbers: string[] = [];
     // subtract 2 to account for 2 newline for the starting and closing backticks
     for (let i = 1; i <= code.split(/\r\n|\r|\n/).length - 2; i++) {
       lineNumbers.push(i.toString());
@@ -61,8 +57,11 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language, filename, canCopy, chil
         <div className="flex flex-row">
           {/* line numbers for code */}
           <div className='bg-grey-dark'>
-            {numbers.map((number: string) => {
-              return <p className="m-0 font-bold leading-none pt-0 pb-0 pl-1 pr-1 select-none text-xs text-muted-white text-right">{number}</p>
+            {lineNumbers.map((number: string, index) => {
+              return <p key={index} 
+              className="m-0 font-bold leading-none pt-0 pb-0 pl-1 pr-1 select-none text-xs text-muted-white text-right">
+                {number}
+              </p>
             })}
           </div>
           <div className="p-2 overflow-scroll">
