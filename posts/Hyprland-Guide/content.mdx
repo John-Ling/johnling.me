@@ -17,9 +17,11 @@ Hyprland is considerably easier to install and get running especially if you're 
 
 First sync `pacman` so it has the most up to date repositories.
 
-``` asdf
+<CodeBlock>
+{`
 sudo pacman -Syy
-```
+`}
+</CodeBlock>
 
 ### AUR Helper (Yay)
 
@@ -31,11 +33,15 @@ Certain packages we'll need can only be found in the AUR so we'll need to set up
 
 Since we don't have a helper yet, we'll need to build `yay` manually however that's incredibly easy. 
 
-``` asdf
+<CodeBlock>
+{`
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
-```
+`}
+</CodeBlock>
+
+
 You'll be asked to install Golang as a dependency. 
 
 You can now use `yay` to install any AUR package needed in the future.
@@ -44,7 +50,8 @@ You can now use `yay` to install any AUR package needed in the future.
 
 Before we install Hyprland, we must first some packages (and by some I mean a lot). 
 
-``` asdf
+<CodeBlock>
+{`
 pacman -S firefox alacritty dolphin pipewire wireplumber pipewire-audio pipewire-pulse dunst xdg-desktop-portal-hyprland hyprpolkitagent hyprpaper hyprlock hypridle qt5-wayland qt6-wayland waybar rofi feh kvantum qt5ct qt6ct nwg-look bluez bluez-utils blueman sof-firmware  wl-clipboard sddm
 
 # Explanation of packages
@@ -73,25 +80,31 @@ blueman: GUI for connecting to Bluetooth devices
 sof-firmware: Some **laptops** may need this for their speakers to work
 wl-clipboard: Clipboard manager for Wayland
 sddm: Login screen
-```
+`}
+</CodeBlock>
 
 You may be prompted on certain versions of packages to install. The default options will work just fine.
 
 Since we installed `sddm`, our login manager, we'll need to enable it using `Systemd`.
 
-```
+<CodeBlock>
+{`
 sudo systemctl enable sddm
-```
+`}
+</CodeBlock>
 
 If you installed `bluez` and `bluez-utils` you should enable bluetooth as well.
 
-```
+<CodeBlock>
+{`
 sudo systemctl enable bluetooth
-```
+`}
+</CodeBlock>
 
 Next there are a few packages we'll need to install from the AUR. We'll use our newly installed `yay` to do just that.
 
-``` asdf
+<CodeBlock>
+{`
 yay -S grimblast-git visual-studio-code-bin spotify downgrade
 
 # Explanation of Packages
@@ -99,7 +112,8 @@ grimblast-git: Tool used for screenshots on Hyprland
 visual-studio-code-bin: VSCode because if you're following this guide you're probably a programmer like me.
 spotify: Decent music player.
 downgrade: Tool for easily downgrading packages on Arch Linux. We'll use it later.
-```
+`}
+</CodeBlock>
 
 When using `yay` you'll be prompted with 'packages to cleanbuild' and 'diffs to show'. These refer to building without cache and viewing differences between the previous PKGBUILD and the latest. You can just answer N to both of them. 
 
@@ -108,15 +122,19 @@ When using `yay` you'll be prompted with 'packages to cleanbuild' and 'diffs to 
 
 Next we'll actually install Hyprland. We'll also install xorg since it will provide us with both xwayland (needed so X11 apps can work under wayland) along with providing the necessary functionality for sddm.
 
-```
+<CodeBlock>
+{`
 sudo pacman -S hyprland xorg
-```
+`}
+</CodeBlock>
 
 Try out Hyprland using the `Hyprland` command.
 
-```
+<CodeBlock>
+{`
 Hyprland
-```
+`}
+</CodeBlock>
 
 You should see your Hyprland desktop for the first time.
 
@@ -135,45 +153,53 @@ For this tutorial, we'll use my own config file as a base. However
 
 Clone my dotfiles from Github.
 
-``` asdf
+<CodeBlock>
+{`
 git clone https://github.com/John-Ling/dotfiles
 cd dotfiles/
 cp -r hypr alacritty waybar rofi dunst code-flags.conf ~/.config/
 cp -r .local ~/
 chmod +x ~/.local/bin/*.sh
 cp .zshrc .vimrc ~/
-```
+`}
+</CodeBlock>
 
 ### SwayOSD
 
 I use a slightly modified version of SwayOSD for visualising changes in volume or brightness. We'll download and build it as part of this guide
 
-``` asdf
+<CodeBlock>
+{`
 sudo pacman -S meson llvm-libs rust
 git clone https://github.com/John-Ling/SwayOSD
 cd SwayOSD/
 meson setup build 
 ninja -C build
 meson install -C build
-```
+`}
+</CodeBlock>
 
 ### Icons
 
 We'll be using the Tela Circle Icon theme 
 
-``` asdf
+<CodeBlock>
+{`
 git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git
 cd Tela-circle-icon-theme/
 ./install -n standard
-```
+`}
+</CodeBlock>
 
 ### Starting Hyprland Back Up
 
 Let's jump back into Hyprland by running the `Hyprland` command.
 
-``` asdf
+<CodeBlock>
+{`
 Hyprland
-```
+`}
+</CodeBlock>
 
 Open a terminal using the command `CTRL ALT T`
 
@@ -182,9 +208,11 @@ You may notice that your screen is not at the correct resolution or that some te
 
 Hyprland has a helpful program named `hyprctl` we'll use that to view our connected monitors. We'll combine this with another command, `grep` to make the output a little more readable
 
-```
+<CodeBlock>
+{`
 hyprctl monitors | grep Monitor
-```
+`}
+</CodeBlock>
 
 Here's what my setup would look like.
 
@@ -194,9 +222,11 @@ Remember the names of those monitors. In my case I'll make note of **eDP-1** and
 
 We're going to adjust out settings file in the Hyprland config.
 
-``` asdf
+<CodeBlock>
+{`
 nano ~/.config/hypr/settings.conf
-```
+`}
+</CodeBlock>
 Adjust `$monitorA` and `$monitorB` to your correct monitor. If you have only 1 monitor you can set both variables to the same value.
 
 ![Setting monitors in settings.conf](/images/blog/Hyprland-Guide/image-3.png)
@@ -217,11 +247,13 @@ We'll also configure the system to use our new Tela circle icon them rather than
 
 For GTK we'll use the Fluent dark theme. Clone the repository from Github
 
-``` asdf
+<CodeBlock>
+{`
 git clone https://github.com/vinceliuice/Fluent-gtk-theme.git
 cd Fluent-gtk-theme
 ./install.sh
-```
+`}
+</CodeBlock>
 
 Next we'll open nwg-look or "gtk settings". Open rofi using `ALT W` and search for it.
 
@@ -260,9 +292,11 @@ While this may not be the case anymore. I've found that the recent versions of D
 
 This is where our `downgrade` package comes in.
 
-``` asdf
+<CodeBlock>
+{`
 sudo downgrade dolphin
-```
+`}
+</CodeBlock>
 You'll be taken to a menu showing all the possible versions. You'll want to select version **24.05.1** since it's the most recent version that works with the icon theme. 
 
 ![Using downgrade to rollback to older version of Dolphin](/images/blog/Hyprland-Guide/image-12.png)
@@ -275,10 +309,12 @@ You'll also get asked about saving it to your IgnorePkg list. Say yes since this
 
 In my case I've found that using the TLP package has improved my battery life dramatically. 
 
-``` asdf
+<CodeBlock>
+{`
 sudo pacman -S tlp
 sudo systemctl enable --now tlp
-```
+`}
+</CodeBlock>
 
 _All laptops tend to be different. A more recent (not really) Thinkpad T420 I've come into possession of seems to show little difference under TLP and I'm certain that there are certain laptops that will have worse battery life with TLP. 
 
@@ -294,9 +330,11 @@ I however personally don't plan on using my laptop like that so I'd prefer if th
 
 To do this we'll need to edit a file called logind.conf
 
-``` asdf
+<CodeBlock>
+{`
 sudo nano /etc/systmd/logind.conf
-```
+`}
+</CodeBlock>
 
 Scroll to HandleLidSwitch, uncomment it by removing the # and set its value to "ignore".
 
@@ -314,10 +352,12 @@ If you want to use  ZSH rather than the built-in Bash, install ZSH using `pacman
 
 We'll also change the default shell.
 
-``` asdf
+<CodeBlock>
+{`
 sudo pacman -S zsh
 chsh -s $(which zsh)
-```
+`}
+</CodeBlock>
 
 You'll have to logout and log back in for the changes to appear. Use `CTRL ALT DELETE` to bring up a powermenu.
 

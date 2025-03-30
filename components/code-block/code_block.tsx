@@ -12,7 +12,7 @@ interface CodeBlockProps  {
   children: string
 }
 
-const CodeBlock: React.FC<CodeBlockProps> = ({ language, filename, canCopy, children }) => {
+const CodeBlock: React.FC<CodeBlockProps> = ({ language="", filename="", canCopy=true, children }) => {
   const [copied, setCopied] = useState<boolean>(false);
   const [tooltipVisible, setTooltipVisible] = useState<boolean>(false);
   const lineNumbers: string[] = generate_lines(children);
@@ -28,7 +28,8 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language, filename, canCopy, chil
   function generate_lines(code: string) {
     const lineNumbers: string[] = [];
     // subtract 2 to account for 2 newline for the starting and closing backticks
-    for (let i = 1; i <= code.split(/\r\n|\r|\n/).length - 2; i++) {
+    const lineCount = code.split(/\r\n|\r|\n/).length - 2;
+    for (let i = 1; i <= lineCount; i++) {
       lineNumbers.push(i.toString());
     }
     return lineNumbers;
@@ -59,12 +60,12 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language, filename, canCopy, chil
           <div className='bg-grey-dark'>
             {lineNumbers.map((number: string, index) => {
               return <p key={index} 
-              className="m-0 font-bold leading-none pt-0 pb-0 pl-1 pr-1 select-none text-xs text-muted-white text-right">
+              className="font-bold leading-none pt-0 pb-0 pl-1 pr-1 select-none text-xs text-muted-white text-right">
                 {number}
               </p>
             })}
           </div>
-          <div className="p-2 overflow-scroll">
+          <div className="pb-1 pt-1 pl-2 overflow-scroll ">
             {/* return code block markdown with syntax highlighting */}
             <Markdown rehypePlugins={[rehypeHighlight]}>
               {`\`\`\`${language}${children}\`\`\``}
