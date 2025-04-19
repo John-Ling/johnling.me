@@ -31,7 +31,7 @@ const Navbar = () => {
       </button>
 
       {/* desktop menu */} 
-      <div className="hidden invisible md:flex md:visible p-4">
+      <div className="hidden invisible md:flex md:visible p-4"> 
         <NavbarMenu links={links} activeLink={path} handle_click={() => setOpen(false)}/>
       </div>
   
@@ -53,7 +53,7 @@ const NavbarMenu: React.FC<{links: NavLink[], activeLink: string, handle_click: 
   return (
     <ul className="flex flex-col md:flex-row gap-x-2 gap-y-2 md:gap-x-6 align-middle">
     {links.map((link: NavLink) => {
-      let className: string = "no-underline w-screen md:w-auto p-1";
+      let className: string = "no-underline w-screen md:w-auto";
       let ariaCurrent: "page" | undefined = undefined;
 
       // apply special styles for active page

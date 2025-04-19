@@ -46,7 +46,7 @@ const ProjectsPage = () => {
       }
       <div ref={projectCardRef} className="min-h-screen w-11/12 lg:w-10/12 m-auto mt-5 mb-5 ">
         <h1 className="text-4xl mt-5 mb-5">Projects</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  bg-grey-dark border-2 border-grey-light gap-5 p-5 opacity-0 animate-fade-up">  
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  opacity-0 animate-fade-up">  
           {projects.map((project: Project, i: number) => {
             return <ProjectItem key={i} project={project} position={i} handleSelect={handleProjectSelect}/>
           })}
@@ -71,16 +71,16 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project, position, handleSele
 
   return (
     <>
-      <div className="bg-grey-normal border-2 border-grey-light p-3 opacity-0 animate-fade-up h-90" 
+      <div className="bg-[#212121] border-2 border-grey-light p-3 opacity-0 animate-fade-up h-90" 
         style={{animationDelay: `${(position + 1) * 150}ms`}}
       >
         <h2 className={`text-xl md:text-2xl mb-2 mt-2 ${colourClass}`}>{project.title}</h2>
         <h3 className="text-sm mb-2 italic text-muted-white">{project.dateRange}</h3>
         {project.imageFolder === null ? <p>{project.description}</p> // if no image exists just render text
           :
-          <div className="overflow-hidden border-2 border-grey-light ">
+          <div className="overflow-hidden border-2 rounded-lg border-grey-light ">
             <Image
-              className="transition-all duration-500 hover:scale-105 hover:cursor-pointer border-0"
+              className="transition-all duration-500 hover:scale-105 hover:cursor-pointer border-0 rounded-none"
               alt="Project image" 
               src={projectFolder}
               width={1280}
@@ -103,7 +103,9 @@ const ProjectCard: React.FC<{project: Project, handleClose: () => void}> = ({pro
   const projectFolder = `/images/projects/${project.imageFolder}/0.png`;
   return (
     <>
-      <div className="bg-grey-dark bg-opacity-80 fixed top-0 w-full min-h-screen z-20 flex justify-center items-center">
+
+    {/* darken background */}
+      <div className="bg-grey-dark bg-opacity-80 fixed top-0 w-full min-h-screen z-20 flex justify-center items-center" onMouseDown={handleClose}>
         <div className="bg-grey-dark border-2 border-grey-light p-3 animate-fade-up opacity-0 flex w-11/12 lg:w-10/12 h-5/6 flex-col lg:flex-row ">
           {/* button at top of card above picture for tablet and mobile */}
           <button className="block lg:hidden ml-auto w-fit mb-3 " onClick={handleClose}>

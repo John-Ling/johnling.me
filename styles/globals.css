@@ -21,7 +21,8 @@ a:hover {
 }
 
 img {
-    border: solid 3px theme("colors.grey.light");
+    border: solid 4px theme("colors.grey.light");
+    border-radius: 8px;
 }
 
 h1 {
