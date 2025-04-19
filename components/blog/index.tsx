@@ -5,13 +5,13 @@ const BlogPage = () => {
   const posts: Post[] = get_sorted_posts();
   return (
     <div className="flex flex-col items-center min-h-screen p-5">
-      <h1 className="text-3xl">Do People Still Blog?</h1>
-      <p>Inconsistently posted ramblings of consistently low quality.</p>
-      <div className="bg-grey-dark border-2 border-grey-light p-2 m-5 w-full md:w-3/5 lg:w-2/5 opacity-0 animate-fade-up">
+      <h1 className="text-3xl animate-fade-up opacity-0" style={{animationDelay: "100ms"}}>Do People Still Blog?</h1>
+      <p className="opacity-0 animate-fade-up" style={{animationDelay: "150ms"}}>Inconsistently posted ramblings of consistently low quality.</p>
+      <div className="m-5 w-full md:w-3/5 lg:w-2/5 opacity-0 animate-fade-up">
         <ul>
         {posts.map((post: Post, i: number) => {
             return (
-              <li key={post.slug}  className="bg-grey-normal p-3 md:p-5 m-3 border-2 border-grey-light opacity-0 animate-fade-up"
+              <li key={post.slug}  className="bg-[#212121] p-3 md:p-5 m-3 border-2 border-grey-light opacity-0 animate-fade-up"
                 style={{animationDelay: `${(i + 1) * 100}ms`}}
               >
                 <PostComponent position={i} post={post} />
