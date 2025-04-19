@@ -54,7 +54,6 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language="", filename="", canCopy
             </>
           }
         </div>
-
         <div className="flex flex-row">
           {/* line numbers for code */}
           <div className='bg-grey-dark'>
