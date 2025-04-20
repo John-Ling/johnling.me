@@ -50,7 +50,7 @@ const config: Config = {
       },
       animation: {
         "fade-up" : "fade_up 0.4s ease-out forwards",
-        "fade-down" : "fade_down 0.4s ease-out var(--delay, 0) forwards",
+        "fade-down" : "fade_down 0.4s ease-out forwards",
         "flicker-on": "flicker_on 1s linear forwards",
       },
       fontFamily: {
