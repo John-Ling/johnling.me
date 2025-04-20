@@ -42,15 +42,15 @@ const config: Config = {
         },
         "flicker_on": {
           "0%": { color: "#2e2e2e"},
-          "20%": {color: "var(--flicker-colour)"},
+          "20%": {color: "#a63700"},
           "40%": {color: "#2e2e2e"},
-          "80%": {color: "var(--flicker-colour)"},
-          "100%": {color: "var(--flicker-colour)"},
+          "80%": {color: "#FF5500"},
+          "100%": {color: "#FF5500"},
         }
       },
       animation: {
         "fade-up" : "fade_up 0.4s ease-out forwards",
-        "fade-down" : "fade_down 0.4s ease-out var(--delay, 0) forwards",
+        "fade-down" : "fade_down 0.4s ease-out forwards",
         "flicker-on": "flicker_on 1s linear forwards",
       },
       fontFamily: {
