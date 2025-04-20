@@ -42,10 +42,10 @@ const config: Config = {
         },
         "flicker_on": {
           "0%": { color: "#2e2e2e"},
-          "20%": {color: "var(--flicker-colour)"},
+          "20%": {color: "#a63700"},
           "40%": {color: "#2e2e2e"},
-          "80%": {color: "var(--flicker-colour)"},
-          "100%": {color: "var(--flicker-colour)"},
+          "80%": {color: "#FF5500"},
+          "100%": {color: "#FF5500"},
         }
       },
       animation: {

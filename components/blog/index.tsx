@@ -5,7 +5,10 @@ const BlogPage = () => {
   const posts: Post[] = get_sorted_posts();
   return (
     <div className="flex flex-col items-center min-h-screen p-5">
-      <h1 className="text-3xl animate-fade-up opacity-0" style={{animationDelay: "100ms"}}>Do People Still Blog?</h1>
+      <h1 className="text-3xl animate-fade-up opacity-0" style={{animationDelay: "100ms"}}>
+        Do People Still 
+        <span className="text-[#2e2e2e] animate-flicker-on" style={{animationDelay: "1000ms"}}> Blog? </span>
+      </h1>
       <p className="opacity-0 animate-fade-up" style={{animationDelay: "150ms"}}>Inconsistently posted ramblings of consistently low quality.</p>
       <div className="m-5 w-full md:w-3/5 lg:w-2/5 opacity-0 animate-fade-up">
         <ul>

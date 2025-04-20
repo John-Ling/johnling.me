@@ -177,7 +177,7 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
               <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
               <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "150ms"}}>
                 I&apos;m
-                <span className="opacity-0 animate-fade-up text-orange" style={{animationDelay: "350ms"}}> John</span>
+                <span className="text-[#2e2e2e] animate-flicker-on" style={{animationDelay: "1500ms"}}> John</span>
               </h1>
             </div>
             <HeroIcons />
