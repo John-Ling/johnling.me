@@ -105,8 +105,9 @@ const ProjectCard: React.FC<{project: Project, handleClose: () => void}> = ({pro
     <>
 
     {/* darken background */}
-      <div className="bg-grey-dark bg-opacity-80 fixed top-0 w-full min-h-screen z-20 flex justify-center items-center" onMouseDown={handleClose}>
-        <div className="bg-grey-dark border-2 border-grey-light p-3 animate-fade-up opacity-0 flex w-11/12 lg:w-10/12 h-5/6 flex-col lg:flex-row ">
+    <div className="fixed top-0 w-full min-h-screen flex justify-center items-center z-20">
+        <div className="absolute w-full h-full bg-grey-dark bg-opacity-80 z-30" onMouseDown={handleClose}></div>
+        <div className="bg-grey-dark border-2 border-grey-light p-3 animate-fade-up opacity-0 flex w-11/12 lg:w-10/12 h-5/6 flex-col lg:flex-row z-40">
           {/* button at top of card above picture for tablet and mobile */}
           <button className="block lg:hidden ml-auto w-fit mb-3 " onClick={handleClose}>
               <CloseIcon className="hover:text-muted-white active:text-muted-white"/>
