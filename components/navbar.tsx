@@ -25,7 +25,7 @@ const Navbar = () => {
   const path: string = '/' + usePathname().split("/")[1];
   return (
       <nav className={`justify-between items-center transition-all duration-10 ${open ? "bg-grey-normal" : "bg-opacity-0 " } gap-x-4 gap-y-2 flex flex-row`}>  
-      <Link href="/" className="text-2xl md:self-center md:pl-3 p-4 no-underline font-bold opacity-0 animate-fade-down  text-white" 
+      <Link href="/" className="text-2xl md:self-center md:pl-3 p-4 no-underline font-bold opacity-0 animate-fade-down" 
         style={{animationDelay: "300ms"}}
       >John Ling</Link>
 

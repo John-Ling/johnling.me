@@ -11,6 +11,7 @@ const config: Config = {
   theme: {
       extend: {},
       colors: {
+        "cream": "#fffff1",
         "white": "#F8F9F2",
         "muted-white": "#B0B0B0",
         "orange": "#FF5500",

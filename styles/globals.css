@@ -2,16 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+:root {
+    color-scheme: light dark;
+}
 
 body {
     background-color: theme("colors.grey.normal");
     color: theme("colors.white");
-
+    
     background-size: 80px 80px;
     background-image: 
-        linear-gradient(to right, #282828 1px, transparent 1px),
-        linear-gradient(to bottom, #282828 1px, transparent 1px);
+        linear-gradient(to right, light-dark(transparent #282828) 1px, transparent 1px),
+        linear-gradient(to bottom, light-dark(transparent, #282828) 1px, transparent 1px);
 }
 
 a {
@@ -24,7 +27,6 @@ a:hover {
 
 img {
     border: solid 4px theme("colors.grey.light");
-    border-radius: 8px;
 }
 
 h1 {
