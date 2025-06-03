@@ -64,7 +64,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language="", filename="", canCopy
               </p>
             })}
           </div>
-          <div className="pb-1 pt-1 pl-2 overflow-scroll ">
+          <div className="pb-1 pt-1 pl-2 overflow-auto">
             {/* return code block markdown with syntax highlighting */}
             <Markdown rehypePlugins={[rehypeHighlight]}>
               {`\`\`\`${language}${children}\`\`\``}
