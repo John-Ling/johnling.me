@@ -123,7 +123,7 @@ const ProjectCard: React.FC<{project: Project, handleClose: () => void}> = ({pro
             </button>
             <h1 className="text-xl md:text-2xl mb-2 mt-2">{project.title}</h1>
             <h3 className="text-sm mb-2 italic text-muted-white">{project.dateRange}</h3>
-            <p className="mb-2 pb-1 pt-1 max-h-44 overflow-y-scroll">{project.description}</p>
+            <p className="mb-2 pb-1 pt-1 max-h-44 overflow-y-auto">{project.description}</p>
             <a className={`text-sm no-underline mb-2 w-fit ${project.sourceURL === null ? "pointer-events-none text-muted-white" : ""}`} 
               href={project.sourceURL !== null ? project.sourceURL : "/"} 
               target="_blank" rel="noopener"
