@@ -13,8 +13,8 @@ body {
     
     background-size: 80px 80px;
     background-image: 
-        linear-gradient(to right, light-dark(transparent #282828) 1px, transparent 1px),
-        linear-gradient(to bottom, light-dark(transparent, #282828) 1px, transparent 1px);
+        linear-gradient(to right, #282828 1px, transparent 1px),
+        linear-gradient(to bottom, #282828 1px, transparent 1px);
 }
 
 a {
