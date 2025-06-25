@@ -42,6 +42,8 @@ def main():
         
         # try moving content in assets folder to public 
         os.system(f"cp {assetsPath}/* {blogPath}")
+        # delete assets 
+        os.system(f"rm -rf {assetsPath}")
 
 if __name__ == "__main__":
     main()
