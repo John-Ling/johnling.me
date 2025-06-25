@@ -2,7 +2,6 @@ import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
 
 import { get_post, get_sorted_posts } from "@/lib/posts";
-import { Post } from "@/app/interfaces/post";
 
 import Markdown from "react-markdown";
 import CodeBlock from "@/components/code-block/code_block";
@@ -14,7 +13,7 @@ import { MDXComponents } from "mdx/types";
 const Page = async (props: Params) => {
   const components: MDXComponents = {CodeBlock, Markdown};
   const params = await props.params;
-  const post: Post = get_post(params.slug);
+  const post: BlogPost = get_post(params.slug);
   const content: string = post.content;
 
   return (
@@ -39,7 +38,7 @@ type Params = {
 
 // statically render all possible paths (slugs) at build time
 export const generateStaticParams = async () => {
-  const posts: Post[] = get_sorted_posts();
+  const posts: BlogPost[] = get_sorted_posts();
 
   return posts.map((post) => ({
     slug: post.slug

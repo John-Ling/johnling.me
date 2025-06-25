@@ -23,7 +23,6 @@ export const get_sorted_posts = () => {
 
 const convert_date = (date: string) => {
     const arrDate = date.split('/');
-    console.log(arrDate);
     return `${arrDate[2]}/${arrDate[1]}/${arrDate[0]}`
 }
 
