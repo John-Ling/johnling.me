@@ -12,7 +12,7 @@ interface CodeBlockProps  {
   children: string
 }
 
-const CodeBlock: React.FC<CodeBlockProps> = ({ language="", filename="", canCopy=true, children }) => {
+const CodeBlock: React.FC<CodeBlockProps> = ({ language="asdf", filename="", canCopy=true, children }) => {
   const [copied, setCopied] = useState<boolean>(false);
   const [tooltipVisible, setTooltipVisible] = useState<boolean>(false);
   const lineNumbers: string[] = generate_lines(children);

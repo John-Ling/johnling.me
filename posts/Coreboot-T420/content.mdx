@@ -1,0 +1,382 @@
+---
+title: "UEFI/Tianocore Coreboot on the Thinkpad T420"
+date: "2025-13-06"
+---
+
+If you're anything like me, you have an appreciation for the older devices of the 2010s.
+
+For the last 8 months I've been using a Thinkpad T420 as my daily driver, replacing my T15 of 4 years. Alongside the incredibly typing experience, I heavily modded this laptop to maximise it's potential and usability as my laptop.
+
+One of these mods was flashing a custom open-source BIOS, Coreboot to replace the standard one provided by Lenovo.
+
+## Why Use Coreboot?
+
+Alongside all the FOSS goodness GNU fanatics love and the potential (although debatable) security benefits paranoids love, Coreboot offers very tangible performance benefits for normies like me who just want a good computer.
+
+- Higher RAM speeds are allowed on Coreboot enabled machines:  The performance increase however may not be incredibly noticeable.
+- Ivybridge CPUs from the T430 can be installed into the T420: I've done this myself with an I7 3632qm and did notice a clear increase in performance especially when compiling programs. While 2nd-gen quad cores exist, they have a TDP of 45W instead of the 35W Ivies use meaning even worse battery life and heat. Compatible 3rd-gen CPUs can be found [here](https://medium.com/@n4ru/the-definitive-t430-modding-guide-3dff3f6a8e2e).
+
+
+- Removal of the WiFi whitelist allowing for any card to be installed: I installed an [AX3000H](https://www.aliexpress.com/item/1005007980265885.html?spm=a2g0o.productlist.main.2.1ea82839Sw8hc2&algo_pvid=d27d71bc-eaff-4e82-95bc-cc9b6ca542f2&algo_exp_id=d27d71bc-eaff-4e82-95bc-cc9b6ca542f2-1&pdp_ext_f=%7B%22order%22%3A%2273%22%2C%22eval%22%3A%221%22%7D&pdp_npi=4%40dis%21AUD%2123.66%2122.59%21%21%2114.94%2114.26%21%402101c59117463700075423427e47cf%2112000043135897301%21sea%21AU%212827236390%21X&curPageLogUid=8twbk4YCbk46&utparam-url=scene%3Asearch%7Cquery_from%3A) card to get WiFi 6 and boosted my download speeds from 50 to 150mbps on my University's wifi (probably the best in Australia which isn't saying much).
+- Custom bios screens: I didn't do that but if you want to tell others you use Arch at boot-time that's an option.
+
+
+Out of all of these features, the removal of the whitelist and the ability to use Ivy Bridge CPUs in my laptop were the biggest appeals for me.
+
+My T420 now has a a quad-core I7 and a WiFi-6 capable card and honestly it's been great for my university work. I even developed my entire website on this device over the Summer. 
+
+## Why UEFI?
+
+**TLDR**: You want UEFI because you'll be able to dualboot Windows 10/11 and Linux easier.
+
+I wrote this guide because majority of Coreboot guides install legacy BIOS Coreboot with SeaBIOS. Initially I followed those guides but found that I couldn't boot my Windows USB drive. While I could have created another drive, I wanted Coreboot to upgrade my computer not make compromises. 
+
+Since many devices today will use a modern UEFI, I decided to go for that with Coreboot. 
+
+
+## Read Before Proceeding
+
+This is a **very** involved process which includes at least these steps
+
+- Installing Windows 7 to update the Embedded Controller
+- Complete disassembly of the machine to gain access to the ROM chip
+- Attachment of a clip (or soldering of pin headers) to the motherboard
+- Flashing a new firmware with the potential (very rare) to leave your laptop in an unusable state.
+
+
+That being said if you've already gone looking for Coreboot information and found this article, you've probably heard this said before. If so don't let me stop you from doing this. You'll definitely have a unique machine fit for an enthusiast.
+
+## Prerequisites
+
+This guide will only cover the Flash programmer method over the Raspberry PI method. This is because it is the cheaper of the 2 and the one that I used personally. 
+
+- **CH341A SPI Flash Programmer**: These can be found for cheap on [Aliexpress](https://www.aliexpress.com/item/1005006530290946.html?spm=a2g0o.productlist.main.1.4391B7jPB7jPVg&algo_pvid=6cf8d238-d7cf-49f3-a26b-5e37b304b9b3&algo_exp_id=6cf8d238-d7cf-49f3-a26b-5e37b304b9b3-0&pdp_ext_f=%7B%22order%22%3A%227279%22%2C%22eval%22%3A%221%22%7D&pdp_npi=4%40dis%21AUD%213.25%213.12%21%21%2114.93%2114.34%21%402101d9ee17503782627168450e0c73%2112000037547272940%21sea%21AU%212827236390%21X&curPageLogUid=bSNJqgce9QEM&utparam-url=scene%3Asearch%7Cquery_from%3A).
+- **8 Female Pin Headers + 8 jumper wires (Optional)**: If the clip does not work for flashing we can solder these headers to the board and attach jumper wires to them. 
+- **Isopropyl Alcohol + Cotton Buds or Alcohol wipes** for cleaning contacts
+- A **Thinkpad T420 with Windows 7** installed (**this is important**)
+- A **second Linux computer** to build and flash Coreboot. 
+
+
+## Updating the EC via Windows 7
+
+Before we start, we need to update the embedded controller on the Thinkpad T420. While anecdotally, I haven't seen any problems skipping this step, I would still recommend putting in the extra time now rather than having to deal with problems later.
+
+This is because **updating the EC can only be done using Lenovo's BIOS** which means once you Coreboot your machine, you will need to flash the old BIOS back if you want to update the EC.
+
+In Windows 7 you'll want to download the [BIOS update utility](https://support.lenovo.com/uu/en/downloads/ds018785-bios-update-utility-for-windows-8-32-bit-64-bit-7-32-bit-64-bit-vista-32-bit-64-bit-xp-thinkpad-t420-t420i) and run it. Make sure your device plugged into power.
+
+Once this update is complete we can forget about Windows 7. 
+
+## Physical Setup
+
+I'm not going to walk you through how to disassemble the T420 for the sake of brevity. This [video](https://youtu.be/cFD4KDjLEuU?si=hQNpKU5IAPG_FM1R), while long does show you how to go about taking the laptop apart.
+
+
+I told you this process was involved.
+
+
+Following the video correctly, you should have the motherboard exposed.
+
+At the bottom of the board there will be a small black chip below the chipset. That's our ROM chip that we want to flash Coreboot onto. However before we do so, we must make a backup of the original firmware such that if we mess up we can put it back to restore functionality.
+
+
+## Set the CH341A to use 3.3v
+
+I put this as its own section just to make sure no one will miss it. 
+
+There will be a yellow/black jumper header on the side of the programmer. It should be on the rightmost side like so:
+
+![ch341a voltage header](/images/blog/Coreboot-T420/image.png)
+
+While I've heard that a hack is required to get the programmer to output 3.3V on the signal lines, I found the mod way too much of a hassle and found 
+that at least on the T420 the signal pins are 5V tolerant. I was able to flash Coreboot without having to modify my programmer.
+
+If you do want to modify it here is a [video guide](https://www.youtube.com/watch?v=C53-aqp4hbI) to start.
+
+## Attaching the programmer
+
+Attach the clip to the chip. In theory this should be easy. Treat it like a clothes pin and try get the teeth to make contact with the chip pins. 
+
+When looking at the programmer, the socket (ZIF socket) is split into two halves. The top half SPI and the bottom I<sup>2</sup>C. We need to use the first one. 
+
+<img src="/images/blog/Coreboot-T420/image-7.png" width="200" alt="CH341a programmer"/>
+
+<img src="/images/blog/Coreboot-T420/image-5.png" width="500" alt="Ch341a programmer pinout diagram" />
+
+Attach the clip to the chip following the pinout. Don't worry too much if you put it on wrong, the worst case is that your chip will just heat up indicating that the orientation is incorrect. 
+
+![T420 BIOS chip](/images/blog/Coreboot-T420/image-4.png)
+
+_VCC = VSS, MISO = DO, MOSI = DI, CLK = SCK_
+
+
+![Clip on T420 bios chip](/images/blog/Coreboot-T420/IMG_9944.JPG)
+
+### "I can't read anything off the chip" / my clip won't fit"
+
+If that's you then you're me. My clip was pretty bad and even when I could get it to attach 
+
+If that doesn't work it's time to use those pin headers. You'll need to solder these headers to the board via the holes to the right of the chip.
+
+![T420 BIOS chip](/images/blog/Coreboot-T420/image-1.png)
+
+If you know how to solder great! If not there's a first time for everything and soldering videos are incredibly common on [youtube](https://youtube.com/shorts/nPz37an_7ng?si=0O7TIUVsRuxorc7Y). 
+
+Once you get those pin headers on the board. Connect your jumper pins to the CH341A.
+
+{/* ![Jumper pins attached to BIOS chip](/images/blog/Coreboot-T420/IMG_0101.JPG) */}
+<img src="/images/blog/Coreboot-T420/IMG_0101.JPG" alt="Jumper pins attached to BIOS chip" width="400"/>
+
+{/* ![CH341A with jumper pins](/images/blog/Coreboot-T420/IMG_0102.JPG) */}
+<img src="/images/blog/Coreboot-T420/IMG_0102.JPG" alt="CH341A with jumper pins" width="300"/>
+
+
+## Building Coreboot
+
+Install needed dependencies for Flashrom 
+Debian-Based
+
+
+<CodeBlock>
+{`
+sudo apt install git build-essential gnat flex bison libncurses5-dev wget zlib1g-dev flashrom
+`}
+</CodeBlock>
+
+Arch-Based
+<CodeBlock  >
+{`
+sudo pacman -S base-devel gcc-ada flex bison ncurses wget zlib git flashrom
+`}
+</CodeBlock>
+
+Next we'll download the Coreboot source code. 
+
+<CodeBlock  >
+{`
+git clone https://github.com/coreboot/coreboot.git
+cd coreboot
+git submodule update --init --checkout
+mkdir -p 3rdparty/blobs/mainboard/lenovo/t420
+`}
+</CodeBlock>
+
+Build ifdtool. This program will be used to extract binary blobs from our firmware by reading from the 
+Intel Flash Descriptor (IFD)
+
+<CodeBlock  >
+{`
+cd util/ifdtool
+make -j$(nproc) -l$(nproc + 1) 
+`}
+</CodeBlock>
+Leave the directory. We'll next download me_cleaner. This is a Python script that will neutralise the Intel Management Engine. While **you can skip this step**, I kept it in to give you the option depending on how fearful of the engine you are. The process is not very difficult and I know that I won't need to use it so I decided use me_cleaner. 
+
+<CodeBlock  >
+{`
+cd ~
+git clone https://github.com/corna/me_cleaner
+`}
+</CodeBlock>
+
+### Backing Up BIOS
+
+We're going to read the BIOS off the chip to make a backup just in case things go wrong. If using me_cleaner, we'll also be running it on those extracted ROMs to neutralise the Management Engine.
+
+Run flashrom to extract the BIOS. We'll repeat this 2 more times since we will compare them to ensure a good read.
+
+<CodeBlock  >
+{`
+flashrom -VVV -p ch341a_spi -c MX25L6406E/MX25L6408E -r t420_1.rom
+flashrom -VVV -p ch341a_spi -c MX25L6406E/MX25L6408E -r t420_2.rom
+flashrom -VVV -p ch341a_spi -c MX25L6406E/MX25L6408E -r t420_3.rom
+`}
+</CodeBlock>
+
+<CodeBlock  >
+{`
+sha512sum t420_*.rom
+`}
+</CodeBlock>
+
+If all the hashes match, then we can assume our ROM is good. 
+
+<CodeBlock  >
+{`
+cp t420_1.rom backup.rom
+`}
+</CodeBlock>
+
+Remove Intel ME
+
+<CodeBlock  >
+{`
+cp backup.rom cleaned.rom
+~/me_cleaner/me_cleaner.py -S cleaned.rom
+`}
+</CodeBlock>
+
+Extract the binary blobs using ifdtool. 
+<CodeBlock  >
+{`
+~/coreboot/util/ifdtool/ifdtool -x cleaned.rom
+`}
+</CodeBlock>
+
+Rename/remove the extracted blobs. Then move them into our Coreboot directory.
+
+<CodeBlock  >
+{`
+mv flashregion_0_flashdescriptor.bin descriptor.bin
+rm flashregion_1_bios.bin
+mv flashregion_2_intel_me.bin me.bin
+mv flashregion_3_gbe.bin gbe.bin
+cp descriptor.bin me.bin gbe.bin ~/coreboot/3rdparty/blobs/mainboard/lenovo/t420/
+`}
+</CodeBlock>
+
+At this point you can either compile Coreboot with your own config file or use mine. Mine was built in 2023 so it's a bit outdated. 
+
+**IMPORTANT**:
+
+_My laptop used to use an MPE-1800AX WiFi card however any newer version of Coreboot just didn't work with it. If you know you have this WiFi card, you might want to consider using my config as it's guaranteed to work._
+
+If you want to build your config yourself make sure you at least have these settings enabled. Using the ? key on each option will give you a bit of information so feel free to explore the config. 
+
+**General**
+- Use CMOS for configuration values
+
+
+**Mainboard**
+- Set Mainboard Vendor to Lenovo and Mainboard Model to Thinkpad T420
+- Set the CBFS (size of Coreboot owned area in ROM) to 0x300000
+
+
+**Chipset**
+- Optionally enable the 2 [OVERCLOCK] options.
+- Support Bluetooth on WiFi cards
+- Add Intel descriptor.bin
+- Add Intel ME/TXE Firmware  (don't worry if you ran me_cleaner this firmware should basically be completely neutralised and harmless)
+- Add gigabit ethernet configuration
+
+
+**Devices**
+- Set graphics initialisation to use libgfxinit for UEFI support
+- Set Display -> Framebuffer Mode to Linear "high-resolution" framebuffer
+- Check "Show graphical bootsplash" and set the resolution to your screen
+- Enable PCIe Clock Power Management 
+- Enable PCIe APSM L1 Substrate
+
+**Generic Drivers**
+- PS/2 Keyboard Init (this is actually important my computer didn't boot with this disabled)
+- Support for either Intel or Mediatek WiFi cards should be enabled by default. If not enable them.
+
+**Payload**
+- Set Payload to add to edk2 payload (UEFI)
+- Use Escape Key for Boot Manager and set boot menu timeout to 1 second
+- Center logo 38.2% from top of the screen.
+
+
+Once done hit escape and save the .config file.
+
+Now we can build the cross-compiler and build Coreboot. 
+
+<CodeBlock>
+{`
+cd coreboot
+make crossgcc-i386 CPUS=$(nproc)
+make iasl
+make -j$(nproc) -l$(nproc + 1)
+`}
+</CodeBlock>
+
+## Flashing Coreboot
+
+Now that we have our image built we can flash it onto our chip. We'll use flashrom in a similar way. The '-VVV' flag is more important as it will prevent us from thinking that the software is hanging. 
+
+<CodeBlock>
+{`
+flashrom -VVV -p ch341a_spi -c MX25L6406E/MX25L6408E -w build/coreboot.rom
+`}
+</CodeBlock>
+
+Give some time for the programmer to write the data. Since we ran with the verbose flag we'll see a lot of output which is good as it means we'll be able to tell if something has gone wrong. 
+
+The process should take a bit of time. Just be patient and wait for the output to stop. 
+
+
+Once done power off the machine and re-power it on 
+
+## Troubleshooting
+### "My Screen is Black what do I do?"
+
+Firstly **don't panic** my screen was also black the first time I did this. It's only in extremely rare cases where a bricked laptop is truly gone. 
+
+
+#### Fix 1: Reseating the CPU
+
+When I initially flashed coreboot, I found my laptop had a weird issue where pressing the power button would only cause it to glow but nothing starts up.
+
+This really confused me for the longest time. However I found the solution was to reseat the CPU. **The key here is to not completely tighten the lock for the socket**. Only tighten it enough so the CPU doesn't move. 
+
+![laptop cpu socket](/images/blog/Coreboot-T420/image-3.png)
+
+_See that  circular notch at the top? You want to turn that with a screwdriver but don't put tons of force._
+
+#### Fix 2: Reflashing the BIOS
+
+In the worst case scenario where you need to flash the original BIOS back, run the same flashrom command using your backup.rom instead of coreboot.rom
+
+<CodeBlock  >
+{`
+flashrom -VVV -p ch341a_spi -c MX25L6406E/MX25L6408E -w ~/backup.rom
+`}
+</CodeBlock>
+
+### "Booting from X Failed: Verify it contains a 64bit UEFI OS"
+
+I had this problem as well immediately after flashing Coreboot to my machine. 
+
+For me the solution was to boot a live Linux USB and reinstall GRUB bootloader.
+
+On Arch this can be done with these commands. 
+
+<CodeBlock  >
+{`
+mount /dev/sdb1 /boot/efi
+`}
+</CodeBlock>
+<CodeBlock  >
+{`
+grub-install --target=x86_64-efi --bootloader-id=GRUB  --efi-directory=/boot/efi
+`}
+</CodeBlock>
+<CodeBlock  >
+{`
+grub-mkconfig -o /boot/grub/grub.cfg
+`}
+</CodeBlock>
+
+## Updating Coreboot in the Future
+
+
+### Linux
+
+If you are on Linux (which if you're following this guide you probably are let's be honest) updating Coreboot can be done via the "internal" programmer in flashrom.
+
+You may need to provide `iomem=relaxed` to your kernel boot parameters.
+
+<CodeBlock  >
+{`
+flashrom -VVV -p internal -w new_coreboot.rom
+`}
+</CodeBlock>
+
+### Windows
+
+Windows users will still need to use the external flashing method we covered in this guide sorry :( 
+
+
+## Summary
+
+If everything has gone right, you should now have a Thinkpad T420 running an open-source UEFI firmware you compiled yourself. That's got to be kind of cool. I think it is.
