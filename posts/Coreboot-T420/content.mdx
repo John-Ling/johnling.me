@@ -243,6 +243,13 @@ _My laptop used to use an MPE-1800AX WiFi card however any newer version of Core
 
 If you want to build your config yourself make sure you at least have these settings enabled. Using the ? key on each option will give you a bit of information so feel free to explore the config. 
 
+<CodeBlock>
+{`
+cd coreboot
+make -j$(nproc) -l$(nproc) + 1
+`}
+</CodeBlock>
+
 **General**
 - Use CMOS for configuration values
 
@@ -286,7 +293,7 @@ Now we can build the cross-compiler and build Coreboot.
 cd coreboot
 make crossgcc-i386 CPUS=$(nproc)
 make iasl
-make -j$(nproc) -l$(nproc + 1)
+make -j$(nproc) -l$(nproc) + 1
 `}
 </CodeBlock>
 

@@ -1,4 +1,5 @@
 import { get_sorted_posts } from "@/lib/posts";
+import Link from "next/link";
 
 const BlogPage = () => {
   const posts: BlogPost[] = get_sorted_posts();
@@ -34,7 +35,7 @@ const PostComponent: React.FC<{post: BlogPost, position: number}> = ({post, posi
     <>
       <h2 className={`text-l md:text-xl ${colourClass}`}>{post.title}</h2>
       <p className="text-sm italic text-muted-white mb-2 ">{post.date}</p>
-      <a href={`/blog/${post.slug}`}>Article</a>
+      <Link href={`/blog/${post.slug}`}>Article</Link>
     </>
   )
 }
