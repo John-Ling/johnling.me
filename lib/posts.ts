@@ -2,23 +2,29 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-import { Post } from '@/app/interfaces/post';
+// import { Post } from '@/app/interfaces/post';
 
 const postsDirectory: string = path.join(process.cwd(), 'posts');
 
 export const get_sorted_posts = () => {
     const folders: string[] = fs.readdirSync(postsDirectory);
-    const posts: Post[] = folders.map((folder: string) => {
+    const posts: BlogPost[] = folders.map((folder: string) => {
         return get_post(folder)
     });
 
     // return post in sorted order newest first
-    return posts.sort((a: Post, b: Post) => {
-        if (a.date < b.date) {
+    return posts.sort((a: BlogPost, b: BlogPost) => {
+        if (convert_date(a.date) < convert_date(b.date)) {
             return 1;
         }
         return -1;
     });
+}
+
+const convert_date = (date: string) => {
+    const arrDate = date.split('/');
+    console.log(arrDate);
+    return `${arrDate[2]}/${arrDate[1]}/${arrDate[0]}`
 }
 
 export const get_post = (slug: string) => {
@@ -33,5 +39,5 @@ export const get_post = (slug: string) => {
         title: metadata.title, 
         date: metadata.date, 
         content: content 
-    } as Post;
+    } as BlogPost;
 }
