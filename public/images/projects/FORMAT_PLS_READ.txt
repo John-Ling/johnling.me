@@ -1,10 +1,7 @@
-all images should be ~640x360 resolution using magick or something
+all images should be 1280x720 resolution using magick or something
 
-magick input.png -resize 640x360^ output.png
 
-for vertical images add padding
-magick input.png -resize 640x360^ -gravity center -background "rgb(20,20,20)" -extent 640x360 output.png
-
+magick input.png -resize 1280x720 -gravity center -background "rgb(0,0,0)" -extent 1280x720 0.png
 
 images should be be in PNG format and numbered numerically
 i.e

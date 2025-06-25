@@ -16,7 +16,7 @@ export const projects: Project[] = [
       SCSS skills.`,
     imageFolder: "internship-2",
     sourceURL: null,
-    tags: ["Angular", "Formly", "Sass"],
+    tags: ["Angular", "Material UI", "Sass"],
   },
     {
       title: "johnling.me", dateRange: "November 2024 - December 2024",
@@ -27,6 +27,24 @@ export const projects: Project[] = [
       imageFolder: "website-rebuild",
       sourceURL: "https://github.com/John-Ling/johnling.me",
       tags: ["React", "NextJS", "TailwindCSS", "Vercel"],
+    },
+    { title: "DSA Libraries", dateRange: "November 2024 - November 2024",
+      description: `
+      Got bored during the break so I changed my linked list implementation into a .so file
+      Then I used that library to implement more libraries for queues, stacks, hash tables, BFS and DFS.
+      `,
+      imageFolder:  "dsa-libraries",
+      sourceURL: "https://github.com/John-Ling/CS-Fundamentals",
+      tags: ["C", "Make"],
+    }, 
+    {
+      title: "More Algorithms and Data Structures", dateRange: "August 2024 - October 2024",
+      description: `
+        Spent most of the time studying and dealing with life stuff but killed some time implementing all the algorithms
+        and data structures covered in my DSA course.`,
+      imageFolder: "more-dsa",
+      sourceURL: "https://github.com/John-Ling/CS-Fundamentals",
+      tags: ["C"],
     },
     {
       title: "ramble.johnling.me", dateRange: "April 2024 - April 2024",
@@ -46,7 +64,7 @@ export const projects: Project[] = [
         Ultimately scrapped the project (watch was too thick) but might make a clock out of it.`,
       imageFolder: "nixie-watch",
       sourceURL: "https://github.com/John-Ling/Nixie-Watch",
-      tags: ["ATmega328p", "AVR C"],
+      tags: ["ATmega328p", "AVR C", "Hardware"],
       
     },
     {
@@ -75,7 +93,7 @@ export const projects: Project[] = [
         (my door specifically). Learned a bit about power saving in embedded systems which was cool.`,
       sourceURL: "https://github.com/John-Ling/Arduino-Smart-Lock",
       imageFolder: "smart-lock",
-      tags: ["ATmega328p", "Arduino"],
+      tags: ["ATmega328p", "Arduino", "Hardware"],
     },
     {
       title: "Trello Tabliss Integration", dateRange: "January 2023 - May 2023",
@@ -113,7 +131,7 @@ export const projects: Project[] = [
       I also trialed Intel OpenVINO for better performance.`,
       sourceURL: "https://github.com/John-Ling/Cameraman",
       imageFolder: "cameraman",
-      tags: ["Arduino", "Python", "OpenCV", "Caffe", "OpenVINO"],
+      tags: ["Arduino", "Python", "OpenCV", "Caffe", "OpenVINO", "Hardware"],
     },
     {
       title: "Desktop Kahoot Bot", dateRange: "November 2021 - May 2022",
@@ -136,12 +154,34 @@ export const projects: Project[] = [
     {
       title: "CS Fundamentals", dateRange: "August 2021 - Present",
       description: `
-        Ongoing code implementations of various data structures and algorithms. 
-        Recently made my own linked list library which is pretty cool. 
+        Ongoing code implementations of various data structures and algorithms in C. 
         Absolutely saved me during my algorithms course in University.`,
       sourceURL: "https://github.com/John-Ling/CS-Fundamentals",
       imageFolder: "fundamentals",
       tags: ["C"],
+    },
+    {
+      title: "CS50", dateRange: "August 2021 - August 2022",
+      description: `
+        Completed Harvard's CS50 intro to computer science course while doing school.
+        It was pretty hard but I learned a lot.
+      `,
+      sourceURL: null,
+      imageFolder: "cs50",
+      tags: ["C", "Python", "SQL", "HTML", "Javascript", "CSS"]
+    },
+    {
+      title: "Linux Shenanigians", dateRange: "May 2020 - Present",
+      description:  `
+        Had time thanks for a worldwide pandemic so I installed Arch Linux and KDE plasma onto my computers.
+        Learned a lot about Linux and had fun ricing my system.
+        I even got GPU passthrough working on my system to run both Windows and macOS virtual machines with discrete graphics.
+        Learned to compile my own kernel to get things working (ACS override).
+        Spent way too much time I could have spent socialising but I had fun :)
+      `,
+      sourceURL: null,
+      imageFolder: "linux",
+      tags: ["Bash", "Linux", "KVM", "VFIO", "I", "Use", "Arch", "BTW"]
     },
     {
       title: "Covid Companion", dateRange: "February 2020 - March 2020",
