@@ -19,9 +19,10 @@ Nothing really special about it tbh. It's a Raspberry Pi 3B+ running [FullpageOS
 
 ### Automatic Shutoff
 
-While DAKboard does provide some scripts to blank and unblank the display using HDMI CEC. In my experience when I first tried to set it up in 2020, they didn't work. When I revisited the project I realised that using `xset` to control DPMS (Display Power Management Signalling).
+While DAKboard does provide some scripts to blank and unblank the display using HDMI CEC. In my experience when I first tried to set it up in 2020, they didn't work. When I revisited the project I realised that using `xset` to control DPMS (Display Power Management Signalling)
+worked as an alternative.
 
-<CodeBlock language="bash">
+<CodeBlock language="bash" filename="startup.sh">
 {`
 #!/bin/bash
 # run when board wakes up from sleep
@@ -34,7 +35,7 @@ DISPLAY=:0 xset -dpms # send video signal to display
 
 I basically did the opposite to put the display to sleep.
 
-<CodeBlock language="bash">
+<CodeBlock language="bash" filename="shutdown.sh">
 {`
 #!/bin/bash
 # run when board goes to sleep
@@ -68,7 +69,7 @@ Due to the dogwater WiFi in my house (thanks unifi &lt;3), occasionally I would 
 
 ![Screenshot showing that startup code loops waiting for HTTP 200](/images/blog/Dakboard/image-4.png)
 
-To get around this in my case, I simply ran `sudo raspi-config` enabled "Network at Boot" under the "System Options"
+To get around this in my case, I simply ran `sudo raspi-config` enabled "Network at Boot" under the "System Options".
 
 ![Raspi-config](/images/blog/Dakboard/image-5.png)
 
@@ -110,7 +111,7 @@ _pls ignore the messy sticky tack. Notice the green wires that lead into the TV_
 
 After soldering my wires, I attached them to the COM (common) and NO (normally open) screw terminals of the relay. I attached jumper wires to the 3.3V, ground and PIN 14 GPIO pins on the Pi. After that we could control them very easily using this script.
 
-<CodeBlock language="bash">
+<CodeBlock language="bash" filename="relay.sh">
 {`
 #!/bin/bash
 # emulates a press of the power button
