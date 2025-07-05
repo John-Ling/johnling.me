@@ -8,11 +8,8 @@ import withBundleAnalyzer from '@next/bundle-analyzer';
 const nextConfig = {
   /* config options here */
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-};
-
-const bundleAnalyser = withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
-});
+};
 
 const withMDX = createMDX({
   options: {
