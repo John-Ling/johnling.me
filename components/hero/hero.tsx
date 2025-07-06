@@ -106,8 +106,24 @@ const Hero = () => {
       animationRequestID.current = requestAnimationFrame(animate);
     }
 
+    const handle_visibility_change = () => {
+      if (!audioRef.current) {
+        return;
+      }
+
+      if (document.visibilityState === "hidden") {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+    }
+
     if (playMusic) {
       bapple_init();
+
+      // pause music when user leaves tab
+      // animation will be paused due to how request animation frame works
+      document.addEventListener("visibilitychange", handle_visibility_change);
     }
 
     animationRequestID.current = requestAnimationFrame(animate);
@@ -115,6 +131,9 @@ const Hero = () => {
     return () => {
       cleanup();
       cancelAnimationFrame(animationRequestID.current);
+      if (playMusic) {
+        document.removeEventListener("visibilitychange", handle_visibility_change);
+      }
     };
   }, [size, animation, playMusic]);
 
