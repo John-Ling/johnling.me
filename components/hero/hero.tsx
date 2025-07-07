@@ -41,7 +41,6 @@ const Hero = () => {
   // frame buffer for ascii display
   const [frameBuffer, setFrameBuffer] = useState<string[][]>(Array(size.height).fill(null).map(() => Array(size.width).fill(' ')));
 
-
   // animations for ascii display
   useEffect(() => {
     let current: string[][] = Array(size.height).fill(null).map(() => Array(size.width).fill(' '));
@@ -111,18 +110,15 @@ const Hero = () => {
         return;
       }
 
-      if (document.visibilityState === "hidden") {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play();
-      }
+      document.visibilityState === "hidden" ? audioRef.current.pause() : audioRef.current.play();
     }
 
     if (playMusic) {
       bapple_init();
 
       // pause music when user leaves tab
-      // animation will be paused due to how request animation frame works
+      // animation will be paused when leaving tab 
+      // due to how request animation frame works
       document.addEventListener("visibilitychange", handle_visibility_change);
     }
 
@@ -185,13 +181,11 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
   return (
     <>
       {
-        specialEnabled && rendered ? 
-          <>
-            <Secret playMusic={playMusic} frameBuffer={frameBuffer} audioRef={audioRef} handle_click={handle_click} />
-          </>
+        specialEnabled && rendered ? <Secret playMusic={playMusic} frameBuffer={frameBuffer} audioRef={audioRef} handle_click={handle_click} />
         :
         <div className="min-h-screen flex items-center justify-center flex-col lg:flex-row ">
-          <div className="flex flex-col justify-center p-10 lg:w-1/2 xl:w-1/3">
+          {/* hero information (left side) */}
+          <div className="lg:basis-1/2 xl:basis-1/3 flex flex-col justify-center p-10 ">
             <div className="text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up " style={{animationDelay: "100ms"}}>
               <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
               <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "150ms"}}>
@@ -201,9 +195,11 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
             </div>
             <HeroIcons />
             <p className="mt-4 opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>I make things.</p>
-            <div className="hidden md:block lg:hidden opacity-0 animate-fade-up" style={{animationDelay: "800ms"}}>
+
+            {/* ascii display for tablet view hidden in desktop mode */}
+            <div className="relative hidden visible md:block lg:hidden lg:invisible opacity-0 animate-fade-up" style={{animationDelay: "800ms"}}>
               { rendered && !specialEnabled ? 
-                <div className="m-auto opacity-0 animate-fade-up bg-grey-dark border-2 border-grey-light" style={{animationDelay: "600ms"}}>
+                <div className="opacity-0 animate-fade-up bg-grey-dark border-2 border-grey-light" style={{animationDelay: "600ms"}}>
                   <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
                       w-full h-full opacity-40 z-20 m-0 p-0"></div>
                   <AsciiDisplay frameBuffer={frameBuffer} />
@@ -215,8 +211,10 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
             </div>
             <HeroInformation />  
           </div>
-          <div className="m-auto">
-            <div className="bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" 
+
+          {/* ascii display (right side) */}
+          <div className="lg:w-1/2 xl:basis-2/3 flex items-center justify-center">
+            <div className="relative bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" 
               style={{animationDelay: "800ms"}}
             >
               { rendered && !specialEnabled ? 

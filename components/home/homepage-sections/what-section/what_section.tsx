@@ -12,7 +12,7 @@ const WhatSection = () => {
                       w-full h-full opacity-40 z-20"></div>
         <SkillsDisplay />
       </div>
-        <div className="order-1 lg:w-1/2">
+      <div className="order-1 lg:w-1/2">
         <h2 className="text-5xl text-yellow" style={{animationDelay: "800ms"}}>What?</h2>
         <h3 className="text-3xl mb-3 mt-3">The tools I use</h3>
         <p className="mb-5">
