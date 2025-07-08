@@ -110,7 +110,13 @@ const Hero = () => {
         return;
       }
 
-      document.visibilityState === "hidden" ? audioRef.current.pause() : audioRef.current.play();
+      if (document.visibilityState === "hidden") {
+        audioRef.current.pause();
+        return;
+      }
+
+      audioRef.current.play();
+      return;
     }
 
     if (playMusic) {
