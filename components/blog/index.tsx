@@ -15,7 +15,7 @@ const BlogPage = () => {
         <ul>
         {posts.map((post: BlogPost, i: number) => {
             return (
-              <li key={post.slug}  className="bg-[#212121] p-3 md:p-5 m-3 border-2 border-grey-light opacity-0 animate-fade-up"
+              <li key={post.slug}  className="bg-grey-card p-3 md:p-5 m-3 border-2 border-grey-light opacity-0 animate-fade-up"
                 style={{animationDelay: `${(i + 1) * 100}ms`}}
               >
                 <PostComponent position={i} post={post} />
@@ -34,7 +34,7 @@ const PostComponent: React.FC<{post: BlogPost, position: number}> = ({post, posi
   const colourClass: string = colours[position % colours.length];
   return (
     <>
-      <h2 className={`text-l md:text-xl ${colourClass}`}>{post.title}</h2>
+      <h2 className={`text-l md:text-xl ${meslo.variable} font-meslo ${colourClass}`}>{post.title}</h2>
       <p className="text-sm italic text-muted-white mb-2 ">{post.date}</p>
       <Link href={`/blog/${post.slug}`}>Article</Link>
     </>

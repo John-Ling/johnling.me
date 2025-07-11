@@ -22,8 +22,9 @@ const config: Config = {
         },
         "grey": {
           light: "#2e2e2e",
-          normal: "#242424",
-          dark: "#1b1b1b",
+          normal: "#1C1D1F",
+          dark: "#17181A",
+          card: "#17181A"
         },
         "blue": "#82AAFF",
         "green": "#50FA7B",
