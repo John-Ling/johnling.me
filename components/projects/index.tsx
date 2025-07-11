@@ -6,6 +6,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Image from "next/image";
 import { meslo } from "@/lib/font";
 
+
 const ProjectsPage = () => {
   const [selectedProject, setSelectedProject] = useState<Project>();
   const [opened, setOpened] = useState<boolean>(false);
@@ -75,7 +76,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project, position, handleSele
       <div className="bg-[#212121] border-2 border-grey-light p-3 opacity-0 animate-fade-up h-90" 
         style={{animationDelay: `${(position + 1) * 150}ms`}}
       >
-        <h2 className={`text-xl md:text-2xl mb-2 mt-2  ${colourClass}`}>{project.title}</h2>
+        <h2 className={`text-xl md:text-2xl mb-2 mt-2  font-meslo ${colourClass}`}>{project.title}</h2>
         <h3 className="text-sm mb-2 italic text-muted-white">{project.dateRange}</h3>
         {project.imageFolder === null ? <p>{project.description}</p> // if no image exists just render text
           :

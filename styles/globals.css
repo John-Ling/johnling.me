@@ -13,8 +13,8 @@ body {
     
     background-size: 80px 80px;
     background-image: 
-        linear-gradient(to right, #282828 1px, transparent 1px),
-        linear-gradient(to bottom, #282828 1px, transparent 1px);
+        linear-gradient(to right, #2B2B2B 1px, transparent 1px),
+        linear-gradient(to bottom, #2B2B2B 1px, transparent 1px);
         /* 081926 */
 }
 

@@ -25,11 +25,6 @@ const config: Config = {
           normal: "#242424",
           dark: "#1b1b1b",
         },
-        // "grey": {
-        //   light: "#081926",
-        //   normal: "#060E14",
-        //   dark: "#03080D",
-        // },
         "blue": "#82AAFF",
         "green": "#50FA7B",
         "red": "#FF5555",
