@@ -15,6 +15,7 @@ body {
     background-image: 
         linear-gradient(to right, #282828 1px, transparent 1px),
         linear-gradient(to bottom, #282828 1px, transparent 1px);
+        /* 081926 */
 }
 
 a {

@@ -6,7 +6,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import Image from "next/image";
 import { meslo } from "@/lib/font";
 
-
 const ProjectsPage = () => {
   const [selectedProject, setSelectedProject] = useState<Project>();
   const [opened, setOpened] = useState<boolean>(false);

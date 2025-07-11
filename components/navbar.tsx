@@ -3,6 +3,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { meslo } from "@/lib/font";
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import Link from "next/link";
 import "/styles/globals.css";
 
@@ -25,8 +26,8 @@ const Navbar = () => {
   
   const path: string = '/' + usePathname().split("/")[1];
   return (
-      <nav className={`justify-between items-center transition-all duration-10 ${open ? "bg-grey-normal" : "bg-opacity-0 " } gap-x-4 gap-y-2 flex flex-row ${meslo.variable} font-meslo`}>  
-      <Link href="/" className="text-2xl md:self-center md:pl-3 p-4 no-underline font-bold opacity-0 animate-fade-down" 
+    <nav className={`justify-between items-center transition-all duration-10 ${open ? "bg-grey-normal" : "bg-opacity-0 " }  flex flex-row`}>  
+      <Link href="/" className={`text-2xl md:self-center md:pl-3 p-4 no-underline font-bold opacity-0 animate-fade-down ${meslo.variable} font-meslo`} 
         style={{animationDelay: "300ms"}}
       >John Ling</Link>
 
@@ -39,7 +40,7 @@ const Navbar = () => {
       </button>
 
       {/* desktop menu */} 
-      <div className="hidden invisible md:flex md:visible p-4 opacity-0 animate-fade-down" 
+      <div className={`hidden invisible md:flex md:visible p-4 opacity-0 animate-fade-down ${meslo.variable} font-meslo`} 
             style={{animationDelay: "500ms"}}
       > 
         <NavbarMenu links={links} activeLink={path} handle_click={() => setOpen(false)}/>
@@ -49,17 +50,23 @@ const Navbar = () => {
       <div 
         className={
           `absolute visible block md:invisible md:hidden top-12 w-full bg-grey-normal transition-all z-10 
-          ease-in-out ${open ? 'duration-500 max-h-96 p-2 shadow-md' : ' duration-500 max-h-0 shadow-none'}`}
+          ease-in-out duration-300`}
       >
-        <div className={`transition-all ease-in-out ${open ? 'duration-500 opacity-100' : " duration-300 opacity-0 invisible"}`}>
-          <NavbarMenu links={links} activeLink={path} handle_click={() => setOpen(false)}/>
+        <div className={`transition-all ease-in-out  ${open ? 'duration-300 opacity-100' : " duration-300 opacity-0 invisible"}`}>
+          {open ? <MobileMenu links={links} activeLink={path} handle_click={() => setOpen(false)} /> : null} 
         </div>
       </div>
     </nav>
   )
 }
 
-const NavbarMenu: React.FC<{links: NavLink[], activeLink: string, handle_click: () => void}> = ({links, activeLink, handle_click}) => {
+interface NavMenuProps {
+  links: NavLink[]
+  activeLink: string
+  handle_click: () => void
+}
+
+const NavbarMenu: React.FC<NavMenuProps> = ({links, activeLink, handle_click}) => {
   return (
     <ul className="flex flex-col md:flex-row gap-x-2 gap-y-2 md:gap-x-6 align-middle">
     {links.map((link: NavLink, i: number) => {
@@ -73,6 +80,37 @@ const NavbarMenu: React.FC<{links: NavLink[], activeLink: string, handle_click: 
       </li>
     })}
     </ul>
+  )
+}
+
+const MobileMenu: React.FC<NavMenuProps> = ({links, activeLink, handle_click}) => {
+  return (
+    <>
+      <div className="fixed top-0 w-full min-h-screen z-20">
+        <div className="flex pt-2">
+          <div className="z-40 w-full">
+            <div className="flex w-full justify-end">
+              <button onClick={handle_click} className="p-2">
+                <CloseIcon className="active:text-muted-white" />
+              </button>
+            </div>
+            <ul>
+              {links.map((link: NavLink, i: number) => {
+                return <li key={link.name} className="mb-3 mt-3 opacity-0 animate-fade-up" style={{animationDelay: `${(i + 1) * 150}ms`}}>
+                  <Link href={link.target} onClick={handle_click} 
+                    className={`text-7xl no-underline ${meslo.variable} font-meslo font-bold ${link.target === activeLink ? " text-orange" : ""}`}
+                    aria-current={link.target === activeLink ? "page" : undefined}
+                  >
+                    {link.name.toUpperCase()}
+                  </Link>
+                </li>
+              })}
+            </ul>
+          </div>
+          <div className="absolute w-full h-full bg-grey-normal z-30"></div>  
+        </div>
+      </div>
+    </>
   )
 }
 
