@@ -9,7 +9,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "Krux Infra", dateRange: "December 2024 - January 2025",
+    title: "Krux Infra", dateRange: "November 2024 - February 2025",
     description: `
       Completed as part of my internship project to build the frontend for a trade application system. I collaborated with both a graphic designer and
       worked under the supervision of a senior engineer (both very cool guys). I picked up Angular and Formly in order to build the interface and got to brush up on my
