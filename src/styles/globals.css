@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    color-scheme: light dark;
+}
+
+body {
+    background-color: theme("colors.grey.normal");
+    color: theme("colors.white");
+    
+    background-size: 80px 80px;
+    background-image: 
+        linear-gradient(to right, #2B2B2B 1px, transparent 1px),
+        linear-gradient(to bottom, #2B2B2B 1px, transparent 1px);
+        /* 081926 */
+}
+
+a {
+    text-decoration: underline;
+}
+
+a:hover {
+    color: theme("colors.orange");
+}
+
+img {
+    border: solid 4px theme("colors.grey.light");
+}
+
+h1 {
+    font-weight: 900;
+}
+
+h2 {
+    font-weight: 700;
+}
