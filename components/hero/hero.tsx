@@ -6,6 +6,8 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import DescriptionIcon from '@mui/icons-material/Description';
 import EmailIcon from '@mui/icons-material/Email';
 
+import { meslo } from "@/lib/font";
+
 import { evolve, conway_populate, cube_init, cube_next_frame, 
         donut_next_frame, donut_init, matrix_next_frame, 
         matrix_init, cube_cleanup, conway_cleanup, 
@@ -191,8 +193,8 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
         :
         <div className="min-h-screen flex items-center justify-center flex-col lg:flex-row ">
           {/* hero information (left side) */}
-          <div className="lg:basis-1/2 xl:basis-1/3 flex flex-col justify-center p-10 ">
-            <div className="text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up " style={{animationDelay: "100ms"}}>
+          <div className="lg:basis-1/2 xl:basis-1/3 flex flex-col justify-center p-10">
+            <div className={`text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up ${meslo.variable} font-meslo`} style={{animationDelay: "100ms"}}>
               <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
               <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "150ms"}}>
                 I&apos;m

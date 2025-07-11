@@ -1,6 +1,5 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import localFont from "next/font/local";
 import type { Metadata, Viewport } from "next";
 import "/styles/globals.css";
 
@@ -14,31 +13,6 @@ export const viewport: Viewport = {
   width: "device-width",
 };
 
-const meslo = localFont({ 
-  src: [
-      { 
-        path: "../public/fonts/meslolgs_nf_regular.woff2",
-        weight: "400",
-        style: "normal",
-      },
-      {
-        path: "../public/fonts/meslolgs_nf_bold.woff2",
-        weight: "700",
-        style: "normal",
-      },
-      {
-        path: "../public/fonts/meslolgs_nf_italic.woff2",
-        weight: "400",
-        style: "italic",
-      },
-      {
-        path: "../public/fonts/meslolgs_nf_bold_italic.woff2",
-        weight: "700",
-        style: "italic",
-      },
-    ],
-    variable: "--meslo",
-});
 
 export default function RootLayout({
   children,
@@ -47,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${meslo.variable} font-meslo`}>
+      <body>
         <Navbar/>
         <main>
           {children}

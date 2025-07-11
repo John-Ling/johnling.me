@@ -1,5 +1,6 @@
 import Image from "next/image";
 import myself from "@/public/images/homepage/myself.jpg";
+import style from "../homepage.module.css";
 
 const WhoSection = () => {
   return (

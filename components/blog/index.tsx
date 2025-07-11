@@ -1,11 +1,12 @@
 import { get_sorted_posts } from "@/lib/posts";
+import { meslo } from "@/lib/font";
 import Link from "next/link";
 
 const BlogPage = () => {
   const posts: BlogPost[] = get_sorted_posts();
   return (
     <div className="flex flex-col items-center min-h-screen p-5">
-      <h1 className="text-3xl animate-fade-up opacity-0" style={{animationDelay: "100ms"}}>
+      <h1 className={`text-3xl animate-fade-up opacity-0 ${meslo.variable} font-meslo`} style={{animationDelay: "100ms"}}>
         Do People Still 
         <span className="text-[#2e2e2e] animate-flicker-on" style={{animationDelay: "1000ms"}}> Blog? </span>
       </h1>

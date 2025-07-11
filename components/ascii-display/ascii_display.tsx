@@ -1,3 +1,5 @@
+import { meslo } from "@/lib/font"
+
 interface AsciiDisplayProps {
   frameBuffer: string[][],
 };
@@ -5,7 +7,7 @@ interface AsciiDisplayProps {
 const AsciiDisplay: React.FC<AsciiDisplayProps> = ({ frameBuffer }) => {
   return (
     <>
-      <div className="text-center p-2 overflow-clip whitespace-nowrap select-none">
+      <div className={`text-center p-2 overflow-clip whitespace-nowrap select-none ${meslo.variable} font-meslo`}>
         {/* render characters */}
         {frameBuffer.map((row: string[], i: number) => {
           return <div key={i}>

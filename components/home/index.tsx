@@ -8,6 +8,8 @@ import WhenSection from "./homepage-sections/when-section/when_section";
 import WhereSection from "./homepage-sections/where-section/where_section";
 import WhySection from "./homepage-sections/why-section/why_section";
 
+import style from "./homepage.module.css";
+
 import { update_fade_entries, update_flicker_entries, options } from "./homepage_observers";
 
 const AboutSection = () => {
@@ -40,7 +42,7 @@ const AboutSection = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center">
+      <div className={`flex flex-col items-center ${style.homepage}`}>
         <WhoSection />
         <WhatSection />
         <WhenSection />
