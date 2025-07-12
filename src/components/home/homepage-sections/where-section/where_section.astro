@@ -1,0 +1,30 @@
+---
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+---
+
+<section class="min-h-screen flex flex-col justify-center items-center" id="contact">
+  <h2 class="text-5xl text-magenta" style={{animationDelay: "600ms"}}>Where?</h2>
+  <h3 class="text-3xl mb-3 mt-3">(can you find me)</h3>
+  <div class="p-5 opacity-0 trigger-fade-on-scroll flex items-center" style={{animationDelay: "200ms"}}>
+    <div class="transition-all hover:-translate-y-1">
+      <a href="https://github.com/John-Ling" class="opacity-0 trigger-fade-on-scroll p-2 no-underline hover:text-orange" 
+        style={{animationDelay: "300ms"}}
+      > 
+        <GitHubIcon sx={{ fontSize: 70}}/>
+      </a>
+    </div>
+    <div class="transition-all hover:-translate-y-1">
+      <a href="https://www.linkedin.com/in/john-ling-721721243/" class="opacity-0 trigger-fade-on-scroll p-2 no-underline hover:text-orange" 
+        style={{animationDelay: "200ms"}}
+      >
+        <LinkedInIcon sx={{ fontSize: 80}}/>
+      </a>
+    </div>
+  </div>
+  <a class="opacity-0 trigger-fade-on-scroll no-underline" style={{animationDelay: "400ms"}} 
+    href="mailto:johnlingbusiness@gmail.com"
+  >
+    johnlingbusiness@gmail.com
+  </a>
+</section>
