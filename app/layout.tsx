@@ -1,6 +1,7 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import type { Metadata, Viewport } from "next";
+import { meslo } from "@/lib/font";
 import "/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${meslo.variable} font-meslo`}>
         <Navbar/>
         <main>
           {children}
