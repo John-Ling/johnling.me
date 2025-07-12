@@ -52,7 +52,7 @@ export default {
         "flicker-on": "flicker_on 1s linear forwards",
       },
       fontFamily: {
-        display: ["Meslo", "MesloBold", "MesloItalic"],
+        display: ["Meslo"],
       }
   },
   plugins: [],
