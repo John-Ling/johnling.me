@@ -49,7 +49,7 @@ const path: string = '/' + Astro.url.pathname.split("/")[1];
   {/* mobile menu */}
   <div 
     class={
-      `absolute visible block md:invisible md:hidden top-12 w-full bg-grey-normal transition-all z-10 
+      `absolute visible block md:invisible md:hidden top-11 w-full bg-grey-normal transition-all z-10 
       ease-in-out duration-300`}
   >
     <div id="mobile-menu-container" class="invisible transition-all ease-in-out duration-300">
@@ -67,15 +67,32 @@ const path: string = '/' + Astro.url.pathname.split("/")[1];
 
   const toggles = document.querySelectorAll(".mobile-menu-toggle");
   const mobileMenuContainer = document.getElementById("mobile-menu-container");
+  const mobileMenuEntries = document.querySelectorAll(".mobile-menu-entry");
 
   function toggle_mobile_menu() {
     mobileOpen = !mobileOpen;
     if (mobileOpen) {
+
+      // make menu visible
       mobileMenuContainer?.classList.remove("opacity-0", "invisible");
       mobileMenuContainer?.classList.add("opacity-100")
+
+      // add animations for entries
+      mobileMenuEntries?.forEach(entry => {
+        entry.classList.remove("hidden");
+        entry.classList.add("animate-fade-up");
+      })
+
     } else {
+      // make menu invisible
       mobileMenuContainer?.classList.remove("opacity-100");
       mobileMenuContainer?.classList.add("opacity-0", "invisible")
+
+      // remove animations for entries
+      mobileMenuEntries?.forEach(entry => {
+        entry.classList.remove("animate-fade-up");
+        entry.classList.add("hidden");
+      })
     }
   }
 

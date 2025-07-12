@@ -9,14 +9,14 @@ const { links, activeLink } = Astro.props;
 ---
 
 <div class="fixed top-0 w-full min-h-screen z-20">
-  <div class="flex pt-2">
+  <div class="flex">
     <div class="z-40 w-full">
-      <div class="flex w-full justify-end">
+      <div class="flex w-full justify-end pt-2">
         <slot name="close-button"/>
       </div>
       <ul>
         {links.map((link: NavLink, i: number) => {
-          return <li class="mb-3 mt-3 opacity-0 animate-fade-up" style={{animationDelay: `${(i + 1) * 150}ms`}}>
+          return <li class="mb-3 mt-3 hidden opacity-0 mobile-menu-entry" style={{animationDelay: `${(i + 1) * 100}ms`}}>
             <a href={link.target}  
               class={`text-7xl no-underline font-meslo font-bold ${link.target === activeLink ? " text-orange" : ""}`}
               aria-current={link.target === activeLink ? "page" : undefined}
@@ -30,11 +30,3 @@ const { links, activeLink } = Astro.props;
     <div class="absolute w-full h-full bg-grey-normal z-30"></div>  
   </div>
 </div>
-
-<script>
-// const { links, activeLink, on_click } = Astro.props;
-//   const links = document.querySelectorAll("a");
-//   links.forEach((link) => {
-//     link.addEventListener("click", () => on_click);
-//   })
-</script> 

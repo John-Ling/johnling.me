@@ -28,16 +28,16 @@ interface SkillIcon {
               border-grey-light order-2 lg:order-1 gap-5 pt-10 pb-10 pr-5 pl-5 text-center opacity-0 trigger-fade-on-scroll"
     id="skills-display"
   >
-  <div class="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] top-0 left-0
-                  w-full h-full opacity-40 z-20"></div>
-      {skillIcons.map((icon: SkillIcon, i: number) => {
-        return (
-          <div class="opacity-0 skill-icon" style={{animationDelay: `${(i + 1) * 100}ms`}}>
-            <i class={`${icon.classInfo}  text-5xl md:text-6xl lg:text-7xl flex-1 p-5 `} />
-            <p class="text-[#FFFFFF] text-xs md:text-sm text-center m-2 font-bold z-30">{icon.label}</p>
-          </div>  
-        )
-      })}
+    {skillIcons.map((icon: SkillIcon, i: number) => {
+      return (
+        <div class="opacity-0 skill-icon" style={{animationDelay: `${(i + 1) * 100}ms`}}>
+          <i class={`${icon.classInfo}  text-5xl md:text-6xl lg:text-7xl flex-1 p-5 `} />
+          <p class="text-[#FFFFFF] text-xs md:text-sm text-center m-2 font-bold z-30">{icon.label}</p>
+        </div>  
+      )
+    })}
+    <div class="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
+        top-0 left-0 w-full h-full opacity-30 z-20"></div>
   </div>
   <div class="order-1 lg:w-1/2">
     <h2 class="text-5xl text-yellow" style={{animationDelay: "800ms"}}>What?</h2>
