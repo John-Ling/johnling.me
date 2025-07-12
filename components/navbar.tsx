@@ -67,10 +67,11 @@ interface NavMenuProps {
 }
 
 const NavbarMenu: React.FC<NavMenuProps> = ({links, activeLink, handle_click}) => {
+  const linkCount = links.length;
   return (
     <ul className="flex flex-col md:flex-row gap-x-2 gap-y-2 md:gap-x-6 align-middle">
     {links.map((link: NavLink, i: number) => {
-      return <li key={link.name} className="p-2" style={{animationDelay: `${(i + 1) * 150}ms`}}>
+      return <li key={link.name} className="p-2 opacity-0 animate-fade-down" style={{animationDelay: `${(linkCount - i) * 150}ms`}}>
         <Link onClick={handle_click} 
           className={`no-underline w-screen md:w-auto ${link.target === activeLink ? "font-bold text-orange" : ""}`} 
           aria-current={link.target === activeLink ? "page" : undefined} href={link.target}
@@ -87,8 +88,8 @@ const MobileMenu: React.FC<NavMenuProps> = ({links, activeLink, handle_click}) =
   return (
     <>
       <div className="fixed top-0 w-full min-h-screen z-20">
-        <div className="flex pt-2">
-          <div className="z-40 w-full">
+        <div className="flex">
+          <div className="z-40 w-full pt-2">
             <div className="flex w-full justify-end">
               <button onClick={handle_click} className="p-2">
                 <CloseIcon className="active:text-muted-white" />
@@ -96,7 +97,7 @@ const MobileMenu: React.FC<NavMenuProps> = ({links, activeLink, handle_click}) =
             </div>
             <ul>
               {links.map((link: NavLink, i: number) => {
-                return <li key={link.name} className="mb-3 mt-3 opacity-0 animate-fade-up" style={{animationDelay: `${(i + 1) * 150}ms`}}>
+                return <li key={link.name} className="mb-3 mt-3 opacity-0 animate-fade-up" style={{animationDelay: `${(i + 1) * 100}ms`}}>
                   <Link href={link.target} onClick={handle_click} 
                     className={`text-7xl no-underline ${meslo.variable} font-meslo font-bold ${link.target === activeLink ? " text-orange" : ""}`}
                     aria-current={link.target === activeLink ? "page" : undefined}
