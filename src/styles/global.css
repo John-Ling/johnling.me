@@ -37,3 +37,25 @@ h1 {
 h2 {
     font-weight: 700;
 }
+
+@layer base {
+    @font-face {
+        font-family: "Meslo";
+        src: url("/fonts/meslolgs_nf_regular.woff2") format("woff2");
+        font-weight: normal;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: "MesloBold";
+        src: url("/fonts/meslolgs_nf_bold.woff2") format("woff2");
+        font-weight: bold;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: "MesloItalic";
+        src: url("/fonts/meslolgs_nf_italic.woff2");
+        font-display: swap;
+    }
+}
