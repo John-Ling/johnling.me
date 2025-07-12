@@ -1,10 +1,11 @@
 ---
-import WhoSection from "./homepage-sections/who-section/who_section.astro"
-import WhatSection from "./homepage-sections/what-section/what_section.astro"
-import WhenSection from "./homepage-sections/when-section/when_section.astro"
-import WhereSection from "./homepage-sections/where-section/where_section.astro"
-import WhySection from "./homepage-sections/why-section/why_section.astro"
+import WhoSection from "./who_section.astro"
+import WhatSection from "./what_section.astro"
+import WhenSection from "./when_section.astro"
+import WhereSection from "./where_section.astro"
+import WhySection from "./why_section.astro"
 ---
+
 <div class="flex flex-col items-center">
   <WhoSection />
   <WhatSection />
@@ -13,77 +14,4 @@ import WhySection from "./homepage-sections/why-section/why_section.astro"
   <WhySection />
 </div>
 
-
-<script>
-  // intersction observer config 
-  const options = {
-    root: null,
-    rootMargin: "0px",
-    threshold:  0.7, // what portion of the hidden element must be visible before trigger (0.7 = 70%) 
-  };
-
-  // attach intersection observers for on-scroll animations
-  const fadeObserver = new IntersectionObserver(update_fade_entries, options);
-  const fadeElements = document.querySelectorAll(".trigger-fade-on-scroll");
-  console.log(fadeElements);
-
-  const flickerObserver = new IntersectionObserver(update_flicker_entries, options);
-  const flickerElements = document.querySelectorAll(".trigger-flicker-on-scroll");
-
-  fadeElements.forEach((element: Element) => {
-    fadeObserver.observe(element);
-  });
-
-  flickerElements.forEach((element: Element) => {
-    flickerObserver.observe(element);
-  });
-
-  function update_fade_entries(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
-    entries.forEach((entry: IntersectionObserverEntry) => {
-      if (!entry.isIntersecting) {
-        return;
-      }
-    
-      // using ids we can set a single trigger to 
-      // trigger multiple fade-ins
-      // an example of this would be the skills display where when the skills display itself
-      // becomes visible we fade all the icons in
-      switch(entry.target.id)
-      {
-        case "skills-display":
-          entry.target.classList.add("animate-fade-up");
-          document.querySelectorAll(".skill-icon").forEach((element: Element) => {
-              element.classList.add("animate-fade-up");
-          });  
-          break;
-        case "where-section":
-          document.querySelectorAll(".where-section-picture").forEach((element: Element) => {
-              element.classList.add("animate-fade-up"); 
-          });
-          break;
-        default:
-          entry.target.classList.add("animate-fade-up");
-          break;
-      }
-        observer.unobserve(entry.target);
-      });
-    return;
-  }
-
-  function update_flicker_entries(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
-    entries.forEach((entry: IntersectionObserverEntry) => {
-      if (!entry.isIntersecting) {
-        return;
-      }
-
-      switch(entry.target.id)
-      {
-        default:
-          entry.target.classList.add("animate-flicker-on");
-          break;
-      }
-      observer.unobserve(entry.target);
-    })
-    return;
-  }
-</script>
+<script src="./observers.ts"/>
