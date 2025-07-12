@@ -1,6 +1,7 @@
 ---
-import Navbar from "../components/navbar/navbar.astro"
-import "../styles/global.css"
+import Navbar from "../components/navbar/navbar.astro";
+import Footer from "../components/footer.astro";
+import "../styles/global.css";
 ---
 
 <!doctype html>
@@ -15,6 +16,7 @@ import "../styles/global.css"
 	<body class="font-display">
 		<Navbar />
 		<slot />
+		<Footer />
 	</body>
 </html>
 
