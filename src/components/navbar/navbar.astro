@@ -17,25 +17,25 @@ const path: string = '/' + Astro.url.pathname.split("/")[1];
 ---
 
 <nav class={`justify-between items-center transition-all duration-10  flex flex-row font-display`}>  
-  <a href="/" class={`text-2xl md:self-center md:pl-3 p-4 no-underline font-bold opacity-0 animate-fade-down`} 
+  <a href="/" class={`text-2xl md:self-center md:pl-3 p-4 no-underline font-bold`} 
     style={{animationDelay: "300ms"}}
   >John Ling</a>
 
   {/* mobile hamburger menu */}
-  <button class="md:hidden p-2 animate-fade-down opacity-0 mobile-menu-toggle" 
+  <button class="md:hidden p-2 mobile-menu-toggle" 
           style={{animationDelay: "300ms"}} 
   >
     <MenuIcon className="active:text-muted-white"/>
   </button>
 
   {/* desktop menu */} 
-  <div class={`hidden invisible md:flex md:visible p-4 opacity-0 animate-fade-down`} 
+  <div class={`hidden invisible md:flex md:visible p-4`} 
         style={{animationDelay: "500ms"}}
   > 
     <ul class="flex flex-col md:flex-row gap-x-2 gap-y-2 md:gap-x-6 align-middle">
       <!-- render navlinks -->
       {links.map((link: NavLink, i: number) => {
-        return <li class="p-2 opacity-0 animate-fade-down" style={{animationDelay: `${(linkCount - i) * 150}ms`}}>
+        return <li class="p-2" style={{animationDelay: `${(linkCount - i) * 150}ms`}}>
           <a class={`no-underline w-screen md:w-auto ${link.target === path ? "font-bold text-orange" : ""}`} 
             aria-current={link.target === path ? "page" : undefined} href={link.target}
           >

@@ -4,8 +4,8 @@ import Layout from "../../layouts/Layout.astro";
 const posts = await getCollection('blog');
 
 function convert_date(date: string) {
-    const arrDate = date.split('/');
-    return `${arrDate[2]}/${arrDate[1]}/${arrDate[0]}`
+  const arrDate = date.split('/');
+  return `${arrDate[2]}/${arrDate[1]}/${arrDate[0]}`
 }
 
 posts.sort((a, b) => {
