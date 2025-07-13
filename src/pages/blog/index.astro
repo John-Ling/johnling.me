@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+const posts = await getCollection('blog');
+---
+
+<Layout>
+  <div class="flex flex-col items-center min-h-screen p-5 font-display">
+    <h1 class={"text-3xl animate-fade-up opacity-0"} style={{animationDelay: "100ms"}}>
+      Do People Still 
+      <span class="text-[#2e2e2e] animate-flicker-on" style={{animationDelay: "1000ms"}}> Blog? </span>
+    </h1>
+    <p class="opacity-0 animate-fade-up" style={{animationDelay: "150ms"}}>Inconsistently posted ramblings of consistently low quality.</p>
+    <div class="m-5 w-full md:w-3/5 lg:w-2/5 opacity-0 animate-fade-up">
+      <ul>
+      {posts.map((post: any, i: number) => {
+          const colours: string[] = ["text-blue", "text-magenta", "text-teal", "text-green", "text-yellow", "text-orange-light", "text-red"];
+          const colourClass: string = colours[i % colours.length];
+          return (
+            <li   class="bg-grey-card p-3 md:p-5 m-3 border-2 border-grey-light opacity-0 animate-fade-up"
+              style={{animationDelay: `${(i + 1) * 100}ms`}}
+            >
+              <h2 class={`text-l md:text-xl ${colourClass}`}>{post.data.title}</h2>
+              <p class="text-sm italic text-muted-white mb-2 ">{post.data.createdOn}</p>
+              <a href={`/blog/${post.slug}`}>Article</a>
+            </li> 
+        )})}
+      </ul> 
+    </div>
+  </div>
+</Layout>
