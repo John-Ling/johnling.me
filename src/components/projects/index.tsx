@@ -1,10 +1,9 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { Project, projects } from "./projects";
+import type { Project } from "./projects" ;
+import { projects } from "./projects";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import CloseIcon from '@mui/icons-material/Close';
-import Image from "next/image";
-import { meslo } from "@/lib/font";
 
 
 const ProjectsPage = () => {
@@ -47,7 +46,7 @@ const ProjectsPage = () => {
         : <></>
       }
       <div ref={projectCardRef} className="min-h-screen w-11/12 lg:w-10/12 m-auto mt-5 mb-5 ">
-        <h1 className={`text-4xl mt-5 mb-5 text-[#2e2e2e] animate-flicker-on ${meslo.variable} font-meslo`} style={{animationDelay: "1000ms"}}>Projects</h1>
+        <h1 className={`text-4xl mt-5 mb-5 text-[#2e2e2e] animate-flicker-on `} style={{animationDelay: "1000ms"}}>Projects</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  opacity-0 animate-fade-up">  
           {projects.map((project: Project, i: number) => {
             return <ProjectItem key={i} project={project} position={i} handleSelect={handleProjectSelect}/>
@@ -76,12 +75,12 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project, position, handleSele
       <div className="bg-grey-card border-2 border-grey-light p-3 opacity-0 animate-fade-up h-90" 
         style={{animationDelay: `${(position + 1) * 150}ms`}}
       >
-        <h2 className={`text-xl md:text-2xl mb-2 mt-2  ${meslo.variable} font-meslo ${colourClass}`}>{project.title}</h2>
+        <h2 className={`text-xl md:text-2xl mb-2 mt-2   ${colourClass}`}>{project.title}</h2>
         <h3 className="text-sm mb-2 italic text-muted-white">{project.dateRange}</h3>
         {project.imageFolder === null ? <p>{project.description}</p> // if no image exists just render text
           :
           <div className="overflow-hidden border-2 rounded-lg border-grey-light ">
-            <Image
+            <img
               className="transition-all duration-500 hover:scale-105 hover:cursor-pointer border-0 rounded-none"
               alt="Project image" 
               src={projectFolder}
@@ -114,14 +113,14 @@ const ProjectCard: React.FC<{project: Project, handleClose: () => void}> = ({pro
               <CloseIcon className="hover:text-muted-white active:text-muted-white"/>
             </button>
           <div className="mb-5 lg:mr-5">
-            <Image src={projectFolder} width={1280} height={720} alt="Project image" />
+            <img src={projectFolder} width={1280} height={720} alt="Project image" />
           </div>
           <div className="flex flex-col w-full lg:w-2/5 min-h-80">
             {/* button above description for desktop */}
             <button className="hidden lg:block ml-auto w-fit" onClick={handleClose}>
               <CloseIcon className="hover:text-muted-white active:text-muted-white"/>
             </button>
-            <h1 className={`text-xl md:text-2xl mb-2 mt-2 ${meslo.style} font-meslo`}>{project.title}</h1>
+            <h1 className={`text-xl md:text-2xl mb-2 mt-2`}>{project.title}</h1>
             <h3 className="text-sm mb-2 italic text-muted-white">{project.dateRange}</h3>
             <p className="mb-2 pb-1 pt-1 max-h-44 overflow-y-auto">{project.description}</p>
             <a className={`text-sm no-underline mb-2 w-fit ${project.sourceURL === null ? "pointer-events-none text-muted-white" : ""}`} 
