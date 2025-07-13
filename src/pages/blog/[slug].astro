@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -11,17 +12,21 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
+
+import style from "./markdown.module.css";
 ---
 
-<html>
-  <head>
-    <title>{post.data.title}</title>
-  </head>
-  <body>
-    <article>
-      <h1>{post.data.title}</h1>
-      <p>Published: {post.data.createdOn}</p>
-      <Content />
-    </article>
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>{post.data.title}</title>
+</head>
+<Layout>
+    <div class="w-full lg:w-1/2 m-auto pt-5 pb-5 pl-2 pr-2">
+      <a href="/blog">Back</a>
+      <article class={`pt-5 pb-5 ${style.markdown}`}>
+        <h1 class="text-xl mb-5">{post.data.title}</h1>
+        <p class="italic mb-5 text-muted-white font-display">{post.data.createdOn}</p>
+        <Content />
+      </article>
+    </div>
+</Layout>

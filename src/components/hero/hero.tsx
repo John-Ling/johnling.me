@@ -191,7 +191,7 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
       {
         specialEnabled && rendered ? <Secret playMusic={playMusic} frameBuffer={frameBuffer} audioRef={audioRef} handle_click={handle_click} />
         :
-        <div className="min-h-screen flex items-center justify-center flex-col lg:flex-row ">
+        <div className="min-h-screen flex items-center justify-center flex-col lg:flex-row">
           {/* hero information (left side) */}
           <div className="lg:basis-1/2 xl:basis-1/3 flex flex-col justify-center p-10">
             <div className={`text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up`} style={{animationDelay: "100ms"}}>

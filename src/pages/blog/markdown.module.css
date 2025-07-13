@@ -1,6 +1,6 @@
 @font-face {
     font-family: "mesloBold";
-    src: url("../../../public/fonts/meslolgs_nf_bold.woff2");
+    src: url("/fonts/meslolgs_nf_bold.woff2");
     font-weight: bold;
 }
 

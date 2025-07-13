@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from 'react';
 import ContentPasteIcon from '@mui/icons-material/ContentPaste';
 import Markdown from "react-markdown";
@@ -18,17 +16,18 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language="asdf", filename="", can
   const lineNumbers: string[] = generate_lines(children);
 
   function handle_copy() {
-    setCopied(true);
     // copy code to clipboard
     navigator.clipboard.writeText(children);
     setTimeout(() => setCopied(false), 500);
     return;
   }
 
-  function generate_lines(code: string) {
+  function generate_lines(code: React.ReactNode) {
+    const codeString = typeof code === 'string' ? code : String(code);
+
     const lineNumbers: string[] = [];
     // subtract 2 to account for 2 newline for the starting and closing backticks
-    const lineCount = code.split(/\r\n|\r|\n/).length - 2;
+    const lineCount = codeString.split(/\r\n|\r|\n/).length - 2;
     for (let i = 1; i <= lineCount; i++) {
       lineNumbers.push(i.toString());
     }
