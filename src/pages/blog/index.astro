@@ -2,6 +2,18 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 const posts = await getCollection('blog');
+
+function convert_date(date: string) {
+    const arrDate = date.split('/');
+    return `${arrDate[2]}/${arrDate[1]}/${arrDate[0]}`
+}
+
+posts.sort((a, b) => {
+  if (convert_date(a.data.createdOn) < convert_date(b.data.createdOn)) {
+    return 1;
+  }
+  return -1;
+})
 ---
 
 <Layout>

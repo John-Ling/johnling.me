@@ -1,0 +1,110 @@
+---
+title: "first-post"
+createdOn: "05/04/2025"
+---
+## TLDR
+
+Oracle Cloud offers a free VPS for any user who signs up. However 90% of the time you won't be able to get one.
+
+To solve this make an account on Oracle Cloud and upgrade to the "Pay as you go tier".
+While upgrading is free a **$100 charge will be placed on your card** however **no money will be taken out**. After that build an instance with these exact specifications.
+
+- Any image labelled free (I recommend either Oracle Linux or Ubuntu)
+- VM.Standard.A1.Flex with 4 cores and 24 GB RAM 
+- Keep everything else as default and either generate new SSH keys on the website or upload your own.
+
+The cost estimate will say something like $3.00/month. **Ignore it**. The estimation is wrong. 
+
+These specifications are the exact same as the free VPS that Oracle would give you. This means that **you won't be charged at all** for the cost. 
+
+Free hosting that's not a scam.
+
+Now you have a free quad core VPS with 24GB RAM to do anything with. Enjoy!
+
+**!! UPDATE FROM THE FUTURE !!**
+
+It's important however to **only use that one instance and not create any more**. Otherwise you will be billed as I have in the past. 
+While I'm sure there are ways to get multiple instances for free by splitting your 4 cores across smaller machines (i.e 2 dual core machines or 4 1-core (mono core?) instances), I'm just keeping it safe and using 1 quad core.
+
+## The Actual Guide
+
+So you've decided that you want a free VPS. Good choice. 
+
+The rest of this guide is dedicated to showing you how to setup your VPS on Oracle. If you're unfamiliar with RHEL based distros, installing software might be a bit new but it's nothing a quick search online won't fix. 
+
+### Setting Up Oracle Cloud
+
+This stage is pretty boring and honestly pretty easy. All you need to do is put in your email and name, 
+
+You'll then get a confirmation email pretty standard stuff. 
+
+Next we need to set our password and we come across something fairly important; setting the home region. Think a little bit before setting this since **your home region cannot be changed**.
+
+
+Logically you would pick the closest region (i.e Australia for me since I live in Australia). However, I decided to select Singapore since I knew that I intended to have friends in Malaysia connect to game servers to be hosted on the server. 
+
+I picked Singapore and connecting on dogwater Telstra WiFi has yielded pretty minimal latency for my website. I suggest looking at this page to figure out your home region. 
+
+https://www.oracle.com/cloud/public-cloud-regions/
+
+Once you've selected a home region you can go through with the process.
+
+Next you'll be asked for your address, phone number and payment details. Don't worry. **You won't be charged**. However **a $100 hold will be placed on the card** meaning **you must have at least $100 in your card**.
+
+Once you get through that you should have an Oracle Cloud account on the free trial stage. You may be asked to set up 2FA on the account so go do that for that sweet security (or at least peace of mind).
+
+### Upgrading your account
+
+So now if all has gone well, you should have an Oracle Cloud account. 
+
+Now in theory, right now you can head on over to "instances" and put together a vm with the specs I mentioned earlier. 
+
+However, more often than not you'll be hit with an "Out of capacity issue". Although there exist scripts [online](https://github.com/hitrov/oci-arm-host-capacity) to bypass this error by basically capturing the HTTP request for an instance and repeating it until you get your server, even the script's author agrees that **upgrading to PAYG is a better option**.
+
+_"The script is still functional, but many Reddit users now recommend upgrading to Pay As You Go (PAYG) for the best experience. With PAYG, you'll continue to enjoy all the free benefits without any additional cost, but you'll also receive priority for launching instances and are less likely to face "Out of host capacity" errors. ..."_
+
+Upgrading your account is not difficult at all.  Open the dropdown menu on the left corner and go to "Billing & Cost Management". There will be a link called "Upgrade and Manage Payment". 
+
+
+If you haven't upgraded yet, you will find a menu asking for you to upgrade. Check the boxes and click the button to upgrade. 
+
+### Making the Server
+
+With all the setup out of the way, things should be smooth sailing. Head on over to "Instances" and create a new vm. 
+
+- Any image labelled free. I would recommend Ubuntu for ease of use. 
+
+- VM.Standard.A1.Flex w/ 4 cores and 24 GB RAM 
+
+
+
+You may get non-zero estimations for cost. However these can be safely ignored. So long as your vm does not deviate from those specs, you'll be fine. 
+
+{/* <!-- ![alt text](/images/blog/Free-Hosting-Thats-Not-Actually-a-Scam/image-6.png) --> */}
+
+_Don't worry if it's $3.00/month you'll be fine. You won't be charged._
+
+Everything else can be left as is. Generate a new SSH key or upload your own and hit create. 
+
+## Connecting to your server
+
+Give the `server` a few minutes to set up. Once it does you can SSH into it via 
+
+`ssh opc@{your server's IP address}`
+
+"opc" is the default username for your vm. It has no passwd but the ability to gain root privileges so setting a strong password should be done early on. 
+
+## Is This Actually Free?
+
+Yes. Kind of.
+
+This setup hinges on the fact that to Oracle's system you're using one of the free VPSs they assign to you since we've replicated the hardware setup. 
+
+I currently only use 1 VPS and I haven't been charged at all*
+
+{/* <!-- ![alt text](/images/blog/Free-Hosting-Thats-Not-Actually-a-Scam/image-8.png) --> */}
+_My invoice for December. You can find this on the Oracle Cloud website._
+
+Anyway's hopefully this guide can help you deploy your app, start learning Linux, host your game server or whatever you intend to do. You'll be able to do all of these things at once for absolutely free.
+
+*See my update at the top of this article
