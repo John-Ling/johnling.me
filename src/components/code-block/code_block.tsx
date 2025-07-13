@@ -1,38 +1,44 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ContentPasteIcon from '@mui/icons-material/ContentPaste';
 import Markdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
-
+import "./syntax_highlighting.css";
 interface CodeBlockProps  {
-  language?: string,
-  filename?: string,
-  canCopy?: boolean,
-  children: string
+  language?: string
+  filename?: string
+  canCopy?: boolean
+  children: any
 }
 
-const CodeBlock: React.FC<CodeBlockProps> = ({ language="asdf", filename="", canCopy=true, children }) => {
+export default function CodeBlock({ language="asdf", filename="", canCopy=true, children }: CodeBlockProps) {
   const [copied, setCopied] = useState<boolean>(false);
+  const [loaded, setLoaded] = useState<boolean>(false);
   const [tooltipVisible, setTooltipVisible] = useState<boolean>(false);
-  const lineNumbers: string[] = generate_lines(children);
+  const lineNumbers: string[] = generate_lines(children.props.value);
 
   function handle_copy() {
-    // copy code to clipboard
-    navigator.clipboard.writeText(children);
-    setTimeout(() => setCopied(false), 500);
+    if (loaded) {
+      setCopied(true);
+      // copy code to clipboard
+      navigator.clipboard.writeText(children.props.value);
+      setTimeout(() => setCopied(false), 500);
+    }
     return;
   }
 
-  function generate_lines(code: React.ReactNode) {
-    const codeString = typeof code === 'string' ? code : String(code);
-
+  function generate_lines(code: string) {
     const lineNumbers: string[] = [];
     // subtract 2 to account for 2 newline for the starting and closing backticks
-    const lineCount = codeString.split(/\r\n|\r|\n/).length - 2;
+    const lineCount = code.split(/\r\n|\r|\n/).length - 2;
     for (let i = 1; i <= lineCount; i++) {
       lineNumbers.push(i.toString());
     }
     return lineNumbers;
   }
+
+  useEffect(() => {
+    setLoaded(true);
+  }, [])
 
   return (
     <>
@@ -41,16 +47,14 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language="asdf", filename="", can
           <p className="text-muted-white p-0 m-0 text-sm leading-none">{filename}</p>
           { !canCopy ?  <></> 
           :
-            <>
-              <div className="relative">
-                <div className={`absolute bottom-10 bg-grey-dark pt-1 pb-1 pl-2 pr-2 ${!tooltipVisible ? "hidden" : "" }`}>
-                  { copied ? "Copied" : "Copy"}
-                  </div>
-                <ContentPasteIcon onMouseOver={() => setTooltipVisible(true)} onMouseOut={() => setTooltipVisible(false)} onClick={() => handle_copy()} 
-                  className="hover:cursor-pointer text-muted-white active:text-[#A0A0A0] hover:text-[#909090] text-md"
-                />  
+            <div className="relative">
+              <div className={`absolute bottom-10 bg-grey-dark pt-1 pb-1 pl-2 pr-2 font-display ${!tooltipVisible ? "hidden" : "" }`}>
+                { copied ? "Copied" : "Copy"}
               </div>
-            </>
+              <ContentPasteIcon onMouseOver={() => setTooltipVisible(true)} onMouseOut={() => setTooltipVisible(false)} onClick={() => handle_copy()} 
+                className="hover:cursor-pointer text-muted-white active:text-[#A0A0A0] hover:text-[#909090] text-md"
+              />  
+            </div>
           }
         </div>
         <div className="flex flex-row">
@@ -65,15 +69,13 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language="asdf", filename="", can
           </div>
           <div className="pb-1 pt-1 pl-2 overflow-auto">
             {/* return code block markdown with syntax highlighting */}
+            {!loaded ? <span className="text-muted-white font-display">Loading...</span> : 
             <Markdown rehypePlugins={[rehypeHighlight]}>
-              {`\`\`\`${language}${children}\`\`\``}
-            </Markdown>
+              {`\`\`\`${language}${children.props.value}\`\`\``}
+            </Markdown>}
           </div>
-        </div>
-        
+        </div>       
       </div>
     </>
   )
 }
-
-export default CodeBlock;

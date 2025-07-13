@@ -32,9 +32,15 @@ base0E  #87AFD7  Keywords, Storage, Selector, Markup Italic, Diff Changed
 base0F  #5F87AF  Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
 */
 
+@font-face {
+  font-family: "meslo";
+  src: url("/fonts/meslolgs_nf_regular.woff2");
+}
+
 pre code.hljs {
   display: block;
   overflow-x: auto;
+  font-family: "meslo";
 }
 code.hljs {
   padding: 3px 5px
