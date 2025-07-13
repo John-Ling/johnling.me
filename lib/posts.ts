@@ -1,42 +1,42 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+// import fs from 'fs';
+// import path from 'path';
+// import matter from 'gray-matter';
 
-// import { Post } from '@/app/interfaces/post';
+// // import { Post } from '@/app/interfaces/post';
 
-const postsDirectory: string = path.join(process.cwd(), 'posts');
+// const postsDirectory: string = path.join(process.cwd(), 'posts');
 
-export const get_sorted_posts = () => {
-    const folders: string[] = fs.readdirSync(postsDirectory);
-    const posts: BlogPost[] = folders.map((folder: string) => {
-        return get_post(folder)
-    });
+// export const get_sorted_posts = () => {
+//     const folders: string[] = fs.readdirSync(postsDirectory);
+//     const posts: BlogPost[] = folders.map((folder: string) => {
+//         return get_post(folder)
+//     });
 
-    // return post in sorted order newest first
-    return posts.sort((a: BlogPost, b: BlogPost) => {
-        if (convert_date(a.date) < convert_date(b.date)) {
-            return 1;
-        }
-        return -1;
-    });
-}
+//     // return post in sorted order newest first
+//     return posts.sort((a: BlogPost, b: BlogPost) => {
+//         if (convert_date(a.date) < convert_date(b.date)) {
+//             return 1;
+//         }
+//         return -1;
+//     });
+// }
 
-const convert_date = (date: string) => {
-    const arrDate = date.split('/');
-    return `${arrDate[2]}/${arrDate[1]}/${arrDate[0]}`
-}
+// const convert_date = (date: string) => {
+//     const arrDate = date.split('/');
+//     return `${arrDate[2]}/${arrDate[1]}/${arrDate[0]}`
+// }
 
-export const get_post = (slug: string) => {
-    const fullPath: string = path.join(postsDirectory, slug, "content.mdx");
-    const fileContent = fs.readFileSync(fullPath, "utf-8");
-    const parsed = matter(fileContent);
-    const metadata = parsed.data;
-    const content = parsed.content;
+// export const get_post = (slug: string) => {
+//     const fullPath: string = path.join(postsDirectory, slug, "content.mdx");
+//     const fileContent = fs.readFileSync(fullPath, "utf-8");
+//     const parsed = matter(fileContent);
+//     const metadata = parsed.data;
+//     const content = parsed.content;
 
-    return {
-        slug: slug, 
-        title: metadata.title, 
-        date: metadata.date, 
-        content: content 
-    } as BlogPost;
-}
+//     return {
+//         slug: slug, 
+//         title: metadata.title, 
+//         date: metadata.date, 
+//         content: content 
+//     } as BlogPost;
+// }
