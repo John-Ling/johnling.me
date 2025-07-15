@@ -186,59 +186,58 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
     handle_click,}
   ) => {
 
+  if (specialEnabled && rendered) {
+    return <Secret playMusic={playMusic} frameBuffer={frameBuffer} audioRef={audioRef} handle_click={handle_click} />
+  }
+
   return (
     <>
-      {
-        specialEnabled && rendered ? <Secret playMusic={playMusic} frameBuffer={frameBuffer} audioRef={audioRef} handle_click={handle_click} />
-        :
-        <div className="min-h-screen flex items-center justify-center flex-col lg:flex-row ">
-          {/* hero information (left side) */}
-          <div className="lg:basis-1/2 xl:basis-1/3 flex flex-col justify-center p-10">
-            <div className={`text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up ${meslo.variable} font-meslo`} style={{animationDelay: "100ms"}}>
-              <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
-              <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "150ms"}}>
-                I&apos;m
-                <span className="text-[#2e2e2e] animate-flicker-on" style={{animationDelay: "1500ms"}}> John</span>
-              </h1>
-            </div>
-            <HeroIcons />
-            <p className="mt-4 opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>I make things.</p>
+      <div className="min-h-screen flex items-center justify-center flex-col lg:flex-row ">
+        {/* hero information (left side) */}
+        <div className="lg:basis-1/2 xl:basis-1/3 flex flex-col justify-center p-10">
+          <div className={`text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up ${meslo.variable} font-meslo`} style={{animationDelay: "100ms"}}>
+            <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
+            <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "150ms"}}>
+              I&apos;m
+              <span className="text-[#2e2e2e] animate-flicker-on" style={{animationDelay: "1500ms"}}> John</span>
+            </h1>
+          </div>
+          <HeroIcons />
+          <p className="mt-4 opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>I make things.</p>
 
-            {/* ascii display for tablet view hidden in desktop mode */}
-            <div className="relative hidden visible md:block lg:hidden lg:invisible opacity-0 animate-fade-up" style={{animationDelay: "800ms"}}>
-              { rendered && !specialEnabled ? 
-                <div className="opacity-0 animate-fade-up bg-grey-dark border-2 border-grey-light" style={{animationDelay: "600ms"}}>
+          {/* ascii display for tablet view hidden in desktop mode */}
+          <div className="relative hidden visible md:block lg:hidden lg:invisible opacity-0 animate-fade-up" style={{animationDelay: "800ms"}}>
+            { rendered && !specialEnabled ? 
+              <div className="opacity-0 animate-fade-up bg-grey-dark border-2 border-grey-light" style={{animationDelay: "600ms"}}>
+                <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
+                    w-full h-full opacity-40 z-20 m-0 p-0"></div>
+                <AsciiDisplay frameBuffer={frameBuffer} />
+              </div>
+              :
+              null
+            }
+          </div>
+          <HeroInformation />  
+        </div>
+
+        {/* ascii display (right side) */}
+        <div className="lg:w-1/2 xl:basis-2/3 flex items-center justify-center">
+          <div className="relative bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" 
+            style={{animationDelay: "800ms"}}
+          >
+            { rendered && !specialEnabled ? 
+              <>              
+                <div className="opacity-0 animate-fade-up z-10 bg-grey-dark" style={{animationDelay: "600ms"}}>
                   <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
-                      w-full h-full opacity-40 z-20 m-0 p-0"></div>
+                    w-full h-full opacity-40 z-20 m-0 p-0"></div>
                   <AsciiDisplay frameBuffer={frameBuffer} />
                 </div>
-                :
-                <>
-                </>
-              }
-            </div>
-            <HeroInformation />  
+              </>     
+              : <></>
+            }
           </div>
-
-          {/* ascii display (right side) */}
-          <div className="lg:w-1/2 xl:basis-2/3 flex items-center justify-center">
-            <div className="relative bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" 
-              style={{animationDelay: "800ms"}}
-            >
-              { rendered && !specialEnabled ? 
-                <>              
-                  <div className="opacity-0 animate-fade-up z-10 bg-grey-dark" style={{animationDelay: "600ms"}}>
-                    <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
-                      w-full h-full opacity-40 z-20 m-0 p-0"></div>
-                    <AsciiDisplay frameBuffer={frameBuffer} />
-                  </div>
-                </>     
-                : <></>
-              }
-            </div>
-          </div>  
-        </div>
-      }
+        </div>  
+      </div>
     </>
   );
 }
