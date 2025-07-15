@@ -5,7 +5,10 @@ import { meslo } from "@/lib/font";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import Link from "next/link";
-import "/styles/globals.css";
+
+import Image from "next/image";
+import wire_top_1 from "../public/svg/wires_top_1.svg";
+
 
 interface NavLink {
   name: string;
@@ -27,7 +30,7 @@ const Navbar = () => {
   const path: string = '/' + usePathname().split("/")[1];
   return (
     <nav className={`justify-between items-center transition-all duration-10 ${open ? "bg-grey-normal" : "bg-opacity-0 " }  flex flex-row`}>  
-      <Link href="/" className={`text-2xl md:self-center md:pl-3 p-4 no-underline font-bold opacity-0 animate-fade-down ${meslo.variable} font-meslo`} 
+      <Link href="/" className={`text-2xl md:self-center md:pl-3 p-4 no-underline font-bold opacity-0 animate-fade-down ${meslo.variable} font-meslo z-2`} 
         style={{animationDelay: "300ms"}}
       >John Ling</Link>
 
@@ -38,6 +41,8 @@ const Navbar = () => {
       >
         <MenuIcon className="active:text-muted-white"/>
       </button>
+
+      <Image src={wire_top_1} alt="" className="pointer-events-auto flex-grow border-0 absolute z-10 hidden md:block" />
 
       {/* desktop menu */} 
       <div className={`hidden invisible md:flex md:visible p-4 opacity-0 animate-fade-down ${meslo.variable} font-meslo`} 
