@@ -194,7 +194,7 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
     <>
       <div className="min-h-screen flex items-center justify-center flex-col lg:flex-row ">
         {/* hero information (left side) */}
-        <div className="lg:basis-1/2 xl:basis-1/3 flex flex-col justify-center p-10">
+        <div className="lg:basis-1/2 xl:basis-5/12 flex flex-col justify-center p-10">
           <div className={`text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up ${meslo.variable} font-meslo`} style={{animationDelay: "100ms"}}>
             <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
             <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "150ms"}}>
@@ -221,7 +221,7 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
         </div>
 
         {/* ascii display (right side) */}
-        <div className="lg:w-1/2 xl:basis-2/3 flex items-center justify-center">
+        <div className="lg:w-1/2 xl:basis-1/2 flex items-center justify-center">
           <div className="relative bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" 
             style={{animationDelay: "800ms"}}
           >

@@ -8,8 +8,8 @@ const WhatSection = () => {
                   border-grey-light order-2 lg:order-1 gap-5 pt-10 pb-10 pr-5 pl-5 text-center opacity-0 trigger-fade-on-scroll"
         id="skills-display"
       >
-      <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] top-0 left-0
-                      w-full h-full opacity-40 z-20"></div>
+      {/* <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] top-0 left-0
+                      w-full h-full opacity-20 z-20"></div> */}
         <SkillsDisplay />
       </div>
       <div className="order-1 lg:w-1/2">
