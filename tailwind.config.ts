@@ -21,10 +21,10 @@ const config: Config = {
           normal: "#222331"
         },
         "grey": {
-          light: "#2e2e2e",
-          normal: "#1C1D1F",
-          dark: "#17181A",
-          card: "#17181A"
+          light: "#22262E",
+          normal: "#171A1F",
+          dark: "#0D0F12",
+          card: "#0D0F12"
         },
         "blue": "#82AAFF",
         "green": "#50FA7B",
