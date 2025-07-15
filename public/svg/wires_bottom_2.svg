@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1000"
+   height="700"
+   viewBox="0 0 264.58333 185.20833"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="wires_bottom_2.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.72604517"
+     inkscape:cx="349.15183"
+     inkscape:cy="409.75412"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <ellipse
+       style="fill:none;stroke:#0d0f12;stroke-width:1.14625;stroke-opacity:1"
+       id="path1-8-2"
+       cx="185.38258"
+       cy="98.545044"
+       rx="72.425987"
+       ry="72.332207" />
+    <ellipse
+       style="fill:none;stroke:#0d0f12;stroke-width:0.889174;stroke-opacity:1"
+       id="path1-8-2-6"
+       cx="103.77377"
+       cy="110.45506"
+       rx="44.858822"
+       ry="70.274239" />
+    <ellipse
+       style="fill:none;stroke:#0d0f12;stroke-width:0.889174;stroke-opacity:1"
+       id="path1-8-2-6-1"
+       cx="48.014626"
+       cy="79.390083"
+       rx="44.858822"
+       ry="70.274239" />
+    <ellipse
+       style="fill:none;stroke:#0d0f12;stroke-width:1.10343;stroke-opacity:1"
+       id="path1-8-1"
+       cx="129.6299"
+       cy="86.705475"
+       rx="84.290955"
+       ry="57.594715" />
+  </g>
+</svg>

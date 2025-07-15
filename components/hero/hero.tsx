@@ -20,7 +20,9 @@ import { select_animation, check_special, init_size } from "./init_functions";
 
 import AsciiDisplay from "../ascii-display/ascii_display";
 import Secret from "./secret";
-import "/styles/globals.css";
+
+import Image from "next/image";
+import wires_bottom from "../../public/svg/wires_bottom.svg";
 
 // width and height of ascii display component
 interface HeroSize {
@@ -38,7 +40,7 @@ const Hero = () => {
   const [rendered, setRendered] = useState<boolean>(false);
   const [specialEnabled] = useState<boolean>(check_special());
   const [animation] = useState<string>(select_animation(specialEnabled));
-  const [size] = useState<HeroSize>(init_size(specialEnabled))
+  const [size] = useState<HeroSize>(init_size(specialEnabled));
 
   // frame buffer for ascii display
   const [frameBuffer, setFrameBuffer] = useState<string[][]>(Array(size.height).fill(null).map(() => Array(size.width).fill(' ')));
@@ -183,12 +185,11 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
     playMusic, 
     frameBuffer, 
     audioRef, 
-    handle_click,}
+    handle_click}
   ) => {
-
-  if (specialEnabled && rendered) {
-    return <Secret playMusic={playMusic} frameBuffer={frameBuffer} audioRef={audioRef} handle_click={handle_click} />
-  }
+    if (specialEnabled && rendered) {
+      return <Secret playMusic={playMusic} frameBuffer={frameBuffer} audioRef={audioRef} handle_click={handle_click} />
+    }
 
   return (
     <>
@@ -203,10 +204,8 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
             </h1>
           </div>
           <HeroIcons />
-          <p className="mt-4 opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>I make things.</p>
-
           {/* ascii display for tablet view hidden in desktop mode */}
-          <div className="relative hidden visible md:block lg:hidden lg:invisible opacity-0 animate-fade-up" style={{animationDelay: "800ms"}}>
+          <div className="relative hidden visible md:block lg:hidden lg:invisible opacity-0 animate-fade-up mt-2 mb-2" style={{animationDelay: "800ms"}}>
             { rendered && !specialEnabled ? 
               <div className="opacity-0 animate-fade-up bg-grey-dark border-2 border-grey-light" style={{animationDelay: "600ms"}}>
                 <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
@@ -217,24 +216,29 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
               null
             }
           </div>
+          <p className="mt-4 opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>I make things.</p>
           <HeroInformation />  
         </div>
 
         {/* ascii display (right side) */}
         <div className="lg:w-1/2 xl:basis-1/2 flex items-center justify-center">
-          <div className="relative bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up" 
+          <div className="relative bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up z-20" 
             style={{animationDelay: "800ms"}}
           >
             { rendered && !specialEnabled ?         
               <div className="opacity-0 animate-fade-up z-10 bg-grey-dark" style={{animationDelay: "600ms"}}>
                 <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
-                  w-full h-full opacity-40 z-20 m-0 p-0"></div>
+                    w-full h-full opacity-40 z-20 m-0 p-0"></div>
                 <AsciiDisplay frameBuffer={frameBuffer} />
               </div>  
               : null
             }
           </div>
+          <Image loading="eager" className="hidden lg:block absolute border-0 opacity-0 animate-fade-up top-[40vh] z-10" 
+                src={wires_bottom} alt="" style={{animationDelay: "1000ms"}} 
+          />
         </div>  
+        {/* <h1 className="xl:text-orange lg:text-blue md:text-green text-white">TExt</h1> */}
       </div>
     </>
   );
