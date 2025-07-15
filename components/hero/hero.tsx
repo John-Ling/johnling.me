@@ -196,7 +196,7 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
       <div className="min-h-screen flex items-center justify-center flex-col lg:flex-row ">
         {/* hero information (left side) */}
         <div className="lg:basis-1/2 xl:basis-5/12 flex flex-col justify-center p-10">
-          <div className={`text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up ${meslo.variable} font-meslo`} style={{animationDelay: "100ms"}}>
+          <div className={`text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up ${meslo.variable} font-meslo text-center md:text-left`} style={{animationDelay: "100ms"}}>
             <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
             <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "150ms"}}>
               I&apos;m
@@ -216,7 +216,7 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
               null
             }
           </div>
-          <p className="mt-4 opacity-0 animate-fade-up" style={{animationDelay: "400ms"}}>I make things.</p>
+          <p className="mt-4 opacity-0 animate-fade-up text-center md:text-left" style={{animationDelay: "400ms"}}>I make things.</p>
           <HeroInformation />  
         </div>
 
@@ -246,7 +246,7 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
 
 const HeroIcons = () => {
   return (
-    <div className="opacity-0 animate-fade-up flex flex-row" style={{ animationDelay: "400ms" }}>
+    <div className="opacity-0 animate-fade-up flex flex-row justify-center md:justify-start" style={{ animationDelay: "400ms" }}>
       <div className="opacity-0 animate-fade-up">
         <div className="transition-all hover:-translate-y-1">
           <a href="https://github.com/John-Ling/" target="_blank" rel="noopener" 
@@ -264,16 +264,6 @@ const HeroIcons = () => {
             style={{ animationDelay: "500ms" }}
           >
             <LinkedInIcon sx={{ fontSize: 40 }} />
-          </a>
-        </div>
-      </div>
-      <div className="opacity-0 animate-fade-up">
-        <div className="transition-all hover:-translate-y-1">
-          <a href="mailto:johnlingbusiness@gmail.com" 
-            className="opacity-0 animate-fade-up hover:-translate-y-2" 
-            style={{ animationDelay: "600ms" }}
-          >
-            <EmailIcon sx={{ fontSize: 35 }} />
           </a>
         </div>
       </div>
