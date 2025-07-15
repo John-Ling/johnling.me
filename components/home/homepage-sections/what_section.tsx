@@ -6,7 +6,7 @@ const WhatSection = () => {
   return (
     <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-10 lg:w-3/4">
       <div className="relative lg:w-1/2">
-        <Image className="absolute border-0 top-[15vh] z-0 opacity-0 trigger-fade-on-scroll" src={wires_bottom_2} loading="eager" alt=""/>  
+        <Image className="absolute border-0 top-[15vh] z-0 opacity-0 trigger-fade-on-scroll pointer-events-none select-none" src={wires_bottom_2} loading="eager" alt=""/>  
         <div 
         className="grid grid-cols-3 md:grid-cols-4 justify-center bg-grey-dark border-2
                   border-grey-light order-2 lg:order-1 gap-5 pt-10 pb-10 pr-5 pl-5 text-center opacity-0 trigger-fade-on-scroll z-50"

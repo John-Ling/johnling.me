@@ -30,7 +30,7 @@ const Navbar = () => {
   const path: string = '/' + usePathname().split("/")[1];
   return (
     <nav className={`justify-between items-center transition-all duration-10 ${open ? "bg-grey-normal" : "bg-opacity-0 " }  flex flex-row`}>  
-      <Link href="/" className={`text-2xl md:self-center md:pl-3 p-4 no-underline font-bold opacity-0 animate-fade-down ${meslo.variable} font-meslo z-2`} 
+      <Link href="/" className={`text-2xl md:self-center md:pl-3 p-4 no-underline font-bold opacity-0 animate-fade-down ${meslo.variable} font-meslo z-20`} 
         style={{animationDelay: "300ms"}}
       >John Ling</Link>
 
@@ -42,7 +42,7 @@ const Navbar = () => {
         <MenuIcon className="active:text-muted-white"/>
       </button>
 
-      <Image src={wire_top_1} alt="" className="pointer-events-auto flex-grow border-0 absolute z-10 hidden md:block" />
+      <Image src={wire_top_1} alt="" className="pointer-events-none select-none flex-grow border-0 absolute -z-10 hidden md:block" />
 
       {/* desktop menu */} 
       <div className={`hidden invisible md:flex md:visible p-4 opacity-0 animate-fade-down ${meslo.variable} font-meslo`} 
@@ -54,10 +54,10 @@ const Navbar = () => {
       {/* mobile menu */}
       <div 
         className={
-          `absolute visible block md:invisible md:hidden top-12 w-full bg-grey-normal transition-all z-10 
+          `absolute visible block md:invisible md:hidden top-12 w-full bg-grey-normal transition-all z-20 
           ease-in-out duration-300`}
       >
-        <div className={`transition-all ease-in-out  ${open ? 'duration-300 opacity-100' : " duration-300 opacity-0 invisible"}`}>
+        <div className={`transition-all ease-in-out z-20  ${open ? 'duration-300 opacity-100' : " duration-300 opacity-0 invisible"}`}>
           {open ? <MobileMenu links={links} activeLink={path} handle_click={() => setOpen(false)} /> : null} 
         </div>
       </div>
