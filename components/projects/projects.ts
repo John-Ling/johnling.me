@@ -78,7 +78,7 @@ export const projects: Project[] = [
       tags: ["MySQL", "React", "Flask", "Sass", "Docker"],
     },
     {
-      title: "wikihopper.johnling.me", dateRange: "July 2022 - July 2023",
+      title: "wikihopper.johnling.me", dateRange: "July 2022 - July 2022",
       description: `
         React web game that finds two random wikipedia articles and challenges the user to navigate
         from one to another in 10 hops or less. Created because I wanted something fun to play on my phone.`,
