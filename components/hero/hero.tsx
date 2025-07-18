@@ -270,7 +270,7 @@ const HeroIcons = () => {
         <div className="transition-all hover:-translate-y-1">
           <a href="https://drive.google.com/file/d/1y_VlkkFUaFXCCYF-WO-EDnCOfMHy_F90/view?usp=sharing"
             target="_blank" rel="noopener" className="opacity-0 animate-fade-up hover:-translate-y-2" 
-            style={{ animationDelay: "700ms" }}
+            style={{ animationDelay: "600ms" }}
           >
             <DescriptionIcon sx={{ fontSize: 35 }} />
           </a>
