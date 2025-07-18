@@ -233,11 +233,11 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
               : null
             }
           </div>
-          <Image loading="eager" className="hidden lg:block absolute border-0 opacity-0 animate-fade-up top-[40vh] z-10" 
+          <Image loading="eager" className="hidden lg:block absolute border-0 opacity-0 animate-fade-up top-[40vh] max-w-[55vw] z-10" 
                 src={wires_bottom} alt="" style={{animationDelay: "1000ms"}} 
           />
         </div>  
-        {/* <h1 className="xl:text-orange lg:text-blue md:text-green text-white">TExt</h1> */}
+        <h1 className="xl:text-orange lg:text-blue md:text-green text-white">TExt</h1>
       </div>
     </>
   );
