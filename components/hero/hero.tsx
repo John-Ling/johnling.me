@@ -237,7 +237,6 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
                 src={wires_bottom} alt="" style={{animationDelay: "1000ms"}} 
           />
         </div>  
-        <h1 className="xl:text-orange lg:text-blue md:text-green text-white">TExt</h1>
       </div>
     </>
   );
