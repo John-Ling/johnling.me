@@ -2,13 +2,13 @@
 import AsciiDisplay from "../ascii-display/ascii_display";
 import { useRef, useEffect } from "react";
 
-interface SecretInterface {
+interface SecretProps {
   frameBuffer: string[][];
   runAnimation: boolean;
   on_click_: () => void;
 }
 
-const Secret: React.FC<SecretInterface> = ({frameBuffer, runAnimation, on_click_}) => {
+const Secret: React.FC<SecretProps> = ({frameBuffer, runAnimation, on_click_}) => {
   const audioContext = useRef<AudioContext>(new AudioContext());
   const audioRef = useRef<HTMLAudioElement>(null);
   const audioTrack = useRef<MediaElementAudioSourceNode | null>(null);
@@ -55,7 +55,7 @@ const Secret: React.FC<SecretInterface> = ({frameBuffer, runAnimation, on_click_
             pls no sue
           </p>
         </>
-        : 
+    : 
           <div className="flex flex-col justify-center items-center min-h-screen w-full">
             <button className="bg-grey-dark p-3 hover:bg-[#101010] hover:text-[#E0E0E0]" onClick={on_click}>
               Play

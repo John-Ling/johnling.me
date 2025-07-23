@@ -39,11 +39,20 @@ const Hero = () => {
   const [specialEnabled] = useState<boolean>(check_special());
   const [animation] = useState<string>(select_animation(specialEnabled));
   const [size] = useState<HeroSize>(init_size(specialEnabled));
-
   // frame buffer for ascii display
   const [frameBuffer, setFrameBuffer] = useState<string[][]>(Array(size.height).fill(null).map(() => Array(size.width).fill(' ')));
 
-  // animations for ascii display
+  useEffect(() => {
+    setRendered(true);
+    return;
+  }, []);
+
+  const on_click = () => {
+    setRunAnimation(true);
+    return;
+  }
+
+  // set animations for ascii display
   useEffect(() => {
     let current: string[][] = Array(size.height).fill(null).map(() => Array(size.width).fill(' '));
     let animationSpeed: number = 10;
@@ -122,17 +131,6 @@ const Hero = () => {
       cancelAnimationFrame(animationRequestID.current);
     };
   }, [size, animation, specialEnabled, runAnimation]);
-
-  useEffect(() => {
-    setRendered(true);
-    return;
-  }, []);
-
-
-  const on_click = () => {
-    setRunAnimation(true);
-    return;
-  }
 
   return (
     <>
