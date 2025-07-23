@@ -17,7 +17,6 @@ def main():
         print(path)
         assetsPath = os.path.join(path, "assets/")
         
-
         contentPath = os.path.join(path, "content.mdx")
         if not os.path.exists(contentPath):
             print(f"Can't find find content.mdx file under {folder}. Trying to find content.md")

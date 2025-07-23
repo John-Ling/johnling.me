@@ -30,12 +30,11 @@ interface HeroSize {
 }
 
 const Hero = () => {
-  
   const animationRequestID = useRef<number>(0);
 
   // used to play music for the special
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [playMusic, setPlayMusic] = useState<boolean>(false);
+  const [runAnimation, setRunAnimation] = useState<boolean>(false);
   const [rendered, setRendered] = useState<boolean>(false);
   const [specialEnabled] = useState<boolean>(check_special());
   const [animation] = useState<string>(select_animation(specialEnabled));
@@ -108,49 +107,31 @@ const Hero = () => {
       animationRequestID.current = requestAnimationFrame(animate);
     }
 
-    const handle_visibility_change = () => {
-      if (!audioRef.current) {
-        return;
+    if (specialEnabled) {
+      // pause and only begin the special animation if runAnimation is true
+      if (runAnimation) {
+        animationRequestID.current = requestAnimationFrame(animate);    
       }
-
-      if (document.visibilityState === "hidden") {
-        audioRef.current.pause();
-        return;
-      }
-
-      audioRef.current.play();
-      return;
+    } else {
+      // start animation immediately
+      animationRequestID.current = requestAnimationFrame(animate);
     }
-
-    if (playMusic) {
-      bapple_init();
-
-      // pause music when user leaves tab
-      // animation will be paused when leaving tab 
-      // due to how request animation frame works
-      document.addEventListener("visibilitychange", handle_visibility_change);
-    }
-
-    animationRequestID.current = requestAnimationFrame(animate);
 
     return () => {
       cleanup();
       cancelAnimationFrame(animationRequestID.current);
-      if (playMusic) {
-        document.removeEventListener("visibilitychange", handle_visibility_change);
-      }
     };
-  }, [size, animation, playMusic]);
+  }, [size, animation, specialEnabled, runAnimation]);
 
   useEffect(() => {
     setRendered(true);
     return;
   }, []);
 
-  const handle_click = () => {
-      setPlayMusic(true);
-      audioRef.current?.play();
-      return;
+
+  const on_click = () => {
+    setRunAnimation(true);
+    return;
   }
 
   return (
@@ -158,10 +139,10 @@ const Hero = () => {
       <HeroComponent 
         specialEnabled={specialEnabled} 
         rendered={rendered} 
-        playMusic={playMusic} 
+        runAnimation={runAnimation}
         frameBuffer={frameBuffer} 
         audioRef={audioRef} 
-        handle_click={handle_click} 
+        on_click={on_click} 
       />
     </>
   )  
@@ -172,22 +153,21 @@ export default Hero;
 interface HeroComponentProps {
   specialEnabled: boolean;
   rendered: boolean;
-  playMusic: boolean;
+  runAnimation: boolean;
   frameBuffer: string[][];
   audioRef: React.Ref<HTMLAudioElement>;
-  handle_click: () => void;
+  on_click: () => void;
 };
 
 const HeroComponent: React.FC<HeroComponentProps> = ({ 
     specialEnabled, 
     rendered, 
-    playMusic, 
+    runAnimation, 
     frameBuffer, 
-    audioRef, 
-    handle_click}
+    on_click}
   ) => {
     if (specialEnabled && rendered) {
-      return <Secret playMusic={playMusic} frameBuffer={frameBuffer} audioRef={audioRef} handle_click={handle_click} />
+      return <Secret runAnimation={runAnimation} frameBuffer={frameBuffer} on_click_={on_click} />
     }
 
   return (

@@ -1,20 +1,50 @@
+"use client";
 import AsciiDisplay from "../ascii-display/ascii_display";
+import { useRef, useEffect } from "react";
 
 interface SecretInterface {
-  playMusic: boolean;
   frameBuffer: string[][];
-  audioRef: React.Ref<HTMLAudioElement>;
-  handle_click: () => void;
+  runAnimation: boolean;
+  on_click_: () => void;
 }
 
-const Secret: React.FC<SecretInterface> = ({playMusic, frameBuffer, audioRef, handle_click}) => {
-  
+const Secret: React.FC<SecretInterface> = ({frameBuffer, runAnimation, on_click_}) => {
+  const audioContext = useRef<AudioContext>(new AudioContext());
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const audioTrack = useRef<MediaElementAudioSourceNode | null>(null);
+
+  const on_click = () => {
+    on_click_();
+    if (!audioRef.current) {console.log("Audio ref not working "); return; };
+    if (!audioTrack.current) {console.log("Audio track ref not working "); return; };
+
+    audioTrack.current.connect(audioContext.current.destination);
+    audioRef.current.play();
+  }
+
+  const on_visibility_change = () => {
+    if (!audioRef.current) return;
+    if (document.visibilityState === "hidden") audioRef.current.pause();
+    else audioRef.current.play();
+    return;
+  }
+
+  useEffect(() => {
+    if (!audioRef.current) {console.log("Audio ref is not working"); return};
+    audioTrack.current = audioContext.current.createMediaElementSource(audioRef.current);
+
+    // pause music when user leaves tab
+    document.addEventListener("visibilitychange", on_visibility_change);
+    return (() => {
+      document.removeEventListener("visibilitychange", on_visibility_change);
+    })
+  }, [])
 
   return (
     <>
       <title>AN EASTER EGG!?</title>
       {
-        playMusic ? 
+        runAnimation ? 
         <>
           <div className="flex justify-center">
             <AsciiDisplay frameBuffer={frameBuffer} />
@@ -27,15 +57,13 @@ const Secret: React.FC<SecretInterface> = ({playMusic, frameBuffer, audioRef, ha
         </>
         : 
           <div className="flex flex-col justify-center items-center min-h-screen w-full">
-            <button className="bg-grey-dark p-3 hover:bg-[#101010] hover:text-[#E0E0E0]" onClick={handle_click}>
+            <button className="bg-grey-dark p-3 hover:bg-[#101010] hover:text-[#E0E0E0]" onClick={on_click}>
               Play
             </button>
             <p>You might want to turn down your volume</p>
           </div>
       }
-      <audio ref={audioRef}>
-        <source src="/bapple.mp3" type="audio/mpeg"/>
-      </audio>
+      <audio ref={audioRef} src="/bapple.mp3"/>
     </>
   )
 }
