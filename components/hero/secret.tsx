@@ -1,50 +1,18 @@
-"use client";
 import AsciiDisplay from "../ascii-display/ascii_display";
-import { useRef, useEffect } from "react";
 
 interface SecretProps {
+  playing: boolean;
   frameBuffer: string[][];
-  runAnimation: boolean;
-  on_click_: () => void;
+  audioRef: React.Ref<HTMLAudioElement>;
+  on_click: () => void;
 }
 
-const Secret: React.FC<SecretProps> = ({frameBuffer, runAnimation, on_click_}) => {
-  const audioContext = useRef<AudioContext>(new AudioContext());
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const audioTrack = useRef<MediaElementAudioSourceNode | null>(null);
-
-  const on_click = () => {
-    on_click_();
-    if (!audioRef.current) {console.log("Audio ref not working "); return; };
-    if (!audioTrack.current) {console.log("Audio track ref not working "); return; };
-
-    audioTrack.current.connect(audioContext.current.destination);
-    audioRef.current.play();
-  }
-
-  const on_visibility_change = () => {
-    if (!audioRef.current) return;
-    if (document.visibilityState === "hidden") audioRef.current.pause();
-    else audioRef.current.play();
-    return;
-  }
-
-  useEffect(() => {
-    if (!audioRef.current) {console.log("Audio ref is not working"); return};
-    audioTrack.current = audioContext.current.createMediaElementSource(audioRef.current);
-
-    // pause music when user leaves tab
-    document.addEventListener("visibilitychange", on_visibility_change);
-    return (() => {
-      document.removeEventListener("visibilitychange", on_visibility_change);
-    })
-  }, [])
-
+const Secret: React.FC<SecretProps> = ({playing, frameBuffer, audioRef , on_click}) => {
   return (
     <>
       <title>AN EASTER EGG!?</title>
       {
-        runAnimation ? 
+        playing ? 
         <>
           <div className="flex justify-center">
             <AsciiDisplay frameBuffer={frameBuffer} />

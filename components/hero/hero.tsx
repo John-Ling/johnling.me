@@ -34,23 +34,25 @@ const Hero = () => {
 
   // used to play music for the special
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [runAnimation, setRunAnimation] = useState<boolean>(false);
   const [rendered, setRendered] = useState<boolean>(false);
+  const [playing, setPlaying] = useState<boolean>(false);
   const [specialEnabled] = useState<boolean>(check_special());
   const [animation] = useState<string>(select_animation(specialEnabled));
   const [size] = useState<HeroSize>(init_size(specialEnabled));
   // frame buffer for ascii display
   const [frameBuffer, setFrameBuffer] = useState<string[][]>(Array(size.height).fill(null).map(() => Array(size.width).fill(' ')));
 
+  const on_click = () => {
+    setPlaying(true);
+    audioRef.current?.play();
+    return;
+  }
+
   useEffect(() => {
     setRendered(true);
     return;
   }, []);
 
-  const on_click = () => {
-    setRunAnimation(true);
-    return;
-  }
 
   // set animations for ascii display
   useEffect(() => {
@@ -114,30 +116,38 @@ const Hero = () => {
         current = [...next];
       }
       animationRequestID.current = requestAnimationFrame(animate);
+    } 
+  
+    const on_visibility_change = () => {
+      if (!audioRef.current) return;
+
+      if (document.visibilityState === "hidden") {
+        audioRef.current.pause();
+        return;
+      }
+
+      audioRef.current.play();
+      return;
     }
 
-    if (specialEnabled) {
-      // pause and only begin the special animation if runAnimation is true
-      if (runAnimation) {
-        animationRequestID.current = requestAnimationFrame(animate);    
-      }
-    } else {
-      // start animation immediately
-      animationRequestID.current = requestAnimationFrame(animate);
+    if (playing) {
+      document.addEventListener("visibilitychange", on_visibility_change);
     }
+    
+    animationRequestID.current = requestAnimationFrame(animate);    
 
     return () => {
       cleanup();
       cancelAnimationFrame(animationRequestID.current);
     };
-  }, [size, animation, specialEnabled, runAnimation]);
+  }, [size, animation, specialEnabled, playing ]);
 
   return (
     <>
       <HeroComponent 
         specialEnabled={specialEnabled} 
         rendered={rendered} 
-        runAnimation={runAnimation}
+        playing={playing}
         frameBuffer={frameBuffer} 
         audioRef={audioRef} 
         on_click={on_click} 
@@ -151,7 +161,7 @@ export default Hero;
 interface HeroComponentProps {
   specialEnabled: boolean;
   rendered: boolean;
-  runAnimation: boolean;
+  playing: boolean;
   frameBuffer: string[][];
   audioRef: React.Ref<HTMLAudioElement>;
   on_click: () => void;
@@ -160,12 +170,13 @@ interface HeroComponentProps {
 const HeroComponent: React.FC<HeroComponentProps> = ({ 
     specialEnabled, 
     rendered, 
-    runAnimation, 
+    playing, 
     frameBuffer, 
+    audioRef,
     on_click}
   ) => {
     if (specialEnabled && rendered) {
-      return <Secret runAnimation={runAnimation} frameBuffer={frameBuffer} on_click_={on_click} />
+      return <Secret playing={playing} audioRef={audioRef} frameBuffer={frameBuffer} on_click={on_click} />
     }
 
   return (
