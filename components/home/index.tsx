@@ -2,11 +2,11 @@
 
 import { useEffect } from "react";
 
-import WhoSection from "./homepage-sections/who_section";
-import WhatSection from "./homepage-sections/what_section";
-import WhenSection from "./homepage-sections/when_section";
-import WhereSection from "./homepage-sections/where_section";
-import WhySection from "./homepage-sections/why_section";
+import WhoSection from "./sections/who_section";
+import WhatSection from "./sections/what_section";
+import WhenSection from "./sections/when_section";
+import WhereSection from "./sections/where_section";
+import WhySection from "./sections/why_section";
 
 import style from "./homepage.module.css";
 
