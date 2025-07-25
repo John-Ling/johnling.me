@@ -193,7 +193,9 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
               null
             }
           </div>
-          <p className="mt-4 opacity-0 animate-fade-up text-center md:text-left" style={{animationDelay: "400ms"}}>I make things.</p>
+          <p className="mt-4 opacity-0 animate-fade-up text-center md:text-left" style={{animationDelay: "400ms"}}>
+            Full Stack web developer with an interest in security and a side of artsy-ness.
+          </p>
           <HeroInformation />  
         </div>
 
@@ -260,16 +262,17 @@ const HeroIcons = () => {
 const HeroInformation = () => {
  return (
   <div className="mt-6">
-    <p className="mb-5 opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}>
-      I&apos;m a full-stack developer who enjoys staring at screens for hours 
-      to build cool things for themselves and others.
+    <p className="opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}>
+      I use computers to build systems to solve problems and help people.
     </p>
-    <p className="mb-5  opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
-      Computers are super interesting (in my opinion) so I study Computer Science at the University of Melbourne.
+    <p className="opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
+      Currently, I&apos;m a penultimate Computer Science student at the University of Melbourne majoring in Computing and Software Systems.
     </p>
-    <p className="mb-5 opacity-0 animate-fade-up" style={{animationDelay: "700ms"}}>
-      I primarily build applications for the web, however I learn quickly and have experience with 
-      other platforms like mobile and desktop.
+    <p className="mt-5 opacity-0 animate-fade-up" style={{animationDelay: "700ms"}}>
+      I&apos;m looking to gain practical software development experience whether through a job or internship.
+    </p>
+    <p className="mt-5 opacity-0 animate-fade-up" style={{animationDelay: "800ms"}}>
+      Welcome to my website.
     </p>
   </div>
  ) 
