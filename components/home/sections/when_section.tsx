@@ -31,17 +31,17 @@ const WhenSection = () => {
       </div>
 
       {/* content */}
-      <div className="lg:w-1/2 trigger-fade-on-scroll" id="where-section">
+      <div className="lg:w-1/3 trigger-fade-on-scroll" id="where-section">
         <h2 className="text-6xl lg:text-7xl text-blue" style={{animationDelay: "800ms"}}>When?</h2>
         <h3 className="text-3xl mb-3 mt-3 font-bold">Where it all began</h3>
         <p className="mb-5">
-          While I had taken some introductory Python classes the year before, 
-          my first real project was created in September 2019. It was an automated Kahoot player
+          I had taken some introductory Python classes the year before, 
+          however my first real project was created in September 2019. It was an automated Kahoot player
           using the Selenium library which while primitive, was something I was proud of as something 
           I built myself. I even tested it in my class much to the confusion of my teacher.
         </p>
         <p className="mb-10">
-          I had a lot of fun making it so I&apos;ve continued programming and have created quite a few projects.
+          I had a lot of fun making it so I&apos;ve continued programming and have created many more projects.
         </p>
         <Link href="/projects" className="no-underline bg-grey-dark p-3 hover:bg-[#101010] hover:text-[#E0E0E0]">See My Projects</Link>
       </div>

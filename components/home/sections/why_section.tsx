@@ -13,8 +13,8 @@ const WhySection = () => {
           my dream is to be able to create something with a positive impact on someone even in a minor way.
         </p>
         <p className="mb-5">
-          I&apos;m not quite sure what that thing will be but until that happens, 
-          I&apos;m more than happy making things for myself.
+          While I&apos;m not quite sure what that thing will be or when it will happen, 
+          I am more than happy to continue making things for myself until it does.
         </p>
         <p>Thanks for visiting. Hope you enjoyed the website :)</p>
       </div>

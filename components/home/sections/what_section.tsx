@@ -24,13 +24,13 @@ const WhatSection = () => {
         <p className="mb-5">
           I&apos;ve been programming for a while now so I&apos;m used to picking up 
           languages for one-off projects such as C++ or Java. However I would definitely say I&apos;m 
-          most comfortable with Python, Javascript and maybe some C.
+          most comfortable with Python, Javascript (React) and maybe some C.
         </p>
         <p className="mb-5">
-          I don&apos;t subscribe to a particular &quot;Tech Stack&quot; since I don&apos;t like limiting myself.
+          I don&apos;t subscribe to a particular &quot;Tech Stack&quot; since I don&apos;t like pigeonholing myself to a single way of building.
         </p>
         <p>
-          In my opinion, the KISS (Keep It Simple Stupid) philosophy is a very valid approach to development 
+          For me, the KISS (Keep It Simple Stupid) principle is a valid approach to development 
           so I like to use the right tools rather than the hottest ones.
         </p>
       </div>
