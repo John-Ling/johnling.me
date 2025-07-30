@@ -280,7 +280,7 @@ const HeroInformation = () => {
       Currently, I&apos;m a penultimate Computer Science student at the University of Melbourne majoring in Computing and Software Systems.
     </p>
     <p className="mt-5 opacity-0 animate-fade-up" style={{animationDelay: "700ms"}}>
-      I&apos;m looking to gain practical software development experience whether through a job or internship.
+      I&apos;m looking to gain practical software development experience whether through a job, internship or research assistant position.
     </p>
     <p className="mt-5 opacity-0 animate-fade-up" style={{animationDelay: "800ms"}}>
       Welcome to my website.
