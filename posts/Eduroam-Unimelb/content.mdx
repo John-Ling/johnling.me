@@ -1,5 +1,5 @@
 ---
-title: "How to connect to eduroam and UniWireless at Unimelb on Linux (IWD and network manager)"
+title: "How to connect to eduroam and UniWireless at Unimelb on Linux (IWD and Network Manager)"
 date: "27/07/2025"
 ---
 
@@ -101,13 +101,19 @@ activate
 `}
 </CodeBlock>
 
+To connect in the future
+<CodeBlock>
+{`
+nmcli device wifi connect eduroam
+`}
+</CodeBlock>
 
 For UniWireless
 
 <CodeBlock>
 {`
-nmcli con add type wifi ifname wlan0 con-name eduroam ssid eduroam
-nmcli con edit id eduroam
+nmcli con add type wifi ifname wlan0 con-name UniWireless ssid UniWireless
+nmcli con edit id UniWireless
 `}
 </CodeBlock>
 
@@ -122,5 +128,11 @@ set 802-1x.password YOUR UNIMELB PASSWORD
 set wifi-sec.key-mgmt wpa-eap
 save
 activate
+`}
+</CodeBlock>
+
+<CodeBlock>
+{`
+nmcli device wifi connect UniWireless
 `}
 </CodeBlock>
