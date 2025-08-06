@@ -41,6 +41,7 @@ export default function ProjectsPage() {
   return (
     <>
       { opened && selectedProject !== undefined ? <ProjectCard project={selectedProject} on_close={on_close}/> : null }
+      <title>Projects</title>
       <div ref={projectCardRef} className="min-h-screen w-11/12 lg:w-10/12 m-auto mt-5 mb-5 ">
         <h1 className={`text-4xl mt-5 mb-5 text-[#2e2e2e] animate-flicker-on ${meslo.variable} font-meslo`} style={{animationDelay: "1000ms"}}>Projects</h1>
         <h2 className="text-2xl">I&apos;ve done too many.</h2>

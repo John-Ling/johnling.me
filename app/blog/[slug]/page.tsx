@@ -36,16 +36,13 @@ type Params = {
   params: Promise<{slug: string;}>;
 }
 
-export async function generateMetaData({ params }: Params) {
+export async function generateMetadata({ params }: Params) {
   const slug = (await params).slug
-  const post = await fetch(`https://www.johnling.me/blog/${slug}`).then((res) =>
-    res.json()
-  )
-
-  // set title based on 
+  const post = get_post(slug);
+  // set title dynamically
   return {
     title: post.title,
-    description: `Posted on ${post.date}`
+    description: post.date
   }
 }
 
