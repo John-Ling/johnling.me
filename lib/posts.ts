@@ -2,8 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-// import { Post } from '@/app/interfaces/post';
-
 const postsDirectory: string = path.join(process.cwd(), 'posts');
 
 export const get_sorted_posts = () => {

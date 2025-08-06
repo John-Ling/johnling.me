@@ -18,6 +18,7 @@ const Page = async (props: Params) => {
 
   return (
     <>
+      <title>{post.title}</title>
       <div className="w-full lg:w-1/2 m-auto pt-5 pb-5 pl-2 pr-2">
         <Link href="/blog">Back</Link>
         <article className={`pt-5 pb-5 ${style.markdown}`}>
@@ -34,6 +35,19 @@ export default Page;
 
 type Params = {
   params: Promise<{slug: string;}>;
+}
+
+export async function generateMetaData({ params }: Params) {
+  const slug = (await params).slug
+  const post = await fetch(`https://www.johnling.me/blog/${slug}`).then((res) =>
+    res.json()
+  )
+
+  // set title based on 
+  return {
+    title: post.title,
+    description: `Posted on ${post.date}`
+  }
 }
 
 // statically render all possible paths (slugs) at build time
