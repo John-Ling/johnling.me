@@ -29,8 +29,8 @@ const Navbar = () => {
   
   const path: string = '/' + usePathname().split("/")[1];
   return (
-    <nav className={`justify-between items-center transition-all duration-10 ${open ? "bg-grey-normal" : "bg-opacity-0 " }  flex flex-row`}>  
-      <Link href="/" className={`tracking-wider hover:text-white text-2xl md:self-center md:pl-3 p-4 no-underline font-bold opacity-0 animate-fade-down ${meslo.variable} font-meslo z-20`} 
+    <nav className={`justify-between items-center transition-all duration-10 ${open ? "bg-grey-normal" : "bg-opacity-0 " }  flex flex-row pt-3`}>  
+      <Link href="/" className={`tracking-wider hover:text-white text-2xl md:self-center ml-3 md:ml-10 no-underline font-bold opacity-0 animate-fade-down ${meslo.variable} font-meslo z-20`} 
         style={{animationDelay: "300ms"}}
       > <span className="md:whitespace-pre md:block">JOHN  </span>
         <span className="text-orange md:whitespace-pre">  LING</span>
@@ -44,7 +44,7 @@ const Navbar = () => {
         <MenuIcon className="active:text-muted-white"/>
       </button>
 
-      <Image src={wire_top_1} alt="" className="pointer-events-none select-none flex-grow border-0 absolute -z-10 hidden md:block" />
+      <Image src={wire_top_1} alt="" className="pointer-events-none select-none border-0 absolute -z-10 hidden md:inline" />
 
       {/* desktop menu */} 
       <div className={`hidden invisible md:flex md:visible p-4 opacity-0 animate-fade-down ${meslo.variable} font-meslo`} 
@@ -76,7 +76,7 @@ interface NavMenuProps {
 const NavbarMenu: React.FC<NavMenuProps> = ({links, activeLink, handle_click}) => {
   const linkCount = links.length;
   return (
-    <ul className="flex flex-col md:flex-row gap-x-2 gap-y-2 md:gap-x-6 align-middle">
+    <ul className="flex flex-col md:flex-row gap-x-2 gap-y-2 md:gap-x-6 align-middle md:mr-10">
     {links.map((link: NavLink, i: number) => {
       return <li key={link.name} className="p-2 opacity-0 animate-fade-down" style={{animationDelay: `${(linkCount - i) * 150}ms`}}>
         <Link onClick={handle_click} 
@@ -96,13 +96,13 @@ const MobileMenu: React.FC<NavMenuProps> = ({links, activeLink, handle_click}) =
     <>
       <div className="fixed top-0 w-full min-h-screen z-20">
         <div className="flex">
-          <div className="z-40 w-full pt-2">
+          <div className="z-40 w-full pt-4">
             <div className="flex w-full justify-end">
               <button onClick={handle_click} className="p-2">
                 <CloseIcon className="active:text-muted-white" />
               </button>
             </div>
-            <ul>
+            <ul className="p-5">
               {links.map((link: NavLink, i: number) => {
                 return <li key={link.name} className="mb-3 mt-3 opacity-0 animate-fade-up" style={{animationDelay: `${(i + 1) * 100}ms`}}>
                   <Link href={link.target} onClick={handle_click} 
