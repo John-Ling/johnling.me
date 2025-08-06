@@ -30,9 +30,11 @@ const Navbar = () => {
   const path: string = '/' + usePathname().split("/")[1];
   return (
     <nav className={`justify-between items-center transition-all duration-10 ${open ? "bg-grey-normal" : "bg-opacity-0 " }  flex flex-row`}>  
-      <Link href="/" className={`text-2xl md:self-center md:pl-3 p-4 no-underline font-bold opacity-0 animate-fade-down ${meslo.variable} font-meslo z-20`} 
+      <Link href="/" className={`tracking-wider hover:text-white text-2xl md:self-center md:pl-3 p-4 no-underline font-bold opacity-0 animate-fade-down ${meslo.variable} font-meslo z-20`} 
         style={{animationDelay: "300ms"}}
-      >John Ling</Link>
+      > <span className="md:whitespace-pre md:block">JOHN  </span>
+        <span className="text-orange md:whitespace-pre">  LING</span>
+      </Link>
 
       {/* mobile hamburger menu */}
       <button className="md:hidden p-2 animate-fade-down opacity-0" 

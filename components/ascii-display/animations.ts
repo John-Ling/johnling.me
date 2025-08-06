@@ -347,7 +347,7 @@ export const matrix_next_frame = (frameBuffer: string[][], width: number, height
         for (let i = 0; i < stream.length; i++) {
             const y: number = stream.position - i;
             if (y >= 0 && y < height) {
-                frameBuffer[y][x] = stream.chars[i];
+                frameBuffer[y][x]    = stream.chars[i];
             }
         }
 
