@@ -7,7 +7,7 @@ import DescriptionIcon from '@mui/icons-material/Description';
 
 import { meslo } from "@/lib/font";
 
-import { evolve, conway_populate, cube_init, cube_next_frame, 
+import { conway_next_frame, conway_populate, cube_init, cube_next_frame, 
         donut_next_frame, donut_init, matrix_next_frame, 
         matrix_init, cube_cleanup, conway_cleanup, 
         donut_cleanup, matrix_cleanup, 
@@ -29,7 +29,7 @@ interface HeroSize {
   height: number;
 }
 
-const Hero = () => {
+export default function Hero() {
   const animationRequestID = useRef<number>(0);
 
   // used to play music for the special
@@ -40,7 +40,7 @@ const Hero = () => {
   const [animation] = useState<string>(select_animation(specialEnabled));
   const [size] = useState<HeroSize>(init_size(specialEnabled));
   // frame buffer for ascii display
-  const [frameBuffer, setFrameBuffer] = useState<string[][]>(Array(size.height).fill(null).map(() => Array(size.width).fill(' ')));
+  const [framebuffer, setFramebuffer] = useState<string[][]>(Array(size.height).fill(null).map(() => Array(size.width).fill(' ')));
 
   const on_click = () => {
     setPlaying(true);
@@ -63,7 +63,7 @@ const Hero = () => {
 
     switch (animation) {
       case "CONWAY":
-        nextFrame = evolve;
+        nextFrame = conway_next_frame;
         current = conway_populate(size.width, size.height);
         cleanup = conway_cleanup;
         break;
@@ -112,7 +112,7 @@ const Hero = () => {
         // so we can now update the state of the board
         then = now - (elapsed % fpsInterval);
         next = nextFrame(current, size.width, size.height);
-        setFrameBuffer(next);
+        setFramebuffer(next);
         current = [...next];
       }
       animationRequestID.current = requestAnimationFrame(animate);
@@ -143,41 +143,30 @@ const Hero = () => {
   }, [size, animation, specialEnabled, playing ]);
 
   return (
-    <>
-      <HeroComponent 
-        specialEnabled={specialEnabled} 
-        rendered={rendered} 
-        playing={playing}
-        frameBuffer={frameBuffer} 
-        audioRef={audioRef} 
-        on_click={on_click} 
-      />
-    </>
+    <HeroComponent 
+      specialEnabled={specialEnabled} 
+      rendered={rendered} 
+      playing={playing}
+      framebuffer={framebuffer} 
+      audioRef={audioRef} 
+      on_click={on_click} 
+    />
   )  
 }
-
-export default Hero;
 
 interface HeroComponentProps {
   specialEnabled: boolean;
   rendered: boolean;
   playing: boolean;
-  frameBuffer: string[][];
+  framebuffer: string[][];
   audioRef: React.Ref<HTMLAudioElement>;
   on_click: () => void;
 };
 
-const HeroComponent: React.FC<HeroComponentProps> = ({ 
-    specialEnabled, 
-    rendered, 
-    playing, 
-    frameBuffer, 
-    audioRef,
-    on_click}
-  ) => {
-    if (specialEnabled && rendered) {
-      return <Secret playing={playing} audioRef={audioRef} frameBuffer={frameBuffer} on_click={on_click} />
-    }
+function HeroComponent({ specialEnabled, rendered, playing, framebuffer, audioRef, on_click}: HeroComponentProps) {
+  if (specialEnabled && rendered) {
+    return <Secret playing={playing} audioRef={audioRef} framebuffer={framebuffer} on_click={on_click} />
+  }
 
   return (
     <>
@@ -198,7 +187,7 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
               <div className="opacity-0 animate-fade-up bg-grey-dark border-2 border-grey-light" style={{animationDelay: "600ms"}}>
                 <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
                     w-full h-full opacity-40 z-20 m-0 p-0"></div>
-                <AsciiDisplay frameBuffer={frameBuffer} />
+                <AsciiDisplay framebuffer={framebuffer} />
               </div>
               :
               null
@@ -219,7 +208,7 @@ const HeroComponent: React.FC<HeroComponentProps> = ({
               <div className="opacity-0 animate-fade-up z-10 bg-grey-dark" style={{animationDelay: "600ms"}}>
                 <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
                     w-full h-full opacity-40 z-20 m-0 p-0"></div>
-                <AsciiDisplay frameBuffer={frameBuffer} />
+                <AsciiDisplay framebuffer={framebuffer} />
               </div>  
               : null
             }

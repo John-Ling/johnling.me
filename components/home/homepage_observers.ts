@@ -1,4 +1,4 @@
-export const update_fade_entries = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+export function update_fade_entries(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
     entries.forEach((entry: IntersectionObserverEntry) => {
         if (!entry.isIntersecting) {
             return;
@@ -30,7 +30,7 @@ export const update_fade_entries = (entries: IntersectionObserverEntry[], observ
     return;
 };
 
-export const update_flicker_entries = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+export function update_flicker_entries(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
     entries.forEach((entry: IntersectionObserverEntry) => {
         if (!entry.isIntersecting) {
             return;

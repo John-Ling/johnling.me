@@ -12,12 +12,12 @@ interface CodeBlockProps  {
   children: string
 }
 
-const CodeBlock: React.FC<CodeBlockProps> = ({ language="asdf", filename="", canCopy=true, children }) => {
+export default function CodeBlock({ language="asdf", filename="", canCopy=true, children }: CodeBlockProps) {
   const [copied, setCopied] = useState<boolean>(false);
   const [tooltipVisible, setTooltipVisible] = useState<boolean>(false);
   const lineNumbers: string[] = generate_lines(children);
 
-  function handle_copy() {
+  const on_copy = () => {
     setCopied(true);
     // copy code to clipboard
     navigator.clipboard.writeText(children);
@@ -47,7 +47,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language="asdf", filename="", can
                 <div className={`absolute bottom-10 bg-grey-dark pt-1 pb-1 pl-2 pr-2 ${!tooltipVisible ? "hidden" : "" }`}>
                   { copied ? "Copied" : "Copy"}
                   </div>
-                <ContentPasteIcon onMouseOver={() => setTooltipVisible(true)} onMouseOut={() => setTooltipVisible(false)} onClick={() => handle_copy()} 
+                <ContentPasteIcon onMouseOver={() => setTooltipVisible(true)} onMouseOut={() => setTooltipVisible(false)} onClick={on_copy} 
                   className="hover:cursor-pointer text-muted-white active:text-[#A0A0A0] hover:text-[#909090] text-md"
                 />  
               </div>
@@ -76,5 +76,3 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language="asdf", filename="", can
     </>
   )
 }
-
-export default CodeBlock;

@@ -1,7 +1,7 @@
 import AboutSection from "@/components/home";
 import Hero from "@/components/hero/hero";
 
-const Page = () => {
+export default function Page() {
   return (
     <>
       <Hero />
@@ -9,5 +9,3 @@ const Page = () => {
     </>
   )
 }
-
-export default Page;

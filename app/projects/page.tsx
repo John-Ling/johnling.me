@@ -1,11 +1,5 @@
 import ProjectsPage from "@/components/projects";
 
-const Page = () => {
-  return (
-    <>
-      <ProjectsPage />
-    </>
-  )
+export default function Page() {
+  return  <ProjectsPage />
 }
-
-export default Page;

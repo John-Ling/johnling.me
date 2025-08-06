@@ -10,7 +10,7 @@ import style from "./markdown.module.css";
 import "/styles/syntax_highlighting.css"; // include modified highlight.js theme
 import { MDXComponents } from "mdx/types";
 
-const Page = async (props: Params) => {
+export default async function Page(props: Params) {
   const components: MDXComponents = {CodeBlock, Markdown};
   const params = await props.params;
   const post: BlogPost = get_post(params.slug);
@@ -31,7 +31,6 @@ const Page = async (props: Params) => {
     </>   
   )
 }
-export default Page;
 
 type Params = {
   params: Promise<{slug: string;}>;
@@ -51,7 +50,7 @@ export async function generateMetaData({ params }: Params) {
 }
 
 // statically render all possible paths (slugs) at build time
-export const generateStaticParams = async () => {
+export async function generateStaticParams() {
   const posts: BlogPost[] = get_sorted_posts();
 
   return posts.map((post) => ({

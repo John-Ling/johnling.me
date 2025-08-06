@@ -2,12 +2,12 @@ import AsciiDisplay from "../ascii-display/ascii_display";
 
 interface SecretProps {
   playing: boolean;
-  frameBuffer: string[][];
+  framebuffer: string[][];
   audioRef: React.Ref<HTMLAudioElement>;
   on_click: () => void;
 }
 
-const Secret: React.FC<SecretProps> = ({playing, frameBuffer, audioRef , on_click}) => {
+export default function Secret({playing, framebuffer, audioRef , on_click}: SecretProps) {
   return (
     <>
       <title>AN EASTER EGG!?</title>
@@ -15,7 +15,7 @@ const Secret: React.FC<SecretProps> = ({playing, frameBuffer, audioRef , on_clic
         playing ? 
         <>
           <div className="flex justify-center">
-            <AsciiDisplay frameBuffer={frameBuffer} />
+            <AsciiDisplay framebuffer={framebuffer} />
           </div>
           <p className="opacity-0 animate-fade-up p-5" style={{animationDelay: "5000ms"}}>
             All rights go to ZUN Soft / Team Shanghai Alice. 
@@ -35,5 +35,3 @@ const Secret: React.FC<SecretProps> = ({playing, frameBuffer, audioRef , on_clic
     </>
   )
 }
-
-export default Secret;

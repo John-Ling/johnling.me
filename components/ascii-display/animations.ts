@@ -7,7 +7,7 @@ let thetaA: number = 0;
 let thetaB: number = 0;
 let thetaC: number = 0;
 
-const reset_animations = () => {
+function reset_animations() {
     zBuffer = [];
     thetaA = 0;
     thetaB = 0;
@@ -19,15 +19,15 @@ const reset_animations = () => {
 
 // BEGIN CUBE
 
-export const cube_init = (width: number, height: number) => {
+export function cube_init(width: number, height: number) {
     zBuffer = Array(height).fill(null).map(() => Array(width).fill(0));
     return Array(height).fill(null).map(() => Array(width).fill(' '));
 }
 
-export const cube_next_frame = (frameBuffer: string[][], width: number, height: number) => {
+export function cube_next_frame(framebuffer: string[][], width: number, height: number) {
     for (let i = 0; i < height; i++) {
         for (let j = 0; j < width; j++) {
-            frameBuffer[i][j] = ' ';
+            framebuffer[i][j] = ' ';
             zBuffer[i][j] = 0;
         }   
     }
@@ -49,38 +49,38 @@ export const cube_next_frame = (frameBuffer: string[][], width: number, height: 
 
     for (let cubeX = -cubeWidth; cubeX < cubeWidth; cubeX += incrementSpeed) {
         for (let cubeY = -cubeWidth; cubeY < cubeWidth; cubeY += incrementSpeed) {
-            cube_calc_for_surface(frameBuffer, zBuffer, cubeX, cubeY, -cubeWidth, '*', 
+            cube_calc_for_surface(framebuffer, zBuffer, cubeX, cubeY, -cubeWidth, '*', 
                                     width, height, sinA, sinB, sinC, cosA, cosB, cosC);
 
-            cube_calc_for_surface(frameBuffer, zBuffer, cubeWidth, cubeY, cubeX, '$', 
+            cube_calc_for_surface(framebuffer, zBuffer, cubeWidth, cubeY, cubeX, '$', 
                                     width, height, sinA, sinB, sinC, cosA, cosB, cosC);
 
-            cube_calc_for_surface(frameBuffer, zBuffer, -cubeWidth, cubeY, -cubeX, '0', 
+            cube_calc_for_surface(framebuffer, zBuffer, -cubeWidth, cubeY, -cubeX, '0', 
                                     width, height, sinA, sinB, sinC, cosA, cosB, cosC);
 
-            cube_calc_for_surface(frameBuffer, zBuffer, -cubeX, cubeY, cubeWidth, '#', 
+            cube_calc_for_surface(framebuffer, zBuffer, -cubeX, cubeY, cubeWidth, '#', 
                                     width, height, sinA, sinB, sinC, cosA, cosB, cosC);
                                     
-            cube_calc_for_surface(frameBuffer, zBuffer, cubeX, -cubeWidth, -cubeY, ':', 
+            cube_calc_for_surface(framebuffer, zBuffer, cubeX, -cubeWidth, -cubeY, ':', 
                                     width, height, sinA, sinB, sinC, cosA, cosB, cosC);
 
-            cube_calc_for_surface(frameBuffer, zBuffer, cubeX, cubeWidth, cubeY, '+', 
+            cube_calc_for_surface(framebuffer, zBuffer, cubeX, cubeWidth, cubeY, '+', 
                                     width, height, sinA, sinB, sinC, cosA, cosB, cosC);
         }
     }
 
     
-    return frameBuffer;
+    return framebuffer;
 }
 
-export const cube_cleanup = () => {
+export function cube_cleanup() {
     reset_animations();
     return;
 }
 
-const cube_calc_x = (i: number, j: number, k: number, 
+function cube_calc_x(i: number, j: number, k: number, 
                     sinA: number, sinB: number, sinC: number, 
-                    cosA: number, cosB: number, cosC: number) => {
+                    cosA: number, cosB: number, cosC: number) {
     return (
         j * sinA * sinB * cosC - k * cosA * 
         sinB * cosC + j * cosA * sinC + k * 
@@ -88,9 +88,9 @@ const cube_calc_x = (i: number, j: number, k: number,
     );
 }
 
-const cube_calc_y = (i: number, j: number, k: number, 
+function cube_calc_y(i: number, j: number, k: number, 
                     sinA: number, sinB: number, sinC: number, 
-                    cosA: number, cosB: number, cosC: number) => {
+                    cosA: number, cosB: number, cosC: number) {
     return (
         j * cosA * cosC + k * sinA * cosC -
         j * sinA * sinB * sinC + k * cosA * 
@@ -98,42 +98,42 @@ const cube_calc_y = (i: number, j: number, k: number,
     );
 }
 
-const cube_calc_z = (i: number, j: number, k: number, 
+function cube_calc_z(i: number, j: number, k: number, 
                     sinA: number, sinB: number,
-                    cosA: number, cosB: number ) => {
+                    cosA: number, cosB: number ) {
     return (
         k * cosA * cosB - j * 
         sinA * cosB + i * sinB
     );
 }
 
-const cube_calc_for_surface = (frameBuffer: string[][], zBuffer: number[][], 
-        cubeX: number, cubeY: number, cubeZ: number, 
-        ch: string, width: number, height: number,
-        sinA: number, sinB: number, sinC: number,
-        cosA: number, cosB: number, cosC: number) => {
+function cube_calc_for_surface(framebuffer: string[][], zBuffer: number[][], 
+                            cubeX: number, cubeY: number, cubeZ: number, 
+                            ch: string, width: number, height: number,
+                            sinA: number, sinB: number, sinC: number,
+                            cosA: number, cosB: number, cosC: number) {
 
-const distanceFromCamera: number = 100;  // adjust to change size
-const K1: number = 40; // screen distance for scaling
-const x: number = cube_calc_x(cubeX, cubeY, cubeZ, sinA, sinB, sinC, cosA, cosB, cosC);
-const y: number = cube_calc_y(cubeX, cubeY, cubeZ, sinA, sinB, sinC, cosA, cosB, cosC);
-const z: number = cube_calc_z(cubeX, cubeY, cubeZ, sinA, sinB, cosA, cosB) + distanceFromCamera;
+    const distanceFromCamera: number = 100;  // adjust to change size
+    const K1: number = 40; // screen distance for scaling
+    const x: number = cube_calc_x(cubeX, cubeY, cubeZ, sinA, sinB, sinC, cosA, cosB, cosC);
+    const y: number = cube_calc_y(cubeX, cubeY, cubeZ, sinA, sinB, sinC, cosA, cosB, cosC);
+    const z: number = cube_calc_z(cubeX, cubeY, cubeZ, sinA, sinB, cosA, cosB) + distanceFromCamera;
 
-const ooz: number = 1 / z;
+    const ooz: number = 1 / z;
 
-const xp: number = Math.floor(width / 2 +  K1 * ooz * x * 2);
-const yp: number = Math.floor(height / 2 + K1 * ooz * y);
+    const xp: number = Math.floor(width / 2 +  K1 * ooz * x * 2);
+    const yp: number = Math.floor(height / 2 + K1 * ooz * y);
 
-            
-if (xp < 0 || xp >= width || yp < 0 || yp >= height) {
-return;
-}
+                
+    if (xp < 0 || xp >= width || yp < 0 || yp >= height) {
+    return;
+    }
 
-if (ooz > zBuffer[yp][xp]) {
-zBuffer[yp][xp] = ooz;
-frameBuffer[yp][xp] = ch;
-}
-return;
+    if (ooz > zBuffer[yp][xp]) {
+    zBuffer[yp][xp] = ooz;
+    framebuffer[yp][xp] = ch;
+    }
+    return;
 }
 
 
@@ -148,7 +148,7 @@ let frames: string[] = [];
 
 // downloads and unzips file containing 
 // frames
-export const bapple_init = async () => {
+export async function bapple_init() {
     // if frames have already been unzipped
     if (frames[0] !== undefined) {
         return;
@@ -164,7 +164,7 @@ export const bapple_init = async () => {
     return;
 }
 
-export const bapple_next_frame = (frameBuffer: string[][], width: number, height: number) => {
+export function bapple_next_frame(framebuffer: string[][], width: number, height: number) {
     // if animation has not unzipped yet or already finished
     if (frames[currentFrame] === undefined) {
         return Array(height).fill(null).map(() => Array(width).fill('*'))
@@ -173,15 +173,15 @@ export const bapple_next_frame = (frameBuffer: string[][], width: number, height
     const frame: string = frames[currentFrame];
     for (let i = 0; i < height; i++) {
         for (let j = 0; j < width; j++) {
-            frameBuffer[i][j] = frame[(i * width) + j]
+            framebuffer[i][j] = frame[(i * width) + j]
         }
     }
 
     currentFrame += 1;
-    return frameBuffer;
+    return framebuffer;
 }
 
-export const bapple_cleanup = () => {
+export function bapple_cleanup() {
     currentFrame = 0;
     return;
 }
@@ -193,29 +193,29 @@ export const bapple_cleanup = () => {
 // r1 = radius
 // r2 = donut is centered at point (r2, 0, 0)
 
-const donut_calc_x = (r1: number, r2: number, sinTheta: number, sinPhi: number, cosTheta: number, 
+function donut_calc_x(r1: number, r2: number, sinTheta: number, sinPhi: number, cosTheta: number, 
                     cosPhi: number, sinA: number, sinB: number, cosA: number, cosB: number, 
-                    circleX: number, circleY: number) => {
+                    circleX: number, circleY: number) {
     return circleX * (cosB * cosPhi + sinA * sinB * sinPhi) - circleY * cosA * sinB;
 }
 
-const donut_calc_y = (r1: number, r2: number, sinTheta: number, sinPhi: number, cosTheta: number, 
+function donut_calc_y(r1: number, r2: number, sinTheta: number, sinPhi: number, cosTheta: number, 
                     cosPhi: number, sinA: number, sinB: number, cosA: number, cosB: number, 
-                    circleX: number, circleY: number) => {
+                    circleX: number, circleY: number) {
     return circleX * (sinB * cosPhi - sinA * cosB * sinPhi) + circleY * cosA * cosB;
 }
 
-const donut_calc_z = (r1: number, r2: number, sinTheta: number, sinPhi: number, cosTheta: number, 
-                    sinA: number, cosA: number, circleX: number, circleY: number) => {
+function donut_calc_z(r1: number, r2: number, sinTheta: number, sinPhi: number, cosTheta: number, 
+                    sinA: number, cosA: number, circleX: number, circleY: number) {
     return cosA * circleX * sinPhi + circleY * sinA;
 }
 
 
-// donut is a bit squished try fix that later 
-const donut_calc_for_surface = (frameBuffer: string[][], zBuffer: number[][], width: number, height: number, 
+
+function donut_calc_for_surface(framebuffer: string[][], zBuffer: number[][], width: number, height: number, 
                                 r1: number, r2: number, sinA: number, sinB: number, cosA: number,
                                 cosB: number, sinTheta: number, sinPhi: number, cosTheta: number,
-                                cosPhi: number, circleX: number, circleY: number) => {
+                                cosPhi: number, circleX: number, circleY: number) {
 
     const distanceFromCamera: number = 70;  // adjust to change size
     // const K1: number = width * distanceFromCamera * 3 / (8* (r1+r2));
@@ -249,21 +249,21 @@ const donut_calc_for_surface = (frameBuffer: string[][], zBuffer: number[][], wi
         zBuffer[yp][xp] = ooz;
         // set correct character for frame buffer
         const luminanceIndex = Math.floor(luminance * 8);
-        frameBuffer[yp][xp] = ".,-~:;=!*#$@"[luminanceIndex];
+        framebuffer[yp][xp] = ".,-~:;=!*#$@"[luminanceIndex];
     }
 
     return;
 }
 
-export const donut_init = (width: number, height: number) => {
+export function donut_init(width: number, height: number) {
     zBuffer = Array(height).fill(null).map(() => Array(width).fill(0));
     return Array(height).fill(null).map(() => Array(width).fill(' '));
 }
 
-export const donut_next_frame = (frameBuffer: string[][], width: number, height: number) => {
+export function donut_next_frame(framebuffer: string[][], width: number, height: number) {
     for (let i = 0; i < height; i++) {
         for (let j = 0; j < width; j++) {
-            frameBuffer[i][j] = ' ';
+            framebuffer[i][j] = ' ';
             zBuffer[i][j] = 0;
         }   
     }
@@ -289,17 +289,17 @@ export const donut_next_frame = (frameBuffer: string[][], width: number, height:
             const circleX: number = R2 + R1 * cosTheta;
             const circleY: number = R1 * sinTheta;
 
-            donut_calc_for_surface(frameBuffer, zBuffer, width, height, R1, R2, sinA, sinB, 
+            donut_calc_for_surface(framebuffer, zBuffer, width, height, R1, R2, sinA, sinB, 
                                 cosA, cosB, sinTheta, sinPhi, cosTheta, cosPhi, circleX, circleY);
         }
     }
 
     thetaA += 0.04;
     thetaB += 0.02;
-    return frameBuffer;
+    return framebuffer;
 }
 
-export const donut_cleanup = () => {
+export function donut_cleanup() {
     reset_animations();
     return;
 }
@@ -317,7 +317,7 @@ interface MatrixStream {
     chars: string[];
 }
 
-export const matrix_init = (width: number, height: number) => {
+export function matrix_init(width: number, height: number) {
     // generate initial matrix streams
     for (let i = 0; i < width; i++) {
         const stream: MatrixStream = generate_stream();
@@ -327,10 +327,10 @@ export const matrix_init = (width: number, height: number) => {
     return Array(height).fill(null).map(() => Array(width).fill(' '))
 }
 
-export const matrix_next_frame = (frameBuffer: string[][], width: number, height: number) => {
+export function matrix_next_frame(framebuffer: string[][], width: number, height: number) {
     for (let i = 0; i < height; i++) {
         for (let j = 0; j < width; j++) {
-            frameBuffer[i][j] = ' ';
+            framebuffer[i][j] = ' ';
         }   
     }
 
@@ -347,7 +347,7 @@ export const matrix_next_frame = (frameBuffer: string[][], width: number, height
         for (let i = 0; i < stream.length; i++) {
             const y: number = stream.position - i;
             if (y >= 0 && y < height) {
-                frameBuffer[y][x]    = stream.chars[i];
+                framebuffer[y][x]    = stream.chars[i];
             }
         }
 
@@ -356,21 +356,21 @@ export const matrix_next_frame = (frameBuffer: string[][], width: number, height
         // stream.chars[0] = random_char();
     });
 
-    return frameBuffer;
+    return framebuffer;
 }
 
-export const matrix_cleanup = () => {
+export function matrix_cleanup() {
     streams = [];
     return;
 }
 
 // random ascii char from the readable range 33 to 126
 // no ESC or NEWLINE or CARRIAGE RETURN nonsense
-const random_char = () => {
+function random_char() {
     return String.fromCharCode(Math.floor(Math.random() * (126 - 33) + 33));
 }
 
-const generate_stream = () => {
+function generate_stream() {
     const stream: MatrixStream = {position: 0, speed: 0, length: 0, chars: []};
     
     stream.position = 0 - Math.floor(Math.random() * 20);
@@ -395,7 +395,7 @@ const generate_stream = () => {
 const conwayAlive: string = '*';
 const conwayDead: string = ' ';
 
-export const conway_populate = (width: number, height: number) => {
+export function conway_populate(width: number, height: number) {
     const grid: string[][] = [];
     const minCeiled: number = Math.ceil(0);
     const maxFloored: number = Math.floor(3);
@@ -417,12 +417,12 @@ export const conway_populate = (width: number, height: number) => {
   }
 
 // returns the next state of a cell based on it's neighbourhood
-const next_state = (frameBuffer: string[][], width: number, height: number, positionI: number, positionJ: number) => {
-    // get position in frameBuffer as 2 indexes
+function next_state(framebuffer: string[][], width: number, height: number, positionI: number, positionJ: number) {
+    // get position in framebuffer as 2 indexes
     // const row = Math.floor(position / width);
     // const column = position % width;
 
-    const initialState: string = frameBuffer[positionI][positionJ];
+    const initialState: string = framebuffer[positionI][positionJ];
     let finalState: string = conwayDead;  // assume dead
     let aliveCount: number = 0;
 
@@ -441,7 +441,7 @@ const next_state = (frameBuffer: string[][], width: number, height: number, posi
                 continue;
             }
 
-            if (frameBuffer[(positionI + i)][(positionJ + j)] == conwayAlive) {
+            if (framebuffer[(positionI + i)][(positionJ + j)] == conwayAlive) {
                 aliveCount++;
             }
         }   
@@ -460,12 +460,12 @@ const next_state = (frameBuffer: string[][], width: number, height: number, posi
     return finalState;
 }
 
-export const evolve = (frameBuffer: string[][], width: number, height: number) => {
+export function conway_next_frame(framebuffer: string[][], width: number, height: number) {
     const changed: string[][] = [];
     for (let i = 0; i < height; i++) {
         const row: string[] = [];
         for (let j = 0; j < width; j++) {
-            row.push(next_state(frameBuffer, width, height, i, j));
+            row.push(next_state(framebuffer, width, height, i, j));
         }
         changed.push(row);
     }

@@ -15,7 +15,7 @@ interface NavLink {
   target: string;
 }
 
-const Navbar = () => {
+export default function Navbar() {
   const links: NavLink[] = [
     { name: "Home", target: "/" },
     { name: "Projects", target: "/projects" },
@@ -50,7 +50,7 @@ const Navbar = () => {
       <div className={`hidden invisible md:flex md:visible p-4 opacity-0 animate-fade-down ${meslo.variable} font-meslo`} 
             style={{animationDelay: "500ms"}}
       > 
-        <NavbarMenu links={links} activeLink={path} handle_click={() => setOpen(false)}/>
+        <NavbarMenu links={links} activeLink={path} on_click={() => setOpen(false)}/>
       </div>
   
       {/* mobile menu */}
@@ -60,7 +60,7 @@ const Navbar = () => {
           ease-in-out duration-300`}
       >
         <div className={`transition-all ease-in-out z-20  ${open ? 'duration-300 opacity-100' : " duration-300 opacity-0 invisible"}`}>
-          {open ? <MobileMenu links={links} activeLink={path} handle_click={() => setOpen(false)} /> : null} 
+          {open ? <MobileMenu links={links} activeLink={path} on_click={() => setOpen(false)} /> : null} 
         </div>
       </div>
     </nav>
@@ -70,16 +70,16 @@ const Navbar = () => {
 interface NavMenuProps {
   links: NavLink[]
   activeLink: string
-  handle_click: () => void
+  on_click: () => void
 }
 
-const NavbarMenu: React.FC<NavMenuProps> = ({links, activeLink, handle_click}) => {
+function NavbarMenu({links, activeLink, on_click}: NavMenuProps) {
   const linkCount = links.length;
   return (
     <ul className="flex flex-col md:flex-row gap-x-2 gap-y-2 md:gap-x-6 align-middle md:mr-10">
     {links.map((link: NavLink, i: number) => {
       return <li key={link.name} className="p-2 opacity-0 animate-fade-down" style={{animationDelay: `${(linkCount - i) * 150}ms`}}>
-        <Link onClick={handle_click} 
+        <Link onClick={on_click} 
           className={`no-underline w-screen md:w-auto ${link.target === activeLink ? "font-bold text-orange" : ""}`} 
           aria-current={link.target === activeLink ? "page" : undefined} href={link.target}
         >
@@ -91,21 +91,21 @@ const NavbarMenu: React.FC<NavMenuProps> = ({links, activeLink, handle_click}) =
   )
 }
 
-const MobileMenu: React.FC<NavMenuProps> = ({links, activeLink, handle_click}) => {
+function MobileMenu({links, activeLink, on_click}: NavMenuProps) {
   return (
     <>
       <div className="fixed top-0 w-full min-h-screen z-20">
         <div className="flex">
           <div className="z-40 w-full pt-4">
             <div className="flex w-full justify-end">
-              <button onClick={handle_click} className="p-2">
+              <button onClick={on_click} className="p-2">
                 <CloseIcon className="active:text-muted-white" />
               </button>
             </div>
             <ul className="p-5">
               {links.map((link: NavLink, i: number) => {
                 return <li key={link.name} className="mb-3 mt-3 opacity-0 animate-fade-up" style={{animationDelay: `${(i + 1) * 100}ms`}}>
-                  <Link href={link.target} onClick={handle_click} 
+                  <Link href={link.target} onClick={on_click} 
                     className={`text-7xl no-underline ${meslo.variable} font-meslo font-bold ${link.target === activeLink ? " text-orange" : ""}`}
                     aria-current={link.target === activeLink ? "page" : undefined}
                   >
@@ -121,5 +121,3 @@ const MobileMenu: React.FC<NavMenuProps> = ({links, activeLink, handle_click}) =
     </>
   )
 }
-
-export default Navbar;

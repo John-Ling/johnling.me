@@ -8,11 +8,9 @@ import WhenSection from "./sections/when_section";
 import WhereSection from "./sections/where_section";
 import WhySection from "./sections/why_section";
 
-import style from "./homepage.module.css";
-
 import { update_fade_entries, update_flicker_entries, options } from "./homepage_observers";
 
-const AboutSection = () => {
+export default function AboutSection() {
   // attach intersection observers for on-scroll animations
   useEffect(() => {
     const fadeObserver = new IntersectionObserver(update_fade_entries, options);
@@ -42,7 +40,7 @@ const AboutSection = () => {
 
   return (
     <>
-      <div className={`flex flex-col items-center ${style.homepage}`}>
+      <div className="flex flex-col items-center">
         <WhoSection />
         <WhatSection />
         <WhenSection />
@@ -52,5 +50,3 @@ const AboutSection = () => {
     </>
   );
 }
-
-export default AboutSection;

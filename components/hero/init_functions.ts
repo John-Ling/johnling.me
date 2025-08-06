@@ -3,7 +3,7 @@ interface HeroSize {
     height: number;
   }
 
-export const check_special = () => {
+export function check_special() {
   if (typeof window !== "undefined") {
     const searchParams = new URLSearchParams(window.location.search);
     return searchParams.has("apple");
@@ -12,7 +12,7 @@ export const check_special = () => {
   return false;
 }
 
-export const init_size = (specialEnabled: boolean) => { 
+export function init_size(specialEnabled: boolean) { 
   if (typeof window === "undefined") {
     return {width: 65, height: 20} as HeroSize;
   }
@@ -26,7 +26,7 @@ export const init_size = (specialEnabled: boolean) => {
 }
 
 
-export const select_animation = (specialEnabled: boolean) => {
+export function select_animation(specialEnabled: boolean) {
   if (specialEnabled) {
     return "BAPPLE";
   }

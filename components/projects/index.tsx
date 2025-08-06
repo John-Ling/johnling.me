@@ -7,52 +7,47 @@ import Image from "next/image";
 import { meslo } from "@/lib/font";
 
 
-const ProjectsPage = () => {
-  const [selectedProject, setSelectedProject] = useState<Project>();
+export default function ProjectsPage() {
+  const [selectedProject, setSelectedProject] = useState<Project | undefined>(undefined);
   const [opened, setOpened] = useState<boolean>(false);
   const projectCardRef = useRef(null);
 
   // allow user to use ESC key to leave project card
   useEffect(() => {
-    const handleEscape = (event: KeyboardEvent) => {
+    const on_escape = (event: KeyboardEvent) => {
       if (event.isComposing || event.key === "Escape") {
         setOpened(false);
       }
       return;
     }
 
-    document.addEventListener("keydown", handleEscape);
+    document.addEventListener("keydown", on_escape);
     return () => {
-      document.removeEventListener("keydown", handleEscape);
+      document.removeEventListener("keydown", on_escape);
     }
   }, []);
 
-  const handleProjectSelect = (project: Project) => {
+  const on_project_select = (project: Project) => {
     setSelectedProject(project);
     setOpened(true);
     return;
   }
 
-  const closeCard = () => {
+  const on_close = () => {
     setOpened(false);
     return;
   }
 
   return (
     <>
-      { opened && selectedProject !== undefined ? 
-          <span>
-            <ProjectCard project={selectedProject} handleClose={closeCard}/>
-            </span> 
-        : <></>
-      }
+      { opened && selectedProject !== undefined ? <ProjectCard project={selectedProject} on_close={on_close}/> : null }
       <div ref={projectCardRef} className="min-h-screen w-11/12 lg:w-10/12 m-auto mt-5 mb-5 ">
         <h1 className={`text-4xl mt-5 mb-5 text-[#2e2e2e] animate-flicker-on ${meslo.variable} font-meslo`} style={{animationDelay: "1000ms"}}>Projects</h1>
         <h2 className="text-2xl">I&apos;ve done too many.</h2>
         <h3 className="mb-5">Here are some of the best.</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  opacity-0 animate-fade-up">  
           {projects.map((project: Project, i: number) => {
-            return <ProjectItem key={i} project={project} position={i} handleSelect={handleProjectSelect}/>
+            return <ProjectItem key={i} project={project} position={i} on_select={on_project_select}/>
           })}
         </div>
       </div>
@@ -60,15 +55,13 @@ const ProjectsPage = () => {
   )
 }
 
-export default ProjectsPage;
-
 interface ProjectItemProps {
   project: Project,
   position: number,
-  handleSelect: (project: Project) => void,
+  on_select: (project: Project) => void,
 }
 
-const ProjectItem: React.FC<ProjectItemProps> = ({ project, position, handleSelect }) => {
+function ProjectItem({ project, position, on_select }: ProjectItemProps) {
   const colours: string[] = ["text-blue", "text-magenta", "text-teal", "text-green", "text-yellow", "text-orange-light", "text-red"];
   const colourClass: string = colours[position % colours.length];
   const projectFolder = `/images/projects/${project.imageFolder}/0.png`;
@@ -89,30 +82,35 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project, position, handleSele
               src={projectFolder}
               width={1280}
               height={720}
-              onClick={() => handleSelect(project)}
+              onClick={() => on_select(project)}
             />
           </div>        
         }
-      <ul className="flex flex-wrap mt-1 mb-2">
-        {project.tags.map((tag: string) => {
-          return <li key={tag} className="p-1 text-sm"><span className="bg-grey-light border-1 pl-1 pr-1">{tag}</span></li>
-        })}
-      </ul>
+        <ul className="flex flex-wrap mt-1 mb-2">
+          {project.tags.map((tag: string) => {
+            return <li key={tag} className="p-1 text-sm"><span className="bg-grey-light border-1 pl-1 pr-1">{tag}</span></li>
+          })}
+        </ul>
       </div>
     </>
   );
 }
 
-const ProjectCard: React.FC<{project: Project, handleClose: () => void}> = ({project, handleClose}) => {
+interface ProjectCardProps {
+  project: Project;
+  on_close: () => void;
+}
+
+function ProjectCard({project, on_close}: ProjectCardProps) {
   const projectFolder = `/images/projects/${project.imageFolder}/0.png`;
   return (
   <>
     {/* darken background */}
     <div className="fixed top-0 w-full min-h-screen flex justify-center items-center z-20">
-        <div className="absolute w-full h-full bg-grey-dark bg-opacity-80 z-30" onMouseDown={handleClose}></div>
+        <div className="absolute w-full h-full bg-grey-dark bg-opacity-80 z-30" onMouseDown={on_close}></div>
         <div className="bg-grey-dark border-2 border-grey-light p-3 animate-fade-up opacity-0 flex w-11/12 lg:w-10/12 h-5/6 flex-col lg:flex-row z-40">
           {/* button at top of card above picture for tablet and mobile */}
-          <button className="block lg:hidden ml-auto w-fit mb-3 " onClick={handleClose}>
+          <button className="block lg:hidden ml-auto w-fit mb-3 " onClick={on_close}>
               <CloseIcon className="hover:text-muted-white active:text-muted-white"/>
             </button>
           <div className="mb-5 lg:mr-5">
@@ -120,7 +118,7 @@ const ProjectCard: React.FC<{project: Project, handleClose: () => void}> = ({pro
           </div>
           <div className="flex flex-col w-full lg:w-2/5 min-h-80">
             {/* button above description for desktop */}
-            <button className="hidden lg:block ml-auto w-fit" onClick={handleClose}>
+            <button className="hidden lg:block ml-auto w-fit" onClick={on_close}>
               <CloseIcon className="hover:text-muted-white active:text-muted-white"/>
             </button>
             <h1 className={`text-xl md:text-2xl mb-2 mt-2 ${meslo.style} font-meslo`}>{project.title}</h1>

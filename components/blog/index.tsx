@@ -2,7 +2,7 @@ import { get_sorted_posts } from "@/lib/posts";
 import { meslo } from "@/lib/font";
 import Link from "next/link";
 
-const BlogPage = () => {
+export default function BlogPage() {
   const posts: BlogPost[] = get_sorted_posts();
   return (
     <div className="flex flex-col items-center min-h-screen p-5">
@@ -27,9 +27,12 @@ const BlogPage = () => {
   );
 }
 
-export default BlogPage;
+interface PostComponentProps {
+  post: BlogPost;
+  position: number;
+}
 
-const PostComponent: React.FC<{post: BlogPost, position: number}> = ({post, position}) => {
+function PostComponent({post, position}: PostComponentProps) {
   const colours: string[] = ["text-blue", "text-magenta", "text-teal", "text-green", "text-yellow", "text-orange-light", "text-red"];
   const colourClass: string = colours[position % colours.length];
   return (
