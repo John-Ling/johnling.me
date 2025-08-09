@@ -4,9 +4,9 @@ import Image from "next/image";
 
 const WhatSection = () => {
   return (
-    <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-10 lg:w-3/4">
+    <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-10 lg:w-3/4 max-w-[1920px]">
       <div className="relative lg:w-1/2 order-2 lg:order-1">
-        <Image className="hidden md:block absolute border-0 top-[15vh] z-0 opacity-0 trigger-fade-on-scroll pointer-events-none select-none" src={wires_bottom_2} loading="eager" alt=""/>  
+        <Image className="hidden md:block absolute border-0 top-[8vh] z-0 opacity-0 trigger-fade-on-scroll pointer-events-none select-none" src={wires_bottom_2} loading="eager" alt=""/>  
         <div 
         className="grid grid-cols-4 justify-center bg-grey-dark border-2
                   border-grey-light order-2 lg:order-1 gap-5 pt-10 pb-10 pr-5 pl-5 text-center opacity-0 trigger-fade-on-scroll z-50"
@@ -27,7 +27,7 @@ const WhatSection = () => {
           most comfortable with Python, Javascript (React) and maybe some C.
         </p>
         <p className="mb-5">
-          I don&apos;t subscribe to a particular &quot;Tech Stack&quot; since I don&apos;t like pigeonholing myself to a single way of building.
+          I don&apos;t subscribe to a particular &quot;Tech Stack&quot; since I don&apos;t like limiting myself to a single method of doing things.
         </p>
         <p>
           For me, the KISS (Keep It Simple Stupid) principle is a valid approach to development 

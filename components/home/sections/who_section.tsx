@@ -3,7 +3,7 @@ import myself from "@/public/images/homepage/myself.jpg";
 
 const WhoSection = () => {
   return (
-    <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-10 lg:w-3/4">
+    <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-10 lg:w-4/5 max-w-[1920px]">
       <div className="lg:w-1/2">
         <h2 className="text-6xl lg:text-7xl text-red" style={{animationDelay: "600ms"}}>Who?</h2>
         <h3 className="text-3xl mb-3 mt-3 font-bold">A bit more about me</h3>
@@ -21,7 +21,7 @@ const WhoSection = () => {
           Beyond programming, I enjoy the piano, hobby electronics and homelabbing.
         </p>
       </div>
-      <div className="w-3/4 lg:w-1/2">
+      <div className="w-4/5 lg:w-1/2">
         <Image className="opacity-0 trigger-fade-on-scroll" style={{animationDelay: "0ms"}}  
           src={myself} alt="Picture of the creator of the website"
         />

@@ -24,11 +24,11 @@ const config: Config = {
           light: "#22262E",
           normal: "#171A1F",
           dark: "#0D0F12",
-          card: "#0D0F12"
+          card: "#14171b"
         },
         "blue": "#82AAFF",
         "green": "#50FA7B",
-        "red": "#d22d43",
+        "red": "#e43b58",
         "yellow": "#FFCB6B",
         "magenta": "#C792EA",
         "cyan": "#8BE9FD",

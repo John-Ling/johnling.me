@@ -10,28 +10,28 @@ import server from "@/public/images/homepage/server.jpg";
 
 const WhenSection = () => {
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-center lg:flex-row p-5 gap-10">
+    <section className="min-h-screen w-full flex flex-col items-center justify-center lg:flex-row p-5 gap-10 max-w-[1920px]">
       {/* left image grid */}
       <div className="hidden lg:w-1/4 md:grid grid-cols-3 gap-2">
-        <div className="where-section-picture opacity-0 lg:col-start-2" style={{animationDelay: "200ms"}}>
+        <div className="where-section-picture opacity-0 lg:col-start-2" style={{animationDelay: "300ms"}}>
           <Image loading="eager" className=" w-3/5 lg:w-auto lg:-translate-x-12 lg:-translate-y-12" 
             src={server} 
             alt="The creator's first server setup" 
           />
         </div>
         <div className="where-section-picture opacity-0 row-start-1 col-start-2 lg:row-start-1 lg:col-start-3 w-3/5 lg:w-auto" 
-          style={{animationDelay: "100ms"}}
+          style={{animationDelay: "200ms"}}
         >
           <Image className="lg:-translate-x-4 lg:translate-y-8" 
             src={pc} alt="The creator's first computer" />
         </div>
-        <div className="where-section-picture opacity-0 lg:col-start-2 lg:col-span-2 w-auto" style={{animationDelay: "300ms"}}>
+        <div className="where-section-picture opacity-0 lg:col-start-2 lg:col-span-2 w-auto" style={{animationDelay: "100ms"}}>
           <Image className="lg:-translate-x-8 lg:translate-y-20" src={laptop_1} alt="Creator's laptop with some nice code"/>
         </div>
       </div>
 
       {/* content */}
-      <div className="lg:w-1/3 trigger-fade-on-scroll" id="where-section">
+      <div className="lg:w-2/5 trigger-fade-on-scroll" id="where-section">
         <h2 className="text-6xl lg:text-7xl text-blue" style={{animationDelay: "800ms"}}>When?</h2>
         <h3 className="text-3xl mb-3 mt-3 font-bold">Where it all began</h3>
         <p className="mb-5">
@@ -43,12 +43,12 @@ const WhenSection = () => {
         <p className="mb-10">
           I had a lot of fun making it so I&apos;ve continued programming and have created many more projects.
         </p>
-        <Link href="/projects" className="no-underline bg-grey-dark p-3 hover:bg-[#101010] hover:text-[#E0E0E0]">See My Projects</Link>
+        <Link href="/projects" className="no-underline bg-grey-card border-2 border-grey-light p-3 hover:bg-[#101010] hover:text-[#E0E0E0]">See My Projects</Link>
       </div>
 
       {/* right image grid */}
       <div className="hidden lg:w-1/4 md:grid grid-cols-3 gap-2">
-        <div className="where-section-picture opacity-0 lg:col-start-1 lg:col-span-2  lg:w-auto " style={{animationDelay: "100ms"}}>
+        <div className="where-section-picture opacity-0 lg:col-start-1 lg:col-span-2  lg:w-auto " style={{animationDelay: "400ms"}}>
           <Image className="lg:-translate-x-16" src={electronics_1} alt="More electronics" />
         </div>
         <div className="where-section-picture opacity-0 lg:col-start-2 lg:row-start-2 w-1/2 lg:w-auto" style={{animationDelay: "300ms"}}>
