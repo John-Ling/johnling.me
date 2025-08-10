@@ -12,9 +12,9 @@ export const projects: Project[] = [
     title: "RAMBLE", dateRange: "July 2025 - Present",
     description: `
       Finally got around to rebuilding Ramble into how I imagined it. It's a full-stack journalling app with a simple, uncluttered UI. 
-      Alongside it's journalling features, I'm working on integrating Langchain for an opt-in RAG feature allowing users to ask questions about themselves and get insight.
+      Alongside it's journalling features, I'm working on integrating Langchain for \n\n\n\n\nan opt-in RAG feature allowing users to ask questions about themselves and get insight.
       Later, I hope to add emotion analysis to allow users to view plots of their emotions based on their entries, providing analytics for wellbeing.
-      Planning to enter this one into a startup contest at my university`,
+      Planning to enter this one into a startup contest at my university. It's going to be good let me cook.`,
     imageFolder: "ramble-2",
     sourceURL: null,
     tags: ["NextJS", "Shadcn UI", "FastAPI", "MongoDB", "Next-Auth", "Redis", "Vercel"],

@@ -115,7 +115,7 @@ function ProjectCard({project, on_close}: ProjectCardProps) {
               <CloseIcon className="hover:text-muted-white active:text-muted-white"/>
             </button>
           <div className="mb-5 lg:mr-5">
-            <Image src={projectFolder} width={1280} height={720} alt="Project image" />
+            <Image className="border-2 rounded-lg" src={projectFolder} width={1280} height={720} alt="Project image" />
           </div>
           <div className="flex flex-col w-full lg:w-2/5 min-h-80">
             {/* button above description for desktop */}
@@ -124,18 +124,18 @@ function ProjectCard({project, on_close}: ProjectCardProps) {
             </button>
             <h1 className={`text-xl md:text-2xl mb-2 mt-2 ${meslo.style} font-meslo`}>{project.title}</h1>
             <h3 className="text-sm mb-2 italic text-muted-white">{project.dateRange}</h3>
-            <p className="mb-2 pb-1 pt-1 max-h-44 overflow-y-auto">{project.description}</p>
-            <a className={`text-sm no-underline mb-2 w-fit ${project.sourceURL === null ? "pointer-events-none text-muted-white" : ""}`} 
-              href={project.sourceURL !== null ? project.sourceURL : "/"} 
-              target="_blank" rel="noopener"
-            >
-              <GitHubIcon sx={{ fontSize: 20 }} /><span className="align-middle"> Github</span>
-            </a>
             <ul className="flex flex-wrap mt-1 mb-2">
               {project.tags.map((tag: string) => {
                 return <li key={tag} className="p-1 text-xs"><span className="bg-grey-light border-1 pl-1 pr-1">{tag}</span></li>
               })}
             </ul>
+            <a className={`text-sm no-underline mb-2 w-fit ${project.sourceURL === null ? "pointer-events-none text-muted-white" : ""}`} 
+              href={project.sourceURL !== null ? project.sourceURL : "/"} 
+              target="_blank" rel="noopener"
+              >
+                <GitHubIcon sx={{ fontSize: 20 }} /><span className="align-middle"> Github</span>
+            </a>
+            <p className="mb-2 pb-1 pt-1 max-h-fit overflow-y-auto">{project.description}</p>
           </div>
         </div>
       </div>

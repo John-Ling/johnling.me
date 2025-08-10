@@ -16,8 +16,15 @@ export function update_fade_entries(entries: IntersectionObserverEntry[], observ
                     element.classList.add("animate-fade-up");
                 });  
                 break;
-            case "where-section":
-                document.querySelectorAll(".where-section-picture").forEach((element: Element) => {
+            case "where-form":
+                console.log("Where form");
+                entry.target.classList.add("animate-fade-up");
+                document.querySelectorAll(".where-form-input").forEach((element: Element) => {
+                    element.classList.add("animate-fade-up");
+                })
+                break;
+            case "when-section":
+                document.querySelectorAll(".when-section-picture").forEach((element: Element) => {;
                     element.classList.add("animate-fade-up"); 
                 });
                 break;

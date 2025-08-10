@@ -222,7 +222,7 @@ function HeroComponent({ specialEnabled, rendered, playing, framebuffer, audioRe
   );
 }
 
-const HeroIcons = () => {
+function HeroIcons() {
   return (
     <div className="opacity-0 animate-fade-up flex flex-row justify-center md:justify-start" style={{ animationDelay: "400ms" }}>
       <div className="opacity-0 animate-fade-up">
@@ -259,7 +259,7 @@ const HeroIcons = () => {
   )
 }
 
-const HeroInformation = () => {
+function HeroInformation() {
  return (
   <div className="mt-6">
     <p className="opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}>

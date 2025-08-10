@@ -49,21 +49,37 @@ const WhereSection = () => {
       </div>
       <div className="lg:w-1/2">
         <h4 className="text-2xl font-bold mb-4">Leave me a Message</h4>
-        <form className="flex flex-col w-full" onSubmit={on_submit}>
+        <form className="flex flex-col w-full opacity-0 trigger-fade-on-scroll" 
+              onSubmit={on_submit} style={{animationDelay: "100ms"}} id="where-form"
+        >
           <input disabled={status !== "unsent"} 
-                className={`pl-3  outline-none pr-3 pt-2 pb-2 mb-2 bg-grey-card border-2 border-grey-light ${status !== "unsent" ? "text-muted-white" : "text-white"}`} 
+                className={`opacity-0 where-form-input pl-3  outline-none pr-3 pt-2 pb-2 mb-2 
+                          bg-grey-card border-2 border-grey-light 
+                          ${status !== "unsent" ? "text-muted-white" : "text-white"}`} 
                 placeholder="Subject" 
                 type="text" 
                 content={emailSubject} 
                 onChange={(e) => setEmailSubject(e.target.value)}
+                style={{animationDelay: "200ms"}}
           />
-          <textarea  className={`resize-none outline-none p-2 bg-grey-card border-2 border-grey-light h-96 mb-2 text-md ${status !== "unsent" ? "text-muted-white" : ""}`} 
-                    disabled={status !== "unsent"}  placeholder='Content' content={emailBody} onChange={(e) => setEmailBody(e.target.value)} 
+          <textarea className={`opacity-0 where-form-input resize-none outline-none p-2 bg-grey-card border-2
+                               border-grey-light h-96 mb-2 text-md 
+                               ${status !== "unsent" ? "text-muted-white" : ""}`} 
+                    disabled={status !== "unsent"}  
+                    placeholder='Content' 
+                    content={emailBody} onChange={(e) => setEmailBody(e.target.value)} 
+                    style={{animationDelay: "300ms"}}
           />
           <button disabled={status !== "unsent"} 
-            className={`pl-4 pr-4 pt-1 pb-1 outline-none self-start bg-grey-card border-2 border-grey-light ${status !== "unsent" ? "text-muted-white" : ""} ${ status === "unsent" ? "hover:bg-[#101010] hover:text-[#E0E0E0]}" : ""} `}
-
-            type="submit">{status === "sending" ? "Sending" : status === "sent" ? "Sent!" : "Send"}</button>
+                  className={`opacity-0 where-form-input pl-4 pr-4 pt-1 pb-1 outline-none self-start 
+                      bg-grey-card border-2 border-grey-light 
+                      ${status !== "unsent" ? "text-muted-white" : ""} 
+                      ${ status === "unsent" ? "hover:bg-[#101010] hover:text-[#E0E0E0]}" : ""}`}
+            type="submit"
+            style={{animationDelay: "400ms"}}
+          >
+              {status === "sending" ? "Sending" : status === "sent" ? "Sent!" : "Send"}
+          </button>
         </form>
       </div>
     </section>
