@@ -26,7 +26,7 @@ const WhereSection = () => {
 
   return (
     <section className="min-h-screen flex flex-col lg:w-3/4 justify-center max-w-[1920px]" id="contact">
-      <h2 className="text-6xl lg:text-7xl text-magenta" style={{animationDelay: "600ms"}}>Where?</h2>
+      <h2 className="text-6xl lg:text-7xl text-magenta text-center lg:text-left " style={{animationDelay: "600ms"}}>Where?</h2>
       <h3 className="text-3xl mb-3 mt-3 font-bold opacity-0 trigger-fade-on-scroll" style={{animationDelay: "1000ms"}}>(can you find me)</h3>
       <div className="opacity-0 trigger-fade-on-scroll flex flex-col mb-4 text-center lg:text-left" style={{animationDelay: "200ms"}}>
         <h4 className="text-2xl font-bold mb-4">My Socials</h4>
@@ -57,12 +57,13 @@ const WhereSection = () => {
                 content={emailSubject} 
                 onChange={(e) => setEmailSubject(e.target.value)}
           />
-          <textarea  className={`resize-none outline-none p-2 bg-grey-card border-2 border-grey-light h-96 mb-2 text-sm ${status !== "unsent" ? "text-muted-white" : ""}`} 
-                    disabled={status !== "unsent"}  content={emailBody} onChange={(e) => setEmailBody(e.target.value)} 
+          <textarea  className={`resize-none outline-none p-2 bg-grey-card border-2 border-grey-light h-96 mb-2 text-md ${status !== "unsent" ? "text-muted-white" : ""}`} 
+                    disabled={status !== "unsent"}  placeholder='Content' content={emailBody} onChange={(e) => setEmailBody(e.target.value)} 
           />
           <button disabled={status !== "unsent"} 
             className={`pl-4 pr-4 pt-1 pb-1 outline-none self-start bg-grey-card border-2 border-grey-light ${status !== "unsent" ? "text-muted-white" : ""} ${ status === "unsent" ? "hover:bg-[#101010] hover:text-[#E0E0E0]}" : ""} `}
-            type="submit">{status === "sent" ? "Sent!" : "Send"}</button>
+
+            type="submit">{status === "sending" ? "Sending" : status === "sent" ? "Sent!" : "Send"}</button>
         </form>
       </div>
     </section>

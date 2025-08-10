@@ -55,7 +55,7 @@ const SkillsDisplay = () => {
     {classInfo: "devicon-docker-plain text-blue", label: "Docker"},
     {classInfo: "devicon-c-plain text-[#9aa5ce]", label: "C"},
     {classInfo: "devicon-vercel-original text-white", label: "Vercel"},
-    {classInfo: "devicon-express-original text-white", label: "Express"},
+    {classInfo: "devicon-mongodb-plain text-green", label: "MongoDB"},
     {classInfo: "devicon-mysql-plain text-blue", label: "MySQL"},
     {classInfo: "devicon-nodejs-plain-wordmark text-green", label: "NodeJS"},
     {classInfo: "devicon-ubuntu-plain text-orange-light", label: "Ubuntu"}
