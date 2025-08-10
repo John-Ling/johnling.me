@@ -20,7 +20,7 @@ export const projects: Project[] = [
     tags: ["NextJS", "Shadcn UI", "FastAPI", "MongoDB", "Next-Auth", "Redis", "Vercel"],
   },
   {
-    title: "Krux Infra (Internship Project 2)", dateRange: "November 2024 - February 2025",
+    title: "Internship Project 2: Krux Infra", dateRange: "November 2024 - February 2025",
     description: `
       Completed as part of my internship project to build the frontend for a trade application system. I collaborated with both a graphic designer and
       worked under the supervision of a senior engineer (both very cool guys). I picked up Angular and Formly in order to build the interface and got to brush up on my
@@ -34,7 +34,9 @@ export const projects: Project[] = [
       description: `
         Rebuilding my website using React, NextJS and Tailwind mainly to learn some newer web technologies, 
         partly to one-up my friend who was making his own website. 
-        Added some cool gimmicks such as an ASCII display on the front page.`,
+        Added some cool gimmicks such as an ASCII display on the front page.
+        I also figured out how to play Bad Apple on it.
+        Visit johnling.me?apple`,
       imageFolder: "website-rebuild",
       sourceURL: "https://github.com/John-Ling/johnling.me",
       tags: ["React", "NextJS", "TailwindCSS", "Vercel"],
@@ -79,14 +81,14 @@ export const projects: Project[] = [
       
     },
     {
-      title: "RAG System (Internship Project 1)", dateRange: "November 2023 - November 2023",
+      title: "Internship Project 1: RAG System", dateRange: "November 2023 - December 2023",
       description: `
         Fullstack web app and RAG system that allowed users ask questions and received tailored financial advice 
         for over 1000 Malaysian companies. I used Flask and React with MySQL to store \"metadata\" 
         about companies. Used Docker but never ended up deploying.`,
       imageFolder: "internship-1",
       sourceURL: "https://github.com/John-Ling/Internship-Project",
-      tags: ["MySQL", "React", "Flask", "Sass", "Docker"],
+      tags: ["MySQL", "Vite", "React", "Flask", "Sass", "Docker"],
     },
     {
       title: "wikihopper.johnling.me", dateRange: "July 2022 - July 2022",
@@ -95,7 +97,7 @@ export const projects: Project[] = [
         from one to another in 10 hops or less. Created because I wanted something fun to play on my phone.`,
       sourceURL: "https://github.com/John-Ling/wikipedia-hopper",
       imageFolder: "wikihopper",
-      tags: ["React", "Sass"],
+      tags: ["React", "Sass", "Vite", "Docker", "NGINX"],
     },
     // {
     //   title: "Arduino Smart Lock", dateRange: "June 2023 - September 2023",
@@ -124,7 +126,7 @@ export const projects: Project[] = [
         I even added some basic type checking. Didn't like C++ though.`,
       imageFolder: "compiler",
       sourceURL: "https://github.com/John-Ling/Pseudocode-Compiler",
-      tags: ["C++"],
+      tags: ["C++", "Make"],
     },
     // {
     //   title: "johnling.me", dateRange: "June 2022 - August 2022",
@@ -171,29 +173,29 @@ export const projects: Project[] = [
     //   imageFolder: "fundamentals",
     //   tags: ["C"],
     // },
-    // {
-    //   title: "CS50", dateRange: "August 2021 - August 2022",
-    //   description: `
-    //     Completed Harvard's CS50 intro to computer science course while doing school.
-    //     It was pretty hard but I learned a lot.
-    //   `,
-    //   sourceURL: null,
-    //   imageFolder: "cs50",
-    //   tags: ["C", "Python", "SQL", "HTML", "Javascript", "CSS"]
-    // },
-    // {
-    //   title: "Linux Shenanigians", dateRange: "May 2020 - Present",
-    //   description:  `
-    //     Had time thanks for a worldwide pandemic so I installed Arch Linux and KDE plasma onto my computers.
-    //     Learned a lot about Linux and had fun ricing my system.
-    //     I even got GPU passthrough working on my system to run both Windows and macOS virtual machines with discrete graphics.
-    //     Learned to compile my own kernel to get things working (ACS override).
-    //     Spent way too much time I could have spent socialising but I had fun :)
-    //   `,
-    //   sourceURL: null,
-    //   imageFolder: "linux",
-    //   tags: ["Bash", "Linux", "KVM", "VFIO", "I", "Use", "Arch", "BTW"]
-    // },
+    {
+      title: "CS50", dateRange: "August 2021 - August 2022",
+      description: `
+        Completed Harvard's CS50 intro to computer science course while doing school.
+        It was pretty hard but I learned a lot.
+      `,
+      sourceURL: null,
+      imageFolder: "cs50",
+      tags: ["C", "Python", "SQL", "HTML", "Javascript", "CSS"]
+    },
+    {
+      title: "Linux Shenanigians", dateRange: "May 2020 - Present",
+      description:  `
+        Had time thanks for a worldwide pandemic so I installed Arch Linux and KDE plasma onto my computers.
+        Learned a lot about Linux and had fun ricing my system.
+        I even got GPU passthrough working on my system to run both Windows and macOS virtual machines with discrete graphics.
+        Learned to compile my own kernel to get things working (ACS override).
+        Spent way too much time I could have spent socialising but I had fun :)
+      `,
+      sourceURL: null,
+      imageFolder: "linux",
+      tags: ["Bash", "Linux", "KVM", "VFIO", "I", "Use", "Arch", "BTW"]
+    },
     // {
     //   title: "Covid Companion", dateRange: "February 2020 - March 2020",
     //   description: `
@@ -204,14 +206,14 @@ export const projects: Project[] = [
     //   imageFolder: "companion",
     //   tags: ["Python", "Tkinter", "BeautifulSoup"],
     // },
-    // {
-    //   title: "The Kahoot Bot™", dateRange: "September 2019 - September 2019",
-    //   description: `
-    //     The Original Kahoot Bot and my first project ever. 
-    //     Filled with top quality code such as unintentional recursion, Singleton design (i used globals everywhere)
-    //     and a codebase that boldly rejects OOP (i didn't know how to use classes).`,
-    //   sourceURL: null,
-    //   imageFolder: "kahoot-original",
-    //   tags: ["Python", "Selenium"],
-    // }
+    {
+      title: "The Kahoot Bot™", dateRange: "September 2019 - September 2019",
+      description: `
+        The Original Kahoot Bot and my first project ever. 
+        Filled with top quality code such as unintentional recursion, Singleton design (i used globals everywhere)
+        and a codebase that boldly rejects OOP (i didn't know how to use classes).`,
+      sourceURL: null,
+      imageFolder: "kahoot-original",
+      tags: ["Python", "Selenium"],
+    }
   ];
