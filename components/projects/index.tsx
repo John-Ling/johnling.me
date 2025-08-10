@@ -135,7 +135,7 @@ function ProjectCard({project, on_close}: ProjectCardProps) {
               >
                 <GitHubIcon sx={{ fontSize: 20 }} /><span className="align-middle"> Github</span>
             </a>
-            <p className="mb-2 pb-1 pt-1 max-h-fit overflow-y-auto">{project.description}</p>
+            <p className="mb-2 pb-1 pt-1 max-h-52 lg:max-h-fit overflow-y-auto">{project.description}</p>
           </div>
         </div>
       </div>

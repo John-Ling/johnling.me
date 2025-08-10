@@ -112,6 +112,8 @@ export const projects: Project[] = [
       title: "Trello Tabliss Integration", dateRange: "January 2023 - May 2023",
       description: `
         Fork of browser extension Tabliss with Trello interoperability. 
+        Any changes I make to my personal Trello board are are reflected in the UI.
+        Honestly it's really useful for figuring out what I need to do at the start of my day.
         Made with NodeJS, Firebase and React.
       `,
       sourceURL: "https://github.com/John-Ling/Tabliss-Trello-Integration/tree/main/src/plugins/widgets/trello",
@@ -128,13 +130,13 @@ export const projects: Project[] = [
       sourceURL: "https://github.com/John-Ling/Pseudocode-Compiler",
       tags: ["C++", "Make"],
     },
-    // {
-    //   title: "johnling.me", dateRange: "June 2022 - August 2022",
-    //   description: `Personal website about me and my projects. Built using Bootstrap, Sass and a smattering of Javascript.`,
-    //   sourceURL: "https://github.com/John-Ling/johnling.me",
-    //   imageFolder: "johnling",
-    //   tags: ["Bootstrap", "Sass", "Javascript", "NGINX"],
-    // },
+    {
+      title: "johnling.me", dateRange: "June 2022 - August 2022",
+      description: `Personal website about me and my projects. Built using Bootstrap, Sass and a smattering of Javascript.`,
+      sourceURL: "https://github.com/John-Ling/johnling.me",
+      imageFolder: "johnling",
+      tags: ["Bootstrap", "Sass", "Javascript", "NGINX"],
+    },
     {
       title: "Cameraman", dateRange: "November 2021 - February 2022",
       description: `Uses microcontrollers, 
