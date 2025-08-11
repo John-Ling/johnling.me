@@ -3,7 +3,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 import { FormEvent, useState } from 'react';
-import emailjs from '@emailjs/browser';
+//import emailjs from '@emailjs/browser';
 
 
 const WhereSection = () => {
