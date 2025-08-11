@@ -10,7 +10,7 @@ import server from "@/public/images/homepage/server.jpg";
 
 const WhenSection = () => {
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-center lg:flex-row p-5 gap-10 max-w-[1920px]">
+    <section className="min-h-screen w-full flex flex-col items-center justify-center lg:flex-row p-5 gap-10">
       {/* left image grid */}
       <div className="hidden lg:w-1/4 md:grid grid-cols-3 gap-2">
         <div className="when-section-picture opacity-0 lg:col-start-2" style={{animationDelay: "300ms"}}>

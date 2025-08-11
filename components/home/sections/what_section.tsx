@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const WhatSection = () => {
   return (
-    <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-10 lg:w-3/4 max-w-[1920px]">
+    <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-10 lg:w-11/12 xl:w-3/4">
       <div className="relative lg:w-1/2 order-2 lg:order-1">
         <Image className="hidden md:block absolute border-0 top-[17vh] z-0 opacity-0 trigger-fade-on-scroll pointer-events-none select-none" src={wires_bottom_2} loading="eager" alt=""/>  
         <div 
@@ -55,12 +55,12 @@ const SkillsDisplay = () => {
     {classInfo: "devicon-tailwindcss-plain text-cyan", label: "Tailwind"},
     {classInfo: "devicon-nextjs-original-wordmark text-white", label: "NextJS"},
     {classInfo: "devicon-fastapi-plain text-blue", label: "FastAPI"},
-    {classInfo: "devicon-java-plain text-red", label: "Java"},
+    {classInfo: "devicon-git-plain text-orange-light", label: "Git"},
     {classInfo: "devicon-c-plain text-[#9aa5ce]", label: "C"},
     {classInfo: "devicon-vercel-original text-white", label: "Vercel"},
     {classInfo: "devicon-docker-plain text-blue", label: "Docker"},
     {classInfo: "devicon-mongodb-plain text-green", label: "MongoDB"},
-    {classInfo: "devicon-git-plain text-red", label: "Git"},
+    {classInfo: "devicon-java-plain text-red", label: "Java"},
     {classInfo: "devicon-mysql-plain text-blue", label: "MySQL"},
     {classInfo: "devicon-nodejs-plain-wordmark text-green", label: "NodeJS"},
     {classInfo: "devicon-cplusplus-plain text-blue", label: "C++"},

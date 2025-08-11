@@ -15,17 +15,17 @@ const WhereSection = () => {
 
   const on_submit = async (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      if (process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID === undefined || process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID === undefined) return;
+      // if (process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID === undefined || process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID === undefined) return;
       setStatus("sending");
-      await emailjs.send(process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID, 
-                        process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID, 
-                        {title: emailSubject, name: "user", message: emailBody}, 
-                        process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY); 
-      setStatus("sent");
+      setTimeout(() => setStatus("sent"), 3000);
+      // await emailjs.send(process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID, 
+      //                   process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID, 
+      //                   {title: emailSubject, name: "user", message: emailBody}, 
+      //                   process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY); 
   }
 
   return (
-    <section className="min-h-screen flex flex-col lg:w-3/4 justify-center max-w-[1920px]" id="contact">
+    <section className="min-h-screen flex flex-col lg:w-11/12 xl:w-3/4 justify-center" id="contact">
       <h2 className="text-6xl lg:text-7xl text-magenta text-center lg:text-left " style={{animationDelay: "600ms"}}>Where?</h2>
       <h3 className="text-3xl mb-3 mt-3 font-bold opacity-0 trigger-fade-on-scroll" style={{animationDelay: "1000ms"}}>(can you find me)</h3>
       <div className="opacity-0 trigger-fade-on-scroll flex flex-col mb-4 text-center lg:text-left" style={{animationDelay: "200ms"}}>
