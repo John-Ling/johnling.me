@@ -33,12 +33,21 @@ body {
 }
 
 a {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 a:hover {
-    color: theme("colors.orange");
+    border-bottom: solid 2px theme("colors.orange");
 }
+
+.navlink:hover {
+    border-bottom: unset !important;
+}
+
+.icon-link:hover {
+    border-bottom: unset !important;
+}
+
 
 img {
     border: solid 4px theme("colors.grey.light");

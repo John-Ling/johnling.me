@@ -30,7 +30,7 @@ export default function Navbar() {
   const path: string = '/' + usePathname().split("/")[1];
   return (
     <nav className={`select-none justify-between items-center transition-all duration-10 ${open ? "bg-grey-normal" : "bg-opacity-0 " }  flex flex-row pt-3`}>  
-      <Link href="/" className={`tracking-wider hover:text-white text-2xl md:self-center ml-3 md:ml-10 no-underline font-bold opacity-0 animate-fade-down ${meslo.variable} font-meslo z-20`} 
+      <Link href="/" className={`tracking-wider navlink hover:text-white text-2xl md:self-center ml-3 md:ml-10 no-underline font-bold opacity-0 animate-fade-down ${meslo.variable} font-meslo z-20`} 
         style={{animationDelay: "300ms"}}
       > <span className="md:whitespace-pre md:block">JOHN  </span>
         <span className="text-orange md:whitespace-pre">  LING</span>
@@ -80,7 +80,7 @@ function NavbarMenu({links, activeLink, on_click}: NavMenuProps) {
     {links.map((link: NavLink, i: number) => {
       return <li key={link.name} className="p-2 opacity-0 animate-fade-down" style={{animationDelay: `${(linkCount - i) * 150}ms`}}>
         <Link onClick={on_click} 
-          className={`no-underline w-screen md:w-auto ${link.target === activeLink ? "font-bold text-orange" : ""}`} 
+          className={`no-underline navlink  hover:text-orange w-screen md:w-auto ${link.target === activeLink ? "font-bold text-orange" : ""}`} 
           aria-current={link.target === activeLink ? "page" : undefined} href={link.target}
         >
           {link.name}
@@ -106,7 +106,7 @@ function MobileMenu({links, activeLink, on_click}: NavMenuProps) {
               {links.map((link: NavLink, i: number) => {
                 return <li key={link.name} className="mb-3 mt-3 opacity-0 animate-fade-up" style={{animationDelay: `${(i + 1) * 100}ms`}}>
                   <Link href={link.target} onClick={on_click} 
-                    className={`text-7xl no-underline ${meslo.variable} font-meslo font-bold ${link.target === activeLink ? " text-orange" : ""}`}
+                    className={`text-7xl no-underline ${meslo.variable} font-meslo  ${link.target === activeLink ? " text-orange" : ""}`}
                     aria-current={link.target === activeLink ? "page" : undefined}
                   >
                     {link.name.toUpperCase()}

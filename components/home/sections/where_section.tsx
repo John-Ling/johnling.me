@@ -32,14 +32,14 @@ const WhereSection = () => {
         <h4 className="text-2xl font-bold mb-4">My Socials</h4>
         <div className="flex flex-row justify-center lg:justify-start">
           <div className="transition-all hover:-translate-y-1">
-            <a href="https://github.com/John-Ling" className="opacity-0 trigger-fade-on-scroll p-2 no-underline hover:text-orange" 
+            <a href="https://github.com/John-Ling" className="opacity-0 trigger-fade-on-scroll p-2 no-underline hover:text-orange icon-link" 
               style={{animationDelay: "300ms"}}
             > 
               <GitHubIcon sx={{ fontSize: 36}}/>
             </a>
           </div>
           <div className="transition-all hover:-translate-y-1">
-            <a href="https://www.linkedin.com/in/john-ling-721721243/" className="opacity-0 trigger-fade-on-scroll p-2 no-underline hover:text-orange" 
+            <a href="https://www.linkedin.com/in/john-ling-721721243/" className="opacity-0 trigger-fade-on-scroll p-2 no-underline hover:text-orange icon-link" 
               style={{animationDelay: "200ms"}}
             >
               <LinkedInIcon sx={{ fontSize: 40}}/>
