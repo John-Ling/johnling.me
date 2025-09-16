@@ -5,6 +5,20 @@
 
 :root {
     color-scheme: light dark;
+    
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #566074;
+    border-radius: 4px;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: auto;
 }
 
 body {
@@ -37,3 +51,4 @@ h1 {
 h2 {
     font-weight: 700;
 }
+
