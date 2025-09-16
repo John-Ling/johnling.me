@@ -69,8 +69,8 @@ const WhereSection = () => {
                     content={emailBody} onChange={(e) => setEmailBody(e.target.value)} 
           />
           <button disabled={status !== "unsent"} 
-                  className={`pl-4 pr-4 pt-1 pb-1 outline-none self-start 
-                      bg-grey-card border-2 border-grey-light 
+                  className={`p-3 outline-none self-start 
+                      bg-[#141414] rounded-lg 
                       ${status !== "unsent" ? "text-muted-white" : ""} 
                       ${ status === "unsent" ? "hover:bg-[#101010] hover:text-[#E0E0E0]}" : ""}`}
             type="submit"

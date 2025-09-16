@@ -43,7 +43,7 @@ const WhenSection = () => {
         <p className="mb-10">
           I had a lot of fun making it so I&apos;ve continued programming and have created many more projects.
         </p>
-        <Link href="/projects" className="no-underline bg-grey-card border-2 border-grey-light p-3 hover:bg-[#101010] hover:text-[#E0E0E0]">See My Projects</Link>
+        <Link href="/projects" className="link border-none no-underline rounded-lg  p-3 bg-[#141414] hover:bg-[#101010]">See My Projects</Link>
       </div>
 
       {/* right image grid */}
