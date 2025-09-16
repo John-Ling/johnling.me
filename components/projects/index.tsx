@@ -129,11 +129,11 @@ function ProjectCard({project, on_close}: ProjectCardProps) {
               })}
             </ul>
             <p className="mb-2 pb-1 pt-1 max-h-52 lg:max-h-fit overflow-y-auto">{project.description}</p>
-            <a className={`text-sm no-underline mb-2 w-fit ${project.sourceURL === null ? "pointer-events-none text-muted-white" : ""}`} 
+            <a className={`text-sm no-underline mb-2 w-fit ${project.sourceURL === null ? "pointer-events-none text-muted-white border-none" : ""}`} 
               href={project.sourceURL !== null ? project.sourceURL : "/"} 
               target="_blank" rel="noopener"
               >
-                <GitHubIcon sx={{ fontSize: 20 }} /><span className="align-middle"> Github</span>
+                <GitHubIcon className="mb-1 mt-1" sx={{ fontSize: 20 }} /><span className="align-middle"> GitHub</span>
             </a>
           </div>
         </div>

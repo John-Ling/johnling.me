@@ -8,12 +8,15 @@
     font-family: "mesloBold";
     font-size: 2rem;
     line-height: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .markdown h2 {
     font-family: "mesloBold";
     font-size: 1.75rem;
     line-height: 2.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 .markdown h3 {
@@ -21,6 +24,8 @@
     font-size: 1.5rem;
     line-height: 2.5rem;
     font-weight: 700;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .markdown h4 {
@@ -69,6 +74,12 @@
 .markdown pre {
     margin: 0 !important;
 }
+
+.markdown img {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 /* .markdown pre code {
     background-color: theme("colors.grey.dark") !important;
     border: solid 2px theme("colors.grey.light") !important;

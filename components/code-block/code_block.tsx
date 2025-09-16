@@ -37,7 +37,7 @@ export default function CodeBlock({ language="asdf", filename="", canCopy=true, 
 
   return (
     <>
-      <div className="bg-grey-dark border-2 border-grey-light flex flex-col mb-2 mt-2">
+      <div className="bg-grey-dark border-2 border-grey-light flex flex-col mb-5 mt-5">
         <div className="flex flex-row justify-between items-center bg-grey-normal p-1">
           <p className="text-muted-white p-0 m-0 text-sm leading-none">{filename}</p>
           { !canCopy ?  <></> 
