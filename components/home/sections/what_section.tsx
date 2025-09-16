@@ -4,8 +4,8 @@ import Image from "next/image";
 
 const WhatSection = () => {
   return (
-    <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-10 lg:w-11/12 xl:w-3/4">
-      <div className="relative lg:w-1/2 xl:w-3/5 order-2 lg:order-1">
+    <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-10 lg:w-11/12 xl:w-4/5">
+      <div className="relative order-2 lg:order-1 lg:w-1/2">
         <Image className="hidden md:block absolute border-0 top-[17vh] z-0 opacity-0 trigger-fade-on-scroll pointer-events-none select-none" src={wires_bottom_2} loading="eager" alt=""/>  
         <div 
         className="grid grid-cols-4 justify-center bg-grey-dark border-2
@@ -18,8 +18,8 @@ const WhatSection = () => {
         </div>
       </div>
       
-      <div className="order-1 lg:order-2 lg:w-1/2 xl:w-2/5">
-        <h2 className="text-6xl lg:text-7xl text-yellow" style={{animationDelay: "800ms"}}>What?</h2>
+      <div className="order-1 lg:w-1/2  lg:order-2 ">
+        <h2 className="text-6xl text-yellow" style={{animationDelay: "800ms"}}>What?</h2>
         <h3 className="text-3xl mb-3 mt-3 font-bold">The tools I use</h3>
         <p className="mb-5">
           I&apos;ve been programming for a while now so I&apos;m used to picking up 
@@ -75,8 +75,8 @@ const SkillsDisplay = () => {
       {skillIcons.map((icon: SkillIcon, i: number) => {
         return (
           <div key={i} className="opacity-0 skill-icon" style={{animationDelay: `${(i + 1) * 100}ms`}}>
-            <i className={`${icon.classInfo}  text-5xl md:text-6xl lg:text-7xl flex-1 p-5 `} />
-            <p className="text-[#FFFFFF] text-xs md:text-sm text-center m-2 font-bold z-40">{icon.label}</p>
+            <i className={`${icon.classInfo} text-center  text-5xl md:text-4xl lg:text-6xl flex-1 `} />
+            <p className="text-xs md:text-sm text-center m-2 font-bold z-40 select-none">{icon.label}</p>
           </div>  
         )
       })}

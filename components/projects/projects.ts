@@ -59,7 +59,7 @@ export const projects: Project[] = [
         I also figured out how to play Bad Apple on it (hint try adding something to the url query params)`,
       imageFolder: "website-rebuild",
       sourceURL: "https://github.com/John-Ling/johnling.me",
-      tags: ["React", "NextJS", "TailwindCSS", "Vercel"],
+      tags: ["NextJS", "TailwindCSS", "Vercel"],
     },
     { title: "Data Structures and Algorithms", shortDescription: "Implementing various data structures and algorithms in C",
       description: `
