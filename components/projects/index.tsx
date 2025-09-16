@@ -73,7 +73,7 @@ function ProjectItem({ project, position, on_select }: ProjectItemProps) {
         style={{animationDelay: `${(position + 1) * 150}ms`}}
       >
         <h2 className={`text-xl md:text-2xl mb-2 mt-2  ${meslo.variable} font-meslo ${colourClass}`}>{project.title}</h2>
-        <h3 className="text-sm mb-2 italic text-muted-white">{project.dateRange}</h3>
+        <h3 className="text-sm mb-2 italic text-muted-white">{project.shortDescription}</h3>
         {project.imageFolder === null ? <p>{project.description}</p> // if no image exists just render text
           :
           <div className="overflow-hidden border-2 rounded-lg border-grey-light ">
@@ -123,19 +123,18 @@ function ProjectCard({project, on_close}: ProjectCardProps) {
               <CloseIcon className="hover:text-muted-white active:text-muted-white"/>
             </button>
             <h1 className={`text-xl md:text-2xl mb-2 mt-2 ${meslo.style} font-meslo`}>{project.title}</h1>
-            <h3 className="text-sm mb-2 italic text-muted-white">{project.dateRange}</h3>
-            <ul className="flex flex-wrap mt-1 mb-2">
+            <ul className="flex flex-wrap mt-1 mb-2 max-w-96">
               {project.tags.map((tag: string) => {
-                return <li key={tag} className="p-1 text-xs"><span className="bg-grey-light border-1 pl-1 pr-1">{tag}</span></li>
+                return <li key={tag} className="p-1 mb-1 text-xs select-none"><span className="bg-grey-light border-1 pl-1 pr-1">{tag}</span></li>
               })}
             </ul>
+            <p className="mb-2 pb-1 pt-1 max-h-52 lg:max-h-fit overflow-y-auto">{project.description}</p>
             <a className={`text-sm no-underline mb-2 w-fit ${project.sourceURL === null ? "pointer-events-none text-muted-white" : ""}`} 
               href={project.sourceURL !== null ? project.sourceURL : "/"} 
               target="_blank" rel="noopener"
               >
                 <GitHubIcon sx={{ fontSize: 20 }} /><span className="align-middle"> Github</span>
             </a>
-            <p className="mb-2 pb-1 pt-1 max-h-52 lg:max-h-fit overflow-y-auto">{project.description}</p>
           </div>
         </div>
       </div>

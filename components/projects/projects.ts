@@ -1,6 +1,6 @@
 export interface Project {
     title: string,
-    dateRange: string,
+    shortDescription: string,
     description: string,
     imageFolder: string | null, // path to folder containing images
     sourceURL: string | null,
@@ -9,107 +9,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "RAMBLE", dateRange: "July 2025 - Present",
+    title: "RAMBLE", shortDescription: "Journalling with sophisticated emotional analytics",
     description: `
-      Finally got around to rebuilding Ramble into how I imagined it. It's a full-stack journalling app with a simple, uncluttered UI. 
-      Alongside it's journalling features, I'm working on integrating Langchain for \n\n\n\n\nan opt-in RAG feature allowing users to ask questions about themselves and get insight.
-      Later, I hope to add emotion analysis to allow users to view plots of their emotions based on their entries, providing analytics for wellbeing.
-      Planning to enter this one into a startup contest at my university. It's going to be good let me cook.`,
+      Finally got around to rebuilding Ramble into how I imagined it. It's a full-stack journalling app with a simple, uncluttered interface in created with ShadCN UI. 
+      Alongside being a generally good journalling app (for me), I fine-tuned Longformer to perform emotion classification on entries and used Recharts to plot emotional data.
+      Inspired by a paper, the main idea was to be able to give users a more analytical approach to observing how their own emotions change.`,
     imageFolder: "ramble-2",
     sourceURL: null,
-    tags: ["NextJS", "Shadcn UI", "FastAPI", "MongoDB", "Next-Auth", "Redis", "Vercel"],
+    tags: ["NextJS", "Shadcn UI", "FastAPI", "Transformers", "MongoDB", "NextAuth", "Redis", "Vercel", "Recharts"],
   },
   {
-    title: "Internship Project 2: Krux Infra", dateRange: "November 2024 - February 2025",
-    description: `
-      Completed as part of my internship project to build the frontend for a trade application system. I collaborated with both a graphic designer and
-      worked under the supervision of a senior engineer (both very cool guys). I picked up Angular and Formly in order to build the interface and got to brush up on my
-      SCSS skills.`,
-    imageFolder: "internship-2",
-    sourceURL: null,
-    tags: ["Angular", "Material UI", "Sass"],
-  },
-    {
-      title: "johnling.me", dateRange: "November 2024 - December 2024",
-      description: `
-        Rebuilding my website using React, NextJS and Tailwind mainly to learn some newer web technologies, 
-        partly to one-up my friend who was making his own website. 
-        Added some cool gimmicks such as an ASCII display on the front page.
-        I also figured out how to play Bad Apple on it.
-        Visit johnling.me?apple`,
-      imageFolder: "website-rebuild",
-      sourceURL: "https://github.com/John-Ling/johnling.me",
-      tags: ["React", "NextJS", "TailwindCSS", "Vercel"],
-    },
-    { title: "DSA Libraries", dateRange: "November 2024 - November 2024",
-      description: `
-      Got bored during the break so I changed my linked list implementation into a .so file
-      Then I used that library to implement more libraries for queues, stacks, hash tables, BFS and DFS.
-      `,
-      imageFolder:  "dsa-libraries",
-      sourceURL: "https://github.com/John-Ling/CS-Fundamentals",
-      tags: ["C", "Make"],
-    }, 
-    // {
-    //   title: "More Algorithms and Data Structures", dateRange: "August 2024 - October 2024",
-    //   description: `
-    //     Spent most of the time studying and dealing with life stuff but killed some time implementing all the algorithms
-    //     and data structures covered in my DSA course.`,
-    //   imageFolder: "more-dsa",
-    //   sourceURL: "https://github.com/John-Ling/CS-Fundamentals",
-    //   tags: ["C"],
-    // },
-    {
-      title: "ramble.johnling.me", dateRange: "April 2024 - April 2024",
-      description: `
-        Productivity / unintentional mental health app and winning submission to 2024 CODEBREW Hackathon at my university 
-        under team \"Cissa hackathon thing\". Used Docker to deploy the app and
-        had a whole trip through deployment hell getting it up.`,
-        imageFolder: "ramble",
-      sourceURL: "https://github.com/John-Ling/CODEBREW-2024",
-      tags: ["Flask", "Docker", "React", "Sass", "NGINX"],
-    },
-    {
-      title: "Nixie Tube Watch", dateRange: "January 2024 - February 2024",
-      description: `
-        Designed my own circuitry to drive nixie tubes, 
-        wrote AVR C for the first time and built my own library to interface with a DS1302 timekeeping chip.
-        Ultimately scrapped the project (watch was too thick) but might make a clock out of it.`,
-      imageFolder: "nixie-watch",
-      sourceURL: "https://github.com/John-Ling/Nixie-Watch",
-      tags: ["ATmega328p", "AVR C", "Hardware"],
-      
-    },
-    {
-      title: "Internship Project 1: RAG System", dateRange: "November 2023 - December 2023",
-      description: `
-        Fullstack web app and RAG system that allowed users ask questions and received tailored financial advice 
-        for over 1000 Malaysian companies. I used Flask and React with MySQL to store \"metadata\" 
-        about companies. Used Docker but never ended up deploying.`,
-      imageFolder: "internship-1",
-      sourceURL: "https://github.com/John-Ling/Internship-Project",
-      tags: ["MySQL", "Vite", "React", "Flask", "Sass", "Docker"],
-    },
-    {
-      title: "wikihopper.johnling.me", dateRange: "July 2022 - July 2022",
-      description: `
-        React web game that finds two random wikipedia articles and challenges the user to navigate
-        from one to another in 10 hops or less. Created because I wanted something fun to play on my phone.`,
-      sourceURL: "https://github.com/John-Ling/wikipedia-hopper",
-      imageFolder: "wikihopper",
-      tags: ["React", "Sass", "Vite", "Docker", "NGINX"],
-    },
-    // {
-    //   title: "Arduino Smart Lock", dateRange: "June 2023 - September 2023",
-    //   description: `
-    //     Created a low-power ATmega328p system that that used RFID to lock and unlock doors
-    //     (my door specifically). Learned a bit about power saving in embedded systems which was cool.`,
-    //   sourceURL: "https://github.com/John-Ling/Arduino-Smart-Lock",
-    //   imageFolder: "smart-lock",
-    //   tags: ["ATmega328p", "Arduino", "Hardware"],
-    // },
-    {
-      title: "Trello Tabliss Integration", dateRange: "January 2023 - May 2023",
+      title: "Trello Tabliss Integration", shortDescription: "Integrating Trello into my browser",
       description: `
         Fork of browser extension Tabliss with Trello interoperability. 
         Any changes I make to my personal Trello board are are reflected in the UI.
@@ -120,8 +30,18 @@ export const projects: Project[] = [
       imageFolder: "trello",
       tags: ["React", "NodeJS", "Firebase", "Sass"],
     },
-    {
-      title: "Pseudocode Compiler", dateRange: "October 2022 - May 2023",
+  {
+    title: "Internship Project: Krux Infra", shortDescription: "Credit application system frontend internship work",
+    description: `
+      Completed as part of my internship project to build the frontend for a trade application system. I collaborated with both a graphic designer and
+      worked under the supervision of a senior engineer (both very cool guys). I picked up Angular and Formly in order to build the interface and got to brush up on my
+      SCSS skills.`,
+    imageFolder: "internship-2",
+    sourceURL: null,
+    tags: ["Angular", "Material UI", "Sass"],
+  },
+  {
+      title: "Pseudocode Compiler", shortDescription: "Creating a non-optimising compiler from scratch",
       description: `
         My best project IMO. Full Compiler built with C++ that translates pseudocode into Python. 
         I rolled my own lexer, parser and code generator which was really interesting to study. 
@@ -131,14 +51,70 @@ export const projects: Project[] = [
       tags: ["C++", "Make"],
     },
     {
-      title: "johnling.me", dateRange: "June 2022 - August 2022",
-      description: `Personal website about me and my projects. Built using Bootstrap, Sass and a smattering of Javascript.`,
+      title: "johnling.me", shortDescription: "NextJS website I built to outdo my friend",
+      description: `
+        Rebuilding my website using React, NextJS and Tailwind mainly to learn some newer web technologies, 
+        partly to one-up my friend who was making his own website. 
+        Added some cool gimmicks such as an ASCII display on the front page.
+        I also figured out how to play Bad Apple on it (hint try adding something to the url query params)`,
+      imageFolder: "website-rebuild",
       sourceURL: "https://github.com/John-Ling/johnling.me",
-      imageFolder: "johnling",
-      tags: ["Bootstrap", "Sass", "Javascript", "NGINX"],
+      tags: ["React", "NextJS", "TailwindCSS", "Vercel"],
+    },
+    { title: "Data Structures and Algorithms", shortDescription: "Implementing various data structures and algorithms in C",
+      description: `
+      Implemented all the algorithms and data structures taught in my introductory algorithms class. I got bored over the break I rewrote some of my implementations into libraries and compiled them into shared objects.
+      Currently implementing slightly more advanced structures such as a Skip List and Patricia trie.
+
+      Current project: Bloom Filter
+      Next Project: Dijkstra's Algorithm
+      `,
+      imageFolder:  "dsa-libraries",
+      sourceURL: "https://github.com/John-Ling/CS-Fundamentals",
+      tags: ["C", "Make"],
+    }, 
+    {
+      title: "Internship Project: RAG System", shortDescription: "RAG system for over 100,000 companies",
+      description: `
+        Fullstack web app and RAG system that allowed users ask questions and received tailored financial advice 
+        for over 1000 Malaysian companies. I used Flask and React with MySQL to store \"metadata\" 
+        about companies. Used Docker but never ended up deploying.`,
+      imageFolder: "internship-1",
+      sourceURL: "https://github.com/John-Ling/Internship-Project",
+      tags: ["MySQL", "Vite", "React", "Flask", "Langchain", "Sass", "Docker"],
     },
     {
-      title: "Cameraman", dateRange: "November 2021 - February 2022",
+      title: "ramble.johnling.me", shortDescription: "Winning Hackathon Project",
+      description: `
+        Productivity / unintentional mental health app and winning submission to 2024 CODEBREW Hackathon at my university 
+        under team \"Cissa hackathon thing\". Used Docker to deploy the app and
+        had a whole trip through deployment hell getting it up.`,
+        imageFolder: "ramble",
+      sourceURL: "https://github.com/John-Ling/CODEBREW-2024",
+      tags: ["Flask", "Docker", "React", "Sass", "NGINX"],
+    },
+    {
+      title: "Nixie Tube Watch", shortDescription: "Building circuits with old Soviet tech",
+      description: `
+        Designed my own circuitry to drive nixie tubes, 
+        wrote AVR C for the first time and built my own library to interface with a DS1302 timekeeping chip.
+        Ultimately scrapped the project (watch was too thick) but might make a clock out of it.`,
+      imageFolder: "nixie-watch",
+      sourceURL: "https://github.com/John-Ling/Nixie-Watch",
+      tags: ["ATmega328p", "AVR C", "Hardware"],
+      
+    },
+    {
+      title: "wikihopper.johnling.me", shortDescription: "Lightweight web game made because I was bored",
+      description: `
+        React web game that finds two random wikipedia articles and challenges the user to navigate
+        from one to another in 10 hops or less. Created because I wanted something fun to play on my phone.`,
+      sourceURL: "https://github.com/John-Ling/wikipedia-hopper",
+      imageFolder: "wikihopper",
+      tags: ["React", "Sass", "Vite", "Docker", "NGINX"],
+    },
+    {
+      title: "Cameraman", shortDescription: "Real-time tracking using OpenCV and motors",
       description: `Uses microcontrollers, 
       motors, OpenCV and a 3D printed case I designed to track and follow a face in real-time. 
       Filmed by Apple to promote their distinguished schools program. 
@@ -149,7 +125,7 @@ export const projects: Project[] = [
       tags: ["Arduino", "Python", "OpenCV", "Caffe", "OpenVINO", "Hardware"],
     },
     {
-      title: "Desktop Kahoot Bot", dateRange: "November 2021 - May 2022",
+      title: "Desktop Kahoot Bot", shortDescription: "Winforms kind of good ngl",
       description: `
         Homage to the first Kahoot Bot from 2019. Written in C# and used Winforms for the UI. 
         Created a \"control panel\" where you could see the scores for each bot.`,
@@ -158,25 +134,16 @@ export const projects: Project[] = [
       tags: ["C#", "Selenium", "Winforms"],
     },
     {
-      title: "Python Kahoot Bot", dateRange: "September 2021 - November 2021",
+      title: "Arduino Smart Lock", shortDescription: "June 2023 - September 2023",
       description: `
-        Remake of my first Kahoot Bot from 2019, two years after starting programming. 
-        This was also the first time I used Git.`,
-      sourceURL: "https://github.com/John-Ling/Kahoot-Bot-Python",
-      imageFolder: "kahoot-python",
-      tags: ["Python", "Selenium"],
+        Created a low-power ATmega328p system that that used RFID to lock and unlock doors
+        (my door specifically). Learned a bit about power saving in embedded systems which was cool.`,
+      sourceURL: "https://github.com/John-Ling/Arduino-Smart-Lock",
+      imageFolder: "smart-lock",
+      tags: ["ATmega328p", "Arduino", "Hardware"],
     },
-    // {
-    //   title: "CS Fundamentals", dateRange: "August 2021 - Present",
-    //   description: `
-    //     Ongoing code implementations of various data structures and algorithms in C. 
-    //     Absolutely saved me during my algorithms course in University.`,
-    //   sourceURL: "https://github.com/John-Ling/CS-Fundamentals",
-    //   imageFolder: "fundamentals",
-    //   tags: ["C"],
-    // },
     {
-      title: "CS50", dateRange: "August 2021 - August 2022",
+      title: "CS50", shortDescription: "David Malan is a great teacher",
       description: `
         Completed Harvard's CS50 intro to computer science course while doing school.
         It was pretty hard but I learned a lot.
@@ -186,7 +153,7 @@ export const projects: Project[] = [
       tags: ["C", "Python", "SQL", "HTML", "Javascript", "CSS"]
     },
     {
-      title: "Linux Shenanigians", dateRange: "May 2020 - Present",
+      title: "Linux Shenanigians", shortDescription: "Hyprland + Arch my beloved",
       description:  `
         Had time thanks for a worldwide pandemic so I installed Arch Linux and KDE plasma onto my computers.
         Learned a lot about Linux and had fun ricing my system.
@@ -199,7 +166,7 @@ export const projects: Project[] = [
       tags: ["Bash", "Linux", "KVM", "VFIO", "I", "Use", "Arch", "BTW"]
     },
     // {
-    //   title: "Covid Companion", dateRange: "February 2020 - March 2020",
+    //   title: "Covid Companion", shortDescription: "February 2020 - March 2020",
     //   description: `
     //     Created for a \"code jam\" hosted by Replit back when we had nothing but time. 
     //     Tkinter desktop app that answered queries related to COVID using NLP. 
@@ -209,7 +176,7 @@ export const projects: Project[] = [
     //   tags: ["Python", "Tkinter", "BeautifulSoup"],
     // },
     {
-      title: "The Kahoot Bot™", dateRange: "September 2019 - September 2019",
+      title: "The Kahoot Bot™", shortDescription: "My first ever project :)",
       description: `
         The Original Kahoot Bot and my first project ever. 
         Filled with top quality code such as unintentional recursion, Singleton design (i used globals everywhere)

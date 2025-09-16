@@ -32,7 +32,7 @@ const WhenSection = () => {
 
       {/* content */}
       <div className="lg:w-2/5 trigger-fade-on-scroll" id="when-section">
-        <h2 className="text-6xl lg:text-7xl text-blue" style={{animationDelay: "800ms"}}>When?</h2>
+        <h2 className="text-6xl lg:text-7xl text-blue" style={{animationDelay: "800ms"}}>When?</h2> 
         <h3 className="text-3xl mb-3 mt-3 font-bold">Where it all began</h3>
         <p className="mb-5">
           I had taken some introductory Python classes the year before, 
