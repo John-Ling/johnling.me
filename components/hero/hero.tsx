@@ -5,8 +5,6 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import DescriptionIcon from '@mui/icons-material/Description';
 
-import { meslo } from "@/lib/font";
-
 import { conway_next_frame, conway_populate, cube_init, cube_next_frame, 
         donut_next_frame, donut_init, matrix_next_frame, 
         matrix_init, cube_cleanup, conway_cleanup, 
