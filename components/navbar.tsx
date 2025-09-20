@@ -106,7 +106,7 @@ function MobileMenu({links, activeLink, on_click}: NavMenuProps) {
               {links.map((link: NavLink, i: number) => {
                 return <li key={link.name} className="mb-3 mt-3 opacity-0 animate-fade-up" style={{animationDelay: `${(i + 1) * 100}ms`}}>
                   <Link href={link.target} onClick={on_click} 
-                    className={`text-7xl no-underline ${meslo.variable} font-meslo  ${link.target === activeLink ? " text-orange" : ""}`}
+                    className={`text-7xl font-bold no-underline ${link.target === activeLink ? " text-orange" : ""}`}
                     aria-current={link.target === activeLink ? "page" : undefined}
                   >
                     {link.name.toUpperCase()}

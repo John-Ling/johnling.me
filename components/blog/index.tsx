@@ -42,7 +42,7 @@ function PostComponent({post, position}: PostComponentProps) {
     <>
       <h2 className={`text-lg ${meslo.variable} font-meslo ${colourClass}`}>{post.title}</h2>
       <p className="text-sm italic text-muted-white mb-2 ">{post.date}</p>
-      <Link href={`/blog/${post.slug}`}>Article</Link>
+      <Link className="link" href={`/blog/${post.slug}`}>Article</Link>
     </>
   )
 }

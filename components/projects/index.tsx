@@ -67,12 +67,16 @@ function ProjectItem({ project, position, on_select }: ProjectItemProps) {
   const colourClass: string = colours[position % colours.length];
   const projectFolder = `/images/projects/${project.imageFolder}/0.png`;
 
+  const on_click = () => {
+    on_select(project);
+  }
+
   return (
     <>
       <div className="bg-grey-card border-2 border-grey-light p-3 opacity-0 animate-fade-up h-90" 
         style={{animationDelay: `${(position + 1) * 150}ms`}}
       >
-        <h2 className={`text-lg mb-2 mt-2  ${meslo.variable} font-meslo ${colourClass}`}>{project.title}</h2>
+        <h2 onClick={on_click} className={`text-lg mb-2 mt-2  ${meslo.variable} font-meslo ${colourClass}`}>{project.title}</h2>
         <h3 className="text-sm mb-2 italic text-muted-white">{project.shortDescription}</h3>
         {project.imageFolder === null ? <p>{project.description}</p> // if no image exists just render text
           :
@@ -83,7 +87,7 @@ function ProjectItem({ project, position, on_select }: ProjectItemProps) {
               src={projectFolder}
               width={1280}
               height={720}
-              onClick={() => on_select(project)}
+              onClick={on_click}
             />
           </div>        
         }

@@ -31,7 +31,7 @@ export const projects: Project[] = [
       tags: ["React", "NodeJS", "Firebase", "Sass"],
     },
   {
-    title: "Internship Project: Krux Infra", shortDescription: "Credit application system frontend internship work",
+    title: "Internship Project: Krux Infra", shortDescription: "Credit application system frontend work",
     description: `
       Completed as part of my internship project to build the frontend for a trade application system. I collaborated with both a graphic designer and
       worked under the supervision of a senior engineer (both very cool guys). I picked up Angular and Formly in order to build the interface and got to brush up on my
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     tags: ["Angular", "Material UI", "Sass"],
   },
   {
-      title: "Pseudocode Compiler", shortDescription: "Creating a non-optimising compiler from scratch",
+      title: "Pseudocode Compiler", shortDescription: "Non-optimising compiler built from scratch",
       description: `
         My best project IMO. Full Compiler built with C++ that translates pseudocode into Python. 
         I rolled my own lexer, parser and code generator which was really interesting to study. 
@@ -50,29 +50,6 @@ export const projects: Project[] = [
       sourceURL: "https://github.com/John-Ling/Pseudocode-Compiler",
       tags: ["C++", "Make"],
     },
-    {
-      title: "johnling.me", shortDescription: "NextJS website I built to outdo my friend",
-      description: `
-        Rebuilding my website using React, NextJS and Tailwind mainly to learn some newer web technologies, 
-        partly to one-up my friend who was making his own website. 
-        Added some cool gimmicks such as an ASCII display on the front page.
-        I also figured out how to play Bad Apple on it (hint try adding something to the url query params)`,
-      imageFolder: "website-rebuild",
-      sourceURL: "https://github.com/John-Ling/johnling.me",
-      tags: ["NextJS", "TailwindCSS", "Vercel"],
-    },
-    { title: "Data Structures and Algorithms", shortDescription: "Implementing various data structures and algorithms in C",
-      description: `
-      Implemented all the algorithms and data structures taught in my introductory algorithms class. I got bored over the break I rewrote some of my implementations into libraries and compiled them into shared objects.
-      Currently implementing slightly more advanced structures such as a Skip List and Patricia trie.
-
-      Current project: Bloom Filter
-      Next Project: Dijkstra's Algorithm
-      `,
-      imageFolder:  "dsa-libraries",
-      sourceURL: "https://github.com/John-Ling/CS-Fundamentals",
-      tags: ["C", "Make"],
-    }, 
     {
       title: "Internship Project: RAG System", shortDescription: "RAG system for over 100,000 companies",
       description: `
@@ -84,7 +61,7 @@ export const projects: Project[] = [
       tags: ["MySQL", "Vite", "React", "Flask", "Langchain", "Sass", "Docker"],
     },
     {
-      title: "ramble.johnling.me", shortDescription: "Winning Hackathon Project",
+      title: "ramble.johnling.me", shortDescription: "Winning hackathon project",
       description: `
         Productivity / unintentional mental health app and winning submission to 2024 CODEBREW Hackathon at my university 
         under team \"Cissa hackathon thing\". Used Docker to deploy the app and
@@ -93,6 +70,18 @@ export const projects: Project[] = [
       sourceURL: "https://github.com/John-Ling/CODEBREW-2024",
       tags: ["Flask", "Docker", "React", "Sass", "NGINX"],
     },
+    { title: "Data Structures and Algorithms", shortDescription: "Implementing data structures and algorithms in C",
+      description: `
+      Implemented all the algorithms and data structures taught in my introductory algorithms class. I got bored over the break I rewrote some of my implementations into libraries and compiled them into shared objects.
+      Currently implementing slightly more advanced structures such as a Skip List and Patricia trie.
+
+      Current project: Bloom Filter
+      Next Project: Dijkstra's Algorithm
+      `,
+      imageFolder:  "dsa-libraries",
+      sourceURL: "https://github.com/John-Ling/CS-Fundamentals",
+      tags: ["C", "Make"],
+    }, 
     {
       title: "Nixie Tube Watch", shortDescription: "Building circuits with old Soviet tech",
       description: `
@@ -134,15 +123,6 @@ export const projects: Project[] = [
       tags: ["C#", "Selenium", "Winforms"],
     },
     {
-      title: "Arduino Smart Lock", shortDescription: "June 2023 - September 2023",
-      description: `
-        Created a low-power ATmega328p system that that used RFID to lock and unlock doors
-        (my door specifically). Learned a bit about power saving in embedded systems which was cool.`,
-      sourceURL: "https://github.com/John-Ling/Arduino-Smart-Lock",
-      imageFolder: "smart-lock",
-      tags: ["ATmega328p", "Arduino", "Hardware"],
-    },
-    {
       title: "CS50", shortDescription: "David Malan is a great teacher",
       description: `
         Completed Harvard's CS50 intro to computer science course while doing school.
@@ -151,19 +131,6 @@ export const projects: Project[] = [
       sourceURL: null,
       imageFolder: "cs50",
       tags: ["C", "Python", "SQL", "HTML", "Javascript", "CSS"]
-    },
-    {
-      title: "Linux Shenanigians", shortDescription: "Hyprland + Arch my beloved",
-      description:  `
-        Had time thanks for a worldwide pandemic so I installed Arch Linux and KDE plasma onto my computers.
-        Learned a lot about Linux and had fun ricing my system.
-        I even got GPU passthrough working on my system to run both Windows and macOS virtual machines with discrete graphics.
-        Learned to compile my own kernel to get things working (ACS override).
-        Spent way too much time I could have spent socialising but I had fun :)
-      `,
-      sourceURL: null,
-      imageFolder: "linux",
-      tags: ["Bash", "Linux", "KVM", "VFIO", "I", "Use", "Arch", "BTW"]
     },
     // {
     //   title: "Covid Companion", shortDescription: "February 2020 - March 2020",
