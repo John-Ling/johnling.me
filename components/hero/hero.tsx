@@ -182,7 +182,7 @@ function HeroComponent({ specialEnabled, rendered, playing, framebuffer, audioRe
           {/* ascii display for tablet view hidden in desktop mode */}
           <div className="relative hidden visible md:block lg:hidden lg:invisible opacity-0 animate-fade-up mt-2 mb-2" style={{animationDelay: "800ms"}}>
             { rendered && !specialEnabled ? 
-              <div className="opacity-0 animate-fade-up bg-grey-dark border-2 border-grey-light" style={{animationDelay: "600ms"}}>
+              <div className="opacity-0 animate-fade-up bg-grey-dark border-4 border-grey-light" style={{animationDelay: "600ms"}}>
                 <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
                     w-full h-full opacity-40 z-20 m-0 p-0"></div>
                 <AsciiDisplay framebuffer={framebuffer} />
@@ -203,7 +203,7 @@ function HeroComponent({ specialEnabled, rendered, playing, framebuffer, audioRe
 
         {/* ascii display (right side) */}
         <div className="basis-3/5 flex items-center justify-center">
-          <div className="relative bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up z-20" 
+          <div className="relative bg-grey-dark border-4 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up z-20" 
             style={{animationDelay: "800ms"}}
           >
             { rendered && !specialEnabled ?         

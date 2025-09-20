@@ -44,7 +44,7 @@ export default function Navbar() {
         <MenuIcon className="active:text-muted-white"/>
       </button>
 
-      <Image src={wire_top_1} alt="" className="pointer-events-none select-none border-0 absolute -z-10 hidden md:inline" />
+      <Image src={wire_top_1} alt="" loading="eager" className="pointer-events-none select-none border-0 absolute  -z-10 hidden md:inline" />
 
       {/* desktop menu */} 
       <div className={`hidden invisible md:flex md:visible p-4 opacity-0 animate-fade-down ${meslo.variable} font-meslo`} 
