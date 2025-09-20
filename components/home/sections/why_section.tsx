@@ -1,7 +1,7 @@
 const WhySection = () => {
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center">
-      <div className="p-5 max-w-2xl sm:max-w-3xl lg:max-w-4xl">
+    <section className="min-h-screen flex flex-col justify-center items-center w-10/12">
+      <div className="p-5 max-w-3xl">
         <h2 className="text-6xl text-green" style={{animationDelay: "600ms"}}>Why?</h2>
         <h3 className="text-3xl mb-3 mt-3 font-bold">Why code?</h3>
         <p className="mb-5">

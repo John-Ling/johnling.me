@@ -170,9 +170,9 @@ function HeroComponent({ specialEnabled, rendered, playing, framebuffer, audioRe
 
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center flex-col lg:flex-row ">
+      <div className="min-h-screen flex items-center justify-center flex-col lg:flex-row m-auto">
         {/* hero information (left side) */}
-        <div className="lg:basis-1/2 xl:basis-5/12 flex flex-col justify-center p-10">
+        <div className="basis-5/12 flex flex-col ml-10">
           <div className={`text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up ${meslo.variable} font-meslo text-center md:text-left`} style={{animationDelay: "100ms"}}>
             <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
             <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "150ms"}}>
@@ -200,7 +200,7 @@ function HeroComponent({ specialEnabled, rendered, playing, framebuffer, audioRe
         </div>
 
         {/* ascii display (right side) */}
-        <div className="lg:w-1/2 xl:basis-1/2 flex items-center justify-center">
+        <div className="basis-3/5 flex items-center justify-center">
           <div className="relative bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up z-20" 
             style={{animationDelay: "800ms"}}
           >

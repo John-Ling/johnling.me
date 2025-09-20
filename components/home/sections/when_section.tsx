@@ -10,9 +10,9 @@ import server from "@/public/images/homepage/server.jpg";
 
 const WhenSection = () => {
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-center lg:flex-row p-5 gap-10">
+    <section className="min-h-screen w-11/12 flex flex-col items-center justify-center lg:flex-row p-5 gap-10">
       {/* left image grid */}
-      <div className="hidden lg:w-1/4 md:grid grid-cols-3 gap-2">
+      <div className="hidden lg:basis-1/3 md:grid grid-cols-3 gap-2">
         <div className="when-section-picture opacity-0 lg:col-start-2" style={{animationDelay: "300ms"}}>
           <Image loading="eager" className=" w-3/5 lg:w-auto lg:-translate-x-12 lg:-translate-y-12" 
             src={server} 
@@ -31,7 +31,7 @@ const WhenSection = () => {
       </div>
 
       {/* content */}
-      <div className="trigger-fade-on-scroll max-w-2xl sm:max-w-3xl lg:max-w-4xl" id="when-section">
+      <div className="trigger-fade-on-scroll basis-3/4" id="when-section">
         <h2 className="text-6xl text-blue" style={{animationDelay: "800ms"}}>When?</h2> 
         <h3 className="text-3xl mb-3 mt-3 font-bold">Where it all began</h3>
         <p className="mb-5">
@@ -47,7 +47,7 @@ const WhenSection = () => {
       </div>
 
       {/* right image grid */}
-      <div className="hidden lg:w-1/4 md:grid grid-cols-3 gap-2">
+      <div className="hidden lg:basis-1/3 md:grid grid-cols-3 gap-2">
         <div className="when-section-picture opacity-0 lg:col-start-1 lg:col-span-2  lg:w-auto " style={{animationDelay: "400ms"}}>
           <Image className="lg:-translate-x-16" src={electronics_1} alt="More electronics" />
         </div>

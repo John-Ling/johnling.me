@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const WhatSection = () => {
   return (
-    <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-10 lg:w-11/12 xl:w-4/5">
+    <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-10 lg:w-11/12">
       <div className="relative order-2 lg:order-1 lg:w-1/2">
         <Image className="hidden md:block absolute border-0 top-[17vh] z-0 opacity-0 trigger-fade-on-scroll pointer-events-none select-none" src={wires_bottom_2} loading="eager" alt=""/>  
         <div 
