@@ -5,7 +5,12 @@
 
 :root {
     color-scheme: dark;
-    
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox, Safari 18.2+, Chromium 121+ */
+}
+
+:root::-webkit-scrollbar {
+    display: none;  /* Older Safari and Chromium */
 }
 
 body {
@@ -19,7 +24,7 @@ body {
         /* 081926 */
 }
 
-a {
+.link {
     text-decoration: none;
     border-bottom: solid 1px theme("colors.orange");
     transition-property: border;
@@ -27,21 +32,9 @@ a {
     transition-duration: 200ms;
 }
 
-a:hover {
+.link:hover {
     border-bottom: solid 1px rgba(0, 0, 0, 0.1);
 }
-.link {
-    border-bottom: unset !important;
-}
-
-.navlink {
-    border-bottom: unset !important;
-}
-
-.icon-link {
-    border-bottom: unset !important;
-}
-
 
 img {
     border: solid 4px theme("colors.grey.light");

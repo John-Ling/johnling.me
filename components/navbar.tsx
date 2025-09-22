@@ -44,7 +44,7 @@ export default function Navbar() {
         <MenuIcon className="active:text-muted-white"/>
       </button>
 
-      <Image src={wire_top_1} alt="" className="pointer-events-none select-none border-0 absolute -z-10 hidden md:inline" />
+      <Image src={wire_top_1} alt="" loading="eager" className="pointer-events-none select-none border-0 absolute  -z-10 hidden md:inline" />
 
       {/* desktop menu */} 
       <div className={`hidden invisible md:flex md:visible p-4 opacity-0 animate-fade-down ${meslo.variable} font-meslo`} 
@@ -106,7 +106,7 @@ function MobileMenu({links, activeLink, on_click}: NavMenuProps) {
               {links.map((link: NavLink, i: number) => {
                 return <li key={link.name} className="mb-3 mt-3 opacity-0 animate-fade-up" style={{animationDelay: `${(i + 1) * 100}ms`}}>
                   <Link href={link.target} onClick={on_click} 
-                    className={`text-7xl no-underline ${meslo.variable} font-meslo  ${link.target === activeLink ? " text-orange" : ""}`}
+                    className={`text-7xl font-bold no-underline ${link.target === activeLink ? " text-orange" : ""}`}
                     aria-current={link.target === activeLink ? "page" : undefined}
                   >
                     {link.name.toUpperCase()}

@@ -5,8 +5,6 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import DescriptionIcon from '@mui/icons-material/Description';
 
-import { meslo } from "@/lib/font";
-
 import { conway_next_frame, conway_populate, cube_init, cube_next_frame, 
         donut_next_frame, donut_init, matrix_next_frame, 
         matrix_init, cube_cleanup, conway_cleanup, 
@@ -170,10 +168,10 @@ function HeroComponent({ specialEnabled, rendered, playing, framebuffer, audioRe
 
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center flex-col lg:flex-row ">
+      <div className="min-h-screen flex items-center justify-center flex-col lg:flex-row">
         {/* hero information (left side) */}
-        <div className="lg:basis-1/2 xl:basis-5/12 flex flex-col justify-center p-10">
-          <div className={`text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up ${meslo.variable} font-meslo text-center md:text-left`} style={{animationDelay: "100ms"}}>
+        <div className="basis-5/12 flex flex-col m-8">
+          <div className="text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up font-meslo text-center md:text-left" style={{animationDelay: "100ms"}}>
             <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
             <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "150ms"}}>
               I&apos;m
@@ -184,7 +182,7 @@ function HeroComponent({ specialEnabled, rendered, playing, framebuffer, audioRe
           {/* ascii display for tablet view hidden in desktop mode */}
           <div className="relative hidden visible md:block lg:hidden lg:invisible opacity-0 animate-fade-up mt-2 mb-2" style={{animationDelay: "800ms"}}>
             { rendered && !specialEnabled ? 
-              <div className="opacity-0 animate-fade-up bg-grey-dark border-2 border-grey-light" style={{animationDelay: "600ms"}}>
+              <div className="opacity-0 animate-fade-up bg-grey-dark border-4 border-grey-light" style={{animationDelay: "600ms"}}>
                 <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
                     w-full h-full opacity-40 z-20 m-0 p-0"></div>
                 <AsciiDisplay framebuffer={framebuffer} />
@@ -194,14 +192,18 @@ function HeroComponent({ specialEnabled, rendered, playing, framebuffer, audioRe
             }
           </div>
           <p className="mt-4 opacity-0 animate-fade-up text-center md:text-left" style={{animationDelay: "400ms"}}>
-            Full Stack web developer with an interest in security and a side of artsy-ness.
+            Full Stack web developer with an interest in application security.
+            
+          </p>
+          <p className="mt-4 md:m-0 opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}>
+            I use computers to build applications to solve problems and help people.
           </p>
           <HeroInformation />  
         </div>
 
         {/* ascii display (right side) */}
-        <div className="lg:w-1/2 xl:basis-1/2 flex items-center justify-center">
-          <div className="relative bg-grey-dark border-2 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up z-20" 
+        <div className="basis-3/5 flex items-center justify-center">
+          <div className="relative bg-grey-dark border-4 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up z-20" 
             style={{animationDelay: "800ms"}}
           >
             { rendered && !specialEnabled ?         
@@ -261,15 +263,16 @@ function HeroIcons() {
 
 function HeroInformation() {
  return (
-  <div className="mt-6">
-    <p className="opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}>
-      I use computers to build systems to solve problems and help people.
-    </p>
-    <p className="opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
+  <div className="">
+    <p className="mt-4 opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
       Currently, I&apos;m a penultimate Computer Science student at the University of Melbourne majoring in Computing and Software Systems.
     </p>
     <p className="mt-5 opacity-0 animate-fade-up" style={{animationDelay: "700ms"}}>
+      I have experience building and deploying full-stack web applications primarily using React, FastAPI, Firebase, MongoDB and MySQL and
       I&apos;m looking to gain practical software development experience whether through a job, internship or research assistant position.
+    </p>
+    <p className="mt-5 opacity-0 animate-fade-up" style={{animationDelay: "700ms"}}>
+      Currently exploring the use of language models for detailed emotion classification of journal entries. 
     </p>
     <p className="mt-5 opacity-0 animate-fade-up" style={{animationDelay: "800ms"}}>
       Welcome to my website.
