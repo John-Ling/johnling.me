@@ -51,7 +51,7 @@ export const projects: Project[] = [
       tags: ["C++", "Make"],
     },
     {
-      title: "Internship Project: RAG System", shortDescription: "RAG system for over 100,000 companies",
+      title: "Internship Project: RAG System", shortDescription: "RAG system for over 1000 companies",
       description: `
         Fullstack web app and RAG system that allowed users ask questions and received tailored financial advice 
         for over 1000 Malaysian companies. I used Flask and React with MySQL to store \"metadata\" 
