@@ -45,13 +45,13 @@ const SkillsDisplay = () => {
   };
 
   const skillIcons: SkillIcon[] = [
-    {classInfo: "devicon-react-original text-cyan", label: "React"},
+    {classInfo: "devicon-nextjs-original-wordmark text-white", label: "NextJS"},
     {classInfo: "devicon-firebase-plain text-yellow", label: "Firebase"},
     {classInfo: "devicon-tailwindcss-plain text-cyan", label: "Tailwind"},
-    {classInfo: "devicon-nextjs-original-wordmark text-white", label: "NextJS"},
     {classInfo: "devicon-fastapi-plain text-blue", label: "FastAPI"},
     {classInfo: "devicon-c-plain text-[#9aa5ce]", label: "C"},
     {classInfo: "devicon-vercel-original text-white", label: "Vercel"},
+    {classInfo: "devicon-angularjs-plain text-red", label: "Angular"},
     {classInfo: "devicon-docker-plain text-blue", label: "Docker"},
     {classInfo: "devicon-mongodb-plain text-green", label: "MongoDB"},
     {classInfo: "devicon-express-original text-white", label: "Express"},
