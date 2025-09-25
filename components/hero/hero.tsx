@@ -170,7 +170,7 @@ function HeroComponent({ specialEnabled, rendered, playing, framebuffer, audioRe
     <>
       <div className="min-h-screen flex items-center justify-center flex-col lg:flex-row">
         {/* hero information (left side) */}
-        <div className="basis-5/12 flex flex-col m-8">
+        <div className="basis-7/12 flex flex-col m-8">
           <div className="text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up font-meslo text-center md:text-left" style={{animationDelay: "100ms"}}>
             <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "100ms"}}>Hello,</h1>
             <h1 className="opacity-0 animate-fade-up" style={{animationDelay: "150ms"}}>
@@ -191,12 +191,12 @@ function HeroComponent({ specialEnabled, rendered, playing, framebuffer, audioRe
               null
             }
           </div>
-          <p className="mt-4 opacity-0 animate-fade-up text-center md:text-left" style={{animationDelay: "400ms"}}>
-            Full Stack web developer with an interest in application security.
-            
+          <p className="mt-4 mb-4 opacity-0 animate-fade-up text-center md:text-left" style={{animationDelay: "400ms"}}>
+            Full Stack developer with interests in security, UX and productivity.
           </p>
           <p className="mt-4 md:m-0 opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}>
-            I use computers to build applications to solve problems and help people.
+            I enjoy creating tools to help myself and others work smarter towards their goals
+            and maintain focus in a world full of distractions. 
           </p>
           <HeroInformation />  
         </div>
@@ -215,7 +215,7 @@ function HeroComponent({ specialEnabled, rendered, playing, framebuffer, audioRe
               : null
             }
           </div>
-          <Image loading="eager" className="hidden lg:block absolute border-0 opacity-0 animate-fade-up top-[42vh] max-w-[47vw] z-10" 
+          <Image loading="eager" className="hidden lg:block absolute border-0 opacity-0 animate-fade-up top-[46vh] max-w-[47vw] z-10" 
                 src={wires_bottom} alt="" style={{animationDelay: "1000ms"}} 
           />
         </div>  
@@ -265,11 +265,7 @@ function HeroInformation() {
  return (
   <div className="">
     <p className="mt-4 opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
-      Currently, I&apos;m a penultimate Computer Science student at the University of Melbourne majoring in Computing and Software Systems.
-    </p>
-    <p className="mt-5 opacity-0 animate-fade-up" style={{animationDelay: "700ms"}}>
-      I have experience building and deploying full-stack web applications primarily using React, FastAPI, Firebase, MongoDB and MySQL and
-      I&apos;m looking to gain practical software development experience whether through a job, internship or research assistant position.
+      I&apos;m a penultimate Computer Science student at the University of Melbourne looking to gain practical software development experience whether through a job, internship or research assistant position.
     </p>
     <p className="mt-5 opacity-0 animate-fade-up" style={{animationDelay: "700ms"}}>
       Currently exploring the use of language models for detailed emotion classification of journal entries. 

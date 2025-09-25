@@ -22,7 +22,7 @@ export function init_size(specialEnabled: boolean) {
   }
 
   // dynamically set width and height
-  return { width: Math.floor(window.innerWidth / 20), height: Math.floor(window.innerHeight / 32) } as HeroSize;
+  return { width: Math.floor(window.innerWidth / 22), height: Math.floor(window.innerHeight / 32) } as HeroSize;
 }
 
 
