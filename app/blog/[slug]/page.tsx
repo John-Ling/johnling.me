@@ -20,13 +20,13 @@ export default async function Page(props: Params) {
     <>
       <title>{post.title}</title>
       <div className="w-full lg:w-1/2 m-auto pt-5 pb-5 pl-2 pr-2">
-        <Link href="/blog">Back</Link>
+        <Link className="link" href="/blog">Back</Link>
         <article className={`pt-5 pb-5 ${style.markdown}`}>
           <h1 className="text-xl mb-5">{post.title}</h1>
           <p className="italic mb-5 text-muted-white">{post.date}</p>
           <MDXRemote source={content} components={components} />
         </article>
-        <Link href="/blog">Back</Link>
+        <Link className="link" href="/blog">Back</Link>
       </div>
     </>   
   )
