@@ -1,8 +1,6 @@
 "use client";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
-
-import { FormEvent, useState } from 'react';
 import Link from 'next/link';
 
 const WhereSection = () => {
