@@ -64,7 +64,7 @@ export default function CodeBlock({ language="asdf", filename="", canCopy=true, 
               </p>
             })}
           </div>
-          <div className="pb-1 pt-1 pl-2 overflow-auto">
+          <div className="pb-1 pt-1 pl-2 overflow-auto &::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {/* return code block markdown with syntax highlighting */}
             <Markdown rehypePlugins={[rehypeHighlight]}>
               {`\`\`\`${language}${children}\`\`\``}

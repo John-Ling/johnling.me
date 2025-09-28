@@ -63,6 +63,7 @@ interface ProjectItemProps {
 }
 
 function ProjectItem({ project, position, on_select }: ProjectItemProps) {
+  const maxTagCount = 3
   const colours: string[] = ["text-blue", "text-magenta", "text-teal", "text-green", "text-yellow", "text-orange-light", "text-red"];
   const colourClass: string = colours[position % colours.length];
   const projectFolder = `/images/projects/${project.imageFolder}/0.png`;
@@ -77,10 +78,10 @@ function ProjectItem({ project, position, on_select }: ProjectItemProps) {
         style={{animationDelay: `${(position + 1) * 150}ms`}}
       >
         <h2 onClick={on_click} className={`text-lg mb-2 mt-2  ${meslo.variable} font-meslo ${colourClass}`}>{project.title}</h2>
-        <h3 className="text-sm mb-2 italic text-muted-white">{project.shortDescription}</h3>
+        <h3 className="text-xs mb-2 italic text-muted-white">{project.shortDescription}</h3>
         {project.imageFolder === null ? <p>{project.description}</p> // if no image exists just render text
           :
-          <div className="overflow-hidden border-2 rounded-lg border-grey-light ">
+          <div className="overflow-hidden border-2 rounded-lg border-grey-light">
             <Image
               className="transition-all duration-500 hover:scale-105 hover:cursor-pointer border-0 rounded-none"
               alt="Project image" 
@@ -92,8 +93,13 @@ function ProjectItem({ project, position, on_select }: ProjectItemProps) {
           </div>        
         }
         <ul className="flex flex-wrap mt-1 mb-2">
-          {project.tags.map((tag: string) => {
-            return <li key={tag} className="p-1 text-sm"><span className="bg-grey-light border-1 pl-1 pr-1">{tag}</span></li>
+          {project.tags.map((tag: string, index) => {
+              if (index < maxTagCount) {
+                  return <li key={tag} className="p-1 text-xs"><span className="bg-grey-light border-1 pl-1 pr-1">{tag}</span></li>
+              } else  if (index === maxTagCount) {
+                  return<li key={"..."} className="p-1 text-xs"><span className="pl-1 pr-1 select-none pointer-events-none">...</span></li>
+              }
+              return <></>
           })}
         </ul>
       </div>
@@ -118,10 +124,10 @@ function ProjectCard({project, on_close}: ProjectCardProps) {
           <button className="block lg:hidden ml-auto w-fit mb-3 " onClick={on_close}>
               <CloseIcon className="hover:text-muted-white active:text-muted-white"/>
             </button>
-          <div className="mb-5 lg:mr-5">
+          <div className="p-5 flex items-center justify-center">
             <Image className="border-2 rounded-lg" src={projectFolder} width={1280} height={720} alt="Project image" />
           </div>
-          <div className="flex flex-col w-full lg:w-2/5 min-h-80">
+          <div className="flex flex-col w-full lg:w-3/5 min-h-80">
             {/* button above description for desktop */}
             <button className="hidden lg:block ml-auto w-fit" onClick={on_close}>
               <CloseIcon className="hover:text-muted-white active:text-muted-white"/>

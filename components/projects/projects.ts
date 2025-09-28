@@ -9,7 +9,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "RAMBLE", shortDescription: "Journalling with sophisticated emotional analytics",
+    title: "RAMBLE", shortDescription: "Analytics driven journalling app",
     description: `
       Finally got around to rebuilding Ramble into how I imagined it. It's a full-stack journalling app with a simple, uncluttered interface in created with ShadCN UI. 
       Alongside being a generally good journalling app (for me), I fine-tuned Longformer to perform emotion classification on entries and used Recharts to plot emotional data.

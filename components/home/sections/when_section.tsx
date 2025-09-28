@@ -12,7 +12,7 @@ const WhenSection = () => {
   return (
     <section className="min-h-screen w-11/12 flex flex-col items-center justify-center lg:flex-row p-5 gap-10">
       {/* left image grid */}
-      <div className="hidden lg:basis-1/3 md:grid grid-cols-3 gap-2">
+      <div className="hidden lg:basis-2/5 md:grid grid-cols-3 gap-2">
         <div className="when-section-picture opacity-0 lg:col-start-2" style={{animationDelay: "300ms"}}>
           <Image loading="eager" className=" w-3/5 lg:w-auto lg:-translate-x-12 lg:-translate-y-12" 
             src={server} 
@@ -47,7 +47,7 @@ const WhenSection = () => {
       </div>
 
       {/* right image grid */}
-      <div className="hidden lg:basis-1/3 md:grid grid-cols-3 gap-2">
+      <div className="hidden lg:basis-2/5 md:grid grid-cols-3 gap-2">
         <div className="when-section-picture opacity-0 lg:col-start-1 lg:col-span-2  lg:w-auto " style={{animationDelay: "400ms"}}>
           <Image className="lg:-translate-x-16" src={electronics_1} alt="More electronics" />
         </div>
@@ -56,7 +56,7 @@ const WhenSection = () => {
             alt="Some basic electronics the creator built to learn circuits" 
           />
         </div>
-        <div className="when-section-picture opacity-0 lg:row-start-3 w-3/5 lg:w-auto" style={{animationDelay: "200ms"}}>
+        <div className="when-section-picture opacity-0 lg:row-start-3  lg:w-auto" style={{animationDelay: "200ms"}}>
           <Image loading="eager" className="lg:-translate-y-16" src={printer} alt="3D printer the creator owns" />
         </div>
       </div>

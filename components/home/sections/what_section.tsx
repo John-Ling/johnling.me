@@ -6,7 +6,7 @@ const WhatSection = () => {
   return (
     <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-10 lg:w-11/12">
       <div className="relative order-2 lg:order-1 lg:basis-2/5">
-        <Image className="hidden md:block absolute border-0 top-[13vh] z-0 opacity-0 trigger-fade-on-scroll pointer-events-none select-none" src={wires_bottom_2} loading="eager" alt=""/>  
+        <Image className="hidden md:block absolute border-0 -bottom-[20%] z-0 opacity-0 trigger-fade-on-scroll pointer-events-none select-none" src={wires_bottom_2} loading="eager" alt=""/>  
         <div 
         className="grid grid-cols-3 justify-center bg-grey-dark border-4
                   border-grey-light order-2 lg:order-1 pt-10 pb-10 pr-5 pl-5 text-center opacity-0 trigger-fade-on-scroll z-50"
@@ -54,7 +54,7 @@ const SkillsDisplay = () => {
     {classInfo: "devicon-angularjs-plain text-red", label: "Angular"},
     {classInfo: "devicon-docker-plain text-blue", label: "Docker"},
     {classInfo: "devicon-mongodb-plain text-green", label: "MongoDB"},
-    {classInfo: "devicon-express-original text-white", label: "Express"},
+    {classInfo: "devicon-amazonwebservices-plain-wordmark text-yellow", label: "AWS"},
     {classInfo: "devicon-mysql-plain text-blue", label: "MySQL"},
     {classInfo: "devicon-sass-original text-red", label: "SASS"},
   ];

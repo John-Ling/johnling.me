@@ -168,7 +168,7 @@ function HeroComponent({ specialEnabled, rendered, playing, framebuffer, audioRe
 
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center flex-col lg:flex-row">
+      <div className="min-h-screen max-w-[1920px] flex items-center justify-center flex-col lg:flex-row">
         {/* hero information (left side) */}
         <div className="basis-7/12 flex flex-col m-8">
           <div className="text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up font-meslo text-center md:text-left" style={{animationDelay: "100ms"}}>
@@ -203,21 +203,24 @@ function HeroComponent({ specialEnabled, rendered, playing, framebuffer, audioRe
 
         {/* ascii display (right side) */}
         <div className="basis-3/5 flex items-center justify-center">
-          <div className="relative bg-grey-dark border-4 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up z-20" 
-            style={{animationDelay: "800ms"}}
-          >
-            { rendered && !specialEnabled ?         
-              <div className="opacity-0 animate-fade-up z-10 bg-grey-dark" style={{animationDelay: "600ms"}}>
-                <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
-                    w-full h-full opacity-40 z-20 m-0 p-0"></div>
-                <AsciiDisplay framebuffer={framebuffer} />
-              </div>  
-              : null
-            }
+            <div className="relative">
+
+              <div className="relative bg-grey-dark border-4 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up z-20" 
+                style={{animationDelay: "800ms"}}
+              >
+                { rendered && !specialEnabled ?         
+                  <div className="opacity-0 animate-fade-up z-10 bg-grey-dark" style={{animationDelay: "600ms"}}>
+                    <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
+                        w-full h-full opacity-40 z-20 m-0 p-0"></div>
+                    <AsciiDisplay framebuffer={framebuffer} />
+                  </div>  
+                  : null
+                }
+              </div>
+              <Image loading="eager" className="hidden lg:block absolute -bottom-[20%]  opacity-0 animate-fade-up z-10 border-0 pointer-events-none" 
+                    src={wires_bottom} alt="" style={{animationDelay: "1000ms"}}
+              />
           </div>
-          <Image loading="eager" className="hidden lg:block absolute border-0 opacity-0 animate-fade-up top-[46vh] max-w-[47vw] z-10" 
-                src={wires_bottom} alt="" style={{animationDelay: "1000ms"}} 
-          />
         </div>  
       </div>
     </>
