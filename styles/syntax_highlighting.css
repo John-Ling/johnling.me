@@ -40,116 +40,112 @@ code.hljs {
   padding: 3px 5px
 }
 .hljs {
-  color: #BCBCBC;
-  background: #1b1b1b
+  color: #c9c9c9 !important;            /* Default foreground */
+  background: #161616 !important;       /* Editor background */
 }
+
 .hljs::selection,
 .hljs ::selection {
-  background-color: #333333;
-  color: #BCBCBC
+  background-color: #214283;
+  color: #c9c9c9;
 }
-/* purposely do not highlight these things */
-.hljs-formula,
-.hljs-params,
-.hljs-property {
-  
-}
-/* base03 - #6C6C6C -  Comments, Invisibles, Line Highlighting */
+
+/* Comments */
 .hljs-comment {
-  color: #6C6C6C
+  color: #808080;
 }
-/* base04 - #787878 -  Dark Foreground (Used for status bars) */
+
+/* Tags / HTML-ish text */
 .hljs-tag {
-  color: #787878
+  color: #BABABA;
 }
-/* base05 - #BCBCBC -  Default Foreground, Caret, Delimiters, Operators */
+
+/* Punctuation, delimiters, operators */
 .hljs-subst,
 .hljs-punctuation,
 .hljs-operator {
-  color: #BCBCBC
+  color: #A9B7C6;
 }
 .hljs-operator {
-  opacity: 0.7
+  opacity: 0.7;
 }
-/* base08 - Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted */
+
+/* Variables, deleted text */
 .hljs-bullet,
 .hljs-variable,
 .hljs-template-variable,
 .hljs-selector-tag,
 .hljs-name,
 .hljs-deletion {
-  color: #5F8787
+  color: #9876AA; /* Darcula uses this purple for identifiers/selectors */
 }
-/* base09 - Integers, Boolean, Constants, XML Attributes, Markup Link Url */
+
+/* Numbers, symbols, attrs, constants */
 .hljs-symbol,
 .hljs-number,
 .hljs-link,
 .hljs-attr,
 .hljs-variable.constant_,
 .hljs-literal {
-  color: #FF8700
+  color: #6897BB;
 }
-/* base0A - Classes, Markup Bold, Search Text Background */
+
+/* Class titles, bold items */
 .hljs-title,
 .hljs-class .hljs-title,
 .hljs-title.class_ {
-  color: #5F8787
+  color: #FFC66D;
 }
 .hljs-strong {
   font-weight: bold;
-  color: #5F8787
+  color: #FFC66D;
 }
-/* base0B - Strings, Inherited Class, Markup Code, Diff Inserted */
+
+/* Strings, additions, code */
 .hljs-code,
 .hljs-addition,
 .hljs-title.class_.inherited__,
 .hljs-string {
-  color: #87AF87
+  color: #6A8759;
 }
-/* base0C - Support, Regular Expressions, Escape Characters, Markup Quotes */
-/* guessing */
-.hljs-built_in,
+
+/* Builtins, regex, quotes, doctags */
 .hljs-doctag,
 .hljs-quote,
 .hljs-keyword.hljs-atrule,
 .hljs-regexp {
-  color: #5F875F
+  color: #CC7832;
 }
-/* base0D - Functions, Methods, Attribute IDs, Headings */
+
+/* Functions, headings, attributes */
+.hljs-built_in,
 .hljs-function .hljs-title,
 .hljs-attribute,
 .ruby .hljs-property,
 .hljs-title.function_,
 .hljs-section {
-  color: #FFFFAF
+  color: #FFC66D;
 }
-/* base0E - Keywords, Storage, Selector, Markup Italic, Diff Changed */
-/* .hljs-selector-id, */
-/* .hljs-selector-class, */
-/* .hljs-selector-attr, */
-/* .hljs-selector-pseudo, */
+
+/* Keywords, selectors, changed diff */
 .hljs-type,
 .hljs-template-tag,
 .diff .hljs-meta,
 .hljs-keyword {
-  color: #87AFD7
+  color: #CC7832;
 }
 .hljs-emphasis {
-  color: #87AFD7;
-  font-style: italic
+  color: #CC7832;
+  font-style: italic;
 }
-/* base0F - Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?> */
-/*
-  prevent top level .keyword and .string scopes
-  from leaking into meta by accident
-*/
+
+/* Meta info, embedded languages */
 .hljs-meta,
 .hljs-meta .hljs-keyword,
 .hljs-meta .hljs-string {
-  color: #5F87AF
+  color: #BBB529;
 }
-/* for v10 compatible themes */
 .hljs-meta .hljs-keyword,
 .hljs-meta-keyword {
-  font-weight: bold
+  font-weight: bold;
 }

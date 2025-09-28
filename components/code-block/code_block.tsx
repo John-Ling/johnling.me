@@ -37,14 +37,14 @@ export default function CodeBlock({ language="asdf", filename="", canCopy=true, 
 
   return (
     <>
-      <div className="bg-grey-dark border-2 border-grey-light flex flex-col mb-5 mt-5">
+      <div className="bg-[#161616]  border-2 border-grey-light flex flex-col mb-5 mt-5">
         <div className="flex flex-row justify-between items-center bg-grey-normal p-1">
           <p className="text-muted-white p-0 m-0 text-sm leading-none">{filename}</p>
           { !canCopy ?  <></> 
           :
             <>
               <div className="relative">
-                <div className={`absolute bottom-10 bg-grey-dark pt-1 pb-1 pl-2 pr-2 ${!tooltipVisible ? "hidden" : "" }`}>
+                <div className={`absolute bottom-10 pt-1 pb-1 pl-2 pr-2 ${!tooltipVisible ? "hidden" : "" }`}>
                   { copied ? "Copied" : "Copy"}
                   </div>
                 <ContentPasteIcon onMouseOver={() => setTooltipVisible(true)} onMouseOut={() => setTooltipVisible(false)} onClick={on_copy} 
@@ -56,15 +56,15 @@ export default function CodeBlock({ language="asdf", filename="", canCopy=true, 
         </div>
         <div className="flex flex-row">
           {/* line numbers for code */}
-          <div className='bg-grey-dark'>
+          <div className='bg-grey-normal'>
             {lineNumbers.map((number: string, index) => {
               return <p key={index} 
-              className="font-bold leading-none pt-0 pb-0 pl-1 pr-1 select-none text-xs text-muted-white text-right">
+              className="font-bold leading-none pt-0 pb-0 pl-2 pr-2 select-none text-xs text-muted-white text-right">
                 {number}
               </p>
             })}
           </div>
-          <div className="pb-1 pt-1 pl-2 overflow-auto &::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          <div className=" bg-[#161616] pb-1 pt-1 pl-2 overflow-auto &::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {/* return code block markdown with syntax highlighting */}
             <Markdown rehypePlugins={[rehypeHighlight]}>
               {`\`\`\`${language}${children}\`\`\``}

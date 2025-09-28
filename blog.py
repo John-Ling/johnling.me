@@ -46,3 +46,41 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+import yfinance as yf
+import requests
+import time
+
+# assume segmentA and segmentB are the partitioned dataframes 
+companiesA = segmentA["Ticker"].unique()
+companiesB = segmentB["Ticker"].unique()
+
+tickers= list(set(companiesA).intersection(companiesB))
+
+data = yf.Ticker("AMZN")
+print(data.info["displayName"])
+companyCount = len(tickers)
+print(companyCount)
+with open("companies.txt", 'w') as f:
+  currentCompany = 1
+  attempts = 1
+  while currentCompany <= companyCount:
+      if attempts >= 3:
+          currentCompany += 1
+          attempts = 1
+          continue
+      try:
+          ticker = tickers[currentCompany - 1]
+          print(ticker)
+          data = yf.Ticker(ticker)
+          name = data.info["displayName"]
+          print(name)
+          f.write(f"{name}\n")
+          currentCompany += 1
+          attempts = 1
+      except:
+          # exponential backoff because sometimes the library fails 
+          time.sleep(2**attempts)
+          attempts += 1
+          continue
