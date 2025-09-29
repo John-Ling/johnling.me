@@ -1,4 +1,4 @@
-import AsciiDisplay from "../ascii-display/ascii_display";
+import AsciiDisplay from "../ui/ascii-display/ascii_display";
 
 interface SecretProps {
   playing: boolean;

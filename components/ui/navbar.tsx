@@ -7,7 +7,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Link from "next/link";
 
 import Image from "next/image";
-import wire_top_1 from "../public/svg/wires_top_1.svg";
+import wire_top_1 from "@/public/svg/wires_top_1.svg";
 
 
 interface NavLink {

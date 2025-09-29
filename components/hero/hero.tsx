@@ -11,11 +11,11 @@ import { conway_next_frame, conway_populate, cube_init, cube_next_frame,
         donut_cleanup, matrix_cleanup, 
         bapple_next_frame,
         bapple_init,
-        bapple_cleanup} from "../ascii-display/animations";
+        bapple_cleanup} from "../ui/ascii-display/animations";
 
 import { select_animation, check_special, init_size } from "./init_functions";
 
-import AsciiDisplay from "../ascii-display/ascii_display";
+import AsciiDisplay from "../ui/ascii-display/ascii_display";
 import Secret from "./secret";
 
 import Image from "next/image";
@@ -194,9 +194,11 @@ function HeroComponent({ specialEnabled, rendered, playing, framebuffer, audioRe
           <p className="mt-4 mb-4 opacity-0 animate-fade-up text-center md:text-left" style={{animationDelay: "400ms"}}>
             Full Stack developer with interests in security, UX and productivity.
           </p>
-          <p className="mt-4 md:m-0 opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}>
-            I enjoy creating tools to help myself and others work smarter towards their goals
-            and maintain focus in a world full of distractions. 
+          <p className="mt-4 mb-4 md:m-0 opacity-0 animate-fade-up" style={{animationDelay: "500ms"}}>
+            I enjoy creating applications to help myself and others work smarter towards their goals, reduce stress and maintain focus in a world full of distractions. 
+          </p>
+          <p className="opacity-0 animate-fade-up" style={{animationDelay: "600ms"}}>
+            In short, I enjoy helping others.
           </p>
           <HeroInformation />  
         </div>
@@ -271,7 +273,7 @@ function HeroInformation() {
       I&apos;m a penultimate Computer Science student at the University of Melbourne looking to gain practical software development experience whether through a job, internship or research assistant position.
     </p>
     <p className="mt-5 opacity-0 animate-fade-up" style={{animationDelay: "700ms"}}>
-      Currently exploring the use of language models for detailed emotion classification of journal entries. 
+      Currently exploring the use of encoder-only language models for detailed emotion classification in journal entries. 
     </p>
     <p className="mt-5 opacity-0 animate-fade-up" style={{animationDelay: "800ms"}}>
       Welcome to my website.

@@ -4,7 +4,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { get_post, get_sorted_posts } from "@/lib/posts";
 
 import Markdown from "react-markdown";
-import CodeBlock from "@/components/code-block/code_block";
+import CodeBlock from "@/components/ui/code-block/code_block";
 
 import style from "./markdown.module.css";
 import "/styles/syntax_highlighting.css"; // include modified highlight.js theme

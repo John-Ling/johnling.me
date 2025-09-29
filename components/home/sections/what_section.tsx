@@ -22,14 +22,16 @@ const WhatSection = () => {
         <h2 className="text-6xl text-yellow" style={{animationDelay: "800ms"}}>What?</h2>
         <h3 className="text-3xl mb-3 mt-3 font-bold">The tools I use</h3> 
         <p className="mb-5">
+          I&apos;m not a tech evangelist nor a fanatic. 
           I don&apos;t subscribe to a particular &quot;Tech Stack&quot; since I don&apos;t like limiting myself to a single method of doing things.
+          In my opinion, you should always be open to learning more to prevent stagnation. That discomfort you feel about not knowing something is crucial for growth.
         </p>
         <p className="mb-5">
-          However, I do find myself using stacks similar to MERN (MongoDB, Express, React, NodeJS) or FARM (FastAPI, React, MongoDB).
+          That being said, I do find myself using stacks similar to MERN (MongoDB, Express, React, NodeJS) or FARM (FastAPI, React, MongoDB) simply out of convenience.
         </p>
         <p>
           For me, the KISS (Keep It Simple Stupid) principle is a valid approach to development 
-          so I like to use the right tools rather than the hottest ones.
+          so I prefer to use the right tools rather than the hottest ones.
         </p>
       </div>
     </section>

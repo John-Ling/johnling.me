@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next';
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import Navbar from "@/components/ui/navbar";
+import Footer from "@/components/ui/footer";
 import type { Metadata, Viewport } from "next";
 import { meslo } from "@/lib/font";
 import "/styles/globals.css";
