@@ -1,10 +1,10 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { Project, projects } from "./projects";
-import GitHubIcon from '@mui/icons-material/GitHub';
 import CloseIcon from '@mui/icons-material/Close';
 import Image from "next/image";
 import { meslo } from "@/lib/font";
+import Link from "next/link";
 
 
 export default function ProjectsPage() {
@@ -139,12 +139,12 @@ function ProjectCard({project, on_close}: ProjectCardProps) {
               })}
             </ul>
             <p className="mb-2 pb-1 pt-1 max-h-52 lg:max-h-fit overflow-y-auto">{project.description}</p>
-            <a className={`text-sm no-underline mb-2 w-fit ${project.sourceURL === null ? "pointer-events-none text-muted-white border-none" : ""}`} 
+            <Link className={`text-sm no-underline mb-2 w-fit ${project.sourceURL === null ? "pointer-events-none text-muted-white border-none" : "link"}`} 
               href={project.sourceURL !== null ? project.sourceURL : "/"} 
               target="_blank" rel="noopener"
               >
-                <GitHubIcon className="mb-1 mt-1" sx={{ fontSize: 20 }} /><span className="align-middle"> GitHub</span>
-            </a>
+                See more
+            </Link>
           </div>
         </div>
       </div>
