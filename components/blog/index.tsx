@@ -40,7 +40,7 @@ function PostComponent({post, position}: PostComponentProps) {
   const colourClass: string = colours[position % colours.length];
   return (
     <>
-      <h2 className={`text-lg ${meslo.variable} font-meslo ${colourClass}`}>{post.title}</h2>
+      <h2 className={`text-md ${meslo.variable} font-meslo ${colourClass}`}>{post.title}</h2>
       <p className="text-sm italic text-muted-white mb-2 ">{post.date}</p>
       <Link className="link" href={`/blog/${post.slug}`}>Article</Link>
     </>

@@ -8,7 +8,7 @@
     font-family: "mesloBold";
     font-size: 2rem;
     line-height: 2.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .markdown h2 {
@@ -64,6 +64,24 @@
     color: theme("colors.muted-white");
 
 }
+
+.markdown table {
+    border: solid 1px theme("colors.muted-white");
+    background-color: theme("colors.grey.normal");
+
+}
+
+.markdown table thead {
+    border: solid 1px theme("colors.muted-white");
+}
+
+.markdown td {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-left: solid 1px theme("colors.muted-white");
+    border-right: solid 1px theme("colors.muted-white");
+}
+
 
 
 .markdown code {

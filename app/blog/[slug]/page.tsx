@@ -1,20 +1,37 @@
 import Link from "next/link";
-import { MDXRemote } from "next-mdx-remote/rsc";
-
+import { compileMDX } from "next-mdx-remote/rsc";
 import { get_post, get_sorted_posts } from "@/lib/posts";
 
 import Markdown from "react-markdown";
 import CodeBlock from "@/components/ui/code-block/code_block";
 
 import style from "./markdown.module.css";
+import 'katex/dist/katex.min.css';
 import "/styles/syntax_highlighting.css"; // include modified highlight.js theme
 import { MDXComponents } from "mdx/types";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+import rehypeHighlight from "rehype-highlight";
+import rehypeKatex from 'rehype-katex'
+import remarkMath from 'remark-math'
 
 export default async function Page(props: Params) {
   const components: MDXComponents = {CodeBlock, Markdown};
   const params = await props.params;
   const post: BlogPost = get_post(params.slug);
-  const content: string = post.content;
+  const compiled = await compileMDX({
+    source: post.content,
+    components,
+    options: {
+      parseFrontmatter: true,
+      mdxOptions: {
+      remarkPlugins: [remarkGfm, remarkMath],
+      rehypePlugins: [rehypeHighlight, rehypeKatex, [rehypeRaw, {
+        passThrough: ['mdxjsEsm', 'mdxFlowExpression', 'mdxJsxFlowElement', 'mdxJsxTextElement', 'mdxTextExpression']
+      }]]
+    },
+  },
+  })
 
   return (
     <>
@@ -24,7 +41,9 @@ export default async function Page(props: Params) {
         <article className={`pt-5 pb-5 ${style.markdown}`}>
           <h1 className="text-xl mb-5">{post.title}</h1>
           <p className="italic mb-5 text-muted-white">{post.date}</p>
-          <MDXRemote source={content} components={components} />
+          <div>
+            {compiled.content}
+          </div>
         </article>
         <Link className="link" href="/blog">Back</Link>
       </div>
