@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
 
 :root {
     color-scheme: dark;
@@ -22,6 +23,11 @@ body {
         linear-gradient(to right, #22262E 1px, transparent 1px),
         linear-gradient(to bottom, #22262E 1px, transparent 1px);
         /* 081926 */
+}
+
+.glow {
+    text-shadow: 
+        0 0 5px #ff5500;
 }
 
 .link {

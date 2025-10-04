@@ -1,39 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import pc from "@/public/images/homepage/pc.jpg";
-import laptop_1 from "@/public/images/homepage/laptop_1.jpg";
-import electronics_1 from "@/public/images/homepage/electronics_1.jpg";
+import laptop from "@/public/images/homepage/thinkpad.jpg";
+import soldering from "@/public/images/homepage/soldering.jpg";
+import nixie from "@/public/images/homepage/nixie.png";
 import electronics_2 from "@/public/images/homepage/electronics_2.jpg";
-import printer from "@/public/images/homepage/printer.jpg"
 import server from "@/public/images/homepage/server.jpg";
 
 const WhenSection = () => {
   return (
     <section className="min-h-screen w-11/12 flex flex-col items-center justify-center lg:flex-row p-5 gap-10">
-      {/* left image grid */}
-      <div className="hidden lg:basis-2/5 md:grid grid-cols-3 gap-2">
-        <div className="when-section-picture opacity-0 lg:col-start-2" style={{animationDelay: "300ms"}}>
-          <Image loading="eager" className=" w-3/5 lg:w-auto lg:-translate-x-12 lg:-translate-y-12" 
-            src={server} 
-            alt="The creator's first server setup" 
-          />
-        </div>
-        <div className="when-section-picture opacity-0 row-start-1 col-start-2 lg:row-start-1 lg:col-start-3 w-3/5 lg:w-auto" 
-          style={{animationDelay: "200ms"}}
-        >
-          <Image className="lg:-translate-x-4 lg:translate-y-8" 
-            src={pc} alt="The creator's first computer" />
-        </div>
-        <div className="when-section-picture opacity-0 lg:col-start-2 lg:col-span-2 w-auto" style={{animationDelay: "100ms"}}>
-          <Image className="lg:-translate-x-8 lg:translate-y-20" src={laptop_1} alt="Creator's laptop with some nice code"/>
-        </div>
-      </div>
-
-      {/* content */}
-      <div className="trigger-fade-on-scroll basis-3/4" id="when-section">
+      <div className="trigger-fade-on-scroll lg:basis-1/2" id="when-section">
         <h2 className="text-6xl text-blue" style={{animationDelay: "800ms"}}>When?</h2> 
-        <h3 className="text-3xl mb-3 mt-3 font-bold">Where it all began</h3>
+        <h3 className="text-3xl mb-3 mt-3 font-bold">How I started building</h3>
         <p className="mb-5">
           I had taken some introductory Python classes the year before, 
           however my first real project was created in September 2019. It was an automated Kahoot player
@@ -46,18 +25,34 @@ const WhenSection = () => {
         <Link href="/projects" className="border-none no-underline rounded-lg  p-3 bg-[#141414] hover:bg-[#101010]">See My Projects</Link>
       </div>
 
-      {/* right image grid */}
-      <div className="hidden lg:basis-2/5 md:grid grid-cols-3 gap-2">
-        <div className="when-section-picture opacity-0 lg:col-start-1 lg:col-span-2  lg:w-auto " style={{animationDelay: "400ms"}}>
-          <Image className="lg:-translate-x-16" src={electronics_1} alt="More electronics" />
+      <div className="hidden lg:basis-2/5 md:grid grid-cols-2 gap-4">
+        <div className="when-section-picture mr-10 opacity-0" style={{animationDelay: "400ms"}}>
+          <div className="-translate-y-14">
+            <Image className="animate-float" src={laptop} alt="My laptop" />
+          </div>
         </div>
-        <div className="when-section-picture opacity-0 lg:col-start-2 lg:row-start-2 w-1/2 lg:w-auto" style={{animationDelay: "300ms"}}>
-          <Image className="lg:translate-x-4 lg:translate-y-8" src={electronics_2} 
-            alt="Some basic electronics the creator built to learn circuits" 
-          />
+        <div className="when-section-picture opacity-0 w-52" style={{animationDelay: "400ms"}}>
+          <Image className="animate-float-inverse" style={{animationDuration: "2500ms"}} src={nixie} alt="Nixie tubes" />
         </div>
-        <div className="when-section-picture opacity-0 lg:row-start-3  lg:w-auto" style={{animationDelay: "200ms"}}>
-          <Image loading="eager" className="lg:-translate-y-16" src={printer} alt="3D printer the creator owns" />
+        <div className="flex flex-row gap-4">
+          <div className="when-section-picture opacity-0" style={{animationDelay: "300ms"}}>
+            <div className="translate-y-14">
+              <Image loading="eager" className="animate-float-inverse w-52" 
+                src={server} 
+                  alt="The creator's first server setup" 
+              />
+            </div>
+        </div> 
+        <div className="when-section-picture opacity-0 w-44" style={{animationDelay: "300ms"}}>
+          <div className="-translate-y-4">
+            <Image className="animate-float" style={{animationDuration: "2000ms"}} src={electronics_2} 
+              alt="Some basic electronics the creator built to learn circuits" 
+            />
+          </div>
+        </div>
+        </div>
+        <div className="when-section-picture opacity-0  col-start-2 w-72" style={{animationDelay: "400ms"}}>
+          <Image className="animate-float" src={soldering} style={{animationDuration: "3500ms"}} alt="Soldering" />
         </div>
       </div>
     </section>

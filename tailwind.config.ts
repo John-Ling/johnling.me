@@ -49,12 +49,23 @@ const config: Config = {
           "40%": {color: "#2e2e2e"},
           "80%": {color: "#FF5500"},
           "100%": {color: "#FF5500"},
+        },
+        "float": {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5px)' },
+        },
+        "float-inverse": {
+          '0%, 100%': { transform: 'translateY(-5px)' },
+          '50%': { transform: 'translateY(0)' },
         }
+
       },
       animation: {
         "fade-up" : "fade_up 0.4s ease-out forwards",
         "fade-down" : "fade_down 0.4s ease-out forwards",
         "flicker-on": "flicker_on 1s linear forwards",
+        "float": "float 3s ease-in-out infinite",
+        "float-inverse": "float-inverse 3s ease-in-out infinite"
       },
       fontFamily: {
         meslo: ["var(--meslo)"],

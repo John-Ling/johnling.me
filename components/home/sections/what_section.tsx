@@ -5,10 +5,10 @@ import Image from "next/image";
 const WhatSection = () => {
   return (
     <section className="min-h-screen flex flex-col items-center lg:flex-row p-5 gap-10 lg:w-11/12">
-      <div className="relative order-2 lg:order-1 lg:basis-2/5">
-        <Image className="hidden md:block absolute border-0 -bottom-[20%] z-0 opacity-0 trigger-fade-on-scroll pointer-events-none select-none" src={wires_bottom_2} loading="eager" alt=""/>  
+      <div className="relative order-2 lg:order-1 w-full lg:basis-2/5">
+        <Image className="hidden md:block absolute border-0 lg:-bottom-[20%] z-0 opacity-0 trigger-fade-on-scroll pointer-events-none select-none" src={wires_bottom_2} loading="eager" alt=""/>  
         <div 
-        className="grid grid-cols-3 justify-center bg-grey-dark border-4
+        className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-3 justify-center bg-grey-dark border-4
                   border-grey-light order-2 lg:order-1 pt-10 pb-10 pr-5 pl-5 text-center opacity-0 trigger-fade-on-scroll z-50"
         id="skills-display"
         >
@@ -67,9 +67,11 @@ const SkillsDisplay = () => {
     {/* <div className="z-20"> */}
       {skillIcons.map((icon: SkillIcon, i: number) => {
         return (
-          <div key={i} className="opacity-0 skill-icon" style={{animationDelay: `${(i + 1) * 100}ms`}}>
-            <i className={`${icon.classInfo} text-center  text-5xl md:text-4xl lg:text-6xl flex-1 `} />
-            <p className="text-xs md:text-sm text-center m-2 font-bold z-40 select-none">{icon.label}</p>
+          <div key={i} className="opacity-0 skill-icon " style={{animationDelay: `${(i + 1) * 100}ms`}}>
+            <div>
+              <i className={`${icon.classInfo} text-center  text-5xl md:text-7xl lg:text-6xl flex-1 `} />
+              <p className="text-xs md:text-sm text-center m-2 font-bold z-40 select-none">{icon.label}</p>
+            </div>
           </div>  
         )
       })}
