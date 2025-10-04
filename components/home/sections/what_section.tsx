@@ -12,8 +12,8 @@ const WhatSection = () => {
                   border-grey-light order-2 lg:order-1 pt-10 pb-10 pr-5 pl-5 text-center opacity-0 trigger-fade-on-scroll z-50"
         id="skills-display"
         >
-          <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] top-0 left-0
-                          w-full h-full opacity-20 z-20"></div>
+          <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_2px,#000000_2px,#000000_4px)] top-0 left-0
+                          w-full h-full opacity-20 z-20 animate-scanlines"   style={{ backgroundSize: "100% 200px", }}></div>
           <SkillsDisplay />
         </div>
       </div>
@@ -69,7 +69,7 @@ const SkillsDisplay = () => {
         return (
           <div key={i} className="opacity-0 skill-icon " style={{animationDelay: `${(i + 1) * 100}ms`}}>
             <div>
-              <i className={`${icon.classInfo} text-center  text-5xl md:text-7xl lg:text-6xl flex-1 `} />
+              <i className={`${icon.classInfo} text-center text-5xl md:text-7xl lg:text-6xl flex-1 `} />
               <p className="text-xs md:text-sm text-center m-2 font-bold z-40 select-none">{icon.label}</p>
             </div>
           </div>  

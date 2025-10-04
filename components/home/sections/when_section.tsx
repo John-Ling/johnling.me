@@ -25,34 +25,30 @@ const WhenSection = () => {
         <Link href="/projects" className="border-none no-underline rounded-lg  p-3 bg-[#141414] hover:bg-[#101010]">See My Projects</Link>
       </div>
 
-      <div className="hidden lg:basis-2/5 md:grid grid-cols-2 gap-4">
-        <div className="when-section-picture mr-10 opacity-0" style={{animationDelay: "400ms"}}>
-          <div className="-translate-y-14">
+      <div className="hidden lg:basis-1/2 md:grid grid-cols-2 gap-4">
+        <div className="when-section-picture mr-10 opacity-0 max-w-80" style={{animationDelay: "400ms"}}>
+          <div className="-translate-y-5">
             <Image className="animate-float" src={laptop} alt="My laptop" />
           </div>
         </div>
         <div className="when-section-picture opacity-0 w-52" style={{animationDelay: "400ms"}}>
-          <Image className="animate-float-inverse" style={{animationDuration: "2500ms"}} src={nixie} alt="Nixie tubes" />
+          <div className="lg:-translate-x-12 translate-y-3">
+            <Image className="animate-float-inverse" style={{animationDuration: "2500ms"}} src={nixie} alt="Nixie tubes" />
+          </div>
         </div>
-        <div className="flex flex-row gap-4">
-          <div className="when-section-picture opacity-0" style={{animationDelay: "300ms"}}>
-            <div className="translate-y-14">
-              <Image loading="eager" className="animate-float-inverse w-52" 
+
+       <div className="when-section-picture opacity-0 max-w-64"  style={{animationDelay: "300ms"}}>
+        <div className="-translate-x-3">
+          <Image loading="eager" className="animate-float-inverse w-80" 
                 src={server} 
                   alt="The creator's first server setup" 
               />
-            </div>
-        </div> 
-        <div className="when-section-picture opacity-0 w-44" style={{animationDelay: "300ms"}}>
-          <div className="-translate-y-4">
-            <Image className="animate-float" style={{animationDuration: "2000ms"}} src={electronics_2} 
-              alt="Some basic electronics the creator built to learn circuits" 
-            />
-          </div>
         </div>
-        </div>
+       </div>
         <div className="when-section-picture opacity-0  col-start-2 w-72" style={{animationDelay: "400ms"}}>
-          <Image className="animate-float" src={soldering} style={{animationDuration: "3500ms"}} alt="Soldering" />
+          <div className="lg:-translate-x-10">
+            <Image className="animate-float" src={soldering} style={{animationDuration: "3500ms"}} alt="Soldering" />
+          </div>
         </div>
       </div>
     </section>

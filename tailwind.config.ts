@@ -57,15 +57,19 @@ const config: Config = {
         "float-inverse": {
           '0%, 100%': { transform: 'translateY(-5px)' },
           '50%': { transform: 'translateY(0)' },
+        },
+        "scanlines": {
+          "0%": { backgroundPosition: "0 0" },
+          "100%": { backgroundPosition: "0 100%" },
         }
-
       },
       animation: {
         "fade-up" : "fade_up 0.4s ease-out forwards",
         "fade-down" : "fade_down 0.4s ease-out forwards",
         "flicker-on": "flicker_on 1s linear forwards",
         "float": "float 3s ease-in-out infinite",
-        "float-inverse": "float-inverse 3s ease-in-out infinite"
+        "float-inverse": "float-inverse 3s ease-in-out infinite",
+        "scanlines": "scanlines 60s linear infinite",
       },
       fontFamily: {
         meslo: ["var(--meslo)"],

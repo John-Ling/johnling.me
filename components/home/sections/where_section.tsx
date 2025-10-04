@@ -26,9 +26,11 @@ const WhereSection = () => {
           </div>
         </div>
       </div>
-      <div>
-        <h4 className="text-2xl font-bold mb-4">Leave me a Message</h4>
-        <Link className="link" href="mailto:johnlingbusiness@gmail.com">johnlingbusiness@gmail.com</Link>
+      <div className="opacity-0 trigger-fade-on-scroll" style={{animationDelay: "300ms"}}>
+        <h4 className="opacity-0 trigger-fade-on-scroll text-2xl font-bold mb-4" style={{animationDelay: "400ms"}}>Leave me a Message</h4>
+        <Link className="link opacity-0 trigger-fade-on-scroll" href="mailto:johnlingbusiness@gmail.com" style={{animationDelay: "400ms"}}>
+          johnlingbusiness@gmail.com
+        </Link>
       </div>
     </section>
   )

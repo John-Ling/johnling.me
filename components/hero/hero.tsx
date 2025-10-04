@@ -184,7 +184,7 @@ function HeroComponent({ specialEnabled, rendered, playing, framebuffer, audioRe
             { rendered && !specialEnabled ? 
               <div className="opacity-0 animate-fade-up bg-grey-dark border-4 border-grey-light" style={{animationDelay: "600ms"}}>
                 <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
-                    w-full h-full opacity-40 z-20 m-0 p-0"></div>
+                    w-full h-full opacity-40 z-20 m-0 p-0 animate-scanlines"   style={{ backgroundSize: "100% 200px", }}></div>
                 <AsciiDisplay framebuffer={framebuffer} />
               </div>
               :
@@ -212,8 +212,8 @@ function HeroComponent({ specialEnabled, rendered, playing, framebuffer, audioRe
               >
                 { rendered && !specialEnabled ?         
                   <div className="opacity-0 animate-fade-up z-10 bg-grey-dark" style={{animationDelay: "600ms"}}>
-                    <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
-                        w-full h-full opacity-40 z-20 m-0 p-0"></div>
+                    <div className="absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_4px)] 
+                        w-full h-full opacity-40 z-20 m-0 p-0 animate-scanlines" style={{ backgroundSize: "100% 200px", }}></div>
                     <AsciiDisplay framebuffer={framebuffer} />
                   </div>  
                   : null
