@@ -4,7 +4,6 @@ import Link from "next/link";
 import laptop from "@/public/images/homepage/thinkpad.jpg";
 import soldering from "@/public/images/homepage/soldering.jpg";
 import nixie from "@/public/images/homepage/nixie.png";
-import electronics_2 from "@/public/images/homepage/electronics_2.jpg";
 import server from "@/public/images/homepage/server.jpg";
 
 const WhenSection = () => {
