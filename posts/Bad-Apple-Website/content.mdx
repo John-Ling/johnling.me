@@ -103,7 +103,7 @@ def main():
         if cv2.waitKey(33) & 0xFF == ord('q'):
             break
         
-        output += '\n'
+        output += '\\n'
         file.write(output)
     
     file.close()
@@ -139,13 +139,13 @@ export const bapple_init = async () => {
     if (frames[0] !== undefined) {
         return;
     }
-    // change this to actual domain later
+
     const zip: Response = await fetch("https://www.johnling.me/frames.zip");
     const content: Blob = await zip.blob();
     const jsZip = new JSZip();
     const file = await jsZip.loadAsync(content);
     const frameString: string = await file.file("frames.txt")!.async("string");
-    frames = await frameString.split("\n");
+    frames = await frameString.split("\\n");
     currentFrame = 0;
     return;
 }

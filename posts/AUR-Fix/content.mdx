@@ -1,0 +1,89 @@
+---
+title: "Fixing \"Request Failed EOF\" / \"Secure Connection Failed\" in the AUR"
+date: "06/10/2025"
+---
+
+If you've ever used Arch Linux for the past few weeks, you may have encountered issues installing packages from the AUR. 
+
+![yay Aur helper failing](/images/blog/AUR-Fix/1.png)
+
+Or you may have seen this when visiting https://aur.archlinux.org/
+
+
+![AUR website down](/images/blog/AUR-Fix/2.png)
+
+## Why Is This?
+
+Currently, the AUR is experiencing a DDOS attack. 
+
+![Announcement from Arch guy](/images/blog/AUR-Fix/5.png)
+
+_https://archlinux.org/news/recent-services-outages/_
+
+Yeah that's about it. Why someone would DDOS the AUR of all places is up for speculation. Perhaps a Manjaro fan haha.
+
+
+## The Fix
+
+As outlined by Christian Heusel, Arch Linux maintains a GitHub hosted mirror for the AUR which currently is not down. Until you can regain access to the AUR, this will be your source of access.
+
+<CodeBlock>
+{`
+git clone --branch paru --single-branch https://github.com/archlinux/
+aur.git paru
+cd par
+paru -si
+`}
+</CodeBlock>
+_Substitute paru for whatever AUR package you want._
+
+These commands will clone the package from GitHub, build then install it. 
+
+
+If this approach is tedious I've written a script that does this for you. I call it urap.
+<CodeBlock language="bash">
+{`
+#!/bin/bash
+
+# a bash script i wrote becuaes the aur kicked the bucket
+# use when your aur helper doesn't work
+
+if [ -z "$1" ]; then
+  echo "no argument provided"
+  echo "usage: ./urap package"
+  exit 1
+fi
+
+echo -e "\\033[33;1mDownloading package\\033[0m"
+
+if [ -d "$1" ]; then
+    echo "Directory $1/ already exists"
+    exit 1
+fi
+
+
+git clone --branch $1 --single-branch https://github.com/archlinux/aur.git $1 > /dev/null
+if [ $? != 0 ]; then
+    echo -e "\\033[31;1mFailed to download package\\033[0m"
+    exit 1
+fi
+cd $1
+
+echo -e "\\033[33;1mBuilding package\\033[0m"
+makepkg -si
+
+echo -e "\\033[32;1mInstalled package successfully!\\033[0m"
+cd ../
+rm -rf $1
+`}
+</CodeBlock>
+I've put this script in my PATH and I'll be using it going forward when the AUR is down.
+
+If you are curious about the status, you can visit https://status.archlinux.org/
+
+![AUR Uptime Tracker](/images/blog/AUR-Fix/3.png)
+
+_As of writing the AUR is down but should be up soon._
+
+
+Until the DDOS attacks stop, expect intermittent behaviour from the AUR and I'll be expecting to use `urap` way more times. 

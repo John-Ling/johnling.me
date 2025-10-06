@@ -81,13 +81,13 @@
     border-left: solid 1px theme("colors.muted-white");
     border-right: solid 1px theme("colors.muted-white");
 }
-
-
-
+/* 
 .markdown code {
-    background-color: theme("colors.grey.dark");
-    color: theme("colors.white");
-}
+    padding: 1px 2px;
+    border-radius: 4px;
+    background-color: #9f5a38;
+    color: #ff6d24;
+} */
 
 .markdown pre {
     margin: 0 !important;
