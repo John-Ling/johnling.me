@@ -777,12 +777,4 @@ export function lorenz_cleanup() {
 
 // BEGIN MARKOV
 
-// let markovLineCount = 0;
-// let markovLineWidth = 0; // counted in words
-
-// export function markov_init(width: number, height: number) {
-//     markovLineCount = height;
-//     markovLineWidth = Math.floor(width / 2);
-// }
-
 // END MARKOV
