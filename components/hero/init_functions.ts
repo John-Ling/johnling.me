@@ -1,20 +1,20 @@
 interface HeroSize {
-    width: number;
-    height: number;
-  }
+  width: number;
+  height: number;
+}
 
 export function check_special() {
-  if (typeof window !== "undefined") {
+  if (typeof window !== 'undefined') {
     const searchParams = new URLSearchParams(window.location.search);
-    return searchParams.has("apple");
+    return searchParams.has('apple');
   }
 
   return false;
 }
 
-export function init_size(specialEnabled: boolean) { 
-  if (typeof window === "undefined") {
-    return {width: 65, height: 20} as HeroSize;
+export function init_size(specialEnabled: boolean) {
+  if (typeof window === 'undefined') {
+    return { width: 65, height: 20 } as HeroSize;
   }
 
   if (specialEnabled) {
@@ -22,31 +22,33 @@ export function init_size(specialEnabled: boolean) {
   }
 
   // dynamically set width and height
-  return { width: Math.floor(window.innerWidth / 22), height: Math.floor(window.innerHeight / 32) } as HeroSize;
+  return {
+    width: Math.floor(window.innerWidth / 22),
+    height: Math.floor(window.innerHeight / 32)
+  } as HeroSize;
 }
-
 
 export function select_animation(specialEnabled: boolean) {
   if (specialEnabled) {
-    return "BAPPLE";
+    return 'BAPPLE';
   }
 
   // check visited cookie to either
   // display cube on first visit or a random animation on follow up
-  if (typeof document !== "undefined") {
+  if (typeof document !== 'undefined') {
     const visited = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("visited="))
-      ?.split("=")[1];
+      .split('; ')
+      .find((row) => row.startsWith('visited='))
+      ?.split('=')[1];
 
     // visited = 0
     if (visited === undefined) {
-      document.cookie = "visited=1; Secure; max-age=3600;";
-      return "CUBE";
+      document.cookie = 'visited=1; Secure; max-age=3600;';
+      return 'CUBE';
     }
   }
-  
-  const ANIMATIONS: string[] = ["CONWAY", "CUBE", "DONUT", "MATRIX"]
+
+  const ANIMATIONS: string[] = ['CONWAY', 'CUBE', 'DONUT', 'MATRIX', 'LORENZ'];
   // animations to implement
   //TETRIS
   // DVD screensaver
