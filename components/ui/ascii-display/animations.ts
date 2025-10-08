@@ -751,7 +751,7 @@ function render_next_lorenz_point() {
 export function lorenz_next_frame(framebuffer: string[][], width: number, height: number) {
   render_next_lorenz_point();
   lorenzPoints.forEach((point, index) => {
-    const scale = 1.3;
+    const scale = width / 50;
     const offsetX = width / 2;
     const offsetY = height;
 
@@ -774,3 +774,15 @@ export function lorenz_cleanup() {
 }
 
 // END LORENZ
+
+// BEGIN MARKOV
+
+// let markovLineCount = 0;
+// let markovLineWidth = 0; // counted in words
+
+// export function markov_init(width: number, height: number) {
+//     markovLineCount = height;
+//     markovLineWidth = Math.floor(width / 2);
+// }
+
+// END MARKOV

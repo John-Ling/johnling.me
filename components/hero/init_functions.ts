@@ -32,6 +32,7 @@ export function select_animation(specialEnabled: boolean) {
   if (specialEnabled) {
     return 'BAPPLE';
   }
+  return 'LORENZ';
 
   // check visited cookie to either
   // display cube on first visit or a random animation on follow up

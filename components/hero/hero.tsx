@@ -92,7 +92,7 @@ export default function Hero() {
       case 'DONUT':
         nextFrame = donut_next_frame;
         current = donut_init(size.width, size.height);
-        animationSpeed = 30;
+        animationSpeed = 12;
         cleanup = donut_cleanup;
         break;
       case 'MATRIX':
@@ -104,7 +104,7 @@ export default function Hero() {
       case 'LORENZ':
         nextFrame = lorenz_next_frame;
         current = lorenz_init(size.width, size.height);
-        animationSpeed = 30;
+        animationSpeed = 15;
         cleanup = lorenz_cleanup;
         break;
       case 'BAPPLE':
@@ -307,7 +307,7 @@ function HeroIcons() {
           <a
             href='https://github.com/John-Ling/'
             target='_blank'
-            rel="noopener noreferrer"
+            rel='noopener noreferrer'
             className='opacity-0 animate-fade-up icon-link'
             style={{ animationDelay: '400ms' }}
           >
@@ -320,7 +320,7 @@ function HeroIcons() {
           <a
             href='https://www.linkedin.com/in/john-ling-721721243/'
             target='_blank'
-            rel="noopener noreferrer"
+            rel='noopener noreferrer'
             className='opacity-0 animate-fade-up hover:-translate-y-2 icon-link'
             style={{ animationDelay: '500ms' }}
           >
@@ -333,7 +333,7 @@ function HeroIcons() {
           <a
             href='https://drive.google.com/file/d/1y_VlkkFUaFXCCYF-WO-EDnCOfMHy_F90/view?usp=sharing'
             target='_blank'
-            rel="noopener noreferrer"
+            rel='noopener noreferrer'
             className='opacity-0 animate-fade-up hover:-translate-y-2 icon-link'
             style={{ animationDelay: '600ms' }}
           >
