@@ -777,4 +777,37 @@ export function lorenz_cleanup() {
 
 // BEGIN MARKOV
 
+// interface MarkovModel {
+//     [ngram: string]: {
+//         [nextWord: string]: number;
+//     };
+// }
+
+// async function create_markov_model(corpus: string) {
+//     // download corpus
+//     const res = await fetch(`https://www.johnling.me/${corpus}.txt`);
+//     const content = await res.text();
+
+//     const tokens = content.split("\t\n-*+-=/\\^`");
+
+//     let buffer = "";
+//     // generate ngrams
+//     // for (let i = 0; i  < tokens.length; i++) {
+
+//     // }
+
+//     // normalised probabilities
+// }
+
+// let markovLineCount = 0;
+// let markovLineWidth = 0; // counted in words
+
+// export function markov_init(width: number, height: number) {
+//     markovLineCount = height;
+//     markovLineWidth = Math.floor(width / 2);
+
+//     // build markov model on random corpus
+
+// }
+
 // END MARKOV
