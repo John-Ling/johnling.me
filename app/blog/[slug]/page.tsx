@@ -36,7 +36,7 @@ export default async function Page(props: Params) {
   return (
     <>
       <title>{post.title}</title>
-      <div className="w-full lg:w-1/2 m-auto pt-5 pb-5 pl-2 pr-2">
+      <div className="w-full lg:w-1/2 max-w-[1920px] mx-auto pt-5 pb-5 pl-2 pr-2">
         <Link className="link" href="/blog">Back</Link>
         <article className={`pt-5 pb-5 ${style.markdown}`}>
           <h1 className="text-xl mb-5">{post.title}</h1>

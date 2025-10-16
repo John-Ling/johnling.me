@@ -23,8 +23,9 @@ export function init_size(specialEnabled: boolean) {
 
   // dynamically set width and height
   return {
-    width: Math.floor(window.innerWidth / 22),
-    height: Math.floor(window.innerHeight / 32)
+    // restrict width and height otherwise performance issues will happens
+    width: Math.min(100, Math.floor(window.innerWidth / 22)),
+    height: Math.min(35, Math.floor(window.innerHeight / 32)) 
   } as HeroSize;
 }
 
@@ -44,7 +45,7 @@ export function select_animation(specialEnabled: boolean) {
     // visited = 0
     if (visited === undefined) {
       document.cookie = 'visited=1; Secure; max-age=3600;';
-      return 'CUBE';
+      return 'LORENZ';
     }
   }
 

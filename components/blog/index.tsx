@@ -7,7 +7,7 @@ export default function BlogPage() {
   return (
     <>
       <title>Blog</title>
-      <div className='flex flex-col items-center min-h-screen p-5'>
+      <div className='flex flex-col items-center min-h-screen p-5 max-w-[1920px] mx-auto'>
         <h1
           className={`text-3xl animate-fade-up opacity-0 ${meslo.variable} font-meslo`}
           style={{ animationDelay: '100ms' }}

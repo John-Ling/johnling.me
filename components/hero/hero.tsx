@@ -201,7 +201,7 @@ function HeroComponent({
 
   return (
     <>
-      <div className='min-h-screen max-w-[1920px] flex items-center justify-center flex-col lg:flex-row'>
+      <div className='min-h-screen max-w-[1920px] mx-auto flex items-center justify-center flex-col lg:flex-row'>
         {/* hero information (left side) */}
         <div className='basis-7/12 flex flex-col m-8'>
           <div

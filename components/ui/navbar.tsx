@@ -29,7 +29,7 @@ export default function Navbar() {
   
   const path: string = '/' + usePathname().split("/")[1];
   return (
-    <nav className={`select-none justify-between items-center transition-all duration-10 ${open ? "bg-grey-normal" : "bg-opacity-0 " }  flex flex-row pt-3`}>  
+    <nav className={`select-none max-w-[1920px] mx-auto justify-between items-center transition-all duration-10 ${open ? "bg-grey-normal" : "bg-opacity-0 " }  flex flex-row pt-3`}>  
       <Link href="/" className={`tracking-wider navlink hover:text-white text-2xl md:self-center ml-3 md:ml-10 no-underline font-bold opacity-0 animate-fade-down ${meslo.variable} font-meslo z-20`} 
         style={{animationDelay: "300ms"}}
       > <span className="md:whitespace-pre md:block">JOHN  </span>
