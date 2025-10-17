@@ -8,7 +8,7 @@ export default function BlogPage() {
       <title>Blog</title>
       <div className='flex flex-col items-center min-h-screen p-5 max-w-[1920px] mx-auto font-meslo'>
         <h1
-          className={`text-3xl animate-fade-up opacity-0 ${meslo.variable} font-mesloBold`}
+          className={`text-3xl animate-fade-up opacity-0 font-mesloBold`}
           style={{ animationDelay: '100ms' }}
         >
           Do People Still
