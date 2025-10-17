@@ -6,11 +6,8 @@ export default function BlogPage() {
   return (
     <>
       <title>Blog</title>
-      <div className='flex flex-col items-center min-h-screen p-5 max-w-[1920px] mx-auto font-meslo'>
-        <h1
-          className={`text-3xl animate-fade-up opacity-0 font-mesloBold`}
-          style={{ animationDelay: '100ms' }}
-        >
+      <div className='flex flex-col items-center min-h-screen p-5 max-w-[1920px] mx-auto'>
+        <h1 className={`text-3xl animate-fade-up opacity-0`} style={{ animationDelay: '100ms' }}>
           Do People Still
           <span className='text-[#2e2e2e] animate-flicker-on' style={{ animationDelay: '1000ms' }}>
             {' '}
@@ -59,8 +56,8 @@ function PostComponent({ post, position }: PostComponentProps) {
   const colourClass: string = colours[position % colours.length];
   return (
     <>
-      <h2 className={`text-md font-mesloBold ${colourClass}`}>{post.title}</h2>
-      <p className='text-sm font-mesloItalic text-muted-white mb-2 '>{post.date}</p>
+      <h2 className={`text-md ${colourClass}`}>{post.title}</h2>
+      <p className='text-sm text-muted-white mb-2 '>{post.date}</p>
       <Link className='link' href={`/blog/${post.slug}`}>
         Article
       </Link>

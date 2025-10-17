@@ -1,35 +1,35 @@
 import { Analytics } from '@vercel/analytics/next';
 import Footer from '@/components/footer';
 import Navbar from '@/components/navbar';
-import type { Metadata, Viewport } from "next";
-import "/styles/globals.css";
+import type { Metadata, Viewport } from 'next';
+import { meslo } from '@/lib/font';
+import '/styles/globals.css';
 
 export const metadata: Metadata = {
-  title: "John Ling",
-  description: "John Ling website",
+  title: 'John Ling',
+  description: 'John Ling website'
 };
 
 export const viewport: Viewport = {
   initialScale: 1,
-  width: "device-width",
+  width: 'device-width'
 };
 
-
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang='en' className={meslo.className}>
       <body>
-        <Navbar/>
+        <Navbar />
         <main>
           {children}
-          <Analytics/>
+          <Analytics />
         </main>
-        <Footer/>
-      </body>      
+        <Footer />
+      </body>
     </html>
   );
 }
