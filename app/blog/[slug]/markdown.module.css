@@ -1,9 +1,3 @@
-@font-face {
-    font-family: "mesloBold";
-    src: url("../../../public/fonts/meslolgs_nf_bold.woff2");
-    font-weight: bold;
-}
-
 .markdown h1 {
     font-family: "mesloBold";
     font-size: 2rem;
@@ -33,6 +27,10 @@
     font-size: 1.25rem;
     line-height: 2.5rem;
     font-weight: 700;
+}
+
+.markdown p em {
+    font-family: "mesloItalic";
 }
 
 .markdown h5 {

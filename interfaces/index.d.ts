@@ -4,3 +4,12 @@ interface BlogPost {
     date: string,
     content: string,
 };
+
+interface Project {
+    title: string,
+    shortDescription: string,
+    description: string,
+    imageFolder: string | null, // path to folder containing images
+    sourceURL: string | null,
+    tags: string[],
+};

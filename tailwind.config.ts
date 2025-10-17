@@ -72,7 +72,10 @@ const config: Config = {
         "scanlines": "scanlines 60s linear infinite",
       },
       fontFamily: {
-        meslo: ["var(--meslo)"],
+        meslo: ["Meslo", "monospace"],
+        mesloBold: ["MesloBold", "monospace"],
+        mesloItalic: ["MesloItalic", "monospace"],
+        mesloBoldItalic: ["MesloBoldItalic", "monospace"],
       }
   },
   plugins: [],

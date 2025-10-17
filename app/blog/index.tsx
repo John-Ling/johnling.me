@@ -1,5 +1,4 @@
 import { get_sorted_posts } from '@/lib/posts';
-import { meslo } from '@/lib/font';
 import Link from 'next/link';
 
 export default function BlogPage() {
@@ -7,9 +6,9 @@ export default function BlogPage() {
   return (
     <>
       <title>Blog</title>
-      <div className='flex flex-col items-center min-h-screen p-5 max-w-[1920px] mx-auto'>
+      <div className='flex flex-col items-center min-h-screen p-5 max-w-[1920px] mx-auto font-meslo'>
         <h1
-          className={`text-3xl animate-fade-up opacity-0 ${meslo.variable} font-meslo`}
+          className={`text-3xl animate-fade-up opacity-0 ${meslo.variable} font-mesloBold`}
           style={{ animationDelay: '100ms' }}
         >
           Do People Still
@@ -60,8 +59,8 @@ function PostComponent({ post, position }: PostComponentProps) {
   const colourClass: string = colours[position % colours.length];
   return (
     <>
-      <h2 className={`text-md ${meslo.variable} font-meslo ${colourClass}`}>{post.title}</h2>
-      <p className='text-sm italic text-muted-white mb-2 '>{post.date}</p>
+      <h2 className={`text-md font-mesloBold ${colourClass}`}>{post.title}</h2>
+      <p className='text-sm font-mesloItalic text-muted-white mb-2 '>{post.date}</p>
       <Link className='link' href={`/blog/${post.slug}`}>
         Article
       </Link>

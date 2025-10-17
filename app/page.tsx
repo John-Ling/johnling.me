@@ -1,11 +1,4 @@
-import AboutSection from "@/components/home";
-import Hero from "@/components/hero/hero";
-
+import Home from "."
 export default function Page() {
-  return (
-    <>
-      <Hero />
-      <AboutSection />
-    </>
-  )
+  return <Home />
 }

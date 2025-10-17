@@ -1,11 +1,9 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { Project, projects } from "./projects";
+import { projects } from "./projects";
 import CloseIcon from '@mui/icons-material/Close';
 import Image from "next/image";
-import { meslo } from "@/lib/font";
 import Link from "next/link";
-
 
 export default function ProjectsPage() {
   const [selectedProject, setSelectedProject] = useState<Project | undefined>(undefined);
@@ -42,9 +40,9 @@ export default function ProjectsPage() {
     <>
       { opened && selectedProject !== undefined ? <ProjectCard project={selectedProject} on_close={on_close}/> : null }
       <title>Projects</title>
-      <div ref={projectCardRef} className="min-h-screen w-11/12 lg:w-10/12 mx-auto max-w-[1920px] mt-5 mb-5 ">
-        <h1 className={`text-4xl mt-5 mb-5 text-[#2e2e2e] animate-flicker-on ${meslo.variable} font-meslo`} style={{animationDelay: "1000ms"}}>Projects</h1>
-        <h2 className="text-2xl">I&apos;ve done too many</h2>
+      <div ref={projectCardRef} className="min-h-screen w-11/12 lg:w-10/12 mx-auto max-w-[1920px] font-meslo mt-5 mb-5">
+        <h1 className={`text-4xl mt-5 mb-5 text-[#2e2e2e] animate-flicker-on font-mesloBold`} style={{animationDelay: "1000ms"}}>Projects</h1>
+        <h2 className="text-2xl font-mesloBold">I&apos;ve done too many</h2>
         <h3 className="mb-5">Here are some of the best.</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  opacity-0 animate-fade-up">  
           {projects.map((project: Project, i: number) => {
@@ -77,8 +75,8 @@ function ProjectItem({ project, position, on_select }: ProjectItemProps) {
       <div className="bg-grey-card border-2 border-grey-light p-3 opacity-0 animate-fade-up h-90" 
         style={{animationDelay: `${(position + 1) * 150}ms`}}
       >
-        <h2 onClick={on_click} className={`text-lg mb-2 mt-2  ${meslo.variable} font-meslo ${colourClass}`}>{project.title}</h2>
-        <h3 className="text-xs mb-2 italic text-muted-white">{project.shortDescription}</h3>
+        <h2 onClick={on_click} className={`text-lg mb-2 mt-2 font-mesloBold ${colourClass}`}>{project.title}</h2>
+        <h3 className="text-xs mb-2 font-mesloItalic text-muted-white">{project.shortDescription}</h3>
         {project.imageFolder === null ? <p>{project.description}</p> // if no image exists just render text
           :
           <div className="overflow-hidden border-2 rounded-lg border-grey-light">
@@ -117,7 +115,7 @@ function ProjectCard({project, on_close}: ProjectCardProps) {
   return (
   <>
     {/* darken background */}
-    <div className="fixed top-0 w-full min-h-screen flex justify-center items-center z-20">
+    <div className="fixed top-0 w-full min-h-screen flex justify-center items-center z-20 font-meslo">
         <div className="absolute w-full h-full bg-grey-dark bg-opacity-80 z-30" onMouseDown={on_close}></div>
         <div className="bg-grey-dark border-2 border-grey-light p-3 animate-fade-up opacity-0 flex w-11/12 lg:w-10/12 h-5/6 flex-col lg:flex-row z-40">
           {/* button at top of card above picture for tablet and mobile */}
@@ -132,7 +130,7 @@ function ProjectCard({project, on_close}: ProjectCardProps) {
             <button className="hidden lg:block ml-auto w-fit" onClick={on_close}>
               <CloseIcon className="hover:text-muted-white active:text-muted-white"/>
             </button>
-            <h1 className={`text-xl md:text-2xl mb-2 mt-2 ${meslo.style} font-meslo`}>{project.title}</h1>
+            <h1 className={`text-xl md:text-2xl mb-2 mt-2 font-mesloBold`}>{project.title}</h1>
             <ul className="flex flex-wrap mt-1 mb-2 max-w-96">
               {project.tags.map((tag: string) => {
                 return <li key={tag} className="p-1 mb-1 text-xs select-none"><span className="bg-grey-light border-1 pl-1 pr-1">{tag}</span></li>

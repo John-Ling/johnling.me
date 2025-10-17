@@ -3,8 +3,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import { get_post, get_sorted_posts } from "@/lib/posts";
 
 import Markdown from "react-markdown";
-import CodeBlock from "@/components/ui/code-block/code_block";
-
+import CodeBlock from "@/components/code-block/code_block";
 import style from "./markdown.module.css";
 import 'katex/dist/katex.min.css';
 import "/styles/syntax_highlighting.css"; // include modified highlight.js theme
@@ -36,11 +35,11 @@ export default async function Page(props: Params) {
   return (
     <>
       <title>{post.title}</title>
-      <div className="w-full lg:w-1/2 max-w-[1920px] mx-auto pt-5 pb-5 pl-2 pr-2">
+      <div className="w-full lg:w-1/2 max-w-[1920px] mx-auto pt-5 pb-5 pl-2 pr-2 font-meslo">
         <Link className="link" href="/blog">Back</Link>
         <article className={`pt-5 pb-5 ${style.markdown}`}>
           <h1 className="text-xl mb-5">{post.title}</h1>
-          <p className="italic mb-5 text-muted-white">{post.date}</p>
+          <p className="mb-5 text-muted-white font-mesloItalic">{post.date}</p>
           <div>
             {compiled.content}
           </div>

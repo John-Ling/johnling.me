@@ -1,7 +1,6 @@
 'use client';
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { meslo } from "@/lib/font";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import Link from "next/link";
@@ -29,8 +28,8 @@ export default function Navbar() {
   
   const path: string = '/' + usePathname().split("/")[1];
   return (
-    <nav className={`select-none max-w-[1920px] mx-auto justify-between items-center transition-all duration-10 ${open ? "bg-grey-normal" : "bg-opacity-0 " }  flex flex-row pt-3`}>  
-      <Link href="/" className={`tracking-wider navlink hover:text-white text-2xl md:self-center ml-3 md:ml-10 no-underline font-bold opacity-0 animate-fade-down ${meslo.variable} font-meslo z-20`} 
+    <nav className={`select-none max-w-[1920px] mx-auto justify-between items-center transition-all duration-10 ${open ? "bg-grey-normal" : "bg-opacity-0 " }  flex flex-row pt-3 font-meslo`}>  
+      <Link href="/" className={`tracking-wider navlink hover:text-white text-2xl md:self-center ml-3 md:ml-10 no-underline font-mesloBold opacity-0 animate-fade-down z-20`} 
         style={{animationDelay: "300ms"}}
       > <span className="md:whitespace-pre md:block">JOHN  </span>
         <span className="text-orange md:whitespace-pre">  LING</span>
@@ -47,7 +46,7 @@ export default function Navbar() {
       <Image src={wire_top_1} alt="" loading="eager" className="pointer-events-none select-none border-0 absolute  -z-10 hidden md:inline" />
 
       {/* desktop menu */} 
-      <div className={`hidden invisible md:flex md:visible p-4 opacity-0 animate-fade-down ${meslo.variable} font-meslo`} 
+      <div className={`hidden invisible md:flex md:visible p-4 opacity-0 animate-fade-down`} 
             style={{animationDelay: "500ms"}}
       > 
         <NavbarMenu links={links} activeLink={path} on_click={() => setOpen(false)}/>

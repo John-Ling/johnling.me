@@ -6,8 +6,8 @@ import Link from 'next/link';
 const WhereSection = () => {
   return (
     <section className="min-h-screen flex flex-col lg:w-11/12 xl:w-3/4 justify-center items-center" id="contact">
-      <h2 className="text-6xl text-magenta text-center lg:text-left " style={{animationDelay: "600ms"}}>Where?</h2>
-      <h3 className="text-3xl mb-3 mt-3 font-bold opacity-0 trigger-fade-on-scroll" style={{animationDelay: "1000ms"}}>(can you find me)</h3>
+      <h2 className="text-6xl text-magenta text-center lg:text-left  font-mesloBold" style={{animationDelay: "600ms"}}>Where?</h2>
+      <h3 className="text-3xl mb-3 mt-3 opacity-0 trigger-fade-on-scroll font-mesloBold" style={{animationDelay: "1000ms"}}>(can you find me)</h3>
       <div className="opacity-0 trigger-fade-on-scroll flex flex-col mb-4 text-center lg:text-left" style={{animationDelay: "200ms"}}>
         <div className="flex flex-row justify-center lg:justify-start">
           <div className="transition-all hover:-translate-y-1">

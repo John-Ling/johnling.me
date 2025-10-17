@@ -1,4 +1,3 @@
-import { meslo } from "@/lib/font"
 
 interface AsciiDisplayProps {
   framebuffer: string[][],
@@ -7,7 +6,7 @@ interface AsciiDisplayProps {
 export default function AsciiDisplay({framebuffer }: AsciiDisplayProps) {
   return (
     <>
-      <div className={`text-center p-2 overflow-clip whitespace-nowrap select-none ${meslo.variable} font-meslo`}>
+      <div className={`text-center p-2 overflow-clip whitespace-nowrap select-none font-meslo`}>
         {/* render characters */}
         {framebuffer.map((row: string[], i: number) => {
           return <div key={i}>

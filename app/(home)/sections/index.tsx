@@ -2,11 +2,11 @@
 
 import { useEffect } from "react";
 
-import WhoSection from "./sections/who_section";
-import WhatSection from "./sections/what_section";
-import WhenSection from "./sections/when_section";
-import WhereSection from "./sections/where_section";
-import WhySection from "./sections/why_section";
+import WhoSection from "./who_section";
+import WhatSection from "./what_section";
+import WhenSection from "./when_section";
+import WhereSection from "./where_section";
+import WhySection from "./why_section";
 
 import { update_fade_entries, update_flicker_entries, options } from "./homepage_observers";
 
@@ -40,7 +40,7 @@ export default function AboutSection() {
 
   return (
     <>
-    <div className="flex flex-col items-center max-w-[1920px] mx-auto">
+    <div className="flex flex-col items-center max-w-[1920px] mx-auto font-meslo">
         <WhoSection />
         <WhatSection />
         <WhenSection />

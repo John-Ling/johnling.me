@@ -5,34 +5,34 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import DescriptionIcon from '@mui/icons-material/Description';
 
-import {
+import { 
+  conway_cleanup,
   conway_next_frame,
   conway_populate,
-  cube_init,
-  cube_next_frame,
-  donut_next_frame,
-  donut_init,
-  matrix_next_frame,
-  matrix_init,
   cube_cleanup,
-  conway_cleanup,
+  cube_next_frame,
+  cube_init,
   donut_cleanup,
+  donut_init,
+  donut_next_frame,
   matrix_cleanup,
-  bapple_next_frame,
-  bapple_init,
-  bapple_cleanup,
-  lorenz_next_frame,
+  matrix_init,
+  matrix_next_frame,
+  lorenz_cleanup,
   lorenz_init,
-  lorenz_cleanup
-} from '../ui/ascii-display/animations';
+  lorenz_next_frame,
+  bapple_cleanup,
+  bapple_init,
+  bapple_next_frame
+ } from '@/components/ascii-display/animations';
+
 
 import { select_animation, check_special, init_size } from './init_functions';
-
-import AsciiDisplay from '../ui/ascii-display/ascii_display';
+import AsciiDisplay from '@/components/ascii-display/ascii_display';
 import Secret from './secret';
 
 import Image from 'next/image';
-import wires_bottom from '../../public/svg/wires_bottom.svg';
+import wires_bottom from "../../../public/svg/wires_bottom.svg";
 
 // width and height of ascii display component
 interface HeroSize {
@@ -201,11 +201,11 @@ function HeroComponent({
 
   return (
     <>
-      <div className='min-h-screen max-w-[1920px] mx-auto flex items-center justify-center flex-col lg:flex-row'>
+      <div className='min-h-screen max-w-[1920px] mx-auto flex items-center justify-center flex-col lg:flex-row font-meslo'>
         {/* hero information (left side) */}
         <div className='basis-7/12 flex flex-col m-8'>
           <div
-            className='text-6xl z-0 font-bold mb-5 opacity-0 animate-fade-up font-meslo text-center md:text-left'
+            className='text-6xl z-0 mb-5 opacity-0 animate-fade-up font-mesloBold text-center md:text-left'
             style={{ animationDelay: '100ms' }}
           >
             <h1 className='opacity-0 animate-fade-up' style={{ animationDelay: '100ms' }}>

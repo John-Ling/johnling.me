@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+@import url("./font.css");
+
 
 :root {
     color-scheme: dark;
@@ -54,4 +55,3 @@ h1 {
 h2 {
     font-weight: 700;
 }
-

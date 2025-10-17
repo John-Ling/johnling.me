@@ -1,8 +1,7 @@
 import { Analytics } from '@vercel/analytics/next';
-import Navbar from "@/components/ui/navbar";
-import Footer from "@/components/ui/footer";
+import Footer from '@/components/footer';
+import Navbar from '@/components/navbar';
 import type { Metadata, Viewport } from "next";
-import { meslo } from "@/lib/font";
 import "/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -23,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${meslo.variable} font-meslo`}>
+      <body>
         <Navbar/>
         <main>
           {children}

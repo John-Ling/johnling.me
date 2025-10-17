@@ -1,12 +1,3 @@
-export interface Project {
-    title: string,
-    shortDescription: string,
-    description: string,
-    imageFolder: string | null, // path to folder containing images
-    sourceURL: string | null,
-    tags: string[],
-};
-
 export const projects: Project[] = [
   {
     title: "RAMBLE", shortDescription: "Analytics driven journalling app",
