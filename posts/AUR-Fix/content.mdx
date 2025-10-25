@@ -29,10 +29,9 @@ As outlined by Christian Heusel, Arch Linux maintains a GitHub hosted mirror for
 
 <CodeBlock>
 {`
-git clone --branch paru --single-branch https://github.com/archlinux/
-aur.git paru
-cd par
-paru -si
+git clone --branch paru --single-branch https://github.com/archlinux/aur.git paru
+cd paru
+makepkg -si
 `}
 </CodeBlock>
 _Substitute paru for whatever AUR package you want._
