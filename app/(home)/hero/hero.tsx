@@ -211,12 +211,11 @@ function HeroComponent({
               Hello,
             </h1>
             <h1 className='opacity-0 animate-fade-up' style={{ animationDelay: '150ms' }}>
-              I&apos;m
+              I&apos;m{' '}
               <span
                 className='text-[#2e2e2e] animate-flicker-on'
                 style={{ animationDelay: '1500ms' }}
               >
-                {' '}
                 John
               </span>
             </h1>
@@ -227,7 +226,7 @@ function HeroComponent({
             className='relative hidden visible md:block lg:hidden lg:invisible opacity-0 animate-fade-up mt-2 mb-2'
             style={{ animationDelay: '800ms' }}
           >
-            {rendered && !specialEnabled ? (
+            {rendered && !specialEnabled && (
               <div
                 className='opacity-0 animate-fade-up bg-grey-dark border-4 border-grey-light'
                 style={{ animationDelay: '600ms' }}
@@ -239,7 +238,7 @@ function HeroComponent({
                 ></div>
                 <AsciiDisplay framebuffer={framebuffer} />
               </div>
-            ) : null}
+            )}
           </div>
           <p
             className='mt-4 mb-4 opacity-0 animate-fade-up text-center md:text-left'
@@ -267,7 +266,7 @@ function HeroComponent({
               className='relative bg-grey-dark border-4 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up z-20'
               style={{ animationDelay: '800ms' }}
             >
-              {rendered && !specialEnabled ? (
+              {rendered && !specialEnabled && (
                 <div
                   className='opacity-0 animate-fade-up z-10 bg-grey-dark'
                   style={{ animationDelay: '600ms' }}
@@ -279,7 +278,7 @@ function HeroComponent({
                   ></div>
                   <AsciiDisplay framebuffer={framebuffer} />
                 </div>
-              ) : null}
+              )}
             </div>
             <Image
               loading='eager'

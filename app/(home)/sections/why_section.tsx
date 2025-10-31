@@ -1,25 +1,27 @@
 const WhySection = () => {
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center w-10/12">
-      <div className="p-5 max-w-3xl">
-        <h2 className="text-6xl text-green font-mesloBold" style={{animationDelay: "600ms"}}>Why?</h2>
-        <h3 className="text-3xl mb-3 mt-3 font-mesloBold">Why code?</h3>
-        <p className="mb-5">
-          As insincere as it sounds, it&apos;s the truth. I enjoy applying  the theory and 
-          skills I know to build things for myself and help others.
+    <section className='min-h-screen flex flex-col justify-center items-center px-5 sm:px-6 lg:px-13 xl:px-25 lg:w-11/12 max-w[1920px] mx-auto'>
+      <div className='max-w-3xl w-full'>
+        <h2 className='text-6xl text-green font-mesloBold' style={{ animationDelay: '600ms' }}>
+          Why?
+        </h2>
+        <h3 className='text-3xl mb-3 mt-3 font-mesloBold'>Why code?</h3>
+        <p className='mb-5'>
+          As insincere as it sounds, it&apos;s the truth. I enjoy applying the theory and skills I
+          know to build things for myself and help others.
         </p>
-        <p className="mb-5">
-          While I enjoy programming as a hobby for myself first and foremost, 
-          my dream is to be able to create something with a positive impact on someone even in a minor way.
+        <p className='mb-5'>
+          While I enjoy programming as a hobby for myself first and foremost, my dream is to be able
+          to create something with a positive impact on someone even in a minor way.
         </p>
-        <p className="mb-5">
-          While I&apos;m not quite sure what that thing will be or when it will happen, 
-          I am more than happy to continue making things for myself until it does.
+        <p className='mb-5'>
+          While I&apos;m not quite sure what that thing will be or when it will happen, I am more
+          than happy to continue making things for myself until it does.
         </p>
         <p>Thanks for visiting. Hope you enjoyed the website :)</p>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default WhySection;
