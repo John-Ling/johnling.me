@@ -1,9 +1,9 @@
-'use client';
-import React, { useEffect, useState, useRef } from 'react';
+"use client";
+import React, { useEffect, useState, useRef } from "react";
 
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import DescriptionIcon from '@mui/icons-material/Description';
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import DescriptionIcon from "@mui/icons-material/Description";
 
 import {
   conway_cleanup,
@@ -24,14 +24,14 @@ import {
   bapple_cleanup,
   bapple_init,
   bapple_next_frame
-} from '@/components/ascii-display/animations';
+} from "@/components/ascii-display/animations";
 
-import { select_animation, check_special, init_size } from './init_functions';
-import AsciiDisplay from '@/components/ascii-display/ascii_display';
-import Secret from './secret';
+import { select_animation, check_special, init_size } from "./init_functions";
+import AsciiDisplay from "@/components/ascii-display/ascii_display";
+import Secret from "./secret";
 
-import Image from 'next/image';
-import wires_bottom from '../../../public/svg/wires_bottom.svg';
+import Image from "next/image";
+import wires_bottom from "../../../public/svg/wires_bottom.svg";
 
 // width and height of ascii display component
 interface HeroSize {
@@ -53,7 +53,7 @@ export default function Hero() {
   const [framebuffer, setFramebuffer] = useState<string[][]>(
     Array(size.height)
       .fill(null)
-      .map(() => Array(size.width).fill(' '))
+      .map(() => Array(size.width).fill(" "))
   );
 
   const on_click = () => {
@@ -71,42 +71,42 @@ export default function Hero() {
   useEffect(() => {
     let current: string[][] = Array(size.height)
       .fill(null)
-      .map(() => Array(size.width).fill(' '));
+      .map(() => Array(size.width).fill(" "));
     let animationSpeed: number = 10;
     let nextFrame: (buffer: string[][], width: number, height: number) => string[][];
     let cleanup: () => void;
 
     switch (animation) {
-      case 'CONWAY':
+      case "CONWAY":
         nextFrame = conway_next_frame;
         current = conway_populate(size.width, size.height);
         cleanup = conway_cleanup;
         break;
-      case 'CUBE':
+      case "CUBE":
         nextFrame = cube_next_frame;
         current = cube_init(size.width, size.height);
         animationSpeed = 12;
         cleanup = cube_cleanup;
         break;
-      case 'DONUT':
+      case "DONUT":
         nextFrame = donut_next_frame;
         current = donut_init(size.width, size.height);
         animationSpeed = 12;
         cleanup = donut_cleanup;
         break;
-      case 'MATRIX':
+      case "MATRIX":
         nextFrame = matrix_next_frame;
         current = matrix_init(size.width, size.height);
         animationSpeed = 12;
         cleanup = matrix_cleanup;
         break;
-      case 'LORENZ':
+      case "LORENZ":
         nextFrame = lorenz_next_frame;
         current = lorenz_init(size.width, size.height);
         animationSpeed = 15;
         cleanup = lorenz_cleanup;
         break;
-      case 'BAPPLE':
+      case "BAPPLE":
         nextFrame = bapple_next_frame;
         bapple_init();
         animationSpeed = 30;
@@ -142,7 +142,7 @@ export default function Hero() {
     const on_visibility_change = () => {
       if (!audioRef.current) return;
 
-      if (document.visibilityState === 'hidden') {
+      if (document.visibilityState === "hidden") {
         audioRef.current.pause();
         return;
       }
@@ -152,7 +152,7 @@ export default function Hero() {
     };
 
     if (playing) {
-      document.addEventListener('visibilitychange', on_visibility_change);
+      document.addEventListener("visibilitychange", on_visibility_change);
     }
 
     animationRequestID.current = requestAnimationFrame(animate);
@@ -205,16 +205,16 @@ function HeroComponent({
         <div className='basis-7/12 flex flex-col m-8'>
           <div
             className='text-6xl z-0 mb-5 opacity-0 animate-fade-up text-center md:text-left'
-            style={{ animationDelay: '100ms' }}
+            style={{ animationDelay: "100ms" }}
           >
-            <h1 className='opacity-0 animate-fade-up' style={{ animationDelay: '100ms' }}>
+            <h1 className='opacity-0 animate-fade-up' style={{ animationDelay: "100ms" }}>
               Hello,
             </h1>
-            <h1 className='opacity-0 animate-fade-up' style={{ animationDelay: '150ms' }}>
-              I&apos;m{' '}
+            <h1 className='opacity-0 animate-fade-up' style={{ animationDelay: "150ms" }}>
+              I&apos;m{" "}
               <span
                 className='text-[#2e2e2e] animate-flicker-on'
-                style={{ animationDelay: '1500ms' }}
+                style={{ animationDelay: "1500ms" }}
               >
                 John
               </span>
@@ -224,17 +224,17 @@ function HeroComponent({
           {/* ascii display for tablet view hidden in desktop mode */}
           <div
             className='relative hidden visible md:block lg:hidden lg:invisible opacity-0 animate-fade-up mt-2 mb-2'
-            style={{ animationDelay: '800ms' }}
+            style={{ animationDelay: "800ms" }}
           >
             {rendered && !specialEnabled && (
               <div
                 className='opacity-0 animate-fade-up bg-grey-dark border-4 border-grey-light'
-                style={{ animationDelay: '600ms' }}
+                style={{ animationDelay: "600ms" }}
               >
                 <div
-                  className='absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_2px)] 
+                  className='absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_4px)] 
                     w-full h-full opacity-40 z-20 m-0 p-0 animate-scanlines'
-                  style={{ backgroundSize: '100% 200px' }}
+                  style={{ backgroundSize: "100% 200px" }}
                 ></div>
                 <AsciiDisplay framebuffer={framebuffer} />
               </div>
@@ -242,19 +242,19 @@ function HeroComponent({
           </div>
           <p
             className='mt-4 mb-4 opacity-0 animate-fade-up text-center md:text-left'
-            style={{ animationDelay: '400ms' }}
+            style={{ animationDelay: "400ms" }}
           >
             Full Stack developer with interests in security, UX and productivity.
           </p>
           <p
             className='mt-4 mb-4 md:m-0 opacity-0 animate-fade-up'
-            style={{ animationDelay: '500ms' }}
+            style={{ animationDelay: "500ms" }}
           >
             I enjoy creating applications to help myself and others work smarter towards their
             goals, reduce stress and maintain focus in a world full of distractions.
           </p>
-          <p className='opacity-0 animate-fade-up' style={{ animationDelay: '600ms' }}>
-            In short, I enjoy helping others.
+          <p className='opacity-0 animate-fade-up' style={{ animationDelay: "600ms" }}>
+            In short, I like helping people : ).
           </p>
           <HeroInformation />
         </div>
@@ -264,17 +264,17 @@ function HeroComponent({
           <div className='relative'>
             <div
               className='relative bg-grey-dark border-4 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up z-20'
-              style={{ animationDelay: '800ms' }}
+              style={{ animationDelay: "800ms" }}
             >
               {rendered && !specialEnabled && (
                 <div
                   className='opacity-0 animate-fade-up z-10 bg-grey-dark'
-                  style={{ animationDelay: '600ms' }}
+                  style={{ animationDelay: "600ms" }}
                 >
                   <div
                     className='absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_4px)] 
                         w-full h-full opacity-40 z-20 m-0 p-0 animate-scanlines'
-                    style={{ backgroundSize: '100% 200px' }}
+                    style={{ backgroundSize: "100% 200px" }}
                   ></div>
                   <AsciiDisplay framebuffer={framebuffer} />
                 </div>
@@ -285,7 +285,7 @@ function HeroComponent({
               className='hidden lg:block absolute -bottom-[20%]  opacity-0 animate-fade-up z-10 border-0 pointer-events-none'
               src={wires_bottom}
               alt=''
-              style={{ animationDelay: '1000ms' }}
+              style={{ animationDelay: "1000ms" }}
             />
           </div>
         </div>
@@ -298,7 +298,7 @@ function HeroIcons() {
   return (
     <div
       className='opacity-0 animate-fade-up flex flex-row justify-center md:justify-start'
-      style={{ animationDelay: '400ms' }}
+      style={{ animationDelay: "400ms" }}
     >
       <div className='opacity-0 animate-fade-up'>
         <div className='transition-transform hover:-translate-y-1 hover:text-orange'>
@@ -307,7 +307,7 @@ function HeroIcons() {
             target='_blank'
             rel='noopener noreferrer'
             className='opacity-0 animate-fade-up icon-link'
-            style={{ animationDelay: '400ms' }}
+            style={{ animationDelay: "400ms" }}
           >
             <GitHubIcon sx={{ fontSize: 35 }} />
           </a>
@@ -320,7 +320,7 @@ function HeroIcons() {
             target='_blank'
             rel='noopener noreferrer'
             className='opacity-0 animate-fade-up hover:-translate-y-2 icon-link'
-            style={{ animationDelay: '500ms' }}
+            style={{ animationDelay: "500ms" }}
           >
             <LinkedInIcon sx={{ fontSize: 40 }} />
           </a>
@@ -333,7 +333,7 @@ function HeroIcons() {
             target='_blank'
             rel='noopener noreferrer'
             className='opacity-0 animate-fade-up hover:-translate-y-2 icon-link'
-            style={{ animationDelay: '600ms' }}
+            style={{ animationDelay: "600ms" }}
           >
             <DescriptionIcon sx={{ fontSize: 35 }} />
           </a>
@@ -346,16 +346,16 @@ function HeroIcons() {
 function HeroInformation() {
   return (
     <div className=''>
-      <p className='mt-4 opacity-0 animate-fade-up' style={{ animationDelay: '600ms' }}>
+      <p className='mt-4 opacity-0 animate-fade-up' style={{ animationDelay: "600ms" }}>
         I&apos;m a penultimate Computer Science student at the University of Melbourne looking to
         gain practical software development experience whether through a job, internship or research
         assistant position.
       </p>
-      <p className='mt-5 opacity-0 animate-fade-up' style={{ animationDelay: '700ms' }}>
+      <p className='mt-5 opacity-0 animate-fade-up' style={{ animationDelay: "700ms" }}>
         Currently exploring the use of encoder-only language models for detailed emotion
         classification in journal entries.
       </p>
-      <p className='mt-5 opacity-0 animate-fade-up' style={{ animationDelay: '800ms' }}>
+      <p className='mt-5 opacity-0 animate-fade-up' style={{ animationDelay: "800ms" }}>
         Welcome to my website.
       </p>
     </div>

@@ -35,7 +35,7 @@ export default function Navbar() {
     >
       <Link
         href='/'
-        className={`tracking-wider navlink hover:text-white text-2xl md:self-center ml-3 md:ml-10 no-underline font-mesloBold opacity-0 animate-fade-down z-20`}
+        className={`tracking-wider navlink hover:text-white text-2xl self-center  ml-3 md:ml-10 no-underline font-mesloBold opacity-0 animate-fade-down z-20`}
         style={{ animationDelay: "300ms" }}
       >
         {" "}
