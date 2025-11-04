@@ -4,10 +4,10 @@ import Image from "next/image";
 
 const WhatSection = () => {
   return (
-    <section className='min-h-screen flex flex-col items-center gap-10 mt-5 lg:mt-0 px-5 sm:px-6 lg:px-13 xl:px-25 lg:flex-row lg:w-11/12'>
-      <div className='relative order-2 lg:order-1 w-full lg:basis-2/5'>
+    <section className='min-h-screen flex flex-col items-center gap-10 mt-5 lg:mt-0 px-5 sm:px-6 lg:px-13 xl:px-25 lg:flex-row lg:w-10/12'>
+      <div className='relative order-2 lg:order-1 w-full lg:basis-1/2'>
         <Image
-          className='hidden md:block absolute border-0 lg:-bottom-[20%] z-0 opacity-0 trigger-fade-on-scroll pointer-events-none select-none'
+          className='hidden md:block absolute border-0 lg:-bottom-[25%] z-0 opacity-0 trigger-fade-on-scroll pointer-events-none select-none'
           src={wires_bottom_2}
           loading='eager'
           alt=''
@@ -36,10 +36,6 @@ const WhatSection = () => {
           &quot;Tech Stack&quot; since I don&apos;t like limiting myself to a single method of doing
           things. In my opinion, you should always be open to learning more to prevent stagnation.
           That discomfort you feel about not knowing something is crucial for growth.
-        </p>
-        <p className='mb-5'>
-          That being said, I do find myself using stacks similar to MERN (MongoDB, Express, React,
-          NodeJS) or FARM (FastAPI, React, MongoDB) simply out of convenience.
         </p>
         <p>
           For me, the KISS (Keep It Simple Stupid) principle is a valid approach to development so I

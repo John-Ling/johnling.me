@@ -38,8 +38,8 @@ export default function Navbar() {
         className={`tracking-wider navlink hover:text-white text-2xl self-center  ml-3 md:ml-10 no-underline font-mesloBold opacity-0 animate-fade-down z-20`}
         style={{ animationDelay: "300ms" }}
       >
-        <span className='md:whitespace-pre md:block'>JOHN </span>
-        <span className='text-orange md:whitespace-pre'> LING</span>
+        <span className='md:whitespace-pre md:block'>JOHN{"  "}</span>
+        <span className='text-orange md:whitespace-pre'>{"  "}LING</span>
       </Link>
 
       {/* mobile hamburger menu */}
