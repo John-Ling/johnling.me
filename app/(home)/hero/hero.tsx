@@ -200,9 +200,9 @@ function HeroComponent({
 
   return (
     <>
-      <div className='min-h-screen max-w-[1920px] mx-auto flex items-center justify-center flex-col lg:flex-row'>
+      <div className='min-h-screen max-w-[1920px] px-5 sm:px-6 lg:px-13 xl:px-25 mx-auto flex items-center justify-center flex-col lg:flex-row'>
         {/* hero information (left side) */}
-        <div className='basis-7/12 flex flex-col m-8'>
+        <div className='basis-7/12 flex flex-col m-2'>
           <div
             className='text-6xl z-0 mb-5 opacity-0 animate-fade-up text-center md:text-left'
             style={{ animationDelay: "100ms" }}
@@ -254,7 +254,7 @@ function HeroComponent({
             goals, reduce stress and maintain focus in a world full of distractions.
           </p>
           <p className='opacity-0 animate-fade-up' style={{ animationDelay: "600ms" }}>
-            In short, I like helping people : ).
+            In short, I like helping people :)
           </p>
           <HeroInformation />
         </div>
