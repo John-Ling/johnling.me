@@ -29,7 +29,7 @@ _The Arch User Repository or AUR is a community-driven repository containing pac
 
 _Packages on the AUR work by user-created PKGBUILDs describe to the Arch Build System how to compile a package. This compiled package can then be installed using `pacman`. While it can be useful to know how to build packages manually, I found it quickly gets tedious and an AUR helper makes things much nicer by automating the process._
 
-Certain packages we'll need can only be found in the AUR so we'll need to set up a helper. In this case we'll use `yay` since I'm more familar with it. 
+Certain packages we'll need can only be found in the AUR so we'll need to set up a helper. In this case we'll use `yay` since I'm more familiar with it. 
 
 Since we don't have a helper yet, we'll need to build `yay` manually however that's incredibly easy. 
 
@@ -48,11 +48,11 @@ You can now use `yay` to install any AUR package needed in the future.
 
 ### Installing Packages
 
-Before we install Hyprland, we must first some packages (and by some I mean a lot). 
+Before we install Hyprland, we must first install some packages (and by some I mean a lot). 
 
 <CodeBlock>
 {`
-pacman -S firefox alacritty dolphin pipewire wireplumber pipewire-audio pipewire-pulse dunst xdg-desktop-portal-hyprland hyprpolkitagent hyprpaper hyprlock hypridle qt5-wayland qt6-wayland waybar rofi feh kvantum qt5ct qt6ct nwg-look bluez bluez-utils blueman sof-firmware  wl-clipboard sddm
+sudo pacman -S firefox alacritty dolphin pipewire wireplumber pipewire-audio pipewire-pulse dunst xdg-desktop-portal-hyprland hyprpolkitagent hyprpaper hyprlock hypridle qt5-wayland qt6-wayland waybar rofi feh kvantum qt5ct qt6ct nwg-look bluez bluez-utils blueman sof-firmware  wl-clipboard sddm
 
 # Explanation of packages
 firefox: Web browser
@@ -153,12 +153,19 @@ For this tutorial, we'll use my own config file as a base. However
 
 Clone my dotfiles from Github.
 
+If you already have an existing Hyprland config make sure to back it up.
+<CodeBlock>
+{`
+cp -r ~/.config/hypr ~/.config/hypr.bak
+`}
+</CodeBlock>
+
 <CodeBlock>
 {`
 git clone https://github.com/John-Ling/dotfiles
 cd dotfiles/
 cp -r hypr alacritty waybar rofi dunst code-flags.conf ~/.config/
-cp -r .local ~/
+cp -r .local/* ~/.local/
 chmod +x ~/.local/bin/*.sh
 cp .zshrc .vimrc ~/
 `}
@@ -206,7 +213,7 @@ Open a terminal using the command `CTRL ALT T`
 ### Fixing Monitor Issues
 You may notice that your screen is not at the correct resolution or that some text is blurry. This is likely because we haven't properly configured the monitors.
 
-Hyprland has a helpful program named `hyprctl` we'll use that to view our connected monitors. We'll combine this with another command, `grep` to make the output a little more readable
+Hyprland has a helpful program named `hyprctl` we'll use that to view our connected monitors. We'll combine this with another command, `grep`, to make the output a little more readable
 
 <CodeBlock>
 {`
@@ -331,7 +338,7 @@ To do this we'll need to edit a file called logind.conf
 
 <CodeBlock>
 {`
-sudo nano /etc/systmd/logind.conf
+sudo nano /etc/systemd/logind.conf
 `}
 </CodeBlock>
 
@@ -347,7 +354,7 @@ Edit this file and change HDMI-A-2 to the secondary monitor you set in your `set
 
 ### Setting up ZSH
 
-If you want to use  ZSH rather than the built-in Bash, install ZSH using `pacman`
+If you want to use ZSH rather than the built-in Bash, install ZSH using `pacman`
 
 We'll also change the default shell.
 
