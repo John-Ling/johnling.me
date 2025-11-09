@@ -5,7 +5,7 @@ date: "01/11/2024"
 
 I've written up this guide to help anyone who wants to get into Arch Linux. Specifically Arch Linux with the Hyprland window manager as it has become a popular combination. This guide should ideally provide a mix of concise installation steps along with a little bit of an explanation for why we take these steps as I believe the technical knowledge gained from installing Arch is good to have. 
 
-I'll divide this guide into 2 parts
+I'll divide this guide into 2 parts:
 
 - Installing Arch Linux (**This article**)
 
@@ -16,9 +16,9 @@ These stages are independent of each other. That is, if you just complete the "I
 ## Why not use archinstall?
 
 If you didn't know already, Arch has gotten much easier to install via the built-in `archinstall` script. This script basically guides you through setting up a basic system.
-It pretty much automates everything we're going to do here and will probably be bit quicker. If you really wanted to you could just leave this guide, run archinstall and get a good system going.
+It pretty much automates everything we're going to do here and will probably be a bit quicker. If you really wanted to you could just leave this guide, run archinstall and get a good system going.
 
-Despite this, I'm still an advocate being at least somewhat familiar with the manual install since
+Despite this, I'm still an advocate being at least somewhat familiar with the manual install since:
 
 - I believe you'll learn a bit more about Linux's commands and concepts by manually executing them to build your system
 - More advanced setups or setups with encryption I have read can be a bit messy with the automated installer
@@ -36,15 +36,15 @@ If you want an Arch based system with an easy install, I'd recommend using Endea
 
 - Above all else, **you need to be willing to search online for solutions** for when things (eventually) go wrong. I installed Arch as my first distro but I had to try 4 times to get it right and had to look on Reddit and the Arch Linux forum to find solutions to various (very beginner) issues. If Arch is your first distro as well, **I recommend setting aside a weekend** to give you ample time. 
 
-- If your device has an ethernet port, I recommend plugging into your router for a wired connection. While a wireless connection isn't hard to set up, an ethernet connection ✨just works✨. 
+- If your device has an ethernet port, I recommend plugging into your router for a wired connection. While a wireless connection isn't hard to set up, an ethernet connection ✨just works✨ 
 
-- I believe learning what's happening as you install Arch is just as valuable as the finished installation. Throughout the guide I'll be putting little explanations in _italics_. **While I recommend reading them to learn more**, **you can absolutely ignore them and get a functional setup**.  If you just follow the commands shown in the guide installing Arch will not be hard but there is a lot of things you can learn 
+- I believe that learning what's happening as you install Arch is just as valuable as the finished installation. Throughout the guide I'll be putting little explanations in _italics_. **While I recommend reading them to learn more, you can absolutely ignore them and get a functional setup**.  If you just follow the commands shown in the guide installing Arch will not be hard but there is a lot of things you can learn.
 
 - **Dual booting with Windows won't be covered** in this guide to keep things from getting too long. I will write another guide on how to setup a dual boot system between Linux and Windows for GRUB (the bootloader of choice in ths guide) later. 
 
 - Knowing the basic specs of your device will help during the installation mainly whether you have an Intel or AMD CPU (if you have Apple Silicon then this guide will not work) and the size of your disk. 
 
-ok ok lets begin!
+ok ok let's begin!
 
 ## Stage 0/3: Booting Arch
 
@@ -73,18 +73,18 @@ Hop into the BIOS and select the USB drive. You'll soon be taken to a screen tha
 
 <img src="/images/blog/Arch-Linux-Guide/1.png" alt="Prompt for arch linux ISO" />
 
-Hit ENTER and you'll be place into the live ISO environment. 
+Hit ENTER and you'll be placed into the live ISO environment. 
 
 Soon you should see a prompt like this.
 
 ![Arch Linux live environment](/images/blog/Arch-Linux-Guide/4.png)
 
-_This is the live environment. It's a minimal system that provides you just enough commands to install Arch Linux. Live environments are nothing new. Other distros like Ubuntu and Mint will place you into a live environment. The main difference however is that you're provided a graphical user interface (GUI) whilst Arch following the KISS (Keep It Simple Stupid) philosophy uses a very minimal command line interface (cli)._
+_This is the live environment. It's a minimal system that provides you just enough commands to install Arch Linux. Live environments are nothing new. Other distros like Ubuntu and Mint will place you into a live environment. The main difference however is that you're provided a graphical user interface (GUI) whilst Arch, following the KISS (Keep It Simple Stupid) philosophy, uses a very minimal command line interface (cli)._
 
 
 ### Setting Keymaps (optional)
 
-If you use an alternative English keymap such as COLEMARK/DVORAK or a language specific keymap such as QWERTZ or ZHUYIN. You can switch the default US keymap through these commands
+If you use an alternative English keymap such as COLEMAK/DVORAK or a language specific keymap such as QWERTZ or ZHUYIN. You can switch from the default US keymap through these commands
 
 List the available layouts. Use the keys 'j' and 'k' to scroll down and up respectively (vim keybindings).
 
@@ -154,7 +154,7 @@ ENTER
 ENTER
 t # Change the partition's type to be recognised as an ESP
 ENTER
-1 # If this does not work try entering ef instead
+ef
 ENTER
 n # Create another partition. This will be our root partition
 ENTER
@@ -165,7 +165,7 @@ w
 ENTER
 `}
 </CodeBlock>
-_You'll see that we're hittng ENTER a lot. We're just accepting the default options offered by fdisk. For us that will suffice._
+_You'll see that we're hitting ENTER a lot. We're just accepting the default options offered by fdisk. For us that will suffice._
 
 Your screen should look something like this
 
@@ -179,7 +179,7 @@ _This is a very standard and simple partition layout. We allocate 1GiB to our ES
 
 ### Formatting the Disk
 
-Now that we have physically divided our disk into partitions, we next need to make our partitions writable by formatting them to use a certain file system.
+Now that we have divided our disk into partitions, we must next format them and create their own file systems.
 
 Referencing the above image, you should now have 2 partitions on your disk. One EFI partition, and one root partition. These partitions have their own block device identifiers. In my case my ESP has the identifier `/dev/sda1` while root has `/dev/sda2`.
 
@@ -187,9 +187,11 @@ Referencing the above image, you should now have 2 partitions on your disk. One 
 
 Once you know yours run these commands.
 
+Assuming 
 ESP_BLOCK_DEVICE=/dev/sda1
 
 ROOT_BLOCK_DEVICE=/dev/sda2
+
 <CodeBlock>
 {`
 mkfs.fat -F32 ESP_BLOCK_DEVICE
@@ -197,11 +199,12 @@ mkfs.ext4 ROOT_BLOCK_DEVICE # this one may take a little longer depending on you
 `}
 </CodeBlock>
 
-_While the ESP must be formatted to FAT32, our root partition can be a formatted to a filesystem other than ext4. While ext4 is probably the simplest and most common filesystem, there exist many other types such as BTRFS or XFS which all have their own benefits and drawbacks. Ext4 is simple but reliable and has anecdotally been more resistant to data corruption in the event of sudden power loss._
 
-_BTRFS allows for snapshots meaning you can rollback to a previous good state if an update breaks your system. XFS is common on enterprise servers but is also popular in Gentoo and is the filesystem recommended by the install guide._
+_While the ESP must be formatted to FAT32, our root partition can be a formatted to a filesystem other than ext4. While ext4 is probably the simplest and most common filesystem, there exist many other types such as BTRFS or XFS which each have their own benefits and drawbacks. Ext4 is simple but reliable, technically faster and has anecdotally been more resistant to data corruption in the event of sudden power loss._
 
-_Arch's benefit comes in allowing you that level of control of your operating system all the way down to the filesystem level. While using BTRFS is probably doable on distros like Ubuntu I would imagine it would be harder compared to Arch._
+_BTRFS allows for snapshots meaning you can rollback to a previous good state if an update breaks your system. Additionally, features such as transparent file compression which can increase usable disk space. XFS is common on enterprise servers but is also popular on Gentoo and is the filesystem recommended by the install guide._
+
+_Arch's benefit comes in allowing you that level of control of your operating system all the way down to the filesystem level. While this guide does not cover BTRFS since I personally do not use it and as such know as much as you do, resources online are abundant._
 
 ### Mount the File Systems
 
@@ -233,16 +236,31 @@ You should get responses from the server if the device is connected. Press CTRL 
 
 However if your device needs to connect via WiFi. You'll need to use the `iwctl` command to do so.
 
-Run these commnads
+Run these commands
 <CodeBlock>
 {`
 iwctl
-station list # this will show youre wireless cards usually it will be wlan0
+station list # this will show your wireless cards usually it will be wlan0
 station wlan0 get-networks
 station wlan0 connect YOUR_WIFI_NETWORK
 # enter the password when prompted
 # you should be connected soon
 # press CTRL C to leave
+`}
+</CodeBlock>
+
+### Mirror Configuration
+
+Mirrors refer to web servers that host copies of files (in this case packages) in order to reduce server load by distributing it across a larger network and improve download speeds by placing
+mirrors across many countries to ensure users are (ideally) close to a mirror in their own country to download from.
+
+In order to improve our download speeds, we're going to sort Arch Linux's mirrors by their speed based on our current location. We can accomplish this using the `reflector` package. 
+
+
+<CodeBlock>
+{`
+pacman -S reflector
+reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 `}
 </CodeBlock>
 
@@ -268,7 +286,7 @@ Then
 pacstrap -K /mnt base linux linux-firmware
 `}
 </CodeBlock>
-_The pacstrap command simply an alias for the pacman command `pacman -r /mnt -Sy --cachedir=/mnt/var/cache/pacman/pkg --noconfirm`. Here we are telling pacman to install the packages base (suite of basic packages for Arch), linux and linux-firmware to /mnt directory (where we've mounted our root partition)._
+_The pacstrap command simply an alias for the pacman command `pacman -r /mnt -Sy --cachedir=/mnt/var/cache/pacman/pkg --noconfirm`. Here we are telling pacman to install the package base (suite of basic packages for Arch), linux and linux-firmware to /mnt directory (where we've mounted our root partition)._
 
 _If you want, you can change linux to another kernel such as linux-zen however switching after installation is very easy._
 
@@ -296,7 +314,7 @@ This is a technically optional (however recommended) step.
 
 _Many operating systems whether it be Windows or Linux have some form of **swap** space. This is a dedicated section on the disk that is not used for storing files but for storing the contents of memory when RAM runs out. When RAM is depleted on a system, data in RAM is temporarily moved to the swap space to free up memory. In Linux systems, swap space can **either be in the form of a partition or a swapfile**. We'll be making a swapfile since it's slightly easier to resize._
 
-Create a swapfile using this command. You're free to decide how much or how little space you allocate for this swapfile however the same amount of memory as your computer is generally a solid point. If your computer has 16GiB of RAM then you'll pass 16G to the command. 
+Create a swapfile using this command. You're free to decide how much or how little space you allocate for this swapfile however the same amount of memory as your computer is generally a good guideline. If your computer has 16GiB of RAM then you'll pass 16G to the command. 
 
 <CodeBlock>
 {`
@@ -314,7 +332,7 @@ swapon /swapfile
 
 ### Generate the FSTAB File
 
-_An FSTAB file is a file that provides Linux with information relating to disk partitions, block devices or remote file systems. You can think if it like a blueprint that tells Linux where your partitions should be mounted and their file systems among many other things. More information can be found [here](https://wiki.archlinux.org/title/Fstab)._
+_An FSTAB file is a file that provides Linux with information relating to disk partitions, block devices or remote file systems. You can think of it like a blueprint that tells Linux where your partitions should be mounted and their file systems among many other things. More information can be found [here](https://wiki.archlinux.org/title/Fstab)._
 
 We'll use the `genfstab` command which comes with the live environment. However we'll have to exit our Arch Linux back to that environment where we can use it.
 
@@ -333,11 +351,9 @@ arch-chroot /mnt
 `}
 </CodeBlock>
 
-
 ### Install Basic Packages
 
 We're going to install a collection of important packages that will be used extensively.
-
 
 <CodeBlock>
 {`
@@ -351,11 +367,10 @@ pacman -S vim nano sudo iwd dhcpcd git base-devel networkmanager neofetch
 # dhcpcd: DHCP client (we'll enable this later to get internet access)
 # git: Version control software we'll use to download yay (AUR helper) later
 # base-devel: Key packages such as gcc and make needed to build from the AUR
-# networkmanager: dhcpcd is our DHCP client however we still need network manager to work alongside it for internet
+# networkmanager: dhcpcd is our DHCP client however we still need network manager to work alongside it for internet access
 # neofetch: Show people that you use Arch btw
 `}
 </CodeBlock>
-
 
 You should also install microcode for either your Intel or AMD CPU.
 
@@ -373,7 +388,6 @@ pacman -S amd-ucode
 
 _An explanation of microcode goes way way beyond what I know. From what I gather it's basically firmware for the CPU itself._
 
-
 ### Timezones 
 Use the keys 'j' and 'k' to navigate down and up.
 <CodeBlock>
@@ -385,7 +399,7 @@ timedatectl list-timezones
 Set your timezone 
 <CodeBlock>
 {`
-timedatectl set-timezone Melbourne/Australia
+timedatectl set-timezone Australia/Melbourne
 `}
 </CodeBlock>
 
@@ -409,7 +423,7 @@ timedatectl set-ntp true
 
 _Locales are used by libraries such as glibc for rendering regional monetary values, time and date formats along with characters specific to different languages._
 
-We will use nano to edit the file /etc/locale.gen
+We will use nano to edit the file /etc/locale.gen. If you know Vim, you can use that instead.
 
 <CodeBlock>
 {`
@@ -421,8 +435,7 @@ Use the arrow keys to move down until you find en_US.UTF-8 or en_GB.UTF-8 delete
 
 <img src="/images/blog/Arch-Linux-Guide/image-5.png" alt="Nano editing /etc/locale.gen" width="800" />
 
-While you can just use English locales. You may need to enable a few more locales using the same method if your text does not render correctly. To display titles for my Chinese, Japanese and Korean songs on Spotify I needed to enable the ja_JP.UTF-8, ko_KR.UTF-8, zh_CN.UTF-8 and zh_TW.UTF-8 locales. If your applications need to display different languages you will need to enable 
-
+While you can just use English locales. You may need to enable a few more locales using the same method if your text does not render correctly. To display titles for my Chinese, Japanese and Korean songs on Spotify I needed to enable the ja_JP.UTF-8, ko_KR.UTF-8, zh_CN.UTF-8 and zh_TW.UTF-8 locales. If your applications need to display different languages you will need to enable more.
 
 Press CTRL O and hit enter to save the file. Then CTRL X to exit.
 
@@ -449,7 +462,7 @@ The hostname will be your device's name or any name for that matter. We will wri
 
 <CodeBlock>
 {`
-echo Thinkpad-T15 > /etc/hostname
+echo Thinkpad-T420 > /etc/hostname
 `}
 </CodeBlock>
 
@@ -462,7 +475,7 @@ Set the root password.
 passwd
 `}
 </CodeBlock>
-_It's good practice to use a strong password for the root user as it holds the highest amount of power over the system. This important however is diminished if you're the only person using the device._
+_It's good practice to use a strong password for the root user as it holds the highest amount of power over the system. This importance, however, is diminished if you're the only person using the device._
 
 
 Next we're going to create a new user.
@@ -482,7 +495,7 @@ passwd john
 `}
 </CodeBlock>
 
-Put our users into the wheel, audio, video and storage groups.
+Put our user into the wheel, audio, video and storage groups.
 <CodeBlock>
 {`
 usermod -aG wheel,audio,video,storage john
@@ -519,10 +532,10 @@ Hang in there we're nearly done.
 
 ### Setting Up GRUB
 
-_A bootloader is required for nearly every operating system. At a high level, a bootloader is a program responsible for initialising everything needed for a computer to boot such as (in the context of a Linux system), your kernel and it's initramfs_
+_A bootloader is required for nearly every operating system. At a high level, a bootloader is a program responsible for initialising everything needed for a computer to boot such as (in the context of a Linux system), your kernel and its initramfs_
 
-_Bootloaders come in 2 types first-stage and second-stage. Bootloaders like **GRUB or systemd-boot are second-stage bootloaders** while first-stage bootloaders refer to your BIOS or UEFI._
-
+_Bootloaders come in 2 types first-stage and second-stage. Bootloaders like **GRUB or systemd-boot are second-stage bootloaders**. First-stage bootloaders refer to your BIOS or UEFI._
+_First stage bootloaders initialise the essential hardware needed for minimum functionality through a process called "Bootstrapping". Second stage bootloaders are loaded by the first stage and load everything needed such as the kernel._
 We'll be installing the GRUB bootloader. Since this guide assumes the use of a UEFI system (which implies the presence of a EFI partition) we'll need to install `efibootmgr` as well. 
 
 <CodeBlock>
@@ -531,12 +544,17 @@ pacman -S grub efibootmgr
 `}
 </CodeBlock>
 
+<CodeBlock>
+{`
+mount ESP_BLOCK_DEVICE /boot/efi
+`}
+</CodeBlock>
 
 Next we need to install GRUB to our ESP. 
 
 <CodeBlock>
 {`
-grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot ESP_BLOCK_DEVICE
+grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi
 `}
 </CodeBlock>
 
@@ -549,8 +567,6 @@ grub-mkconfig -o /boot/grub/grub.cfg
 </CodeBlock>
 
 ### Finishing Touches
-
-
 
 Enable the DHCP service using `systemctl`
 
@@ -580,12 +596,12 @@ systemctl enable iwd
 Exit back to the live environment and unmount the disks.
 
 <CodeBlock>
-{`exit
+{`
+exit
 umount /mnt/boot
 umount /mnt
 `}
 </CodeBlock>
-
 
 Finally reboot the computer either through the power switch or via command line.
 

@@ -233,7 +233,7 @@ function HeroComponent({
               >
                 <div
                   className='absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_4px)] 
-                    w-full h-full opacity-40 z-20 m-0 p-0 animate-scanlines'
+                    w-full h-full opacity-40 z-20 m-0 p-0'
                   style={{ backgroundSize: "100% 200px" }}
                 ></div>
                 <AsciiDisplay framebuffer={framebuffer} />
@@ -273,7 +273,7 @@ function HeroComponent({
                 >
                   <div
                     className='absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_4px)] 
-                        w-full h-full opacity-40 z-20 m-0 p-0 animate-scanlines'
+                        w-full h-full opacity-40 z-20 m-0 p-0'
                     style={{ backgroundSize: "100% 200px" }}
                   ></div>
                   <AsciiDisplay framebuffer={framebuffer} />
