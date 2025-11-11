@@ -1,0 +1,104 @@
+---
+title: "Dynamic Wallpapers in Hyprland"
+date: "11/11/2025"
+---
+
+Quick post because exam revision is mind numbing and makes me want to lobotomise myself.
+
+On systems like macOS, wallpapers can be made "dynamic". That is, the wallpaper's appearance changes over time gradually fading light to dark mode alongside the day. 
+
+![macos dynamic wallpapers showcase](/images/blog/Hyprland-Dynamic-Wallpapers/1.jpg)
+
+With some quick scripting, I replicated this effect to a degree on Hyprland. While you will not get the incredibly subtle changes found on macOS' implementation, you will get a wallpaper that can change appearance at certain times of the day. For me, I've kept it simple with a daytime wallpaper that runs until 9pm before switching to night, signifying it's time for me to stop working.
+
+## Setup
+
+Setup was incredibly simple if not a little crude. 
+
+You'll, of course, need to select multiple wallpapers to switch between. For the longest time I've used the works of background artist [Arsenixc](https://www.deviantart.com/.arsenixc). Beyond static backgrounds, they also draw day, sunset and night versions of various scenes making them perfect. 
+
+In my configuration, I placed my photos under `~/.config/hypr/wallpapers` 
+
+### Script + Cron
+
+I cobbled together this bash script to run hyprpaper based on the time, placing it in `~/.local/bin`. Make sure to make it executable with `chmod +x`.
+
+<CodeBlock language="bash" filename="~/.local/bin/wallpaper.sh">
+{`
+#!/bin/bash
+
+while ! pidof "hyprpaper" > /dev/null; do
+    sleep 1
+done
+
+sleep 1
+hour=$(date +%-H)
+
+if [[ $hour -gt 6 ]]; then
+    hyprctl hyprpaper reload ,"~/.config/hypr/wallpapers/island_day.jpg"
+fi
+
+if [[ $hour -gt 21 ]]; then
+    hyprctl hyprpaper reload ,"~/.config/hypr/wallpapers/island_night.jpg"
+fi
+`}
+</CodeBlock>
+
+To achieve the automatic switching, I set up two cron jobs to run the script at 6am and 9pm thus changing the wallpaper at these times. While I could use Systemd timers, which seemed to be the approach used by others , I find cron a far simpler and thus better option for running a command at intervals. 
+
+You'll likely need to install a cron client. On Arch Linux this is provided through the `cronie` package. 
+
+<CodeBlock>
+{`
+sudo pacman -S cronie
+`}
+</CodeBlock>
+
+Then enable the systemd service
+<CodeBlock>
+{`
+sudo systemctl enable --now cronie.service
+`}
+</CodeBlock>
+
+Once done, we can edit our current cron configuration via `EDITOR=vim crontab -e`. This assumes you have vim installed. If you prefer `nano` you can run `EDITOR=nano crontab -e` instead. 
+
+Once there, insert these lines which will invoke our script daily at 6am and 9pm. 
+
+<CodeBlock>
+{`
+0 6 * * * ~/.local/bin/wallpaper.sh
+0 21 * * * ~/.local/bin/wallpaper.sh
+`}
+</CodeBlock>
+
+### Hyprland + Hyprpaper Configuration
+
+Some small tweaks need to be made to Hyprland and its wallpaper tool `hyprpaper`. Install it using your package manager.
+
+Using pacman:
+
+<CodeBlock>
+{`
+sudo pacman -S hyprpaper
+`}
+</CodeBlock>
+
+
+Then amend your config file to run both `hyprpaper` and the wallpaper script. 
+
+<CodeBlock>
+{`
+exec-once = hyprpaper
+exec-once = ~/.local/bin/wallpaper.sh
+`}
+</CodeBlock>
+
+## Result
+
+Day:
+
+![macos dynamic wallpapers showcase](/images/blog/Hyprland-Dynamic-Wallpapers/2.png)
+
+Night (I set it manually): 
+![macos dynamic wallpapers showcase](/images/blog/Hyprland-Dynamic-Wallpapers/3.png)

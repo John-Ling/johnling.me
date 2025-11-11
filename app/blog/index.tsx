@@ -24,7 +24,7 @@ export default function BlogPage() {
               return (
                 <li
                   key={post.slug}
-                  className='bg-grey-card p-3 md:p-5 m-3 border-2 border-grey-light rounded-lg opacity-0 animate-fade-up'
+                  className='bg-grey-card p-3 md:p-5 m-3 border-2 border-grey-light rounded-lg opacity-0 animate-fade-up flex flex-col justify-between items-start'
                   style={{ animationDelay: `${(i + 1) * 100}ms` }}
                 >
                   <PostComponent position={i} post={post} />
@@ -56,9 +56,11 @@ function PostComponent({ post, position }: PostComponentProps) {
   const colourClass: string = colours[position % colours.length];
   return (
     <>
-      <h2 className={`text-md ${colourClass} mb-2`}>{post.title}</h2>
-      <p className='text-sm text-muted-white mb-2 '>{post.date}</p>
-      <Link className='link' href={`/blog/${post.slug}`}>
+      <div className='pb-4 w-4/5'>
+        <h2 className={`text-md ${colourClass} mb-2`}>{post.title}</h2>
+        <p className='text-xs text-muted-white'>{post.date}</p>
+      </div>
+      <Link className='link w-fit text-sm' href={`/blog/${post.slug}`}>
         Article
       </Link>
     </>
