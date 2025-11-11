@@ -79,13 +79,15 @@
     border-left: solid 1px theme("colors.muted-white");
     border-right: solid 1px theme("colors.muted-white");
 }
-/* 
+
+
+
 .markdown code {
     padding: 1px 2px;
-    border-radius: 4px;
-    background-color: #9f5a38;
-    color: #ff6d24;
-} */
+    border-radius: 2px;
+    background-color: #574e3d;
+    color: #d5be95;
+}
 
 .markdown pre {
     margin: 0 !important;
@@ -95,15 +97,6 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
-
-/* .markdown pre code {
-    background-color: theme("colors.grey.dark") !important;
-    border: solid 2px theme("colors.grey.light") !important;
-    padding: 1rem; 
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-} */
-
 
 .markdown code .hljs {
     color: theme("colors.white") !important;

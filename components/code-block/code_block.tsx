@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import ContentPasteIcon from '@mui/icons-material/ContentPaste';
-import Markdown from 'react-markdown';
-import rehypeHighlight from 'rehype-highlight';
+import { useState } from "react";
+import ContentPasteIcon from "@mui/icons-material/ContentPaste";
+import Markdown from "react-markdown";
+import rehypeHighlight from "rehype-highlight";
 
 interface CodeBlockProps {
   language?: string;
@@ -13,8 +13,8 @@ interface CodeBlockProps {
 }
 
 export default function CodeBlock({
-  language = 'asdf',
-  filename = '',
+  language = "asdf",
+  filename = "",
   canCopy = true,
   children
 }: CodeBlockProps) {
@@ -51,9 +51,9 @@ export default function CodeBlock({
             <>
               <div className='relative'>
                 <div
-                  className={`absolute bottom-10 pt-1 pb-1 pl-2 pr-2 ${!tooltipVisible ? 'hidden' : ''}`}
+                  className={`absolute bottom-10 pt-1 pb-1 pl-2 pr-2 ${!tooltipVisible ? "hidden" : ""}`}
                 >
-                  {copied ? 'Copied' : 'Copy'}
+                  {copied ? "Copied" : "Copy"}
                 </div>
                 <ContentPasteIcon
                   onMouseOver={() => setTooltipVisible(true)}
@@ -79,7 +79,7 @@ export default function CodeBlock({
               );
             })}
           </div>
-          <div className=' bg-[#161616] pb-1 pt-1 pl-2 overflow-auto &::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
+          <div className=' bg-[#161616] pb-1 pt-1 pl-2'>
             {/* return code block markdown with syntax highlighting */}
             <Markdown rehypePlugins={[rehypeHighlight]}>
               {`\`\`\`${language}${children}\`\`\``}
