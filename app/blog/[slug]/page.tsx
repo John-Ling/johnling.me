@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { get_post, get_sorted_posts } from "@/lib/posts";
 
@@ -48,18 +47,18 @@ export default async function Page(props: Params) {
   return (
     <>
       <title>{post.title}</title>
-      <div className='w-full lg:w-1/2 max-w-[1920px] mx-auto px-6 '>
-        <Link className='link' href='/blog'>
+      <div className='w-full lg:w-1/2 max-w-[1920px] mx-auto px-6'>
+        <a className='link' href='/blog'>
           Back
-        </Link>
+        </a>
         <article className={`pt-5 pb-5 ${style.markdown}`}>
           <h1 className='text-xl mb-5'>{post.title}</h1>
           <p className='mb-5 text-muted-white'>{post.date}</p>
           <div>{compiled.content}</div>
         </article>
-        <Link className='link' href='/blog'>
+        <a className='link' href='/blog'>
           Back
-        </Link>
+        </a>
       </div>
     </>
   );

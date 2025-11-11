@@ -1,5 +1,4 @@
 import { get_sorted_posts } from "@/lib/posts";
-import Link from "next/link";
 
 export default function BlogPage() {
   const posts: BlogPost[] = get_sorted_posts();
@@ -56,13 +55,13 @@ function PostComponent({ post, position }: PostComponentProps) {
   const colourClass: string = colours[position % colours.length];
   return (
     <>
-      <div className='pb-4 w-4/5'>
+      <div className='pb-4 w-11/12'>
         <h2 className={`text-md ${colourClass} mb-2`}>{post.title}</h2>
         <p className='text-xs text-muted-white'>{post.date}</p>
       </div>
-      <Link className='link w-fit text-sm' href={`/blog/${post.slug}`}>
+      <a className='link w-fit text-sm' href={`/blog/${post.slug}`}>
         Article
-      </Link>
+      </a>
     </>
   );
 }
