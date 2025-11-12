@@ -35,7 +35,7 @@ export default function Navbar() {
     >
       <Link
         href='/'
-        className={`tracking-wider navlink hover:text-white text-2xl self-center  ml-3 md:ml-10 no-underline font-mesloBold opacity-0 animate-fade-down z-20`}
+        className={`tracking-wider navlink hover:text-white text-2xl self-center  ml-3 md:ml-10 no-underline font-mesloBold z-20`}
         style={{ animationDelay: "300ms" }}
       >
         <span className='md:whitespace-pre md:block'>JOHN{"  "}</span>
@@ -44,7 +44,7 @@ export default function Navbar() {
 
       {/* mobile hamburger menu */}
       <button
-        className='md:hidden p-2 animate-fade-down opacity-0'
+        className='md:hidden p-2'
         style={{ animationDelay: "300ms" }}
         onClick={() => setOpen(!open)}
       >
@@ -60,7 +60,7 @@ export default function Navbar() {
 
       {/* desktop menu */}
       <div
-        className={`hidden invisible md:flex md:visible p-4 opacity-0 animate-fade-down`}
+        className={`hidden invisible md:flex md:visible p-4`}
         style={{ animationDelay: "500ms" }}
       >
         <NavbarMenu links={links} activeLink={path} on_click={() => setOpen(false)} />
@@ -97,7 +97,7 @@ function NavbarMenu({ links, activeLink, on_click }: NavMenuProps) {
         return (
           <li
             key={link.name}
-            className='p-2 opacity-0 animate-fade-down'
+            className='p-2'
             style={{ animationDelay: `${(linkCount - i) * 150}ms` }}
           >
             <Link
