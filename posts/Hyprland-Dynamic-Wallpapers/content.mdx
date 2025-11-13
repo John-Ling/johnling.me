@@ -34,43 +34,72 @@ done
 sleep 1
 hour=$(date +%-H)
 
-if [[ $hour -gt 6 ]]; then
-    hyprctl hyprpaper reload ,"~/.config/hypr/wallpapers/island_day.jpg"
-fi
-
-if [[ $hour -gt 21 ]]; then
+# change to whatever time you want
+if [[ $hour -gt 21 || $hour -lt 6 ]]; then
+    hyprctl hyprpaper reload ,"~/.config/hypr/wallpapers/island_night.jpg"
+elif [[ $hour -gt 6 ]]; then
     hyprctl hyprpaper reload ,"~/.config/hypr/wallpapers/island_night.jpg"
 fi
 `}
 </CodeBlock>
 
-To achieve the automatic switching, I set up two cron jobs to run the script at 6am and 9pm thus changing the wallpaper at these times. While I could use Systemd timers, which seemed to be the approach used by others , I find cron a far simpler and thus better option for running a command at intervals. 
+To achieve the automatic switching, I created a systemd service and timer. The reason I used Systemd over simple Cron jobs is that Systemd timers can be configured to run immediately after startup even 
+if it's original trigger time has elapsed. When I trialed Cron I found that putting my laptop to sleep and waking it at 10pm cause the event to not fire. 
 
-You'll likely need to install a cron client. On Arch Linux this is provided through the `cronie` package. 
-
-<CodeBlock>
-{`
-sudo pacman -S cronie
-`}
-</CodeBlock>
-
-Then enable the systemd service
-<CodeBlock>
-{`
-sudo systemctl enable --now cronie.service
-`}
-</CodeBlock>
-
-Once done, we can edit our current cron configuration via `EDITOR=vim crontab -e`. This assumes you have vim installed. If you prefer `nano` you can run `EDITOR=nano crontab -e` instead. 
-
-Once there, insert these lines which will invoke our script daily at 6am and 9pm. 
+This service really only applies to the user so we'll be creating a local Systemd service. If not created already, make the `~/.config/systemd/user` folders with `mkdir -p`.
 
 <CodeBlock>
 {`
-0 6 * * * ~/.local/bin/wallpaper.sh
-0 21 * * * ~/.local/bin/wallpaper.sh
+mkdir -p ~/.config/systemd/user
 `}
 </CodeBlock>
+
+Next we'll create both our service and timer.
+
+<CodeBlock language="bash" filename="~/.config/systemd/user/wallpaper.service">
+{`
+[Unit]
+Description=Dynamic wallpapers
+
+[Service]
+Type=oneshot
+ExecStart=/home/%u/.local/bin/wallpaper.sh
+
+[Install]
+WantedBy=default.target
+`}
+</CodeBlock>
+
+<CodeBlock language="bash" filename="~/.config/systemd/user/wallpaper.timer">
+{`
+[Unit]
+Description=Run wallpaper.sh daily at 6am and 9pm
+
+[Timer]
+OnCalendar=06:00
+OnCalendar=21:00
+Persistent=true
+Unit=wallpaper.service
+
+[Install]
+WantedBy=timers.target
+`}
+</CodeBlock>
+
+
+Afterwards, enable our timer to run on startup and for our current session. 
+
+<CodeBlock>
+{`
+systemctl enable --now --user wallpaper.service
+`}
+</CodeBlock>
+
+Our timer should be enabled currently and on any future sessions. We can confirm this with the `list-timers` command.
+
+![systemd timers](/images/blog/Hyprland-Dynamic-Wallpapers/4.png)
+
+Now, our timer will allow our wallpaper to change at certain times, however we still need to run the script on startup. 
 
 ### Hyprland + Hyprpaper Configuration
 
