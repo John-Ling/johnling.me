@@ -1,21 +1,26 @@
-
 interface AsciiDisplayProps {
-  framebuffer: string[][],
-};
+  framebuffer: string[][];
+}
 
-export default function AsciiDisplay({framebuffer }: AsciiDisplayProps) {
+export default function AsciiDisplay({ framebuffer }: AsciiDisplayProps) {
   return (
     <>
-      <div className={`text-center p-2 overflow-clip whitespace-nowrap select-none font-meslo`}>
+      <div className={`text-center p-2 overflow-clip whitespace-nowrap select-none font-caskaydia`}>
         {/* render characters */}
         {framebuffer.map((row: string[], i: number) => {
-          return <div key={i}>
-            {row.map((char: string, j: number) => {
-            return <span key={j} className="text-[#FFFFFF] inline-block whitespace-pre-wrap">{char}</span>
-          })}
-          </div>
+          return (
+            <div key={i}>
+              {row.map((char: string, j: number) => {
+                return (
+                  <span key={j} className='text-[#FFFFFF] inline-block whitespace-pre-wrap'>
+                    {char}
+                  </span>
+                );
+              })}
+            </div>
+          );
         })}
       </div>
     </>
-  )
+  );
 }

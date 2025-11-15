@@ -31,11 +31,11 @@ export default function Navbar() {
   const path: string = "/" + usePathname().split("/")[1];
   return (
     <nav
-      className={`select-none max-w-[1920px] mx-auto justify-between items-center transition-all duration-10 ${open ? "bg-grey-normal" : "bg-opacity-0 "}  flex flex-row pt-3 font-meslo`}
+      className={`select-none max-w-[1920px] mx-auto justify-between items-center transition-all duration-10 ${open ? "bg-grey-normal" : "bg-opacity-0 "}  flex flex-row pt-3 font-caskaydia`}
     >
       <Link
         href='/'
-        className={`tracking-wider navlink hover:text-white text-2xl self-center  ml-3 md:ml-10 no-underline font-mesloBold z-20`}
+        className={`tracking-wider navlink hover:text-white text-2xl self-center  ml-3 md:ml-10 no-underline font-caskaydiaBold z-20`}
         style={{ animationDelay: "300ms" }}
       >
         <span className='md:whitespace-pre md:block'>JOHN{"  "}</span>
@@ -137,7 +137,7 @@ function MobileMenu({ links, activeLink, on_click }: NavMenuProps) {
                     <Link
                       href={link.target}
                       onClick={on_click}
-                      className={`text-7xl font-mesloBold no-underline ${link.target === activeLink ? " text-orange" : ""}`}
+                      className={`text-7xl font-caskaydiaBold no-underline ${link.target === activeLink ? " text-orange" : ""}`}
                       aria-current={link.target === activeLink ? "page" : undefined}
                     >
                       {link.name.toUpperCase()}

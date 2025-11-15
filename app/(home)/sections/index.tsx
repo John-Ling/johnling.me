@@ -27,20 +27,20 @@ export default function AboutSection() {
       flickerObserver.observe(element);
     });
 
-    return (() => {
+    return () => {
       fadeElements.forEach((element: Element) => {
         fadeObserver.unobserve(element);
       });
 
       flickerElements.forEach((element: Element) => {
         flickerObserver.unobserve(element);
-      })
-    })
+      });
+    };
   });
 
   return (
     <>
-    <div className="flex flex-col items-center max-w-[1920px] mx-auto font-meslo">
+      <div className='flex flex-col items-center max-w-[1920px] mx-auto font-caskaydia'>
         <WhoSection />
         <WhatSection />
         <WhenSection />

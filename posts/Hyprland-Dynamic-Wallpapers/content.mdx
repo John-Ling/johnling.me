@@ -15,7 +15,7 @@ With some quick scripting, I replicated this effect to a degree on Hyprland. Whi
 
 Setup was incredibly simple if not a little crude. 
 
-You'll, of course, need to select multiple wallpapers to switch between. For the longest time I've used the works of background artist [Arsenixc](https://www.deviantart.com/.arsenixc). Beyond static backgrounds, they also draw day, sunset and night versions of various scenes making them perfect. 
+You'll, of course, need to select multiple wallpapers to switch between. For the longest time I've used the works of background artist [Arsenixc](https://www.deviantart.com/arsenixc). Beyond static backgrounds, they also draw day, sunset and night versions of various scenes making them perfect. 
 
 In my configuration, I placed my photos under `~/.config/hypr/wallpapers` 
 
@@ -56,7 +56,7 @@ mkdir -p ~/.config/systemd/user
 
 Next we'll create both our service and timer.
 
-<CodeBlock language="bash" filename="~/.config/systemd/user/wallpaper.service">
+<CodeBlock filename="~/.config/systemd/user/wallpaper.service">
 {`
 [Unit]
 Description=Dynamic wallpapers
@@ -70,7 +70,7 @@ WantedBy=default.target
 `}
 </CodeBlock>
 
-<CodeBlock language="bash" filename="~/.config/systemd/user/wallpaper.timer">
+<CodeBlock filename="~/.config/systemd/user/wallpaper.timer">
 {`
 [Unit]
 Description=Run wallpaper.sh daily at 6am and 9pm

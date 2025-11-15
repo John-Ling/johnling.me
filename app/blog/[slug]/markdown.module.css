@@ -1,12 +1,12 @@
 .markdown h1 {
-    font-family: "mesloBold";
+    font-family: "caskaydiaBold";
     font-size: 2rem;
     line-height: 2.5rem;
     margin-bottom: 1rem;
 }
 
 .markdown h2 {
-    font-family: "mesloBold";
+    font-family: "caskaydiaBold";
     font-size: 1.75rem;
     line-height: 2.5rem;
     margin-top: 2rem;
@@ -14,7 +14,7 @@
 }
 
 .markdown h3 {
-    font-family: "mesloBold";
+    font-family: "caskaydiaBold";
     font-size: 1.5rem;
     line-height: 2.5rem;
     font-weight: 700;
@@ -23,14 +23,14 @@
 }
 
 .markdown h4 {
-    font-family: "mesloBold";
+    font-family: "caskaydiaBold";
     font-size: 1.25rem;
     line-height: 2.5rem;
     font-weight: 700;
 }
 
 .markdown p em {
-    font-family: "mesloItalic";
+    font-family: "caskaydiaItalic";
 }
 
 .markdown h5 {
@@ -86,7 +86,7 @@
     padding: 1px 2px;
     border-radius: 2px;
     background-color: #574e3d;
-    color: #d5be95;
+    color: #ebdbbc;
 }
 
 .markdown pre {
@@ -102,4 +102,17 @@
     color: theme("colors.white") !important;
     padding: 0 !important;
     margin: 0 !important;
+}
+
+.markdown a {
+    text-decoration: none;
+    border-bottom: solid 1px theme("colors.orange");
+    transition-property: border;
+    transition-timing-function: cubic-bezier();
+    transition-duration: 200ms;
+}
+
+
+.markdown a:hover {
+    border-bottom: solid 1px rgba(0, 0, 0, 0.1);
 }

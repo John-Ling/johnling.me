@@ -57,7 +57,7 @@ function PostComponent({ post, position }: PostComponentProps) {
     <>
       <div className='pb-4 w-11/12'>
         <h2 className={`text-md ${colourClass} mb-2`}>{post.title}</h2>
-        <p className='text-xs text-muted-white'>{post.date}</p>
+        <p className='text-xs text-muted-white font-caskaydiaItalic'>{post.date}</p>
       </div>
       <a className='link w-fit text-sm' href={`/blog/${post.slug}`}>
         Article

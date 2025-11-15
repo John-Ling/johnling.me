@@ -53,7 +53,7 @@ export default async function Page(props: Params) {
         </a>
         <article className={`pt-5 pb-5 ${style.markdown}`}>
           <h1 className='text-xl mb-5'>{post.title}</h1>
-          <p className='mb-5 text-muted-white'>{post.date}</p>
+          <p className='mb-5 text-muted-white font-caskaydiaItalic'>{post.date}</p>
           <div>{compiled.content}</div>
         </article>
         <a className='link' href='/blog'>
