@@ -29,9 +29,7 @@ import {
 import { select_animation, check_special, init_size } from "./init_functions";
 import AsciiDisplay from "@/components/ascii-display/ascii_display";
 import Secret from "./secret";
-
-import Image from "next/image";
-import wires_bottom from "../../../public/svg/wires_bottom.svg";
+import style from "./hero.module.css";
 
 // width and height of ascii display component
 interface HeroSize {
@@ -200,9 +198,10 @@ function HeroComponent({
 
   return (
     <>
-      <div className='min-h-screen max-w-[1920px] px-5 sm:px-6 lg:px-13 xl:px-25 mx-auto flex items-center justify-center flex-col lg:flex-row'>
-        {/* hero information (left side) */}
-        <div className='basis-7/12 flex flex-col m-2'>
+      <div
+        className={`min-h-screen max-w-[1920px] px-5 sm:px-6 lg:px-13 xl:px-25 mx-auto flex items-center justify-center flex-col lg:flex-row ${style.hero}`}
+      >
+        <div className='basis-7/12 flex flex-col m-2 z-20'>
           <div
             className='text-6xl z-0 mb-5 opacity-0 animate-fade-up text-center md:text-left'
             style={{ animationDelay: "100ms" }}
@@ -212,17 +211,14 @@ function HeroComponent({
             </h1>
             <h1 className='opacity-0 animate-fade-up' style={{ animationDelay: "150ms" }}>
               I&apos;m{" "}
-              <span
-                className='text-[#2e2e2e] animate-flicker-on'
-                style={{ animationDelay: "1500ms" }}
-              >
+              <span className='text-orange' style={{ animationDelay: "1500ms" }}>
                 John
               </span>
             </h1>
           </div>
           <HeroIcons />
           {/* ascii display for tablet view hidden in desktop mode */}
-          <div
+          {/* <div
             className='relative hidden visible md:block lg:hidden lg:invisible opacity-0 animate-fade-up mt-2 mb-2'
             style={{ animationDelay: "800ms" }}
           >
@@ -239,7 +235,7 @@ function HeroComponent({
                 <AsciiDisplay framebuffer={framebuffer} />
               </div>
             )}
-          </div>
+          </div> */}
           <p
             className='mt-4 mb-4 opacity-0 animate-fade-up text-center md:text-left'
             style={{ animationDelay: "400ms" }}
@@ -259,34 +255,26 @@ function HeroComponent({
           <HeroInformation />
         </div>
 
-        {/* ascii display (right side) */}
-        <div className='basis-3/5 flex items-center justify-center'>
+        {/* background ascii display */}
+        <div className='basis-4/5 flex  absolute z-10'>
           <div className='relative'>
-            <div
-              className='relative bg-grey-dark border-4 hidden lg:block border-grey-light mt-2 mb-2 opacity-0 animate-fade-up z-20'
-              style={{ animationDelay: "800ms" }}
-            >
-              {rendered && !specialEnabled && (
-                <div
-                  className='opacity-0 animate-fade-up z-10 bg-grey-dark'
-                  style={{ animationDelay: "600ms" }}
-                >
-                  <div
-                    className='absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_4px)] 
-                        w-full h-full opacity-40 z-20 m-0 p-0'
-                    style={{ backgroundSize: "100% 200px" }}
-                  ></div>
-                  <AsciiDisplay framebuffer={framebuffer} />
-                </div>
-              )}
-            </div>
-            <Image
+            {rendered && !specialEnabled && (
+              <div className='opacity-0 animate-fade-up z-10' style={{ animationDelay: "600ms" }}>
+                {/* <div
+                  className='absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_4px)] 
+                      w-full h-full opacity-40 z-20 m-0 p-0'
+                  style={{ backgroundSize: "100% 200px" }}
+                ></div> */}
+                <AsciiDisplay framebuffer={framebuffer} />
+              </div>
+            )}
+            {/* <Image
               loading='eager'
               className='hidden lg:block absolute -bottom-[20%]  opacity-0 animate-fade-up z-10 border-0 pointer-events-none'
               src={wires_bottom}
               alt=''
               style={{ animationDelay: "1000ms" }}
-            />
+            /> */}
           </div>
         </div>
       </div>

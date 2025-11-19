@@ -25,13 +25,13 @@ export function cube_init(width: number, height: number) {
     .map(() => Array(width).fill(0));
   return Array(height)
     .fill(null)
-    .map(() => Array(width).fill(' '));
+    .map(() => Array(width).fill(" "));
 }
 
 export function cube_next_frame(framebuffer: string[][], width: number, height: number) {
   for (let i = 0; i < height; i++) {
     for (let j = 0; j < width; j++) {
-      framebuffer[i][j] = ' ';
+      framebuffer[i][j] = " ";
       zBuffer[i][j] = 0;
     }
   }
@@ -59,7 +59,7 @@ export function cube_next_frame(framebuffer: string[][], width: number, height: 
         cubeX,
         cubeY,
         -cubeWidth,
-        '*',
+        "*",
         width,
         height,
         sinA,
@@ -76,7 +76,7 @@ export function cube_next_frame(framebuffer: string[][], width: number, height: 
         cubeWidth,
         cubeY,
         cubeX,
-        '$',
+        "$",
         width,
         height,
         sinA,
@@ -93,7 +93,7 @@ export function cube_next_frame(framebuffer: string[][], width: number, height: 
         -cubeWidth,
         cubeY,
         -cubeX,
-        '0',
+        "0",
         width,
         height,
         sinA,
@@ -110,7 +110,7 @@ export function cube_next_frame(framebuffer: string[][], width: number, height: 
         -cubeX,
         cubeY,
         cubeWidth,
-        '#',
+        "#",
         width,
         height,
         sinA,
@@ -127,7 +127,7 @@ export function cube_next_frame(framebuffer: string[][], width: number, height: 
         cubeX,
         -cubeWidth,
         -cubeY,
-        ':',
+        ":",
         width,
         height,
         sinA,
@@ -144,7 +144,7 @@ export function cube_next_frame(framebuffer: string[][], width: number, height: 
         cubeX,
         cubeWidth,
         cubeY,
-        '+',
+        "+",
         width,
         height,
         sinA,
@@ -259,7 +259,7 @@ function cube_calc_for_surface(
 
 // BEGIN BAPPLE
 
-import JSZip from 'jszip';
+import JSZip from "jszip";
 
 let currentFrame: number = 0; // index into frames array
 let frames: string[] = [];
@@ -272,12 +272,12 @@ export async function bapple_init() {
     return;
   }
   // change this to actual domain later
-  const zip: Response = await fetch('https://www.johnling.me/frames.zip');
+  const zip: Response = await fetch("https://www.johnling.me/frames.zip");
   const content: Blob = await zip.blob();
   const jsZip = new JSZip();
   const file = await jsZip.loadAsync(content);
-  const frameString: string = await file.file('frames.txt')!.async('string');
-  frames = await frameString.split('\n');
+  const frameString: string = await file.file("frames.txt")!.async("string");
+  frames = await frameString.split("\n");
   currentFrame = 0;
   return;
 }
@@ -287,7 +287,7 @@ export function bapple_next_frame(framebuffer: string[][], width: number, height
   if (frames[currentFrame] === undefined) {
     return Array(height)
       .fill(null)
-      .map(() => Array(width).fill('*'));
+      .map(() => Array(width).fill("*"));
   }
 
   const frame: string = frames[currentFrame];
@@ -438,7 +438,7 @@ function donut_calc_for_surface(
     zBuffer[yp][xp] = ooz;
     // set correct character for frame buffer
     const luminanceIndex = Math.floor(luminance * 8);
-    framebuffer[yp][xp] = '.,-~:;=!*#$@'[luminanceIndex];
+    framebuffer[yp][xp] = ".,-~:;=!*#$@"[luminanceIndex];
   }
 
   return;
@@ -450,13 +450,13 @@ export function donut_init(width: number, height: number) {
     .map(() => Array(width).fill(0));
   return Array(height)
     .fill(null)
-    .map(() => Array(width).fill(' '));
+    .map(() => Array(width).fill(" "));
 }
 
 export function donut_next_frame(framebuffer: string[][], width: number, height: number) {
   for (let i = 0; i < height; i++) {
     for (let j = 0; j < width; j++) {
-      framebuffer[i][j] = ' ';
+      framebuffer[i][j] = " ";
       zBuffer[i][j] = 0;
     }
   }
@@ -535,13 +535,13 @@ export function matrix_init(width: number, height: number) {
 
   return Array(height)
     .fill(null)
-    .map(() => Array(width).fill(' '));
+    .map(() => Array(width).fill(" "));
 }
 
 export function matrix_next_frame(framebuffer: string[][], width: number, height: number) {
   for (let i = 0; i < height; i++) {
     for (let j = 0; j < width; j++) {
-      framebuffer[i][j] = ' ';
+      framebuffer[i][j] = " ";
     }
   }
 
@@ -603,8 +603,8 @@ function generate_stream() {
 // BEGIN CONWAY
 // creates a grid with randomly assigned cells for use in conway's game of life
 
-const conwayAlive: string = '*';
-const conwayDead: string = ' ';
+const conwayAlive: string = "*";
+const conwayDead: string = " ";
 
 export function conway_populate(width: number, height: number) {
   const grid: string[][] = [];
@@ -710,7 +710,7 @@ const dt = 0.01;
 let lorenzPoints: LorenzPoint[] = [];
 let lorenzPointCount = 0;
 let maxPoints = 500;
-const lorenzChars = ['.', ':', '+', '*', '#', '@', '%', '&', '$', 'X'];
+const lorenzChars = [".", ":", "+", "*", "#", "@", "%", "&", "$", "X"];
 
 export function lorenz_init(width: number, height: number) {
   lorenzPoints.push({ x: 0.1, y: 0, z: 0 });
@@ -718,7 +718,7 @@ export function lorenz_init(width: number, height: number) {
   lorenzPointCount = 1;
   return Array(height)
     .fill(null)
-    .map(() => Array(width).fill(' '));
+    .map(() => Array(width).fill(" "));
 }
 
 function render_next_lorenz_point() {
@@ -752,7 +752,7 @@ function render_next_lorenz_point() {
 export function lorenz_next_frame(framebuffer: string[][], width: number, height: number) {
   render_next_lorenz_point();
   lorenzPoints.forEach((point, index) => {
-    const scale = width / 50;
+    const scale = width / 60;
     const offsetX = width / 2;
     const offsetY = height;
 

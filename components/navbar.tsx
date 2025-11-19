@@ -5,9 +5,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import Link from "next/link";
 
-import Image from "next/image";
-import wire_top_1 from "@/public/svg/wires_top_1.svg";
-
 interface NavLink {
   name: string;
   target: string;
@@ -51,12 +48,12 @@ export default function Navbar() {
         <MenuIcon className='active:text-muted-white' />
       </button>
 
-      <Image
+      {/* <Image
         src={wire_top_1}
         alt=''
         loading='eager'
         className='pointer-events-none select-none border-0 absolute  -z-10 hidden md:inline'
-      />
+      /> */}
 
       {/* desktop menu */}
       <div
@@ -68,11 +65,11 @@ export default function Navbar() {
 
       {/* mobile menu */}
       <div
-        className={`absolute visible block md:invisible md:hidden top-12 w-full bg-grey-normal transition-all z-20 
-          ease-in-out duration-300`}
+        className={`absolute visible block md:invisible md:hidden top-12 w-full bg-grey-normal transition-all 
+          ease-in-out duration-300 z-30`}
       >
         <div
-          className={`transition-all ease-in-out z-20  ${open ? "duration-300 opacity-100" : " duration-300 opacity-0 invisible"}`}
+          className={`transition-all ease-in-out z-30  ${open ? "duration-300 opacity-100" : " duration-300 opacity-0 invisible"}`}
         >
           {open ? (
             <MobileMenu links={links} activeLink={path} on_click={() => setOpen(false)} />
@@ -118,7 +115,7 @@ function NavbarMenu({ links, activeLink, on_click }: NavMenuProps) {
 function MobileMenu({ links, activeLink, on_click }: NavMenuProps) {
   return (
     <>
-      <div className='fixed top-0 w-full min-h-screen z-20'>
+      <div className='fixed top-0 w-full min-h-screen z-30'>
         <div className='flex'>
           <div className='z-40 w-full pt-4'>
             <div className='flex w-full justify-end'>

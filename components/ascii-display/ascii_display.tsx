@@ -12,7 +12,7 @@ export default function AsciiDisplay({ framebuffer }: AsciiDisplayProps) {
             <div key={i}>
               {row.map((char: string, j: number) => {
                 return (
-                  <span key={j} className='text-[#FFFFFF] inline-block whitespace-pre-wrap'>
+                  <span key={j} className='text-[#575757] inline-block whitespace-pre-wrap'>
                     {char}
                   </span>
                 );

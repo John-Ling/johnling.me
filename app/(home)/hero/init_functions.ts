@@ -4,16 +4,16 @@ interface HeroSize {
 }
 
 export function check_special() {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     const searchParams = new URLSearchParams(window.location.search);
-    return searchParams.has('apple');
+    return searchParams.has("apple");
   }
 
   return false;
 }
 
 export function init_size(specialEnabled: boolean) {
-  if (typeof window === 'undefined') {
+  if (typeof window === "undefined") {
     return { width: 65, height: 20 } as HeroSize;
   }
 
@@ -24,32 +24,34 @@ export function init_size(specialEnabled: boolean) {
   // dynamically set width and height
   return {
     // restrict width and height otherwise performance issues will happens
-    width: Math.min(100, Math.floor(window.innerWidth / 22)),
-    height: Math.min(35, Math.floor(window.innerHeight / 32)) 
+    width: Math.max(30, Math.floor(window.innerWidth / 35)),
+    height: Math.min(60, Math.floor(window.innerHeight / 23))
   } as HeroSize;
 }
 
 export function select_animation(specialEnabled: boolean) {
   if (specialEnabled) {
-    return 'BAPPLE';
+    return "BAPPLE";
   }
 
+  return "MATRIX";
+  // return "LORENZ"
   // check visited cookie to either
   // display cube on first visit or a random animation on follow up
-  if (typeof document !== 'undefined') {
+  if (typeof document !== "undefined") {
     const visited = document.cookie
-      .split('; ')
-      .find((row) => row.startsWith('visited='))
-      ?.split('=')[1];
+      .split("; ")
+      .find((row) => row.startsWith("visited="))
+      ?.split("=")[1];
 
     // visited = 0
     if (visited === undefined) {
-      document.cookie = 'visited=1; Secure; max-age=3600;';
-      return 'LORENZ';
+      document.cookie = "visited=1; Secure; max-age=3600;";
+      return "LORENZ";
     }
   }
 
-  const ANIMATIONS: string[] = ['CONWAY', 'CUBE', 'DONUT', 'MATRIX', 'LORENZ'];
+  const ANIMATIONS: string[] = ["CONWAY", "CUBE", "DONUT", "MATRIX", "LORENZ"];
   // animations to implement
   //TETRIS
   // DVD screensaver
