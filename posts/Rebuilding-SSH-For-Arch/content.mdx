@@ -19,7 +19,7 @@ To bring back this functionality we just need to recompile OpenSSH with DSA enab
 
 First we're going to clone the OpenSSH-Portable repo from Github.
 
-<CodeBlock language="" canCopy={true}>
+<CodeBlock canCopy={true}>
 {`
 git clone https://github.com/openssh/openssh-portable.git
 cd openssh-portable/
@@ -29,7 +29,7 @@ autoreconf
 
 Next we'll run the `configure` script with a collection of arguments. Most of these arguments are from the [PKGBUILD](https://gitlab.archlinux.org/archlinux/packaging/packages/openssh/-/blob/main/PKGBUILD?ref_type=heads) for OpenSSH however we're also going to add the "--enable-dsa-keys" option. This will bring back DSA signatures.
 
-<CodeBlock language="" canCopy={true}>
+<CodeBlock  canCopy={true}>
 {`
 ./configure --prefix=/usr \\
     --sbindir=/usr/bin \\
