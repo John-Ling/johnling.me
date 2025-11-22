@@ -25,7 +25,7 @@ export function init_size(specialEnabled: boolean) {
   return {
     // restrict width and height otherwise performance issues will happens
     width: Math.max(30, Math.floor(window.innerWidth / 35)),
-    height: Math.min(60, Math.floor(window.innerHeight / 23))
+    height: Math.max(40, Math.floor(window.innerHeight / 35))
   } as HeroSize;
 }
 
