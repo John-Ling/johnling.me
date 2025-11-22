@@ -3,6 +3,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import style from "./navbar.module.css";
 import Link from "next/link";
 
 interface NavLink {
@@ -28,7 +29,8 @@ export default function Navbar() {
   const path: string = "/" + usePathname().split("/")[1];
   return (
     <nav
-      className={`select-none max-w-[1920px] mx-auto justify-between items-center transition-all duration-10 ${open ? "bg-grey-normal" : "bg-opacity-0 "}  flex flex-row pt-3 font-caskaydia`}
+      className={`select-none max-w-[1920px] mx-auto justify-between items-center transition-all duration-10 
+        ${open ? "bg-grey-normal" : "bg-opacity-0 "}  flex flex-row pt-3 font-caskaydia ${style.navbar}`}
     >
       <Link
         href='/'

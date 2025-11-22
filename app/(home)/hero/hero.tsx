@@ -256,7 +256,7 @@ function HeroComponent({
         </div>
 
         {/* background ascii display */}
-        <div className='basis-4/5 flex  absolute z-10'>
+        <div className='basis-4/5 flex absolute z-10 top-0'>
           <div className='relative'>
             {rendered && !specialEnabled && (
               <div className='opacity-0 animate-fade-up z-10' style={{ animationDelay: "600ms" }}>

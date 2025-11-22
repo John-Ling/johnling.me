@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const WhatSection = () => {
   return (
-    <section className='min-h-screen flex flex-col items-center gap-10 mt-5 lg:mt-0 px-5 sm:px-6 lg:px-13 xl:px-25 lg:flex-row lg:w-10/12'>
+    <section className='min-h-screen flex flex-col items-center gap-10 mt-5 lg:mt-0 px-5 sm:px-6 lg:px-13 xl:px-25 lg:flex-row lg:w-10/12 '>
       <div className='relative order-2 lg:order-1 w-full lg:basis-1/2'>
         <SkillsDisplay />
       </div>

@@ -575,12 +575,6 @@ export function matrix_cleanup() {
   return;
 }
 
-// random ascii char from the readable range 33 to 126
-// no ESC or NEWLINE or CARRIAGE RETURN nonsense
-function random_char() {
-  return String.fromCharCode(Math.floor(Math.random() * (126 - 33) + 33));
-}
-
 function generate_stream() {
   const stream: MatrixStream = { position: 0, speed: 0, length: 0, chars: [] };
 
@@ -590,9 +584,15 @@ function generate_stream() {
   stream.length = Math.floor(Math.random() * 15) + 5;
 
   // generate random characters for stream
+
+  const letters = ["G", "N", "I", "L", " ", "N", "H", "O", "J"];
+
+  let counter = 0;
   for (let i = 0; i < stream.length; i++) {
-    stream.chars.push(random_char());
+    stream.chars.push(letters[counter]);
+    counter = (counter + 1) % letters.length;
     // stream.chars.push('*');
+    // stream.chars.push(random_char());
   }
 
   return stream;

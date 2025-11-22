@@ -10,7 +10,12 @@ export default function Footer() {
       </h3>
       <h4>
         Source Code at{" "}
-        <a href='https://github.com/John-Ling/johnling.me' target='_blank' rel="noopener noreferrer">
+        <a
+          className='link'
+          href='https://github.com/John-Ling/johnling.me'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
           GitHub
         </a>
       </h4>
