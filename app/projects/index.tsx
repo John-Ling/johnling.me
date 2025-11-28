@@ -48,10 +48,7 @@ export default function ProjectsPage() {
           ref={projectCardRef}
           className={`min-h-screen w-11/12 lg:w-10/12 mx-auto max-w-[1920px]`}
         >
-          <h1
-            className={`text-4xl mb-5 text-[#2e2e2e] animate-flicker-on`}
-            style={{ animationDelay: "1000ms" }}
-          >
+          <h1 className={`text-4xl mb-5 text-orange`} style={{ animationDelay: "1000ms" }}>
             Projects
           </h1>
           <h2 className='text-2xl'>I&apos;ve done too many</h2>

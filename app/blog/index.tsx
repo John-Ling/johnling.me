@@ -8,7 +8,7 @@ export default function BlogPage() {
       <div className='flex flex-col items-center min-h-screen p-5 max-w-[1920px] mx-auto'>
         <h1 className={`text-3xl animate-fade-up opacity-0`} style={{ animationDelay: "100ms" }}>
           Do People Still
-          <span className='text-[#2e2e2e] animate-flicker-on' style={{ animationDelay: "1000ms" }}>
+          <span className='text-orange' style={{ animationDelay: "1000ms" }}>
             {" "}
             Blog?{" "}
           </span>

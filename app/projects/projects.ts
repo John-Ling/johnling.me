@@ -157,17 +157,5 @@ export const projects: Project[] = [
     sourceLabel: null,
     imageFolder: "cs50",
     tags: ["C", "Python", "SQL", "HTML", "Javascript", "CSS"]
-  },
-  {
-    title: "The Kahoot Bot™",
-    shortDescription: "My first ever project :)",
-    description: `
-        The Original Kahoot Bot and my first project ever. 
-        Filled with top quality code such as unintentional recursion, Singleton design (i used globals everywhere)
-        and a codebase that boldly rejects OOP (i didn't know how to use classes).`,
-    sourceURL: null,
-    sourceLabel: null,
-    imageFolder: "kahoot-original",
-    tags: ["Python", "Selenium"]
   }
 ];
