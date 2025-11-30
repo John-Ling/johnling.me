@@ -52,7 +52,7 @@ export const projects: Project[] = [
     title: "Pseudocode Compiler",
     shortDescription: "Non-optimising compiler built from scratch",
     description: `
-        My best project IMO. Full Compiler built with C++ that translates pseudocode into Python. 
+        Toy compiler built with C++ that translates pseudocode into Python. 
         I rolled my own lexer, parser and code generator which was really interesting to study. 
         I even added some basic type checking. Didn't like C++ though.`,
     imageFolder: "compiler",

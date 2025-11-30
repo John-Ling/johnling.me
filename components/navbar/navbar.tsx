@@ -3,7 +3,6 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import style from "./navbar.module.css";
 import Link from "next/link";
 
 interface NavLink {
@@ -29,8 +28,8 @@ export default function Navbar() {
   const path: string = "/" + usePathname().split("/")[1];
   return (
     <nav
-      className={`select-none max-w-[1920px] mx-auto justify-between items-center transition-all duration-10 
-        ${open ? "bg-grey-normal" : "bg-opacity-0 "}  flex flex-row pt-3 font-caskaydia ${style.navbar}`}
+      className={`max-w-[1920px] mx-auto justify-between items-center transition-all duration-10  z-30
+        ${open ? "bg-grey-normal" : "bg-opacity-0 "}  flex flex-row font-caskaydia`}
     >
       <Link
         href='/'
@@ -50,16 +49,9 @@ export default function Navbar() {
         <MenuIcon className='active:text-muted-white' />
       </button>
 
-      {/* <Image
-        src={wire_top_1}
-        alt=''
-        loading='eager'
-        className='pointer-events-none select-none border-0 absolute  -z-10 hidden md:inline'
-      /> */}
-
       {/* desktop menu */}
       <div
-        className={`hidden invisible md:flex md:visible p-4`}
+        className={`hidden invisible md:flex md:visible p-4 z-30`}
         style={{ animationDelay: "500ms" }}
       >
         <NavbarMenu links={links} activeLink={path} on_click={() => setOpen(false)} />

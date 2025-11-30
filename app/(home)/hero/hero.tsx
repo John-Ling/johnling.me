@@ -217,25 +217,6 @@ function HeroComponent({
             </h1>
           </div>
           <HeroIcons />
-          {/* ascii display for tablet view hidden in desktop mode */}
-          {/* <div
-            className='relative hidden visible md:block lg:hidden lg:invisible opacity-0 animate-fade-up mt-2 mb-2'
-            style={{ animationDelay: "800ms" }}
-          >
-            {rendered && !specialEnabled && (
-              <div
-                className='opacity-0 animate-fade-up bg-grey-dark border-4 border-grey-light'
-                style={{ animationDelay: "600ms" }}
-              >
-                <div
-                  className='absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_4px)] 
-                    w-full h-full opacity-40 z-20 m-0 p-0'
-                  style={{ backgroundSize: "100% 200px" }}
-                ></div>
-                <AsciiDisplay framebuffer={framebuffer} />
-              </div>
-            )}
-          </div> */}
           <p
             className='mt-4 mb-4 opacity-0 animate-fade-up text-center md:text-left'
             style={{ animationDelay: "400ms" }}
@@ -256,25 +237,13 @@ function HeroComponent({
         </div>
 
         {/* background ascii display */}
-        <div className='basis-4/5 flex absolute z-10 top-0'>
+        <div className='hidden md:flex basis-4/5  absolute z-0 top-0'>
           <div className='relative'>
             {rendered && !specialEnabled && (
-              <div className='opacity-0 animate-fade-up z-10' style={{ animationDelay: "600ms" }}>
-                {/* <div
-                  className='absolute bg-[repeating-linear-gradient(transparent,transparent_1px,#000000_1px,#000000_4px)] 
-                      w-full h-full opacity-40 z-20 m-0 p-0'
-                  style={{ backgroundSize: "100% 200px" }}
-                ></div> */}
+              <div className='opacity-0 animate-fade-up z-0' style={{ animationDelay: "600ms" }}>
                 <AsciiDisplay framebuffer={framebuffer} />
               </div>
             )}
-            {/* <Image
-              loading='eager'
-              className='hidden lg:block absolute -bottom-[20%]  opacity-0 animate-fade-up z-10 border-0 pointer-events-none'
-              src={wires_bottom}
-              alt=''
-              style={{ animationDelay: "1000ms" }}
-            /> */}
           </div>
         </div>
       </div>

@@ -53,7 +53,7 @@ export default function ProjectsPage() {
           </h1>
           <h2 className='text-2xl'>I&apos;ve done too many</h2>
           <h3 className='mb-5'>Here are some of them.</h3>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  opacity-0 animate-fade-up'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  opacity-0 animate-fade-up pb-4'>
             {projects.map((project: Project, i: number) => {
               return (
                 <ProjectItem key={i} project={project} position={i} on_select={on_project_select} />
@@ -119,7 +119,9 @@ function ProjectItem({ project, position, on_select }: ProjectItemProps) {
             if (index < maxTagCount) {
               return (
                 <li key={tag} className='p-1 text-xs'>
-                  <span className='bg-grey-light border-1 pl-1 pr-1'>{tag}</span>
+                  <span className='bg-grey-light border-1 pl-1 pr-1 pointer-events-none'>
+                    {tag}
+                  </span>
                 </li>
               );
             } else if (index === maxTagCount) {

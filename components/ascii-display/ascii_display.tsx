@@ -5,7 +5,9 @@ interface AsciiDisplayProps {
 export default function AsciiDisplay({ framebuffer }: AsciiDisplayProps) {
   return (
     <>
-      <div className={`text-center p-2 overflow-clip whitespace-nowrap select-none font-caskaydia`}>
+      <div
+        className={`text-center p-2 overflow-clip whitespace-nowrap select-none font-caskaydia z-0`}
+      >
         {/* render characters */}
         {framebuffer.map((row: string[], i: number) => {
           return (

@@ -752,9 +752,9 @@ function render_next_lorenz_point() {
 export function lorenz_next_frame(framebuffer: string[][], width: number, height: number) {
   render_next_lorenz_point();
   lorenzPoints.forEach((point, index) => {
-    const scale = width / 60;
+    const scale = 3;
     const offsetX = width / 2;
-    const offsetY = height;
+    const offsetY = height - 1; // offset the y position so starting point is in view of hero page
 
     // project 3d to 2d
     const xp = Math.floor(point.x * scale + offsetX);
