@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/next";
-import Footer from "@/components/footer";
-import Navbar from "@/components/navbar/navbar";
+import Footer from "@/components/shared/footer";
+import Navbar from "@/components/shared/navbar";
 import type { Metadata, Viewport } from "next";
 import { caskaydia } from "@/lib/font";
 import "/styles/globals.css";
