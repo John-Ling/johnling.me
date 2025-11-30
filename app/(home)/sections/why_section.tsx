@@ -15,8 +15,13 @@ const WhySection = () => {
           to create something with a positive impact on someone even in a minor way.
         </p>
         <p className='mb-5'>
-          While I&apos;m not quite sure what that thing will be or when it will happen, I am more
-          than happy to continue making things for myself until it does.
+          I&apos;m a firm believer in the Butterfly Effect (hence the animation on my hero page) and
+          I believe that if I continue to work and put myself out there, eventually one miniscule
+          event can bring about the positive change I want.
+        </p>
+        <p className='mb-5'>
+          I&pos;m not quite sure when that will happen but until then. I&apos;ll be enjoying the
+          process to learn and better myself.
         </p>
         <p>Thanks for visiting. Hope you enjoyed the website :)</p>
       </div>

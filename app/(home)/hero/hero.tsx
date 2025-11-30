@@ -312,7 +312,7 @@ function HeroInformation() {
         Currently exploring the use of encoder-only language models for detailed emotion
         classification in journal entries.
       </p>
-      <p className='mt-5 opacity-0 animate-fade-up' style={{ animationDelay: "800ms" }}>
+      <p className='mt-5 opacity-0 animate-fade-up' style={{ animationDelay: "900ms" }}>
         Welcome to my website.
       </p>
     </div>
