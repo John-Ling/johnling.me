@@ -722,7 +722,6 @@ const lorenzChars = [".", ":", "+", "*", "#", "@", "%", "&", "$", "X"];
 
 export function lorenz_init(width: number, height: number) {
   lorenzPoints.push({ x: 0.1, y: 0, z: 0 });
-  maxPoints = 0.6 * (width * height);
   lorenzPointCount = 1;
   return Array(height)
     .fill(null)
