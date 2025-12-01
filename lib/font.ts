@@ -24,3 +24,13 @@ export const caskaydia = localFont({
     }
   ]
 });
+
+export const meslo = localFont({
+  src: [
+    {
+      path: "../public/fonts/MesloLGS NF Regular.ttf",
+      weight: "400",
+      style: "normal"
+    }
+  ]
+});

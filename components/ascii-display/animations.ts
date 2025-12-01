@@ -702,14 +702,22 @@ interface LorenzPoint {
   z: number;
 }
 
+const randomFromIntervals = (min: number, max: number) => {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
+// add some noise initial conditions for unique patterns
+
 const sigma = 10;
-const rho = 28;
+
+// magic number is derived from the fact that
+// butterfly pattern is formed from p > 24.74
+const rho = 28 + randomFromIntervals(-4, 4);
 const beta = 8 / 3;
 const dt = 0.01;
 
 let lorenzPoints: LorenzPoint[] = [];
 let lorenzPointCount = 0;
-let maxPoints = 500;
 const lorenzChars = [".", ":", "+", "*", "#", "@", "%", "&", "$", "X"];
 
 export function lorenz_init(width: number, height: number) {
@@ -741,12 +749,6 @@ function render_next_lorenz_point() {
     z: currentPoint.z + dz
   });
   lorenzPointCount++;
-
-  // remove oldest character if we have genereated enough points
-  // ensure a fixed length attractor
-  if (lorenzPointCount > maxPoints) {
-    lorenzPoints.shift();
-  }
 }
 
 export function lorenz_next_frame(framebuffer: string[][], width: number, height: number) {

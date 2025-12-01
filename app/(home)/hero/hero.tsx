@@ -29,7 +29,6 @@ import {
 import { select_animation, check_special, init_size } from "./init_functions";
 import AsciiDisplay from "@/components/ascii-display/ascii_display";
 import Secret from "./secret";
-import style from "./hero.module.css";
 
 // width and height of ascii display component
 interface HeroSize {
@@ -199,7 +198,7 @@ function HeroComponent({
   return (
     <>
       <div
-        className={`min-h-screen max-w-[1920px] px-5 sm:px-6 lg:px-13 xl:px-25 mx-auto flex items-center justify-center flex-col lg:flex-row ${style.hero}`}
+        className={`min-h-screen max-w-[1920px] px-5 sm:px-6 lg:px-13 xl:px-25 mx-auto flex items-center justify-center flex-col lg:flex-row`}
       >
         <div className='basis-7/12 flex flex-col m-2 z-20'>
           <div

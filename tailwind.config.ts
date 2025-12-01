@@ -75,7 +75,8 @@ const config: Config = {
       caskaydia: ["Caskaydia", "monospace"],
       caskaydiaBold: ["CaskaydiaBold", "monospace"],
       caskaydiaItalic: ["CaskaydiaItalic", "monospace"],
-      caskaydiaBoldItalic: ["CaskaydiaBoldItalic", "monospace"]
+      caskaydiaBoldItalic: ["CaskaydiaBoldItalic", "monospace"],
+      meslo: ["MesloLGS NF", "monospace"]
     }
   },
   plugins: []
