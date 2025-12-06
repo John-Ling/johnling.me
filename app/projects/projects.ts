@@ -25,16 +25,17 @@ export const projects: Project[] = [
     title: "Trello Tabliss Integration",
     shortDescription: "Integrating Trello into my browser",
     description: `
-        Fork of browser extension Tabliss with Trello interoperability. 
-        Any changes I make to my personal Trello board are are reflected in the UI.
-        Honestly it's really useful for figuring out what I need to do at the start of my day.
-        Made with NodeJS, Firebase and React.
+        Fork of browser extension TablissNG with Trello interoperability. 
+        I found that having to constantly visit the Trello website just to remind myself of my tasks hurt my focus and felt clunky.
+        Now my Trello boards are shown to me directly in my browser homepage.
+        Any changes I make to my personal board are are reflected in the UI.
+        It was a good practice in gracefully handling errors, optimistic UI updates and other UX stuff.
+        Currently trying to get my changes merged into upstream.
       `,
-    sourceURL:
-      "https://github.com/John-Ling/Tabliss-Trello-Integration/tree/main/src/plugins/widgets/trello",
+    sourceURL: "https://github.com/John-Ling/TablissNG/tree/main/src/plugins/widgets/trello",
     imageFolder: "trello",
     sourceLabel: "GitHub",
-    tags: ["React", "NodeJS", "Firebase", "Sass"]
+    tags: ["React", "Sass", "Firebase", "Express"]
   },
   {
     title: "Internship Project: Krux Infra",
@@ -72,6 +73,7 @@ export const projects: Project[] = [
     sourceLabel: null,
     tags: ["MySQL", "Vite", "React", "Flask", "Langchain", "Sass", "Docker"]
   },
+
   {
     title: "ramble.johnling.me",
     shortDescription: "Winning hackathon project",
@@ -83,6 +85,30 @@ export const projects: Project[] = [
     sourceURL: "https://github.com/John-Ling/CODEBREW-2024",
     sourceLabel: "GitHub",
     tags: ["Flask", "Docker", "React", "Sass", "NGINX"]
+  },
+  {
+    title: "Markov Chain Text Generator",
+    shortDescription: "It's ChatGPT, but ✨ dumb(er) ✨",
+    description: `
+      Used my hash table library to put together a program that builds an order N Markov model from a corpus and generate text with it.
+      I hated my probability class but this topic seemed interesting so I did something with it. 
+      `,
+    imageFolder: "markov",
+    sourceURL: "https://github.com/John-Ling/markov-chain-text-generator",
+    sourceLabel: "GitHub",
+    tags: ["C", "Make"]
+  },
+  {
+    title: "Nixie Tube Watch",
+    shortDescription: "Building circuits with old Soviet technology",
+    description: `
+        Designed my own circuitry to drive nixie tubes, 
+        wrote AVR C for the first time and built my own library to interface with a DS1302 timekeeping chip.
+        Ultimately scrapped the project (watch was too thick) but might make a clock out of it.`,
+    imageFolder: "nixie-watch",
+    sourceURL: "https://github.com/John-Ling/Nixie-Watch",
+    sourceLabel: "GitHub",
+    tags: ["ATmega328p", "AVR C", "Hardware"]
   },
   {
     title: "Data Structures and Algorithms",
@@ -98,18 +124,6 @@ export const projects: Project[] = [
     sourceURL: "https://github.com/John-Ling/CS-Fundamentals",
     sourceLabel: "GitHub",
     tags: ["C", "Make"]
-  },
-  {
-    title: "Nixie Tube Watch",
-    shortDescription: "Building circuits with old Soviet tech",
-    description: `
-        Designed my own circuitry to drive nixie tubes, 
-        wrote AVR C for the first time and built my own library to interface with a DS1302 timekeeping chip.
-        Ultimately scrapped the project (watch was too thick) but might make a clock out of it.`,
-    imageFolder: "nixie-watch",
-    sourceURL: "https://github.com/John-Ling/Nixie-Watch",
-    sourceLabel: "GitHub",
-    tags: ["ATmega328p", "AVR C", "Hardware"]
   },
   {
     title: "wikihopper.johnling.me",
