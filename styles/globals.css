@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("./font.css");
-
 :root {
     color-scheme: dark;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */

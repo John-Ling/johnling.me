@@ -1,4 +1,4 @@
-import "/styles/devicon.min.css";
+import "../../../styles/devicon.min.css";
 import wires_bottom_2 from "../../../public/svg/wires_bottom_2.svg";
 import Image from "next/image";
 
@@ -10,10 +10,10 @@ const WhatSection = () => {
       </div>
 
       <div className='order-1 lg:order-2 lg:basis-1/2'>
-        <h2 className='text-6xl text-yellow font-caskaydiaBold' style={{ animationDelay: "800ms" }}>
+        <h2 className='text-6xl text-yellow font-bold' style={{ animationDelay: "800ms" }}>
           What?
         </h2>
-        <h3 className='text-3xl mb-3 mt-3 font-caskaydiaBold'>The tools I use</h3>
+        <h3 className='text-3xl mb-3 mt-3'>The tools I use</h3>
         <p className='mb-5'>
           I&apos;m not a tech evangelist nor a fanatic. I don&apos;t subscribe to a particular
           &quot;Tech Stack&quot; since I don&apos;t like limiting myself to a single method of doing
@@ -77,15 +77,13 @@ const SkillsDisplay = () => {
               className='opacity-0 skill-icon '
               style={{ animationDelay: `${(i + 1) * 100}ms` }}
             >
-              <>
-                <i
-                  className={`${icon.classInfo} text-center text-5xl md:text-7xl lg:text-6xl flex-1 animate-float`}
-                  style={{ animationDelay: `${(i + 1) * 100}ms` }}
-                />
-                <p className='text-xs md:text-sm text-center m-2 font-bold z-40 select-none'>
-                  {icon.label}
-                </p>
-              </>
+              <i
+                className={`${icon.classInfo} text-center text-5xl md:text-7xl lg:text-6xl flex-1 animate-float`}
+                style={{ animationDelay: `${(i + 1) * 100}ms` }}
+              />
+              <p className='text-xs md:text-sm text-center m-2 font-bold z-40 select-none'>
+                {icon.label}
+              </p>
             </div>
           );
         })}

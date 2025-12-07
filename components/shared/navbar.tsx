@@ -29,11 +29,11 @@ export default function Navbar() {
   return (
     <nav
       className={`max-w-[1920px] mx-auto justify-between items-center transition-all duration-10  z-30
-        ${open ? "bg-grey-normal" : "bg-opacity-0 "}  flex flex-row font-caskaydia`}
+        ${open ? "bg-grey-normal" : "bg-opacity-0 "}  flex flex-row`}
     >
       <Link
         href='/'
-        className={`tracking-wider navlink hover:text-white text-2xl self-center  ml-3 md:ml-10 no-underline font-caskaydiaBold z-20`}
+        className={`tracking-wider navlink hover:text-white text-2xl self-center  ml-3 md:ml-10 no-underline opacity-0 font-bold animate-fade-down z-20`}
         style={{ animationDelay: "300ms" }}
       >
         <span className='md:whitespace-pre md:block'>JOHN{"  "}</span>
@@ -42,7 +42,7 @@ export default function Navbar() {
 
       {/* mobile hamburger menu */}
       <button
-        className='md:hidden p-2'
+        className='md:hidden p-2 animate-fade-down opacity-0'
         style={{ animationDelay: "300ms" }}
         onClick={() => setOpen(!open)}
       >
@@ -51,7 +51,7 @@ export default function Navbar() {
 
       {/* desktop menu */}
       <div
-        className={`hidden invisible md:flex md:visible p-4 z-30`}
+        className={`hidden invisible md:flex md:visible p-4 z-30 opacity-0 animate-fade-down`}
         style={{ animationDelay: "500ms" }}
       >
         <NavbarMenu links={links} activeLink={path} on_click={() => setOpen(false)} />
@@ -88,7 +88,7 @@ function NavbarMenu({ links, activeLink, on_click }: NavMenuProps) {
         return (
           <li
             key={link.name}
-            className='p-2'
+            className='p-2 opacity-0 animate-fade-down'
             style={{ animationDelay: `${(linkCount - i) * 150}ms` }}
           >
             <Link
@@ -128,7 +128,7 @@ function MobileMenu({ links, activeLink, on_click }: NavMenuProps) {
                     <Link
                       href={link.target}
                       onClick={on_click}
-                      className={`text-7xl font-caskaydiaBold no-underline ${link.target === activeLink ? " text-orange" : ""}`}
+                      className={`text-7xl no-underline ${link.target === activeLink ? " text-orange" : ""}`}
                       aria-current={link.target === activeLink ? "page" : undefined}
                     >
                       {link.name.toUpperCase()}

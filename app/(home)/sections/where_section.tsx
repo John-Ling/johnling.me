@@ -10,13 +10,13 @@ const WhereSection = () => {
       id='contact'
     >
       <h2
-        className='text-6xl text-magenta text-center lg:text-left  font-caskaydiaBold'
+        className='text-6xl text-magenta text-center lg:text-left  font-bold'
         style={{ animationDelay: "600ms" }}
       >
         Where?
       </h2>
       <h3
-        className='text-3xl mb-3 mt-3 opacity-0 trigger-fade-on-scroll font-caskaydiaBold'
+        className='text-3xl mb-3 mt-3 opacity-0 trigger-fade-on-scroll font-bold'
         style={{ animationDelay: "1000ms" }}
       >
         (can you find me)

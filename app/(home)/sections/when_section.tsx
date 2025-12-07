@@ -10,10 +10,10 @@ const WhenSection = () => {
   return (
     <section className='min-h-screen flex flex-col items-center justify-center md:gap-10 lg:flex-row px-5 sm:px-6 lg:px-13 xl:px-25 lg:w-10/12 max-w[1920px] mx-auto'>
       <div className='trigger-fade-on-scroll lg:basis-1/2 ' id='when-section'>
-        <h2 className='text-6xl text-blue font-caskaydiaBold' style={{ animationDelay: "800ms" }}>
+        <h2 className='text-6xl text-blue font-bold' style={{ animationDelay: "800ms" }}>
           When?
         </h2>
-        <h3 className='text-3xl mb-3 mt-3 font-caskaydiaBold'>How I started building</h3>
+        <h3 className='text-3xl mb-3 mt-3 font-bold'>How I started building</h3>
         <p className='mb-5'>
           I had taken some introductory Python classes the year before, however my first real
           project was created in September 2019. It was an automated Kahoot player using the

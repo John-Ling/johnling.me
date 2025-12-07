@@ -22,15 +22,7 @@ export const caskaydia = localFont({
       weight: "700",
       style: "italic"
     }
-  ]
-});
-
-export const meslo = localFont({
-  src: [
-    {
-      path: "../public/fonts/MesloLGS NF Regular.ttf",
-      weight: "400",
-      style: "normal"
-    }
-  ]
+  ],
+  variable: "--font-caskaydia",
+  fallback: ["monospace", "arial"]
 });

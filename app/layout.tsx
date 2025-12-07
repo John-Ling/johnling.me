@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className={caskaydia.className}>
+    <html lang='en' className={`${caskaydia.className} antialiased`}>
       <body>
         <Navbar />
         <main>

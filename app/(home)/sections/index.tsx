@@ -40,7 +40,7 @@ export default function AboutSection() {
 
   return (
     <>
-      <div className='flex flex-col items-center max-w-[1920px] mx-auto font-caskaydia'>
+      <div className='flex flex-col items-center max-w-[1920px] mx-auto'>
         <WhoSection />
         <WhatSection />
         <WhenSection />

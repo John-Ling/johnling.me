@@ -5,10 +5,10 @@ const WhoSection = () => {
   return (
     <section className='min-h-screen flex flex-col justify-center mx-auto items-center lg:flex-row mt-5 lg:mt-0 gap-10 px-5 sm:px-6 lg:px-13 xl:px-25  lg:w-10/12 z-30'>
       <div className='basis-1/2'>
-        <h2 className='text-6xl text-red font-caskaydiaBold' style={{ animationDelay: "600ms" }}>
+        <h2 className='text-6xl text-red font-bold' style={{ animationDelay: "600ms" }}>
           Who?
         </h2>
-        <h3 className='text-3xl mb-3 mt-3 font-caskaydiaBold'>A bit more about me</h3>
+        <h3 className='text-3xl mb-3 mt-3 font-bold'>A bit more about me</h3>
         <p className='mb-4'>
           When not studying, I&apos;ve always enjoyed building things and picked up programming as a
           way of doing just that. The first version of this site was built way back in 2022

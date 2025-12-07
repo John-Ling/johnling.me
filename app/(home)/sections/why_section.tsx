@@ -2,10 +2,10 @@ const WhySection = () => {
   return (
     <section className='min-h-screen flex flex-col justify-center items-center px-5 sm:px-6 lg:px-13 xl:px-25 lg:w-11/12 max-w[1920px] mx-auto'>
       <div className='max-w-3xl w-full'>
-        <h2 className='text-6xl text-green font-caskaydiaBold' style={{ animationDelay: "600ms" }}>
+        <h2 className='text-6xl text-green font-bold' style={{ animationDelay: "600ms" }}>
           Why?
         </h2>
-        <h3 className='text-3xl mb-3 mt-3 font-caskaydiaBold'>Why code?</h3>
+        <h3 className='text-3xl mb-3 mt-3 font-bold'>Why code?</h3>
         <p className='mb-5'>
           As insincere as it sounds, it&apos;s the truth. I enjoy applying the theory and skills I
           know to build things for myself and help others.
