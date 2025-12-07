@@ -1,4 +1,3 @@
-import "../../../styles/devicon.min.css";
 import wires_bottom_2 from "../../../public/svg/wires_bottom_2.svg";
 import Image from "next/image";
 
