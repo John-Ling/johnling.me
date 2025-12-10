@@ -128,7 +128,7 @@ function MobileMenu({ links, activeLink, on_click }: NavMenuProps) {
                     <Link
                       href={link.target}
                       onClick={on_click}
-                      className={`text-7xl no-underline ${link.target === activeLink ? " text-orange" : ""}`}
+                      className={`text-7xl no-underline font-bold ${link.target === activeLink ? " text-orange" : ""}`}
                       aria-current={link.target === activeLink ? "page" : undefined}
                     >
                       {link.name.toUpperCase()}
