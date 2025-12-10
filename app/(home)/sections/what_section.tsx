@@ -42,8 +42,8 @@ const SkillsDisplay = () => {
     { classInfo: "devicon-tailwindcss-plain text-cyan", label: "Tailwind" },
     { classInfo: "devicon-fastapi-plain text-blue", label: "FastAPI" },
     { classInfo: "devicon-c-plain text-[#9aa5ce]", label: "C" },
-    { classInfo: "devicon-vercel-original text-white", label: "Vercel" },
     { classInfo: "devicon-angularjs-plain text-red", label: "Angular" },
+    { classInfo: "devicon-vitejs-plain text-yellow", label: "Vite" },
     { classInfo: "devicon-docker-plain text-blue", label: "Docker" },
     { classInfo: "devicon-mongodb-plain text-green", label: "MongoDB" },
     { classInfo: "devicon-amazonwebservices-plain-wordmark text-yellow", label: "AWS" },
@@ -60,8 +60,8 @@ const SkillsDisplay = () => {
         alt=''
       />
       <div
-        className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-3 justify-center bg-grey-dark border-4
-                  border-grey-light order-2 lg:order-1 pt-10 pb-10 pr-5 pl-5 text-center opacity-0 trigger-fade-on-scroll z-50'
+        className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-4 justify-center bg-grey-dark border-4
+                  border-grey-light order-2 lg:order-1 pt-14 pb-14 pr-5 pl-5 text-center opacity-0 trigger-fade-on-scroll z-50'
         id='skills-display'
       >
         <div
