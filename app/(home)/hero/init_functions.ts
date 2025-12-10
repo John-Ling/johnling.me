@@ -12,16 +12,11 @@ export function check_special() {
   return false;
 }
 
-export function init_size(specialEnabled: boolean) {
+export function init_size() {
   if (typeof window === "undefined") {
     return { width: 65, height: 20 } as HeroSize;
   }
 
-  if (specialEnabled) {
-    return { width: 40, height: 30 } as HeroSize;
-  }
-
-  // dynamically set width and height
   return {
     // restrict width and height otherwise performance issues will happens
     width: Math.max(50, Math.floor(window.innerWidth / 15)),

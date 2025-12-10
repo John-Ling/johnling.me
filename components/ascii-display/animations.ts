@@ -255,6 +255,7 @@ function cube_calc_for_surface(
   return;
 }
 
+import { Canvas } from "@/types/hero/Canvas";
 // END CUBE
 
 // BEGIN BAPPLE
@@ -271,15 +272,21 @@ export async function bapple_init() {
   if (frames[0] !== undefined) {
     return;
   }
-  // change this to actual domain later
-  const zip: Response = await fetch("https://www.johnling.me/frames.zip");
+
+  const zip: Response = await fetch(
+    process.env.NODE_ENV === "production"
+      ? "https://johnling.me/frames.zip"
+      : "http://localhost:3000/frames.zip"
+  );
   const content: Blob = await zip.blob();
   const jsZip = new JSZip();
   const file = await jsZip.loadAsync(content);
   const frameString: string = await file.file("frames.txt")!.async("string");
   frames = await frameString.split("\n");
   currentFrame = 0;
-  return;
+
+  // return dummy canvas
+  return [[]] as Canvas;
 }
 
 export function bapple_next_frame(framebuffer: string[][], width: number, height: number) {
