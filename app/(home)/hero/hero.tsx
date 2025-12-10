@@ -10,7 +10,6 @@ import {
 import { check_special, init_size } from "./init_functions";
 import AsciiDisplay from "@/components/ascii-display/ascii_display";
 import BadApple from "./bad_apple";
-import HeroInformation from "@/components/hero/hero_information";
 import HeroIcons from "@/components/hero/hero_icons";
 import useAsciiAnimation from "@/hooks/useAsciiAnimation";
 
@@ -37,9 +36,9 @@ export default function Hero() {
     <div
       className={`min-h-screen max-w-[1920px] px-5 sm:px-6 lg:px-13 xl:px-25 mx-auto flex items-center justify-center flex-col lg:flex-row`}
     >
-      <div className='basis-7/12 flex flex-col m-2 z-20'>
+      <div className='basis-8/12 flex flex-col m-2 z-20'>
         <div
-          className='text-6xl z-0 mb-5 opacity-0 animate-fade-up text-center md:text-left'
+          className='text-5xl z-0 mb-5 opacity-0 animate-fade-up text-center md:text-left'
           style={{ animationDelay: "100ms" }}
         >
           <h1 className='opacity-0 animate-fade-up' style={{ animationDelay: "100ms" }}>
@@ -53,23 +52,36 @@ export default function Hero() {
           </h1>
         </div>
         <HeroIcons />
-        <p
-          className='mt-4 mb-4 opacity-0 animate-fade-up text-center md:text-left'
-          style={{ animationDelay: "400ms" }}
-        >
-          Full Stack developer with interests in security, UX and productivity.
-        </p>
-        <p
-          className='mt-4 mb-4 md:m-0 opacity-0 animate-fade-up'
-          style={{ animationDelay: "500ms" }}
-        >
-          I enjoy creating applications to help myself and others work smarter towards their goals,
-          reduce stress and maintain focus in a world full of distractions.
-        </p>
-        <p className='opacity-0 animate-fade-up' style={{ animationDelay: "600ms" }}>
-          In short, I like helping people :)
-        </p>
-        <HeroInformation />
+        <div className='max-w-6xl'>
+          <p
+            className='mt-4 mb-4 opacity-0 animate-fade-up text-center md:text-left'
+            style={{ animationDelay: "400ms" }}
+          >
+            Full Stack developer with interests in security, UX and productivity.
+          </p>
+          <p
+            className='mt-4 mb-4 md:m-0 opacity-0 animate-fade-up'
+            style={{ animationDelay: "500ms" }}
+          >
+            I enjoy creating applications to help myself and others work smarter towards their
+            goals, reduce stress and maintain focus in a world full of distractions.
+          </p>
+          <p className='opacity-0 animate-fade-up' style={{ animationDelay: "600ms" }}>
+            In short, I like helping people :)
+          </p>
+          <p className='mt-4 opacity-0 animate-fade-up' style={{ animationDelay: "600ms" }}>
+            I&apos;m a penultimate Computer Science student at the University of Melbourne looking
+            to gain practical software development experience whether through a job, internship or
+            research assistant position.
+          </p>
+          <p className='mt-5 opacity-0 animate-fade-up' style={{ animationDelay: "700ms" }}>
+            Currently exploring the use of encoder-only language models for detailed emotion
+            classification in journal entries.
+          </p>
+          <p className='mt-5 opacity-0 animate-fade-up' style={{ animationDelay: "800ms" }}>
+            Welcome to my website.
+          </p>
+        </div>
       </div>
 
       {/* background ascii display */}

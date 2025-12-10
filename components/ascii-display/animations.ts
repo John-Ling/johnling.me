@@ -719,7 +719,7 @@ const sigma = 10;
 
 // magic number is derived from the fact that
 // butterfly pattern is formed from p > 24.74
-const rho = 28 + randomFromIntervals(-4, 4);
+const rho = 28 + randomFromIntervals(-1, 1);
 const beta = 8 / 3;
 const dt = 0.01;
 
@@ -760,9 +760,9 @@ function render_next_lorenz_point() {
 export function lorenz_next_frame(framebuffer: string[][], width: number, height: number) {
   render_next_lorenz_point();
   lorenzPoints.forEach((point, index) => {
-    const scale = 3;
+    const scale = 2.3;
     const offsetX = width / 2;
-    const offsetY = height - 1; // offset the y position so starting point is in view of hero page
+    const offsetY = height - 6; // offset the y position so starting point is in view of hero page
 
     // project 3d to 2d
     const xp = Math.floor(point.x * scale + offsetX);
