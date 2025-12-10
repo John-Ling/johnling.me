@@ -14,6 +14,7 @@ export const projects: Project[] = [
       "Shadcn UI",
       "FastAPI",
       "Transformers",
+      "TailwindCSS",
       "MongoDB",
       "NextAuth",
       "Redis",
@@ -73,7 +74,20 @@ export const projects: Project[] = [
     sourceLabel: null,
     tags: ["MySQL", "Vite", "React", "Flask", "Langchain", "Sass", "Docker"]
   },
-
+  {
+    title: "University AI Discovery Tool",
+    shortDescription: "Helping to get a university project off the ground!",
+    description: `
+      Currently I'm doing volunteer work with the Data Science club at my university launch a platform that helps students to find like-minded peers via AI 
+      semantic search and clubs/events via an ingestion-aggregation pipeline and smart recommendation systems. I'm in charge of events/clubs so I've been building frontends to create events, 
+      writing paginated route handlers to fetch them and creating hooks to speed up future development 
+      It's not difficult work but I'm happy to help out where I can.
+    `,
+    imageFolder: "connect3",
+    sourceURL: "https://connect3.app/",
+    sourceLabel: "Try it out",
+    tags: ["NextJS", "Supabase", "TailwindCSS"]
+  },
   {
     title: "ramble.johnling.me",
     shortDescription: "Winning hackathon project",
@@ -109,6 +123,18 @@ export const projects: Project[] = [
     sourceURL: "https://github.com/John-Ling/Nixie-Watch",
     sourceLabel: "GitHub",
     tags: ["ATmega328p", "AVR C", "Hardware"]
+  },
+  {
+    title: "Portfolio Website",
+    shortDescription: "Website and technical blog",
+    description: `
+    My friend was making his own portfolio with NextJS and Tailwind so naturally, I had to try one-up him. Added an ascii-based lorenz attractor and
+    started a technical blog that has since garnered ~800 monthly visitors and only 5% of them are bots! 
+    `,
+    imageFolder: "website-rebuild",
+    sourceURL: null,
+    sourceLabel: "No link. You're already here :)",
+    tags: ["NextJS", "TailwindCSS", "Vercel"]
   },
   {
     title: "Data Structures and Algorithms",

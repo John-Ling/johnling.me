@@ -1,9 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { projects } from "./projects";
-import CloseIcon from "@mui/icons-material/Close";
-import Image from "next/image";
-import Link from "next/link";
+import ProjectListCard from "@/components/projects/project_list_card";
+import ProjectModal from "@/components/projects/project_modal";
 
 export default function ProjectsPage() {
   const [selectedProject, setSelectedProject] = useState<Project | undefined>(undefined);
@@ -37,9 +36,9 @@ export default function ProjectsPage() {
 
   return (
     <>
-      {opened && selectedProject !== undefined ? (
-        <ProjectCard project={selectedProject} on_close={on_close} />
-      ) : null}
+      {opened && selectedProject !== undefined && (
+        <ProjectModal project={selectedProject} on_close={on_close} />
+      )}
       <title>Projects</title>
       <div className={`min-h-screen w-11/12 lg:w-10/12 mx-auto max-w-[1920px]`}>
         <h1 className={`text-4xl mb-5 text-orange`} style={{ animationDelay: "1000ms" }}>
@@ -47,143 +46,17 @@ export default function ProjectsPage() {
         </h1>
         <h2 className='text-2xl'>I&apos;ve done too many</h2>
         <h3 className='mb-5'>Here are some of them.</h3>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  opacity-0 animate-fade-up pb-4'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  opacity-0 animate-fade-up pb-11'>
           {projects.map((project: Project, i: number) => {
             return (
-              <ProjectItem key={i} project={project} position={i} on_select={on_project_select} />
+              <ProjectListCard
+                key={i}
+                project={project}
+                position={i}
+                on_select={on_project_select}
+              />
             );
           })}
-        </div>
-      </div>
-    </>
-  );
-}
-
-interface ProjectItemProps {
-  project: Project;
-  position: number;
-  on_select: (project: Project) => void;
-}
-
-function ProjectItem({ project, position, on_select }: ProjectItemProps) {
-  const maxTagCount = 3;
-  const colours: string[] = [
-    "text-blue",
-    "text-magenta",
-    "text-teal",
-    "text-green",
-    "text-yellow",
-    "text-orange-light",
-    "text-red"
-  ];
-  const colourClass: string = colours[position % colours.length];
-  const projectFolder = `/images/projects/${project.imageFolder}/0.png`;
-
-  const on_click = () => {
-    on_select(project);
-  };
-
-  return (
-    <>
-      <div
-        className='bg-grey-card border-2 rounded-lg border-grey-light p-3 opacity-0 animate-fade-up h-90'
-        style={{ animationDelay: `${(position + 1) * 150}ms` }}
-      >
-        <h2 onClick={on_click} className={`text-lg mb-2 mt-2 select-none ${colourClass}`}>
-          {project.title}
-        </h2>
-        <h3 className='text-xs mb-2 text-muted-white'>{project.shortDescription}</h3>
-        {project.imageFolder === null ? (
-          <p>{project.description}</p> // if no image exists just render text
-        ) : (
-          <div className='overflow-hidden border-2 rounded-lg border-grey-light'>
-            <Image
-              className='transition-all duration-500 hover:scale-105 hover:cursor-pointer border-0 rounded-none'
-              alt='Project image'
-              src={projectFolder}
-              width={1280}
-              height={720}
-              onClick={on_click}
-            />
-          </div>
-        )}
-        <ul className='flex flex-wrap mt-1 mb-2'>
-          {project.tags.map((tag: string, index) => {
-            if (index < maxTagCount) {
-              return (
-                <li key={tag} className='p-1 text-xs'>
-                  <span className='bg-grey-light border-1 pl-1 pr-1 pointer-events-none'>
-                    {tag}
-                  </span>
-                </li>
-              );
-            } else if (index === maxTagCount) {
-              return (
-                <li key={"..."} className='p-1 text-xs'>
-                  <span className='pl-1 pr-1 select-none pointer-events-none'>...</span>
-                </li>
-              );
-            }
-          })}
-        </ul>
-      </div>
-    </>
-  );
-}
-
-interface ProjectCardProps {
-  project: Project;
-  on_close: () => void;
-}
-
-function ProjectCard({ project, on_close }: ProjectCardProps) {
-  const projectFolder = `/images/projects/${project.imageFolder}/0.png`;
-  return (
-    <>
-      {/* darken background */}
-      <div className='fixed top-0 w-full min-h-screen flex justify-center items-center z-20'>
-        <div
-          className='absolute w-full h-full bg-grey-dark bg-opacity-80 z-30'
-          onMouseDown={on_close}
-        />
-        <div className='bg-grey-dark border-2 rounded-lg border-grey-light p-3 animate-fade-up opacity-0 w-11/12 lg:w-1/2  h-fit m-auto flex-col z-40'>
-          {/* button at top of card above picture for tablet and mobile */}
-          <button className='flex justify-end items-center w-full' onClick={on_close}>
-            <CloseIcon className='hover:text-muted-white active:text-muted-white' />
-          </button>
-          <div className='lg:px-20 mx-auto'>
-            <div className='lg:max-w-3xl flex items-center justify-center my-4'>
-              <Image
-                className='border-2 rounded-lg'
-                src={projectFolder}
-                width={1280}
-                height={720}
-                alt='Project image'
-              />
-            </div>
-            <div className='flex flex-col w-full'>
-              <ul className='flex flex-wrap max-w-96'>
-                {project.tags.map((tag: string) => {
-                  return (
-                    <li key={tag} className='p-1 mb-1 text-xs select-none'>
-                      <span className='bg-grey-light border-1 pl-1 pr-1'>{tag}</span>
-                    </li>
-                  );
-                })}
-              </ul>
-              <p className='mb-2 pb-1 pt-1 max-h-52 lg:max-h-fit overflow-y-auto'>
-                {project.description}
-              </p>
-              <Link
-                className={`text-sm no-underline mb-2 w-fit ${project.sourceURL === null ? "pointer-events-none text-muted-white border-none" : "link"}`}
-                href={project.sourceURL !== null ? project.sourceURL : "/"}
-                target='_blank'
-                rel='noopener'
-              >
-                {project.sourceLabel}
-              </Link>
-            </div>
-          </div>
         </div>
       </div>
     </>
