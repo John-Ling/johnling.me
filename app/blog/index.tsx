@@ -10,15 +10,10 @@ export default function BlogPage() {
     <>
       <title>Blog</title>
       <div className='flex flex-col items-center min-h-screen max-w-[1920px] mx-auto'>
-        <h1 className={`text-3xl animate-fade-up opacity-0`} style={{ animationDelay: "100ms" }}>
-          Do People Still{" "}
-          <span className='text-orange' style={{ animationDelay: "1000ms" }}>
-            Blog?
-          </span>
+        <h1 className='text-3xl'>
+          Do People Still <span className='text-orange'>Blog?</span>
         </h1>
-        <p className='opacity-0 animate-fade-up' style={{ animationDelay: "150ms" }}>
-          Inconsistently written ramblings of consistently low quality.
-        </p>
+        <p>Inconsistently written ramblings of consistently low quality.</p>
         <div className='m-5 w-full md:w-3/5 lg:w-2/5'>
           <PaginatedPosts posts={posts} />
         </div>
