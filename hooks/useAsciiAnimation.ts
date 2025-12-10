@@ -22,7 +22,6 @@ export default function useAsciiAnimation(
   );
 
   useEffect(() => {
-    console.log(pause);
     let frame: Canvas = initCanvas
       ? initCanvas(size.width, size.height)
       : Array(size.height)

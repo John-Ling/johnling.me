@@ -26,11 +26,9 @@ Here's how I made it.
 
 First thing I had to do was to resize the video into a resolution that could be rendered on my website.
 
-My website can render ASCII via an "ASCII display" component which I wrote about [here](https://johnling.me/Ascii-Display). 
-
-While the display can be of any size, I had to select a static resolution. I settled on an incredibly detailed 40 by 30 pixels.
-
-Initally I attempted to use FFMPeg however it introduced artefacts into the resulting video that I would have to fix via post-processing later. So I settled on a Python script that used OpenCV.
+While the display can be of any size, the CPU-bounded nature of `requestAnimationFrame` (how I ran my animations) meant that I could definitely not render Bad Apple at its full resolution without turning my visitor's computers into a space heater.
+So I had to downscale the animation to a more manageable size.
+Initially I attempted to use FFMPeg however it introduced artifacts into the resulting video that I would have to fix via post-processing later. So I settled on an OpenCV script to heavily reduce the resolution.
 
 <CodeBlock language="python" filename="resize.py">
 {`
@@ -71,8 +69,7 @@ You can now literally count the pixels in the video. However that is what we wan
 ### Converting Bad Apple to ASCII
 
 Next, I needed to convert the video into text to be rendered
-
-Since the entirety of Bad Apple is black and white, we could just iterate through the pixels and convert them into either '*' or '&nbsp; ' to represent black and white respectively.
+Since the entirety of Bad Apple is black and white, we could just iterate through the pixels and convert them into either '*' or '&nbsp;' to represent black and white respectively.
 
 <CodeBlock language="python" filename="convert.py">
 {`
@@ -115,8 +112,8 @@ if __name__ == "__main__":
 `}
 </CodeBlock>
 
-This script converts all the pixel values into characters based on whether their colour is relatively black or white. 
-Frames are stored as lines separated by newlines and are saved to a file.
+_This script converts all the pixel values into characters based on whether their colour is relatively black or white. 
+Frames are stored as lines separated by newlines and are saved to a file._
 
 ## Delivering the Content
 
@@ -177,9 +174,71 @@ export const bapple_cleanup = () => {
 `}
 </CodeBlock>
 
-Since I had already written a system of "nextFrame" functions for my ASCII display I simply made my "nextFrame" function iterate to the next frame in the array.
+I added a hook for Bad Apple.
 
+<CodeBlock language="tsx" filename="useBadApple.ts">
+{`
+import {
+  bapple_cleanup,
+  bapple_init,
+  bapple_next_frame
+} from "@/components/ascii-display/animations";
+import useAsciiAnimation from "./useAsciiAnimation";
+import { RefObject, useEffect, useState } from "react";
+
+/**
+ * Hook to play fucking bad apple on my website
+ * @param audioRef
+ * @returns
+ */
+export default function useBadApple(audioRef: RefObject<HTMLAudioElement>) {
+  const [playing, setPlaying] = useState<boolean>(false);
+  const { framebuffer } = useAsciiAnimation(
+    { width: 40, height: 30 },
+    bapple_next_frame,
+    bapple_cleanup,
+    undefined,
+    !playing,
+    30
+  );
+
+  const start_playing = () => {
+    setPlaying(true);
+    audioRef.current?.play();
+    return;
+  };
+
+  useEffect(() => {
+    const effect = async () => {
+      console.log("Intiialising");
+      await bapple_init();
+    };
+    effect();
+  }, []);
+
+  useEffect(() => {
+    const on_visibility_change = () => {
+      if (!audioRef.current) return;
+
+      if (document.visibilityState === "hidden") {
+        audioRef.current.pause();
+        return;
+      }
+
+      audioRef.current.play();
+      return;
+    };
+
+    if (playing) {
+      document.addEventListener("visibilitychange", on_visibility_change);
+    }
+  }, [playing, audioRef]);
+
+  return { framebuffer, playing, start_playing };
+}
+`}
+</CodeBlock>
+
+And the rest is history.
 
 ![Screenshot of bad apple on my website](/images/blog/Bad-Apple-Website/image.png)
-
-

@@ -30,7 +30,6 @@ export default function useBadApple(audioRef: RefObject<HTMLAudioElement>) {
 
   useEffect(() => {
     const effect = async () => {
-      console.log("Intiialising");
       await bapple_init();
     };
     effect();
