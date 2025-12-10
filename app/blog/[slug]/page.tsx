@@ -12,6 +12,7 @@ import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
+import Link from "next/link";
 
 export default async function Page(props: Params) {
   const components: MDXComponents = { CodeBlock, Markdown };
@@ -48,17 +49,17 @@ export default async function Page(props: Params) {
     <>
       <title>{post.title}</title>
       <div className='w-full lg:w-1/2 max-w-[1920px] mx-auto px-6'>
-        <a className='link' href='/blog'>
+        <Link className='link' href='/blog'>
           Back
-        </a>
+        </Link>
         <article className={`pt-5 pb-5 ${style.markdown}`}>
           <h1 className='text-xl mb-5'>{post.title}</h1>
           <p className='mb-5 text-muted-white font-italic'>{post.date}</p>
           <div>{compiled.content}</div>
         </article>
-        <a className='link' href='/blog'>
+        <Link className='link' href='/blog'>
           Back
-        </a>
+        </Link>
       </div>
     </>
   );

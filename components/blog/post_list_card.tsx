@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface PostListCardProps {
   post: BlogPost;
   position: number;
@@ -20,9 +22,9 @@ export function PostListCard({ post, position }: PostListCardProps) {
         <h2 className={`text-md ${colourClass} mb-2`}>{post.title}</h2>
         <p className='text-xs text-muted-white font-italic'>{post.date}</p>
       </div>
-      <a className='link w-fit text-sm' href={`/blog/${post.slug}`}>
+      <Link className='link w-fit text-sm' href={`/blog/${post.slug}`}>
         Article
-      </a>
+      </Link>
     </div>
   );
 }

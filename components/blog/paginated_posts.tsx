@@ -14,21 +14,24 @@ export default function PaginatedPosts({ posts }: PaginatedPostsProps) {
   const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
   const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
   const currentItems = posts.slice(indexOfFirstItem, indexOfLastItem);
+  const [startColourIndex, setStartColourIndex] = useState<number>(0);
 
   const previous_page = () => {
     if (currentPage > 1) {
       setCurrentPage((prev) => prev - 1);
+      setStartColourIndex((prev) => prev - ITEMS_PER_PAGE);
     }
   };
 
   const next_page = () => {
     if (currentPage < pageCount) {
       setCurrentPage((prev) => prev + 1);
+      setStartColourIndex((prev) => prev + ITEMS_PER_PAGE);
     }
   };
 
   return (
-    <div>
+    <>
       <div className='flex items-center text-2xl m-3 mt-auto'>
         <button
           className={`${currentPage === 1 ? "text-muted-white" : "hover:text-orange"} text-2xl`}
@@ -50,9 +53,9 @@ export default function PaginatedPosts({ posts }: PaginatedPostsProps) {
       </div>
       <div>
         {currentItems.map((post, i) => {
-          return <PostListCard key={i} position={i} post={post} />;
+          return <PostListCard key={i} position={startColourIndex + i} post={post} />;
         })}
       </div>
-    </div>
+    </>
   );
 }

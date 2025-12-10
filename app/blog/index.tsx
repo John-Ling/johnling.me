@@ -21,19 +21,6 @@ export default function BlogPage() {
         </p>
         <div className='m-5 w-full md:w-3/5 lg:w-2/5'>
           <PaginatedPosts posts={posts} />
-          {/* <ul>
-            {posts.map((post: BlogPost, i: number) => {
-              return (
-                <li
-                  key={post.slug}
-                  className='bg-grey-card p-3 md:p-5 m-3 border-2 border-grey-light rounded-lg opacity-0 animate-fade-up flex flex-col justify-between items-start'
-                  style={{ animationDelay: `${(i + 1) * 100}ms` }}
-                >
-                  <PostListCard position={i} post={post} />
-                </li>
-              );
-            })}
-          </ul> */}
         </div>
       </div>
     </>
