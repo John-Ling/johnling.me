@@ -20,7 +20,7 @@ const WhySection = () => {
           event can bring about the positive change I want.
         </p>
         <p className='mb-5'>
-          I&pos;m not quite sure when that will happen but until then. I&apos;ll be enjoying the
+          I&apos;m not quite sure when that will happen but until then. I&apos;ll be enjoying the
           process to learn and better myself.
         </p>
         <p>Thanks for visiting. Hope you enjoyed the website :)</p>

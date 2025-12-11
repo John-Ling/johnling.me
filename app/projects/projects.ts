@@ -78,9 +78,9 @@ export const projects: Project[] = [
     title: "University AI Discovery Tool",
     shortDescription: "Helping to get a university project off the ground!",
     description: `
-      Currently I'm doing volunteer work with the Data Science club at my university launch a platform that helps students to find like-minded peers via AI 
+      Currently, I'm doing volunteer work with the Data Science club at my university to launch a platform that helps students to find like-minded peers via AI 
       semantic search and clubs/events via an ingestion-aggregation pipeline and smart recommendation systems. I'm in charge of events/clubs so I've been building frontends to create events, 
-      writing paginated route handlers to fetch them and creating hooks to speed up future development 
+      writing paginated route handlers to fetch them and cleaning up the existing codebase.
       It's not difficult work but I'm happy to help out where I can.
     `,
     imageFolder: "connect3",
