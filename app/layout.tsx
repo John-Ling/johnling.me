@@ -28,6 +28,20 @@ export default function RootLayout({
           type='text/css'
           href='https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css'
         />
+        <link
+          rel='preload'
+          href='/fonts/CaskaydiaMonoNerdFontMono-Regular.woff2'
+          as='font'
+          type='font/woff2'
+          crossOrigin='anonymous'
+        />
+        <link
+          rel='preload'
+          href='/fonts/CaskaydiaMonoNerdFontMono-Bold.woff2'
+          as='font'
+          type='font/woff2'
+          crossOrigin='anonymous'
+        />
       </head>
       <body>
         <Navbar />
