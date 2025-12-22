@@ -19,7 +19,7 @@ You'll, of course, need to select multiple wallpapers to switch between. For the
 
 In my configuration, I placed my photos under `~/.config/hypr/wallpapers` 
 
-### Script + Cron
+### Script + Systemd
 
 I cobbled together this bash script to run hyprpaper based on the time, placing it in `~/.local/bin`. Make sure to make it executable with `chmod +x`.
 
@@ -44,7 +44,7 @@ fi
 </CodeBlock>
 
 To achieve the automatic switching, I created a systemd service and timer. The reason I used Systemd over simple Cron jobs is that Systemd timers can be configured to run immediately after startup even 
-if it's original trigger time has elapsed. When I trialed Cron I found that putting my laptop to sleep and waking it at 10pm cause the event to not fire. 
+if it's original trigger time has elapsed. When I trialed Cron I found that putting my laptop to sleep and waking it at 10pm caused the event to not fire. 
 
 This service really only applies to the user so we'll be creating a local Systemd service. If not created already, make the `~/.config/systemd/user` folders with `mkdir -p`.
 
