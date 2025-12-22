@@ -72,7 +72,7 @@ const config: Config = {
       scanlines: "scanlines 60s linear infinite"
     },
     fontFamily: {
-      caskaydia: ["var(--font-caskaydia)"]
+      meslo: ["var(--font-meslo)"]
     }
   },
   plugins: []

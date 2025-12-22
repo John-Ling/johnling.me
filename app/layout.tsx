@@ -2,7 +2,7 @@ import { Analytics } from "@vercel/analytics/next";
 import Footer from "@/components/shared/footer";
 import Navbar from "@/components/shared/navbar";
 import type { Metadata, Viewport } from "next";
-import { caskaydia } from "@/lib/font";
+import { meslo } from "@/lib/font";
 import "/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -21,26 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className={`${caskaydia.className} antialiased`}>
+    <html lang='en' className={`${meslo.className} antialiased`}>
       <head>
         <link
           rel='stylesheet'
           type='text/css'
           href='https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css'
-        />
-        <link
-          rel='preload'
-          href='/fonts/CaskaydiaMonoNerdFontMono-Regular.woff2'
-          as='font'
-          type='font/woff2'
-          crossOrigin='anonymous'
-        />
-        <link
-          rel='preload'
-          href='/fonts/CaskaydiaMonoNerdFontMono-Bold.woff2'
-          as='font'
-          type='font/woff2'
-          crossOrigin='anonymous'
         />
       </head>
       <body>

@@ -1,28 +1,28 @@
 import localFont from "next/font/local";
 
-export const caskaydia = localFont({
+export const meslo = localFont({
   src: [
     {
-      path: "../public/fonts/CaskaydiaMonoNerdFontMono-Regular.woff2",
+      path: "../public/fonts/meslolgs_nf_regular.woff2",
       weight: "400",
       style: "normal"
     },
     {
-      path: "../public/fonts/CaskaydiaMonoNerdFontMono-Bold.woff2",
+      path: "../public/fonts/meslolgs_nf_bold.woff2",
       weight: "700",
       style: "normal"
     },
     {
-      path: "../public/fonts/CaskaydiaMonoNerdFontMono-Italic.woff2",
+      path: "../public/fonts/meslolgs_nf_italic.woff2",
       weight: "400",
       style: "italic"
     },
     {
-      path: "../public/fonts/CaskaydiaMonoNerdFontMono-BoldItalic.woff2",
+      path: "../public/fonts/meslolgs_nf_bold_italic.woff2",
       weight: "700",
       style: "italic"
     }
   ],
-  variable: "--font-caskaydia",
+  variable: "--font-meslo",
   fallback: ["monospace", "arial"]
 });
