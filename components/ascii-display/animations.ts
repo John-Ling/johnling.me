@@ -275,7 +275,7 @@ export async function bapple_init() {
 
   const zip: Response = await fetch(
     process.env.NODE_ENV === "production"
-      ? "https://johnling.me/frames.zip"
+      ? "https://www.johnling.me/frames.zip"
       : "http://localhost:3000/frames.zip"
   );
   const content: Blob = await zip.blob();
