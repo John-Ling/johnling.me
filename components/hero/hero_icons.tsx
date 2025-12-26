@@ -21,8 +21,11 @@ const item = {
 
 export default function HeroIcons() {
   return (
-    <motion.div variants={container} className='flex flex-row justify-center md:justify-start'>
-      <div className='flex items-center justify-center'>
+    <motion.div
+      variants={container}
+      className='flex flex-col md:flex-row justify-center md:justify-start text-sm gap-1'
+    >
+      <div className='flex'>
         <div className='hover:text-orange transition-colors'>
           <motion.a
             variants={item}
@@ -31,15 +34,13 @@ export default function HeroIcons() {
             rel='noopener noreferrer'
             className='icon-link flex items-center gap-2'
           >
-            <div className='flex items-center gap-2 transition-transform hover:-translate-y-1 text-sm'>
+            <div className='flex items-center gap-2 transition-transform hover:-translate-y-1'>
               <GitHubIcon sx={{ fontSize: 20 }} />
               GitHub
             </div>
           </motion.a>
         </div>
-      </div>
-      <motion.div variants={item} className='border-grey-muted border h-6 ml-3 mr-3' />
-      <div className='opacity-0 animate-fade-up flex items-center'>
+        <motion.div variants={item} className='border-grey-muted border h-6 ml-3 mr-3' />
         <div className='hover:text-orange transition-colors'>
           <motion.a
             variants={item}
@@ -55,8 +56,13 @@ export default function HeroIcons() {
           </motion.a>
         </div>
       </div>
-      <motion.div variants={item} className='border-grey-muted border h-6 ml-3 mr-3' />
-      <div className='opacity-0 animate-fade-up  flex items-center'>
+
+      <motion.div
+        variants={item}
+        className='hidden md:block border-grey-muted border h-6 ml-3 mr-3'
+      />
+
+      <div className='flex'>
         <div className='hover:text-orange transition-colors'>
           <motion.a
             variants={item}
@@ -71,9 +77,7 @@ export default function HeroIcons() {
             </div>
           </motion.a>
         </div>
-      </div>
-      <motion.div variants={item} className='border-grey-muted border h-6 ml-3 mr-3' />
-      <div className='opacity-0 animate-fade-up  flex items-center'>
+        <motion.div variants={item} className='border-grey-muted border h-6 ml-3 mr-3' />
         <div className='hover:text-orange transition-colors'>
           <motion.a
             variants={item}

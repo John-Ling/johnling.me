@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import Link from "next/link";
+import { AnimatePresence, motion, stagger } from "framer-motion";
 
 interface NavLink {
   name: string;
@@ -27,33 +28,37 @@ export default function Navbar() {
 
   const path: string = "/" + usePathname().split("/")[1];
   return (
-    <nav
+    <motion.nav
       className={`max-w-[1920px] mx-auto justify-between items-center transition-all duration-10  z-50 pt-4
         ${open ? "bg-grey-normal" : "bg-opacity-0 "}  flex flex-row`}
     >
       <Link
         href='/'
-        className={`tracking-wider navlink hover:text-white text-2xl self-center  ml-3 md:ml-10 no-underline opacity-0 font-bold animate-fade-down z-40`}
-        style={{ animationDelay: "300ms" }}
+        className={`tracking-wider navlink hover:text-white text-2xl self-center  ml-3 md:ml-10 no-underline font-bold z-40`}
       >
-        <span className='md:whitespace-pre md:block'>JOHN{"  "}</span>
-        <span className='text-orange md:whitespace-pre'>{"  "}LING</span>
+        <motion.div
+          initial={{ opacity: 0, transform: "translateY(8px)" }}
+          animate={{ opacity: 1, transform: "translateY(0px)" }}
+          transition={{ delay: 0.3 }}
+        >
+          <span className='md:whitespace-pre md:block'>JOHN{"  "}</span>
+          <span className='text-orange md:whitespace-pre'>{"  "}LING</span>
+        </motion.div>
       </Link>
 
       {/* mobile hamburger menu */}
-      <button
-        className='md:hidden p-2 animate-fade-down opacity-0 z-50'
-        style={{ animationDelay: "300ms" }}
+      <motion.button
+        initial={{ opacity: 0, transform: "translateY(8px)" }}
+        animate={{ opacity: 1, transform: "translateY(0px)" }}
+        transition={{ delay: 0.3 }}
+        className='md:hidden p-2 z-50'
         onClick={() => setOpen(!open)}
       >
         <MenuIcon className='active:text-muted-white' />
-      </button>
+      </motion.button>
 
       {/* desktop menu */}
-      <div
-        className={`hidden invisible md:flex md:visible p-4 z-40 opacity-0 animate-fade-down`}
-        style={{ animationDelay: "500ms" }}
-      >
+      <div className={`hidden invisible md:flex md:visible p-4 z-40`}>
         <NavbarMenu links={links} activeLink={path} on_click={() => setOpen(false)} />
       </div>
 
@@ -65,14 +70,42 @@ export default function Navbar() {
         <div
           className={`transition-all ease-in-out z-50  ${open ? "duration-300 opacity-100" : " duration-300 opacity-0 invisible"}`}
         >
-          {open ? (
-            <MobileMenu links={links} activeLink={path} on_click={() => setOpen(false)} />
-          ) : null}
+          <AnimatePresence>
+            {open && <MobileMenu links={links} activeLink={path} on_click={() => setOpen(false)} />}
+          </AnimatePresence>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
+
+const desktopContainer = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      delayChildren: stagger(0.1, { from: "last" })
+    }
+  }
+};
+
+const mobileContainer = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      delayChildren: stagger(0.1)
+    }
+  },
+  exit: {
+    opacity: 0
+  }
+};
+
+const item = {
+  hidden: { opacity: 0, transform: "translateY(8px)" },
+  show: { opacity: 1, transform: "translateY(0px)" }
+};
 
 interface NavMenuProps {
   links: NavLink[];
@@ -81,16 +114,16 @@ interface NavMenuProps {
 }
 
 function NavbarMenu({ links, activeLink, on_click }: NavMenuProps) {
-  const linkCount = links.length;
   return (
-    <ul className='flex flex-col md:flex-row gap-x-2 gap-y-2 md:gap-x-6 align-middle md:mr-10'>
-      {links.map((link: NavLink, i: number) => {
+    <motion.ul
+      variants={desktopContainer}
+      initial='hidden'
+      animate='show'
+      className='flex flex-col md:flex-row gap-x-2 gap-y-2 md:gap-x-6 align-middle md:mr-10'
+    >
+      {links.map((link) => {
         return (
-          <li
-            key={link.name}
-            className='p-2 opacity-0 animate-fade-down'
-            style={{ animationDelay: `${(linkCount - i) * 150}ms` }}
-          >
+          <motion.li key={link.name} className='p-2' variants={item}>
             <Link
               onClick={on_click}
               className={`no-underline navlink  hover:text-orange w-screen md:w-auto ${link.target === activeLink ? "font-bold text-orange" : ""}`}
@@ -99,48 +132,48 @@ function NavbarMenu({ links, activeLink, on_click }: NavMenuProps) {
             >
               {link.name}
             </Link>
-          </li>
+          </motion.li>
         );
       })}
-    </ul>
+    </motion.ul>
   );
 }
 
 function MobileMenu({ links, activeLink, on_click }: NavMenuProps) {
   return (
-    <>
-      <div className='fixed top-0 w-full min-h-screen z-30'>
-        <div className='flex'>
-          <div className='z-40 w-full pt-4'>
-            <div className='flex w-full justify-end'>
-              <button onClick={on_click} className='p-2'>
-                <CloseIcon className='active:text-muted-white' />
-              </button>
-            </div>
-            <ul className='p-5'>
-              {links.map((link: NavLink, i: number) => {
-                return (
-                  <li
-                    key={link.name}
-                    className='mb-3 mt-3 opacity-0 animate-fade-up'
-                    style={{ animationDelay: `${(i + 1) * 100}ms` }}
-                  >
-                    <Link
-                      href={link.target}
-                      onClick={on_click}
-                      className={`text-7xl no-underline font-bold ${link.target === activeLink ? " text-orange" : ""}`}
-                      aria-current={link.target === activeLink ? "page" : undefined}
-                    >
-                      {link.name.toUpperCase()}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+    <div className='fixed top-0 w-full min-h-screen z-30'>
+      <motion.div
+        className='flex'
+        variants={mobileContainer}
+        initial='hidden'
+        animate='show'
+        exit='exit'
+      >
+        <div className='z-40 w-full pt-4'>
+          <div className='flex w-full justify-end'>
+            <button onClick={on_click} className='p-2'>
+              <CloseIcon className='active:text-muted-white' />
+            </button>
           </div>
-          <div className='absolute w-full h-full bg-grey-normal z-30'></div>
+          <ul className='p-5'>
+            {links.map((link) => {
+              return (
+                <motion.li key={link.name} className='mb-3 mt-3' variants={item}>
+                  <Link
+                    href={link.target}
+                    onClick={on_click}
+                    className={`text-7xl no-underline font-bold ${link.target === activeLink ? " text-orange" : ""}`}
+                    aria-current={link.target === activeLink ? "page" : undefined}
+                  >
+                    {link.name.toUpperCase()}
+                  </Link>
+                </motion.li>
+              );
+            })}
+          </ul>
         </div>
-      </div>
-    </>
+        <div className='absolute w-full h-full bg-grey-normal z-30'></div>
+      </motion.div>
+    </div>
   );
 }
