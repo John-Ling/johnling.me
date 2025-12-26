@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CloseIcon from "@mui/icons-material/Close";
 import { motion } from "framer-motion";
+import { Project } from "@/types/projects/project";
 
 interface ProjectModalProps {
   project: Project;

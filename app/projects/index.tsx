@@ -1,43 +1,16 @@
 "use client";
-import { useState, useEffect } from "react";
 import { projects } from "../../lib/projects";
 import ProjectListCard from "@/components/projects/project_list_card";
 import ProjectModal from "@/components/projects/project_modal";
+import useProjectModal from "@/hooks/useProjectModal";
+import { Project } from "@/types/projects/project";
 
 export default function ProjectsPage() {
-  const [selectedProject, setSelectedProject] = useState<Project | undefined>(undefined);
-  const [opened, setOpened] = useState<boolean>(false);
-
-  // allow user to use ESC key to leave project card
-  useEffect(() => {
-    const on_escape = (event: KeyboardEvent) => {
-      if (event.isComposing || event.key === "Escape") {
-        setOpened(false);
-      }
-      return;
-    };
-
-    document.addEventListener("keydown", on_escape);
-    return () => {
-      document.removeEventListener("keydown", on_escape);
-    };
-  }, []);
-
-  const on_project_select = (project: Project) => {
-    setSelectedProject(project);
-    setOpened(true);
-    return;
-  };
-
-  const on_close = () => {
-    setOpened(false);
-    return;
-  };
-
+  const { selectedProject, modalOpened, onProjectSelect, onClose } = useProjectModal();
   return (
     <>
-      {opened && selectedProject !== undefined && (
-        <ProjectModal project={selectedProject} on_close={on_close} />
+      {modalOpened && selectedProject !== undefined && (
+        <ProjectModal project={selectedProject} on_close={onClose} />
       )}
       <title>Projects</title>
       <div className={`min-h-screen w-11/12 lg:w-10/12 mx-auto max-w-[1920px]`}>
@@ -49,12 +22,7 @@ export default function ProjectsPage() {
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  opacity-0 animate-fade-up pb-11'>
           {projects.map((project: Project, i: number) => {
             return (
-              <ProjectListCard
-                key={i}
-                project={project}
-                position={i}
-                on_select={on_project_select}
-              />
+              <ProjectListCard key={i} project={project} position={i} on_select={onProjectSelect} />
             );
           })}
         </div>

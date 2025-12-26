@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { PostListCard } from "./post_list_card";
+import { BlogPost } from "@/types/blogs/blog_post";
 
 interface PaginatedPostsProps {
   posts: BlogPost[];
@@ -53,7 +54,11 @@ export default function PaginatedPosts({ posts }: PaginatedPostsProps) {
       </div>
       <div>
         {currentItems.map((post, i) => {
-          return <PostListCard key={i} position={startColourIndex + i} post={post} />;
+          return (
+            <div className='m-3' key={i}>
+              <PostListCard position={startColourIndex + i} post={post} />
+            </div>
+          );
         })}
       </div>
     </>

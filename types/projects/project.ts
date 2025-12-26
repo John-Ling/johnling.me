@@ -1,11 +1,4 @@
-interface BlogPost {
-  slug: string; // unique url path for post pretty much an id
-  title: string;
-  date: string;
-  content: string;
-}
-
-interface Project {
+export type Project = {
   title: string;
   shortDescription: string;
   description: string;
@@ -13,4 +6,4 @@ interface Project {
   sourceURL: string | null;
   sourceLabel: string | null;
   tags: string[];
-}
+};

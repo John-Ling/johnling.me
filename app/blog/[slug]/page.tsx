@@ -13,6 +13,7 @@ import rehypeHighlight from "rehype-highlight";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 import Link from "next/link";
+import { BlogPost } from "@/types/blogs/blog_post";
 
 export default async function Page(props: Params) {
   const components: MDXComponents = { CodeBlock, Markdown };

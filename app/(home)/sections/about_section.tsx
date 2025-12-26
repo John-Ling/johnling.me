@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { motion, stagger } from "framer-motion";
 import myself from "@/public/images/homepage/myself.jpg";
@@ -23,11 +24,11 @@ export default function AboutSection() {
       variants={container}
       initial='hidden'
       animate='show'
-      className='h-3/5 flex flex-col justify-center mx-auto items-center lg:flex-row mt-5 gap-10 w-10/12 md:w-8/12 z-30'
+      className='h-4/5 flex flex-col justify-center mx-auto items-center lg:flex-row mt-5 gap-10 w-10/12 md:w-8/12 z-30'
       id='about'
     >
       <div className='basis-1/2'>
-        <motion.h3 variants={item} className=' text-3xl mb-3 mt-3 font-bold'>
+        <motion.h3 variants={item} className='text-2xl md:text-3xl mb-3 mt-3 font-bold'>
           A bit more <span className='text-orange'>about me</span>
         </motion.h3>
         <motion.p variants={item} className='mb-4'>

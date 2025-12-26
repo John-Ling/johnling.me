@@ -1,3 +1,5 @@
+import { Project } from "@/types/projects/project";
+
 export const projects: Project[] = [
   {
     title: "ramble",
