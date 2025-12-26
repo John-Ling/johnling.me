@@ -2,6 +2,7 @@ import { motion, stagger } from "framer-motion";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import DescriptionIcon from "@mui/icons-material/Description";
+import EmailIcon from "@mui/icons-material/Email";
 
 const container = {
   hidden: { opacity: 0 },
@@ -28,7 +29,7 @@ export default function HeroIcons() {
             href='https://github.com/John-Ling/'
             target='_blank'
             rel='noopener noreferrer'
-            className='icon-link flex items-center gap-o'
+            className='icon-link flex items-center gap-2'
           >
             <div className='flex items-center gap-2 transition-transform hover:-translate-y-1 text-sm'>
               <GitHubIcon sx={{ fontSize: 20 }} />
@@ -65,8 +66,25 @@ export default function HeroIcons() {
             className='icon-link flex items-center gap-2'
           >
             <div className='flex items-center gap-2 transition-transform hover:-translate-y-1'>
-              <DescriptionIcon sx={{ fontSize: 15 }} />
+              <DescriptionIcon sx={{ fontSize: 20 }} />
               Resume
+            </div>
+          </motion.a>
+        </div>
+      </div>
+      <motion.div variants={item} className='border-grey-muted border h-6 ml-3 mr-3' />
+      <div className='opacity-0 animate-fade-up  flex items-center'>
+        <div className='hover:text-orange transition-colors'>
+          <motion.a
+            variants={item}
+            href='mailto:johnlingbusiness@gmail.com'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='icon-link flex items-center gap-2'
+          >
+            <div className='flex items-center gap-2 transition-transform hover:-translate-y-1'>
+              <EmailIcon sx={{ fontSize: 20 }} />
+              Email
             </div>
           </motion.a>
         </div>
