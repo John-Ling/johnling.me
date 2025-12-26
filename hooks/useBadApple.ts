@@ -5,6 +5,7 @@ import {
 } from "@/components/ascii-display/animations";
 import useAsciiAnimation from "./useAsciiAnimation";
 import { RefObject, useEffect, useState } from "react";
+import { CanvasSize } from "@/types/hero/CanvasSize";
 
 /**
  * Hook to play fucking bad apple on my website
@@ -12,9 +13,10 @@ import { RefObject, useEffect, useState } from "react";
  * @returns
  */
 export default function useBadApple(audioRef: RefObject<HTMLAudioElement>) {
+  const [canvasSize, setCanvasSize] = useState<CanvasSize | null>(null);
   const [playing, setPlaying] = useState<boolean>(false);
   const { framebuffer } = useAsciiAnimation(
-    { width: 40, height: 30, fontSize: 1 },
+    canvasSize,
     bapple_next_frame,
     bapple_cleanup,
     undefined,
@@ -30,6 +32,7 @@ export default function useBadApple(audioRef: RefObject<HTMLAudioElement>) {
 
   useEffect(() => {
     const effect = async () => {
+      setCanvasSize({ width: 40, height: 30, fontSize: 1 });
       await bapple_init();
     };
     effect();

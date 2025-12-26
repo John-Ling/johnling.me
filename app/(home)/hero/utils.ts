@@ -30,11 +30,3 @@ export function init_size(size: "sm" | "md" | "lg") {
     fontSize: 1
   } as CanvasSize;
 }
-
-export function select_animation(specialEnabled: boolean) {
-  if (specialEnabled) {
-    return "BAPPLE";
-  }
-
-  return "LORENZ";
-}
