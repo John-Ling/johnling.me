@@ -15,7 +15,7 @@ export default function AsciiDisplay({ framebuffer, fontSize }: AsciiDisplayProp
                 <span
                   key={j}
                   style={{ fontSize: `${fontSize}rem` }}
-                  className='text-[#575757] inline-block whitespace-pre-wrap'
+                  className='text-grey-muted inline-block whitespace-pre-wrap'
                 >
                   {char}
                 </span>

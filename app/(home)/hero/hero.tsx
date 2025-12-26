@@ -46,7 +46,7 @@ export default function Hero() {
     >
       <div className='basis-8/12 max-w-5xl flex flex-col z-20 px-5 sm:px-6 lg:px-13 xl:px-25'>
         <div
-          className='text-5xl lg:text-6xl  z-0 mb-5 opacity-0 animate-fade-up text-center md:text-left'
+          className='text-5xl  z-0 mb-4 opacity-0 animate-fade-up text-center md:text-left'
           style={{ animationDelay: "100ms" }}
         >
           <h1 className='opacity-0 animate-fade-up' style={{ animationDelay: "100ms" }}>

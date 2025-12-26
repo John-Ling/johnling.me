@@ -24,7 +24,8 @@ const config: Config = {
         light: "#22262E",
         normal: "#171A1F",
         dark: "#0D0F12",
-        card: "#14171b"
+        card: "#14171b",
+        muted: "#575757"
       },
       blue: "#82AAFF",
       green: "#50FA7B",

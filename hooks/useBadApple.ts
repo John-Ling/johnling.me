@@ -14,7 +14,7 @@ import { RefObject, useEffect, useState } from "react";
 export default function useBadApple(audioRef: RefObject<HTMLAudioElement>) {
   const [playing, setPlaying] = useState<boolean>(false);
   const { framebuffer } = useAsciiAnimation(
-    { width: 40, height: 30 },
+    { width: 40, height: 30, fontSize: 1 },
     bapple_next_frame,
     bapple_cleanup,
     undefined,
