@@ -20,7 +20,12 @@ export default function ProjectModal({ project, on_close }: ProjectModalProps) {
         className='absolute w-full h-full bg-grey-dark bg-opacity-80 z-70'
         onMouseDown={on_close}
       />
-      <div className='bg-grey-dark border-2 rounded-lg border-grey-light p-3 animate-fade-up opacity-0 w-11/12 lg:w-1/2  h-fit m-auto flex-col z-70'>
+      <motion.div
+        initial={{ opacity: 0, transform: "translateY(8px)" }}
+        animate={{ opacity: 1, transform: "translateY(0px)" }}
+        exit={{ opacity: 0, transform: "translateY(8px)" }}
+        className='bg-grey-dark border-2 rounded-lg border-grey-light p-3 w-11/12 lg:w-1/2  h-fit m-auto flex-col z-70'
+      >
         {/* button at top of card above picture for tablet and mobile */}
         <button className='flex justify-end items-center w-full' onClick={on_close}>
           <CloseIcon className='hover:text-muted-white active:text-muted-white' />
@@ -58,7 +63,7 @@ export default function ProjectModal({ project, on_close }: ProjectModalProps) {
             </Link>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
