@@ -45,12 +45,7 @@ export default function AboutSection() {
         </motion.p>
       </div>
       <motion.div variants={item} className='basis-1/2'>
-        <Image
-          className='max-w-lg opacity-0 animate-fade-up'
-          style={{ animationDelay: "800ms" }}
-          src={myself}
-          alt='Picture of the creator of the website'
-        />
+        <Image src={myself} alt='Picture of the creator of the website' />
       </motion.div>
     </motion.section>
   );

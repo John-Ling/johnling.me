@@ -12,7 +12,7 @@ interface NavLink {
 
 export default function Navbar() {
   const links: NavLink[] = [
-    { name: "About", target: "/#about" },
+    { name: "Home", target: "/" },
     { name: "Projects", target: "/projects" },
     { name: "Blog", target: "/blog" },
     { name: "Contact", target: "/#contact" },
@@ -33,7 +33,7 @@ export default function Navbar() {
     >
       <Link
         href='/'
-        className={`tracking-wider navlink hover:text-white text-2xl self-center  ml-3 md:ml-10 no-underline opacity-0 font-bold animate-fade-down z-50`}
+        className={`tracking-wider navlink hover:text-white text-2xl self-center  ml-3 md:ml-10 no-underline opacity-0 font-bold animate-fade-down z-40`}
         style={{ animationDelay: "300ms" }}
       >
         <span className='md:whitespace-pre md:block'>JOHN{"  "}</span>
@@ -51,7 +51,7 @@ export default function Navbar() {
 
       {/* desktop menu */}
       <div
-        className={`hidden invisible md:flex md:visible p-4 z-50 opacity-0 animate-fade-down`}
+        className={`hidden invisible md:flex md:visible p-4 z-40 opacity-0 animate-fade-down`}
         style={{ animationDelay: "500ms" }}
       >
         <NavbarMenu links={links} activeLink={path} on_click={() => setOpen(false)} />

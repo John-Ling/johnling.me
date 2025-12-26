@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { projects } from "./projects";
+import { projects } from "../../lib/projects";
 import ProjectListCard from "@/components/projects/project_list_card";
 import ProjectModal from "@/components/projects/project_modal";
 

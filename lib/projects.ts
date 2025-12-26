@@ -1,6 +1,6 @@
 export const projects: Project[] = [
   {
-    title: "RAMBLE",
+    title: "ramble",
     shortDescription: "Analytics driven journalling app",
     description: `
       Finally got around to rebuilding Ramble into how I imagined it. It's a full-stack journalling app with a simple, uncluttered interface in created with ShadCN UI. 
@@ -11,15 +11,14 @@ export const projects: Project[] = [
     sourceLabel: "LinkedIn",
     tags: [
       "NextJS",
-      "Shadcn UI",
+      "ShadCN UI",
       "FastAPI",
       "Transformers",
       "TailwindCSS",
       "MongoDB",
       "NextAuth",
       "Redis",
-      "Vercel",
-      "Recharts"
+      "Vercel"
     ]
   },
   {
@@ -36,7 +35,7 @@ export const projects: Project[] = [
     sourceURL: "https://github.com/John-Ling/TablissNG/tree/main/src/plugins/widgets/trello",
     imageFolder: "trello",
     sourceLabel: "GitHub",
-    tags: ["React", "Sass", "Firebase", "Express"]
+    tags: ["React", "Sass", "Zustand"]
   },
   {
     title: "Internship Project: Krux Infra",
@@ -72,7 +71,7 @@ export const projects: Project[] = [
     imageFolder: "internship-1",
     sourceURL: null,
     sourceLabel: null,
-    tags: ["MySQL", "Vite", "React", "Flask", "Langchain", "Sass", "Docker"]
+    tags: ["MySQL", "Docker", "React", "Vite", "Flask", "Langchain", "Sass"]
   },
   {
     title: "University AI Discovery Tool",

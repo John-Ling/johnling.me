@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import CloseIcon from "@mui/icons-material/Close";
+import { motion } from "framer-motion";
 
 interface ProjectModalProps {
   project: Project;
@@ -10,12 +11,15 @@ interface ProjectModalProps {
 export default function ProjectModal({ project, on_close }: ProjectModalProps) {
   const projectFolder = `/images/projects/${project.imageFolder}/0.png`;
   return (
-    <div className='fixed top-0 w-full min-h-screen flex justify-center items-center z-20'>
-      <div
-        className='absolute w-full h-full bg-grey-dark bg-opacity-80 z-30'
+    <div className='fixed top-0 w-full min-h-screen flex justify-center items-center z-40'>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className='absolute w-full h-full bg-grey-dark bg-opacity-80 z-70'
         onMouseDown={on_close}
       />
-      <div className='bg-grey-dark border-2 rounded-lg border-grey-light p-3 animate-fade-up opacity-0 w-11/12 lg:w-1/2  h-fit m-auto flex-col z-40'>
+      <div className='bg-grey-dark border-2 rounded-lg border-grey-light p-3 animate-fade-up opacity-0 w-11/12 lg:w-1/2  h-fit m-auto flex-col z-70'>
         {/* button at top of card above picture for tablet and mobile */}
         <button className='flex justify-end items-center w-full' onClick={on_close}>
           <CloseIcon className='hover:text-muted-white active:text-muted-white' />

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import AboutSection from "./about_section";
 
 import { update_fade_entries, update_flicker_entries, options } from "./homepage_observers";
+import ProjectSection from "./projects_section";
 
 export default function HomeSections() {
   // attach intersection observers for on-scroll animations
@@ -37,6 +38,7 @@ export default function HomeSections() {
     <>
       <div className='flex flex-col items-center max-w-[1920px] mx-auto'>
         <AboutSection />
+        <ProjectSection />
         {/* <WhatSection />
         <WhenSection />
         <WhereSection />
