@@ -43,9 +43,9 @@ export default function Hero() {
   return (
     <>
       <div
-        className={`h-4/5 max-w-[1920px] w-10/12 mx-auto flex pt-4 md:pt-32 justify-start flex-col lg:flex-row relative`}
+        className={`min-h-screen max-w-[1920px] w-10/12 mx-auto flex pt-4 md:pt-32 justify-start flex-col lg:flex-row relative`}
       >
-        <div className='basis-8/12 max-w-5xl flex flex-col z-20'>
+        <div className='basis-7/12 max-w-5xl flex flex-col z-20'>
           <div
             className='text-5xl z-0 mb-4 opacity-0 animate-fade-up text-left'
             style={{ animationDelay: "100ms" }}
@@ -54,7 +54,7 @@ export default function Hero() {
               Hello,
             </h1>
             <h1 className='opacity-0 animate-fade-up' style={{ animationDelay: "150ms" }}>
-              I&pos;m{" "}
+              I&apos;m{" "}
               <span className='text-orange' style={{ animationDelay: "1500ms" }}>
                 John
               </span>

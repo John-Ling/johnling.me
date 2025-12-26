@@ -14,7 +14,7 @@ export default function HeroIcons() {
             href='https://github.com/John-Ling/'
             target='_blank'
             rel='noopener noreferrer'
-            className='opacity-0 animate-fade-up icon-link flex items-center gap-2'
+            className='opacity-0 animate-fade-up icon-link flex items-center gap-o'
             style={{ animationDelay: "400ms" }}
           >
             <div className='flex items-center gap-2 transition-transform hover:-translate-y-1 text-sm'>

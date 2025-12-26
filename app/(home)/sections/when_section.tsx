@@ -18,16 +18,13 @@ const WhenSection = () => {
           I had taken some introductory Python classes the year before, however my first real
           project was created in September 2019. It was an automated Kahoot player using the
           Selenium library which while primitive, was something I was proud of as something I built
-          myself. I even tested it in my class much to the confusion of my teacher.
+          myself. I even tested it in my class much to my teacher&apos;s confusion.
         </p>
         <p className='mb-10'>
           I had a lot of fun making it so I&apos;ve continued programming and have created many more
           projects.
         </p>
-        <Link
-          href='/projects'
-          className='border-none no-underline rounded-lg  p-3 bg-[#141414] hover:bg-[#101010]'
-        >
+        <Link href='/projects' className='link'>
           See My Projects
         </Link>
       </div>

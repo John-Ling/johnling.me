@@ -14,15 +14,11 @@ const WhatSection = () => {
         </h2>
         <h3 className='text-3xl mb-3 mt-3'>The tools I use</h3>
         <p className='mb-5'>
-          I&apos;m not a tech evangelist nor a fanatic. I don&apos;t subscribe to a particular
-          &quot;Tech Stack&quot; since I don&apos;t like limiting myself to a single method of doing
-          things. In my opinion, you should always be open to learning more to prevent stagnation.
-          That discomfort you feel about not knowing something is crucial for growth.
+          I&apos;m not a tech evangelist nor a fanatic for a particular stack. For me, the KISS
+          (Keep It Simple Stupid) principle is a valid approach to development so I prefer to use
+          the right tools rather than the hottest ones.
         </p>
-        <p>
-          For me, the KISS (Keep It Simple Stupid) principle is a valid approach to development so I
-          prefer to use the right tools rather than the hottest ones.
-        </p>
+        <p>That being said, here is a list of the languages and frameworks that I know the best.</p>
       </div>
     </section>
   );
@@ -60,7 +56,7 @@ const SkillsDisplay = () => {
         alt=''
       />
       <div
-        className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-4 justify-center bg-grey-dark border-4
+        className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-3 justify-center bg-grey-dark border-4
                   border-grey-light order-2 lg:order-1 pt-14 pb-14 pr-5 pl-5 text-center opacity-0 trigger-fade-on-scroll z-50'
         id='skills-display'
       >

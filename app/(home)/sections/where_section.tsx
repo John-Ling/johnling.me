@@ -25,7 +25,7 @@ const WhereSection = () => {
         className='opacity-0 trigger-fade-on-scroll flex flex-col mb-4 text-center lg:text-left'
         style={{ animationDelay: "200ms" }}
       >
-        <div className='flex flex-row justify-center lg:justify-start'>
+        <div className='flex flex-row justify-center items-center'>
           <div className='transition-all hover:-translate-y-1'>
             <a
               href='https://github.com/John-Ling'
