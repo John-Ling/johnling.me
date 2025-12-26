@@ -28,12 +28,12 @@ export default function Navbar() {
   const path: string = "/" + usePathname().split("/")[1];
   return (
     <nav
-      className={`max-w-[1920px] mx-auto justify-between items-center transition-all duration-10  z-30 pt-4
+      className={`max-w-[1920px] mx-auto justify-between items-center transition-all duration-10  z-50 pt-4
         ${open ? "bg-grey-normal" : "bg-opacity-0 "}  flex flex-row`}
     >
       <Link
         href='/'
-        className={`tracking-wider navlink hover:text-white text-2xl self-center  ml-3 md:ml-10 no-underline opacity-0 font-bold animate-fade-down z-20`}
+        className={`tracking-wider navlink hover:text-white text-2xl self-center  ml-3 md:ml-10 no-underline opacity-0 font-bold animate-fade-down z-50`}
         style={{ animationDelay: "300ms" }}
       >
         <span className='md:whitespace-pre md:block'>JOHN{"  "}</span>
@@ -42,7 +42,7 @@ export default function Navbar() {
 
       {/* mobile hamburger menu */}
       <button
-        className='md:hidden p-2 animate-fade-down opacity-0 z-20'
+        className='md:hidden p-2 animate-fade-down opacity-0 z-50'
         style={{ animationDelay: "300ms" }}
         onClick={() => setOpen(!open)}
       >
@@ -51,7 +51,7 @@ export default function Navbar() {
 
       {/* desktop menu */}
       <div
-        className={`hidden invisible md:flex md:visible p-4 z-30 opacity-0 animate-fade-down`}
+        className={`hidden invisible md:flex md:visible p-4 z-50 opacity-0 animate-fade-down`}
         style={{ animationDelay: "500ms" }}
       >
         <NavbarMenu links={links} activeLink={path} on_click={() => setOpen(false)} />
@@ -60,10 +60,10 @@ export default function Navbar() {
       {/* mobile menu */}
       <div
         className={`absolute visible block md:invisible md:hidden top-12 w-full bg-grey-normal transition-all 
-          ease-in-out duration-300 z-30`}
+          ease-in-out duration-300 z-50`}
       >
         <div
-          className={`transition-all ease-in-out z-30  ${open ? "duration-300 opacity-100" : " duration-300 opacity-0 invisible"}`}
+          className={`transition-all ease-in-out z-50  ${open ? "duration-300 opacity-100" : " duration-300 opacity-0 invisible"}`}
         >
           {open ? (
             <MobileMenu links={links} activeLink={path} on_click={() => setOpen(false)} />

@@ -24,9 +24,9 @@ export default function useAsciiAnimation(
 
   useEffect(() => {
     if (!size) {
-      console.log("Returning");
       return;
     }
+
     let frame: Canvas = initCanvas
       ? initCanvas(size.width, size.height)
       : Array(size.height)

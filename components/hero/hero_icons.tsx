@@ -17,8 +17,10 @@ export default function HeroIcons() {
             className='opacity-0 animate-fade-up icon-link flex items-center gap-2'
             style={{ animationDelay: "400ms" }}
           >
-            <GitHubIcon sx={{ fontSize: 20 }} />
-            GitHub
+            <div className='flex items-center gap-2 transition-transform hover:-translate-y-1'>
+              <GitHubIcon sx={{ fontSize: 20 }} />
+              GitHub
+            </div>
           </a>
         </div>
       </div>
@@ -29,11 +31,13 @@ export default function HeroIcons() {
             href='https://www.linkedin.com/in/john-ling-721721243/'
             target='_blank'
             rel='noopener noreferrer'
-            className='opacity-0 animate-fade-up hover:-translate-y-2 icon-link flex items-center gap-2'
+            className='opacity-0 animate-fade-up icon-link flex items-center gap-2'
             style={{ animationDelay: "500ms" }}
           >
-            <LinkedInIcon sx={{ fontSize: 20 }} />
-            LinkedIn
+            <div className='flex items-center gap-2 transition-transform hover:-translate-y-1'>
+              <LinkedInIcon sx={{ fontSize: 20 }} />
+              LinkedIn
+            </div>
           </a>
         </div>
       </div>
@@ -44,11 +48,13 @@ export default function HeroIcons() {
             href='https://drive.google.com/file/d/1y_VlkkFUaFXCCYF-WO-EDnCOfMHy_F90/view?usp=sharing'
             target='_blank'
             rel='noopener noreferrer'
-            className='opacity-0 animate-fade-up hover:-translate-y-2 icon-link flex items-center gap-2'
+            className='opacity-0 animate-fade-up  icon-link flex items-center gap-2'
             style={{ animationDelay: "600ms" }}
           >
-            <DescriptionIcon sx={{ fontSize: 15 }} />
-            Resume
+            <div className='flex items-center gap-2 transition-transform hover:-translate-y-1'>
+              <DescriptionIcon sx={{ fontSize: 15 }} />
+              Resume
+            </div>
           </a>
         </div>
       </div>
