@@ -8,7 +8,7 @@ export default function ContactSection() {
       <h3 className='text-2xl md:text-3xl mb-3 mt-3 font-bold text-left'>
         Where you can <span className='text-orange'>find me</span>
       </h3>
-      <div className='flex flex-col gap-2'>
+      <div className='flex flex-col gap-1 bg-grey-card border-2 border-grey-light rounded-lg p-3 md:p-5 w-full md:w-4/5'>
         <a
           href='https://github.com/John-Ling/'
           target='_blank'
