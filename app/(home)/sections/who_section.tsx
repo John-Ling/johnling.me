@@ -3,7 +3,7 @@ import myself from "@/public/images/homepage/myself.jpg";
 
 const WhoSection = () => {
   return (
-    <section className='min-h-screen flex flex-col justify-center mx-auto items-center lg:flex-row mt-5 lg:mt-0 gap-10 px-5 sm:px-6 lg:px-13 xl:px-25  lg:w-10/12 z-30'>
+    <section className='min-h-screen flex flex-col justify-center mx-auto items-center lg:flex-row mt-5 lg:mt-0 gap-10 px-5 lg:w-10/12 z-30'>
       <div className='basis-1/2'>
         <h2 className='text-6xl text-red font-bold' style={{ animationDelay: "600ms" }}>
           Who?

@@ -19,7 +19,7 @@ export function init_size(size: "sm" | "md" | "lg") {
       // restrict width and height otherwise performance issues will happens
       width: Math.max(60, Math.floor(window.innerWidth / 9)),
       height: Math.max(40, Math.floor(window.innerHeight / 37)),
-      fontSize: 0.75
+      fontSize: 0.5
     } as CanvasSize;
   }
 

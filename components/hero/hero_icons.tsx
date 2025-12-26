@@ -17,7 +17,7 @@ export default function HeroIcons() {
             className='opacity-0 animate-fade-up icon-link flex items-center gap-2'
             style={{ animationDelay: "400ms" }}
           >
-            <div className='flex items-center gap-2 transition-transform hover:-translate-y-1'>
+            <div className='flex items-center gap-2 transition-transform hover:-translate-y-1 text-sm'>
               <GitHubIcon sx={{ fontSize: 20 }} />
               GitHub
             </div>
