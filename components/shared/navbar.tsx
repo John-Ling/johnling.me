@@ -12,7 +12,7 @@ interface NavLink {
 
 export default function Navbar() {
   const links: NavLink[] = [
-    { name: "Home", target: "/" },
+    { name: "About", target: "/#about" },
     { name: "Projects", target: "/projects" },
     { name: "Blog", target: "/blog" },
     { name: "Contact", target: "/#contact" },

@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 import {
   lorenz_cleanup,
@@ -14,6 +15,21 @@ import HeroIcons from "@/components/hero/hero_icons";
 import useAsciiAnimation from "@/hooks/useAsciiAnimation";
 import { breakpointSmall, breakpointMedium, breakpointLarge } from "@/hooks/useMediaQuery";
 import { CanvasSize } from "@/types/hero/CanvasSize";
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const item = {
+  hidden: { opacity: 0, y: 8 },
+  show: { opacity: 1, y: 0 }
+};
 
 export default function Hero() {
   const [rendered, setRendered] = useState<boolean>(false);
@@ -41,71 +57,51 @@ export default function Hero() {
   }
 
   return (
-    <>
+    <motion.div variants={container} initial='hidden' animate='show'>
       <div
-        className={`min-h-screen max-w-[1920px] w-10/12 mx-auto flex pt-4 md:pt-32 justify-start flex-col lg:flex-row relative`}
+        className={`h-3/5 max-w-[1920px] w-10/12  md:w-8/12 mx-auto flex pt-4 md:pt-24 md:pb-24 justify-start flex-col lg:flex-row relative`}
       >
         <div className='basis-7/12 max-w-5xl flex flex-col z-20'>
-          <div
-            className='text-5xl z-0 mb-4 opacity-0 animate-fade-up text-left'
-            style={{ animationDelay: "100ms" }}
-          >
-            <h1 className='opacity-0 animate-fade-up' style={{ animationDelay: "100ms" }}>
-              Hello,
-            </h1>
-            <h1 className='opacity-0 animate-fade-up' style={{ animationDelay: "150ms" }}>
+          <div className='text-5xl z-0 mb-4 text-left'>
+            <motion.h1 variants={item}>Hello,</motion.h1>
+            <motion.h1 variants={item}>
               I&apos;m{" "}
-              <span className='text-orange' style={{ animationDelay: "1500ms" }}>
+              <motion.span variants={item} className='text-orange'>
                 John
-              </span>
-            </h1>
+              </motion.span>
+            </motion.h1>
           </div>
           <HeroIcons />
-          <p
-            className='mt-4 opacity-0 animate-fade-up text-left'
-            style={{ animationDelay: "400ms" }}
-          >
+          <motion.p variants={item} className='mt-4 text-left'>
             Melbourne-based full-stack developer with interests in security, UX and productivity.
-          </p>
-          <p
-            className='mt-4 opacity-0 animate-fade-up text-left'
-            style={{ animationDelay: "500ms" }}
-          >
+          </motion.p>
+          <motion.p className='mt-4 text-left' variants={item}>
             I&apos;m a final year Computer Science student at the University of Melbourne looking to
             gain practical software development experience.
-          </p>
-          <p
-            className='mt-4 opacity-0 animate-fade-up text-left'
-            style={{ animationDelay: "600ms" }}
-          >
+          </motion.p>
+          <motion.p variants={item} className='mt-4 text-left'>
             My main interest is in productivity and well-being focused applications that help others
             work smarter, reduce stress and maintain focus in a world designed to erode it.
-          </p>
-          <p
-            className='hidden md:block mt-4 opacity-0 animate-fade-up text-left'
-            style={{ animationDelay: "700ms" }}
-          >
+          </motion.p>
+          <motion.p variants={item} className='hidden md:block mt-4 text-left'>
             Currently exploring the use of encoder-only language models for detailed emotion
             classification in journal entries.
-          </p>
-          <p
-            className='hidden md:block mt-5 opacity-0 animate-fade-up text-left'
-            style={{ animationDelay: "800ms" }}
-          >
+          </motion.p>
+          <motion.p variants={item} className='hidden md:block mt-4 text-left'>
             Welcome to my website.
-          </p>
+          </motion.p>
         </div>
       </div>
       {/* background ascii display */}
       <div className='absolute z-0 top-0 left-1/2 transform -translate-x-1/2 w-full flex justify-center'>
         <div className='relative'>
           {rendered && !specialEnabled && (
-            <div className='opacity-0 animate-fade-up z-0' style={{ animationDelay: "600ms" }}>
+            <motion.div variants={item} className='z-0'>
               <AsciiDisplay fontSize={canvasSize?.fontSize} framebuffer={lorenzFramebuffer} />
-            </div>
+            </motion.div>
           )}
         </div>
       </div>
-    </>
+    </motion.div>
   );
 }
