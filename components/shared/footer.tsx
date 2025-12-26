@@ -11,18 +11,13 @@ export default function Footer() {
   useEffect(() => {
     const effect = async () => {
       const res = await fetch(
-        "https://api.github.com/repos/John-Ling/johnling.me/commits?per_page=1"
+        process.env.NODE_ENV === "production"
+          ? "https://www.johnling.me/api/updated"
+          : "http://localhost:3000/api/updated"
       );
       if (res.ok) {
-        const response = await res.json();
-        const isoDate: Date = new Date(response[0].commit.author.date);
-        setUpdatedDate(
-          isoDate.toLocaleString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric"
-          })
-        );
+        const { updated } = await res.json();
+        setUpdatedDate(updated);
         setLoading(false);
       }
     };
