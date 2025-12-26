@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, stagger } from "framer-motion";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import DescriptionIcon from "@mui/icons-material/Description";
@@ -8,15 +8,14 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      delayChidren: 0.4,
-      staggerChildren: 0.1
+      delayChildren: stagger(0.05)
     }
   }
 };
 
 const item = {
-  hidden: { opacity: 0, y: 8 },
-  show: { opacity: 1, y: 0 }
+  hidden: { opacity: 0, transform: "translateY(8px)" },
+  show: { opacity: 1, transform: "translateY(0px)" }
 };
 
 export default function HeroIcons() {
@@ -38,7 +37,7 @@ export default function HeroIcons() {
           </motion.a>
         </div>
       </div>
-      <div className='border-grey-muted border h-6 ml-3 mr-3' />
+      <motion.div variants={item} className='border-grey-muted border h-6 ml-3 mr-3' />
       <div className='opacity-0 animate-fade-up flex items-center'>
         <div className='hover:text-orange transition-colors'>
           <motion.a
@@ -55,7 +54,7 @@ export default function HeroIcons() {
           </motion.a>
         </div>
       </div>
-      <div className='border-grey-muted border h-6 ml-3 mr-3' />
+      <motion.div variants={item} className='border-grey-muted border h-6 ml-3 mr-3' />
       <div className='opacity-0 animate-fade-up  flex items-center'>
         <div className='hover:text-orange transition-colors'>
           <motion.a

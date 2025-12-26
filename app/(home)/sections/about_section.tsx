@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, stagger } from "framer-motion";
 import myself from "@/public/images/homepage/myself.jpg";
 
 const container = {
@@ -7,14 +7,14 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1
+      delayChildren: stagger(0.1)
     }
   }
 };
 
 const item = {
-  hidden: { opacity: 0, y: 8 },
-  show: { opacity: 1, y: 0 }
+  hidden: { opacity: 0, transform: "translateY(8px)" },
+  show: { opacity: 1, transform: "translateY(0px)" }
 };
 
 export default function AboutSection() {
