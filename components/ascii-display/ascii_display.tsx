@@ -1,17 +1,22 @@
 interface AsciiDisplayProps {
-  framebuffer: string[][];
+  framebuffer?: string[][];
+  fontSize?: number; // measured in rem
 }
 
-export default function AsciiDisplay({ framebuffer }: AsciiDisplayProps) {
+export default function AsciiDisplay({ framebuffer, fontSize }: AsciiDisplayProps) {
   return (
     <div className={`text-center p-2 overflow-clip whitespace-nowrap select-none z-0`}>
       {/* render characters */}
-      {framebuffer.map((row: string[], i: number) => {
+      {framebuffer?.map((row: string[], i: number) => {
         return (
           <div key={i}>
             {row.map((char: string, j: number) => {
               return (
-                <span key={j} className='text-[#575757] inline-block whitespace-pre-wrap'>
+                <span
+                  key={j}
+                  style={{ fontSize: `${fontSize}rem` }}
+                  className='text-[#575757] inline-block whitespace-pre-wrap'
+                >
                   {char}
                 </span>
               );

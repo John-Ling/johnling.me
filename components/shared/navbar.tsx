@@ -42,7 +42,7 @@ export default function Navbar() {
 
       {/* mobile hamburger menu */}
       <button
-        className='md:hidden p-2 animate-fade-down opacity-0'
+        className='md:hidden p-2 animate-fade-down opacity-0 z-20'
         style={{ animationDelay: "300ms" }}
         onClick={() => setOpen(!open)}
       >

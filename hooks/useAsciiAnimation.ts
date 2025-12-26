@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
  * Hook for creating the canvas used by an ascii display component
  */
 export default function useAsciiAnimation(
-  size: CanvasSize,
+  size: CanvasSize | null,
   nextFrame: (buffer: Canvas, width: number, height: number) => Canvas,
   cleanup: () => void,
   initCanvas?: (width: number, height: number) => Canvas,
@@ -15,13 +15,15 @@ export default function useAsciiAnimation(
 ) {
   const ANIMATION_SPEED = animationSpeed ?? 15;
   const animationRequestID = useRef<number>(0);
+
   const [framebuffer, setFramebuffer] = useState<Canvas>(
-    Array(size.height)
+    Array(size?.height)
       .fill(null)
-      .map(() => Array(size.width).fill(" "))
+      .map(() => Array(size?.width).fill(" "))
   );
 
   useEffect(() => {
+    if (!size) return;
     let frame: Canvas = initCanvas
       ? initCanvas(size.width, size.height)
       : Array(size.height)
@@ -61,7 +63,7 @@ export default function useAsciiAnimation(
       cleanup();
       cancelAnimationFrame(animationRequestID.current);
     };
-  }, [pause]);
+  }, [size, pause]);
 
   return { framebuffer };
 }
