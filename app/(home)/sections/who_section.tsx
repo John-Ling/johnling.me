@@ -18,9 +18,9 @@ const WhoSection = () => {
           Since then, however, I&apos;ve kept it around as my own personal place on the internet.
         </p>
         <p>
-          Beyond programming and productivity stuff, I enjoy the piano, hobby electronics,
-          homelabbing, journalling and Linux ricing. I also have a growing interest in startups and
-          business that I&apos;m currently pursuing.
+          Beyond programming, I enjoy the piano, hobby electronics, homelabbing, journalling and
+          Linux ricing. I also have a fledgling interest in startups and business that I&apos;m
+          currently pursuing.
         </p>
       </div>
       <div className='basis-1/2'>

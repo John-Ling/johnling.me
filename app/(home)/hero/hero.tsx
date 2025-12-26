@@ -56,27 +56,21 @@ export default function Hero() {
           className='mt-4 mb-4 opacity-0 animate-fade-up text-center md:text-left'
           style={{ animationDelay: "400ms" }}
         >
-          Melbourne-based Full-Stack developer with interests in security, UX and productivity.
+          Melbourne-based full-stack developer with interests in security, UX and productivity.
+        </p>
+        <p className='opacity-0 animate-fade-up' style={{ animationDelay: "500ms" }}>
+          I&apos;m a final year Computer Science student at the University of Melbourne looking to
+          gain practical software development experience. I&apos;m interested in productivity and
+          well-being focused applications that help others work smarter, reduce stress and maintain
+          focus in a world designed to erode it.
         </p>
         <p
-          className='mt-4 mb-4 md:m-0 opacity-0 animate-fade-up'
-          style={{ animationDelay: "500ms" }}
-        >
-          I enjoy creating applications to help myself and others work smarter towards their goals,
-          reduce stress and maintain focus in a world full of distractions.
-        </p>
-        <p
-          className='hidden md:block opacity-0 animate-fade-up'
+          className='mt-4 mb-4 hidden md:block opacity-0 animate-fade-up'
           style={{ animationDelay: "600ms" }}
         >
           In short, I like helping people :)
         </p>
-        <p className='mt-4 opacity-0 animate-fade-up' style={{ animationDelay: "600ms" }}>
-          I&apos;m a final year Computer Science student at the University of Melbourne looking to
-          gain practical software development experience whether through a job, internship or
-          research assistant position.
-        </p>
-        <p className='mt-5 opacity-0 animate-fade-up' style={{ animationDelay: "700ms" }}>
+        <p className='opacity-0 animate-fade-up' style={{ animationDelay: "700ms" }}>
           Currently exploring the use of encoder-only language models for detailed emotion
           classification in journal entries.
         </p>
