@@ -18,8 +18,10 @@ export default function Footer() {
       if (res.ok) {
         const { updated } = await res.json();
         setUpdatedDate(updated);
-        setLoading(false);
+      } else {
+        setUpdatedDate("ERROR");
       }
+      setLoading(false);
     };
     effect();
   }, []);

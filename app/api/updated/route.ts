@@ -4,6 +4,7 @@ export async function GET() {
   const res = await fetch("https://api.github.com/repos/John-Ling/johnling.me/commits?per_page=1", {
     headers: { Authorization: `Bearer ${process.env.GH_ACCESS_TOKEN}` }
   });
+
   if (!res.ok) {
     return NextResponse.json({ error: "Error" }, { status: 500 });
   }
