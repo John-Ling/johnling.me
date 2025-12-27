@@ -6,7 +6,7 @@ import ProjectModal from "@/components/projects/project_modal";
 import { projects } from "@/lib/projects";
 import useProjectModal from "@/hooks/useProjectModal";
 
-export default function ProjectSection() {
+export default function Projects() {
   const { selectedProject, modalOpened, onProjectSelect, onClose } = useProjectModal();
 
   const featuredProjects = projects.filter(

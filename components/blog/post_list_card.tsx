@@ -16,6 +16,7 @@ export function PostListCard({ post, position }: PostListCardProps) {
     "text-orange-light",
     "text-red"
   ];
+
   const colourClass: string = colours[position % colours.length];
   return (
     <div className='p-3 md:p-5  bg-grey-card border-2 border-grey-light rounded-lg flex flex-col justify-between items-start'>

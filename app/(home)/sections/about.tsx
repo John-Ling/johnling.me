@@ -18,7 +18,7 @@ const item = {
   show: { opacity: 1, transform: "translateY(0px)" }
 };
 
-export default function AboutSection() {
+export default function About() {
   return (
     <motion.section
       variants={container}

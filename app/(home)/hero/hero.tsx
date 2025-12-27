@@ -76,8 +76,8 @@ export default function Hero() {
             Melbourne-based full-stack developer with interests in security, UX and productivity.
           </motion.p>
           <motion.p className='mt-4 text-left' variants={item}>
-            I&apos;m a final year Computer Science student at the University of Melbourne looking to
-            gain practical software development experience.
+            I&apos;m a final year Computer Science student at the University of Melbourne with prior
+            internship experience looking to gain more and improve my skills.
           </motion.p>
           <motion.p variants={item} className='mt-4 text-left'>
             My main interest is in productivity and well-being focused applications that help others
