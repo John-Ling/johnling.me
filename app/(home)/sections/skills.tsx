@@ -39,8 +39,8 @@ const SkillsDisplay = () => {
         alt=''
       /> */}
       <div
-        className='grid grid-cols-4 gap-x-8 gap-y-2 justify-center bg-grey-card border-2 rounded-lg
-                  border-grey-light order-2 p-3 md:p-5 lg:order-1 text-center z-50 h-48'
+        className='grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-2 justify-center bg-grey-card border-2 rounded-lg
+                  border-grey-light order-2 p-3 md:p-5 lg:order-1 text-center z-50 h-auto md:h-48'
       >
         {skillIcons.map((icon: SkillIcon, i: number) => {
           return (
