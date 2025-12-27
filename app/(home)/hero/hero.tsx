@@ -73,15 +73,15 @@ export default function Hero() {
           </div>
           <HeroIcons />
           <motion.p variants={item} className='mt-4 text-left'>
-            Melbourne-based full-stack developer with interests in security, UX and productivity.
+            Melbourne-based full-stack developer with interests in UX and low-level systems.
           </motion.p>
           <motion.p className='mt-4 text-left' variants={item}>
             I&apos;m a final year Computer Science student at the University of Melbourne with prior
-            internship experience looking to gain more and improve my skills.
+            internship experience looking to improve my skills.
           </motion.p>
           <motion.p variants={item} className='mt-4 text-left'>
-            My main interest is in productivity and well-being focused applications that help others
-            work smarter, reduce stress and maintain focus in a world designed to erode it.
+            My interests lie in productivity and well-being focused applications that help others
+            reduce stress and maintain focus in a world designed to erode it.
           </motion.p>
           <motion.p variants={item} className='hidden md:block mt-4 text-left'>
             Currently exploring the use of encoder-only language models for detailed emotion
