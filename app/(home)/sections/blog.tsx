@@ -2,7 +2,7 @@ import { BlogPost } from "@/types/blogs/blog_post";
 import { get_sorted_posts } from "@/lib/posts";
 import Link from "next/link";
 
-export default function BlogSection() {
+export default function Blog() {
   const latestPost: BlogPost = get_sorted_posts()[0];
   const wordSubset =
     latestPost.content
