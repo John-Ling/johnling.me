@@ -36,12 +36,13 @@ hour=$(date +%-H)
 
 # change to whatever time you want
 if [[ $hour -ge 21 || $hour -lt 6 ]]; then
-    hyprctl hyprpaper reload ,"~/.config/hypr/wallpapers/island_night.jpg"
+    hyprctl hyprpaper wallpaper,"~/.config/hypr/wallpapers/island_night.jpg"
 elif [[ $hour -ge 6 ]]; then
-    hyprctl hyprpaper reload ,"~/.config/hypr/wallpapers/island_day.jpg"
+    hyprctl hyprpaper wallpaper,"~/.config/hypr/wallpapers/island_day.jpg"
 fi
 `}
 </CodeBlock>
+_If this doesn't work try changing "wallpaper" to reload._
 
 To achieve the automatic switching, I created a systemd service and timer. The reason I used Systemd over simple Cron jobs is that Systemd timers can be configured to run immediately after startup even 
 if it's original trigger time has elapsed. When I trialed Cron I found that putting my laptop to sleep and waking it at 10pm caused the event to not fire. 
