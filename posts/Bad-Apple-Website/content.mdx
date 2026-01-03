@@ -13,7 +13,6 @@ But can it play Bad Apple?
 
 _My friend after their first visit to the website_
 
-
 If you visit [https://johnling.me?apple](https://johnling.me?apple) it does. 
 
 I'm not kidding.
@@ -26,9 +25,9 @@ Here's how I made it.
 
 First thing I had to do was to resize the video into a resolution that could be rendered on my website.
 
-While the display can be of any size, the CPU-bounded nature of `requestAnimationFrame` (how I ran my animations) meant that I could definitely not render Bad Apple at its full resolution without turning my visitor's computers into a space heater.
+While the display can be of any size, the CPU-bound nature of the `requestAnimationFrame` function I used for the animations meant that I could not render Bad Apple at its full resolution without turning my visitor's computer into a space heater.
 So I had to downscale the animation to a more manageable size.
-Initially I attempted to use FFMPeg however it introduced artifacts into the resulting video that I would have to fix via post-processing later. So I settled on an OpenCV script to heavily reduce the resolution.
+Initially I attempted to use FFmpeg, however it introduced artifacts into the resulting video that I would have to fix via post-processing later. I settled on an OpenCV script to heavily reduce the resolution.
 
 <CodeBlock language="python" filename="resize.py">
 {`
@@ -64,11 +63,11 @@ if __name__ == "__main__":
 `}
 </CodeBlock>
 
-You can now literally count the pixels in the video. However that is what we want. 
+You can now literally count the pixels in the video. However, that is what we want. 
 
 ### Converting Bad Apple to ASCII
 
-Next, I needed to convert the video into text to be rendered
+Next, I needed to convert the video into text to be rendered.
 Since the entirety of Bad Apple is black and white, we could just iterate through the pixels and convert them into either '*' or '&nbsp;' to represent black and white respectively.
 
 <CodeBlock language="python" filename="convert.py">
@@ -117,9 +116,9 @@ Frames are stored as lines separated by newlines and are saved to a file._
 
 ## Delivering the Content
 
-Technically this article is a bit out of order as I decided on the method of rendering before writing the Python scripts.
+Technically, this article is a bit out of order as I decided on the method of rendering before writing the Python scripts.
 
-I passed around a few ideas on how to do this most of them pretty over-engineered. Eventually, I converged on simply storing the frames in a single text file, compressing it then download, unzip and parse the file when needed.
+I passed around a few ideas on how to do this, most of them over-engineered. Eventually, I decided on simply storing the frames in a compressed text file then unzipping and parse the file when needed.
 
 The JSZip library came in handy and I wrote some code to download, unzip, split on newlines and load the frames into an array. 
 
