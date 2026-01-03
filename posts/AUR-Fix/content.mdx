@@ -14,18 +14,18 @@ Or you may have seen this when visiting https://aur.archlinux.org/
 
 ## Why Is This?
 
-Currently, the AUR is experiencing a DDOS attack. 
+Currently, the AUR is experiencing a DDoS attack. 
 
 ![Announcement from Arch guy](/images/blog/AUR-Fix/5.png)
 
 _Source: https://archlinux.org/news/recent-services-outages/_
 
-Yeah that's about it. Why someone would DDOS the AUR of all places is up for speculation. Perhaps a Manjaro fan haha.
+Yeah that's about it. Why someone would DDoS the AUR of all places is up for speculation. Perhaps a Manjaro user.
 
 
 ## The Fix
 
-As outlined by Christian Heusel, Arch Linux maintains a GitHub hosted mirror for the AUR which currently is not down. Until you can regain access to the AUR, this will be your source of access.
+As outlined by Christian Heusel, Arch Linux maintains a GitHub hosted mirror for the AUR which currently is not down. Until you can regain access to the AUR, this will be your source for packages.
 
 <CodeBlock>
 {`
@@ -34,12 +34,12 @@ cd paru
 makepkg -si
 `}
 </CodeBlock>
-_Substitute paru for whatever AUR package you want._
+_Substitute `paru` for whatever AUR package you want to install._
 
-These commands will clone the package from GitHub, build then install it. 
+These commands will clone the package from GitHub, build and then install it. 
 
 
-If this approach is tedious I've written a script that does this for you. I call it urap.
+If this approach is tedious I've written a script that does this for you. I call it `urap`.
 <CodeBlock language="bash">
 {`
 #!/bin/bash
@@ -76,7 +76,7 @@ cd ../
 rm -rf $1
 `}
 </CodeBlock>
-I've put this script in my PATH and I'll be using it going forward when the AUR is down.
+I've put this script in my PATH and I'll be using it going forward whenever the AUR is down.
 
 If you are curious about the status, you can visit https://status.archlinux.org/
 
@@ -84,5 +84,4 @@ If you are curious about the status, you can visit https://status.archlinux.org/
 
 _As of writing the AUR is down but should be up soon._
 
-
-Until the DDOS attacks stop, expect intermittent behaviour from the AUR and I'll be expecting to use `urap` way more times. 
+Until the DDoS attacks stop, expect intermittent behaviour from the AUR and I'll be expecting to use `urap` many more times. 
