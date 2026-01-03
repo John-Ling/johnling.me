@@ -28,7 +28,7 @@ Despite this, I'm still an advocate being at least somewhat familiar with the ma
 
 If you want an Arch based system with an easy install, I'd recommend using EndeavorOS.
 
-## Assumptions and Prerequisites (Important Please Read)
+## Assumptions and Prerequisites (Important, Please Read)
 
 - Make sure to **back up any important data on your current drive** as this **will be wiped when installing Arch**. 
 
@@ -40,7 +40,7 @@ If you want an Arch based system with an easy install, I'd recommend using Endea
 
 - I believe that learning what's happening as you install Arch is just as valuable as the finished installation. Throughout the guide I'll be putting little explanations in _italics_. **While I recommend reading them to learn more, you can absolutely ignore them and get a functional setup**.  If you just follow the commands shown in the guide installing Arch will not be hard but there is a lot of things you can learn.
 
-- **Dual booting with Windows won't be covered** in this guide to keep things from getting too long. I will write another guide on how to setup a dual boot system between Linux and Windows for GRUB (the bootloader of choice in ths guide) later. 
+- **Dual booting with Windows won't be covered** in this guide to keep things from getting too long. I will write another guide on how to setup a dual boot system between Linux and Windows for GRUB (the bootloader of choice in this guide) later. 
 
 - Knowing the basic specs of your device will help during the installation mainly whether you have an Intel or AMD CPU (if you have Apple Silicon then this guide will not work) and the size of your disk. 
 
@@ -136,7 +136,7 @@ fdisk YOUR_BLOCK_DEVICE
 </CodeBlock>
 
 
-If your drive already has partitions on it we'll have to delete them
+If your drive already has partitions on it, we'll have to delete them
 
 Enter the character 'd' and hit enter. Keep repeating this until you get the message "no partition is defined yet"
 
@@ -379,14 +379,14 @@ You should also install microcode for either your Intel or AMD CPU.
 pacman -S intel-ucode 
 `}
 </CodeBlock>
-or 
+or:
 <CodeBlock>
 {`
 pacman -S amd-ucode
 `}
 </CodeBlock>
 
-_An explanation of microcode goes way way beyond what I know. From what I gather it's basically firmware for the CPU itself._
+_A non-Chatgpted explanation of microcode goes way beyond what I know. From what I gather it's basically firmware for the CPU itself._
 
 ### Timezones 
 Use the keys 'j' and 'k' to navigate down and up.
@@ -435,7 +435,7 @@ Use the arrow keys to move down until you find en_US.UTF-8 or en_GB.UTF-8 delete
 
 <img src="/images/blog/Arch-Linux-Guide/image-5.png" alt="Nano editing /etc/locale.gen" width="800" />
 
-While you can just use English locales. You may need to enable a few more locales using the same method if your text does not render correctly. To display titles for my Chinese, Japanese and Korean songs on Spotify I needed to enable the ja_JP.UTF-8, ko_KR.UTF-8, zh_CN.UTF-8 and zh_TW.UTF-8 locales. If your applications need to display different languages you will need to enable more.
+While you can just use English locales, you may need to enable a few more locales using the same method if your text does not render correctly. To display titles for my Chinese, Japanese and Korean songs on Spotify I needed to enable the ja_JP.UTF-8, ko_KR.UTF-8, zh_CN.UTF-8 and zh_TW.UTF-8 locales. If your applications need to display different languages you will need to enable more.
 
 Press CTRL O and hit enter to save the file. Then CTRL X to exit.
 
@@ -526,7 +526,7 @@ Now to **exit Vim**.
 
 Press :wq then hit ENTER. This both writes the changes and exits Vim.
 
-Hang in there we're nearly done.
+Hang in there, we're nearly done.
 
 ## Stage 3/3: Bootloader Setup and Finishing Touches
 
