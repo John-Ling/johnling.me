@@ -3,7 +3,7 @@ title: "How to Connect to eduroam and UniWireless at Unimelb on Linux (IWD / Net
 date: "27/07/2025"
 ---
 
-When I first started at Unimelb, I had a bit of difficulty trying to connect to the WiFi since they use an enterprise network in fact I spent the first few days of uni working off my hotspot
+When I first started at Unimelb, I had a bit of difficulty trying to connect to the WiFi since they use an enterprise network. In fact I spent the first few days of uni working off my hotspot
 because I was still trying to figure out how to connect to the WiFi.
 
 Although they do provide some guidance for configuring the network on desktop environments like Gnome or KDE, for window managers like Hyprland, I3 or AwesomeWM, that configuration for those platforms
@@ -15,7 +15,7 @@ for IWD and NetworkManager.
 ## IWD
 
 I use IWD for my laptop so I had to create a config file. 
-Use `sudo su` to become root and create this file
+Use `sudo su` to become root and created this file
 
 <CodeBlock filename="/var/lib/iwd/eduroam.8021x">
 {`
@@ -37,7 +37,7 @@ Autoconnect=true
 `}
 </CodeBlock>
 
-Use this configuration for UniWireless
+Use this configuration for UniWireless:
 
 <CodeBlock filename="/var/lib/iwd/UniWireless.8021x">
 {`
@@ -56,14 +56,13 @@ EAP-PEAP-Phase2-Password=YOUR UNIMELB PASSWORD
 `}
 </CodeBlock>
 
-
 <CodeBlock>
 {`
 systemctl restart iwd
 `}
 </CodeBlock>
 
-Now try connecting to the network 
+Now try connecting to the network:
 
 <CodeBlock>
 {`
@@ -74,7 +73,7 @@ iwctl station wlan0 connect UniWireless
 
 ## Network Manager (nmcli)
 
-Run the following commands as root or with sudo.
+Run the following commands as root or with `sudo`:
 
 <CodeBlock>
 {`
@@ -83,7 +82,7 @@ nmcli con edit id eduroam
 `}
 </CodeBlock>
 
-Once there set the following properties in nmcli.
+Once there set the following properties in `nmcli`:
 
 <CodeBlock>
 {`
@@ -99,14 +98,14 @@ activate
 `}
 </CodeBlock>
 
-To connect in the future
+To connect in the future:
 <CodeBlock>
 {`
 nmcli device wifi connect eduroam
 `}
 </CodeBlock>
 
-For UniWireless
+For UniWireless:
 
 <CodeBlock>
 {`
