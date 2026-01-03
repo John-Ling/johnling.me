@@ -9,7 +9,7 @@ On systems like macOS, wallpapers can be made "dynamic". That is, the wallpaper'
 
 ![macos dynamic wallpapers showcase](/images/blog/Hyprland-Dynamic-Wallpapers/1.jpg)
 
-With some quick scripting, I replicated this effect to a degree on Hyprland. While you will not get the incredibly subtle changes found on macOS' implementation, you will get a wallpaper that can change appearance at certain times of the day. For me, I've kept it simple with a daytime wallpaper that runs until 9pm before switching to night, signifying it's time for me to stop working.
+With some quick scripting, I replicated this effect to some degree on Hyprland. While you will not get the incredibly subtle changes found on macOS' implementation, you will get a wallpaper that can change appearance at certain times of the day. For me, I've kept it simple with a daytime wallpaper that runs until 9pm before switching to night, signifying it's time for me to stop working.
 
 ## Setup
 
@@ -21,7 +21,7 @@ In my configuration, I placed my photos under `~/.config/hypr/wallpapers`
 
 ### Script + Systemd
 
-I cobbled together this bash script to run hyprpaper based on the time, placing it in `~/.local/bin`. Make sure to make it executable with `chmod +x`.
+I cobbled together this bash script to run `hyprpaper` based on the time, placing it in `~/.local/bin`. Make sure to make it executable with `chmod +x`.
 
 <CodeBlock language="bash" filename="~/.local/bin/wallpaper.sh">
 {`
@@ -42,7 +42,7 @@ elif [[ $hour -ge 6 ]]; then
 fi
 `}
 </CodeBlock>
-_If this doesn't work try changing "wallpaper" to reload._
+_If this doesn't work try changing "wallpaper" to "reload"._
 
 To achieve the automatic switching, I created a systemd service and timer. The reason I used Systemd over simple Cron jobs is that Systemd timers can be configured to run immediately after startup even 
 if it's original trigger time has elapsed. When I trialed Cron I found that putting my laptop to sleep and waking it at 10pm caused the event to not fire. 
