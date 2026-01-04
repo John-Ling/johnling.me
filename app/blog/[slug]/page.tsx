@@ -4,8 +4,6 @@ import { get_post, get_sorted_posts } from "@/lib/posts";
 import Markdown from "react-markdown";
 import CodeBlock from "@/components/code-block/code_block";
 import style from "./markdown.module.css";
-import "katex/dist/katex.min.css";
-import "/styles/syntax_highlighting.css"; // include modified highlight.js theme
 import { MDXComponents } from "mdx/types";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -14,6 +12,7 @@ import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 import Link from "next/link";
 import { BlogPost } from "@/types/blogs/blog_post";
+import Content from "./content";
 
 export default async function Page(props: Params) {
   const components: MDXComponents = { CodeBlock, Markdown };
@@ -45,7 +44,6 @@ export default async function Page(props: Params) {
       }
     }
   });
-
   return (
     <>
       <title>{post.title}</title>
@@ -56,7 +54,7 @@ export default async function Page(props: Params) {
         <article className={`pt-5 pb-5 ${style.markdown}`}>
           <h1 className='text-xl mb-5 font-meslo'>{post.title}</h1>
           <p className='mb-5 text-sm text-muted-white font-meslo italic'>{post.date}</p>
-          <div>{compiled.content}</div>
+          <Content mdx={compiled} />
         </article>
         <Link className='link' href='/blog'>
           Back

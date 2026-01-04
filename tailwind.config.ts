@@ -70,7 +70,7 @@ const config: Config = {
       "flicker-on": "flicker_on 1s linear forwards",
       float: "float 3s ease-in-out infinite",
       "float-inverse": "float-inverse 3s ease-in-out infinite",
-      scanlines: "scanlines 60s linear infinite"
+      scanlines: "scanlines 10s linear infinite"
     },
     fontFamily: {
       meslo: ["var(--font-meslo)"]

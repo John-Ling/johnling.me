@@ -306,7 +306,7 @@ far quicker runtimes.
 Patricia tries do have caveats namely that their insertion can be significantly slowed down by incredibly long key lengths or high entropy data.
 
 This means that Patricia tries may not be useful as a way of 
-In the context of a web server, if designing a dictionary to map user IDs to access tokens, a Patricia trie may not be the ideal\
+In the context of a web server, if designing a dictionary to map user IDs to access tokens, a Patricia trie may not be the ideal
 solution as the high entropy of **unique** user IDs will reduce the effectiveness of search as keys cannot be compressed.
 
 Moreover, storing incredibly long keys would not be ideal for Patricia tries due to long insert times.
