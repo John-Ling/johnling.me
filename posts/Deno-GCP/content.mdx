@@ -1,0 +1,37 @@
+---
+title: "Resolving \"Client network socket disconnected before secure TLS connection was established\" in Deno GCP"
+date: "18/01/2026"
+---
+
+As part of my full-stack volunteering work, I was tasked with developing a Supabase edge function for fetching and storing events.
+Our project used GCP Secret Manager to store API keys which meant I would need to access it in the function. Since Supabase uses Deno as its runtime, I encountered this problem during development where any connection to GCP's services was not possible, leaving this cryptic error.
+
+![GCP error](/images/blog/Deno-GCP/image.png)
+
+It turns out this error is caused by a breaking change to the `grpc/grpc-js` package. While the reason is currently unknown, it's suspected that new versions of `grpc-js` creating explicit TCP sockets to attempt to form a TLS session which is then used to establish a HTTP connection.
+This is a different protocol over older versions which used the `http2` module.
+
+
+![Github ](/images/blog/Deno-GCP/image2.png)
+
+At this moment, no fix for Deno has been officially published which leaves us with two solutions.
+
+- Downgrading `grpc/grpc-js` to a version \<\= 1.12.6
+- For any packages under the `@google-cloud` namespace, client classes should have a boolean fallback option that allows for an alternative transport implementation to be used over grpc.
+
+![GitHub ](/images/blog/Deno-GCP/image3.png)
+
+For my case, I was able to use the fallback option and everything worked fine.
+
+<CodeBlock language="ts">
+{`
+const client = new SecretManagerServiceClient({ 
+  credentials: {
+    client_email: Deno.env.get("GOOGLE_SERVICE_ACCOUNT_CLIENT_EMAIL")!,
+    private_key: Deno.env.get("GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY")!
+  }, 
+  fallback: true
+});
+`}
+</CodeBlock>
+
