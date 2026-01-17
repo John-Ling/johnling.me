@@ -17,7 +17,7 @@ export default function Blog() {
       </h3>
       <div className='w-full'>
         <div className='p-3 md:p-5 bg-grey-card border-2 border-grey-light rounded-lg flex flex-col justify-between items-start h-48'>
-          <h2 className={`text-md mb-2`}>{latestPost.title}</h2>
+          <h2 className={`text-md mb-2 text-blue`}>{latestPost.title}</h2>
           <p className='text-xs text-muted-white font-italic'>{latestPost.date}</p>
           <p className='w-11/12 mt-2 text-xs md:text-sm max-h-[3rem] md:max-h-[3.5rem] text-muted-white overflow-hidden'>
             {wordSubset}
