@@ -45,24 +45,20 @@ export default function CodeBlock({
       <div className='bg-[#161616]  border-2 border-grey-light flex flex-col mb-5 mt-5'>
         <div className='flex flex-row justify-between items-center bg-grey-normal pl-3 pr-3 pu-1 pb-1'>
           <p className='text-muted-white p-0 m-0 text-sm leading-none'>{filename}</p>
-          {!canCopy ? (
-            <></>
-          ) : (
-            <>
-              <div className='relative'>
-                <div
-                  className={`absolute bottom-10 pt-1 pb-1 pl-2 pr-2 ${!tooltipVisible ? "hidden" : ""}`}
-                >
-                  {copied ? "Copied" : "Copy"}
-                </div>
-                <ContentPasteIcon
-                  onMouseOver={() => setTooltipVisible(true)}
-                  onMouseOut={() => setTooltipVisible(false)}
-                  onClick={on_copy}
-                  className='hover:cursor-pointer text-muted-white active:text-[#A0A0A0] hover:text-[#909090] text-md'
-                />
+          {canCopy && (
+            <div className='relative'>
+              <div
+                className={`absolute bottom-10 pt-1 pb-1 pl-2 pr-2 ${!tooltipVisible ? "hidden" : ""}`}
+              >
+                {copied ? "Copied" : "Copy"}
               </div>
-            </>
+              <ContentPasteIcon
+                onMouseOver={() => setTooltipVisible(true)}
+                onMouseOut={() => setTooltipVisible(false)}
+                onClick={on_copy}
+                className='hover:cursor-pointer text-muted-white active:text-[#A0A0A0] hover:text-[#909090] text-md'
+              />
+            </div>
           )}
         </div>
         <div className='flex flex-row'>
@@ -72,16 +68,19 @@ export default function CodeBlock({
               return (
                 <p
                   key={index}
-                  className='font-bold leading-none pt-0 pb-0 pl-2 pr-2 select-none text-xs text-muted-white text-right'
+                  className='font-bold font-mono leading-none pl-2 pr-2 select-none text-xs text-muted-white text-right'
                 >
                   {number}
                 </p>
               );
             })}
           </div>
-          <div className=' bg-[#161616] pb-1 pt-1 pl-2 overflow-x-scroll'>
+          <div className='bg-[#161616] pb-1 pt-1 pl-2 w-full '>
             {/* return code block markdown with syntax highlighting */}
-            <Markdown rehypePlugins={[rehypeHighlight]}>
+            <Markdown
+              rehypePlugins={[rehypeHighlight]}
+              className='[-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'
+            >
               {`\`\`\`${language}${children}\`\`\``}
             </Markdown>
           </div>

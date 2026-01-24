@@ -5,6 +5,7 @@
 }
 
 .markdown h2 {
+    font-family: var(--font-serif);
     font-size: 1.75rem;
     line-height: 2.5rem;
     margin-top: 2rem;
@@ -12,6 +13,7 @@
 }
 
 .markdown h3 {
+    font-family: var(--font-serif);
     font-size: 1.5rem;
     line-height: 2.5rem;
     font-weight: 700;
@@ -20,17 +22,20 @@
 }
 
 .markdown h4 {
+    font-family: var(--font-serif);
     font-size: 1.25rem;
     line-height: 2.5rem;
     font-weight: 700;
 }
 
 .markdown h5 {
+    font-family: var(--font-serif);
     font-size: 1rem;
     line-height: 2.5rem;
 }
 
 .markdown h6 {
+    font-family: var(--font-serif);
     font-size: 0.75rem;
     line-height: 2.5rem;
 }
@@ -74,10 +79,13 @@
 
 
 
-.markdown code {
-    padding: 1px 2px;
-    border-radius: 2px;
+.markdown :not(pre) > code {
+    padding: 0;
+    font-family: var(--font-meslo);
     background-color: #574e3d;
+    padding: 0 2px;
+    border-radius: 2px;
+    font-size: 0.75rem;
     color: #ebdbbc;
 }
 
@@ -92,8 +100,7 @@
 
 .markdown code .hljs {
     color: theme("colors.white") !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    font-size: 1rem !important;
 }
 
 .markdown a {

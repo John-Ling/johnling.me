@@ -23,7 +23,7 @@ export default function HeroIcons() {
   return (
     <motion.div
       variants={container}
-      className='flex flex-col md:flex-row justify-center md:justify-start text-sm gap-1'
+      className='flex flex-col md:flex-row justify-center md:justify-start text-sm gap-1 font-mono'
     >
       <div className='flex'>
         <div className='hover:text-orange transition-colors'>
@@ -34,7 +34,7 @@ export default function HeroIcons() {
             rel='noopener noreferrer'
             className='icon-link flex items-center gap-2'
           >
-            <div className='flex items-center gap-2 transition-transform hover:-translate-y-1'>
+            <div className='flex items-center gap-2 transition-transform'>
               <GitHubIcon sx={{ fontSize: 20 }} />
               GitHub
             </div>
@@ -49,7 +49,7 @@ export default function HeroIcons() {
             rel='noopener noreferrer'
             className='icon-link flex items-center gap-2'
           >
-            <div className='flex items-center gap-2 transition-transform hover:-translate-y-1'>
+            <div className='flex items-center gap-2 transition-transform'>
               <LinkedInIcon sx={{ fontSize: 20 }} />
               LinkedIn
             </div>
@@ -71,7 +71,7 @@ export default function HeroIcons() {
             rel='noopener noreferrer'
             className='icon-link flex items-center gap-2'
           >
-            <div className='flex items-center gap-2 transition-transform hover:-translate-y-1'>
+            <div className='flex items-center gap-2 transition-transform'>
               <DescriptionIcon sx={{ fontSize: 20 }} />
               Resume
             </div>
@@ -86,7 +86,7 @@ export default function HeroIcons() {
             rel='noopener noreferrer'
             className='icon-link flex items-center gap-2'
           >
-            <div className='flex items-center gap-2 transition-transform hover:-translate-y-1'>
+            <div className='flex items-center gap-2 transition-transform'>
               <EmailIcon sx={{ fontSize: 20 }} />
               Email
             </div>

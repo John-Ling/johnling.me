@@ -12,9 +12,9 @@ export default function Blog() {
       .replace(/[.,!?;:\\s]+$/, "") + "...";
   return (
     <>
-      <h3 className='text-2xl md:text-3xl mb-3 mt-3 font-bold text-left'>
+      <h2 className='text-xl md:text-2xl mb-3 mt-3 font-bold text-left'>
         My latest <span className='text-orange'>blog post</span>
-      </h3>
+      </h2>
       <div className='w-full'>
         <div className='p-3 md:p-5 bg-grey-card border-2 border-grey-light rounded-lg flex flex-col justify-between items-start h-48'>
           <h2 className={`text-md mb-2 text-blue`}>{latestPost.title}</h2>

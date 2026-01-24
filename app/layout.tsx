@@ -2,7 +2,7 @@ import { Analytics } from "@vercel/analytics/next";
 import Footer from "@/components/shared/footer";
 import Navbar from "@/components/shared/navbar";
 import type { Metadata, Viewport } from "next";
-import { meslo } from "@/lib/font";
+import { meslo, serif } from "@/lib/font";
 import "/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className={`${meslo.className} antialiased`}>
+    <html lang='en' className={`${meslo.variable} ${serif.variable} antialiased`}>
       <head>
         <link
           rel='stylesheet'

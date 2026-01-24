@@ -13,12 +13,11 @@ interface NavLink {
 
 export default function Navbar() {
   const links: NavLink[] = [
-    { name: "Home", target: "/" },
-    { name: "Projects", target: "/projects" },
-    { name: "Blog", target: "/blog" },
-    { name: "Contact", target: "/#contact" },
+    { name: "HOME", target: "/" },
+    { name: "PROJECTS", target: "/projects" },
+    { name: "BLOG", target: "/blog" },
     {
-      name: "Resume",
+      name: "RESUME",
       target: "https://drive.google.com/file/d/1y_VlkkFUaFXCCYF-WO-EDnCOfMHy_F90/view?usp=sharing"
     }
   ];
@@ -29,23 +28,9 @@ export default function Navbar() {
   const path: string = "/" + usePathname().split("/")[1];
   return (
     <motion.nav
-      className={`max-w-[1920px] mx-auto justify-between items-center transition-all duration-10  z-50 pt-4
+      className={`max-w-[1920px] mx-auto justify-end md:justify-center items-center transition-all duration-10  z-50 pt-4 font-mono
         ${open ? "bg-grey-normal" : "bg-opacity-0 "}  flex flex-row`}
     >
-      <Link
-        href='/'
-        className={`tracking-wider navlink hover:text-white text-2xl self-center  ml-3 md:ml-10 no-underline font-bold z-40`}
-      >
-        <motion.div
-          initial={{ opacity: 0, transform: "translateY(8px)" }}
-          animate={{ opacity: 1, transform: "translateY(0px)" }}
-          transition={{ delay: 0.3 }}
-        >
-          <span className='md:whitespace-pre md:block'>JOHN{"  "}</span>
-          <span className='text-orange md:whitespace-pre'>{"  "}LING</span>
-        </motion.div>
-      </Link>
-
       {/* mobile hamburger menu */}
       <motion.button
         initial={{ opacity: 0, transform: "translateY(8px)" }}
@@ -84,7 +69,7 @@ const desktopContainer = {
   show: {
     opacity: 1,
     transition: {
-      delayChildren: stagger(0.1, { from: "last" })
+      delayChildren: stagger(0.1)
     }
   }
 };
@@ -162,7 +147,7 @@ function MobileMenu({ links, activeLink, on_click }: NavMenuProps) {
                   <Link
                     href={link.target}
                     onClick={on_click}
-                    className={`text-7xl no-underline font-bold ${link.target === activeLink ? " text-orange" : ""}`}
+                    className={`text-7xl no-underline font-bold  ${link.target === activeLink ? " text-orange" : ""}`}
                     aria-current={link.target === activeLink ? "page" : undefined}
                   >
                     {link.name.toUpperCase()}

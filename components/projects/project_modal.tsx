@@ -33,7 +33,7 @@ export default function ProjectModal({ project, on_close }: ProjectModalProps) {
         <div className='lg:px-20 mx-auto'>
           <div className='lg:max-w-3xl flex items-center justify-center my-4'>
             <Image
-              className='border-2 rounded-lg'
+              className='rounded-lg'
               src={projectFolder}
               width={1280}
               height={720}
@@ -45,7 +45,7 @@ export default function ProjectModal({ project, on_close }: ProjectModalProps) {
               {project.tags.map((tag: string) => {
                 return (
                   <li key={tag} className='p-1 mb-1 text-xs select-none'>
-                    <span className='bg-grey-light border-1 pl-1 pr-1'>{tag}</span>
+                    <span className='bg-grey-light border-1 p-1 rounded-sm'>{tag}</span>
                   </li>
                 );
               })}
@@ -54,7 +54,7 @@ export default function ProjectModal({ project, on_close }: ProjectModalProps) {
               {project.description}
             </p>
             <Link
-              className={`text-sm no-underline mb-2 w-fit ${project.sourceURL === null ? "pointer-events-none text-muted-white border-none" : "link"}`}
+              className={`text-sm font-mono no-underline mb-2 w-fit ${project.sourceURL === null ? "pointer-events-none text-muted-white border-none" : "link"}`}
               href={project.sourceURL !== null ? project.sourceURL : "/"}
               target='_blank'
               rel='noopener'

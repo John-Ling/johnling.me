@@ -32,11 +32,13 @@ export default function ProjectsPage() {
       </AnimatePresence>
       <title>Projects</title>
       <div className={`min-h-screen w-11/12 lg:w-10/12 mx-auto max-w-[1920px]`}>
-        <h1 className={`text-4xl mb-5 text-orange`} style={{ animationDelay: "1000ms" }}>
-          Projects
-        </h1>
-        <h2 className='text-2xl'>I&apos;ve done too many</h2>
-        <h3 className='mb-5'>Here are some of them.</h3>
+        <motion.h1
+          initial={{ opacity: 0, transform: "translateY(8px)" }}
+          animate={{ opacity: 1, transform: "translateY(0px)" }}
+          className={`text-4xl font-bold font-serif mb-3`}
+        >
+          I&apos;ve done too many <span className='text-orange'>Projects</span>
+        </motion.h1>
         <motion.div
           variants={container}
           initial='hidden'

@@ -33,7 +33,7 @@ export default function PaginatedPosts({ posts }: PaginatedPostsProps) {
 
   return (
     <>
-      <div className='flex items-center text-2xl m-3 mt-auto'>
+      <div className='flex items-center text-2xl mt-auto'>
         <button
           className={`${currentPage === 1 ? "text-muted-white" : "hover:text-orange"} text-2xl`}
           onClick={previous_page}
@@ -55,7 +55,7 @@ export default function PaginatedPosts({ posts }: PaginatedPostsProps) {
       <div>
         {currentItems.map((post, i) => {
           return (
-            <div className='m-3' key={i}>
+            <div className='mb-3 mt-3' key={i}>
               <PostListCard position={startColourIndex + i} post={post} />
             </div>
           );

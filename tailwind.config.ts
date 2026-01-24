@@ -12,7 +12,7 @@ const config: Config = {
     extend: {},
     colors: {
       cream: "#fffff1",
-      white: "#F8F9F2",
+      white: "#eef0de",
       "muted-white": "#B0B0B0",
       orange: "#FF5500",
       "orange-light": "#fd7202",
@@ -73,7 +73,9 @@ const config: Config = {
       scanlines: "scanlines 10s linear infinite"
     },
     fontFamily: {
-      meslo: ["var(--font-meslo)"]
+      mono: ["var(--font-meslo)"],
+      serif: ["var(--font-serif)"],
+      fira: ["var(--font-fira)"]
     }
   },
   plugins: []

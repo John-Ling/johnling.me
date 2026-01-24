@@ -61,8 +61,8 @@ export default function Hero() {
       <div
         className={`h-3/5 max-w-[1920px] w-10/12  md:w-8/12 mx-auto flex pt-4 md:pt-24 md:pb-24 justify-start flex-col lg:flex-row relative`}
       >
-        <div className='basis-7/12 max-w-5xl flex flex-col z-20'>
-          <div className='text-5xl z-0 mb-4 text-left'>
+        <div className='basis-7/12 max-w-5xl flex flex-col z-20 font-fira'>
+          <div className='text-6xl z-0 mb-4 text-left font-serif'>
             <motion.h1 variants={item}>Hello,</motion.h1>
             <motion.h1 variants={item}>
               I&apos;m{" "}

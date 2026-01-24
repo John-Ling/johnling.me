@@ -48,15 +48,15 @@ export default async function Page(props: Params) {
     <>
       <title>{post.title}</title>
       <div className='w-full lg:w-1/2 max-w-[1920px] mx-auto px-6 py-6'>
-        <Link className='link' href='/blog'>
+        <Link className='link font-mono' href='/blog'>
           Back
         </Link>
         <article className={`pt-5 pb-5 ${style.markdown}`}>
-          <h1 className='text-xl mb-5 font-meslo'>{post.title}</h1>
+          <h1 className='text-xl mb-5 font-serif'>{post.title}</h1>
           <p className='mb-5 text-sm text-muted-white font-meslo italic'>{post.date}</p>
           <Content mdx={compiled} />
         </article>
-        <Link className='link' href='/blog'>
+        <Link className='link font-mono' href='/blog'>
           Back
         </Link>
       </div>

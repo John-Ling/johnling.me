@@ -27,7 +27,7 @@ export default function Footer() {
   }, []);
   return (
     <footer
-      className={`flex flex-row p-5 mt-2 mb-4 justify-between items-center border-2 border-grey-light rounded-lg bg-grey-dark w-11/12 md:w-4/5 mx-auto`}
+      className={`flex flex-row p-5 mt-2 mb-4 justify-between items-center border-2 border-grey-light rounded-lg bg-grey-dark w-11/12 md:w-4/5 mx-auto font-mono`}
     >
       <div className='flex flex-col gap-4 '>
         <h4 className='font-bold'>

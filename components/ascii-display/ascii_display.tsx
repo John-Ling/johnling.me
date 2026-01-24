@@ -5,7 +5,7 @@ interface AsciiDisplayProps {
 
 export default function AsciiDisplay({ framebuffer, fontSize }: AsciiDisplayProps) {
   return (
-    <div className={`text-center overflow-clip whitespace-nowrap select-none z-0`}>
+    <div className={`text-center overflow-clip whitespace-nowrap select-none z-0 font-mono`}>
       {/* render characters */}
       {framebuffer?.map((row: string[], i: number) => {
         return (

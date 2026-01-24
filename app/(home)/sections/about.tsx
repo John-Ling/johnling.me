@@ -28,9 +28,9 @@ export default function About() {
       id='about'
     >
       <div className='basis-1/2'>
-        <motion.h3 variants={item} className='text-2xl md:text-3xl mb-3 mt-3 font-bold'>
+        <motion.h2 variants={item} className='text-2xl md:text-3xl mb-3 mt-3 font-bold '>
           A bit more <span className='text-orange'>about me</span>
-        </motion.h3>
+        </motion.h2>
         <motion.p variants={item} className='mb-4'>
           When not studying, I&apos;ve always enjoyed building things and picked up programming as a
           way of doing just that. The first version of this site was built way back in 2022

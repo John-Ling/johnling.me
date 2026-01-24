@@ -1,9 +1,9 @@
 export default function Skills() {
   return (
     <>
-      <h3 className='text-2xl md:text-3xl mb-3 mt-3 font-bold text-left'>
+      <h2 className='text-xl md:text-2xl mb-3 mt-3 font-bold text-left'>
         My <span className='text-orange'>current toolkit</span>
-      </h3>
+      </h2>
       <SkillsDisplay />
     </>
   );
@@ -46,7 +46,7 @@ const SkillsDisplay = () => {
           return (
             <div key={i} className='flex gap-2 items-center justify-start'>
               <i className={`${icon.classInfo} text-left text-4xl z-30`} />
-              <p className='text-xs text-left z-30 select-none'>{icon.label}</p>
+              <p className='text-xs font-mono text-left z-30 select-none'>{icon.label}</p>
             </div>
           );
         })}
