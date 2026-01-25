@@ -52,3 +52,7 @@ h2 {
     font-weight: 700;
     font-family: var(--font-meslo);
 }
+
+p {
+    letter-spacing: 0.025em;
+}

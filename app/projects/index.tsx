@@ -35,9 +35,9 @@ export default function ProjectsPage() {
         <motion.h1
           initial={{ opacity: 0, transform: "translateY(8px)" }}
           animate={{ opacity: 1, transform: "translateY(0px)" }}
-          className={`text-4xl font-bold font-serif mb-3`}
+          className={`text-4xl font-bold font-serif mb-10`}
         >
-          I&apos;ve done too many <span className='text-orange'>Projects</span>
+          I&apos;ve Done Too Many <span className='text-orange'>Projects</span>
         </motion.h1>
         <motion.div
           variants={container}

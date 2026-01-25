@@ -27,9 +27,12 @@ export default function About() {
       className='h-4/5 flex flex-col justify-center mx-auto items-center lg:flex-row mt-5 gap-10 w-10/12 md:w-8/12 z-30'
       id='about'
     >
-      <div className='basis-1/2'>
-        <motion.h2 variants={item} className='text-2xl md:text-3xl mb-3 mt-3 font-bold '>
-          A bit more <span className='text-orange'>about me</span>
+      <div className='basis-1/2 font-fira'>
+        <motion.h2
+          variants={item}
+          className='text-3xl md:text-4xl mb-3 font-serif mt-3 font-bold text-white'
+        >
+          A Bit More <span className='text-orange'>About Me</span>
         </motion.h2>
         <motion.p variants={item} className='mb-4'>
           When not studying, I&apos;ve always enjoyed building things and picked up programming as a

@@ -1,8 +1,8 @@
 export default function Skills() {
   return (
     <>
-      <h2 className='text-xl md:text-2xl mb-3 mt-3 font-bold text-left'>
-        My <span className='text-orange'>current toolkit</span>
+      <h2 className='text-2xl md:text-3xl mb-3 mt-3 font-serif font-bold text-left'>
+        My <span className='text-orange'>Current Toolkit</span>
       </h2>
       <SkillsDisplay />
     </>

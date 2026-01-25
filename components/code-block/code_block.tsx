@@ -75,7 +75,7 @@ export default function CodeBlock({
               );
             })}
           </div>
-          <div className='bg-[#161616] pb-1 pt-1 pl-2 w-full '>
+          <div className='bg-[#161616] pl-2 w-full '>
             {/* return code block markdown with syntax highlighting */}
             <Markdown
               rehypePlugins={[rehypeHighlight]}

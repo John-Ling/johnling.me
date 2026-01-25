@@ -12,7 +12,7 @@ const config: Config = {
     extend: {},
     colors: {
       cream: "#fffff1",
-      white: "#eef0de",
+      white: "#e9ecd5",
       "muted-white": "#B0B0B0",
       orange: "#FF5500",
       "orange-light": "#fd7202",

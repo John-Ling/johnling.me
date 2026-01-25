@@ -73,7 +73,7 @@ export default function Hero() {
           </div>
           <HeroIcons />
           <motion.p variants={item} className='mt-4 text-left'>
-            Melbourne-based full-stack developer with interests in UX and low-level systems.
+            Melbourne-based full-stack developer with interests in UX, design and low-level systems.
           </motion.p>
           <motion.p className='mt-4 text-left' variants={item}>
             I&apos;m a final year Computer Science student at the University of Melbourne with prior
