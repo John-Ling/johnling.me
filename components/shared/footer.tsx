@@ -30,8 +30,8 @@ export default function Footer() {
       className={`flex flex-row p-5 mt-2 mb-4 justify-between items-center border-2 border-grey-light rounded-lg bg-grey-dark w-11/12 md:w-4/5 mx-auto font-mono`}
     >
       <div className='flex flex-col gap-4 '>
-        <h4 className='font-bold'>
-          Made By <span className='text-orange'>John Ling</span>
+        <h4 className='tracking-tighter'>
+          Made By <span className='text-orange font-bold'>John Ling</span>
         </h4>
         <h4 className='font-bold text-sm'>
           Last Updated on <span>{loading ? "Loading..." : updatedDate}</span>

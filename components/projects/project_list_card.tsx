@@ -30,7 +30,7 @@ export default function ProjectListCard({ project, position, on_select }: Projec
       <h2 onClick={on_click} className={`text-lg mb-2 mt-2 select-none ${colourClass}`}>
         {project.title}
       </h2>
-      <h3 className='text-xs mb-2 font-mono text-muted-white'>{project.shortDescription}</h3>
+      <h3 className='text-xs mb-4 font-mono text-muted-white'>{project.shortDescription}</h3>
       {project.imageFolder === null ? (
         <p>{project.description}</p> // if no image exists just render text
       ) : (
