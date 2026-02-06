@@ -72,6 +72,7 @@ Let $$m$$ = number of nodes in the trie
 
 Let $$L$$ = length of key in bits
 
+<div style={{ overflowX: 'auto', width: '100%' }}>
 | Operation | Sub Operation | Time Complexity |
 | --------- | ------------- | --------------- |
 | Insert    | Search | $$O(L)$$ | 
@@ -90,6 +91,7 @@ Let $$L$$ = length of key in bits
 | Query (no spellcheck) | Search | $$O(L)$$ |
 | Query (no spellcheck) | Bitwise String Comparison | $$O(L)$$ |
 | Query (no spellcheck) | Overall | $$O(L)$$ |
+</div>
 
 ### Linked List
 
@@ -97,6 +99,7 @@ Let $$n$$ = number of nodes in the list
 
 Let $$L$$ = length of key in bits
 
+<div style={{ overflowX: 'auto', width: '100%' }}>
 | Operation | Sub Operation | Time Complexity |
 | --------- | ------------- | --------------- |
 | Insert | Insert at Head | $\Theta(1)$ |
@@ -105,7 +108,7 @@ Let $$L$$ = length of key in bits
 | Search | Traversal | $O(n)$ | 
 | Search | Bitwise String Comparison | $O(L)$ | 
 | Search | Overall| $O(nL)$ | 
-
+</div>
 
 From these theoretical complexities, I expect that while insertion will be significantly faster when using a linked list,
 Search and queries of the dictionary will grow far faster than that of a trie due to the linear time complexity.

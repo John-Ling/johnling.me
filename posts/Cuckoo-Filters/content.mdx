@@ -200,10 +200,12 @@ Two lookup tests were performed. The first involving 1 million addresses present
 
 **Time:**
 
+<div style={{ overflowX: 'auto', width: '100%' }}>
 | | Insertion Test | &nbsp;&nbsp;&nbsp; | Lookup Test 1 | &nbsp;&nbsp;&nbsp; | Lookup Test 2 | 
-|-------------|--------|--------|----------------|
-| **Hash Table** |6.25 | 0.55 | 0.48 | 
-| **Cuckoo Filter** | 2.36 | 0.18 | 0.22 |
+|-------------|----------------|--------|---------------|--------|---------------|
+| **Hash Table** | 6.25 | | 0.55 | | 0.48 | 
+| **Cuckoo Filter** | 2.36 | | 0.18 | | 0.22 |
+</div>
 
 **Memory Usage:**
 
@@ -222,17 +224,21 @@ by the fluctuating values of false positives. No runs yielded the same number of
 
 **Lookup Test 1:**
 
+<div style={{ overflowX: 'auto', width: '100%' }}>
 | | | Found | Missed | 
 |-------------|--------|--------|----------------|
 | **Hash Table** | | 1000000 | 0 | 
 | **Cuckoo Filter** | | 1000000 | 0 |
+</div>
 
 **Lookup Test 2:**
 
+<div style={{ overflowX: 'auto', width: '100%' }}>
 | | | True Negatives | &nbsp;&nbsp;&nbsp; | False Positives | 
 |-------------|--------|----------------|--------|----------------|
 | **Hash Table** | | 1000000 | | 0 | 
 | **Cuckoo Filter** | | 408038 | | 591962 |
+</div>
 
 ## Comparisons to hash tables
  
@@ -254,7 +260,7 @@ and the consequence of an inevitable false positive.
 If the details of the problem tolerate false positives, cuckoo filters are a perfect fit for the problem. 
 
 **Common uses:**
-- **Database caches**. The initial proposal for [**Apache** Cassandra](https://www.cs.cornell.edu/projects/ladis2009/papers/lakshman-ladis2009.pdf) used a bloom filter for this exact purpose.
+- **Database caches**. The initial proposal for [Apache Cassandra](https://www.cs.cornell.edu/projects/ladis2009/papers/lakshman-ladis2009.pdf) used a bloom filter for this exact purpose.
 - **Network packet processing**
 - **URL Filtering for web crawlers** 
 - **Privacy-focused information storage**: Due to their use of fingerprints rather than full data, cuckoo filters can be used to obfuscate data.
