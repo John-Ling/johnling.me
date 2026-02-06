@@ -6,14 +6,12 @@ date: "29/01/2026"
 Let's say you're creating a network monitoring system for incoming traffic into your company's network.
 The logic is simple:
 - For each incoming packet, check if its originating IP address exists in a separate blocklist
-- If it does deny the request and add it to your blocklist. Otherwise, forward it and add it to a separate allowlist.
+- If it does, deny the request and add it to your blocklist. Otherwise, forward it and add it to a separate allowlist.
 
+Traffic is expected to be high and the blocklist is expected to grow to millions of unique addresses.
 You may assume that false positives can and will be rectified on a separate system.
 
-At your Fortune 500 company, you'll be expecting millions of requests being made daily and you can expect your blocklist to be ~9 million unique addresses on the first day but you
-foresee it growing quickly with use. RAM nowadays is expensive so you'd rather try keep memory usage to a minimum.
-
-Reducing the problem into a sentence:
+Reducing the problem to a sentence:
 
 "Develop a space-efficient system to quickly check if an item exists within a unique set, tolerating false positives but never false negatives."
 
@@ -21,54 +19,193 @@ A potential solution to this problem is to load the entire dataset into a hash t
 Hash tables are known for having an average lookup time of $O(1)$ making it seemingly the only candidate for this job.
 While this solution does work, depending on the problem at hand, it may not be the most optimal solution.
 
-The biggest downside to this approach is the memory for storing. Hash tables in this problem work but they are not space-efficient (at least when compared to Cuckoo Filters).
-Using [my own separately chained hash table implementation](https://github.com/John-Ling/DSA-Libraries/tree/master/LibHashTable), I record an average usage of 1.6GiB.
+The biggest downside to this approach is the memory usage for storing. Hash tables in this problem work but they are not space-efficient (at least when compared to Cuckoo Filters).
+I record an average usage of 1.6GiB when storing 9 million unique addresses.
 
-This really isn't ideal. Most firewall hardware aren't well-endowed in terms of memory and using 1.6GiB on launch isn't great for a device with likely 4 or 8 GiB.
+This is far from ideal. Most firewall hardware isn't well-endowed in terms of memory and using 1.6GiB on launch isn't great for a device with likely 4 or 8 GiB.
 
 ## Cuckoo Filters
 
 Due to the constraints outlined above, Cuckoo Filters are the better choice over traditional hash tables.
-Cuckoo filters are what are known as probabilistic data structures, structures that trade certainty in querying for space-efficiency.
+Created by [Carnegie Mellon University](https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf), cuckoo filters are what are known as **probabilistic data structures**, structures that trade certainty in querying for space-efficiency.
+
 That is, when you search for an item stored in a PDS, there is a probability that the search will report the item exists even when it does not.
-This is the false positive rate which is represented as $P(false\ positive)$. You'll find out later that this rate can be controlled by us. It should be noted that all probabilistic data structures will have false positives but never any false negatives. 
-TLDR: By giving up certainty and accepting a probability for false positives but never false negatives, incredible memory savings can be achieved.
+This is the false positive rate which is represented as $P(false\ \ positive)$. You'll find out later that this rate can be controlled by us. 
+
+It should be noted that all probabilistic data structures will have false positives but never any false negatives. 
+
+**TLDR**: By giving up certainty and accepting the chance of false positives in queries, incredible memory savings can be achieved using probabilistic data structures.
 
 While in many cases, uncertainty is undesirable (you wouldn't want to ask if your phone number is registered and get a "maybe" in response)
 the domain of the problem allows it.
 
 "Develop a space-efficient system to quickly check if an item exists within a unique set, **tolerating false positives but never false negatives**."
 
-False positives can be reported and added to a separate allowlist. Although it is inconvenient, cybersecurity often sacrifices convenience for safety.
+False positives can be resolved upon the user's request. Although inconvenient, cybersecurity often sacrifices convenience for safety.
 False negatives on the other hand should **always** be caught. These two attributes are what enable us to use a PDS rather than a hash table.
 
 ### Explanation
 
 Despite the hash table slander, cuckoo filters themselves are a form of hash table. However they do possess important differences:
 
-- Cuckoo filters specifically use a collision resolution technique called Cuckoo hashing - specifically a unique variant called [partial-key cuckoo hashing](https://brilliant.org/wiki/cuckoo-filter/#partial-key-cuckoo-hashing).
-- Cuckoo filters store small **fingerprints** of data to represent its presence. This is what makes a cuckoo filters both probabilistic and sets it apart from a hash table with cuckoo hashing.
+- Cuckoo filters specifically use a collision resolution technique called Cuckoo hashing - specifically a unique variant called [partial-key cuckoo hashing](https://brilliant.org/wiki/cuckoo-filter/#partial-key-cuckoo-hashing). 
+In the event of a collision, the existing item is "kicked out" and moved elsewhere in the table via a second hash function.
+- Rather than a single dimensional array, cuckoo filters are typically implemented as either a 2D array or a 1D array with multiple "buckets" per slot. This allows for multiple items to be stored in the same slot, reducing the chance of collisions and thus false positives.
+- Cuckoo filters store small **fingerprints** of data to represent its presence. This is what make cuckoo filters both probabilistic and sets it apart from a hash table with cuckoo hashing.
 
 ### Operations
 
-Detailed explanation of operations can be found and explained [here](https://brilliant.org/wiki/cuckoo-filter/).
-At a high level, however, all cuckoo filters possess the following operations:
+Detailed explanations of operations can be found [here](https://brilliant.org/wiki/cuckoo-filter/).
+At a high level, all cuckoo filters possess the following operations:
 
 - Inserting a value
 - Checking if a value exists
 - Removing a value
 
+Following cuckoo hashing, cuckoo filters use two hash functions to determine the location of an item's fingerprint.
+An example pair of hash functions can be defined as so:
+
+$h1(x) = hash(x) \mod m$
+
+$h2(x) = (h1(x) \oplus hash(fingerprint(x))) \mod m$
+
+Where $m$ is the size of the cuckoo filter and $fingerprint(x)$ a function that returns the $N$-bit fingerprint.
+For a key $x$, $h1$ and $h2$ represent the two possible locations it may end up in.
+
+#### Insertion
+
+Given a key $x$, insertion consists of finding the two possible locations for $x$'s fingerprint. 
+Both locations are checked for an empty slot, writing the value if found.
+Should both locations be occupied, cuckoo hashing is used to resolve the collision.
+
+<CodeBlock>
+{`
+h1 = hash(x) % m
+f = fingerprint(x)
+h2 = h1 XOR hash(f) % m
+if open slot exists at h1
+    write f to open slot
+else open slot exists at h2
+    write f to open slot
+else
+    perform partial-key cuckoo hashing to resolve collision
+`}
+</CodeBlock>
+
+##### Partial-Key Cuckoo Hashing
+
+Recall that cuckoo hashing works by kicking and relocating items them to secondary locations.
+In practice, the process is never this simple as evicting one fingerprint and moving it to its alternate location
+may result in another fingerprint needing to be relocated, causing a cascade of relocations.
+
+Many implementations, mine included, keep a fixed KICK_COUNT to prevent a potential infinite loop.
+This does mean that there exists a chance of an insertion failing due to too many evictions. Methods to mitigate this are discussed later.
+
+<CodeBlock>
+{`
+select a random location h from h1 or h2
+for (i = 0; i < KICK_COUNT; i++)
+    Select a random bucket/index i
+    if i is empty
+        insert x and return
+
+    evict the fingerprint f at i
+    insert our new fingerprint into the evicted slot
+
+    calculate the alternative location for f via the second hash function
+    h = (h XOR hash(fingerprint(f)))  % m
+    keep going until an empty slot is found or KICK_COUNT is reached
+`}
+</CodeBlock>
+
+#### Searching
+
+Searching is significantly less complex than insertion. 
+Given a key $x$, calculate the two possible locations for it in the filter and check if the fingerprint exists at either.
+
+<CodeBlock>
+{`
+h1 = hash(x) % m
+f = fingerprint(x)
+h2 = h1 XOR hash(f) % m
+
+if f is in any bucket in h1 or h2
+    return true
+return false
+`}
+</CodeBlock>
+
+#### Deletion
+
+Much like searching, deletion is also trivial.
+
+<CodeBlock>
+{`
+h1 = hash(x) % m
+f = fingerprint(x)
+h2 = h1 XOR hash(f) % m
+
+if f is in any bucket in h1
+    delete f
+else if f is in any bucket in h2
+    delete f
+
+deletion has failed since f is not present in the filter
+`}
+</CodeBlock>
+
+## Sizing, Failure and the False Positive Rate
+
+Firstly, cuckoo filters cannot be resized like traditional hash tables due to their storage of fingerprints rather than full data.
+As fingerprint functions are one-way functions, deriving the original data from a fingerprint is impossible.
+Unless the original data is stored elsewhere or a more complex approach is taken, resizing is out of the question.
+
+As such, when creating a filter these parameters must be considered beforehand:
+- The number of bits in a fingerprint
+- The number of buckets per slot
+- The desired false positive rate
+
+As mentioned earlier, probabilistic data structures possess a false positive rate. Cuckoo filters are no different with
+many production grade filters possessing a rate between 1% and 5%.
+
+For a cuckoo filters with a desired false positive rate of 3%, we can then calculate the number of bits needed for our fingerprint.
+
+$(\log_2(1 / epsilon) + 3)/\alpha$
+
+_This formula is derived from the original paper._
+
+$\alpha$ represents the maximum load factor for the filter before insertions begin to fail. This is typically around 0.95 for cuckoo filters. 
+
+Using our formula and desired false positive rate, we calculate a required bit count of ~7 bits.
+When deciding the number of buckets per slot, it is a matter of balancing the maximum possible load factor and lookup performance.
+While increasing the number of buckets per slot allows for a higher maximum load factor before insertions fail, it comes at the cost of an increased number of buckets to search during lookups.
+The original paper uses a bucket depth of 4, which allows for a maximum load factor of 0.95 while balancing lookup performance.
+
+As such, my implementation uses this same bucket depth of 4.
+
+### Power of Two Sizing
+
+Now that we have our parameters, we can calculate the size of the filter.
+A quirk that I see rarely mentioned is that the **cuckoo filters' capacity must be a power of two**.
+I'm not confident in explaining why this is the case, however an incredibly detailed explanation and experiment 
+about this topic can be found [here](https://stackoverflow.com/questions/66585651/must-a-cuckoo-filter-use-the-next-power-of-2-for-capacity).
+
 ## Final Benchmark Results
 
+In order to see if the theory aligns with practice, I created libraries implementing both
+a cuckoo filter and separately-chained hash table.  
+
 Below is the result of a test involving 9 million unique addresses.
-Two lookup tests were performed. The first involving 1 million addresses present in the structure with the second involving 1 million not present.
+Two lookup tests were performed. The first involving 1 million addresses present in the structure, with the second involving 1 million not present.
 
 **Time:**
 
-| | Insertion Test | Lookup Test 1 | Lookup Test 2 | 
-|-------------|--------|--------|----------------|
-| **Hash Table** |6.25 | 0.55 | 0.48 | 
-| **Cuckoo Filter** | 2.36 | 0.18 | 0.22 |
+<div style={{ overflowX: 'auto', width: '100%' }}>
+| | Insertion Test | &nbsp;&nbsp;&nbsp; | Lookup Test 1 | &nbsp;&nbsp;&nbsp; | Lookup Test 2 | 
+|-------------|----------------|--------|---------------|--------|---------------|
+| **Hash Table** | 6.25 | | 0.55 | | 0.48 | 
+| **Cuckoo Filter** | 2.36 | | 0.18 | | 0.22 |
+</div>
 
 **Memory Usage:**
 
@@ -78,8 +215,8 @@ Cuckoo Filter: 44MiB
 
 **False Positives:**
 
-Both tests showcase the expected behaviour for both structures. The first test with addresses present both show no misses.
-Cuckoo filters nor hash tables should show false negatives which aligns with this expected behaviour.
+Both tests showcase the expected behaviour for both structure with no misses reported.
+Neither cuckoo filters nor hash tables should show false negatives which aligns with this expected behaviour.
 
 The second test yields more interesting answers and shows the false positive behaviour of cuckoo filters.
 In every case, the cuckoo filter reports addresses not within the structure as present. The probabilistic nature is also highlighted
@@ -87,22 +224,26 @@ by the fluctuating values of false positives. No runs yielded the same number of
 
 **Lookup Test 1:**
 
+<div style={{ overflowX: 'auto', width: '100%' }}>
 | | | Found | Missed | 
 |-------------|--------|--------|----------------|
 | **Hash Table** | | 1000000 | 0 | 
 | **Cuckoo Filter** | | 1000000 | 0 |
+</div>
 
 **Lookup Test 2:**
 
-| | | True Negatives | False Positives | 
-|-------------|--------|--------|----------------|
-| **Hash Table** | | 1000000 | 0 | 
-| **Cuckoo Filter** | | 408038 | 591962 |
+<div style={{ overflowX: 'auto', width: '100%' }}>
+| | | True Negatives | &nbsp;&nbsp;&nbsp; | False Positives | 
+|-------------|--------|----------------|--------|----------------|
+| **Hash Table** | | 1000000 | | 0 | 
+| **Cuckoo Filter** | | 408038 | | 591962 |
+</div>
 
 ## Comparisons to hash tables
  
-In nearly every case, cuckoo filters outperform hash tables in nearly every case. Cuckoo filters show decreased latency when inserting items which is likely due to the much faster operation
-of directly writing to the structure at the bit level compared to hash tables which requires latency to both allocate memory for the item and insert it into the linked list. When a hash table 
+In every case, cuckoo filters outperform hash tables. Cuckoo filters show decreased latency when inserting items, like to due to 
+directly writing data at the bit level compared to hash tables which requires latency to both allocate memory for the item and insert it into the linked list. When a hash table 
 of inadequate size was used, insertion was even longer (29 seconds) due to the need to rebuild the hash table.
 
 For similar reasons, both lookup tests are performed faster.
@@ -112,6 +253,7 @@ stored in the cuckoo filter along with the large linked lists being used by the 
 
 ## When to use Cuckoo Filters
 
+<<<<<<< HEAD
 Cuckoo filters are best used when one needs to query whether an item exists especially on resource constrained systems.
 Due to their probabilistic nature, the possibility of false positives needs to be considered. Consider the domain the cuckoo filter will be applied to
 and consider the consequence of an inevitable false positive. 
@@ -123,4 +265,17 @@ Common uses
 - Network packet processing
 - URL Filtering for web crawlers 
 - Privacy-focused information storage due to their use of fingerprints rather than full data.
+=======
+Cuckoo filters are best used when one needs to query whether an item exists especially on resource-constrained systems.
+Due to their probabilistic nature, the possibility of false positives needs to be considered. Consider the domain the cuckoo filter will be applied to
+and the consequence of an inevitable false positive.
+
+If the details of the problem tolerate false positives, cuckoo filters are a perfect fit for the problem. 
+
+**Common uses:**
+- **Database caches**. The initial proposal for [Apache Cassandra](https://www.cs.cornell.edu/projects/ladis2009/papers/lakshman-ladis2009.pdf) used a bloom filter for this exact purpose.
+- **Network packet processing**
+- **URL Filtering for web crawlers** 
+- **Privacy-focused information storage**: Due to their use of fingerprints rather than full data, cuckoo filters can be used to obfuscate data.
+>>>>>>> development
 

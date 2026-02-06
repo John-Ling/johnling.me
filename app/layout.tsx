@@ -31,7 +31,7 @@ export default function RootLayout({
       </head>
       <body>
         <Navbar />
-        <main>
+        <main className='font-mono'>
           {children}
           <Analytics />
         </main>

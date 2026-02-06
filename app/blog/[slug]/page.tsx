@@ -51,10 +51,12 @@ export default async function Page(props: Params) {
         <Link className='link font-mono' href='/blog'>
           Back
         </Link>
-        <article className={`pt-5 pb-5 ${style.markdown}`}>
+        <article className={`pt-5 pb-5 ${style.markdown} `}>
           <h1 className='text-xl mb-5 font-serif'>{post.title}</h1>
           <p className='mb-5 text-sm text-muted-white font-meslo italic'>{post.date}</p>
-          <Content mdx={compiled} />
+          <span className='font-fira'>
+            <Content mdx={compiled} />
+          </span>
         </article>
         <Link className='link font-mono' href='/blog'>
           Back
