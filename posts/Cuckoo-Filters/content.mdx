@@ -253,19 +253,6 @@ stored in the cuckoo filter along with the large linked lists being used by the 
 
 ## When to use Cuckoo Filters
 
-<<<<<<< HEAD
-Cuckoo filters are best used when one needs to query whether an item exists especially on resource constrained systems.
-Due to their probabilistic nature, the possibility of false positives needs to be considered. Consider the domain the cuckoo filter will be applied to
-and consider the consequence of an inevitable false positive. 
-
-If the details of the problem tolerate false positives, cuckoo filters are a perfect fit for the problem. 
-
-Common uses
-- Database cache
-- Network packet processing
-- URL Filtering for web crawlers 
-- Privacy-focused information storage due to their use of fingerprints rather than full data.
-=======
 Cuckoo filters are best used when one needs to query whether an item exists especially on resource-constrained systems.
 Due to their probabilistic nature, the possibility of false positives needs to be considered. Consider the domain the cuckoo filter will be applied to
 and the consequence of an inevitable false positive.
@@ -277,5 +264,4 @@ If the details of the problem tolerate false positives, cuckoo filters are a per
 - **Network packet processing**
 - **URL Filtering for web crawlers** 
 - **Privacy-focused information storage**: Due to their use of fingerprints rather than full data, cuckoo filters can be used to obfuscate data.
->>>>>>> development
 
