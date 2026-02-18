@@ -24,7 +24,7 @@ export default function About() {
       variants={container}
       initial='hidden'
       animate='show'
-      className='h-4/5 flex flex-col justify-center mx-auto items-center lg:flex-row mt-5 gap-10 w-10/12 md:w-8/12 z-30'
+      className='h-4/5 flex flex-col justify-center mx-auto items-center lg:flex-row mt-5 gap-10 w-10/12 md:w-9/12 z-30'
       id='about'
     >
       <div className='basis-1/2 font-fira'>
