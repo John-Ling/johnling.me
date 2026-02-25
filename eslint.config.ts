@@ -1,14 +1,15 @@
-import js from '@eslint/js';
-import globals from 'globals';
-import tseslint from 'typescript-eslint';
-import pluginReact from 'eslint-plugin-react';
-import { defineConfig } from 'eslint/config';
+import js from "@eslint/js";
+import tseslint from "typescript-eslint";
+import pluginReact from "eslint-plugin-react";
+import { defineConfig } from "eslint/config";
 
 export default defineConfig([
   {
-    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
     languageOptions: {
-      globals: globals.browser,
+      globals: {
+        process: "readonly"
+      },
       parserOptions: {
         ecmaFeatures: { jsx: true }
       }
@@ -24,14 +25,14 @@ export default defineConfig([
     ],
     rules: {
       // ✅ Disable the outdated rule
-      'react/react-in-jsx-scope': 'off',
+      "react/react-in-jsx-scope": "off",
       // (Optional) helps with TS + React detection
-      'react/jsx-uses-react': 'off',
-      'react/jsx-uses-vars': 'warn'
+      "react/jsx-uses-react": "off",
+      "react/jsx-uses-vars": "warn"
     },
     settings: {
       react: {
-        version: 'detect' // auto-detect React version
+        version: "detect" // auto-detect React version
       }
     }
   }

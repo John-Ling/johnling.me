@@ -12,7 +12,7 @@ import { CanvasSize } from "@/types/hero/CanvasSize";
  * @param audioRef
  * @returns
  */
-export default function useBadApple(audioRef: RefObject<HTMLAudioElement>) {
+export default function useBadApple(audioRef: RefObject<HTMLAudioElement | null>) {
   const [canvasSize, setCanvasSize] = useState<CanvasSize | null>(null);
   const [playing, setPlaying] = useState<boolean>(false);
   const { framebuffer } = useAsciiAnimation(
