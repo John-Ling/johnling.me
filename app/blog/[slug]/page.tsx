@@ -14,7 +14,7 @@ export default async function Page(props: Params) {
   return (
     <>
       <title>{post.title}</title>
-      <div className='max-w-[1920px] w-10/12 md:w-9/12  mx-auto'>
+      <div className='max-w-[1920px] w-11/12 lg:w-1/2  mx-auto'>
         <Link className='link font-mono' href='/blog'>
           Back
         </Link>
