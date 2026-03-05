@@ -45,12 +45,13 @@ export default function Hero() {
     setRendered(true);
   }, []);
 
-  const { framebuffer: lorenzFramebuffer } = useAsciiAnimation(
-    canvasSize,
-    lorenz_next_frame,
-    lorenz_cleanup,
-    lorenz_init
-  );
+  const { framebuffer: lorenzFramebuffer } = useAsciiAnimation({
+    type: "standard",
+    size: canvasSize,
+    nextFrame: lorenz_next_frame,
+    cleanup: lorenz_cleanup,
+    initCanvas: lorenz_init
+  });
 
   if (specialEnabled && rendered) {
     return <BadApple />;

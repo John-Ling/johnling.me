@@ -14,10 +14,15 @@ export default function BadApple() {
           <div className='flex justify-center'>
             <AsciiDisplay fontSize={1} framebuffer={framebuffer} />
           </div>
-          <p className='opacity-0 animate-fade-up p-5' style={{ animationDelay: "5000ms" }}>
-            All rights go to ZUN Soft / Team Shanghai Alice. I do not profit from using this music
-            nor do I claim this music as my own. pls no sue
-          </p>
+          <div className='flex justify-center'>
+            <p
+              className='opacity-0 animate-fade-up p-5 mx-auto'
+              style={{ animationDelay: "5000ms" }}
+            >
+              All rights go to ZUN Soft / Team Shanghai Alice. I do not profit from using this music
+              nor do I claim this music as my own. pls no sue
+            </p>
+          </div>
         </>
       ) : (
         <div className='flex flex-col justify-center items-center min-h-screen w-full'>

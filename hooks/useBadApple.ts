@@ -1,8 +1,4 @@
-import {
-  bapple_cleanup,
-  bapple_init,
-  bapple_next_frame
-} from "@/components/ascii-display/animations";
+import { bapple_init, bapple_next_frame } from "@/components/ascii-display/animations";
 import useAsciiAnimation from "./useAsciiAnimation";
 import { RefObject, useEffect, useState } from "react";
 import { CanvasSize } from "@/types/hero/CanvasSize";
@@ -15,18 +11,28 @@ import { CanvasSize } from "@/types/hero/CanvasSize";
 export default function useBadApple(audioRef: RefObject<HTMLAudioElement | null>) {
   const [canvasSize, setCanvasSize] = useState<CanvasSize | null>(null);
   const [playing, setPlaying] = useState<boolean>(false);
-  const { framebuffer } = useAsciiAnimation(
-    canvasSize,
-    bapple_next_frame,
-    bapple_cleanup,
-    undefined,
-    !playing,
-    30
-  );
+  const [loaded, setLoaded] = useState<boolean>(false);
+  const { framebuffer } = useAsciiAnimation({
+    type: "bapple",
+    size: canvasSize,
+    bappleNextFrame: bapple_next_frame,
+    animationSpeed: 30,
+    audioRef: audioRef
+  });
 
   const start_playing = () => {
+    if (!loaded) {
+      return;
+    }
+
+    const audio = audioRef.current;
+    if (!audio) {
+      return;
+    }
+
+    audio.addEventListener("canplay", () => audio.play(), { once: true });
+    audio.load();
     setPlaying(true);
-    audioRef.current?.play();
     return;
   };
 
@@ -34,6 +40,7 @@ export default function useBadApple(audioRef: RefObject<HTMLAudioElement | null>
     const effect = async () => {
       setCanvasSize({ width: 40, height: 30, fontSize: 1 });
       await bapple_init();
+      setLoaded(true);
     };
     effect();
   }, []);
@@ -54,6 +61,9 @@ export default function useBadApple(audioRef: RefObject<HTMLAudioElement | null>
     if (playing) {
       document.addEventListener("visibilitychange", on_visibility_change);
     }
+    return () => {
+      document.removeEventListener("visibilitychange", on_visibility_change);
+    };
   }, [playing, audioRef]);
 
   return { framebuffer, playing, start_playing };
