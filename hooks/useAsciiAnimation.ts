@@ -16,7 +16,7 @@ interface StandardAnimationProps extends CommonAnimationProps {
 
 interface BadAppleProps extends CommonAnimationProps {
   type: "bapple";
-  bappleNextFrame: (buffer: Canvas, width: number, height: number, frameIndex: number) => Canvas;
+  bappleNextFrame: (buffer: Canvas, width: number, height: number, skipToFrame?: number) => Canvas;
   audioRef: React.RefObject<HTMLAudioElement | null>;
 }
 
@@ -72,21 +72,19 @@ export default function useAsciiAnimation(props: AsciiAnimationProps) {
         if (props.type === "standard") {
           next = props.nextFrame(frame, props.size!.width, props.size!.height);
         } else {
-          // Calculate frame position based on music progress
+          // Bad Apple
+          // Use music to determine which frame to skip to, so that the animation can be synced to the music
           const audio = props.audioRef.current;
-          let nextFrameIndex = 0;
+          let skipToFrame = 0;
+
           if (audio) {
-            nextFrameIndex = Math.floor(audio.currentTime * ANIMATION_SPEED);
+            skipToFrame = Math.floor(audio.currentTime * ANIMATION_SPEED);
           }
-          next = props.bappleNextFrame(
-            frame,
-            props.size!.width,
-            props.size!.height,
-            nextFrameIndex
-          );
+
+          next = props.bappleNextFrame(frame, props.size!.width, props.size!.height, skipToFrame);
         }
         setFramebuffer(next);
-        frame = next;
+        frame = [...next];
       }
 
       animationRequestID.current = requestAnimationFrame(animate);

@@ -262,6 +262,7 @@ import { Canvas } from "@/types/hero/Canvas";
 
 import JSZip from "jszip";
 
+let currentFrame = 0;
 let frames: string[] = [];
 
 // downloads and unzips file containing
@@ -291,22 +292,28 @@ export function bapple_next_frame(
   framebuffer: string[][],
   width: number,
   height: number,
-  frameIndex: number
+  skipToFrame?: number
 ) {
   // if animation has not unzipped yet or already finished
-  if (frames[frameIndex] === undefined) {
+  if (frames[currentFrame] === undefined) {
     return Array(height)
       .fill(null)
       .map(() => Array(width).fill("*"));
   }
 
-  const frame: string = frames[frameIndex];
+  // Only skip to a specific frame once
+  if (skipToFrame) {
+    currentFrame = skipToFrame;
+  }
+
+  const frame: string = frames[currentFrame];
   for (let i = 0; i < height; i++) {
     for (let j = 0; j < width; j++) {
       framebuffer[i][j] = frame[i * width + j];
     }
   }
 
+  currentFrame++;
   return framebuffer;
 }
 
@@ -760,10 +767,6 @@ function render_next_lorenz_point() {
 }
 
 export function lorenz_next_frame(framebuffer: string[][], width: number, height: number) {
-  const newBuffer = Array(height)
-    .fill(null)
-    .map(() => Array(width).fill(" "));
-
   render_next_lorenz_point();
 
   lorenzPoints.forEach((point, index) => {
@@ -776,11 +779,11 @@ export function lorenz_next_frame(framebuffer: string[][], width: number, height
 
     if (xp >= 0 && xp < width && yp >= 0 && yp < height) {
       const charIndex = Math.floor((index / lorenzPointCount) * lorenzChars.length);
-      newBuffer[yp][xp] = lorenzChars[Math.min(charIndex, lorenzChars.length - 1)];
+      framebuffer[yp][xp] = lorenzChars[Math.min(charIndex, lorenzChars.length - 1)];
     }
   });
 
-  return newBuffer;
+  return framebuffer;
 }
 
 export function lorenz_cleanup() {

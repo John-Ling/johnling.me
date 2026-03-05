@@ -12,6 +12,7 @@ export default function useBadApple(audioRef: RefObject<HTMLAudioElement | null>
   const [canvasSize, setCanvasSize] = useState<CanvasSize | null>(null);
   const [playing, setPlaying] = useState<boolean>(false);
   const [loaded, setLoaded] = useState<boolean>(false);
+
   const { framebuffer } = useAsciiAnimation({
     type: "bapple",
     size: canvasSize,
@@ -30,8 +31,7 @@ export default function useBadApple(audioRef: RefObject<HTMLAudioElement | null>
       return;
     }
 
-    audio.addEventListener("canplay", () => audio.play(), { once: true });
-    audio.load();
+    audio.play();
     setPlaying(true);
     return;
   };
