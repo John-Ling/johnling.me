@@ -14,7 +14,7 @@ export default function Projects() {
       project.title.toLowerCase() === "ramble" ||
       project.title.toLowerCase() === "trello tabliss integration" ||
       project.title.toLowerCase() === "pseudocode compiler" ||
-      project.title.toLowerCase() === "internship project: rag system"
+      project.title.toLowerCase() === "internship project: workflow builder"
   );
 
   return (
