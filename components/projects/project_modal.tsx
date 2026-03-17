@@ -38,8 +38,8 @@ export default function ProjectModal({ project, on_close }: ProjectModalProps) {
             <Image
               className='rounded-lg'
               src={projectFolder}
-              width={1280}
-              height={720}
+              width={1920}
+              height={1080}
               alt='Project image'
             />
           </div>

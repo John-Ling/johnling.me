@@ -39,8 +39,8 @@ export default function ProjectListCard({ project, position, on_select }: Projec
             className='transition-all duration-500 hover:scale-105 hover:cursor-pointer border-0 rounded-none'
             alt='Project image'
             src={projectFolder}
-            width={1280}
-            height={720}
+            width={1920}
+            height={1080}
             onClick={on_click}
           />
         </div>

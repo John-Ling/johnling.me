@@ -2,7 +2,7 @@ import { Project } from "@/types/projects/project";
 
 export const projects: Project[] = [
   {
-    title: "ramble",
+    title: "WIP Journalling App",
     shortDescription: "Analytics driven journalling app",
     description: `A full-stack journalling app with a simple, uncluttered interface in created with ShadCN UI. 
 
@@ -63,16 +63,16 @@ export const projects: Project[] = [
     tags: ["Angular", "Material UI", "Sass"]
   },
   {
-    title: "Pseudocode Compiler",
-    shortDescription: "Non-optimising compiler built from scratch",
-    description: `Toy compiler built with C++ that translates pseudocode into Python. 
-
-        I rolled my own lexer, parser and code generator which was really interesting to study. I even added some basic type checking. 
-        Didn't like C++ though.`,
-    imageFolder: "compiler",
-    sourceURL: "https://github.com/John-Ling/Pseudocode-Compiler",
-    sourceLabel: "GitHub",
-    tags: ["C++", "Make"]
+    title: "LING-UX",
+    shortDescription: "Linux web terminal to showcase my low-level projects",
+    description: `Spent about a week building a Linux terminal in the browser to show off my C and C++ projects. On page load, the system spins up a bash instance running in Docker. Turns out you can expose the raw socket for a docker container and use it to stream IO between the server and client. A very neat trick indeed. 
+      
+      Deployed using Dokploy on my VPS.
+    `,
+    imageFolder: "lingux",
+    sourceURL: "https://terminal.johnling.me",
+    sourceLabel: "Try it out",
+    tags: ["SocketIO", "FastAPI", "React", "Docker", "Dokploy"]
   },
   {
     title: "Internship Project: RAG System",
@@ -84,10 +84,9 @@ export const projects: Project[] = [
     tags: ["MySQL", "Docker", "React", "Vite", "Flask", "Langchain", "Sass"]
   },
   {
-    title: "Connect3",
+    title: "connect3",
     shortDescription: "Platform to help students find connection at university",
-    description: `Currently, I'm doing volunteer work with the Data Science club at my university to launch and maintain a platform that helps 
-      students find friends, events and clubs by aggregating information and allowing them to search via LLMs. I learned a lot about interpersonal skills and working efficiently with others.
+    description: `Currently, I'm doing volunteer work with the Data Science club at my university to launch and maintain a platform that helps students find friends, events and clubs by aggregating information and allowing them to search via LLMs. I learned a lot about interpersonal skills and working efficiently with others.
 
       In the process of pivoting the project so stay tuned!
     `,
@@ -106,8 +105,20 @@ export const projects: Project[] = [
     tags: ["Flask", "Docker", "React", "Sass", "NGINX"]
   },
   {
+    title: "Pseudocode Compiler",
+    shortDescription: "Non-optimising compiler built from scratch",
+    description: `Toy compiler built with C++ that translates pseudocode into Python. 
+
+        I rolled my own lexer, parser and code generator which was really interesting to study. I even added some basic type checking. 
+        Didn't like C++ though.`,
+    imageFolder: "compiler",
+    sourceURL: "https://github.com/John-Ling/Pseudocode-Compiler",
+    sourceLabel: "GitHub",
+    tags: ["C++", "Make"]
+  },
+  {
     title: "Markov Chain Text Generator",
-    shortDescription: "It's ChatGPT, but ✨ dumb(er) ✨",
+    shortDescription: "It's ChatGPT, but ✨dumb✨(er)",
     description: `Used my hash table library to put together a program that builds an order N Markov model from a corpus and generate text with it. I hated my probability class but this topic seemed interesting so I did something with it.`,
     imageFolder: "markov",
     sourceURL: "https://github.com/John-Ling/markov-chain-text-generator",
