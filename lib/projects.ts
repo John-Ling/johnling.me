@@ -106,7 +106,7 @@ export const projects: Project[] = [
   },
   {
     title: "Pseudocode Compiler",
-    shortDescription: "Non-optimising compiler built from scratch",
+    shortDescription: "Scratch built, non-optimising compiler",
     description: `Toy compiler built with C++ that translates pseudocode into Python. 
 
         I rolled my own lexer, parser and code generator which was really interesting to study. I even added some basic type checking. 
