@@ -72,7 +72,7 @@ export const projects: Project[] = [
     imageFolder: "lingux",
     sourceURL: "https://terminal.johnling.me",
     sourceLabel: "Try it out",
-    tags: ["SocketIO", "FastAPI", "React", "Docker", "Dokploy"]
+    tags: ["SocketIO", "FastAPI", "Docker", "Dokploy", "React"]
   },
   {
     title: "Internship Project: RAG System",
@@ -81,7 +81,7 @@ export const projects: Project[] = [
     imageFolder: "internship-1",
     sourceURL: null,
     sourceLabel: null,
-    tags: ["MySQL", "Docker", "React", "Vite", "Flask", "Langchain", "Sass"]
+    tags: ["MySQL", "React", "Flask", "Langchain", "Sass"]
   },
   {
     title: "connect3",
