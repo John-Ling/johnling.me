@@ -13,7 +13,7 @@ export default function Projects() {
     (project) =>
       project.title.toLowerCase() === "wip journalling app" ||
       project.title.toLowerCase() === "trello tabliss integration" ||
-      project.title.toLowerCase() === "pseudocode compiler" ||
+      project.title.toLowerCase() === "ling-ux" ||
       project.title.toLowerCase() === "internship project: workflow builder"
   );
 
