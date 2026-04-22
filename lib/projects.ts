@@ -24,7 +24,7 @@ export const projects: Project[] = [
   },
   {
     title: "Internship Project: Workflow Builder",
-    shortDescription: "n8n like workflow builder",
+    shortDescription: "Spatial data workflow builder",
     description: `Created during my internship at Skand.
 
     Restored and added features to a non-functional codebase for a n8n-like workflow builder intended to be used for automating spatial data workflows. Worked with hexagonal architecture and GraphQL for the first time along with a significantly more advanced codebase. I worked on both the frontend and backend, liaising with two other engineers to ensure everything was as expected.
