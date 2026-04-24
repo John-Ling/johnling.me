@@ -1,40 +1,26 @@
-import fs from "fs";
-import path from "path";
 import matter from "gray-matter";
 import { BlogPost } from "@/types/blogs/blog_post";
 
-const postsDirectory: string = path.join(process.cwd(), "posts");
-export function get_sorted_posts() {
-  const folders: string[] = fs.readdirSync(postsDirectory);
-  const posts: BlogPost[] = folders.map((folder: string) => {
-    return get_post(folder);
-  });
+const BASE_URL = "https://blog-posts-607.pages.dev";
 
-  // return post in sorted order newest first
-  return posts.sort((a: BlogPost, b: BlogPost) => {
-    if (convert_date(a.date) < convert_date(b.date)) {
-      return 1;
-    }
-    return -1;
-  });
+export async function get_sorted_posts(): Promise<BlogPost[]> {
+  const index = await fetch(`${BASE_URL}/index.json`).then((r) => r.json());
+  const posts = await Promise.all(
+    index.map(async ({ slug, title, date }: { slug: string; title: string; date: string }) => {
+      const raw = await fetch(`${BASE_URL}/content/${slug}/content.mdx`).then((r) => r.text());
+      return { slug, title, date, content: matter(raw).content } as BlogPost;
+    })
+  );
+  return posts.sort((a, b) => (convert_date(a.date) < convert_date(b.date) ? 1 : -1));
+}
+
+export async function get_post(slug: string): Promise<BlogPost> {
+  const raw = await fetch(`${BASE_URL}/content/${slug}/content.mdx`).then((r) => r.text());
+  const { data, content } = matter(raw);
+  return { slug, title: data.title, date: data.date, content } as BlogPost;
 }
 
 function convert_date(date: string) {
   const arrDate = date.split("/");
   return `${arrDate[2]}/${arrDate[1]}/${arrDate[0]}`;
-}
-
-export function get_post(slug: string) {
-  const fullPath: string = path.join(postsDirectory, slug, "content.mdx");
-  const fileContent = fs.readFileSync(fullPath, "utf-8");
-  const parsed = matter(fileContent);
-  const metadata = parsed.data;
-  const content = parsed.content;
-
-  return {
-    slug: slug,
-    title: metadata.title,
-    date: metadata.date,
-    content: content
-  } as BlogPost;
 }

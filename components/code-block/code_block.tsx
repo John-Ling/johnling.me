@@ -1,13 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useState, isValidElement } from "react";
 import ContentPasteIcon from "@mui/icons-material/ContentPaste";
+import hljs from "highlight.js";
+import "./theme.css";
 
 interface CodeBlockProps {
   language?: string;
   filename?: string;
   canCopy?: boolean;
-  children: string;
+  children: React.ReactNode;
+}
+
+function extractText(node: React.ReactNode): string {
+  if (typeof node === "string") return node;
+  if (typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(extractText).join("");
+  if (isValidElement<{ children?: React.ReactNode }>(node)) {
+    return extractText(node.props.children);
+  }
+  return "";
 }
 
 export default function CodeBlock({
@@ -18,7 +30,7 @@ export default function CodeBlock({
 }: CodeBlockProps) {
   const [copied, setCopied] = useState<boolean>(false);
   const [tooltipVisible, setTooltipVisible] = useState<boolean>(false);
-  const cleanCode = children.trim();
+  const cleanCode = extractText(children).trim();
   const lineNumbers: string[] = generate_lines(cleanCode);
 
   const on_copy = () => {
@@ -65,7 +77,9 @@ export default function CodeBlock({
           ))}
         </div>
         <pre className='bg-[#161616] pl-2 w-full overflow-x-scroll [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden m-0'>
-          <code className={`language-${language}`}>{cleanCode}</code>
+          <code
+            dangerouslySetInnerHTML={{ __html: hljs.highlight(cleanCode, { language }).value }}
+          />
         </pre>
       </div>
     </div>

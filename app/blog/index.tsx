@@ -2,8 +2,9 @@ import { get_sorted_posts } from "@/lib/posts";
 import PaginatedPosts from "@/components/blog/paginated_posts";
 import { BlogPost } from "@/types/blogs/blog_post";
 
-export default function BlogPage() {
-  const posts: BlogPost[] = get_sorted_posts();
+export default async function BlogPage() {
+  const posts: BlogPost[] = await get_sorted_posts();
+
   if (!posts) {
     console.log("NULL");
   }
