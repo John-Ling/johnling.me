@@ -76,8 +76,9 @@ export default function CodeBlock({
             </p>
           ))}
         </div>
-        <pre className='bg-[#161616] pl-2 w-full overflow-x-scroll [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden m-0'>
+        <pre className='bg-[#161616] pl-2 pt-[4px] w-full  overflow-y-hidden m-0'>
           <code
+            className='hljs'
             dangerouslySetInnerHTML={{ __html: hljs.highlight(cleanCode, { language }).value }}
           />
         </pre>
