@@ -715,6 +715,8 @@ interface LorenzPoint {
   x: number;
   y: number;
   z: number;
+  char: string;
+  currentGeneration: number;
 }
 
 const randomFromIntervals = (min: number, max: number) => {
@@ -727,16 +729,18 @@ const sigma = 10;
 
 // magic number is derived from the fact that
 // butterfly pattern is formed from p > 24.74
-const rho = 28 + randomFromIntervals(-1, 1);
+const rho = 28 + randomFromIntervals(-2, 2);
 const beta = 8 / 3;
 const dt = 0.01;
 
 let lorenzPoints: LorenzPoint[] = [];
 let lorenzPointCount = 0;
 const lorenzChars = [".", ":", "+", "*", "#", "@", "%", "&", "$", "X"];
+let decay = false;
+let currentGeneration = 0;
 
 export function lorenz_init(width: number, height: number) {
-  lorenzPoints = [{ x: 0.1, y: 0, z: 0 }];
+  lorenzPoints = [{ x: 0.1, y: 0, z: 0, char: "X", currentGeneration: 0 }];
   lorenzPointCount = 1;
 
   return Array(height)
@@ -761,13 +765,31 @@ function render_next_lorenz_point() {
   lorenzPoints.push({
     x: currentPoint.x + dx,
     y: currentPoint.y + dy,
-    z: currentPoint.z + dz
+    z: currentPoint.z + dz,
+    char: "X",
+    currentGeneration: currentGeneration
   });
   lorenzPointCount++;
 }
 
 export function lorenz_next_frame(framebuffer: string[][], width: number, height: number) {
   render_next_lorenz_point();
+
+  // Clear screen to render points again
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      framebuffer[y][x] = " ";
+    }
+  }
+
+  console.log(lorenzPointCount);
+  if (lorenzPointCount >= 700 && !decay) {
+    decay = true;
+  }
+
+  if (decay) {
+    lorenzPoints.shift();
+  }
 
   lorenzPoints.forEach((point, index) => {
     const scale = 2.3;
@@ -779,7 +801,22 @@ export function lorenz_next_frame(framebuffer: string[][], width: number, height
 
     if (xp >= 0 && xp < width && yp >= 0 && yp < height) {
       const charIndex = Math.floor((index / lorenzPointCount) * lorenzChars.length);
-      framebuffer[yp][xp] = lorenzChars[Math.min(charIndex, lorenzChars.length - 1)];
+
+      if (lorenzPointCount > 0 && lorenzPointCount % 4000 === 0) {
+        // Reset aging by resetting the number of registered points
+        lorenzPointCount = 0;
+        currentGeneration += 1;
+      }
+
+      // Only update points in the current generation
+      if (point.currentGeneration == currentGeneration) {
+        const renderChar = lorenzChars[Math.min(charIndex, lorenzChars.length - 1)];
+        framebuffer[yp][xp] = renderChar;
+        point.char = renderChar;
+      } else {
+        // Render existing points from previous generations
+        framebuffer[yp][xp] = point.char;
+      }
     }
   });
 
