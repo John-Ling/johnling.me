@@ -782,7 +782,6 @@ export function lorenz_next_frame(framebuffer: string[][], width: number, height
     }
   }
 
-  console.log(lorenzPointCount);
   if (lorenzPointCount >= 700 && !decay) {
     decay = true;
   }
@@ -802,7 +801,7 @@ export function lorenz_next_frame(framebuffer: string[][], width: number, height
     if (xp >= 0 && xp < width && yp >= 0 && yp < height) {
       const charIndex = Math.floor((index / lorenzPointCount) * lorenzChars.length);
 
-      if (lorenzPointCount > 0 && lorenzPointCount % 4000 === 0) {
+      if (lorenzPointCount > 0 && lorenzPointCount % 3000 === 0) {
         // Reset aging by resetting the number of registered points
         lorenzPointCount = 0;
         currentGeneration += 1;
