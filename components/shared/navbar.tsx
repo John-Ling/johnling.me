@@ -5,6 +5,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import Link from "next/link";
 import { AnimatePresence, motion, stagger } from "framer-motion";
+import wires_top from "../../public/svg/wires_top_1.svg";
+import Image from "next/image";
 
 interface NavLink {
   name: string;
@@ -27,40 +29,58 @@ export default function Navbar() {
 
   const path: string = "/" + usePathname().split("/")[1];
   return (
-    <motion.nav
-      className={`max-w-[1920px] mx-auto justify-end md:justify-center items-center transition-all duration-10  z-50 pt-4 font-mono
+    <>
+      <Image
+        src={wires_top}
+        alt=''
+        className='absolute hidden lg:block border-0 -top-36 2xl:-top-36 right-[100px] 2xl:right-[600px] min-w-[2000px] h-auto -z-10'
+        width={2000}
+        height={800}
+      />
+      <Image
+        src={wires_top}
+        alt=''
+        className='absolute hidden lg:block border-0 -top-36 2xl:-top-32 left-[300px] 2xl:left-[600px] min-w-[2000px] -scale-x-100 h-auto -z-10'
+        width={2000}
+        height={800}
+      />
+      <motion.nav
+        className={`max-w-[1920px] mx-auto justify-end md:justify-center items-center transition-all duration-10  z-50 pt-4 font-mono
         ${open ? "bg-grey-normal" : "bg-opacity-0 "}  flex flex-row`}
-    >
-      {/* mobile hamburger menu */}
-      <motion.button
-        initial={{ opacity: 0, transform: "translateY(8px)" }}
-        animate={{ opacity: 1, transform: "translateY(0px)" }}
-        transition={{ delay: 0.3 }}
-        className='md:hidden p-2 z-50'
-        onClick={() => setOpen(!open)}
       >
-        <MenuIcon className='active:text-muted-white' />
-      </motion.button>
-
-      {/* desktop menu */}
-      <div className={`hidden invisible md:flex md:visible p-4 z-40`}>
-        <NavbarMenu links={links} activeLink={path} on_click={() => setOpen(false)} />
-      </div>
-
-      {/* mobile menu */}
-      <div
-        className={`absolute visible block md:invisible md:hidden top-12 w-full bg-grey-normal transition-all 
-          ease-in-out duration-300 z-50`}
-      >
-        <div
-          className={`transition-all ease-in-out z-50  ${open ? "duration-300 opacity-100" : " duration-300 opacity-0 invisible"}`}
+        {/* mobile hamburger menu */}
+        <motion.button
+          initial={{ opacity: 0, transform: "translateY(8px)" }}
+          animate={{ opacity: 1, transform: "translateY(0px)" }}
+          transition={{ delay: 0.3 }}
+          className='md:hidden p-2 z-50'
+          onClick={() => setOpen(!open)}
         >
-          <AnimatePresence>
-            {open && <MobileMenu links={links} activeLink={path} on_click={() => setOpen(false)} />}
-          </AnimatePresence>
+          <MenuIcon className='active:text-muted-white' />
+        </motion.button>
+
+        {/* desktop menu */}
+        <div className={`hidden invisible md:flex md:visible p-4 z-40`}>
+          <NavbarMenu links={links} activeLink={path} on_click={() => setOpen(false)} />
         </div>
-      </div>
-    </motion.nav>
+
+        {/* mobile menu */}
+        <div
+          className={`absolute visible block md:invisible md:hidden top-12 w-full bg-grey-normal transition-all 
+          ease-in-out duration-300 z-50`}
+        >
+          <div
+            className={`transition-all ease-in-out z-50  ${open ? "duration-300 opacity-100" : " duration-300 opacity-0 invisible"}`}
+          >
+            <AnimatePresence>
+              {open && (
+                <MobileMenu links={links} activeLink={path} on_click={() => setOpen(false)} />
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
+      </motion.nav>
+    </>
   );
 }
 

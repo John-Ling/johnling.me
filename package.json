@@ -9,7 +9,6 @@
     "postbuild": "next-sitemap --config next-sitemap.config.cjs",
     "start": "next start",
     "lint": "next lint",
-    "blog": "python blog.py",
     "analyse": "cross-env ANALYZE=true next build",
     "prepare": "husky"
   },
