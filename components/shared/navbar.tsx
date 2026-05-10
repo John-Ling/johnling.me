@@ -29,18 +29,18 @@ export default function Navbar() {
 
   const path: string = "/" + usePathname().split("/")[1];
   return (
-    <>
+    <div className='overflow-hidden max-w-[1920px]'>
       <Image
         src={wires_top}
         alt=''
-        className='absolute hidden lg:block border-0 -top-36 2xl:-top-36 right-[100px] 2xl:right-[600px] min-w-[2000px] h-auto -z-10'
+        className='overflow-clip absolute hidden lg:block border-0 -top-36 2xl:-top-36 right-[100px] 2xl:right-[600px] min-w-[2000px] h-auto -z-10'
         width={2000}
         height={800}
       />
       <Image
         src={wires_top}
         alt=''
-        className='absolute hidden lg:block border-0 -top-36 2xl:-top-32 left-[300px] 2xl:left-[600px] min-w-[2000px] -scale-x-100 h-auto -z-10'
+        className='overflow-clip absolute hidden lg:block border-0 -top-36 2xl:-top-32 left-[300px] 2xl:left-[600px] min-w-[2000px] -scale-x-100 h-auto -z-10'
         width={2000}
         height={800}
       />
@@ -80,7 +80,7 @@ export default function Navbar() {
           </div>
         </div>
       </motion.nav>
-    </>
+    </div>
   );
 }
 

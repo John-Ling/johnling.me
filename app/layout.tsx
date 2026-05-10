@@ -29,7 +29,7 @@ export default function RootLayout({
           href='https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css'
         />
       </head>
-      <body>
+      <body className='overflow-x-hidden'>
         <Navbar />
         <main className='font-mono'>
           {children}
