@@ -742,6 +742,8 @@ let currentGeneration = 0;
 export function lorenz_init(width: number, height: number) {
   lorenzPoints = [{ x: 0.1, y: 0, z: 0, char: "X", currentGeneration: 0 }];
   lorenzPointCount = 1;
+  decay = false;
+  currentGeneration = 0;
 
   return Array(height)
     .fill(null)
@@ -825,6 +827,8 @@ export function lorenz_next_frame(framebuffer: string[][], width: number, height
 export function lorenz_cleanup() {
   lorenzPoints = [];
   lorenzPointCount = 0;
+  decay = false;
+  currentGeneration = 0;
   return;
 }
 
