@@ -12,7 +12,7 @@ const config: Config = {
     extend: {},
     colors: {
       cream: "#fffff1",
-      white: "#e9ecd5",
+      white: "#e1d7c4",
       "muted-white": "#B0B0B0",
       orange: "#FF5500",
       "orange-light": "#fd7202",
@@ -27,9 +27,9 @@ const config: Config = {
         card: "#14171b",
         muted: "#575757"
       },
-      blue: "#82AAFF",
+      blue: "#0ea8c4",
       green: "#50FA7B",
-      red: "#e43b58",
+      red: "#f0574b",
       yellow: "#FFCB6B",
       magenta: "#C792EA",
       cyan: "#8BE9FD",

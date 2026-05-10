@@ -60,9 +60,9 @@ export default function Hero() {
   return (
     <motion.div variants={container} initial='hidden' animate='show'>
       <div
-        className={`min-h-screen max-w-[1920px] w-10/12  md:w-9/12 mx-auto flex pt-4 md:pt-24 md:pb-24 justify-start flex-col lg:flex-row relative`}
+        className={`h-[95vh] max-w-[1920px] w-10/12  md:w-9/12 mx-auto flex pt-4 md:pt-24 md:pb-24 justify-start flex-col lg:flex-row relative`}
       >
-        <div className='basis-7/12 max-w-5xl flex flex-col z-20 mt-10'>
+        <div className='basis-6/12 lg:basis-7/12 2xl:basis-6/12 max-w-5xl flex flex-col z-20 md:mt-10'>
           <div className='text-6xl z-0 mb-4 text-left font-serif'>
             <motion.h1 variants={item}>Hello,</motion.h1>
             <motion.h1 variants={item}>
@@ -76,19 +76,16 @@ export default function Hero() {
           <motion.p variants={item} className='mt-4 text-left'>
             Melbourne-based full-stack developer with interests in UX, design and low-level systems.
           </motion.p>
-          <motion.p className='mt-4 text-left' variants={item}>
-            I&apos;m a final year Computer Science student at the University of Melbourne with prior
-            internship experience looking to improve my skills.
+          <motion.p variants={item} className='mt-4 text-left'>
+            I&apos;m interested in productivity and well-being focused applications that help
+            technical and non-technical people alike to reduce stress and maintain focus in a world
+            designed to erode it.
+          </motion.p>
+          <motion.p variants={item} className='hidden md:block mt-4 text-left'>
+            Currently re-implementing Trello to allow using it directly from my browser&apos;s
+            homepage.
           </motion.p>
           <motion.p variants={item} className='mt-4 text-left'>
-            My interests lie in productivity and well-being focused applications that help others
-            reduce stress and maintain focus in a world designed to erode it.
-          </motion.p>
-          <motion.p variants={item} className='hidden md:block mt-4 text-left'>
-            Currently exploring the use of encoder-only language models for detailed emotion
-            classification in journal entries.
-          </motion.p>
-          <motion.p variants={item} className='hidden md:block mt-4 text-left'>
             Welcome to my website.
           </motion.p>
         </div>

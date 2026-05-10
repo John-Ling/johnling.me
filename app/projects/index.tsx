@@ -5,6 +5,7 @@ import ProjectListCard from "@/components/projects/project_list_card";
 import ProjectModal from "@/components/projects/project_modal";
 import useProjectModal from "@/hooks/useProjectModal";
 import { Project } from "@/types/projects/project";
+import { useEffect, useState } from "react";
 
 const container = {
   hidden: { opacity: 0 },
@@ -23,6 +24,19 @@ const item = {
 
 export default function ProjectsPage() {
   const { selectedProject, modalOpened, onProjectSelect, onClose } = useProjectModal();
+  const [cols, setCols] = useState(3);
+
+  useEffect(() => {
+    const updateCols = () => {
+      const w = window.innerWidth;
+      if (w < 768) setCols(1);
+      else if (w < 1024) setCols(2);
+      else setCols(3);
+    };
+    updateCols();
+    window.addEventListener("resize", updateCols);
+    return () => window.removeEventListener("resize", updateCols);
+  }, []);
   return (
     <>
       <AnimatePresence>
@@ -52,6 +66,7 @@ export default function ProjectsPage() {
                   key={i}
                   project={project}
                   position={i}
+                  cols={cols}
                   on_select={onProjectSelect}
                 />
               </motion.span>

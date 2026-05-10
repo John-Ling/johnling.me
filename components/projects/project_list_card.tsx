@@ -4,21 +4,22 @@ import Image from "next/image";
 interface ProjectListCardProps {
   project: Project;
   position: number;
+  cols: number;
   on_select: (project: Project) => void;
 }
 
-export default function ProjectListCard({ project, position, on_select }: ProjectListCardProps) {
+export default function ProjectListCard({
+  project,
+  position,
+  cols,
+  on_select
+}: ProjectListCardProps) {
   const maxTagCount = 3;
-  const colours: string[] = [
-    "text-blue",
-    "text-magenta",
-    "text-teal",
-    "text-green",
-    "text-yellow",
-    "text-orange-light",
-    "text-red"
-  ];
-  const colourClass: string = colours[position % colours.length];
+  const colours: string[] = ["text-blue", "text-red"];
+
+  const col = position % cols;
+  const row = Math.floor(position / cols);
+  const colourClass: string = colours[(row + col) % colours.length];
   const projectFolder = `/images/projects/${project.imageFolder}/0.png`;
 
   const on_click = () => {

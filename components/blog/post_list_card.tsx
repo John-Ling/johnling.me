@@ -4,18 +4,11 @@ import Link from "next/link";
 interface PostListCardProps {
   post: BlogPost;
   position: number;
+  noColour?: boolean;
 }
 
-export function PostListCard({ post, position }: PostListCardProps) {
-  const colours: string[] = [
-    "text-blue",
-    "text-magenta",
-    "text-teal",
-    "text-green",
-    "text-yellow",
-    "text-orange-light",
-    "text-red"
-  ];
+export function PostListCard({ post, position, noColour = false }: PostListCardProps) {
+  const colours: string[] = ["text-blue", "text-red"];
 
   const wordSubset =
     post.content
@@ -26,7 +19,9 @@ export function PostListCard({ post, position }: PostListCardProps) {
       .join(" ")
       .replace(/[.,!?;:\\s]+$/, "") + "...";
 
-  const colourClass: string = colours[position % colours.length];
+  const colourClass: string = noColour
+    ? "text-white"
+    : colours[(Math.floor(position / 2) + (position % 2)) % colours.length];
   return (
     <div className='p-3 md:p-5  bg-grey-card border-2 border-grey-light rounded-lg flex flex-col justify-between items-start'>
       <div className='pb-4 w-11/12'>
