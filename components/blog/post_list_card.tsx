@@ -19,9 +19,8 @@ export function PostListCard({ post, position, noColour = false }: PostListCardP
       .join(" ")
       .replace(/[.,!?;:\\s]+$/, "") + "...";
 
-  const colourClass: string = noColour
-    ? "text-white"
-    : colours[(Math.floor(position / 2) + (position % 2)) % colours.length];
+  const colourClass: string = noColour ? "text-white" : colours[position % colours.length];
+
   return (
     <div className='p-3 md:p-5  bg-grey-card border-2 border-grey-light rounded-lg flex flex-col justify-between items-start'>
       <div className='pb-4 w-11/12'>
