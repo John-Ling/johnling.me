@@ -51,7 +51,7 @@ export default function ProjectsPage() {
           animate={{ opacity: 1, transform: "translateY(0px)" }}
           className={`text-4xl font-bold font-serif mb-10`}
         >
-          I&apos;ve Done Too Many <span className='text-orange'>Projects</span>
+          A gallery of my favourite <span className='text-orange'>Projects</span>
         </motion.h1>
         <motion.div
           variants={container}
