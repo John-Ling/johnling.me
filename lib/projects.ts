@@ -19,7 +19,7 @@ export const projects: Project[] = [
   },
   {
     title: "Open Source Project: TablissNG",
-    shortDescription: "Reimplementing Trello from scratch into my browser's homepage",
+    shortDescription: "Reimplementing Trello in a browser extension",
     description: `Fork of browser extension TablissNG with Trello interoperability. 
 
         I found that having to constantly visit the Trello website just to remind myself of my tasks hurt my focus and felt clunky. Now my Trello boards are shown to me directly in my browser homepage and any changes I make to my personal board are are reflected in the UI. I found it a good practice in gracefully handling errors, optimistic UI updates and other UX stuff.
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     tags: ["React", "Sass", "Zustand"]
   },
   {
-    title: "Personal Journalling App",
+    title: "Minimalist Journalling App",
     shortDescription: "Analytics-driven journalling app",
     description: `A full-stack journalling app with a simple, uncluttered interface in created with ShadCN UI. 
 
@@ -88,15 +88,6 @@ export const projects: Project[] = [
     tags: ["NextJS", "Supabase", "Tailwind", "Agentic Systems", "Figma"]
   },
   {
-    title: "Internship Project: Krux Infra",
-    shortDescription: "Angular-focused frontend work",
-    description: `Completed as part of my internship project to build the frontend for a trade application system. I collaborated with both a graphic designer and worked under the supervision of a senior engineer (both very cool guys). I picked up Angular and Formly in order to build the interface and got to brush up on my SCSS skills.`,
-    imageFolder: "internship-2",
-    sourceURL: null,
-    sourceLabel: null,
-    tags: ["Angular", "Material UI", "Sass"]
-  },
-  {
     title: "Nixie Tube Watch",
     shortDescription: "Building circuits with old Soviet technology",
     description: `Designed my own circuitry to drive nixie tubes, wrote AVR C for the first time and built my own library to interface with a DS1302 timekeeping chip. Ultimately scrapped the project (watch was too thick) but might make a clock out of it.`,
@@ -127,6 +118,15 @@ export const projects: Project[] = [
     tags: ["Flask", "Docker", "React", "Sass", "NGINX"]
   },
   {
+    title: "Portfolio Website",
+    shortDescription: "Website and technical blog",
+    description: `My friend was making his own portfolio with NextJS and Tailwind so naturally, I had to try one-up him. Added an ascii-based lorenz attractor and started a technical blog that has since garnered ~1.1K monthly visitors (after accounting for bot traffic)`,
+    imageFolder: "website-rebuild",
+    sourceURL: null,
+    sourceLabel: "No link. You're already here :)",
+    tags: ["NextJS", "Tailwind", "Framer Motion", "Vercel"]
+  },
+  {
     title: "Markov Chain Text Generator",
     shortDescription: "It's ChatGPT, but ✨dumb✨",
     description: `Used my own hash table library to make a program that builds an order N Markov model from a corpus and generate text with it. I hated my probability class but this topic seemed interesting so I did something with it.`,
@@ -145,32 +145,5 @@ export const projects: Project[] = [
     sourceLabel: "GitHub",
     imageFolder: "cameraman",
     tags: ["Arduino", "Python", "OpenCV", "Caffe", "OpenVINO", "Hardware"]
-  },
-  {
-    title: "Portfolio Website",
-    shortDescription: "Website and technical blog",
-    description: `My friend was making his own portfolio with NextJS and Tailwind so naturally, I had to try one-up him. Added an ascii-based lorenz attractor and started a technical blog that has since garnered ~1.1K monthly visitors (after accounting for bot traffic)`,
-    imageFolder: "website-rebuild",
-    sourceURL: null,
-    sourceLabel: "No link. You're already here :)",
-    tags: ["NextJS", "Tailwind", "Framer Motion", "Vercel"]
-  },
-  {
-    title: "wikihopper.johnling.me",
-    shortDescription: "Lightweight web game made because I was bored",
-    description: `React web game that finds two random wikipedia articles and challenges the user to navigate from one to another in 10 hops or less. Created because I wanted something fun to play on my phone.`,
-    sourceURL: "https://wikihopper.johnling.me",
-    sourceLabel: "Try it Out",
-    imageFolder: "wikihopper",
-    tags: ["React", "Sass", "Docker"]
-  },
-  {
-    title: "Desktop Kahoot Bot",
-    shortDescription: "Winforms kind of good ngl",
-    description: `Homage to the first Kahoot Bot from 2019. Written in C# and used Winforms for the UI. Created a "control panel" where you could see the scores for each bot.`,
-    sourceURL: "https://github.com/John-Ling/Desktop-Kahoot-Bot",
-    imageFolder: "kahoot-desktop",
-    sourceLabel: "GitHub",
-    tags: ["C#", "Selenium", "Winforms"]
   }
 ];
