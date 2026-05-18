@@ -12,8 +12,8 @@ export default function Projects() {
 
   const featuredProjects = projects.filter(
     (project) =>
-      project.title.toLowerCase() === "wip journalling app" ||
-      project.title.toLowerCase() === "trello tabliss integration" ||
+      project.title.toLowerCase() === "minimalist journalling app" ||
+      project.title.toLowerCase() === "open source project: tablissng" ||
       project.title.toLowerCase() === "ling-ux" ||
       project.title.toLowerCase() === "internship project: workflow builder"
   );
