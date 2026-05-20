@@ -45,7 +45,7 @@ export default function ProjectsPage() {
         )}
       </AnimatePresence>
       <title>Projects</title>
-      <div className={`min-h-screen w-11/12 lg:w-10/12 mx-auto max-w-[1920px]`}>
+      <div className={`min-h-screen w-11/12 mx-auto max-w-[1920px]`}>
         <motion.h1
           initial={{ opacity: 0, transform: "translateY(8px)" }}
           animate={{ opacity: 1, transform: "translateY(0px)" }}

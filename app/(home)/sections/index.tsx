@@ -9,7 +9,7 @@ import study from "@/public/images/homepage/study.jpg";
 export default function HomeSections() {
   return (
     <div className='flex flex-col items-center max-w-[1920px] mx-auto'>
-      <div className='grid auto-rows-auto md:grid-cols-2 mx-auto w-10/12 md:w-9/12 gap-y-6 lg:gap-y-14 gap-x-6'>
+      <div className='grid auto-rows-auto md:grid-cols-2 mx-auto w-11/12 lg:w-11/12 2xl:w-9/12 md:w-9/12 gap-y-6 lg:gap-y-14 gap-x-6'>
         <div>
           <h2 className='text-3xl md:text-4xl mb-3 font-serif mt-3 font-bold text-white'>
             A Bit More <span className='text-orange'>About Me</span>

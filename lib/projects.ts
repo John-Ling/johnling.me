@@ -77,7 +77,7 @@ export const projects: Project[] = [
 
   {
     title: "Club Project: connect3",
-    shortDescription: "Super-app to help students find connection at university",
+    shortDescription: "App to help students find connection at university",
     description: `Currently, I'm doing volunteer work with the Data Science club at my university to launch and maintain a platform that helps students find friends, events and clubs by aggregating information and allowing them to search via LLMs. I learned a lot about interpersonal skills and working efficiently with others.
 
       Currently, we're building a ticketing system to replace the current one used by our university!

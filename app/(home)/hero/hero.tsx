@@ -60,7 +60,7 @@ export default function Hero() {
   return (
     <motion.div variants={container} initial='hidden' animate='show'>
       <div
-        className={`h-[95vh] max-w-[1920px] w-10/12  md:w-9/12 mx-auto flex pt-4 md:pt-24 md:pb-24 justify-start flex-col lg:flex-row relative`}
+        className={`min-h-[95vh] max-w-[1920px] w-11/12  lg:w-10/12 2xl:w-9/12 md:w-9/12 mx-auto flex pt-4 md:pt-24 md:pb-24 justify-start flex-col lg:flex-row relative`}
       >
         <div className='basis-6/12 lg:basis-7/12 2xl:basis-6/12 max-w-5xl flex flex-col z-20 md:mt-10'>
           <div className='text-6xl z-0 mb-4 text-left font-serif'>

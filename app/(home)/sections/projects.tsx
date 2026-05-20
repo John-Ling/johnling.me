@@ -26,7 +26,7 @@ export default function Projects() {
         )}
       </AnimatePresence>
 
-      <motion.section className='h-4/5 flex flex-col mx-auto mt-10 mb-10 w-10/12 md:w-9/12 z-30'>
+      <motion.section className='h-4/5 flex flex-col mx-auto max-w-[1920px] w-11/12 lg:w-11/12 2xl:w-9/12 md:w-9/12 mt-10 mb-10  z-30'>
         <h2 className='text-2xl md:text-3xl mb-3 mt-3 font-bold font-serif text-center lg:text-left'>
           Some of My <span className='text-orange'>Favourite Projects</span>
         </h2>
