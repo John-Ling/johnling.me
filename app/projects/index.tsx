@@ -45,11 +45,11 @@ export default function ProjectsPage() {
         )}
       </AnimatePresence>
       <title>Projects</title>
-      <div className={`min-h-screen w-11/12 mx-auto max-w-[1920px]`}>
+      <div className={`min-h-screen w-11/12 mx-auto max-w-[1920px] pt-10`}>
         <motion.h1
           initial={{ opacity: 0, transform: "translateY(8px)" }}
           animate={{ opacity: 1, transform: "translateY(0px)" }}
-          className={`text-4xl font-bold font-serif mb-10`}
+          className={`text-5xl font-bold font-serif mb-10`}
         >
           A gallery of my favourite <span className='text-orange'>Projects</span>
         </motion.h1>

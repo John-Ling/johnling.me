@@ -134,7 +134,7 @@ function MobileMenu({ links, activeLink, on_click }: NavMenuProps) {
         animate='show'
         exit='exit'
       >
-        <div className='z-40 w-full pt-4'>
+        <div className='z-40 w-full'>
           <div className='flex w-full justify-end'>
             <button onClick={on_click} className='p-2'>
               <CloseIcon className='active:text-muted-white' />

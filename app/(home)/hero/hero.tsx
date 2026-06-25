@@ -60,15 +60,15 @@ export default function Hero() {
   return (
     <motion.div variants={container} initial='hidden' animate='show'>
       <div
-        className={`min-h-[85vh] max-w-[1920px] w-11/12 lg:w-11/12 2xl:w-9/12 md:w-9/12 mx-auto mt-10 flex justify-start flex-col lg:flex-row relative`}
+        className={`min-h-[85vh] max-w-[1920px] w-11/12 lg:w-11/12 2xl:w-9/12 md:w-9/12 mx-auto mt-10 flex justify-start items-center flex-col lg:flex-row relative`}
       >
-        <div className='basis-6/12 lg:basis-7/12 2xl:basis-6/12 max-w-5xl  flex flex-col z-20 mt-10'>
+        <div className='basis-6/12 lg:basis-7/12 2xl:basis-6/12 max-w-5xl  flex flex-col z-20 lg:-translate-y-32'>
           <div className='text-[5rem] z-0 text-left font-serif'>
             <motion.h1 variants={item} className='m-0 pb-2 leading-none'>
-              <motion.span variants={item} className='m-0 p-0'>
+              <motion.span variants={item} className='m-0 p-0 leading-none'>
                 John
               </motion.span>{" "}
-              <motion.span variants={item} className='text-orange m-0 p-0'>
+              <motion.span variants={item} className='text-orange m-0 p-0 leading-none'>
                 Ling
               </motion.span>
             </motion.h1>
