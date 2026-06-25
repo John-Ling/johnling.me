@@ -11,7 +11,7 @@ import {
 import { check_special, init_size } from "./utils";
 import AsciiDisplay from "@/components/ascii-display/ascii_display";
 import BadApple from "./bad_apple";
-import HeroIcons from "@/components/hero/hero_icons";
+import HeroContactDetails from "@/components/hero/hero_contact_details";
 import useAsciiAnimation from "@/hooks/useAsciiAnimation";
 import { breakpointSmall, breakpointMedium, breakpointLarge } from "@/hooks/useMediaQuery";
 import { CanvasSize } from "@/types/hero/CanvasSize";
@@ -58,36 +58,42 @@ export default function Hero() {
   }
 
   return (
-    <motion.div variants={container} initial='hidden' animate='show'>
+    <motion.div variants={container} initial='hidden' animate='show' className='pr-10 pl-10'>
       <div
-        className={`min-h-[95vh] max-w-[1920px] w-11/12  lg:w-10/12 2xl:w-9/12 md:w-9/12 mx-auto flex pt-4 md:pt-24 md:pb-24 justify-start flex-col lg:flex-row relative`}
+        className={`min-h-[95vh] max-w-[1920px] mx-auto flex justify-start flex-col lg:flex-row relative`}
       >
-        <div className='basis-6/12 lg:basis-7/12 2xl:basis-6/12 max-w-5xl flex flex-col z-20 md:mt-10'>
-          <div className='text-6xl z-0 mb-4 text-left font-serif'>
-            <motion.h1 variants={item}>Hello,</motion.h1>
-            <motion.h1 variants={item}>
-              I&apos;m{" "}
-              <motion.span variants={item} className='text-orange'>
+        <div className='basis-6/12 lg:basis-7/12 2xl:basis-5/12 max-w-5xl flex flex-col z-20 mt-20'>
+          <div className='text-8xl z-0 text-left font-serif'>
+            <motion.h1 variants={item} className='m-0 pb-2 leading-none'>
+              <motion.span variants={item} className='m-0 p-0'>
                 John
+              </motion.span>{" "}
+              <motion.span variants={item} className='text-orange m-0 p-0'>
+                Ling
               </motion.span>
             </motion.h1>
           </div>
-          <HeroIcons />
-          <motion.p variants={item} className='mt-4 text-left'>
-            Melbourne-based full-stack developer with interests in UX, design and low-level systems.
-          </motion.p>
-          <motion.p variants={item} className='mt-4 text-left'>
-            I&apos;m interested in productivity and well-being focused applications that help
-            technical and non-technical people alike to reduce stress and maintain focus in a world
-            designed to erode it.
-          </motion.p>
-          <motion.p variants={item} className='hidden md:block mt-4 text-left'>
-            Currently re-implementing Trello to allow using it directly from my browser&apos;s
-            homepage.
-          </motion.p>
-          <motion.p variants={item} className='mt-4 text-left'>
-            Welcome to my website.
-          </motion.p>
+          <div className='pl-1'>
+            <HeroContactDetails />
+          </div>
+          <div className='text-sm'>
+            <motion.p variants={item} className='mt-4 text-left'>
+              Melbourne-based full-stack developer with interests in UX, design and low-level
+              systems.
+            </motion.p>
+            <motion.p variants={item} className='mt-4 text-left'>
+              I&apos;m interested in productivity and well-being focused applications that help
+              technical and non-technical people alike to reduce stress and maintain focus in a
+              world designed to erode it.
+            </motion.p>
+            <motion.p variants={item} className='hidden md:block mt-4 text-left'>
+              Currently re-implementing Trello to allow using it directly from my browser&apos;s
+              homepage.
+            </motion.p>
+            <motion.p variants={item} className='mt-4 text-left'>
+              Welcome to my website.
+            </motion.p>
+          </div>
         </div>
       </div>
       {/* background ascii display */}

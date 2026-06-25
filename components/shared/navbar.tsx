@@ -5,8 +5,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import Link from "next/link";
 import { AnimatePresence, motion, stagger } from "framer-motion";
-import wires_top from "../../public/svg/wires_top_1.svg";
-import Image from "next/image";
 
 interface NavLink {
   name: string;
@@ -17,11 +15,7 @@ export default function Navbar() {
   const links: NavLink[] = [
     { name: "HOME", target: "/" },
     { name: "PROJECTS", target: "/projects" },
-    { name: "BLOG", target: "/blog" },
-    {
-      name: "RESUME",
-      target: "https://drive.google.com/file/d/1y_VlkkFUaFXCCYF-WO-EDnCOfMHy_F90/view?usp=sharing"
-    }
+    { name: "BLOG", target: "/blog" }
   ];
 
   // status of mobile menu
@@ -30,22 +24,8 @@ export default function Navbar() {
   const path: string = "/" + usePathname().split("/")[1];
   return (
     <div className='overflow-hidden max-w-[1920px]'>
-      <Image
-        src={wires_top}
-        alt=''
-        className='overflow-clip absolute hidden lg:block border-0 -top-36 2xl:-top-36 right-[100px] 2xl:right-[600px] min-w-[2000px] h-auto -z-10'
-        width={2000}
-        height={800}
-      />
-      <Image
-        src={wires_top}
-        alt=''
-        className='overflow-clip absolute hidden lg:block border-0 -top-36 2xl:-top-32 left-[300px] 2xl:left-[600px] min-w-[2000px] -scale-x-100 h-auto -z-10'
-        width={2000}
-        height={800}
-      />
       <motion.nav
-        className={`max-w-[1920px] mx-auto justify-end md:justify-center items-center transition-all duration-10  z-50 pt-4 font-mono
+        className={`max-w-[1920px] mx-auto justify-end md:justify-center items-center transition-all duration-10  z-50 m-0 p-0 font-mono
         ${open ? "bg-grey-normal" : "bg-opacity-0 "}  flex flex-row`}
       >
         {/* mobile hamburger menu */}
@@ -60,7 +40,7 @@ export default function Navbar() {
         </motion.button>
 
         {/* desktop menu */}
-        <div className={`hidden invisible md:flex md:visible p-4 z-40`}>
+        <div className={`hidden invisible mt-4 md:flex md:visible z-40`}>
           <NavbarMenu links={links} activeLink={path} on_click={() => setOpen(false)} />
         </div>
 
@@ -131,7 +111,7 @@ function NavbarMenu({ links, activeLink, on_click }: NavMenuProps) {
           <motion.li key={link.name} className='p-2' variants={item}>
             <Link
               onClick={on_click}
-              className={`no-underline navlink  hover:text-orange w-screen md:w-auto ${link.target === activeLink ? "font-bold text-orange" : ""}`}
+              className={`no-underline navlink text-sm  hover:text-orange w-screen md:w-auto ${link.target === activeLink ? "font-bold text-orange" : ""}`}
               aria-current={link.target === activeLink ? "page" : undefined}
               href={link.target}
             >
