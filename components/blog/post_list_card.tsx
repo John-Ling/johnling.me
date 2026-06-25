@@ -26,11 +26,11 @@ export function PostListCard({ post, position, noColour = false }: PostListCardP
       <div className='pb-4 w-11/12'>
         <h2 className={`text-md ${colourClass} mb-2`}>{post.title}</h2>
         <p className='text-xs text-muted-white font-mono'>{post.date}</p>
-        <p className='w-11/12 mt-2 text-xs md:text-sm max-h-[3rem] md:max-h-[3.5rem] text-muted-white overflow-hidden'>
+        <p className='w-11/12 mt-2 text-sm max-h-[3.8rem] text-muted-white overflow-hidden'>
           {wordSubset}
         </p>
       </div>
-      <Link className='link w-fit text-sm font-mono' href={`/blog/${post.slug}`}>
+      <Link className='link w-fit text-xs font-mono' href={`/blog/${post.slug}`}>
         Article
       </Link>
     </div>

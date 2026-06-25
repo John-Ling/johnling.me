@@ -11,7 +11,7 @@ export default async function BlogPage() {
   return (
     <>
       <title>Blog</title>
-      <div className='flex flex-col items-center min-h-screen max-w-[1920px] w-11/12 lg:w-10/12 mx-auto'>
+      <div className='flex flex-col items-center min-h-screen max-w-[1920px] w-11/12 lg:w-10/12 mx-auto pt-10'>
         <div className='w-full md:w-3/5 lg:w-2/5'>
           <h1 className='text-4xl font-serif font-bold'>
             Do People Still <span className='text-orange'>Blog?</span>
