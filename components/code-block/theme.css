@@ -32,6 +32,11 @@ base0E  #87AFD7  Keywords, Storage, Selector, Markup Italic, Diff Changed
 base0F  #5F87AF  Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
 */
 
+p {
+  margin-top: 0 !important;
+  margin-bottom: 6px !important;
+}
+
 .hljs {
   color: #c9c9c9 !important;            /* Default foreground */
   background: #161616 !important;       /* Editor background */

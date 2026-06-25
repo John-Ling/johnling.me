@@ -66,9 +66,16 @@ export default function CodeBlock({
       </div>
       <div className='flex flex-row'>
         {/* line numbers */}
-        <pre className='bg-grey-normal font-bold pl-2 pr-2 select-none text-xs text-muted-white text-right m-0 overflow-hidden'>
-          {lineNumbers.join("\n")}
-        </pre>
+        <div className='bg-grey-normal pt-[0.27rem]'>
+          {lineNumbers.map((number: string, index) => (
+            <p
+              key={index}
+              className='font-bold font-mono leading-none text-sm pl-2 pr-2 select-none text-muted-white text-right'
+            >
+              {number}
+            </p>
+          ))}
+        </div>
         <pre className='bg-[#161616] pl-2 w-full overflow-y-hidden m-0'>
           <code
             className='hljs'
