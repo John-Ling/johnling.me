@@ -58,12 +58,12 @@ export default function Hero() {
   }
 
   return (
-    <motion.div variants={container} initial='hidden' animate='show' className='pr-10 pl-10'>
+    <motion.div variants={container} initial='hidden' animate='show'>
       <div
-        className={`min-h-[95vh] max-w-[1920px] mx-auto flex justify-start flex-col lg:flex-row relative`}
+        className={`min-h-[85vh] max-w-[1920px] w-11/12 lg:w-11/12 2xl:w-9/12 md:w-9/12 mx-auto mt-10 flex justify-start flex-col lg:flex-row relative`}
       >
-        <div className='basis-6/12 lg:basis-7/12 2xl:basis-5/12 max-w-5xl flex flex-col z-20 mt-20'>
-          <div className='text-8xl z-0 text-left font-serif'>
+        <div className='basis-6/12 lg:basis-7/12 2xl:basis-6/12 max-w-5xl  flex flex-col z-20 mt-10'>
+          <div className='text-[5rem] z-0 text-left font-serif'>
             <motion.h1 variants={item} className='m-0 pb-2 leading-none'>
               <motion.span variants={item} className='m-0 p-0'>
                 John
@@ -73,9 +73,7 @@ export default function Hero() {
               </motion.span>
             </motion.h1>
           </div>
-          <div className='pl-1'>
-            <HeroContactDetails />
-          </div>
+          <HeroContactDetails />
           <div className='text-sm'>
             <motion.p variants={item} className='mt-4 text-left'>
               Melbourne-based full-stack developer with interests in UX, design and low-level

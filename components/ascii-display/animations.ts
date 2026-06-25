@@ -729,7 +729,7 @@ const sigma = 10;
 
 // magic number is derived from the fact that
 // butterfly pattern is formed from p > 24.74
-const rho = 28 + randomFromIntervals(-2, 2);
+const rho = 28 + randomFromIntervals(-1, 1);
 const beta = 8 / 3;
 const dt = 0.01;
 

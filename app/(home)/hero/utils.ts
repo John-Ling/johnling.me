@@ -14,6 +14,7 @@ export function init_size(size: "sm" | "md" | "lg") {
     return { width: 65, height: 20, fontSize: 1 } as CanvasSize;
   }
 
+  // Mobile
   if (size === "sm") {
     return {
       // restrict width and height otherwise performance issues will happens
@@ -23,10 +24,11 @@ export function init_size(size: "sm" | "md" | "lg") {
     } as CanvasSize;
   }
 
+  // Non mobile
   return {
     // restrict width and height otherwise performance issues will happens
     width: Math.max(50, Math.floor(window.innerWidth / 11)),
-    height: Math.max(40, Math.floor(window.innerHeight / 37)),
+    height: Math.max(40, Math.floor(window.innerHeight / 41)),
     fontSize: 1
   } as CanvasSize;
 }

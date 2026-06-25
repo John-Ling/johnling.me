@@ -27,9 +27,9 @@ const config: Config = {
         card: "#14171b",
         muted: "#575757"
       },
-      blue: "#0ea8c4",
+      blue: "#5e9fb0",
       green: "#50FA7B",
-      red: "#f0574b",
+      red: "#dd695a",
       yellow: "#FFCB6B",
       magenta: "#C792EA",
       cyan: "#8BE9FD",
