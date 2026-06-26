@@ -23,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang='en' className={`${meslo.variable} ${serif.variable} antialiased`}>
       <head>
+        <link rel='preload' as='image' href='images/background.png' fetchPriority='high' />
         <link
           rel='stylesheet'
           type='text/css'
