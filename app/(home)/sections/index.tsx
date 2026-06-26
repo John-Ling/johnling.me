@@ -38,18 +38,26 @@ export default function HomeSections() {
             <div className='relative overflow-hidden col-span-2'>
               <Image
                 src={myself_vertical}
-                className='h-auto'
+                className='h-auto z-30'
+                priority
                 alt='Picture of the creator of the website'
               />
             </div>
             <div className='relative overflow-hidden'>
-              <Image src={nixie} alt='Dog' className='w-60 h-auto' fill />
+              <Image src={nixie} alt='Dog' className='w-60 h-auto' fill priority />
             </div>
             <div className='relative overflow-hidden'>
-              <Image src={peking} alt='peking duck' className='h-auto w-60' fill />
+              <Image src={peking} alt='peking duck' className='h-auto w-60' fill priority />
             </div>
             <div className='relative overflow-hidden col-span-2'>
-              <Image src={study} alt='studying' className='h-auto' width={3042} height={4032} />
+              <Image
+                src={study}
+                alt='studying'
+                className='h-auto'
+                width={3042}
+                height={4032}
+                priority
+              />
             </div>
           </div>
 
@@ -58,6 +66,7 @@ export default function HomeSections() {
             <div className='relative'>
               <Image
                 src={myself_vertical}
+                priority
                 className='block lg:hidden'
                 alt='Picture of the creator of the website'
               />

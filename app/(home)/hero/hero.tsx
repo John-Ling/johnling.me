@@ -60,7 +60,7 @@ export default function Hero() {
   return (
     <motion.div variants={container} initial='hidden' animate='show'>
       <div
-        className={`min-h-[85vh] max-w-[1920px] w-11/12 lg:w-11/12 2xl:w-9/12 md:w-9/12 mx-auto mt-10 flex justify-start items-center flex-col lg:flex-row relative`}
+        className={`min-h-[70vh] md:min-h-[85vh] max-w-[1920px] w-11/12 lg:w-11/12 2xl:w-9/12 md:w-9/12 mx-auto mt-10 flex justify-start items-center flex-col lg:flex-row relative`}
       >
         <div className='basis-6/12 lg:basis-7/12 2xl:basis-6/12 max-w-5xl  flex flex-col z-20 lg:-translate-y-32'>
           <div className='text-[5rem] z-0 text-left font-serif'>
@@ -84,7 +84,7 @@ export default function Hero() {
               technical and non-technical people alike to reduce stress and maintain focus in a
               world designed to erode it.
             </motion.p>
-            <motion.p variants={item} className='hidden md:block mt-4 text-left'>
+            <motion.p variants={item} className='mt-4 text-left'>
               Currently re-implementing Trello to allow using it directly from my browser&apos;s
               homepage.
             </motion.p>
@@ -95,7 +95,7 @@ export default function Hero() {
         </div>
       </div>
       {/* background ascii display */}
-      <div className='absolute z-0 top-0 left-1/2 transform -translate-x-1/2 w-full flex justify-center'>
+      <div className='hidden md:flex absolute z-0 top-0 left-1/2 transform -translate-x-1/2 w-full justify-center'>
         <div className='relative'>
           {rendered && !specialEnabled && (
             <motion.div variants={item} className='z-0'>

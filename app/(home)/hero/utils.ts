@@ -19,7 +19,7 @@ export function init_size(size: "sm" | "md" | "lg") {
     return {
       // restrict width and height otherwise performance issues will happens
       width: Math.max(80, Math.floor(window.innerWidth / 10)),
-      height: Math.max(40, Math.floor(window.innerHeight / 37)),
+      height: Math.max(38, Math.floor(window.innerHeight / 41)),
       fontSize: 0.6
     } as CanvasSize;
   }
@@ -28,7 +28,7 @@ export function init_size(size: "sm" | "md" | "lg") {
   return {
     // restrict width and height otherwise performance issues will happens
     width: Math.max(50, Math.floor(window.innerWidth / 11)),
-    height: Math.max(40, Math.floor(window.innerHeight / 41)),
+    height: Math.max(40, Math.floor(window.innerHeight / 37)),
     fontSize: 1
   } as CanvasSize;
 }
