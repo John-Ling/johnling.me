@@ -91,7 +91,7 @@ export default function HomeSections() {
           </div>
         </div>
 
-        <div className='flex flex-col items-center justify-center lg:block md:col-span-2 lg:col-span-1'>
+        <div className='flex flex-col  lg:block md:col-span-2 lg:col-span-1'>
           <Blog />
         </div>
       </div>

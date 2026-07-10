@@ -25,7 +25,7 @@ export default function HeroContactDetails() {
         <motion.p
           variants={item}
           rel='noopener noreferrer'
-          className='icon-link flex items-center gap-2 select-none'
+          className='icon-link text-xs flex items-center gap-2 select-none'
         >
           johnlingbusiness[at]gmail[dot]com
         </motion.p>

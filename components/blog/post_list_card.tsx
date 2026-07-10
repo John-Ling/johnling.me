@@ -23,10 +23,10 @@ export function PostListCard({ post, position, noColour = false }: PostListCardP
 
   return (
     <div className='p-3 md:p-5  bg-grey-card border-2 border-grey-light rounded-lg flex flex-col justify-between items-start'>
-      <div className='pb-4 w-11/12'>
+      <div className='pb-4'>
         <h2 className={`text-md ${colourClass} mb-2`}>{post.title}</h2>
         <p className='text-xs text-muted-white font-mono'>{post.date}</p>
-        <p className='w-11/12 mt-2 text-sm max-h-[3.8rem] text-muted-white overflow-hidden'>
+        <p className='w-10/12 mt-2 text-xs max-h-[3.8rem] text-muted-white overflow-hidden'>
           {wordSubset}
         </p>
       </div>
