@@ -13,7 +13,7 @@ import AsciiDisplay from "@/components/ascii-display/ascii_display";
 import BadApple from "./bad_apple";
 import HeroContactDetails from "@/components/hero/hero_contact_details";
 import useAsciiAnimation from "@/hooks/useAsciiAnimation";
-import { breakpointSmall, breakpointMedium, breakpointLarge } from "@/hooks/useMediaQuery";
+import { breakpointSmall, breakpointMedium, breakpointLargeX } from "@/hooks/useMediaQuery";
 import { CanvasSize } from "@/types/hero/CanvasSize";
 
 const container = {
@@ -35,7 +35,7 @@ export default function Hero() {
   const [rendered, setRendered] = useState<boolean>(false);
   const [canvasSize, setCanvasSize] = useState<CanvasSize | null>(null);
   const [specialEnabled] = useState<boolean>(check_special());
-  const isDesktop = breakpointLarge();
+  const isDesktop = breakpointLargeX();
   const isTablet = breakpointMedium();
   const isMobile = breakpointSmall();
   const size: "lg" | "md" | "sm" = isDesktop ? "lg" : isTablet ? "md" : isMobile ? "sm" : "lg";
@@ -59,9 +59,7 @@ export default function Hero() {
 
   return (
     <motion.div variants={container} initial='hidden' animate='show'>
-      <div
-        className={`min-h-[70vh] md:min-h-[85vh] max-w-[1920px] w-11/12 lg:w-10/12 2xl:w-8/12 mx-auto mt-10 flex justify-start items-center flex-col lg:flex-row relative`}
-      >
+      <div className='lg:min-h-[85vh] max-w-[1920px] w-11/12 lg:w-10/12 2xl:w-8/12 mx-auto mt-10 mb-10 lg:mb-0 flex justify-start items-center flex-col lg:flex-row relative'>
         <div className='basis-6/12 lg:basis-7/12 2xl:basis-6/12 max-w-5xl  flex flex-col z-20 lg:-translate-y-32'>
           <div className='text-6xl md:text-[5rem] z-0 text-left font-serif'>
             <motion.h1 variants={item} className='m-0 pb-2 leading-none'>
@@ -84,7 +82,7 @@ export default function Hero() {
               technical and non-technical people alike to reduce stress and maintain focus in a
               world designed to erode it.
             </motion.p>
-            <motion.p variants={item} className='mt-4 text-left'>
+            <motion.p variants={item} className='hidden md:block mt-4 text-left'>
               Currently re-implementing Trello to allow using it directly from my browser&apos;s
               homepage.
             </motion.p>
@@ -95,7 +93,7 @@ export default function Hero() {
         </div>
       </div>
       {/* background ascii display */}
-      <div className='hidden md:flex absolute z-0 top-0 left-1/2 transform -translate-x-1/2 w-full justify-center'>
+      <div className='hidden lg:flex absolute z-0 top-0 left-1/2 transform -translate-x-1/2 w-full justify-center'>
         <div className='relative'>
           {rendered && !specialEnabled && (
             <motion.div variants={item} className='z-0'>

@@ -3,20 +3,16 @@ import { useEffect, useState } from "react";
 const IS_SERVER = typeof window === "undefined";
 
 /**
- * Custom hook for breakpoint conditional rendering
- * instead of using Tailwind breakpoints
- * Sourced from https://usehooks-ts.com/react-hook/use-media-query
+ * Hook for breakpoint conditional rendering
  * @param query eg "(width <= 600px)"
  * @returns
  */
 export function useMediaQuery(query: string) {
-  const isQueryMatch = (query: string): boolean => {
-    if (IS_SERVER) {
-      return false;
-    }
+  const [matchesQuery, setMatchesQuery] = useState<boolean>(() => {
+    if (IS_SERVER) return false;
     return window.matchMedia(query).matches;
-  };
-  const [matchesQuery, setMatchesQuery] = useState(isQueryMatch(query));
+  });
+
   useEffect(() => {
     const media = window.matchMedia(query);
 
@@ -25,20 +21,20 @@ export function useMediaQuery(query: string) {
     }
 
     const handleChange = () => {
-      setMatchesQuery(isQueryMatch(query));
+      setMatchesQuery(media.matches);
     };
 
     media.addEventListener("change", handleChange);
     return () => {
       media.removeEventListener("change", handleChange);
     };
-  }, [matchesQuery, query]);
+  }, [query]);
 
   return matchesQuery;
 }
 
-export const breakpointSmall = () => useMediaQuery("(width <= 40rem)");
+export const breakpointSmall = () => useMediaQuery("(width >= 40rem)");
 export const breakpointMedium = () => useMediaQuery("(width >= 48rem)");
 export const breakpointLarge = () => useMediaQuery("(width >= 64rem)");
 export const breakpointLargeX = () => useMediaQuery("(width >= 80rem)");
-export const breakpointLargeXX = () => useMediaQuery("(width .= 96rem)");
+export const breakpointLargeXX = () => useMediaQuery("(width >= 96rem)");

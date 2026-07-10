@@ -793,9 +793,9 @@ export function lorenz_next_frame(framebuffer: string[][], width: number, height
   }
 
   lorenzPoints.forEach((point, index) => {
-    const scale = 2.3;
+    const scale = 2.6;
     const offsetX = width / 2;
-    const offsetY = height - 6;
+    const offsetY = height / 2 + 6;
 
     const xp = Math.floor(point.x * scale + offsetX);
     const yp = Math.floor(-point.z * scale * 0.3 + offsetY);
