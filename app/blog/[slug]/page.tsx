@@ -15,7 +15,7 @@ import BlogContent from "./blog_content";
 
 const BASE_URL = "https://blog-posts-607.pages.dev";
 type Params = {
-  params: Promise<{ slug: string; title: string; date: string }>;
+  params: Promise<{ slug: string }>;
 };
 
 export default async function Page(props: Params) {
@@ -24,6 +24,7 @@ export default async function Page(props: Params) {
   const { data } = matter(raw);
   const title = data.title;
   const date = data.date;
+  const updated = data.updated;
   const { content } = await compileMDX({
     source: raw,
     options: {
@@ -63,6 +64,9 @@ export default async function Page(props: Params) {
         </Link>
         <h1 className='mt-5 mb-5 font-serif'>{title}</h1>
         <p className='mb-5 text-xs text-muted-white font-meslo italic'>{date}</p>
+        {updated && (
+          <p className='mb-5 text-xs text-muted-white font-meslo italic'>Updated: {date}</p>
+        )}
         <BlogContent>{content}</BlogContent>
         <Link className='link font-mono' href='/blog'>
           Back
