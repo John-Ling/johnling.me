@@ -28,7 +28,7 @@ export default function ProjectListCard({
 
   return (
     <div className='bg-grey-card border-2 rounded-lg border-grey-light p-3 h-90'>
-      <h2 onClick={on_click} className={`text-[1.05rem] mb-2 mt-2 select-none ${colourClass}`}>
+      <h2 onClick={on_click} className={`text-sm mb-2 mt-2 select-none ${colourClass}`}>
         {project.title}
       </h2>
       <h3 className='text-xs mb-4 font-mono text-muted-white'>{project.shortDescription}</h3>
