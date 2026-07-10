@@ -39,7 +39,7 @@ export function About() {
           Beyond programming, I enjoy the piano, hobby electronics, homelabbing, cooking and Linux
           ricing.
         </motion.p>
-        <motion.p variants={item} className='lg:hidden block mt-4 text-left'>
+        <motion.p variants={item} className='md:hidden block mt-4 text-left'>
           Currently re-implementing Trello to allow using it directly from my browser&apos;s
           homepage.
         </motion.p>
