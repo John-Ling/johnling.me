@@ -40,8 +40,7 @@ export function About() {
           ricing.
         </motion.p>
         <motion.p variants={item} className='md:hidden block mt-4 text-left'>
-          Currently re-implementing Trello to allow using it directly from my browser&apos;s
-          homepage.
+          Currently, I&apos;m trying to build a browser extension with Svelte!
         </motion.p>
       </motion.div>
 

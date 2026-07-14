@@ -74,17 +74,15 @@ export default function Hero() {
           <HeroContactDetails />
           <div className='text-sm'>
             <motion.p variants={item} className='mt-4 text-left'>
-              Melbourne-based full-stack developer with interests in UX, design and low-level
+              Melbourne-based, full-stack developer with interests in visual design and low-level
               systems.
             </motion.p>
             <motion.p variants={item} className='mt-4 text-left'>
               I&apos;m interested in productivity and well-being focused applications that help
-              technical and non-technical people alike to reduce stress and maintain focus in a
-              world designed to erode it.
+              people reduce stress and maintain focus in a world designed to erode it.
             </motion.p>
             <motion.p variants={item} className='hidden md:block mt-4 text-left'>
-              Currently re-implementing Trello to allow using it directly from my browser&apos;s
-              homepage.
+              Currently, I&apos;m trying to make a browser extension with Svelte!
             </motion.p>
             <motion.p variants={item} className='mt-4 text-left'>
               Welcome to my website.
