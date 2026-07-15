@@ -126,7 +126,7 @@ function NavbarMenu({ links, activeLink, on_click }: NavMenuProps) {
 
 function MobileMenu({ links, activeLink, on_click }: NavMenuProps) {
   return (
-    <div className='fixed top-0 w-full min-h-screen z-30'>
+    <div className='fixed top-0 w-full min-h-screen z-30 font-serif'>
       <motion.div
         className='flex'
         variants={mobileContainer}

@@ -7,10 +7,10 @@ export default async function Blog() {
   const latest = posts[0];
   return (
     <>
-      <h2 className='text-3xl md:text-4xl mb-3 mt-3 font-serif font-bold text-left'>
+      <h2 className='text-3xl md:text-4xl mb-3 mt-3 font-serif font-bold text-center'>
         My Latest <span className='text-orange'>Blog Post</span>
       </h2>
-      <div className='w-full'>
+      <div className='md:w-8/12 mx-auto'>
         <PostListCard post={latest} position={0} />
       </div>
     </>

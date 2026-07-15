@@ -24,7 +24,12 @@ const item = {
 export function About() {
   return (
     <>
-      <motion.div variants={container} initial='hidden' animate='show'>
+      <motion.div
+        variants={container}
+        initial='hidden'
+        animate='show'
+        className='w-full lg:w-1/2 lg:mx-auto'
+      >
         <motion.h2 variants={item} className='text-4xl mb-3 font-serif mt-3 font-bold text-white'>
           A Bit More <span className='text-orange'>About Me</span>
         </motion.h2>
@@ -45,7 +50,12 @@ export function About() {
       </motion.div>
 
       {/* Photos */}
-      <motion.div variants={container} initial='hidden' animate='show' className='lg:row-span-2'>
+      <motion.div
+        variants={container}
+        initial='hidden'
+        animate='show'
+        className='lg:row-span-2 max-w-md lg:max-w-2xl mx-auto mt-10 mb-10'
+      >
         {/* Desktop Layout */}
         <div className='hidden lg:grid grid-cols-3 grid-rows-2 gap-3'>
           <motion.div variants={item} className='relative overflow-hidden col-span-2'>
@@ -86,10 +96,10 @@ export function About() {
           </motion.div>
           <motion.div variants={item} className='flex lg:hidden gap-3'>
             <div className='relative flex-1'>
-              <Image src={peking} alt='peking duck' className='h-auto w-52' />
+              <Image src={peking} alt='peking duck' className='h-auto w-52' fill />
             </div>
             <div className='relative flex-1'>
-              <Image src={nixie} alt='nixie tubes' className='h-auto' fill />
+              <Image src={nixie} alt='nixie tubes' className='h-auto' />
             </div>
           </motion.div>
         </div>
