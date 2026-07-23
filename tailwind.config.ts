@@ -2,83 +2,83 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}"
-  ],
-  darkMode: "selector",
-  theme: {
-    extend: {},
-    colors: {
-      cream: "#fffff1",
-      white: "#CACACA",
-      "muted-white": "#B0B0B0",
-      orange: "#A16347",
-      "orange-light": "#fd7202",
-      indigo: {
-        light: "#1d1e29",
-        normal: "#222331"
-      },
-      grey: {
-        light: "#22262E",
-        normal: "#171A1F",
-        dark: "#0D0F12",
-        card: "#14171b",
-        muted: "#575757"
-      },
-      blue: "#5e9fb0",
-      green: "#50FA7B",
-      red: "#dd695a",
-      yellow: "#FFCB6B",
-      magenta: "#C792EA",
-      cyan: "#8BE9FD",
-      teal: "#73DACA"
-    },
-    keyframes: {
-      fade_down: {
-        "0%": { transform: "translateY(-0.5rem)", opacity: "0" },
-        "100%": { transform: "translateY(0)", opacity: "1" }
-      },
-      fade_up: {
-        "0%": { transform: "translateY(0.5rem)", opacity: "0" },
-        "100%": { transform: "translateY(0)", opacity: "1" }
-      },
-      flicker_on: {
-        "0%": { color: "#2e2e2e" },
-        "20%": { color: "#a63700" },
-        "40%": { color: "#2e2e2e" },
-        "80%": { color: "#FF5500" },
-        "100%": { color: "#FF5500" }
-      },
-      float: {
-        "0%, 100%": { transform: "translateY(0)" },
-        "50%": { transform: "translateY(-5px)" }
-      },
-      "float-inverse": {
-        "0%, 100%": { transform: "translateY(-5px)" },
-        "50%": { transform: "translateY(0)" }
-      },
-      scanlines: {
-        "0%": { backgroundPosition: "0 0" },
-        "100%": { backgroundPosition: "0 100%" }
-      }
-    },
-    animation: {
-      "fade-up": "fade_up 0.4s ease-out forwards",
-      "fade-down": "fade_down 0.4s ease-out forwards",
-      "flicker-on": "flicker_on 1s linear forwards",
-      float: "float 3s ease-in-out infinite",
-      "float-inverse": "float-inverse 3s ease-in-out infinite",
-      scanlines: "scanlines 10s linear infinite"
-    },
-    fontFamily: {
-      mono: ["var(--font-meslo)"],
-      serif: ["var(--font-serif)"],
-      fira: ["var(--font-fira)"]
-    }
-  },
-  plugins: []
+	content: [
+		"./pages/**/*.{js,ts,jsx,tsx,mdx}",
+		"./components/**/*.{js,ts,jsx,tsx,mdx}",
+		"./app/**/*.{js,ts,jsx,tsx,mdx}",
+	],
+	darkMode: "selector",
+	theme: {
+		extend: {},
+		colors: {
+			cream: "#fffff1",
+			white: "#CACACA",
+			"muted-white": "#B0B0B0",
+			orange: "#A16347",
+			"orange-light": "#fd7202",
+			indigo: {
+				light: "#1d1e29",
+				normal: "#222331",
+			},
+			grey: {
+				light: "#22262E",
+				normal: "#171A1F",
+				dark: "#0D0F12",
+				card: "#14171b",
+				muted: "#575757",
+			},
+			blue: "#5e9fb0",
+			green: "#50FA7B",
+			red: "#dd695a",
+			yellow: "#FFCB6B",
+			magenta: "#C792EA",
+			cyan: "#8BE9FD",
+			teal: "#73DACA",
+		},
+		keyframes: {
+			fade_down: {
+				"0%": { transform: "translateY(-0.5rem)", opacity: "0" },
+				"100%": { transform: "translateY(0)", opacity: "1" },
+			},
+			fade_up: {
+				"0%": { transform: "translateY(0.5rem)", opacity: "0" },
+				"100%": { transform: "translateY(0)", opacity: "1" },
+			},
+			flicker_on: {
+				"0%": { color: "#2e2e2e" },
+				"20%": { color: "#a63700" },
+				"40%": { color: "#2e2e2e" },
+				"80%": { color: "#FF5500" },
+				"100%": { color: "#FF5500" },
+			},
+			float: {
+				"0%, 100%": { transform: "translateY(0)" },
+				"50%": { transform: "translateY(-5px)" },
+			},
+			"float-inverse": {
+				"0%, 100%": { transform: "translateY(-5px)" },
+				"50%": { transform: "translateY(0)" },
+			},
+			scanlines: {
+				"0%": { backgroundPosition: "0 0" },
+				"100%": { backgroundPosition: "0 100%" },
+			},
+		},
+		animation: {
+			"fade-up": "fade_up 0.4s ease-out forwards",
+			"fade-down": "fade_down 0.4s ease-out forwards",
+			"flicker-on": "flicker_on 1s linear forwards",
+			float: "float 3s ease-in-out infinite",
+			"float-inverse": "float-inverse 3s ease-in-out infinite",
+			scanlines: "scanlines 10s linear infinite",
+		},
+		fontFamily: {
+			mono: ["var(--font-meslo)"],
+			serif: ["var(--font-serif)"],
+			fira: ["var(--font-fira)"],
+		},
+	},
+	plugins: [],
 };
 
 export default config;

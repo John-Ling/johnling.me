@@ -2,13 +2,13 @@
 import { useEffect } from "react";
 
 interface BlogContentProps {
-  children?: React.ReactNode;
+	children?: React.ReactNode;
 }
 
 export default function BlogContent({ children }: BlogContentProps) {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
-  return <>{children}</>;
+	return <>{children}</>;
 }

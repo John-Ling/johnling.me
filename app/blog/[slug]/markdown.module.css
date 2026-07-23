@@ -1,136 +1,132 @@
 .markdown h1 {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-    margin-bottom: 1rem;
+	font-size: 2.25rem;
+	line-height: 2.5rem;
+	margin-bottom: 1rem;
 }
 
 .markdown h2 {
-    font-family: var(--font-serif);
-    font-size: 1.75rem;
-    line-height: 2.5rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+	font-family: var(--font-serif);
+	font-size: 1.75rem;
+	line-height: 2.5rem;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
 }
 
 .markdown h3 {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    line-height: 2.5rem;
-    font-weight: 700;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
+	font-family: var(--font-serif);
+	font-size: 1.5rem;
+	line-height: 2.5rem;
+	font-weight: 700;
+	margin-top: 1rem;
+	margin-bottom: 0.5rem;
 }
 
 .markdown h4 {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    line-height: 2.5rem;
-    font-weight: 700;
+	font-family: var(--font-serif);
+	font-size: 1.25rem;
+	line-height: 2.5rem;
+	font-weight: 700;
 }
 
 .markdown h5 {
-    font-family: var(--font-serif);
-    font-size: 1rem;
-    line-height: 2.5rem;
+	font-family: var(--font-serif);
+	font-size: 1rem;
+	line-height: 2.5rem;
 }
 
 .markdown h6 {
-    font-family: var(--font-serif);
-    font-size: 0.75rem;
-    line-height: 2.5rem;
+	font-family: var(--font-serif);
+	font-size: 0.75rem;
+	line-height: 2.5rem;
 }
 
 .markdown ul {
-    list-style: disc;
-    margin-left: 2rem;
+	list-style: disc;
+	margin-left: 2rem;
 }
 
 .markdown li {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 
 .markdown p {
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
+	margin-top: 0.75rem;
+	margin-bottom: 0.75rem;
 }
 
 .markdown em {
-    color: theme("colors.muted-white");
-
+	color: theme("colors.muted-white");
 }
 
 .markdown table {
-    border: solid 1px theme("colors.muted-white");
-    background-color: theme("colors.grey.normal");
-
+	border: solid 1px theme("colors.muted-white");
+	background-color: theme("colors.grey.normal");
 }
 
 .markdown table thead {
-    border: solid 1px theme("colors.muted-white");
+	border: solid 1px theme("colors.muted-white");
 }
 
 .markdown td {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    border-left: solid 1px theme("colors.muted-white");
-    border-right: solid 1px theme("colors.muted-white");
+	padding-left: 1rem;
+	padding-right: 1rem;
+	border-left: solid 1px theme("colors.muted-white");
+	border-right: solid 1px theme("colors.muted-white");
 }
 
-.markdown :not(pre)>code {
-    padding: 0;
-    background-color: #574e3d;
-    padding: 0 3px;
-    margin: -1px 0;
-    line-height: 1;
-    border-radius: 2px;
-    font-size: 0.8rem;
-    color: #ebdbbc;
+.markdown :not(pre) > code {
+	padding: 0;
+	background-color: #574e3d;
+	padding: 0 3px;
+	margin: -1px 0;
+	line-height: 1;
+	border-radius: 2px;
+	font-size: 0.8rem;
+	color: #ebdbbc;
 }
-
-
 
 .markdown pre {
-    margin: 0 !important;
+	margin: 0 !important;
 }
 
 .markdown img {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
 
 .markdown code .hljs {
-    color: theme("colors.white") !important;
-    font-size: 1rem !important;
+	color: theme("colors.white") !important;
+	font-size: 1rem !important;
 }
 
 .markdown a {
-    text-decoration: none;
-    position: relative;
+	text-decoration: none;
+	position: relative;
 }
 
 .markdown a::after {
-    content: '';
-    position: absolute;
-    bottom: 1px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: fit-content;
-    min-width: calc(100% + 3px);
-    height: 2px;
-    background: theme("colors.orange");
-    opacity: 1;
-    transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
+	content: "";
+	position: absolute;
+	bottom: 1px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: fit-content;
+	min-width: calc(100% + 3px);
+	height: 2px;
+	background: theme("colors.orange");
+	opacity: 1;
+	transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .markdown a:hover::after {
-    opacity: 0;
+	opacity: 0;
 }
 
 .markdown p {
-    letter-spacing: -0.05em;
+	letter-spacing: -0.05em;
 }
 
 .markdown li {
-    letter-spacing: -0.05em;
+	letter-spacing: -0.05em;
 }

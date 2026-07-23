@@ -10,30 +10,24 @@ import rehypeKatex from "rehype-katex";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
-  enabled: process.env.ANALYZE === "true"
+	pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+	enabled: process.env.ANALYZE === "true",
 };
 
 const withMDX = createMDX({
-  options: {
-    remarkPlugins: [remarkGfm, remarkMath, remarkFrontmatter, remarkMdxFrontmatter],
-    rehypePlugins: [
-      rehypeHighlight,
-      rehypeKatex,
-      [
-        rehypeRaw,
-        {
-          passThrough: [
-            "mdxjsEsm",
-            "mdxFlowExpression",
-            "mdxJsxFlowElement",
-            "mdxJsxTextElement",
-            "mdxTextExpression"
-          ]
-        }
-      ]
-    ]
-  }
+	options: {
+		remarkPlugins: [remarkGfm, remarkMath, remarkFrontmatter, remarkMdxFrontmatter],
+		rehypePlugins: [
+			rehypeHighlight,
+			rehypeKatex,
+			[
+				rehypeRaw,
+				{
+					passThrough: ["mdxjsEsm", "mdxFlowExpression", "mdxJsxFlowElement", "mdxJsxTextElement", "mdxTextExpression"],
+				},
+			],
+		],
+	},
 });
 
 export default withMDX(withBundleAnalyzer(nextConfig));

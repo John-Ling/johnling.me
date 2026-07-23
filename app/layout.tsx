@@ -6,38 +6,38 @@ import { meslo, serif } from "@/lib/font";
 import "/styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "John Ling",
-  description: "John Ling website"
+	title: "John Ling",
+	description: "John Ling website",
 };
 
 export const viewport: Viewport = {
-  initialScale: 1,
-  width: "device-width"
+	initialScale: 1,
+	width: "device-width",
 };
 
 export default function RootLayout({
-  children
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang='en' className={`${meslo.variable} ${serif.variable} antialiased`}>
-      <head>
-        <link rel='preload' as='image' href='images/background.png' fetchPriority='high' />
-        <link
-          rel='stylesheet'
-          type='text/css'
-          href='https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css'
-        />
-      </head>
-      <body className='overflow-x-hidden'>
-        <Navbar />
-        <main className='font-mono'>
-          {children}
-          <Analytics />
-        </main>
-        <Footer />
-      </body>
-    </html>
-  );
+	return (
+		<html lang="en" className={`${meslo.variable} ${serif.variable} antialiased`}>
+			<head>
+				<link rel="preload" as="image" href="images/background.png" fetchPriority="high" />
+				<link
+					rel="stylesheet"
+					type="text/css"
+					href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css"
+				/>
+			</head>
+			<body className="overflow-x-hidden">
+				<Navbar />
+				<main className="font-mono">
+					{children}
+					<Analytics />
+				</main>
+				<Footer />
+			</body>
+		</html>
+	);
 }

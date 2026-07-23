@@ -1,5 +1,5 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://johnling.me',
-  generateRobotsTxt: true, 
-}
+	siteUrl: "https://johnling.me",
+	generateRobotsTxt: true,
+};

@@ -5,75 +5,74 @@
 *,
 *::before,
 *::after {
-    font-synthesis: none;
+	font-synthesis: none;
 }
 
 :root {
-    color-scheme: dark;
-    -ms-overflow-style: none;
-    /* Internet Explorer 10+ */
-    scrollbar-width: none;
-    /* Firefox, Safari 18.2+, Chromium 121+ */
+	color-scheme: dark;
+	-ms-overflow-style: none;
+	/* Internet Explorer 10+ */
+	scrollbar-width: none;
+	/* Firefox, Safari 18.2+, Chromium 121+ */
 }
 
 :root::-webkit-scrollbar {
-    display: none;
-    /* Older Safari and Chromium */
+	display: none;
+	/* Older Safari and Chromium */
 }
 
 body {
-    color: theme("colors.white");
-    background-image: url("/images/background.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+	color: theme("colors.white");
+	background-image: url("/images/background.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
 }
 
 .glow {
-    text-shadow:
-        0 0 5px #ff5500;
+	text-shadow: 0 0 5px #ff5500;
 }
 
 .link {
-    text-decoration: none;
-    position: relative;
+	text-decoration: none;
+	position: relative;
 }
 
 .link::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: fit-content;
-    min-width: calc(100% + 3px);
-    height: 2px;
-    background: theme("colors.orange");
-    opacity: 1;
-    transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
+	content: "";
+	position: absolute;
+	bottom: -1px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: fit-content;
+	min-width: calc(100% + 3px);
+	height: 2px;
+	background: theme("colors.orange");
+	opacity: 1;
+	transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link:hover::after {
-    opacity: 0;
+	opacity: 0;
 }
 
 img {
-    border: solid 3px theme("colors.grey.light");
-    border-radius: 8px;
+	border: solid 3px theme("colors.grey.light");
+	border-radius: 8px;
 }
 
 h1 {
-    font-weight: 900;
+	font-weight: 900;
 }
 
 h2 {
-    font-weight: 700;
-    font-family: var(--font-meslo);
+	font-weight: 700;
+	font-family: var(--font-meslo);
 }
 
 p {
-    letter-spacing: -0.05em;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+	letter-spacing: -0.05em;
+	font-size: 0.875rem;
+	line-height: 1.25rem;
 }

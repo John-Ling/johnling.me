@@ -8,29 +8,29 @@ const IS_SERVER = typeof window === "undefined";
  * @returns
  */
 export function useMediaQuery(query: string) {
-  const [matchesQuery, setMatchesQuery] = useState<boolean>(() => {
-    if (IS_SERVER) return false;
-    return window.matchMedia(query).matches;
-  });
+	const [matchesQuery, setMatchesQuery] = useState<boolean>(() => {
+		if (IS_SERVER) return false;
+		return window.matchMedia(query).matches;
+	});
 
-  useEffect(() => {
-    const media = window.matchMedia(query);
+	useEffect(() => {
+		const media = window.matchMedia(query);
 
-    if (media.matches !== matchesQuery) {
-      setMatchesQuery(media.matches);
-    }
+		if (media.matches !== matchesQuery) {
+			setMatchesQuery(media.matches);
+		}
 
-    const handleChange = () => {
-      setMatchesQuery(media.matches);
-    };
+		const handleChange = () => {
+			setMatchesQuery(media.matches);
+		};
 
-    media.addEventListener("change", handleChange);
-    return () => {
-      media.removeEventListener("change", handleChange);
-    };
-  }, [query]);
+		media.addEventListener("change", handleChange);
+		return () => {
+			media.removeEventListener("change", handleChange);
+		};
+	}, [query]);
 
-  return matchesQuery;
+	return matchesQuery;
 }
 
 export const breakpointSmall = () => useMediaQuery("(width >= 40rem)");

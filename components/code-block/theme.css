@@ -33,39 +33,39 @@ base0F  #5F87AF  Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php 
 */
 
 p {
-  margin-top: 0 !important;
-  margin-bottom: 6px !important;
+	margin-top: 0 !important;
+	margin-bottom: 6px !important;
 }
 
 .hljs {
-  color: #c9c9c9 !important;            /* Default foreground */
-  background: #161616 !important;       /* Editor background */
+	color: #c9c9c9 !important; /* Default foreground */
+	background: #161616 !important; /* Editor background */
 }
 
 .hljs::selection,
 .hljs ::selection {
-  background-color: #214283;
-  color: #c9c9c9;
+	background-color: #214283;
+	color: #c9c9c9;
 }
 
 /* Comments */
 .hljs-comment {
-  color: #808080;
+	color: #808080;
 }
 
 /* Tags / HTML-ish text */
 .hljs-tag {
-  color: #BABABA;
+	color: #bababa;
 }
 
 /* Punctuation, delimiters, operators */
 .hljs-subst,
 .hljs-punctuation,
 .hljs-operator {
-  color: #A9B7C6;
+	color: #a9b7c6;
 }
 .hljs-operator {
-  opacity: 0.7;
+	opacity: 0.7;
 }
 
 /* Variables, deleted text */
@@ -75,7 +75,7 @@ p {
 .hljs-selector-tag,
 .hljs-name,
 .hljs-deletion {
-  color: #9876AA; /* Darcula uses this purple for identifiers/selectors */
+	color: #9876aa; /* Darcula uses this purple for identifiers/selectors */
 }
 
 /* Numbers, symbols, attrs, constants */
@@ -85,18 +85,18 @@ p {
 .hljs-attr,
 .hljs-variable.constant_,
 .hljs-literal {
-  color: #6897BB;
+	color: #6897bb;
 }
 
 /* Class titles, bold items */
 .hljs-title,
 .hljs-class .hljs-title,
 .hljs-title.class_ {
-  color: #FFC66D;
+	color: #ffc66d;
 }
 .hljs-strong {
-  font-weight: bold;
-  color: #FFC66D;
+	font-weight: bold;
+	color: #ffc66d;
 }
 
 /* Strings, additions, code */
@@ -104,7 +104,7 @@ p {
 .hljs-addition,
 .hljs-title.class_.inherited__,
 .hljs-string {
-  color: #6A8759;
+	color: #6a8759;
 }
 
 /* Builtins, regex, quotes, doctags */
@@ -112,7 +112,7 @@ p {
 .hljs-quote,
 .hljs-keyword.hljs-atrule,
 .hljs-regexp {
-  color: #CC7832;
+	color: #cc7832;
 }
 
 /* Functions, headings, attributes */
@@ -122,7 +122,7 @@ p {
 .ruby .hljs-property,
 .hljs-title.function_,
 .hljs-section {
-  color: #FFC66D;
+	color: #ffc66d;
 }
 
 /* Keywords, selectors, changed diff */
@@ -130,20 +130,20 @@ p {
 .hljs-template-tag,
 .diff .hljs-meta,
 .hljs-keyword {
-  color: #CC7832;
+	color: #cc7832;
 }
 .hljs-emphasis {
-  color: #CC7832;
-  font-style: italic;
+	color: #cc7832;
+	font-style: italic;
 }
 
 /* Meta info, embedded languages */
 .hljs-meta,
 .hljs-meta .hljs-keyword,
 .hljs-meta .hljs-string {
-  color: #BBB529;
+	color: #bbb529;
 }
 .hljs-meta .hljs-keyword,
 .hljs-meta-keyword {
-  font-weight: bold;
+	font-weight: bold;
 }
