@@ -28,7 +28,7 @@ export function About() {
         variants={container}
         initial='hidden'
         animate='show'
-        className='w-full lg:w-1/2 lg:mx-auto'
+        className='w-full lg:w-1/2 lg:mx-auto mt-10'
       >
         <motion.h2 variants={item} className='text-4xl mb-3 font-serif mt-3 font-bold text-white'>
           A Bit More <span className='text-orange'>About Me</span>
@@ -54,7 +54,7 @@ export function About() {
         variants={container}
         initial='hidden'
         animate='show'
-        className='lg:row-span-2 max-w-md lg:max-w-2xl mx-auto mt-10 mb-10'
+        className='lg:row-span-2 max-w-md lg:max-w-none lg:w-1/2 mx-auto mt-10 mb-10'
       >
         {/* Desktop Layout */}
         <div className='hidden lg:grid grid-cols-3 grid-rows-2 gap-3'>
