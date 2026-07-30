@@ -25,16 +25,16 @@ export function init_size(size: "sm" | "md" | "lg") {
 
 	if (size === "md") {
 		return {
-			width: Math.max(60, Math.floor(window.innerWidth / 11)),
+			width: Math.max(70, Math.floor(window.innerWidth / 11)),
 			height: Math.max(80, Math.floor(window.innerHeight / 37)),
-			fontSize: 1,
+			fontSize: 0.825,
 		} as CanvasSize;
 	}
 
 	// Non mobile
 	return {
-		width: Math.max(45, Math.floor(window.innerWidth / 13)),
+		width: Math.max(50, Math.floor(window.innerWidth / 11)),
 		height: Math.max(80, Math.floor(window.innerHeight / 37)),
-		fontSize: 1,
+		fontSize: 0.825,
 	} as CanvasSize;
 }

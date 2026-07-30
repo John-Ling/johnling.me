@@ -271,7 +271,7 @@ export function bapple_next_frame(framebuffer: string[][], width: number, height
 	if (frames[currentFrame] === undefined) {
 		return Array(height)
 			.fill(null)
-			.map(() => Array(width).fill("*"));
+			.map(() => Array(width).fill("8"));
 	}
 
 	// Only skip to a specific frame once
@@ -674,7 +674,7 @@ const dt = 0.01;
 
 let lorenzPoints: LorenzPoint[] = [];
 let lorenzPointCount = 0;
-const lorenzChars = [".", ":", "+", "*", "#", "@", "%", "&", "$", "X"];
+const lorenzChars = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 let decay = false;
 let currentGeneration = 0;
 
