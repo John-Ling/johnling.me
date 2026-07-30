@@ -12,7 +12,7 @@ export default function BadApple() {
 			{playing ? (
 				<>
 					<div className="flex justify-center">
-						<AsciiDisplay fontSize={1} framebuffer={framebuffer} />
+						<AsciiDisplay fontSize={0.9} framebuffer={framebuffer} />
 					</div>
 					<div className="flex justify-center">
 						<p className="opacity-0 animate-fade-up p-5 mx-auto" style={{ animationDelay: "5000ms" }}>
