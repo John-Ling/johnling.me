@@ -68,8 +68,8 @@ export default function Hero() {
 						</motion.h1>
 					</div>
 					<HeroContactDetails />
-					<div className="text-sm">
-						<motion.p variants={item} className="mt-4 text-left">
+					<div className="text-sm mt-2">
+						<motion.p variants={item} className="text-left">
 							Melbourne-based, full-stack developer with interests in visual design and low-level systems.
 						</motion.p>
 						<motion.p variants={item} className="hidden md:block mt-4 text-left">
