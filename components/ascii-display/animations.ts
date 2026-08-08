@@ -679,7 +679,7 @@ let decay = false;
 let currentGeneration = 0;
 
 export function lorenz_init(width: number, height: number) {
-	lorenzPoints = [{ x: 0.1, y: 0, z: 0, char: "X", currentGeneration: 0 }];
+	lorenzPoints = [{ x: 0.1, y: 0, z: 0, char: lorenzChars[lorenzChars.length - 1], currentGeneration: 0 }];
 	lorenzPointCount = 1;
 	decay = false;
 	currentGeneration = 0;
@@ -707,7 +707,7 @@ function render_next_lorenz_point() {
 		x: currentPoint.x + dx,
 		y: currentPoint.y + dy,
 		z: currentPoint.z + dz,
-		char: "X",
+		char: lorenzChars[lorenzChars.length - 1],
 		currentGeneration: currentGeneration,
 	});
 	lorenzPointCount++;
@@ -723,7 +723,7 @@ export function lorenz_next_frame(framebuffer: string[][], width: number, height
 		}
 	}
 
-	if (lorenzPointCount >= 700 && !decay) {
+	if (lorenzPointCount >= 1500 && !decay) {
 		decay = true;
 	}
 
@@ -732,9 +732,9 @@ export function lorenz_next_frame(framebuffer: string[][], width: number, height
 	}
 
 	lorenzPoints.forEach((point, index) => {
-		const scale = 2.6;
+		const scale = 5;
 		const offsetX = width / 2;
-		const offsetY = height / 2 + 6;
+		const offsetY = height - 10;
 
 		const xp = Math.floor(point.x * scale + offsetX);
 		const yp = Math.floor(-point.z * scale * 0.3 + offsetY);

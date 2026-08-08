@@ -33,7 +33,7 @@ export function init_size(size: "sm" | "md" | "lg") {
 
 	// Non mobile
 	return {
-		width: Math.max(50, Math.floor(window.innerWidth / 11)),
+		width: Math.max(100, Math.floor(window.innerWidth / 8)),
 		height: Math.max(80, Math.floor(window.innerHeight / 37)),
 		fontSize: 0.825,
 	} as CanvasSize;

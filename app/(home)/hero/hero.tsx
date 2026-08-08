@@ -82,7 +82,7 @@ export default function Hero() {
 				</div>
 			</div>
 			{/* background ascii display */}
-			<div className="hidden lg:flex absolute z-0 top-0 left-1/2 transform -translate-x-1/2 w-full justify-center">
+			<div className="hidden lg:flex absolute z-0 top-0 w-full justify-center">
 				<div className="relative">
 					{rendered && !specialEnabled && (
 						<motion.div variants={item} className="z-0">

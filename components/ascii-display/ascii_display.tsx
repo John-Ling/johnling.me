@@ -39,11 +39,8 @@ export default function AsciiDisplay({ framebuffer, fontSize }: AsciiDisplayProp
 		ctx.font = `${fontSizeInPixels}px MesloLGS NF`;
 
 		for (let i = 0; i < framebuffer.length; i++) {
-			const row = framebuffer[i];
-			for (let j = 0; j < row.length; j++) {
-				const c = row[j];
-				ctx.fillText(c, j * characterWidth, i * characterHeight);
-			}
+			const charactersToRender = framebuffer[i].join("");
+			ctx.fillText(charactersToRender, 0, i * characterHeight);
 		}
 	}, [framebuffer, fontSize]);
 
