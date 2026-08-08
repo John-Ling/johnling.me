@@ -36,7 +36,7 @@ export default function AsciiDisplay({ framebuffer, fontSize }: AsciiDisplayProp
 
 		ctx.fillStyle = "#575757";
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		ctx.font = `${fontSizeInPixels}px monospace`;
+		ctx.font = `${fontSizeInPixels}px MesloLGS NF`;
 
 		for (let i = 0; i < framebuffer.length; i++) {
 			const row = framebuffer[i];
