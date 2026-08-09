@@ -44,7 +44,7 @@ export default function CodeBlock({ language = "plaintext", filename = "", canCo
 			<div className="flex flex-row justify-between items-center bg-grey-normal pl-3 pr-3 pt-1 pb-1">
 				<p className="text-muted-white p-0 m-0 text-sm leading-none">{filename}</p>
 				{canCopy && (
-					<div className="relative">
+					<div className="relative" aria-hidden>
 						<div
 							className={`absolute bottom-10 pt-1 pb-1 pl-2 pr-2 bg-grey-normal rounded ${!tooltipVisible ? "hidden" : ""}`}
 						>
@@ -61,7 +61,7 @@ export default function CodeBlock({ language = "plaintext", filename = "", canCo
 			</div>
 			<div className="flex flex-row">
 				{/* line numbers */}
-				<div className="bg-grey-normal pt-[0.27rem]">
+				<div className="bg-grey-normal pt-[0.27rem]" aria-hidden>
 					{lineNumbers.map((number: string, index) => (
 						<p
 							key={index}
