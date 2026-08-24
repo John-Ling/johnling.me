@@ -73,7 +73,7 @@ export default function Hero() {
 							Melbourne-based, full-stack developer with interests in visual design and low-level systems.
 						</motion.p>
 						<motion.p variants={item} className="hidden md:block mt-4 text-left">
-							Currently, I&apos;m trying to make a browser extension with Svelte!
+							Currently, I&apos;m trying to build a browser extension in Svelte to help me with note-taking!
 						</motion.p>
 						<motion.p variants={item} className="mt-4 text-left">
 							Welcome to my website.
