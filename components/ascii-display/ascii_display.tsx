@@ -20,14 +20,17 @@ export default function AsciiDisplay({ framebuffer, fontSize }: AsciiDisplayProp
 		}
 
 		const fontSizeInPixels = fontSize * 16; // 16 = 1rem
+		const dpr = window.devicePixelRatio || 1;
 
 		const characterWidth = fontSizeInPixels * 0.6; // 0.6 = monospace aspect ratio
 		const characterHeight = fontSizeInPixels + 3;
 		const canvasWidth = characterWidth * framebuffer[0].length;
 		const canvasHeight = characterHeight * framebuffer.length;
 
-		canvas.width = canvasWidth;
-		canvas.height = canvasHeight;
+		canvas.width = canvasWidth * dpr;
+		canvas.height = canvasHeight * dpr;
+		canvas.style.width = `${canvasWidth}px`;
+		canvas.style.height = `${canvasHeight}px`;
 
 		const ctx = canvas.getContext("2d");
 		if (ctx === null) {
@@ -36,6 +39,7 @@ export default function AsciiDisplay({ framebuffer, fontSize }: AsciiDisplayProp
 
 		ctx.fillStyle = "#575757";
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.scale(dpr, dpr);
 		ctx.font = `${fontSizeInPixels}px "meslo"`;
 
 		for (let i = 0; i < framebuffer.length; i++) {
