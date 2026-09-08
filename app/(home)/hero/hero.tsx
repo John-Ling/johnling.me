@@ -58,8 +58,8 @@ export default function Hero() {
 
 	return (
 		<motion.div variants={container} initial="hidden" animate="show">
-			<div className="lg:h-[78vh] mx-auto w-11/12 lg:w-10/12 2xl:w-8/12 mt-10 mb-10 lg:mb-0 flex items-center ">
-				<div className="flex flex-col lg:w-1/2 mx-auto z-20 lg:-translate-y-14">
+			<div className="lg:min-h-screen mx-auto w-11/12 lg:w-10/12 2xl:w-8/12 mt-10 mb-10 lg:mb-0 flex items-center ">
+				<div className="flex flex-col lg:w-1/2 mx-auto z-20 lg:-translate-y-40">
 					<div className="text-6xl md:text-[5rem] z-0 text-left font-serif">
 						<motion.h1 variants={item} className="m-0 pb-2 leading-none">
 							<motion.span variants={item} className="m-0 p-0 leading-none">

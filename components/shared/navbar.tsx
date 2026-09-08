@@ -14,6 +14,7 @@ interface NavLink {
 export default function Navbar() {
 	const links: NavLink[] = [
 		{ name: "HOME", target: "/" },
+		{ name: "ABOUT", target: "#about" },
 		{ name: "PROJECTS", target: "/projects" },
 		{ name: "BLOG", target: "/blog" },
 	];
