@@ -26,7 +26,7 @@ export type AsciiAnimationProps = StandardAnimationProps | BadAppleProps;
  * Hook for creating the canvas used by an ascii display component
  */
 export default function useAsciiAnimation(props: AsciiAnimationProps) {
-	const ANIMATION_SPEED = props.animationSpeed ?? 15;
+	const ANIMATION_SPEED = props.animationSpeed ?? 20;
 	const animationRequestID = useRef<number>(0);
 
 	const [framebuffer, setFramebuffer] = useState<Canvas>(
