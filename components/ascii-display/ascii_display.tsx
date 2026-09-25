@@ -69,5 +69,5 @@ export default function AsciiDisplay({ framebuffer, fontSize }: AsciiDisplayProp
 		}
 	}, [framebuffer, fontSize]);
 
-	return <canvas ref={canvasRef} className="-z-20" />;
+	return <canvas ref={canvasRef} />;
 }

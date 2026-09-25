@@ -49,6 +49,7 @@ export default function useAsciiAnimation(props: AsciiAnimationProps) {
 						.fill(null)
 						.map(() => Array(props.size!.width).fill(" "));
 		} else {
+			console.log("[LOG] initialising canvas");
 			frame = Array(props.size.height)
 				.fill(null)
 				.map(() => Array(props.size!.width).fill(" "));
@@ -83,6 +84,7 @@ export default function useAsciiAnimation(props: AsciiAnimationProps) {
 
 					next = props.bappleNextFrame(frame, props.size!.width, props.size!.height, skipToFrame);
 				}
+
 				setFramebuffer(next);
 				frame = [...next];
 			}
