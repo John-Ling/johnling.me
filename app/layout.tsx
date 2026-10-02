@@ -15,11 +15,19 @@ export const viewport: Viewport = {
 	width: "device-width",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	let updatedOn = "ERROR";
+	const res = await fetch(
+		process.env.NODE_ENV === "production" ? "https://www.johnling.me/api/updated" : "http://localhost:3000/api/updated",
+		{ cache: "force-cache" },
+	);
+	if (res.ok) {
+		updatedOn = (await res.json()).updated;
+	}
 	return (
 		<html lang="en" className={`${meslo.variable} ${serif.variable} antialiased`}>
 			<head>
@@ -36,7 +44,7 @@ export default function RootLayout({
 					{children}
 					<Analytics />
 				</main>
-				<Footer />
+				<Footer updatedOn={updatedOn} />
 			</body>
 		</html>
 	);

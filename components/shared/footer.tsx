@@ -1,27 +1,8 @@
-"use client";
-import { useEffect, useState } from "react";
+interface Props {
+	updatedOn: string;
+}
 
-export default function Footer() {
-	const [updatedDate, setUpdatedDate] = useState<string>("");
-	const [loading, setLoading] = useState<boolean>(true);
-	useEffect(() => {
-		const effect = async () => {
-			const res = await fetch(
-				process.env.NODE_ENV === "production"
-					? "https://www.johnling.me/api/updated"
-					: "http://localhost:3000/api/updated",
-			);
-			if (res.ok) {
-				const { updated } = await res.json();
-				setUpdatedDate(updated);
-			} else {
-				setUpdatedDate("ERROR");
-			}
-			setLoading(false);
-		};
-		effect();
-	}, []);
-
+export default function Footer({ updatedOn }: Props) {
 	// Formatting is important don't touch
 	const asciiBanner = String.raw`       __      __             __    _            
       / /___  / /_  ____     / /   (_)___  _____
@@ -37,7 +18,7 @@ export default function Footer() {
 						{asciiBanner}
 					</p>
 					<span className="font-bold mt-3 lg:ml-3">
-						Last Updated On <span>{loading ? "Loading..." : updatedDate}</span>
+						Last Updated On <span>{updatedOn}</span>
 					</span>
 				</div>
 			</div>
