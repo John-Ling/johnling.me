@@ -10,7 +10,7 @@ export default function BadApple() {
 		<>
 			<title>AN EASTER EGG!?</title>
 			{playing ? (
-				<>
+				<div className="lg:w-1/2 mx-auto">
 					<div className="flex justify-center">
 						<AsciiDisplay fontSize={0.9} framebuffer={framebuffer} />
 					</div>
@@ -20,7 +20,7 @@ export default function BadApple() {
 							music as my own. pls no sue
 						</p>
 					</div>
-				</>
+				</div>
 			) : (
 				<div className="flex flex-col justify-center items-center min-h-screen w-full">
 					<button className="bg-grey-dark p-3 hover:bg-[#101010] hover:text-[#E0E0E0]" onClick={start_playing}>

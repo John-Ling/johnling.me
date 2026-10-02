@@ -26,7 +26,7 @@ export type AsciiAnimationProps = StandardAnimationProps | BadAppleProps;
  * Hook for creating the canvas used by an ascii display component
  */
 export default function useAsciiAnimation(props: AsciiAnimationProps) {
-	const ANIMATION_SPEED = props.animationSpeed ?? 15;
+	const ANIMATION_SPEED = props.animationSpeed ?? 20;
 	const animationRequestID = useRef<number>(0);
 
 	const [framebuffer, setFramebuffer] = useState<Canvas>(
@@ -49,6 +49,7 @@ export default function useAsciiAnimation(props: AsciiAnimationProps) {
 						.fill(null)
 						.map(() => Array(props.size!.width).fill(" "));
 		} else {
+			console.log("[LOG] initialising canvas");
 			frame = Array(props.size.height)
 				.fill(null)
 				.map(() => Array(props.size!.width).fill(" "));
@@ -83,6 +84,7 @@ export default function useAsciiAnimation(props: AsciiAnimationProps) {
 
 					next = props.bappleNextFrame(frame, props.size!.width, props.size!.height, skipToFrame);
 				}
+
 				setFramebuffer(next);
 				frame = [...next];
 			}
