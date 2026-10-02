@@ -3,6 +3,7 @@ import Footer from "@/components/shared/footer";
 import Navbar from "@/components/shared/navbar";
 import type { Metadata, Viewport } from "next";
 import { meslo, serif } from "@/lib/font";
+import { getUpdatedOn } from "@/lib/updated";
 import "/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -20,11 +21,7 @@ export default async function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	let updatedOn = "ERROR";
-	const res = await fetch("https://www.johnling.me/api/updated", { cache: "force-cache" });
-	if (res.ok) {
-		updatedOn = (await res.json()).updated;
-	}
+	const updatedOn = await getUpdatedOn();
 	return (
 		<html lang="en" className={`${meslo.variable} ${serif.variable} antialiased`}>
 			<head>
