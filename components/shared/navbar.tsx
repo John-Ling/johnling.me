@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import Link from "next/link";
@@ -23,6 +23,20 @@ export default function Navbar() {
 	const [open, setOpen] = useState<boolean>(false);
 
 	const path: string = "/" + usePathname().split("/")[1];
+	const router = useRouter();
+
+	const handleAboutClick = () => {
+		setOpen(false);
+		if (window.location.pathname === "/") {
+			document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+		} else {
+			router.push("/");
+			window.setTimeout(() => {
+				document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+			}, 50);
+		}
+	};
+
 	return (
 		<div className="overflow-hidden max-w-[1920px]">
 			<motion.nav
@@ -42,7 +56,12 @@ export default function Navbar() {
 
 				{/* desktop menu */}
 				<div className={`hidden invisible mt-4 md:flex md:visible z-40`}>
-					<NavbarMenu links={links} activeLink={path} on_click={() => setOpen(false)} />
+					<NavbarMenu
+						links={links}
+						activeLink={path}
+						on_click={() => setOpen(false)}
+						on_about_click={handleAboutClick}
+					/>
 				</div>
 
 				{/* mobile menu */}
@@ -54,7 +73,14 @@ export default function Navbar() {
 						className={`transition-all ease-in-out z-50  ${open ? "duration-300 opacity-100" : " duration-300 opacity-0 invisible"}`}
 					>
 						<AnimatePresence>
-							{open && <MobileMenu links={links} activeLink={path} on_click={() => setOpen(false)} />}
+							{open && (
+								<MobileMenu
+									links={links}
+									activeLink={path}
+									on_click={() => setOpen(false)}
+									on_about_click={handleAboutClick}
+								/>
+							)}
 						</AnimatePresence>
 					</div>
 				</div>
@@ -95,9 +121,10 @@ interface NavMenuProps {
 	links: NavLink[];
 	activeLink: string;
 	on_click: () => void;
+	on_about_click: () => void;
 }
 
-function NavbarMenu({ links, activeLink, on_click }: NavMenuProps) {
+function NavbarMenu({ links, activeLink, on_click, on_about_click }: NavMenuProps) {
 	return (
 		<motion.ul
 			variants={desktopContainer}
@@ -109,7 +136,7 @@ function NavbarMenu({ links, activeLink, on_click }: NavMenuProps) {
 				return (
 					<motion.li key={link.name} className="p-2" variants={item}>
 						<Link
-							onClick={on_click}
+							onClick={link.target === "/#about" ? on_about_click : on_click}
 							className={`no-underline navlink text-sm  hover:text-orange transition-colors w-screen md:w-auto ${link.target === activeLink ? "font-bold text-orange" : ""}`}
 							aria-current={link.target === activeLink ? "page" : undefined}
 							href={link.target}
@@ -123,7 +150,7 @@ function NavbarMenu({ links, activeLink, on_click }: NavMenuProps) {
 	);
 }
 
-function MobileMenu({ links, activeLink, on_click }: NavMenuProps) {
+function MobileMenu({ links, activeLink, on_click, on_about_click }: NavMenuProps) {
 	return (
 		<div className="fixed top-0 w-full min-h-screen z-30 font-serif">
 			<motion.div className="flex" variants={mobileContainer} initial="hidden" animate="show" exit="exit">
@@ -139,7 +166,7 @@ function MobileMenu({ links, activeLink, on_click }: NavMenuProps) {
 								<motion.li key={link.name} className="mb-3 mt-3" variants={item}>
 									<Link
 										href={link.target}
-										onClick={on_click}
+										onClick={link.target === "/#about" ? on_about_click : on_click}
 										className={`text-7xl no-underline font-bold  ${link.target === activeLink ? " text-orange" : ""}`}
 										aria-current={link.target === activeLink ? "page" : undefined}
 									>
