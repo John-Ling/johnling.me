@@ -45,7 +45,7 @@ export default function ProjectListCard({ project, position, cols, on_select }: 
 				{project.tags.map((tag: string, index) => {
 					if (index < maxTagCount) {
 						return (
-							<li key={tag} className="p-1 text-xs">
+							<li key={tag} className="pt-1 pr-1 text-xs">
 								<span className="bg-grey-light border-1 pl-1 pr-1 pointer-events-none rounded-sm">{tag}</span>
 							</li>
 						);

@@ -15,7 +15,7 @@ export default function ProjectModal({ project, on_close }: ProjectModalProps) {
 		<ul className="flex flex-wrap font-mono">
 			{project.tags.map((tag: string) => {
 				return (
-					<li key={tag} className="p-1 mb-1 text-xs select-none">
+					<li key={tag} className="pr-1 mb-1 text-xs select-none">
 						<span className="bg-grey-light text-xs  border-1 pl-1 pr-1 rounded-sm">{tag}</span>
 					</li>
 				);
@@ -46,9 +46,9 @@ export default function ProjectModal({ project, on_close }: ProjectModalProps) {
 					<div className="max-w-5xl flex items-center justify-center my-4">
 						<Image className="rounded-lg" src={projectFolder} width={1920} height={1080} alt="Project image" />
 					</div>
-					<div className="flex flex-col w-full">
+					<div className="flex flex-col w-full md:w-3/4 mx-auto">
 						{tags}
-						<p className="whitespace-pre-line text-sm mt-2 mb-2 max-h-52 md:max-h-none overflow-y-auto md:overflow-y-visible">
+						<p className="whitespace-pre-line text-sm mt-2 mb-2 max-h-52 md:max-h-none overflow-y-auto md:overflow-y-visible mx-auto">
 							{project.description}
 						</p>
 						<Link

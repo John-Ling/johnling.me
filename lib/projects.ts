@@ -20,9 +20,9 @@ export const projects: Project[] = [
 	{
 		title: "Open Source Project: TablissNG",
 		shortDescription: "Reimplementing Trello in a browser extension",
-		description: `Fork of browser extension TablissNG with Trello interoperability. 
+		description: `Fork of browser extension TablissNG with my own Trello widget.
 
-        I found that having to constantly visit the Trello website just to remind myself of my tasks hurt my focus and felt clunky. Now my Trello boards are shown to me directly in my browser homepage and any changes I make to my personal board are are reflected in the UI. I found it a good practice in gracefully handling errors, optimistic UI updates and other UX stuff.
+        I found that having to constantly visit the Trello website just to remind myself of my tasks hurt my focus and felt clunky. Now my Trello boards are shown to me directly in my browser homepage and any changes I make to my personal board are are reflected in the UI. To reduce dependencies on the project, I built my own basic drag-and-drop system. Overall, I've found it a good practice in gracefully handling errors, optimistic UI updates and other UX stuff.
 
         Got my changes merged into upstream and I've made it an ongoing project to reimplement every core feature of Trello into this extension.
       `,
@@ -46,8 +46,8 @@ export const projects: Project[] = [
 	},
 	{
 		title: "Internship Project: RAG System",
-		shortDescription: "RAG system for over 1000 companies",
-		description: `Fullstack web app and RAG system that allowed users ask questions and received tailored financial advice for over 1000 Malaysian companies. I used Flask and React with MySQL to store "metadata" about companies.`,
+		shortDescription: "RAG system for over 100 companies",
+		description: `Web-based RAG system that allowed users query financial report information for over 100 Malaysian companies. I used Flask and React with MySQL to store "metadata" about companies. A Python ingestion pipeline was also needed to collect the necessary data.`,
 		imageFolder: "internship-1",
 		sourceURL: null,
 		sourceLabel: null,
@@ -69,9 +69,7 @@ export const projects: Project[] = [
 	{
 		title: "Club Project: connect3",
 		shortDescription: "App to help students find connection at university",
-		description: `Currently, I'm doing volunteer work with the Data Science club at my university to launch and maintain a platform that helps students find friends, events and clubs by aggregating information and allowing them to search via LLMs. I learned a lot about interpersonal skills and working efficiently with others.
-
-      Currently, we're building a ticketing system to replace the current one used by our university!
+		description: `Over the summer in 2025, I did volunteer work with the Data Science club at my university to launch and maintain a platform that helps students find friends, events and clubs by aggregating information and allowing them to search via LLMs. My work was designing both the event aggregation system and implementing the events page UI. I learned a lot about interpersonal skills and working efficiently with others.
     `,
 		imageFolder: "connect3",
 		sourceURL: "https://connect3.app/",
@@ -81,7 +79,7 @@ export const projects: Project[] = [
 	{
 		title: "Nixie Tube Watch",
 		shortDescription: "Building circuits with old Soviet technology",
-		description: `Designed my own circuitry to drive nixie tubes, wrote AVR C for the first time and built my own library to interface with a DS1302 timekeeping chip. Ultimately scrapped the project (watch was too thick) but might make a clock out of it.`,
+		description: `Designed my own circuitry to drive nixie tubes, wrote AVR C for the first time to optimise for speed and fix a flickering issue with the multiplexing. I also built my own library to interface with a DS1302 timekeeping chip for fun. Ultimately scrapped the project (watch was too thick) but I'm current making a clock out of it.`,
 		imageFolder: "nixie-watch",
 		sourceURL: "https://github.com/John-Ling/Nixie-Watch",
 		sourceLabel: "GitHub",
@@ -89,10 +87,9 @@ export const projects: Project[] = [
 	},
 	{
 		title: "Pseudocode Compiler",
-		shortDescription: "Scratch built, non-optimising compiler",
-		description: `Toy compiler built with C++ that translates pseudocode into Python. 
-
-        I rolled my own lexer, parser and code generator which was really interesting to study. I even added some basic type checking. 
+		shortDescription: "Scratch built, toy compiler",
+		description: `Toy compiler built with C++ that translates pseudocode into Python. I rolled my own lexer, parser and code generator which was really interesting to study. I even added some basic type checking. 
+	
         Didn't like C++ though.`,
 		imageFolder: "compiler",
 		sourceURL: "https://github.com/John-Ling/Pseudocode-Compiler",
@@ -102,7 +99,9 @@ export const projects: Project[] = [
 	{
 		title: "ramble.johnling.me",
 		shortDescription: "Winning hackathon project",
-		description: `Productivity / unintentional mental health app and winning submission to 2024 CODEBREW Hackathon at my university under team "Cissa hackathon thing". Used Docker to deploy the app and had a whole trip through deployment hell getting it up.`,
+		description: `Productivity / unintentional mental health app and winner of the "Best First Years" award at my university's biggest hackathon at my university under team "Cissa hackathon thing". Users would type, or ramble, about their busy schedules and we used Claude's API to generate a suggested timetable for them to use. 
+
+		As one of my first React apps made in very little time without AI, the code is a little janky. Used Docker to deploy the app and had a whole trip through deployment hell getting it up.`,
 		imageFolder: "ramble",
 		sourceURL: "https://devpost.com/software/ramble-zhqjpk",
 		sourceLabel: "Devpost",
@@ -131,7 +130,7 @@ export const projects: Project[] = [
 		shortDescription: "Real-time tracking using OpenCV and motors",
 		description: `Uses microcontrollers,  motors, OpenCV and a 3D printed case I designed to track and follow a face in real-time. Filmed by Apple to promote their distinguished schools program. 
 
-      Used simple haarcascades initially then transitioned to using a more robust Caffe model. I also trialed Intel OpenVINO for better performance.`,
+      Initially, I used simple haarcascades initially then transitioned to using a more robust Caffe model. I also trialed Intel OpenVINO for better performance.`,
 		sourceURL: "https://github.com/John-Ling/Cameraman",
 		sourceLabel: "GitHub",
 		imageFolder: "cameraman",
