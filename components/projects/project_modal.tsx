@@ -12,7 +12,7 @@ interface ProjectModalProps {
 export default function ProjectModal({ project, on_close }: ProjectModalProps) {
 	const projectFolder = `/images/projects/${project.imageFolder}/0.png`;
 	const tags = (
-		<ul className="flex flex-wrap">
+		<ul className="flex flex-wrap font-mono">
 			{project.tags.map((tag: string) => {
 				return (
 					<li key={tag} className="p-1 mb-1 text-xs select-none">

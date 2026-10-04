@@ -73,10 +73,8 @@ export default function Hero() {
 					<HeroContactDetails />
 					<div className="text-sm mt-2">
 						<motion.p variants={item} className="text-left">
-							Melbourne-based, full-stack developer with interests in visual design and low-level systems.
-						</motion.p>
-						<motion.p variants={item} className="hidden md:block mt-4 text-left">
-							Currently, I&apos;m trying to build a browser extension in Svelte to help me with note-taking!
+							Melbourne-based, full-stack developer with interests in visual design and low-level systems. Currently,
+							I&apos;m building a job aggregator.
 						</motion.p>
 						<motion.p variants={item} className="mt-4 text-left">
 							Welcome to my website.

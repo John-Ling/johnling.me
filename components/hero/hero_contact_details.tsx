@@ -17,7 +17,7 @@ const item = {
 
 export default function HeroContactDetails() {
 	return (
-		<motion.div variants={container} className="flex flex-col justify-center md:justify-start text-xs gap-1">
+		<motion.div variants={container} className="flex flex-col justify-center md:justify-start  gap-1">
 			<div>
 				<motion.p
 					variants={item}
@@ -34,7 +34,7 @@ export default function HeroContactDetails() {
 						href="https://github.com/John-Ling/"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="icon-link flex items-center gap-2"
+						className="icon-link flex items-center gap-2 font-mono text-xs"
 					>
 						GitHub
 					</motion.a>
@@ -48,7 +48,7 @@ export default function HeroContactDetails() {
 						href="https://www.linkedin.com/in/john-ling-721721243/"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="icon-link flex items-center gap-2"
+						className="icon-link flex items-center gap-2 font-mono text-xs"
 					>
 						LinkedIn
 					</motion.a>

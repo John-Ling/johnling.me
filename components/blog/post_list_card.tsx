@@ -27,7 +27,7 @@ export function PostListCard({ post, position, noColour = false }: PostListCardP
 				<h2 className={`text-md ${colourClass} mb-2`}>{post.title}</h2>
 				<p className="text-xs text-muted-white font-mono italic">{post.date}</p>
 				{post.updated && <p className="text-xs text-muted-white font-mono italic">Updated: {post.updated}</p>}
-				<p className="w-10/12 mt-2 text-xs  text-muted-white overflow-hidden">{wordSubset}</p>
+				<p className="w-10/12 mt-2  text-muted-white overflow-hidden">{wordSubset}</p>
 			</div>
 			<Link className="link w-fit text-xs font-mono" href={`/blog/${post.slug}`}>
 				Article

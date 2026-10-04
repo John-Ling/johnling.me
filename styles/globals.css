@@ -82,7 +82,12 @@ h2 {
 }
 
 p {
-	letter-spacing: -0.05em;
+	font-family: var(--font-fira);
 	font-size: 0.875rem;
 	line-height: 1.25rem;
+}
+
+.font-mono,
+.font-meslo {
+	letter-spacing: -0.05em;
 }

@@ -61,8 +61,8 @@ export default async function Page(props: Params) {
 					Back
 				</Link>
 				<h1 className="mt-5 mb-5 font-serif">{title}</h1>
-				<p className="mb-5 text-xs text-muted-white font-meslo italic">{date}</p>
-				{updated && <p className="mb-5 text-xs text-muted-white font-meslo italic">Updated: {updated}</p>}
+				<p className="mb-5 text-xs text-muted-white font-mono italic">{date}</p>
+				{updated && <p className="mb-5 text-xs text-muted-white font-mono italic">Updated: {updated}</p>}
 				<BlogContent>{content}</BlogContent>
 				<Link className="link font-mono" href="/blog">
 					Back

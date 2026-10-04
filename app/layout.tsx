@@ -2,7 +2,7 @@ import { Analytics } from "@vercel/analytics/next";
 import Footer from "@/components/shared/footer";
 import Navbar from "@/components/shared/navbar";
 import type { Metadata, Viewport } from "next";
-import { meslo, serif } from "@/lib/font";
+import { fira, meslo, serif } from "@/lib/font";
 import { getUpdatedOn } from "@/lib/updated";
 import "/styles/globals.css";
 
@@ -23,7 +23,7 @@ export default async function RootLayout({
 }>) {
 	const updatedOn = await getUpdatedOn();
 	return (
-		<html lang="en" className={`${meslo.variable} ${serif.variable} antialiased`}>
+		<html lang="en" className={`${meslo.variable} ${fira.variable} ${serif.variable} antialiased`}>
 			<head>
 				<link rel="preload" as="image" href="images/background.png" fetchPriority="high" />
 				<link
@@ -34,7 +34,7 @@ export default async function RootLayout({
 			</head>
 			<body className="overflow-x-hidden">
 				<Navbar />
-				<main className="font-mono">
+				<main>
 					{children}
 					<Analytics />
 				</main>

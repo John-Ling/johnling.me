@@ -50,11 +50,6 @@
 	margin-bottom: 0.5rem;
 }
 
-.markdown p {
-	margin-top: 0.75rem;
-	margin-bottom: 0.75rem;
-}
-
 .markdown em {
 	color: theme("colors.muted-white");
 }
@@ -76,11 +71,9 @@
 }
 
 .markdown :not(pre) > code {
-	padding: 0;
 	background-color: #574e3d;
-	padding: 0 3px;
-	margin: -1px 0;
-	line-height: 1;
+	padding: 0 1px;
+	margin: 1px;
 	border-radius: 2px;
 	font-size: 0.8rem;
 	color: #ebdbbc;
@@ -121,12 +114,4 @@
 
 .markdown a:hover::after {
 	opacity: 0;
-}
-
-.markdown p {
-	letter-spacing: -0.05em;
-}
-
-.markdown li {
-	letter-spacing: -0.05em;
 }

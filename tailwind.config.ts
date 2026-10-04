@@ -75,7 +75,7 @@ const config: Config = {
 		fontFamily: {
 			mono: ["var(--font-meslo)"],
 			serif: ["var(--font-serif)"],
-			fira: ["var(--font-fira)"],
+			sans: ["var(--font-fira)"],
 		},
 	},
 	plugins: [],

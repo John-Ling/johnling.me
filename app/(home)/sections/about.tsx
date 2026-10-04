@@ -30,16 +30,11 @@ export function About() {
 				</motion.h2>
 				<motion.p variants={item} className="mb-4">
 					Currently, I&apos;m a final year Computer Science student at the University of Melbourne. I built this website
-					back in 2022 as part of an online course.
-				</motion.p>
-				<motion.p variants={item} className="mb-4">
-					Since then, however, I&apos;ve kept it around as my own personal place on the internet.
+					back in 2022 as part of an online course. Since then, however, I&apos;ve kept it around as my own personal
+					place on the internet.
 				</motion.p>
 				<motion.p variants={item}>
 					Beyond programming, I enjoy the piano, hobby electronics, homelabbing, cooking and Linux ricing.
-				</motion.p>
-				<motion.p variants={item} className="md:hidden block mt-4 text-left">
-					Currently, I&apos;m trying to build a browser extension with Svelte!
 				</motion.p>
 			</motion.div>
 

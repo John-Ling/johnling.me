@@ -40,7 +40,7 @@ export default function CodeBlock({ language = "plaintext", filename = "", canCo
 	}
 
 	return (
-		<div className="bg-[#161616] border-2 border-grey-light flex flex-col mb-5 mt-5">
+		<div className="bg-[#161616] border-2 border-grey-light rounded-lg  flex flex-col mb-5 mt-5">
 			<div className="flex flex-row justify-between items-center bg-grey-normal pl-3 pr-3 pt-1 pb-1">
 				<p className="text-muted-white p-0 m-0 text-sm leading-none">{filename}</p>
 				{canCopy && (
