@@ -33,9 +33,7 @@ export function About() {
 					back in 2022 as part of an online course. Since then, however, I&apos;ve kept it around as my own personal
 					place on the internet.
 				</motion.p>
-				<motion.p variants={item}>
-					Beyond programming, I enjoy the piano, hobby electronics, homelabbing, cooking and Linux ricing.
-				</motion.p>
+				<motion.p variants={item}>Beyond programming, I like cooking, Linux ricing and electronics.</motion.p>
 			</motion.div>
 
 			{/* Photos */}

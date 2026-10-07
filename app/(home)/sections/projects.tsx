@@ -12,10 +12,10 @@ export default function Projects() {
 
 	const featuredProjects = projects.filter(
 		(project) =>
-			project.title.toLowerCase() === "minimalist journalling app" ||
-			project.title.toLowerCase() === "open source project: tablissng" ||
 			project.title.toLowerCase() === "ling-ux" ||
-			project.title.toLowerCase() === "internship project: workflow builder",
+			project.title.toLowerCase() === "open source project: tablissng" ||
+			project.title.toLowerCase() === "committee work: connect3" ||
+			project.title.toLowerCase() === "contract work: workflow builder",
 	);
 
 	return (

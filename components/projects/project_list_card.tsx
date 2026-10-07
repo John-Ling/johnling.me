@@ -32,11 +32,12 @@ export default function ProjectListCard({ project, position, cols, on_select }: 
 			) : (
 				<div className="overflow-hidden border-2 rounded-lg border-grey-light">
 					<Image
-						className="transition-all duration-500 hover:scale-105 hover:cursor-pointer border-0 rounded-none"
+						className="transition-all duration-500 hover:scale-105 hover:cursor-pointer border-0 rounded-none aspect-video object-cover"
 						alt="Project image"
 						src={projectFolder}
 						width={1920}
 						height={1080}
+						quality={65}
 						onClick={on_click}
 					/>
 				</div>
@@ -51,7 +52,7 @@ export default function ProjectListCard({ project, position, cols, on_select }: 
 						);
 					} else if (index === maxTagCount) {
 						return (
-							<li key={"..."} className="p-1 text-xs">
+							<li key={"..."} className="pt-1 text-xs">
 								<span className="pl-1 pr-1 select-none pointer-events-none">...</span>
 							</li>
 						);
