@@ -58,7 +58,6 @@ interface LorenzPoint {
 	y: number;
 	z: number;
 	char: string;
-	currentGeneration: number;
 }
 
 const randomFromIntervals = (min: number, max: number) => {
@@ -78,14 +77,10 @@ const dt = 0.01;
 let lorenzPoints: LorenzPoint[] = [];
 let lorenzPointCount = 0;
 const lorenzChars = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-let decay = false;
-let currentGeneration = 0;
 
 export function lorenz_init(width: number, height: number) {
-	lorenzPoints = [{ x: 0.1, y: 0, z: 0, char: lorenzChars[lorenzChars.length - 1], currentGeneration: 0 }];
+	lorenzPoints = [{ x: 0.1, y: 0, z: 0, char: lorenzChars[lorenzChars.length - 1] }];
 	lorenzPointCount = 1;
-	decay = false;
-	currentGeneration = 0;
 
 	// Decrease startup time be pre-generating points
 
@@ -117,7 +112,6 @@ function render_next_lorenz_point() {
 		y: currentPoint.y + dy,
 		z: currentPoint.z + dz,
 		char: lorenzChars[lorenzChars.length - 1],
-		currentGeneration: currentGeneration,
 	});
 	lorenzPointCount++;
 }
@@ -132,40 +126,22 @@ export function lorenz_next_frame(framebuffer: string[][], width: number, height
 		}
 	}
 
-	if (lorenzPointCount >= 1500 && !decay) {
-		decay = true;
-	}
-
-	if (decay) {
+	if (lorenzPointCount >= 1000) {
 		lorenzPoints.shift();
 	}
 
 	lorenzPoints.forEach((point, index) => {
 		const scale = 5;
 		const offsetX = width / 2;
-		const offsetY = height - 5;
+		const offsetY = height;
 
 		const xp = Math.floor(point.x * scale + offsetX);
 		const yp = Math.floor(-point.z * scale * 0.3 + offsetY);
 
 		if (xp >= 0 && xp < width && yp >= 0 && yp < height) {
 			const charIndex = Math.floor((index / lorenzPointCount) * lorenzChars.length);
-
-			if (lorenzPointCount > 0 && lorenzPointCount % 3000 === 0) {
-				// Reset aging by resetting the number of registered points
-				lorenzPointCount = 0;
-				currentGeneration += 1;
-			}
-
-			// Only update points in the current generation
-			if (point.currentGeneration == currentGeneration) {
-				const renderChar = lorenzChars[Math.min(charIndex, lorenzChars.length - 1)];
-				framebuffer[yp][xp] = renderChar;
-				point.char = renderChar;
-			} else {
-				// Render existing points from previous generations
-				framebuffer[yp][xp] = point.char;
-			}
+			const renderChar = lorenzChars[Math.min(charIndex, lorenzChars.length - 1)];
+			framebuffer[yp][xp] = renderChar;
 		}
 	});
 
@@ -175,7 +151,5 @@ export function lorenz_next_frame(framebuffer: string[][], width: number, height
 export function lorenz_cleanup() {
 	lorenzPoints = [];
 	lorenzPointCount = 0;
-	decay = false;
-	currentGeneration = 0;
 	return;
 }
