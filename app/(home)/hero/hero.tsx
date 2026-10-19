@@ -74,7 +74,7 @@ export default function Hero() {
 					<div className="text-sm mt-2">
 						<motion.p variants={item} className="text-left">
 							Melbourne-based, full-stack developer with interests in visual design and low-level systems. Currently,
-							I&apos;m building a job aggregator.
+							I&apos;m taking a break from big projects and making a naive bayes classifier in Rust.
 						</motion.p>
 						<motion.p variants={item} className="mt-4 text-left">
 							Welcome to my website.
