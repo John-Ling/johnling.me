@@ -11,10 +11,12 @@ const config: Config = {
 	theme: {
 		extend: {},
 		colors: {
+			background: "#E0EF97",
+			foreground: "#3D5A87",
 			cream: "#fffff1",
 			white: "#bfbfbf",
 			"muted-white": "#B0B0B0",
-			orange: "#A16347",
+			orange: "#e76318",
 			"orange-light": "#fd7202",
 			indigo: {
 				light: "#1d1e29",
@@ -76,6 +78,7 @@ const config: Config = {
 			mono: ["var(--font-meslo)"],
 			serif: ["var(--font-serif)"],
 			sans: ["var(--font-fira)"],
+			pixel: ["var(--font-pixel)"],
 		},
 	},
 	plugins: [],

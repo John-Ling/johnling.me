@@ -22,11 +22,12 @@
 }
 
 body {
-	color: theme("colors.white");
+	color: theme("colors.foreground");
+	background: theme("colors.background");
 	position: relative;
 }
 
-body::before {
+/* body::before {
 	content: "";
 	position: fixed;
 	top: 0;
@@ -39,7 +40,7 @@ body::before {
 	background-position: center;
 	background-attachment: fixed;
 	z-index: -1;
-}
+} */
 
 .glow {
 	text-shadow: 0 0 5px #ff5500;
@@ -69,8 +70,14 @@ body::before {
 }
 
 img {
-	border: solid 3px theme("colors.grey.light");
-	border-radius: 8px;
+	border: solid 3px #000000;
+	/* border-radius: 8px; */
+	/* filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15)); */
+	/* 0 25px 25px rgb(0 0 0 / 0.15) */
+}
+
+.styled-drop-shadow {
+	box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
