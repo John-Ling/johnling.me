@@ -17,7 +17,7 @@ const item = {
 
 export default function HeroContactDetails() {
 	return (
-		<motion.div variants={container} className="flex flex-col justify-center md:justify-start  gap-1">
+		<motion.div variants={container} className="flex flex-col justify-center md:justify-start  gap-1 ">
 			<div>
 				<motion.p
 					variants={item}

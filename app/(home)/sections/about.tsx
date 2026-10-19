@@ -25,8 +25,8 @@ export function About() {
 	return (
 		<>
 			<motion.div variants={container} initial="hidden" animate="show" className="w-full lg:w-1/2 lg:mx-auto mt-10">
-				<motion.h2 variants={item} className="text-4xl mb-3 font-serif mt-3 font-bold text-white">
-					A Bit More <span className="text-orange">About Me</span>
+				<motion.h2 variants={item} className="text-5xl mb-3 font-pixel mt-3 font-bold text-accent-primary">
+					A Bit More <span className="">About Me</span>
 				</motion.h2>
 				<motion.p variants={item} className="mb-4">
 					Currently, I&apos;m a final year Computer Science student at the University of Melbourne. I built this website
@@ -45,16 +45,16 @@ export function About() {
 			>
 				{/* Desktop Layout */}
 				<div className="hidden lg:grid grid-cols-3 grid-rows-2 gap-3">
-					<motion.div variants={item} className="relative overflow-hidden col-span-2">
-						<Image src={myself_vertical} className="h-auto z-30" priority alt="Picture of the creator of the website" />
+					<motion.div variants={item} className="relative overflow-hidden col-span-2 styled-drop-shadow">
+						<Image src={myself_vertical} className="h-auto" priority alt="Picture of the creator of the website" />
 					</motion.div>
-					<motion.div variants={item} className="relative overflow-hidden">
+					<motion.div variants={item} className="relative overflow-hidden styled-drop-shadow">
 						<Image src={nixie} alt="Dog" className="w-60 h-auto" fill priority />
 					</motion.div>
-					<motion.div variants={item} className="relative overflow-hidden">
+					<motion.div variants={item} className="relative overflow-hidden  styled-drop-shadow">
 						<Image src={peking} alt="peking duck" className="h-auto w-60" fill priority />
 					</motion.div>
-					<motion.div variants={item} className="relative overflow-hidden col-span-2">
+					<motion.div variants={item} className="relative overflow-hidden col-span-2  styled-drop-shadow">
 						<Image src={study} alt="studying" className="h-auto" width={3042} height={4032} priority />
 					</motion.div>
 				</div>

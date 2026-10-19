@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { PostListCard } from "./post_list_card";
+import { BlogCard } from "./blog_card";
 import { BlogPost } from "@/types/blogs/blog_post";
 
 interface PaginatedPostsProps {
@@ -56,7 +56,7 @@ export default function PaginatedPosts({ posts }: PaginatedPostsProps) {
 				{currentItems.map((post, i) => {
 					return (
 						<div className="mb-3 mt-3" key={i}>
-							<PostListCard position={startColourIndex + i} post={post} />
+							<BlogCard position={startColourIndex + i} post={post} />
 						</div>
 					);
 				})}

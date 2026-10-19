@@ -9,12 +9,22 @@ const config: Config = {
 	],
 	darkMode: "selector",
 	theme: {
-		extend: {},
+		extend: {
+			borderWidth: {
+				"3": "3px",
+			},
+		},
 		colors: {
+			background: "#E0EF97",
+			foreground: "#213147",
+			card: "#E2F0C5",
+			"accent-primary": "#3D5A87",
+			black: "#000000",
 			cream: "#fffff1",
-			white: "#bfbfbf",
+			white: "#ffffff",
+			"off-white": "#bfbfbf",
 			"muted-white": "#B0B0B0",
-			orange: "#A16347",
+			orange: "#e76318",
 			"orange-light": "#fd7202",
 			indigo: {
 				light: "#1d1e29",
@@ -76,6 +86,7 @@ const config: Config = {
 			mono: ["var(--font-meslo)"],
 			serif: ["var(--font-serif)"],
 			sans: ["var(--font-fira)"],
+			pixel: ["var(--font-pixel)"],
 		},
 	},
 	plugins: [],

@@ -33,6 +33,17 @@ export const serif = localFont({
 	variable: "--font-serif",
 });
 
+export const pixel = localFont({
+	src: [
+		{
+			path: "../public/fonts/Pixelta.ttf",
+			weight: "400",
+			style: "normal",
+		},
+	],
+	variable: "--font-pixel",
+});
+
 export const fira = localFont({
 	src: [
 		{

@@ -137,7 +137,7 @@ function NavbarMenu({ links, activeLink, on_click, on_about_click }: NavMenuProp
 					<motion.li key={link.name} className="p-2" variants={item}>
 						<Link
 							onClick={link.target === "/#about" ? on_about_click : on_click}
-							className={`no-underline navlink text-sm  hover:text-orange transition-colors w-screen md:w-auto ${link.target === activeLink ? "font-bold text-orange" : ""}`}
+							className={`no-underline navlink text-sm hover:text-orange transition-colors w-screen font-meslo md:w-auto ${link.target === activeLink ? "font-bold" : ""}`}
 							aria-current={link.target === activeLink ? "page" : undefined}
 							href={link.target}
 						>
