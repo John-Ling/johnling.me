@@ -15,7 +15,7 @@ const config: Config = {
 			},
 		},
 		colors: {
-			background: "#E0EF97",
+			background: "#DBF5A9",
 			foreground: "#213147",
 			card: "#E2F0C5",
 			"accent-primary": "#3D5A87",
