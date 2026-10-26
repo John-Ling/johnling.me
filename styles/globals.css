@@ -24,10 +24,12 @@
 body {
 	color: theme("colors.foreground");
 	background: theme("colors.background");
+	color: theme("colors.foreground");
+	background: theme("colors.background");
 	position: relative;
 }
 
-body::before {
+/* body::before {
 	content: "";
 	position: fixed;
 	top: 0;
@@ -40,7 +42,7 @@ body::before {
 	background-position: center;
 	background-attachment: fixed;
 	z-index: -1;
-}
+} */
 
 .glow {
 	text-shadow: 0 0 5px #ff5500;
