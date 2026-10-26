@@ -24,6 +24,8 @@
 body {
 	color: theme("colors.foreground");
 	background: theme("colors.background");
+	color: theme("colors.foreground");
+	background: theme("colors.background");
 	position: relative;
 }
 
