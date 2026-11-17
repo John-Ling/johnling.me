@@ -53,6 +53,19 @@ export default function HeroContactDetails() {
 						LinkedIn
 					</motion.a>
 				</div>
+				<motion.div variants={item} className="border-grey-light border-[0.25px] h-4 ml-2 mr-2" />
+
+				<div className="hover:text-orange transition-colors">
+					<motion.a
+						variants={item}
+						href="https://drive.google.com/file/d/1xodmO2pz3MbT2dL2JpKiwFI51_W9tg6Z/view?usp=sharing"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="icon-link flex items-center gap-2 font-mono text-xs"
+					>
+						Resume
+					</motion.a>
+				</div>
 			</div>
 		</motion.div>
 	);
