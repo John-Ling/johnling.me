@@ -2,7 +2,7 @@ import { Project } from "@/types/projects/project";
 
 export const projects: Project[] = [
 	{
-		title: "Contract Work: Workflow Builder",
+		title: "Internship Project: Workflow Builder",
 		shortDescription: "n8n-like app for automating 3D data operations",
 		description: `During Summer in 2025, I worked at a 3D scanning startup named Skand where I was involved in the development of a workflow builder intended to be used for automating spatial data workflows. Worked with hexagonal architecture and GraphQL for the first time along with a significantly more advanced codebase. I worked on both the frontend and backend, liaising with two other engineers to ensure everything was as expected.
 
